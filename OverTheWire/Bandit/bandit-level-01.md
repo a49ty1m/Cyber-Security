@@ -1,11 +1,11 @@
 # [Project] Bandit Level XX — Short Title
 **Date:** 2025-10-02  
-**Target:** OverTheWire Bandit (level XX)  
-**Time spent:** 20 min  
-**Author:** Your Name
+**Target:** OverTheWire Bandit (level 01)  
+**Time spent:** 5 min  
+**Author:** Aditya Mishra
 
 ## Executive summary
-One-line: what you did and the result (e.g., "Logged into Bandit level 0, read 'readme' to obtain password for next level").
+One-line: for 1 use man or cat normally
 
 ## Scope & rules
 Lab-only: OverTheWire Bandit. No external tests.
@@ -16,8 +16,4 @@ Method: connect via SSH → inspect files → read target file
 
 ## Findings / Solution
 - **Goal:** retrieve password for next level  
-- **Commands (copy-paste):**
-```bash
-ssh bandit0@bandit.labs.overthewire.org -p 2220
-ls -la
-cat readme
+ pass = ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
