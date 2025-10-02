@@ -1,81 +1,108 @@
-# Cyber-Security
-# 🛡️ Cybersecurity Learning Journey (Pentest/Red Team Track)
+# Cyber-Security Portfolio 🛡️
 
-Welcome to my **cybersecurity progress repo** — a living record of my journey into penetration testing and red-teaming.  
-Here I’ll post **writeups, scripts, labs, and notes** as I progress through my 12-month roadmap.
-
----
-
-## 📌 Goals
-- Become proficient in penetration testing & red-team methodologies
-- Build hands-on skills with Linux, networking, web exploitation, AD attacks
-- Prepare for certifications like **eJPT** and **OSCP**
-- Maintain professional writeups and automation scripts to showcase on my resume
+**Student Name:** Your Name  
+**Timeline:** Oct 2025 – Ongoing  
+**Goal:** Hands-on cybersecurity learning and portfolio development (Linux, Networking, Web Hacking, Scripting)
 
 ---
 
-## 📅 Current Plan
-- **Duration:** Oct 2025 – Oct 2026  
-- **Weekly Commitment:** ~30 hrs/week (study + labs + writeups)  
-- **Learning Style:** Mixed (theory + hands-on labs + writeups)  
+## 🚀 About This Repo
+This repository is a **hands-on portfolio of my cybersecurity journey**, focused on building practical skills through labs, mini-projects, scripts, and writeups.  
+The goal is **skill development, experimentation, and documentation** rather than job-readiness.  
 
-| Month | Focus | Milestone |
-|-------|-------|-----------|
-| 1 | Linux + Networking + Lab Setup | Kali & Windows VM setup, 10 TryHackMe rooms |
-| 2 | Recon & Scanning | 20 nmap scans, automation script |
-| 3 | Web Fundamentals | DVWA & Juice Shop writeups, Burp basics |
-| 4 | Exploitation | Own 5 vulnerable VMs, prep for eJPT |
-| 5+ | AD, Exploit Dev, Capstone | Ongoing... |
+- Platforms: OverTheWire, TryHackMe, DVWA, Juice Shop  
+- Focus Areas: Linux, Networking, Web Hacking, Python & Bash scripting  
+- Tools Used: nmap, netcat, Burp Suite CE, Metasploit (basic), Gobuster, Python  
 
 ---
 
 ## 📂 Repository Structure
-├── writeups/ # Machine & lab writeups (TryHackMe, HackTheBox, VulnHub)
-│ ├── 2025-10-01_THM-room1.md
-│ ├── 2025-10-05_HTB-machineX.md
+
+Cyber-Security/
+│
+├── linux_basics.md # Core Linux commands with explanations
+├── notes/ # Notes from course & books
+│ ├── course-reference.md
+│ └── book-reference.md
+│
+├── overthewire/ # OverTheWire labs
+│ ├── bandit-level-00.md
+│ ├── bandit-level-01.md
 │ └── ...
-├── scripts/ # Python/bash automation tools
-│ ├── parse_nmap.py
-│ ├── scan_wrapper.sh
+│
+├── tryhackme/ # TryHackMe rooms
 │ └── ...
-├── reports/ # Professional-style pentest reports
-│ ├── Week1_Report.md
+│
+├── writeups/ # Portfolio-style writeups
+│ ├── bandit-summary-oct-2025.md
+│ ├── webapp-xss-sqli.md
 │ └── ...
-└── notes/ # Learning notes, cheat sheets, references
-└── Linux_basics.md
+│
+├── scripts/ # Bash / Python automation scripts
+│ └── ...
+│
+├── dvwa/ # Web app hacking labs
+│ └── ...
+│
+├── juice-shop/ # Web app hacking labs
+│ └── ...
+│
+├── capstone/ # Capstone / major projects
+│ └── ...
+└── README.md # Repo overview
+
+yaml
+Copy code
 
 ---
 
-## 🚀 Progress Log
+## 📌 Skills Acquired
 
-- **Oct 1, 2025** → Repo initialized; completed Kali + Windows VM setup  
-- **Oct 2, 2025** → Completed TryHackMe *Intro to Cyber Security* room  
-- **Oct 3, 2025** → Practiced Linux basics; wrote first automation script  
-- **... ongoing updates weekly**
-
----
-
-## 🛠️ Tools I’m Using
-- Kali Linux, Windows VM, VirtualBox/VMware  
-- nmap, netcat, Burp Suite, Metasploit, Wireshark  
-- Python, Bash, Git, Anki for flashcards  
+- **Linux:** Command-line basics, file navigation, permissions, scripting  
+- **Networking:** TCP/IP, common ports, ping, traceroute, nmap, netcat  
+- **Web Hacking:** DVWA/JS labs, XSS, SQLi, Burp Suite CE  
+- **Scripting:** Bash & Python automation for recon and lab tasks  
+- **Documentation:** Markdown writeups, mini-project tracking, portfolio development  
 
 ---
 
-## 🏆 Certifications (Planned)
-- [ ] eJPT (target: Feb 2026)  
-- [ ] OSCP (target: Oct 2026)  
+## 📝 Projects / Labs
+
+| Project / Lab | Platform | Description | Status |
+|---------------|----------|-------------|--------|
+| Bandit Levels 0–5 | OverTheWire | Password retrieval, Linux navigation | In Progress |
+| DVWA XSS & SQLi labs | DVWA | Web app vulnerability exploitation | Planned |
+| TryHackMe Linux beginner rooms | TryHackMe | Hands-on Linux labs | Planned |
+| Mini recon project | Custom | Nmap & netcat scan scripts | Planned |
+| Capstone Project | Combined | Final portfolio project combining Linux, Networking, Web | Planned |
 
 ---
 
-## 🤝 Contributing
-This repo is primarily for **personal progress tracking**, but if you want to suggest improvements (scripts, techniques, corrections), feel free to open an issue or PR.
+## 📖 Notes & References
+- **Course:** Bitten Tech Solutions — Linux, Networking, Ethical Hacking  
+- **Books:** Cybersecurity fundamentals & Networking basics  
+- **Platforms:** OverTheWire, TryHackMe, DVWA, Juice Shop  
 
 ---
 
-## 📧 Contact
-- LinkedIn: https://www.linkedin.com/in/aditya-mishra-62525332a/
+## 📅 Learning Approach
+- **Mon/Wed (3 hrs):** Labs + Course modules  
+- **Tue/Thu/Fri/Sat (5 hrs):** Labs + Course + Book reading + Mini-projects  
+- **Sunday:** Coding / Extra course / Portfolio work  
+
+> “Learning by doing and documenting is the fastest way to grow as a cybersecurity practitioner.”
 
 ---
 
-⭐ If you’re on the same path, drop me a message — let’s hack & learn together!
+## 🔗 Connect / Contact
+- GitHub: [Your GitHub Profile](https://github.com/yourusername)  
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/yourprofile/)  
+
+---
+
+## ✅ Future Goals
+- Complete all Bandit & TryHackMe beginner labs  
+- Automate scripts for recon and lab tasks  
+- Complete web app hacking writeups  
+- Build a capstone project combining Linux, Networking, Web Hacking  
+- Maintain a polished portfolio with consistent documentation

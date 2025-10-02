@@ -5,7 +5,7 @@ This folder contains my OverTheWire writeups. Each file is a short, reproducible
 ## Progress
 - [Level 00 — bandit-level-00.md](bandit-level-00.md) ✅
 - [Level 01 — bandit-level-01.md](bandit-level-01.md) ✅
-- [Level 02 — bandit-level-02.md](bandit-level-02.md)
+- [Level 02 — bandit-level-02.md](bandit-level-02.md) 
 - ...
   
 ## Notes
