@@ -1,6 +1,6 @@
 # Cyber-Security Portfolio 🛡️
 
-**Student Name:** Your Name  
+**Student Name:** Aditya Mishra
 **Timeline:** Oct 2025 – Ongoing  
 **Goal:** Hands-on cybersecurity learning and portfolio development (Linux, Networking, Web Hacking, Scripting)
 
@@ -51,9 +51,6 @@ Cyber-Security/
 │ └── ...
 └── README.md # Repo overview
 
-yaml
-Copy code
-
 ---
 
 ## 📌 Skills Acquired
@@ -94,9 +91,8 @@ Copy code
 
 ---
 
-## 🔗 Connect / Contact
-- GitHub: [Your GitHub Profile](https://github.com/yourusername)  
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/yourprofile/)  
+## 🔗 Connect / Contact  
+- LinkedIn: https://www.linkedin.com/in/aditya-mishra-62525332a/  
 
 ---
 
