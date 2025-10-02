@@ -5,9 +5,9 @@ here are some basics linux commands i learned
 4. pwd = this is use to check the present working directory like which is opened at present
 5. cd = it is use to change directory or move to any directory 
 6. ls = gives list of directories or files present on working directory 
-7. cp = use to copy files and directories 
+7. cp = use to copy files and directories \n
 ~~way~~ cp <file-name/location> <new-file-location>
-8. mv = use to move and chance name of a directory or file 
+8. mv = use to move and chance name of a directory or file \n
 ~~way~~ mv <file-name/location> <new-name/location>
 9. touch = use to make files like txt or other 
 10. mkdir = use to make directory 
