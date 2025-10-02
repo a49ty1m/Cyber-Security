@@ -7,17 +7,16 @@
 ## Executive summary
 One-line: just read readne file, soo basic.
 
-## Scope & rules
-Lab-only: OverTheWire Bandit. No external tests.
-
 ## Tools & methodology
 Tools: ssh, ls, cat, file  
 Method: connect via SSH → inspect files → read target file
 
 ## Findings / Solution
-- **Goal:** retrieve password for next level  
+- **Goal:** retrieve password for next level
+pass = bandit0  
 - **Commands (copy-paste):**
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ls -la
 cat readme
+

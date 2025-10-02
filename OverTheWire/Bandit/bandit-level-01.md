@@ -7,9 +7,6 @@
 ## Executive summary
 One-line: for 1 use man or cat normally
 
-## Scope & rules
-Lab-only: OverTheWire Bandit. No external tests.
-
 ## Tools & methodology
 Tools: ssh, ls, cat, file  
 Method: connect via SSH → inspect files → read target file
