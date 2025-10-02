@@ -74,8 +74,7 @@ This repo is primarily for **personal progress tracking**, but if you want to su
 ---
 
 ## 📧 Contact
-- LinkedIn: [Your Name/Handle Here]
-- GitHub: [@yourhandle]
+- LinkedIn: https://www.linkedin.com/in/aditya-mishra-62525332a/
 
 ---
 
