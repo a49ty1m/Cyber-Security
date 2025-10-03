@@ -12,4 +12,5 @@ here are some basics linux commands i learned
 9. touch = use to make files like txt or other 
 10. mkdir = use to make directory 
 11. mktemp = use to make temporary files or directory if -d is used 
+12. chmod = 
 

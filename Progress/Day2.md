@@ -2,8 +2,10 @@
 
 | Task | Status |
 |------|--------|
-| Complete Bandit Level 2 → 3 | ⬜ |
-| Document Bandit Level 2 in `overthewire/bandit-level-02.md` | ⬜ |
+| Complete Bandit Level 2 → 5 | ✅ |
+| Document Bandit Level 2 in `overthewire/bandit-level-02.md` | ✅ |
+| Document Bandit Level 3 in `overthewire/bandit-level-03.md` | ✅ |
+| Document Bandit Level 4 in `overthewire/bandit-level-04.md` | ✅ |
 | Add 5 new commands to `linux_basics.md` (`find`, `grep`, `chmod`, `nano`, `history`) with explanations | ⬜ |
 | Update `writeups/bandit-password-table.md` with Level 2 info | ⬜ |
 | Watch Linux Fundamentals module in Bitten Tech course and take notes in `notes/course-reference.md` | ⬜ |
