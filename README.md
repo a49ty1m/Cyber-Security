@@ -17,7 +17,7 @@ The goal is **skill development, experimentation, and documentation** rather tha
 ---
 
 ## 📂 Repository Structure
-
+```
 📂 Cyber-Security/
 ├── 📄 linux_basics.md              # Core Linux commands with explanations
 ├── 📂 notes/                       # Notes from courses & books
@@ -41,7 +41,7 @@ The goal is **skill development, experimentation, and documentation** rather tha
 ├── 📂 capstone/                    # Capstone / major projects
 │   └── ...
 └── 📄 README.md                    # Repo overview
-
+```
 
 ---
 
