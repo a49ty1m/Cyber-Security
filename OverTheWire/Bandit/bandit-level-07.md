@@ -1,0 +1,16 @@
+# [Project] Bandit Level 07 — Short Title
+**Date:** 2025-10-04  
+**Target:** OverTheWire Bandit (level 07)  
+**Time spent:** 10 min  
+**Author:** Aditya Mishra
+
+## Executive summary
+One-line: use grep along with cat command in ("")
+
+## Tools & methodology
+Tools: ssh, ls, cat, file  
+Method: connect via SSH → inspect files → read target file
+
+## Findings / Solution
+- **Goal:** retrieve password for next level  
+ pass = morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj

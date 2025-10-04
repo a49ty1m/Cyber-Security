@@ -1,16 +1,44 @@
 here are some basics linux commands i learned 
-1. man = ***most-important*** gives manual page for any command 
-2. tldr = ***Most Important*** gives pin point user manual for any command with help too 
-3. whoami = it shows the current user like we are root or normal user 
-4. pwd = this is use to check the present working directory like which is opened at present
-5. cd = it is use to change directory or move to any directory 
-6. ls = gives list of directories or files present on working directory 
-7. cp = use to copy files and directories \n
-#### way cp <file-name/location> <new-file-location>
-8. mv = use to move and chance name of a directory or file \n
-#### way mv <file-name/location> <new-name/location>
-9. touch = use to make files like txt or other 
-10. mkdir = use to make directory 
-11. mktemp = use to make temporary files or directory if -d is used 
-12. chmod = 
+- sudo = it is use to give super power and alow all permissions 
+- su = helps to enter in administrative mode 
+- man = `most-important` gives manual page for any command 
+- info = Explained and Detailed version of man
+- tldr = `Most Important` gives pin point user manual for any command with help too 
+- whatis = most simple info of any command 
+- apt = use to install file from apt package manager
+- whoami = it shows the current user like we are root or normal user 
+- hostname = who's host name of the operating system
+- echo = give output of what ever we want
+- pwd = this is use to check the present working directory like which is opened at present
+- cd = it is use to change directory or move to any directory 
+- ls = gives list of directories or files present on working directory 
+- cat = use to read files 
+- vim = use to edit any file  
+- nano = same as vim but much better with functions  
+- clear = clears the terminal
+- cp = use to copy files and directories  
+- mv = use to move and chance name of a directory or file  
+- touch = use to make files like txt or other 
+- mkdir = use to make directory 
+- mktemp = use to make temporary files or directory if -d is used 
+- rm = use to remove file 
+- rmdir = use to remove directory `use rf along with for better`
+- chmod = it is use to change permissions of anything like file or directory
+- find = use to find a file with a specific name 
+- plocate = use to search files similar to find
+- updatedb = use to update database of linux operating system 
+- whereis = similar to find command 
+- grep = use to catch any type of pattern in file 
+- history = use to check history of used commands on terminal 
+- ssh = use to login in any remote server using username url and port number and manny more
+- cal = shows calender 
+- date = shows complete date 
+- !! = runs the previous command 
+- df = shows all the file system and where they are mounted 
+- du = shows size of targeted file
+- who = shows all the user logined
+- ps = shows processes 
+- top = detailed and much better version of ps 
+- kill = use to kill any process with pid
+
 
