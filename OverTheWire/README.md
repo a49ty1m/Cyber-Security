@@ -37,7 +37,6 @@ This folder contains my OverTheWire writeups. Each file is a short, reproducible
 - [Level 31 — bandit-level-31.md](Bandit/bandit-level-31.md) 
 - [Level 32 — bandit-level-32.md](Bandit/bandit-level-32.md) 
 - [Level 33 — bandit-level-33.md](Bandit/bandit-level-33.md) 
-- ...
   
 ## Notes
 - All work was performed on lab targets only (OverTheWire servers).  
