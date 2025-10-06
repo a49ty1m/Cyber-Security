@@ -5,7 +5,7 @@
 **Author:** Aditya Mishra
 
 ## Executive summary
-One-line: 
+One-line: use to concept of localhost login using ssh and don't forget to use -i the identity file extension for privatekey then after becoming bandit14 on using local host go to etc/bandit_pass/bandit14 there is the password
 
 ## Tools & methodology
 Tools: ssh, ls, cat, file  
