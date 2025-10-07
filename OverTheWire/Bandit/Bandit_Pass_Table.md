@@ -16,5 +16,5 @@
 | Level 11 → 12 |dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr| use tr to translate the rot13 |
 | Level 12 → 13 |7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4| use file command then xxd command then check type and then decompress |
 | Level 13 → 14 |FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn| use the concept of localhost ssh |
-| Level 14 → 15 |MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS||
-| Level 15 → 16 |||
+| Level 14 → 15 |MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS| use netcat cd command |
+| Level 15 → 16 | 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo ||
