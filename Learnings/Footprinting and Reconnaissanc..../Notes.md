@@ -102,15 +102,17 @@ filetype:env OR filetype:sql "DB_PASSWORD"
 
 | Record Type | Purpose | Information Revealed |
 |:-----------:|---------|---------------------|
-| **A** | Maps domain to IPv4 address | Web server IP, hosting location |
+| **A** | Points to a host's IP address | Web server IP, hosting location |
 | **AAAA** | Maps domain to IPv6 address | IPv6 infrastructure, modern setup |
-| **MX** | Mail exchange servers | Email server IPs, mail routing |
-| **CNAME** | Canonical name (alias) | Subdomain structure, CDN usage |
-| **NS** | Name servers | DNS infrastructure, hosting provider |
-| **TXT** | Text records | SPF, DKIM, verification codes |
-| **SOA** | Start of Authority | Primary DNS server, admin contact |
-| **PTR** | Reverse DNS lookup | Hostname from IP address |
+| **MX** | Points to domain's mail server | Email server IPs, mail routing |
+| **NS** | Points to host's name server | DNS infrastructure, hosting provider |
+| **CNAME** | Canonical naming allows aliases to a host | Subdomain structure, CDN usage |
+| **SDA** | Indicate authority for domain | Domain authority information |
 | **SRV** | Service records | Service locations, ports |
+| **PTR** | Maps IP address to a hostname | Hostname from IP address (reverse DNS) |
+| **RP** | Responsible person | Administrative contact information |
+| **HINFO** | Host information record includes CPU type and OS | System specifications, OS details |
+| **TXT** | Unstructured text records | SPF, DKIM, verification codes, policies |
 
 ### Network Footprinting
 - Identify IP ranges, exposed hosts, services, OS, and patch levels.
