@@ -1,6 +1,6 @@
 # Footprinting / Reconnaissance
 
-> Short notes for quick study and a GitHub `README.md` file.
+> Short notes for quick study and a GitHub `Notes.md` file.
 
 ---
 
