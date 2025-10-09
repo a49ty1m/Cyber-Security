@@ -18,29 +18,24 @@ The goal is **skill development, experimentation, and documentation** rather tha
 
 ## 📂 Repository Structure
 ```
-📂 Cyber-Security/
-├── 📄 linux_basics.md              # Core Linux commands with explanations
-├── 📂 notes/                       # Notes from courses & books
-│   ├── course-reference.md
-│   └── book-reference.md
-├── 📂 overthewire/                 # OverTheWire labs
-│   ├── bandit-level-00.md
-│   ├── bandit-level-01.md
-│   └── ...
-├── 📂 tryhackme/                   # TryHackMe rooms
-│   └── ...
-├── 📂 writeups/                    # Portfolio-style writeups
-│   ├── bandit-summary-oct-2025.md
-│   └── webapp-xss-sqli.md
-├── 📂 scripts/                     # Bash / Python automation scripts
-│   └── ...
-├── 📂 webapp-labs/                 # Web app hacking labs
-│   ├── dvwa/
-│   ├── juice-shop/
-│   └── ...
-├── 📂 capstone/                    # Capstone / major projects
-│   └── ...
-└── 📄 README.md                    # Repo overview
+Cyber-Security/
+├─ README.md
+├─ Learnings/
+│  ├─ Footprinting and Reconnaissanc..../
+│  └─ Markup/
+├─ Linux/
+│  ├─ Bash.md
+│  ├─ Linux_Knowledge.md
+│  ├─ Markup/
+│  ├─ README.md
+│  └─ linux-basics.md
+├─ Networking/
+│  ├─ Readme.md
+│  └─ Videos/
+├─ OverTheWire/
+│  ├─ Bandit/
+│  └─ README.md
+└─ Progress/
 ```
 
 ---
