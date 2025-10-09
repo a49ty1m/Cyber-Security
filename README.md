@@ -54,7 +54,7 @@ Cyber-Security/
 
 | Project / Lab | Platform | Description | Status |
 |---------------|----------|-------------|--------|
-| Bandit Levels 0–5 | OverTheWire | Password retrieval, Linux navigation | In Progress |
+| Bandit Levels 0–33 | OverTheWire | Password retrieval, Linux navigation | In Progress |
 | DVWA XSS & SQLi labs | DVWA | Web app vulnerability exploitation | Planned |
 | TryHackMe Linux beginner rooms | TryHackMe | Hands-on Linux labs | Planned |
 | Mini recon project | Custom | Nmap & netcat scan scripts | Planned |
