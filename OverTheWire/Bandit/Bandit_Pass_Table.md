@@ -16,12 +16,12 @@
 | Level 11 → 12 | dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr | Use tr to translate the rot13 |
 | Level 12 → 13 | 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 | Use file command then xxd command then check type and then decompress |
 | Level 13 → 14 | FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn | Use the concept of localhost ssh |
-| Level 14 → 15 | MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS | Use netcat nc command |
-| Level 15 → 16 | 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo | Use openssl command |
-| Level 16 → 17 | kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx |  |
-| Level 17 → 18 |  |  |
-| Level 18 → 19 |  |  |
-| Level 19 → 20 |  |  |
+| Level 14 → 15 | MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS | Use ncat nc command |
+| Level 15 → 16 | 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo | Use ncat command |
+| Level 16 → 17 | kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx | go with nmap first then nc or ncat |
+| Level 17 → 18 | EReVavePLFHtFlFsjn3hyzMlvSuSAcRD | learn about diff command |
+| Level 18 → 19 | x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO | learn about different type of shells like sh bash |
+| Level 19 → 20 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 |  |
 | Level 20 → 21 |  |  |
 | Level 21 → 22 |  |  |
 | Level 22 → 23 |  |  |

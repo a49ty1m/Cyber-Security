@@ -1,7 +1,5 @@
 # [Project] Bandit Level 01 — Short Title
-**Date:** 2025-10-02  
 **Target:** OverTheWire Bandit (level 01)  
-**Time spent:** 5 min  
 **Author:** Aditya Mishra
 
 ## Executive summary
