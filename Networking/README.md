@@ -28,22 +28,6 @@ networking/
 │  └─ scripts/
 └─ README.md
 ```
-
-## Quick templates
-
-* Book note: `chapter-XX-pg-YY.md` (title, date, 3 bullet takeaways)
-* Video note: `<source>-<topic>-YYYYMMDD.md` (key points, action to try)
-* Lab writeup: `lab-name-YYYYMMDD.md` (objective, commands, findings, reflection)
-
-## Safety & privacy
-
-* Only add artifacts from your isolated lab. Do NOT include real credentials or data from live systems.
-
-## Next steps
-
-* Add today's Forouzan note and a short lab writeup.
-* Keep commits small and descriptive.
-
 ---
 
 Happy hacking — keep it legal, keep it clean.

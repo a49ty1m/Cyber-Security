@@ -1,8 +1,0 @@
-|  ⚡  |  ⏱ Priority  | Task                                                                                                                                                                   | Est. Time | Check-Box |
-| :-: | :----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: | :-------: |
-|  🔥 |   **High**   | **Bandit 16 → 18:** Solve two levels. Write the commands and logic in `notes/bandit-progress.md`.                                                                      |   90 min  |     ⬜     |
-|  🔥 |   **High**   | **Networking Book:** Read **Chapter 1 (Network Models & Layers)**. Write concise notes (OSI vs TCP/IP comparison table).                                               |   90 min  |     ⬜     |
-|  ⚙️ |  **Medium**  | **Recon Practice:** Pick one target (your own domain or a sandbox). Use `whois`, `nslookup`, `dig`, `theHarvester`, and `dnsrecon`. Save output in `labs/recon-day9/`. |  120 min  |     ⬜     |
-|  📘 |  **Medium**  | **Black Hat Bash:** Read the first 10 pages or one script section. Note down any new command usage.                                                                    |   60 min  |     ⬜     |
-|  🧠 |    **Low**   | **Review + Synthesis:** Summarize 3 takeaways from Bandit + Recon. Add to `summary/day9.md`.                                                                           |   45 min  |     ⬜     |
-|  🎯 | **Optional** | 30 min mental break → watch a cyber talk or DEF CON demo.                                                                                                              |   30 min  |     ⬜     |

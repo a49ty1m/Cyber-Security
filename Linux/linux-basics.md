@@ -7,7 +7,8 @@ here are some basics linux commands i learned
 - whatis = most simple info of any command 
 - apt = use to install file from apt package manager
 - whoami = it shows the current user like we are root or normal user 
-- hostname = who's host name of the operating system
+- hostname = who's host name of the operating system will be shown on servers and internet
+- uname = shows kernel name and basic info
 - echo = give output of what ever we want
 - pwd = this is use to check the present working directory like which is opened at present
 - cd = it is use to change directory or move to any directory 
@@ -40,5 +41,8 @@ here are some basics linux commands i learned
 - ps = shows processes 
 - top = detailed and much better version of ps 
 - kill = use to kill any process with pid
+- ncdu = better and an interactive version of df and du 
+- duf = systematic version of df
+
 
 

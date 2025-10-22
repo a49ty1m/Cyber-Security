@@ -7,7 +7,7 @@
 ---
 
 ## 🚀 About This Repo
-This repository is a **hands-on portfolio of my cybersecurity journey**, focused on building practical skills through labs, mini-projects, scripts, and writeups.  
+This repository is a **hands-on portfolio of my cybersecurity journey**, focused on building practical skills through labs, mini-projects, scripts. 
 The goal is **skill development, experimentation, and documentation** rather than job-readiness.  
 
 - Platforms: OverTheWire, TryHackMe, DVWA, Juice Shop  
@@ -33,9 +33,8 @@ Cyber-Security/
 │  ├─ Readme.md
 │  └─ Videos/
 ├─ OverTheWire/
-│  ├─ Bandit/
-│  └─ README.md
-└─ Progress/
+   ├─ Bandit/
+   └─ README.md
 ```
 
 ---

@@ -21,8 +21,8 @@
 | Level 16 → 17 | kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx | go with nmap first then nc or ncat |
 | Level 17 → 18 | EReVavePLFHtFlFsjn3hyzMlvSuSAcRD | learn about diff command |
 | Level 18 → 19 | x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO | learn about different type of shells like sh bash |
-| Level 19 → 20 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 |  |
-| Level 20 → 21 |  |  |
+| Level 19 → 20 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 | use the bandit20-do file which is ELF file |
+| Level 20 → 21 | 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO |  |
 | Level 21 → 22 |  |  |
 | Level 22 → 23 |  |  |
 | Level 23 → 24 |  |  |
