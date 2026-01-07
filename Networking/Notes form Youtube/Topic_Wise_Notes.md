@@ -50,6 +50,7 @@ These notes compile fundamentals from networking intro lectures, cleaned and str
 - Definition: A collection of computing devices connected to communicate and share resources (wired or wireless).
 - Node/Host: Any device on the network.
 - Data transfer rate: Speed at which data moves across the network — a key metric.
+- It is made up of 3 things Rules(Protocol) , Medium(Path) , Identitiy(Addressing).
 
 [↑ Back to top](#table-of-contents)
 
