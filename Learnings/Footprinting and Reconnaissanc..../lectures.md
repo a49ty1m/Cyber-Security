@@ -14,7 +14,8 @@
 11. [Robtex](#robtex)
 12. [Shodan](#shodan)
 13. [WhatWeb](#whatweb)
-14. [Reference Links](#reference-links)
+14. [Sublist3r](#sublist3r)
+15. [Reference Links](#reference-links)
 
 ## Tools Learned
 
@@ -402,6 +403,8 @@ sublist3r -d example.com -t 100
 - [Shodan](https://www.shodan.io/)
 - [Shodan-Dorks]()
 - [WhatWeb (GitHub)](https://github.com/urbanadventurer/WhatWeb)
+- [Sublist3r (GitHub)](https://github.com/aboul3la/Sublist3r)
+- [Sublist3r Documentation](https://github.com/aboul3la/Sublist3r#sublist3r)
 
 [⬆ Back to top](#-footprinting--reconnaissance-notes)
 
