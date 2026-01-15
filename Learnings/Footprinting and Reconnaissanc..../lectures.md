@@ -1,12 +1,12 @@
 # 🔍 Footprinting & Reconnaissance Notes
 
 ## 📑 Table of Contents
-1. [Internet Archive](#internet-archive-archiveorg)
+1. [Internet Archive (archive.org)](#internet-archive-archiveorg)
 2. [wget](#wget)
 3. [HTTrack](#httrack)
 4. [WHOIS Database](#whois-database)
 5. [DNSDumpster](#dnsdumpster)
-6. [DNS.Google](#dnsgoogle-dnsgooglecom)
+6. [Google DNS / DNS over HTTPS](#dnsgoogle-dnsgooglecom)
 7. [traceroute](#traceroute)
 8. [Maltego](#maltego)
 9. [OSINT Framework](#osint-framework)
@@ -15,7 +15,8 @@
 12. [Shodan](#shodan)
 13. [WhatWeb](#whatweb)
 14. [Sublist3r](#sublist3r)
-15. [Reference Links](#reference-links)
+15. [Pentesting-Tools (pentest-tools.com)](#pentesting-tools-httpspentest-toolscom)
+16. [Reference Links](#reference-links)
 
 ## Tools Learned
 
@@ -383,28 +384,72 @@ sublist3r -d example.com -t 100
 
 **Caveats:** DNS brute force can be slow and noisy; results depend on public DNS records; always ensure you have permission before enumerating
 
+### Pentesting-Tools (https://pentest-tools.com/)
+**What it is:** A commercial web-based platform offering a suite of reconnaissance and vulnerability scanning tools (pentest-tools.com).
+
+**Key Features:**
+- Consolidated scanners for subdomains, ports, web vulnerabilities (XSS, SQLi), and network services
+- Pre-built checks, proof-of-concept generation, and exportable reports (PDF/HTML)
+- Team features and API access for automation (subscription required)
+
+**Why useful for recon/pentesting:**
+- Fast, centralized UI to run many reconnaissance and quick-vulnerability checks without installing multiple local tools
+- Useful for rapid triage, reporting, and client demos
+- Integrates multiple data sources which can speed up early-phase discovery
+
+**Quick use:**
+1. Visit https://pentest-tools.com and choose the relevant module (e.g., domain scanner, web scanner, port scan).
+2. Enter target domain or IP and adjust scan profile (passive/active, depth, authentication if allowed).
+3. Review findings, validate high-confidence results manually, and export the report.
+
+**Alternatives:** Intruder, Detectify, Qualys (enterprise), Open-source options: OWASP ZAP, Nmap, Nikto, Burp Suite (community/pro).
+
+**Caveats:** Paid service with active scanning that can be intrusive — always obtain explicit permission and follow rules of engagement; verify scanner findings manually to avoid false positives.
+
+### VirusTotal
+**What it is:** Online service that aggregates antivirus, URL, domain and file scan results and enrichment data (virustotal.com).
+
+**Key Features:**
+- File and URL scanning across many AV engines
+- Public search for domains, IPs, URLs, and files
+- Passive DNS, SSL certificate data, and related-file/domain graphs
+- Public API and `vt` CLI for automation (API key required)
+
+**Why useful for recon/analysis:**
+- Quickly check whether a file, URL, or domain is known-malicious
+- Find related IoCs (domains, IPs, samples) via relationships and passive DNS
+- Aggregate community detections and metadata to prioritise follow-up
+
+**Quick use:**
+1. Web: visit https://www.virustotal.com, paste a URL or upload a file, or search a domain/IP.
+2. CLI/API (requires API key):
+```bash
+curl -s -H "x-apikey: $VT_API_KEY" \
+	"https://www.virustotal.com/api/v3/domains/example.com"
+```
+3. Use the `vt` CLI for downloads and quick lookups: `vt file scan <file>` or `vt domain report example.com`.
+
+**Caveats:**
+- Uploading files may expose sensitive data to a public service — avoid uploading private, confidential, or regulated data.
+- API access is rate-limited and may require a paid plan for higher volumes.
+- A detection on VirusTotal is a signal, not definitive proof — validate with local analysis.
+
 ## Reference Links
-- [Internet Archive](https://archive.org)
-- [Wayback Machine](https://web.archive.org)
-- [wget Manual](https://www.gnu.org/software/wget/manual/)
+
+- [Internet Archive / Wayback Machine](https://web.archive.org)
+- [wget manual](https://www.gnu.org/software/wget/manual/)
 - [HTTrack](https://www.httrack.com/)
 - [ICANN WHOIS](https://whois.icann.org/)
 - [DNSDumpster](https://dnsdumpster.com)
-- [DNS.Google](https://dns.google.com)
-- [Google Public DNS](https://developers.google.com/speed/public-dns)
+- [Google DNS / DNS-over-HTTPS](https://dns.google.com)
 - [traceroute man page](https://linux.die.net/man/8/traceroute)
 - [Maltego](https://www.maltego.com/)
-- [SpiderFoot](https://www.spiderfoot.net/)
 - [OSINT Framework](https://osintframework.com/)
-- [IntelTechniques](https://inteltechniques.com/tools/)
-- [Bellingcat Toolkit](https://bit.ly/bcattools)
 - [theHarvester (GitHub)](https://github.com/laramies/theHarvester)
 - [Robtex](https://www.robtex.com/)
 - [Shodan](https://www.shodan.io/)
-- [Shodan-Dorks]()
 - [WhatWeb (GitHub)](https://github.com/urbanadventurer/WhatWeb)
 - [Sublist3r (GitHub)](https://github.com/aboul3la/Sublist3r)
-- [Sublist3r Documentation](https://github.com/aboul3la/Sublist3r#sublist3r)
+- [Pentest-Tools](https://pentest-tools.com)
 
 [⬆ Back to top](#-footprinting--reconnaissance-notes)
-
