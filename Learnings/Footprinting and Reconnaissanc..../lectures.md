@@ -9,9 +9,12 @@
 6. [DNS.Google](#dnsgoogle-dnsgooglecom)
 7. [traceroute](#traceroute)
 8. [Maltego](#maltego)
-9. [Shodan](#shodan)
-10. [WhatWeb](#whatweb)
-11. [Reference Links](#reference-links)
+9. [OSINT Framework](#osint-framework)
+10. [theHarvester](#theharvester)
+11. [Robtex](#robtex)
+12. [Shodan](#shodan)
+13. [WhatWeb](#whatweb)
+14. [Reference Links](#reference-links)
 
 ## Tools Learned
 
@@ -156,6 +159,130 @@ traceroute -I target-domain.com
 
 **Alternatives:** SpiderFoot, Recon-ng
 
+### OSINT Framework
+**What it is:** Categorized collection of free OSINT tools and resources (osintframework.com)  
+**Key Feature:** Interactive tree structure organizing tools by target type (username, email, domain, IP, social media)
+
+**Why useful for recon:**
+- Quick reference to find specialized OSINT tools for specific tasks
+- All resources are free and publicly available
+- Categories include: Username search, Email verification, DNS/Domain tools, IP geolocation, Social media, Images/Videos, Documents, Phone numbers
+
+**Quick use:**
+1. Visit https://osintframework.com
+2. Click category matching your target type
+3. Expand nodes to see specific tools
+4. Click tool names to access directly
+
+**Example tools from framework:**
+```bash
+# Username search
+sherlock username
+
+# Email harvesting
+theHarvester -d example.com -b all
+
+# Subdomain enumeration
+sublist3r -d example.com
+```
+
+**Alternatives:** IntelTechniques, Aware-Online, Bellingcat toolkit
+
+**Caveats:** Tool availability changes; some have rate limits or require registration; always respect ToS and legal boundaries
+
+### theHarvester
+**What it is:** OSINT gathering tool for email, subdomain, and host enumeration  
+**Key Feature:** Aggregates data from multiple public sources (search engines, PGP servers, Shodan, etc.)
+
+**Why useful for recon:**
+- Discover email addresses associated with a domain
+- Find subdomains and hosts
+- Identify IPs, URLs, and ASN information
+- Gather data from 30+ different sources in one tool
+- Pre-installed on Kali Linux
+
+**Quick use:**
+```bash
+# Basic search across all sources
+theHarvester -d example.com -b all
+
+# Search specific source (Google)
+theHarvester -d example.com -b google
+
+# Limit results and save output
+theHarvester -d example.com -b bing -l 200 -f output.html
+
+# Search with multiple sources
+theHarvester -d example.com -b google,bing,yahoo
+```
+
+**Popular data sources (-b flag):**
+- `google` - Google search
+- `bing` - Bing search
+- `linkedin` - LinkedIn profiles
+- `twitter` - Twitter mentions
+- `shodan` - Shodan database (requires API key)
+- `dnsdumpster` - DNS records
+- `virustotal` - VirusTotal (requires API key)
+- `certspotter` - Certificate transparency logs
+- `all` - Query all available sources
+
+**Common flags:**
+- `-d` domain to search
+- `-b` data source(s)
+- `-l` limit number of results
+- `-f` save results to file (HTML/XML/JSON)
+- `-n` perform DNS resolution
+- `-c` perform DNS brute force
+
+**What you can find:**
+- Employee email addresses
+- Subdomains and virtual hosts
+- Open ports and services (via Shodan)
+- IP addresses and network ranges
+- Names and job titles from social media
+
+**Alternatives:** Recon-ng, SpiderFoot, Amass
+
+**Caveats:** Some sources require API keys; results quality varies by source; rate limits apply; always respect ToS and legal boundaries
+
+### Robtex
+**What it is:** Free network intelligence service (robtex.com)  
+**Key Feature:** Maps relationships between IP addresses, domain names, and network infrastructure
+
+**Why useful for recon:**
+- Discover domains hosted on the same IP (shared hosting)
+- Find historical DNS records and IP changes
+- Identify ASN (Autonomous System Number) and network ownership
+- Map routing paths and network topology
+- Reverse DNS and forward DNS lookups
+
+**Quick use:**
+1. Visit https://www.robtex.com
+2. Enter IP address or domain name
+3. View network graph and relationships
+4. Explore shared IPs, DNS history, and ASN details
+
+**Key features:**
+```bash
+# View IP details: AS number, owner, geolocation
+# Check domain DNS records: A, AAAA, MX, NS, TXT
+# Find all domains on same IP (virtual hosting)
+# Track DNS history and changes over time
+# Explore BGP routing information
+```
+
+**What you can find:**
+- **Shared Hosting:** Other domains on same IP
+- **DNS Records:** Complete DNS profile of target
+- **Network Owner:** AS number and organization
+- **Historical Data:** Past IP addresses for domain
+- **Mail Servers:** MX records and mail infrastructure
+
+**Alternatives:** SecurityTrails, ViewDNS.info, HackerTarget
+
+**Caveats:** Public data only; historical records may be limited on free tier; some features require account
+
 ### Shodan
 **What it is:** Search engine for internet-connected devices/services  
 **Key Feature:** Indexed service banners with powerful filters
@@ -201,6 +328,60 @@ whatweb -i targets.txt -U "Mozilla/5.0" --log-json=out.json
 
 **Caveats:** Signature-based; can be noisy at higher `-a` levels and trigger WAFs — stay within scope and rules of engagement
 
+### Sublist3r
+**What it is:** Fast and automated subdomain enumeration tool  
+**Key Feature:** Aggregates results from 9+ DNS sources to discover subdomains
+
+**Why useful for recon:**
+- Discover all subdomains of a target domain
+- Uses OSINT and passive DNS sources (no direct traffic to target)
+- Pre-installed on Kali Linux
+- Lightweight and quick to execute
+- Returns valid subdomains with IP addresses
+
+**Quick use:**
+```bash
+# Basic subdomain enumeration
+sublist3r -d example.com
+
+# Enable DNS brute force for additional subdomains
+sublist3r -d example.com -b
+
+# Verbose output and save to file
+sublist3r -d example.com -o subdomains.txt -v
+
+# No output to console (quiet mode)
+sublist3r -d example.com -o subdomains.txt -q
+
+# Increase thread count for faster enumeration
+sublist3r -d example.com -t 100
+```
+
+**Data sources used:**
+- Google, Yahoo, Bing
+- DNSDumpster, Baidu
+- Netcraft, VirusTotal
+- ThreatCrowd, AnubisDB
+- PassiveDNS
+
+**Common flags:**
+- `-d` domain to search
+- `-b` enable DNS brute force (slower but finds more)
+- `-o` output file path
+- `-v` verbose output
+- `-q` quiet mode
+- `-t` number of threads (default 16)
+
+**What you can find:**
+- All public subdomains of target domain
+- IP addresses hosting those subdomains
+- Potential attack surface (e.g., dev.example.com, admin.example.com)
+- Related infrastructure and services
+
+**Alternatives:** Amass, Subfinder, Assetfinder, DNSRecon
+
+**Caveats:** DNS brute force can be slow and noisy; results depend on public DNS records; always ensure you have permission before enumerating
+
 ## Reference Links
 - [Internet Archive](https://archive.org)
 - [Wayback Machine](https://web.archive.org)
@@ -213,6 +394,11 @@ whatweb -i targets.txt -U "Mozilla/5.0" --log-json=out.json
 - [traceroute man page](https://linux.die.net/man/8/traceroute)
 - [Maltego](https://www.maltego.com/)
 - [SpiderFoot](https://www.spiderfoot.net/)
+- [OSINT Framework](https://osintframework.com/)
+- [IntelTechniques](https://inteltechniques.com/tools/)
+- [Bellingcat Toolkit](https://bit.ly/bcattools)
+- [theHarvester (GitHub)](https://github.com/laramies/theHarvester)
+- [Robtex](https://www.robtex.com/)
 - [Shodan](https://www.shodan.io/)
 - [Shodan-Dorks]()
 - [WhatWeb (GitHub)](https://github.com/urbanadventurer/WhatWeb)
