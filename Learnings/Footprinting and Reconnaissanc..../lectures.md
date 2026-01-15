@@ -434,6 +434,36 @@ curl -s -H "x-apikey: $VT_API_KEY" \
 - API access is rate-limited and may require a paid plan for higher volumes.
 - A detection on VirusTotal is a signal, not definitive proof — validate with local analysis.
 
+### netdiscover
+**What it is:** ARP-based network discovery tool for local networks (often included in Kali). It finds live hosts using ARP requests and passive sniffing.
+
+**Key Features:**
+- Fast ARP scans of local subnets
+- Passive mode to observe traffic without sending probes
+- Shows IP, MAC, and vendor (OUI) to help identify device types
+
+**Why useful for recon:**
+- Quickly build an inventory of live hosts on a LAN before deeper scanning
+- Identify devices by MAC vendor (IoT, routers, printers)
+- Useful in internal assessments and lab environments to map reachable hosts
+
+**Quick use:**
+```bash
+# Active scan of a /24 network (requires root)
+sudo netdiscover -r 192.168.1.0/24
+
+# Specify interface
+sudo netdiscover -i eth0 -r 10.0.0.0/24
+
+# Passive mode (listen only)
+sudo netdiscover -p -i wlan0
+```
+
+**Caveats:**
+- Only works on the same layer-2 network (LAN) — not for Internet-wide discovery
+- ARP probing can trigger IDS/filters on careful networks; obtain permission
+- Requires root privileges for active scans
+
 ## Reference Links
 
 - [Internet Archive / Wayback Machine](https://web.archive.org)
@@ -443,6 +473,7 @@ curl -s -H "x-apikey: $VT_API_KEY" \
 - [DNSDumpster](https://dnsdumpster.com)
 - [Google DNS / DNS-over-HTTPS](https://dns.google.com)
 - [traceroute man page](https://linux.die.net/man/8/traceroute)
+- [Netdiscover (Kali Tools)](https://tools.kali.org/information-gathering/netdiscover)
 - [Maltego](https://www.maltego.com/)
 - [OSINT Framework](https://osintframework.com/)
 - [theHarvester (GitHub)](https://github.com/laramies/theHarvester)
