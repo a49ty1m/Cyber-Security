@@ -250,3 +250,4 @@ It perfectly differentiates between "Hardware ID" and "Network Location." Most b
 3. **Check for Spoofing:** See if your phone has "Private Wi-Fi Address" turned on in its settings. Realize that this is changing your MAC address to stop companies from tracking you as you walk through a mall.
 
 Source URL: https://www.youtube.com/watch?v=tztDn4WWMKI
+

@@ -7,16 +7,20 @@
 4. [WHOIS Database](#whois-database)
 5. [DNSDumpster](#dnsdumpster)
 6. [Google DNS / DNS over HTTPS](#dnsgoogle-dnsgooglecom)
-7. [traceroute](#traceroute)
-8. [Maltego](#maltego)
-9. [OSINT Framework](#osint-framework)
-10. [theHarvester](#theharvester)
-11. [Robtex](#robtex)
-12. [Shodan](#shodan)
-13. [WhatWeb](#whatweb)
-14. [Sublist3r](#sublist3r)
-15. [Pentesting-Tools (pentest-tools.com)](#pentesting-tools-httpspentest-toolscom)
-16. [Reference Links](#reference-links)
+7. [Google Dorking](#google-dorking)
+8. [traceroute](#traceroute)
+9. [Maltego](#maltego)
+10. [OSINT Framework](#osint-framework)
+11. [theHarvester](#theharvester)
+12. [Robtex](#robtex)
+13. [Shodan](#shodan)
+14. [WhatWeb](#whatweb)
+15. [Sublist3r](#sublist3r)
+16. [Pentesting-Tools (pentest-tools.com)](#pentesting-tools-httpspentest-toolscom)
+17. [VirusTotal](#virustotal)
+18. [netdiscover](#netdiscover)
+19. [Nirsoft (nirsoft.net)](#nirsoft-nirsoftnet)
+20. [Reference Links](#reference-links)
 
 ## Tools Learned
 
@@ -121,6 +125,74 @@ curl -s -H "accept: application/dns-json" \
 
 **Alternatives:** Cloudflare (1.1.1.1), Quad9 (9.9.9.9), standard `dig` / `nslookup`
 
+### Google Dorking
+**What it is:** Advanced search technique using Google's search operators to find specific information indexed by Google  
+**Key Feature:** Uses special query syntax to filter and target search results for reconnaissance
+
+**Why useful for recon:**
+- Discover sensitive files, directories, and information exposed on websites
+- Find login pages, admin panels, and configuration files
+- Identify vulnerable systems and outdated software versions
+- Gather email addresses, usernames, and contact information
+- Locate subdomains and related infrastructure
+
+**Quick use:**
+1. Go to google.com
+2. Use dorks like: `site:example.com filetype:pdf` or `inurl:admin`
+3. Combine operators: `site:example.com intitle:"index of" inurl:backup`
+
+**Google Dork operators:**
+- `site:` - Limit search to a specific site or domain
+- `filetype:` or `ext:` - Search for specific file extensions (pdf, doc, xls, sql, etc.)
+- `inurl:` - Search for URLs containing specific words
+- `allinurl:` - All specified terms must appear in the URL
+- `intitle:` - Search for pages with terms in the title
+- `allintitle:` - All specified terms must appear in the title
+- `intext:` - Search within the body text of pages
+- `allintext:` - All specified terms must appear in the body text
+- `inanchor:` - Search for pages linked with specific anchor text
+- `cache:` - View Google's cached version of a page
+- `link:` - Find pages that link to a specific URL
+- `related:` - Find websites related to a given URL
+- `info:` - Get information about a specific URL
+- `numrange:` - Search within a numerical range (e.g., numrange:1-100)
+- `daterange:` - Search within a date range (use Julian dates)
+- `before:` - Results published before a specific date
+- `after:` - Results published after a specific date
+- `location:` - Search for location-based results
+- `source:` - Search within specific news sources
+- `OR` - Logical OR operator
+- `AND` - Logical AND operator (implied)
+- `NOT` or `-` - Exclude terms from search
+- `~` - Include synonyms of a word
+- `*` - Wildcard for unknown terms
+- `..` - Number range (e.g., 1..10)
+- `define:` - Get definitions of terms
+- `weather:` - Get weather information
+- `stocks:` - Get stock quotes
+
+**Popular dorks for recon:**
+```bash
+# Find login pages
+site:example.com inurl:login
+# Find admin panels
+site:example.com inurl:admin
+# Find backup files
+site:example.com filetype:sql | filetype:backup | filetype:bak
+# Find exposed directories
+site:example.com intitle:"index of"
+# Find email addresses
+"@example.com" -site:example.com
+# Find subdomains
+site:*.example.com -www
+```
+
+**Tools to automate:** Google Dorking scripts, or use with tools like theHarvester, but primarily manual
+
+**Alternatives:** Bing dorks, DuckDuckGo advanced search, specialized search engines
+
+**Caveats:** Google may block automated queries; respect robots.txt and terms of service; results depend on what's indexed; some information may be outdated
+
 ### traceroute
 **What it is:** Network path tracing tool  
 **Key Feature:** Shows intermediate hops/routers and round-trip times
@@ -205,11 +277,8 @@ sublist3r -d example.com
 
 **Quick use:**
 ```bash
-# Basic search across all sources
+# Basic search
 theHarvester -d example.com -b all
-
-# Search specific source (Google)
-theHarvester -d example.com -b google
 
 # Limit results and save output
 theHarvester -d example.com -b bing -l 200 -f output.html
@@ -229,12 +298,7 @@ theHarvester -d example.com -b google,bing,yahoo
 - `certspotter` - Certificate transparency logs
 - `all` - Query all available sources
 
-**Common flags:**
-- `-d` domain to search
-- `-b` data source(s)
-- `-l` limit number of results
-- `-f` save results to file (HTML/XML/JSON)
-- `-n` perform DNS resolution
+**Common flags:** `-d` domain, `-b` sources, `-l` limit, `-f` file output, `-n` DNS resolution
 - `-c` perform DNS brute force
 
 **What you can find:**
@@ -314,7 +378,7 @@ port:22 "OpenSSH"
 
 **Quick use:**
 ```bash
-# Basic fingerprint
+# Basic scan
 whatweb -v example.com
 
 # Increase aggression (1=passive, 4=heavy) and be verbose
@@ -359,12 +423,7 @@ sublist3r -d example.com -o subdomains.txt -q
 sublist3r -d example.com -t 100
 ```
 
-**Data sources used:**
-- Google, Yahoo, Bing
-- DNSDumpster, Baidu
-- Netcraft, VirusTotal
-- ThreatCrowd, AnubisDB
-- PassiveDNS
+**Data sources:** Google, Yahoo, Bing, DNSDumpster, VirusTotal, etc.
 
 **Common flags:**
 - `-d` domain to search
@@ -464,6 +523,41 @@ sudo netdiscover -p -i wlan0
 - ARP probing can trigger IDS/filters on careful networks; obtain permission
 - Requires root privileges for active scans
 
+### Nirsoft (nirsoft.net)
+**What it is:** Website by Nir Sofer providing a collection of free Windows utilities for system administration, security analysis, and information gathering. Many tools are portable and don't require installation.
+
+**Key Feature:** Specialized IP and network analysis tools that provide detailed geolocation and assignment information without requiring online lookups for some functions.
+
+**Why useful for recon:**
+- Obtain comprehensive IP address details including country, region, city, ISP, and organization
+- Analyze IP ranges and network assignments by country
+- Perform offline geolocation lookups using built-in databases
+- Useful for mapping network infrastructure and identifying geographic distribution of assets
+- Tools are lightweight and can be run from USB drives for field work
+
+**Quick use:**
+1. Visit https://www.nirsoft.net/ and download relevant IP tools
+2. For IP information: Run IPNetInfo.exe or IPInfoOffline.exe
+3. Enter target IP address or range
+4. View detailed location, network, and assignment data
+
+**Popular IP-related tools:**
+- **IPNetInfo:** Displays IP address information including country, ISP, and network details
+- **IPInfoOffline:** Offline IP geolocation tool with detailed mapping
+- **CountryTraceRoute:** Enhanced traceroute showing country flags and location info for each hop
+- **IPCountryTracer:** Maps IP addresses to countries with visual representation
+
+**What you can find:**
+- Geographic location (country, region, city)
+- ISP and organization information
+- Network range assignments
+- Autonomous System Numbers (ASN)
+- Contact information for network owners
+
+**Alternatives:** MaxMind GeoIP, IP2Location, WhatIsMyIP services
+
+**Caveats:** Primarily Windows-based tools; some features require internet for real-time data; respect privacy laws when analyzing IP information
+
 ## Reference Links
 
 - [Internet Archive / Wayback Machine](https://web.archive.org)
@@ -482,5 +576,8 @@ sudo netdiscover -p -i wlan0
 - [WhatWeb (GitHub)](https://github.com/urbanadventurer/WhatWeb)
 - [Sublist3r (GitHub)](https://github.com/aboul3la/Sublist3r)
 - [Pentest-Tools](https://pentest-tools.com)
+- [VirusTotal](https://www.virustotal.com/)
+- [Nirsoft](https://www.nirsoft.net/)
+- [Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
 
 [⬆ Back to top](#-footprinting--reconnaissance-notes)
