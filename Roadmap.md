@@ -35,6 +35,14 @@
 
 ---
 
+## 🧭 How to Use This Checklist
+
+- **Status Legend:** `[ ]` not started, `[~]` practicing, `[x]` confident; update as you progress.
+- **Depth Lanes:** **Core** (Parts 1-7), **Network & Web** (Parts 8-17), **Cloud/Infra** (Parts 19, 23-26), **Modern** (Parts 24, 27-29).
+- **Weekly Loop:** Pick 1 core, 1 applied, and 1 modern topic; build a tiny lab or PoC for each.
+- **Evidence:** Keep one-liner notes, payload snippets, and detection artifacts per item to accelerate refreshers.
+- **Cross-Reference:** Pair this with `roadmap-cheatsheet.md` for condensed flows and quick commands.
+
 ## Part 1: Fundamentals
 
 ### 1. Hardware, CPU & Pre-Boot Environment
@@ -298,7 +306,6 @@ _The primary surface for local code execution and privilege escalation._
 - [ ] **Rogue Access Points:** Understand **evil twin attacks** and hardware spoofing.
 
 - [ ] **Physical Tampering:** Master detection of splitters, taps, and modifications.
-    
 
 ---
 
@@ -1183,7 +1190,6 @@ _Goal: Execute code on the target system._
 - [ ] **Cloud-Native C2:** Hide beacons inside **trusted APIs** (e.g., **Microsoft Graph/SharePoint, Slack/Teams webhooks**) to blend with enterprise traffic beyond HTTP/DNS.
 
 - [ ] **Living off the Land:** Instead of dropping new binaries, use **LOLBAS**, **GTFOBINS**, or **WADCOMS** to execute malicious logic using trusted system tools (e.g., PowerShell, Bash).
-    
 
 ---
 
