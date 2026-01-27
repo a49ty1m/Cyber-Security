@@ -643,21 +643,52 @@ _The primary surface for local code execution and privilege escalation._
 
 ---
 
-### Advanced Topics: Lab Progression & Professional Development
+### Lab Progression & Professional Development (2026 Red Team Focus)
 
-- [ ] **Lab Progression:** Move from **Packet Tracer** (Beginner) to **GNS3/EVE-NG** (Advanced) and **Wireshark**.
-    
-- [ ] **Virtualization:** Master Type-1 (**ESXi, Proxmox**) and Type-2 (**VMWare, VirtualBox**) hypervisors.
-    
-- [ ] **Cloud Assets:** Master **VPCs**, **Security Groups**, **Load Balancers**, and **IAM** in AWS/Azure/GCP.
-    
-- [ ] **Automation:** Use **Python, Bash, and PowerShell** for subnet discovery and log clearing.
-    
-- [ ] **Monitoring & Evasion:** Use **NetFlow, SNMP**, and packet analyzers to understand **Zero Trust** and **SIEM/SOAR** limits.
-    
-- [ ] **Certifications:** Focus on **CCNA** (Networking Core) or **CompTIA Network+** (Beginner Path).
-    
-- [ ] **Ethics & ROE:** Master the **Rules of Engagement (RoE)** and professional reporting.
+_Goal: Move from local simulation to cloud-native networks using a "hack to root" mindset._
+
+**Phase 1: Foundations (Simulation)** — Tools: **Cisco Packet Tracer, IP Calculator**
+- [ ] Simple Connectivity: Two PCs + switch; verify **ping/basic reachability**.
+- [ ] The "Phonebook": Stand up **local DNS**; resolve custom hostnames.
+- [ ] Automatic Addressing: Configure **DHCP** to hand out IPs to multiple hosts.
+- [ ] Subnetting Drills: Design **/24, /25, /26** subnets without online aids.
+- [ ] VLAN Creation: Segment by department (e.g., HR, Sales) with **VLANs**.
+
+**Phase 2: Tactical (Emulation & Packets)** — Tools: **GNS3, Wireshark, Nmap**
+- [ ] Packet Analysis: Capture **TCP 3-way handshake + HTTP** in Wireshark.
+- [ ] Routing: Build **static routes**, then **OSPF** for auto path discovery.
+- [ ] Filtering: Apply **ACLs** to permit/deny specific traffic.
+- [ ] NAT: Enable **source NAT** to exit a lab via one public IP.
+- [ ] Inter-VLAN Routing: Use **router-on-a-stick** for isolated VLAN comms.
+
+**Phase 3: Linux Muscle Memory**
+- [ ] Discovery: Use **ip a, ss -tulpn, arp -a** to map interfaces/listeners/peers.
+- [ ] Connectivity & Routing: Troubleshoot with **traceroute, nslookup, dig**.
+- [ ] Remote Management: Practice **ssh user@host** and **scp** file moves.
+- [ ] Firewall Basics: Block ports with **iptables/ufw**.
+
+**Phase 4: Red Team Edge (Kali/Battle Tests)** — Tools: **Kali, Bettercap, Metasploit**
+- [ ] Recon: Run **Nmap stealth scans (SYN) + version detection** on lab targets.
+- [ ] MITM: Perform **ARP spoof** with **Bettercap/Ettercap** in a controlled lab.
+- [ ] Protocol Exploitation: Enumerate/exploit **SMB/FTP/SSH** via **Metasploit** modules.
+- [ ] VPN & Tunneling: Stand up **OpenVPN/IPsec**; practice **SSH tunnels** to bypass local firewalls.
+
+**Phase 5: Cloud Networking (2026 Standard)** — Tools: **AWS/Azure Free Tier, Terraform**
+- [ ] VPC Design: Build **public + private subnets** in **AWS or Azure**.
+- [ ] IaC: Use **Terraform** to deploy web server + security group/NACL.
+- [ ] Cloud Security: Configure **SGs/NACLs**, then adjust rules to test bypass paths.
+- [ ] Scaling: Add a **load balancer** and spread traffic across multiple instances.
+
+**Professional Development & Enablers**
+- [ ] **Lab Progression Map:** Packet Tracer → GNS3/EVE-NG; validate packets with **Wireshark** after each change.
+- [ ] **Virtualization Breadth:** Practice Type-1 (**ESXi, Proxmox**) and Type-2 (**VMWare, VirtualBox**) so labs migrate easily.
+- [ ] **Cloud Assets Core:** Build **VPCs/VNETs**, set **Security Groups/NACLs**, front with **Load Balancers**, wire **IAM** in **AWS/Azure/GCP**.
+- [ ] **Automation Muscle:** Script **subnet discovery, config pushes, log cleanup** in **Python/Bash/PowerShell**; keep runs idempotent.
+- [ ] **Monitoring & Evasion:** Baseline with **NetFlow/SNMP/pcap**; label what defenders see vs. miss (**Zero Trust/SIEM/SOAR** gaps).
+- [ ] **Certifications:** Aim **CCNA** (core) or **CompTIA Network+** (entry); add **AWS Advanced Networking** for cloud-heavy ops.
+- [ ] **Ethics & ROE:** Keep **Rules of Engagement** explicit; log operator actions for audit trails.
+- [ ] **Automation Scaling:** Script **mass config/port scans** with **Python**.
+- [ ] **Monitoring Deep Dives:** Add **SNMP or NetFlow** in the advanced lab to visualize exfil patterns.
 
 
 ## Part 3: Footprinting and Reconnaissance
@@ -2777,5 +2808,3 @@ _Goal: Maintain control while minimizing detection and impact._
 - [ ] Maintain fluency in **Bash, PowerShell, Python**; script **collection, parsing, and lateral movement** tasks.
 
 - [ ] Template **checklists/playbooks** for repeatable ops; version control tooling and payloads.
-
----
