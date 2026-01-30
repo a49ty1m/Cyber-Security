@@ -185,6 +185,9 @@
   },
   "active": "00131c7661a9a659",
   "lastOpenFiles": [
+    "04.Exploits/01.System Hacking/Notes.md",
+    "04.Exploits/01.System Hacking/Lectures.md",
+    "04.Exploits/01.System Hacking",
     "Networking/Notes form Youtube/MIx_notes.md",
     "Lab/OverTheWire/Bandit/bandit-level-33.md",
     "Lab/OverTheWire/Bandit/bandit-level-32.md",
@@ -209,8 +212,6 @@
     "Lab/OverTheWire/Bandit/bandit-level-13.md",
     "Lab/OverTheWire/Bandit/bandit-level-12.md",
     "Lab/OverTheWire/Bandit/bandit-level-11.md",
-    "Lab/OverTheWire/Bandit/bandit-level-10.md",
-    "Lab/OverTheWire/Bandit/bandit-level-09.md",
     "Lab/OverTheWire/Bandit",
     "Lab/OverTheWire",
     "Lab",
@@ -219,7 +220,6 @@
     "03.Learnings/Markup",
     "03.Learnings/03.Enumeration",
     "03.Learnings/02.Scanning",
-    "03.Learnings/01.Footprinting and Reconnaissanc",
-    "03.Learnings"
+    "03.Learnings/01.Footprinting and Reconnaissanc"
   ]
 }
