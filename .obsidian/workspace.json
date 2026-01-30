@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Roadmap.md",
+                "file": "Networking/Notes form Youtube/MIx_notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Roadmap"
+              "title": "MIx_notes"
             }
           }
         ]
@@ -185,10 +185,10 @@
   },
   "active": "00131c7661a9a659",
   "lastOpenFiles": [
+    "Roadmap.md",
     "Untitled.base",
     "Untitled 2.base",
     "Untitled 1.base",
-    "Untitled 3.base",
-    "Roadmap.md"
+    "Untitled 3.base"
   ]
 }
