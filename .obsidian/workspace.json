@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Roadmap.md",
+                "file": "04.Exploits/05.System Hacking/Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Roadmap"
+              "title": "Notes"
             }
           }
         ]
@@ -185,10 +185,14 @@
   },
   "active": "00131c7661a9a659",
   "lastOpenFiles": [
+    "04.Exploits/05.System Hacking/Lectures.md",
+    "README.md",
+    "Roadmap.md",
+    "Lab",
+    "04.Exploits",
     "Untitled.base",
     "Untitled 2.base",
     "Untitled 1.base",
-    "Untitled 3.base",
-    "Roadmap.md"
+    "Untitled 3.base"
   ]
 }
