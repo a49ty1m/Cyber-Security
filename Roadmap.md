@@ -1,75 +1,37 @@
 # Red Team Fundamentals: Master Checklist
 
-## ✅ Completion Tracker (Auto)
+## ✅📋 Completion Tracker & Quick Navigation
 
-<!-- GitHub renders task list progress automatically in the preview. -->
-
-**Parts completed:**
-- [x] Part 1: Fundamentals
-- [ ] Part 2: Networking Fundamentals
-- [ ] Part 3: Footprinting & Reconnaissance
-- [ ] Part 4: Scanning
-- [ ] Part 5: Enumeration
-- [ ] Part 6: System Hacking & Initial Compromise
-- [ ] Part 7: Malware & Weaponization
-- [ ] Part 8: Detection & Mitigation
-- [ ] Part 9: Sniffing & Spoofing
-- [ ] Part 10: Social Engineering
-- [ ] Part 11: Denial of Service
-- [ ] Part 12: Session Hijacking
-- [ ] Part 13: Web Application Hacking
-- [ ] Part 14: Web Server Hacking
-- [ ] Part 15: IDS, Firewalls, and Honeypots
-- [ ] Part 16: Wireless Pentesting
-- [ ] Part 17: Mobile Platform Pentesting
-- [ ] Part 18: Cryptography
-- [ ] Part 19: Cloud Computing
-- [ ] Part 20: Digital Forensics
-- [ ] Part 21: Bug Bounty and Penetration Testing
-- [ ] Part 22: OSINT & Threat Intelligence
-- [ ] Part 23: Adversary Emulation & Purple Teaming
-- [ ] Part 24: Container & Orchestration Security
-- [ ] Part 25: OT/ICS/SCADA Security
-- [ ] Part 26: Hardware Hacking & Embedded Systems
-- [ ] Part 27: AI & LLM Red Teaming
-- [ ] Part 28: Active Directory & Entra ID
-- [ ] Part 29: Modern Exploitation
-- [ ] Part Extra: Red Team Operations & Tradecraft
-
----
-
-## 📋 Quick Navigation
-
-- [Part 1: Fundamentals](#part-1-fundamentals) (Hardware, OS, Memory, Data, Wireless, Applications)
-- [Part 2: Networking Fundamentals](#part-2-networking-fundamentals) (Layers 1-7, Protocols, Tools)
-- [Part 3: Footprinting & Reconnaissance](#part-3-footprinting-and-reconnaissance) (Passive → Active → Strategy)
-- [Part 4: Scanning](#part-4-scanning) (Host Discovery → Port Enumeration → Defense Assessment)
-- [Part 5: Enumeration](#part-5-enumeration) (Network Discovery → Service Profiling → Attack Mapping)
-- [Part 6: System Hacking & Initial Compromise](#part-6-system-hacking--initial-compromise) (Breach → Escalation → Persistence → Evasion → Exfil → Reporting)
-- [Part 7: Malware & Weaponization](#part-7-malware--weaponization) (Design → Weaponization → Evasion → Persistence → Anti-Forensics)
-- [Part 8: Detection & Mitigation](#part-8-detection--mitigation) (Blue Team perspective for understanding defensive detection)
-- [Part 9: Sniffing & Spoofing](#part-9-sniffing--spoofing) (Protocols → Sniffing → Spoofing → MITM → Defenses)
-- [Part 10: Social Engineering](#part-10-social-engineering) (Recon → Digital → Human → Physical → Defense)
-- [Part 11: Denial of Service](#part-11-denial-of-service) (Planning → Methods → Execution → Mitigation)
-- [Part 12: Session Hijacking](#part-12-session-hijacking) (Steal → Hijack → Secure)
-- [Part 13: Web Application Hacking](#part-13-web-application-hacking) (Recon → Analysis → Exploit → Persist → Defend)
-- [Part 14: Web Server Hacking](#part-14-web-server-hacking) (Recon → Hardening → Exploit → Persist)
-- [Part 15: IDS, Firewalls, and Honeypots](#part-15-ids-firewalls-and-honeypots) (Strategy → Deployment → Deception → Operations)
-- [Part 16: Wireless Pentesting](#part-16-wireless-pentesting) (Recon → Breach → MITM → Defense)
-- [Part 17: Mobile Platform Pentesting](#part-17-mobile-platform-pentesting) (Static → Dynamic → Network → Defense)
-- [Part 18: Cryptography](#part-18-cryptography) (Concepts → Transit → Trust → Rest → Attacks)
-- [Part 19: Cloud Computing](#part-19-cloud-computing) (Architecture → Storage → Deployment → Automation → Attacks)
-- [Part 20: Digital Forensics](#part-20-digital-forensics) (Prep → Analysis → Network → Reporting)
-- [Part 21: Bug Bounty and Penetration Testing](#part-21-bug-bounty-and-penetration-testing) (Scope → Recon → Exploit → Report)
-- [Part 22: OSINT & Threat Intelligence](#part-22-osint--threat-intelligence) (Collection → Analysis → Automation → Dissemination)
-- [Part 23: Adversary Emulation & Purple Teaming](#part-23-adversary-emulation--purple-teaming) (MITRE ATT&CK, APT Simulation, Metrics)
-- [Part 24: Container & Orchestration Security](#part-24-container--orchestration-security) (Docker, Kubernetes, Secrets Management)
-- [Part 25: OT/ICS/SCADA Security](#part-25-oticsscada-security) (Industrial Protocols, PLC, HMI, Safety Systems)
-- [Part 26: Hardware Hacking & Embedded Systems](#part-26-hardware-hacking--embedded-systems) (Firmware, JTAG, UART, Side-Channel, IoT)
-- [Part 27: AI & LLM Red Teaming](#part-27-ai--llm-red-teaming) (Prompt Injection → Agent Abuse → RAG Poisoning → Model Theft)
-- [Part 28: Active Directory & Entra ID](#part-28-active-directory--entra-id) (On-Prem AD → ADCS → Entra ID/OAuth)
-- [Part 29: Modern Exploitation](#part-29-modern-exploitation) (Memory Safety → Sandbox Escape → Mitigation Bypass)
-- [Part Extra: Red Team Operations & Tradecraft](#part-extra-red-team-operations--tradecraft) (Infrastructure, Discipline, Operations)
+- [ ] [Part 1: Fundamentals](#part-1-fundamentals) — Hardware, OS, Memory, Data, Wireless, Applications
+- [ ] [Part 2: Networking Fundamentals](#part-2-networking-fundamentals) — Layers 1-7, Protocols, Tools
+- [ ] [Part 3: Footprinting & Reconnaissance](#part-3-footprinting-and-reconnaissance) — Passive → Active → Strategy
+- [ ] [Part 4: Scanning](#part-4-scanning) — Host Discovery → Port Enumeration → Defense Assessment
+- [ ] [Part 5: Enumeration](#part-5-enumeration) — Network Discovery → Service Profiling → Attack Mapping
+- [ ] [Part 6: System Hacking & Initial Compromise](#part-6-system-hacking--initial-compromise) — Breach → Escalation → Persistence → Evasion → Exfil → Reporting
+- [ ] [Part 7: Malware & Weaponization](#part-7-malware--weaponization) — Design → Weaponization → Evasion → Persistence → Anti-Forensics
+- [ ] [Part 8: Detection & Mitigation](#part-8-detection--mitigation) — Blue Team perspective for understanding defensive detection
+- [ ] [Part 9: Sniffing & Spoofing](#part-9-sniffing--spoofing) — Protocols → Sniffing → Spoofing → MITM → Defenses
+- [ ] [Part 10: Social Engineering](#part-10-social-engineering) — Recon → Digital → Human → Physical → Defense
+- [ ] [Part 11: Denial of Service](#part-11-denial-of-service) — Planning → Methods → Execution → Mitigation
+- [ ] [Part 12: Session Hijacking](#part-12-session-hijacking) — Steal → Hijack → Secure
+- [ ] [Part 13: Web Application Hacking](#part-13-web-application-hacking) — Recon → Analysis → Exploit → Persist → Defend
+- [ ] [Part 14: Web Server Hacking](#part-14-web-server-hacking) — Recon → Hardening → Exploit → Persist
+- [ ] [Part 15: IDS, Firewalls, and Honeypots](#part-15-ids-firewalls-and-honeypots) — Strategy → Deployment → Deception → Operations
+- [ ] [Part 16: Wireless Pentesting](#part-16-wireless-pentesting) — Recon → Breach → MITM → Defense
+- [ ] [Part 17: Mobile Platform Pentesting](#part-17-mobile-platform-pentesting) — Static → Dynamic → Network → Defense
+- [ ] [Part 18: Cryptography](#part-18-cryptography) — Concepts → Transit → Trust → Rest → Attacks
+- [ ] [Part 19: Cloud Computing](#part-19-cloud-computing) — Architecture → Storage → Deployment → Automation → Attacks
+- [ ] [Part 20: Digital Forensics](#part-20-digital-forensics) — Prep → Analysis → Network → Reporting
+- [ ] [Part 21: Bug Bounty and Penetration Testing](#part-21-bug-bounty-and-penetration-testing) — Scope → Recon → Exploit → Report
+- [ ] [Part 22: OSINT & Threat Intelligence](#part-22-osint--threat-intelligence) — Collection → Analysis → Automation → Dissemination
+- [ ] [Part 23: Adversary Emulation & Purple Teaming](#part-23-adversary-emulation--purple-teaming) — MITRE ATT&CK, APT Simulation, Metrics
+- [ ] [Part 24: Container & Orchestration Security](#part-24-container--orchestration-security) — Docker, Kubernetes, Secrets Management
+- [ ] [Part 25: OT/ICS/SCADA Security](#part-25-oticsscada-security) — Industrial Protocols, PLC, HMI, Safety Systems
+- [ ] [Part 26: Hardware Hacking & Embedded Systems](#part-26-hardware-hacking--embedded-systems) — Firmware, JTAG, UART, Side-Channel, IoT
+- [ ] [Part 27: AI & LLM Red Teaming](#part-27-ai--llm-red-teaming) — Prompt Injection → Agent Abuse → RAG Poisoning → Model Theft
+- [ ] [Part 28: Active Directory & Entra ID](#part-28-active-directory--entra-id) — On-Prem AD → ADCS → Entra ID/OAuth
+- [ ] [Part 29: Modern Exploitation](#part-29-modern-exploitation) — Memory Safety → Sandbox Escape → Mitigation Bypass
+- [ ] [Part Extra: Red Team Operations & Tradecraft](#part-extra-red-team-operations--tradecraft) — Infrastructure, Discipline, Operations
 
 ---
 
