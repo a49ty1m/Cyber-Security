@@ -2369,6 +2369,22 @@ Host A Layer 1 ←→ (physical) ←→ Host B Layer 1
 
 [↑ Back to top](#table-of-contents)
 
+---
+
+### 🎯 Key Takeaways - Section 10
+
+**TL;DR:** Communication architectures organize protocols into layers that abstract complexity. Each layer provides services to the layer above, hides implementation details, and speaks to peers at the same layer. Understanding this enables you to write secure distributed systems and identify protocol weaknesses.
+
+- **Layering = abstraction** — Change Layer 3 implementation without affecting Layer 4 applications
+- **Peer-to-peer communication happens at each layer** — HTTP (Layer 7) talks to HTTP, TCP (Layer 4) talks to TCP, IP (Layer 3) talks to IP
+- **Service models define what lower layers promise** — If Layer 3 promises "best effort delivery," upper layers must handle loss
+- **Protocol suites = coordinated layers** — TCP/IP stack includes TCP, UDP, IP, ICMP, IGMP, etc., all working together
+- **Violating layers creates bugs** — A Layer 7 protocol assuming Layer 3 reliability will fail on lossy networks
+
+[↑ Back to top](#table-of-contents)
+
+---
+
 ## 11. TCP/IP Model
 
 **Learning Outcomes:**
@@ -2393,6 +2409,22 @@ Typical layering (4–5 layers):
 Note: Real-world systems map OSI’s 7 layers into these 4–5 layers for practicality.
 
 [↑ Back to top](#table-of-contents)
+
+---
+
+### 🎯 Key Takeaways - Section 11
+
+**TL;DR:** The TCP/IP model is the practical 4-5 layer version of the OSI model. It maps directly to internet protocols: Layer 4 (Application) = HTTP/SMTP/DNS, Layer 3 (Transport) = TCP/UDP, Layer 2 (Internet) = IP/ICMP, Layer 1 (Link) = Ethernet/PPP. Use TCP/IP model for real-world networking; use OSI for teaching fundamentals.
+
+- **TCP/IP model is what the Internet actually uses** — OSI is theoretical; TCP/IP is reality
+- **Only 4-5 layers make TCP/IP lean and focused** — Easier to implement and understand than OSI's 7 layers
+- **Layer 4 is the magic layer for security** — Port-based access control, firewalls, VPNs all operate here
+- **"Internet Layer" = IP; "Transport Layer" = TCP/UDP** — These two layers are the internet's foundation
+- **Application Layer diversity = protocol proliferation** — HTTP, HTTPS, DNS, SSH, Telnet, FTP all live here; each has unique security implications
+
+[↑ Back to top](#table-of-contents)
+
+---
 
 ## 12. Internet Protocol (IP)
 
@@ -2693,30 +2725,6 @@ After this section, you'll understand:
 
 > [!NOTE]
 > IP's simplicity is by design. It provides minimal services, leaving reliability, ordering, and flow control to higher-layer protocols like TCP. This "thin waist" approach has enabled the Internet's massive success and scalability.
-
----
-
-### 🎯 Key Takeaways - Section 10
-
-**TL;DR:** Communication architectures organize protocols into layers that abstract complexity. Each layer provides services to the layer above, hides implementation details, and speaks to peers at the same layer. Understanding this enables you to write secure distributed systems and identify protocol weaknesses.
-
-- **Layering = abstraction** — Change Layer 3 implementation without affecting Layer 4 applications
-- **Peer-to-peer communication happens at each layer** — HTTP (Layer 7) talks to HTTP, TCP (Layer 4) talks to TCP, IP (Layer 3) talks to IP
-- **Service models define what lower layers promise** — If Layer 3 promises "best effort delivery," upper layers must handle loss
-- **Protocol suites = coordinated layers** — TCP/IP stack includes TCP, UDP, IP, ICMP, IGMP, etc., all working together
-- **Violating layers creates bugs** — A Layer 7 protocol assuming Layer 3 reliability will fail on lossy networks
-
----
-
-### 🎯 Key Takeaways - Section 11
-
-**TL;DR:** The TCP/IP model is the practical 4-5 layer version of the OSI model. It maps directly to internet protocols: Layer 4 (Application) = HTTP/SMTP/DNS, Layer 3 (Transport) = TCP/UDP, Layer 2 (Internet) = IP/ICMP, Layer 1 (Link) = Ethernet/PPP. Use TCP/IP model for real-world networking; use OSI for teaching fundamentals.
-
-- **TCP/IP model is what the Internet actually uses** — OSI is theoretical; TCP/IP is reality
-- **Only 4-5 layers make TCP/IP lean and focused** — Easier to implement and understand than OSI's 7 layers
-- **Layer 4 is the magic layer for security** — Port-based access control, firewalls, VPNs all operate here
-- **"Internet Layer" = IP; "Transport Layer" = TCP/UDP** — These two layers are the internet's foundation
-- **Application Layer diversity = protocol proliferation** — HTTP, HTTPS, DNS, SSH, Telnet, FTP all live here; each has unique security implications
 
 ---
 
