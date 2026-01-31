@@ -1646,6 +1646,38 @@ Connectors: LC, SC, ST; common wavelengths 850/1310/1550 nm.
 
 ---
 
+[↑ Back to top](#table-of-contents)
+
+---
+
+## 📚 PART III: MODELS & PROTOCOLS (Sections 9-12)
+
+**Difficulty Level:** 🟡 Intermediate | **Prerequisites:** Complete Parts I-II
+
+### Part III Overview
+
+While Part II covered infrastructure devices, **Part III explores the conceptual models and core protocols that organize how networks operate**. You'll learn the OSI Reference Model (7 layers for understanding), Communication Architecture (how protocols stack), TCP/IP Model (the real-world version), and the fundamental Internet Protocol that powers the entire internet.
+
+**Why This Matters:**
+- The OSI model is essential for certifications (Network+, Security+) and for communicating network concepts
+- Understanding layers helps identify where attacks occur (Layer 7 DDoS vs Layer 4 SYN floods)
+- TCP/IP model explains why certain protocols coexist and how traffic flows end-to-end
+- IP protocol fundamentals reveal attack vectors (TTL manipulation, fragmentation exploits, ICMP misuse)
+- Blue teams use these models for defense architecture; red teams exploit layer-specific weaknesses
+
+**What You'll Learn:**
+- **Section 9:** OSI 7-layer model—what it is, all 7 layers, data encapsulation, troubleshooting
+- **Section 10:** Communication Architecture—layering principles, protocol suites, peer-to-peer communication
+- **Section 11:** TCP/IP Model (4-5 layers)—how it maps to OSI, real-world protocols at each layer
+- **Section 12:** Internet Protocol—IP header structure, fragmentation, TTL, ICMP, routing
+
+**Real-World Application:**
+Imagine debugging a network issue. Using the OSI model, you isolate: Layer 1 (cables connected?), Layer 2 (ARP resolving?), Layer 3 (routing working?), Layer 4 (firewall blocking?), Layer 7 (application responding?). This systematic approach is standard in pentesting and troubleshooting. Understanding TCP/IP model helps you map services to layers (HTTP=Layer 7, TCP=Layer 4, IP=Layer 3) and plan attacks accordingly.
+
+**Certifications & Skills:** CompTia Network+ (OSI model heavily tested), CEH (protocol analysis), OSCP (network troubleshooting)
+
+---
+
 ## 9. Open Systems and OSI Reference Model
 
 **Learning Outcomes:**
@@ -2177,7 +2209,21 @@ Layer 7: Deliver to application
 > [!NOTE]
 > The OSI model is essential for understanding networking concepts, but real-world implementations (like TCP/IP) often blur layer boundaries for efficiency and practicality.
 
+---
+
+### 🎯 Key Takeaways - Section 9
+
+**TL;DR:** The OSI model is a 7-layer framework for understanding how networks operate. Each layer has specific responsibilities; attacks exploit layer weaknesses. Red teams use OSI model to classify attacks; blue teams use it for defense strategies. Memorize the 7 layers and their PDU types for network troubleshooting and certifications.
+
+- **OSI is a mental model, not a real protocol stack** — Helps with conceptual understanding; real systems follow it loosely
+- **Layer violations = security vulnerabilities** — Firewalls reading Layer 7 data, Layer 3 protocols revealing application info
+- **Bottom-up attacks** — Start with Layer 1 (physical sniffing), escalate to Layer 2 (ARP spoofing), then Layer 3+ (routing hijacking)
+- **Top-down defense** — Encrypt at Layer 7, filter at Layer 4, isolate at Layer 3, disable unnecessary Layer 2 protocols
+- **Encapsulation/decapsulation at each layer reveals protocol structure** — Wireshark packet analysis demonstrates this clearly
+
 [↑ Back to top](#table-of-contents)
+
+---
 
 ## 10. Communication Architecture
 
@@ -2650,18 +2696,6 @@ After this section, you'll understand:
 
 ---
 
-### 🎯 Key Takeaways - Section 9
-
-**TL;DR:** The OSI model is a 7-layer framework for understanding how networks operate. Each layer has specific responsibilities; attacks exploit layer weaknesses. Red teams use OSI model to classify attacks; blue teams use it for defense strategies. Memorize the 7 layers and their PDU types for network troubleshooting and certifications.
-
-- **OSI is a mental model, not a real protocol stack** — Helps with conceptual understanding; real systems follow it loosely
-- **Layer violations = security vulnerabilities** — Firewalls reading Layer 7 data, Layer 3 protocols revealing application info
-- **Bottom-up attacks** — Start with Layer 1 (physical sniffing), escalate to Layer 2 (ARP spoofing), then Layer 3+ (routing hijacking)
-- **Top-down defense** — Encrypt at Layer 7, filter at Layer 4, isolate at Layer 3, disable unnecessary Layer 2 protocols
-- **Encapsulation/decapsulation at each layer reveals protocol structure** — Wireshark packet analysis demonstrates this clearly
-
----
-
 ### 🎯 Key Takeaways - Section 10
 
 **TL;DR:** Communication architectures organize protocols into layers that abstract complexity. Each layer provides services to the layer above, hides implementation details, and speaks to peers at the same layer. Understanding this enables you to write secure distributed systems and identify protocol weaknesses.
@@ -2700,7 +2734,7 @@ After this section, you'll understand:
 
 ---
 
-## 📚 PART III: IP ADDRESSING & PROTOCOLS (Sections 13-15)
+## 📚 PART IV: IP ADDRESSING & PROTOCOLS (Sections 13-15)
 
 **Difficulty Level:** 🟡 Intermediate | **Prerequisites:** Complete Parts I-II
 
@@ -3683,7 +3717,7 @@ After this section, you'll understand:
 
 ---
 
-## 📚 PART IV: SERVICES, SECURITY & APPLICATIONS (Sections 16-19)
+## 📚 PART V: SERVICES, SECURITY & APPLICATIONS (Sections 16-19)
 
 **Difficulty Level:** 🟡 Intermediate | **Prerequisites:** Complete Parts I-III
 
@@ -5901,7 +5935,7 @@ tcpdump -i eth0 -n port 53
 
 ---
 
-## 📚 PART V: SUMMARY & PRACTICAL APPLICATION (Section 20)
+## 📚 PART VI: SUMMARY & PRACTICAL APPLICATION (Section 20)
 
 **Difficulty Level:** 🟡 Intermediate | **Prerequisites:** Complete Parts I-IV
 
