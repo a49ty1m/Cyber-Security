@@ -1,5 +1,43 @@
 # Red Team Fundamentals: Master Checklist
 
+## ✅ Completion Tracker (Auto)
+
+<!-- GitHub renders task list progress automatically in the preview. -->
+
+**Parts completed:**
+- [x] Part 1: Fundamentals
+- [ ] Part 2: Networking Fundamentals
+- [ ] Part 3: Footprinting & Reconnaissance
+- [ ] Part 4: Scanning
+- [ ] Part 5: Enumeration
+- [ ] Part 6: System Hacking & Initial Compromise
+- [ ] Part 7: Malware & Weaponization
+- [ ] Part 8: Detection & Mitigation
+- [ ] Part 9: Sniffing & Spoofing
+- [ ] Part 10: Social Engineering
+- [ ] Part 11: Denial of Service
+- [ ] Part 12: Session Hijacking
+- [ ] Part 13: Web Application Hacking
+- [ ] Part 14: Web Server Hacking
+- [ ] Part 15: IDS, Firewalls, and Honeypots
+- [ ] Part 16: Wireless Pentesting
+- [ ] Part 17: Mobile Platform Pentesting
+- [ ] Part 18: Cryptography
+- [ ] Part 19: Cloud Computing
+- [ ] Part 20: Digital Forensics
+- [ ] Part 21: Bug Bounty and Penetration Testing
+- [ ] Part 22: OSINT & Threat Intelligence
+- [ ] Part 23: Adversary Emulation & Purple Teaming
+- [ ] Part 24: Container & Orchestration Security
+- [ ] Part 25: OT/ICS/SCADA Security
+- [ ] Part 26: Hardware Hacking & Embedded Systems
+- [ ] Part 27: AI & LLM Red Teaming
+- [ ] Part 28: Active Directory & Entra ID
+- [ ] Part 29: Modern Exploitation
+- [ ] Part Extra: Red Team Operations & Tradecraft
+
+---
+
 ## 📋 Quick Navigation
 
 - [Part 1: Fundamentals](#part-1-fundamentals) (Hardware, OS, Memory, Data, Wireless, Applications)
@@ -42,7 +80,7 @@
 _Mastering the machine before the Operating System initializes._
 
 - [ ] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
-    
+     
 - [ ] **Registers:** Command the "steering wheel" of the CPU: **EAX/RAX** (accumulator), **ESP/RSP** (stack pointer), and **EIP/RIP** (instruction pointer).
     
 - [ ] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
