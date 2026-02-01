@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9da6a5d6e4ef562e",
+        "id": "5e5bf9e02ffb4d7c",
         "type": "tabs",
         "children": [
           {
-            "id": "96a62abcc088ebf8",
+            "id": "dc33ad98e796f182",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "02.Networking/Notes form Youtube/Topic_Wise_Notes.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Topic_Wise_Notes"
             }
           }
         ]
@@ -152,22 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "02.Networking/Notes form Youtube/Topic_Wise_Notes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
-            }
-          },
-          {
-            "id": "989aaea477ab0634",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "Outline of Topic_Wise_Notes"
             }
           },
           {
@@ -181,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -199,11 +194,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "989aaea477ab0634",
+  "active": "dc33ad98e796f182",
   "lastOpenFiles": [
-    "2026-02-01.md",
     "02.Networking/Notes form Youtube/Topic_Wise_Notes.md",
     "Roadmap.md",
+    "2026-02-01.md",
     "04.Exploits/01.System Hacking/Notes.md",
     "04.Exploits/01.System Hacking/Lectures.md",
     "04.Exploits/01.System Hacking",
