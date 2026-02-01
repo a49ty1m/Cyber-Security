@@ -1,100 +1,295 @@
 # Scanning — Detailed Notes (Module 6) 🔎
 
-**Overview:** Scanning is the active phase of reconnaissance used to discover live hosts, open ports, running services, OS versions, and potential vulnerabilities. It is used to convert raw network visibility into an actionable attack surface map and to plan follow-up testing.
+**Overview:** Network scanning is the active phase of intelligence gathering used to identify live hosts, open ports, running services, OS versions, and potential vulnerabilities. It converts raw network visibility into an actionable attack surface map for further testing.
+
+**Key idea:** “Knowing your enemy is winning half the war.”
 
 ---
 
-## Objectives
-- Discover live hosts and enumerate IP ranges.
-- Identify open ports, services, and application versions for vulnerability mapping.
-- Fingerprint operating systems and network topology to plan further action.
+## Quick‑Revision Checklist ✅
+
+- Identify scope and authorization.
+- Discover live hosts (ICMP/ARP).
+- Enumerate open TCP/UDP ports.
+- Fingerprint services and OS.
+- Correlate results to vulnerabilities.
+- Validate findings with safe probes.
+- Document evidence and next steps.
+
+---
+
+## Mini Glossary (Flags & Scan Types)
+
+**TCP Flags:**
+- **SYN:** Start connection
+- **ACK:** Acknowledge
+- **RST:** Reset/close
+- **FIN:** Finish
+- **URG:** Urgent data
+- **PSH:** Push data immediately
+
+**Scan Types:**
+- **SYN scan (`-sS`):** Half‑open stealth scan
+- **Connect scan (`-sT`):** Full TCP handshake
+- **FIN/NULL/Xmas (`-sF`, `-sN`, `-sX`):** Inverse flag scans
+- **ACK scan (`-sA`):** Firewall filtering discovery
+- **UDP scan (`-sU`):** No handshake, relies on ICMP errors
+
+---
+
+## Which Scan Should I Use? (Decision Table)
+
+| Goal | Recommended Scan | Why |
+|---|---|---|
+| Quick inventory (TCP) | `-sS` | Fast and stealthy |
+| No root privileges | `-sT` | Works without raw sockets |
+| Firewall rules check | `-sA` | Maps filtered vs unfiltered |
+| UDP services | `-sU` | Only reliable UDP discovery |
+| OS fingerprinting | `-O` / `-A` | Uses stack signatures |
+| Service versions | `-sV` | Banner and probe‑based |
+
+---
+
+## Basics of Scanning
+
+- Network scanning is performed actively against a target.
+- It can be done internally (intranet) or from the Internet.
+- Scanning helps locate vulnerable points that can be exploited.
+
+---
+
+## Objectives of Network Scanning
+
+- Discover live hosts, IP addresses, and open ports.
+- Identify operating systems and system architecture.
+- Discover services running on hosts.
+- Identify vulnerabilities in live hosts.
+
+---
+
+## Scanning Methodology (Module 6)
+
+1. **Checking for live systems**
+2. **Understanding TCP 3‑way handshake**
+3. **Port scanning to find open ports**
+4. **Service fingerprinting and OS detection**
+5. **Vulnerability scanning and mapping**
 
 ---
 
 ## 1. Checking for Live Systems
-- **Ping / ICMP Echo:** Send ICMP ECHO requests to determine reachability; useful but often filtered by firewalls.
-- **Ping sweep:** Scan a subnet (use subnet calculators to determine host counts) to build an inventory.
-- **Commands:** `nmap -sn 192.168.1.0/24` (ping sweep); `fping -a -g 192.168.1.0/24`.
+
+### Ping Scan
+
+- Send ICMP ECHO requests to hosts.
+- Live hosts respond with ICMP ECHO replies.
+- Useful to determine whether ICMP is allowed through firewalls.
+
+### Ping Sweep
+
+- Sends ICMP ECHO requests to multiple hosts in a range.
+- Live hosts respond with ICMP ECHO replies.
+- Subnet mask calculators help determine host counts.
+- Builds an inventory of live systems in a subnet.
+
+**Examples (authorized use only):**
+- `nmap -sn 192.168.1.0/24`
+- `fping -a -g 192.168.1.0/24`
 
 ---
 
 ## 2. TCP 3‑Way Handshake & Flags
-- **Three-way handshake:** SYN → SYN/ACK → ACK establishes normal TCP sessions.
-- **TCP flags:** SYN, ACK, RST, FIN, URG, PSH — scanners use different flag combinations to infer port state and fingerprint stacks.
+
+### TCP Flags
+
+- **URG (Urgent):** Data should be processed immediately
+- **FIN (Finish):** No more transmissions
+- **RST (Reset):** Resets a connection
+- **PSH (Push):** Send all buffered data immediately
+- **ACK (Acknowledgment):** Acknowledges receipt of a packet
+- **SYN (Synchronize):** Initiates a connection between hosts
+
+### Three‑Way Handshake
+
+**SYN → SYN/ACK → ACK** establishes a TCP session.
 
 ---
 
-## 3. Port Scanning & States
-- **Port states:** Open (service listening), Closed (no service but host responds), Filtered (firewall drops or blocks probes).
-- **Why scan:** Enumerating ports and services is required to find potential CVEs and attack paths.
+## 3. Port Scanning & Port States
+
+To exploit a system, attackers must identify services listening on publicly accessible ports.
+
+**Port States:**
+- **Open:** Actively accepting TCP connections, UDP datagrams, or SCTP associations
+- **Closed:** Responds to probes but no application is listening
+- **Filtered:** Packet filtering prevents determination (firewall/router)
 
 ---
 
-## 4. Port Scanning Methodology & Techniques
-- **Tools:** `nmap` (primary), `hping3` (packet crafting), `masscan` (fast scanning across ranges).
+## 4. Port Scanning Methodology & Tools
 
-**Common scan types and Nmap flags:**
-- TCP Connect / Full Open (`-sT`): completes the full handshake (no root needed).
-- Stealth / SYN Scan (`-sS`): half-open; less likely to be logged as a full connection.
-- Xmas/FIN/NULL scans (`-sX`, `-sF`, `-sN`): use unusual flagsets to detect stack behavior (works on some OSes).
-- ACK Scan (`-sA`): used to map firewall rules and determine whether ports are being filtered.
-- UDP Scan (`-sU`): no handshake — closed ports often return ICMP port unreachable; open ports may not respond.
+### Core Tools
 
-**Example commands (lab only):**
-- Stealth SYN + service detection, all ports: `nmap -sS -sV -p- -T4 -oA scans/target 10.0.0.5`
-- UDP targeting common services: `nmap -sU -p 53,67,123 -sV -T3 target` (UDP scans can be slow).
-- Full scan + OS detection: `nmap -p- -A -T4 target` (invasive — use in controlled labs).
-- Fast internet-scale scanning: `masscan -p0-65535 --rate=1000 target` (requires authorization and care).
-
-**hping3 examples (packet-crafting, lab only):**
-- SYN probe: `hping3 -S -p 80 target` (single SYN to port 80).
-- Fragmentation tests for IDS evasion proofs-of-concept: `hping3 -f -S -p 80 target`.
+- **Nmap:** Network inventory, service monitoring, OS detection, and firewall discovery
+- **hping2/hping3:** Packet crafting, firewall testing, path MTU discovery, advanced traceroute, OS fingerprinting, uptime guessing
 
 ---
 
-## 5. Banner Grabbing & OS Fingerprinting
-- **Active fingerprinting:** Send crafted packets and compare responses against known TCP/IP signatures (`nmap -O`, `p0f`).
-- **Banner grabbing:** Connect to a service and read its banner string to get software and version info.
-  - `nc -v target 80` then `HEAD / HTTP/1.0` or `curl -I http://target/`.
-  - `nmap --script=banner -sV -p 80,443 target` automates banner retrieval.
-- **Passive methods:** Sniff traffic for server error messages or file extensions (e.g., `.aspx` hints at IIS/Windows).
+## 5. Scanning Techniques
+
+### TCP Connect / Full Open Scan (`-sT`)
+
+- Completes full TCP three‑way handshake
+- Ends with a RST packet to tear down the connection
+- Does not require super user privileges
+
+### Stealth / Half‑Open Scan (`-sS`)
+
+- Sends SYN, receives SYN/ACK if open
+- Sends RST before handshake completes
+- If RST received from server → port is closed
+
+### Inverse TCP Flag Scans (`-sF`, `-sN`)
+
+- **FIN scan:** FIN flag set
+- **NULL scan:** No flags set
+- No response usually indicates open; RST indicates closed
+
+### Xmas Scan (`-sX`)
+
+- Sends FIN, URG, and PSH flags set
+- Used to infer OS stack behavior
+
+### ACK Flag Probe Scan (`-sA`)
+
+- Sends ACK probes and analyzes RST responses
+- **TTL < 64** for RST implies open (per module guidance)
+- **WINDOW value non‑zero** in RST implies open
+- No response implies filtered
+
+### UDP Scan (`-sU`)
+
+- No three‑way handshake for UDP
+- **Open UDP port:** Often no response
+- **Closed UDP port:** ICMP port unreachable (type 3, code 3)
+- Many spyware and Trojans use UDP ports
 
 ---
 
-## 6. Evading IDS/Firewalls (for awareness/testing)
-- **Techniques used by attackers:** Packet fragmentation, source spoofing, slow/low-and-slow scanning, using proxies or pivot hosts, and timing variations (`-T` with nmap).
-- **Note:** These are detection/defense test techniques; they require explicit authorization.
+## Detection Signals by Scan Type (Defender View)
+
+- **SYN Scan:** High SYN rate, many half‑open connections
+- **Connect Scan:** Many completed TCP handshakes from a single source
+- **FIN/NULL/Xmas:** Unusual flag combinations in logs
+- **ACK Scan:** RST responses to ACK probes, often uniform across ports
+- **UDP Scan:** Bursts of ICMP type 3 code 3 responses
 
 ---
 
-## 7. Vulnerability Scanning & Visual Mapping
-- **Vulnerability scanning:** Tools like OpenVAS, Nessus, and Nikto identify CVEs, weak ciphers, misconfigurations and known weaknesses.
-- **Visual mapping:** Produce diagrams of network topology and trust boundaries using tools like LANSurveyor, Network Topology Mapper, OpManager.
+## Limitations & False Positives
+
+- **Filtered vs Closed:** Firewalls may drop probes, making closed ports appear filtered.
+- **UDP Silence:** Open UDP services often do not respond, causing false negatives.
+- **Rate Limits:** IDS/IPS rate‑limiting can hide live ports.
+- **Stateful Firewalls:** Can affect ACK/FIN/NULL/Xmas accuracy.
+- **NAT/Proxies:** May obscure real host responses and OS fingerprints.
 
 ---
 
-## 8. Countermeasures & Hardening
-- **Detect & block scans:** Use IDS/IPS signatures, rate-limiting, connection throttling, and behavior-based anomaly detection.
-- **ICMP/Filtering:** Consider filtering or rate-limiting ICMP (ping) to reduce information leakage.
-- **Service hardening:** Disable unnecessary services, change or obfuscate banners (`ServerSignature Off`, `ServerTokens Prod` for Apache), and keep firmware and software up to date.
-- **Firewall rules:** Enforce default-deny (block-all) policies, implement anti-spoofing on edge routers, and tune anti-scanning rules.
-- **Proactive testing:** Regularly run authorized scans and validate detection rules and incident playbooks.
+## 6. Banner Grabbing & OS Fingerprinting
+
+### Banner Grabbing
+
+Determines OS or software version running on a remote system.
+
+**Why it matters:** OS identification helps map vulnerabilities and exploit paths.
+
+### Active Banner Grabbing
+
+- Send crafted packets and compare responses to a database
+- Responses differ across OSes due to TCP/IP stack variations
+
+### Passive Banner Grabbing
+
+- **Error messages:** Reveal server type, OS, and SSL tool
+- **Traffic sniffing:** Analyze captured packets for OS hints
+- **Page extensions:** `.aspx` suggests IIS/Windows, etc.
 
 ---
 
-### Lab-friendly commands & quick reference (Authorized use only)
+## 7. Evading IDS and Firewalls (Awareness Only)
+
+- Fragment IP packets
+- Spoof IP address and sniff responses
+- Use source routing (if possible)
+- Use proxy servers or compromised hosts to launch scans
+
+---
+
+## 8. Vulnerability Scanning
+
+Identifies vulnerabilities and weaknesses for exploitation:
+
+- Network vulnerabilities
+- Open ports and running services
+- Application and service vulnerabilities
+- Application and service configuration errors
+
+---
+
+## 9. Network Visual Mapping
+
+Visual mapping builds a network diagram to understand logical and physical paths.
+
+**Network Discovery Tools:**
+- LANSurveyor
+- Network Topology Mapper
+- OpManager
+- NetworkView
+
+---
+
+## 10. Countermeasures
+
+### Port Scanning Countermeasures
+
+- Configure firewall and IDS rules to detect and block probes
+- Regularly run port scanning tools internally to validate detection
+- Ensure routing/filtering mechanisms cannot be bypassed via source ports or source routing
+- Configure anti‑scanning and anti‑spoofing rules
+- Keep router, IDS, and firewall firmware updated
+- Use custom rule sets to lock down network and block unwanted ports
+- Filter ICMP messages (inbound ICMP types and outbound ICMP type 3 unreachable)
+- Perform periodic TCP/UDP scans and ICMP probes against your own IP ranges
+
+### Banner Grabbing Countermeasures
+
+- Disable or change banners
+- Display false banners to mislead attackers
+- Turn off unnecessary services to reduce information disclosure
+- Use ServerMask or similar tools to modify server banners
+- Use httpd.conf directives to change banner information
+- Set `ServerSignature Off` in httpd.conf
+
+---
+
+### Lab‑friendly commands & quick reference (Authorized use only)
+
 - Host discovery (ping sweep): `nmap -sn 192.168.1.0/24`
-- Quick stealth + service detection: `nmap -sS -sV -p- -T4 target`
-- UDP reconnaissance: `nmap -sU -p 1-1024 -T3 target`
-- Simple banner check: `curl -I http://target/` or `nc -v target 22`
-- Fast scan (use with care): `masscan -p0-65535 --rate=1000 target`
+- Full open TCP scan: `nmap -sT -p 1-1024 target`
+- Stealth SYN scan: `nmap -sS -p- -T3 target`
+- UDP scan (common ports): `nmap -sU -p 53,67,123 target`
+- Basic banner grab: `nc -v target 80` then `HEAD / HTTP/1.0`
+- hping3 SYN probe: `hping3 -S -p 80 target`
 
 ---
 
 ## Detection & Operational Tips for Defenders
-- Alert on high SYN rates, large numbers of half-open connections, and bursts of port probes from a single source.
-- Use SIEM correlation to detect distributed scanning across sensors (low-and-slow techniques are easier to spot when correlated).
-- Regularly test IDS/IPS signatures and update firewall rules; perform patch management and service hardening.
+
+- Alert on high SYN rates, half‑open connections, and bursty port probes
+- Correlate events across sensors to detect low‑and‑slow scans
+- Regularly test IDS/IPS signatures and update firewall rule sets
+- Continuously patch systems and remove unnecessary services
 
 ---
 
