@@ -349,7 +349,7 @@ A **computer network** is an interconnected collection of autonomous computing d
    - Physical addressing: MAC addresses (Layer 2)
    - Application layer: domain names, URLs, email addresses
    - Enables unique identification and proper message routing
-
+********
 ### 1.4 Network Goals
 
 - **Resource Sharing:** Files, printers, storage, applications, databases
@@ -449,9 +449,9 @@ The **Client/Server model** is a distributed computing architecture that separat
        │ 2. Send Request (HTTP GET /index.html) │
        ├───────────────────────────────────────>│
        │                                        │
-       │              3. Process Request         │
-       │                 & Access Resources      │
-       │                      (...)              │
+       │             3. Process Request         │
+       │                & Access Resources      │
+       │                     (...)              │
        │                                        │
        │ 4. Send Response (200 OK + HTML)       │
        │<───────────────────────────────────────┤
