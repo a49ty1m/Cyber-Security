@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02.Networking/Notes form Youtube/Topic_Wise_Notes.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Topic_Wise_Notes"
+              "title": "README"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "02.Networking/Notes form Youtube/Topic_Wise_Notes.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Topic_Wise_Notes"
+              "title": "Outline of README"
             }
           },
           {
@@ -196,6 +196,16 @@
   },
   "active": "dc33ad98e796f182",
   "lastOpenFiles": [
+    "04.Exploits/01.System-Hacking/Notes.md",
+    "04.Exploits/01.System-Hacking/Lectures.md",
+    "04.Exploits/01.System-Hacking",
+    "02.Networking/Notes-from-Youtube/MIx_notes.md",
+    "02.Networking/Notes-from-Youtube/Topic_Wise_Notes.md",
+    "02.Networking/Notes-from-Youtube",
+    "03.Learnings/01.Footprinting-and-Reconnaissance/lectures.md",
+    "03.Learnings/01.Footprinting-and-Reconnaissance/Notes.md",
+    "03.Learnings/01.Footprinting-and-Reconnaissance/Books.md",
+    "03.Learnings/01.Footprinting-and-Reconnaissance",
     "02.Networking/Notes form Youtube/Topic_Wise_Notes.md",
     "Roadmap.md",
     "2026-02-01.md",
@@ -216,21 +226,11 @@
     "Lab/OverTheWire/Bandit/bandit-level-23.md",
     "Lab/OverTheWire/Bandit/bandit-level-22.md",
     "Lab/OverTheWire/Bandit/bandit-level-21.md",
-    "Lab/OverTheWire/Bandit/bandit-level-20.md",
-    "Lab/OverTheWire/Bandit/bandit-level-19.md",
-    "Lab/OverTheWire/Bandit/bandit-level-18.md",
-    "Lab/OverTheWire/Bandit/bandit-level-17.md",
-    "Lab/OverTheWire/Bandit/bandit-level-16.md",
-    "Lab/OverTheWire/Bandit/bandit-level-15.md",
-    "Lab/OverTheWire/Bandit/bandit-level-14.md",
     "Lab/OverTheWire/Bandit",
     "Lab/OverTheWire",
     "Lab",
     "04.Exploits/05.System Hacking",
     "04.Exploits",
-    "03.Learnings/Markup",
-    "03.Learnings/03.Enumeration",
-    "03.Learnings/02.Scanning",
-    "03.Learnings/01.Footprinting and Reconnaissanc"
+    "03.Learnings/Markup"
   ]
 }

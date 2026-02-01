@@ -1,0 +1,40 @@
+# Obsidian
+.obsidian/
+
+# OS Files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary Files
+*.tmp
+*.bak
+*.log
+
+# Private/Sensitive
+*password*
+*secret*
+*private*
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+env/
+
+# Node
+node_modules/
+package-lock.json
+
+# Misc
+.env
