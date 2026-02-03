@@ -299,6 +299,21 @@ _Goal: Understand software stacks and cloud computing basics._
 
 - [ ] **Transceivers & Converters:** Master **SFP, QSFP, and media converters** for heterogeneous networks.
 
+- [ ] **Power over Ethernet (PoE):** Understand **PoE (802.3af - 15.4W), PoE+ (802.3at - 25.5W), PoE++ (802.3bt - 51-71W)** standards for powering **IP phones, APs, cameras** over Ethernet.
+
+**Network Architecture & Topology Designs:**
+- [ ] **Two-Tier (Collapsed Core):** Understand **Access + Distribution/Core** combined design for small-to-medium networks.
+
+- [ ] **Three-Tier (Hierarchical):** Master **Access, Distribution, Core** layers for scalable enterprise networks.
+
+- [ ] **Spine-Leaf Architecture:** Understand modern **data center topology** with **equal-cost paths, low latency, east-west traffic optimization**.
+
+- [ ] **SOHO (Small Office/Home Office):** Know typical **single router/switch** setups with integrated wireless.
+
+- [ ] **On-Premises vs Cloud:** Understand **physical datacenter vs cloud-hosted** infrastructure trade-offs.
+
+- [ ] **WAN Architecture:** Master **hub-and-spoke, partial mesh, full mesh** WAN designs.
+
 **Physical Layer Security & Attacks:**
 - [ ] **Cable Interception:** Understand **fiber tapping**, **copper snooping**, and physical plant security.
 
@@ -354,6 +369,32 @@ _Goal: Understand software stacks and cloud computing basics._
 
 - [ ] **Spanning Tree Protocol (STP):** Understand BPDU manipulation and loop prevention bypass.
 
+**Layer 2 Security Features:**
+- [ ] **Port Security:** Configure **maximum MAC addresses, violation modes (protect/restrict/shutdown)**, and **sticky MAC learning**.
+
+- [ ] **DHCP Snooping:** Enable **DHCP snooping** to build a trusted **IP-MAC binding table** and block rogue DHCP servers.
+
+- [ ] **Dynamic ARP Inspection (DAI):** Configure **DAI** to validate **ARP packets** against the DHCP snooping database; prevent ARP spoofing.
+
+- [ ] **IP Source Guard:** Understand **IPSG** to prevent **IP spoofing** by filtering traffic based on DHCP snooping bindings.
+
+**Rapid PVST+ Spanning Tree Protocol:**
+- [ ] **Root Bridge Election:** Understand **primary/secondary root bridge** configuration using **priority values (0-61440 in 4096 increments)**.
+
+- [ ] **Port States:** Master **Discarding, Learning, Forwarding** states in Rapid PVST+.
+
+- [ ] **Port Roles:** Understand **Root Port, Designated Port, Alternate Port, Backup Port**.
+
+- [ ] **PortFast:** Configure **PortFast** on access ports to bypass **listening/learning** states; skip on trunk ports.
+
+- [ ] **BPDU Guard:** Enable **BPDU Guard** to shutdown ports receiving **BPDUs** (protects against rogue switches).
+
+- [ ] **BPDU Filter:** Understand **BPDU Filter** to suppress **BPDU transmission/reception** on ports.
+
+- [ ] **Root Guard:** Configure **Root Guard** to prevent **unauthorized root bridge** takeover.
+
+- [ ] **Loop Guard:** Enable **Loop Guard** to prevent **alternate/root ports** from becoming designated due to **unidirectional link failure**.
+
 **Network Scope & Physical Reach:**
 - [ ] **PAN (Personal Area Network):** Bluetooth/NFC range (meters); personal device networks.
 
@@ -373,6 +414,33 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **LLDP (Link Layer Discovery Protocol):** Learn device discovery and topology mapping.
 
 - [ ] **Packet Capture & Analysis:** Master **Wireshark** for Layer 2 frame analysis.
+
+**Cisco Discovery Protocols:**
+- [ ] **CDP (Cisco Discovery Protocol):** Configure and verify **CDP** for discovering **directly connected Cisco devices**; understand security risks.
+
+- [ ] **LLDP (Link Layer Discovery Protocol):** Configure **LLDP** as vendor-neutral alternative to CDP; understand **LLDP-MED** for VoIP.
+
+- [ ] **CDP/LLDP Security:** Understand **information disclosure** risks and when to **disable on edge ports**.
+
+**EtherChannel & Link Aggregation:**
+- [ ] **LACP (802.3ad):** Configure **Link Aggregation Control Protocol** with **active/passive** modes for dynamic bundling.
+
+- [ ] **PAgP (Port Aggregation Protocol):** Understand Cisco proprietary **PAgP** with **desirable/auto** modes.
+
+- [ ] **EtherChannel Load Balancing:** Configure **src-mac, dst-mac, src-dst-ip, src-dst-port** load distribution algorithms.
+
+- [ ] **Layer 2 vs Layer 3 EtherChannel:** Understand **L2 EtherChannel (switch ports)** vs **L3 EtherChannel (routed ports)**.
+
+**Cisco Wireless Architecture:**
+- [ ] **Autonomous AP Mode:** Understand **standalone APs** with individual management (legacy).
+
+- [ ] **Lightweight AP (LAP) Mode:** Master **CAPWAP tunneling** to **Wireless LAN Controller (WLC)** for centralized management.
+
+- [ ] **FlexConnect (H-REAP):** Understand **hybrid mode** allowing **local switching** at branch sites with **central authentication**.
+
+- [ ] **WLC Deployment:** Know **centralized, distributed, cloud-based** WLC architectures.
+
+- [ ] **WLAN Physical Infrastructure:** Understand **AP connections (access/trunk ports), WLC uplinks, LAG (Link Aggregation)** for redundancy.
     
 
 ---
@@ -408,6 +476,12 @@ _Goal: Understand software stacks and cloud computing basics._
 **Dynamic Routing Protocols:**
 - [ ] **OSPF (Open Shortest Path First):** Master **Areas, LSA, SPF algorithm**, and DR/BDR election.
 
+- [ ] **OSPFv2 Configuration:** Configure **single-area OSPF**, understand **neighbor adjacencies, point-to-point vs broadcast networks**.
+
+- [ ] **OSPF DR/BDR Election:** Understand **Designated Router/Backup DR** election on **broadcast/NBMA networks** based on **priority and Router ID**.
+
+- [ ] **OSPF Router ID:** Configure and verify **Router ID** selection (manual > loopback > highest IP).
+
 - [ ] **BGP (Border Gateway Protocol):** Understand **AS numbers, path vectors, and route redistribution**.
 
 - [ ] **EIGRP (Enhanced Interior Gateway Routing Protocol):** Master Cisco proprietary **DUAL algorithm** and metrics.
@@ -415,6 +489,15 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **RIP (Routing Information Protocol):** Understand legacy distance-vector protocol and 15-hop limit.
 
 - [ ] **Routing Protocol Vulnerabilities:** Learn **route injection, spoofing, and redistribution attacks**.
+
+**First Hop Redundancy Protocols (FHRP):**
+- [ ] **HSRP (Hot Standby Router Protocol):** Understand Cisco proprietary **virtual IP/MAC**, **active/standby routers**, and **priority/preemption**.
+
+- [ ] **VRRP (Virtual Router Redundancy Protocol):** Learn industry-standard **VRRP** with **master/backup** election.
+
+- [ ] **GLBP (Gateway Load Balancing Protocol):** Understand Cisco **GLBP** for **load sharing** across multiple gateways.
+
+- [ ] **FHRP Purpose:** Know FHRP provides **default gateway redundancy** to prevent **single point of failure** for end hosts.
 
 **NAT & PAT Mechanics:**
 - [ ] **Static NAT:** Understand 1:1 IP mapping for incoming connections.
@@ -557,6 +640,97 @@ _Goal: Understand software stacks and cloud computing basics._
 
 - [ ] **DHCP Relay:** Understand across-subnet DHCP and manipulation vectors.
 
+**IP Services Configuration:**
+- [ ] **DHCP Server Configuration:** Configure **Cisco IOS DHCP server** with **pools, exclusions, default-router, dns-server, lease time**.
+
+- [ ] **DHCP Client Configuration:** Configure interfaces as **DHCP clients** using **ip address dhcp**.
+
+- [ ] **DHCP Relay Agent:** Configure **ip helper-address** to relay **DHCP requests** across subnets to remote DHCP server.
+
+- [ ] **DNS Role in Networks:** Understand **DNS resolution process**, **forward/reverse lookups**, and **recursive vs iterative queries**.
+
+- [ ] **DNS Configuration:** Configure **ip name-server** and **ip domain-lookup** for hostname resolution on network devices.
+
+**NTP (Network Time Protocol):**
+- [ ] **NTP Purpose:** Understand **time synchronization** importance for **logging, authentication, certificates, troubleshooting**.
+
+- [ ] **NTP Hierarchy:** Master **Stratum levels** (0-15), where **Stratum 0 = atomic clock**, **Stratum 1 = primary**, etc.
+
+- [ ] **NTP Client Configuration:** Configure devices as **NTP clients** using **ntp server <ip>** to sync time.
+
+- [ ] **NTP Server Configuration:** Configure router as **NTP server** using **ntp master** for internal time distribution.
+
+- [ ] **NTP Authentication:** Implement **NTP authentication** using **keys** to prevent time manipulation attacks.
+
+**SNMP (Simple Network Management Protocol):**
+- [ ] **SNMP Architecture:** Understand **Manager-Agent** model, **MIB (Management Information Base)**, and **OID** hierarchy.
+
+- [ ] **SNMP Versions:** Know **SNMPv1 (insecure), SNMPv2c (community strings), SNMPv3 (authentication & encryption)**.
+
+- [ ] **SNMP Operations:** Master **GET, GET-NEXT, GET-BULK, SET, TRAP, INFORM** message types.
+
+- [ ] **SNMP Community Strings:** Understand **read-only (RO)** and **read-write (RW)** community strings as passwords.
+
+- [ ] **SNMP in Network Operations:** Use SNMP for **monitoring interface status, bandwidth utilization, CPU/memory, configuration backup**.
+
+- [ ] **SNMP Security Risks:** Understand **community string exposure, SNMP enumeration, unauthorized config changes**.
+
+**Syslog (System Logging):**
+- [ ] **Syslog Facilities:** Understand **facility codes** (local0-7, kern, user, mail, daemon, auth, etc.) for message categorization.
+
+- [ ] **Syslog Severity Levels:** Master **0-7 severity** (0=Emergency, 1=Alert, 2=Critical, 3=Error, 4=Warning, 5=Notice, 6=Informational, 7=Debug).
+
+- [ ] **Syslog Configuration:** Configure **logging host <ip>**, **logging trap <level>**, and **logging source-interface**.
+
+- [ ] **Syslog vs Local Logging:** Understand **logging buffer, console, monitor** vs **centralized syslog server**.
+
+- [ ] **Syslog for Security:** Use syslog for **incident response, forensics, compliance, anomaly detection**.
+
+**TFTP/FTP File Transfer:**
+- [ ] **TFTP (Trivial File Transfer Protocol):** Understand **UDP port 69**, **no authentication**, simple operation.
+
+- [ ] **TFTP Use Cases:** Use for **IOS upgrades, config backup/restore, boot image loading** on Cisco devices.
+
+- [ ] **TFTP Commands:** Master **copy running-config tftp:**, **copy tftp: flash:**, **boot system tftp:**.
+
+- [ ] **FTP (File Transfer Protocol):** Understand **TCP ports 20/21**, **authentication**, **active vs passive mode**.
+
+- [ ] **FTP vs TFTP:** Know **TFTP = simple, no auth, UDP** vs **FTP = complex, authenticated, TCP**.
+
+- [ ] **Secure Alternatives:** Prefer **SCP, SFTP** over **TFTP/FTP** for secure file transfers.
+
+**NAT Configuration:**
+- [ ] **Static NAT Configuration:** Configure **ip nat inside source static <local-ip> <global-ip>** for 1:1 mapping.
+
+- [ ] **Dynamic NAT with Pools:** Configure **ip nat pool** and **ip nat inside source list <acl> pool <name>**.
+
+- [ ] **PAT (NAT Overload):** Configure **ip nat inside source list <acl> interface <outside-int> overload**.
+
+- [ ] **NAT Inside/Outside:** Apply **ip nat inside** and **ip nat outside** to appropriate interfaces.
+
+- [ ] **NAT Verification:** Use **show ip nat translations**, **show ip nat statistics** for troubleshooting.
+
+**QoS (Quality of Service) Fundamentals:**
+- [ ] **QoS Purpose:** Understand managing **bandwidth, latency, jitter, packet loss** for critical applications (VoIP, video).
+
+- [ ] **Classification:** Identify and **mark traffic** based on **Layer 2 (CoS), Layer 3 (DSCP/ToS), Layer 4 (ports), Layer 7 (application)**.
+
+- [ ] **Marking:** Apply **DSCP values (0-63)**, **IP Precedence (0-7)**, or **802.1p CoS (0-7)** to packets for priority signaling.
+
+- [ ] **Queuing:** Understand **FIFO, Priority Queuing (PQ), Weighted Fair Queuing (WFQ), Class-Based WFQ (CBWFQ), Low Latency Queuing (LLQ)**.
+
+- [ ] **Congestion Management:** Use queuing to **schedule packet transmission** during congestion based on priority.
+
+- [ ] **Congestion Avoidance:** Implement **Random Early Detection (RED/WRED)** to **drop lower-priority packets** before buffers fill.
+
+- [ ] **Policing:** Enforce **rate limits** by **dropping or remarking** excess traffic immediately.
+
+- [ ] **Shaping:** **Buffer excess traffic** and send later to smooth bursty traffic patterns.
+
+- [ ] **Per-Hop Behavior (PHB):** Understand QoS actions applied at **each network device** along the path.
+
+- [ ] **Trust Boundaries:** Know where to **trust/classify** markings (access layer) vs where to **enforce** (distribution/core).
+
 **Authentication Protocols:**
 - [ ] **Kerberos (Port 88):** Master **TGT, TGS, and mutual authentication** with Windows AD.
 
@@ -629,6 +803,40 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **WireGuard:** Understand **lightweight, kernel-space** modern VPN protocol.
 
 - [ ] **VPN Bypass:** Learn **DNS leaks, IPv6 leaks**, and split-tunneling exploitation.
+
+**Network Device Management Access:**
+- [ ] **Console Access:** Connect via **console cable (RJ45/USB)** using **9600 baud, 8N1** for out-of-band management.
+
+- [ ] **Telnet (Port 23):** Understand **unencrypted** remote CLI access; avoid in production.
+
+- [ ] **SSH (Port 22):** Configure **SSH version 2** for **encrypted** remote management; generate **RSA keys**, set **domain name**.
+
+- [ ] **HTTP/HTTPS Management:** Access **web GUI** via **HTTP (80)** or **HTTPS (443)**; understand certificate warnings.
+
+- [ ] **TACACS+ (Port 49):** Implement **centralized AAA** for **granular command authorization** and **full packet encryption**.
+
+- [ ] **RADIUS (Port 1812/1813):** Use for **network access authentication** (802.1X, VPN, wireless); encrypts only password.
+
+- [ ] **Cloud-Managed Networking:** Understand **Cisco Meraki, Cisco DNA Center** for **centralized cloud management** of distributed devices.
+
+- [ ] **Local Password Security:** Configure **enable secret** (MD5), **username/password** (encrypted with **service password-encryption**).
+
+- [ ] **Privilege Levels:** Understand **privilege levels 0-15** and **exec-timeout** for security.
+
+**Wireless LAN GUI Configuration:**
+- [ ] **WLAN Creation:** Create **SSID/WLAN** profiles via **WLC GUI** or standalone AP interface.
+
+- [ ] **WLAN Security Settings:** Configure **WPA2-Personal (PSK)**, **WPA2-Enterprise (802.1X/RADIUS)**, **WPA3** authentication.
+
+- [ ] **Pre-Shared Key (PSK):** Set **WPA2-PSK passphrase** (8-63 characters) for personal/small office WLANs.
+
+- [ ] **QoS Profiles for WLAN:** Apply **QoS profiles** (Platinum, Gold, Silver, Bronze) to prioritize **voice, video, best-effort, background**.
+
+- [ ] **Advanced WLAN Settings:** Configure **broadcast SSID, radio policies (802.11a/b/g/n/ac), client limits, session timeout**.
+
+- [ ] **VLAN Assignment:** Map **WLAN to VLAN** for segmentation; configure **interface groups**.
+
+- [ ] **FlexConnect Local Switching:** Enable for **local data switching** at branch APs with **central authentication**.
 
 **Network Monitoring & Analysis:**
 - [ ] **Packet Capture (tcpdump/Wireshark):** Master **filter syntax** and protocol dissection.
@@ -709,13 +917,101 @@ _Goal: Move from local simulation to cloud-native networks using a "hack to root
 
 - [ ] **Monitoring & Evasion:** Baseline with **NetFlow/SNMP/pcap**; label what defenders see vs. miss (**Zero Trust/SIEM/SOAR** gaps).
 
-- [ ] **Certifications:** Aim **CCNA** (core) or **CompTIA Network+** (entry); add **AWS Advanced Networking** for cloud-heavy ops.
+- [ ] **Certifications:** Consider **CompTIA Network+** (entry) or **Cisco certifications** (core); add **AWS Advanced Networking** for cloud-heavy ops.
 
 - [ ] **Ethics & ROE:** Keep **Rules of Engagement** explicit; log operator actions for audit trails.
 
 - [ ] **Automation Scaling:** Script **mass config/port scans** with **Python**.
 
 - [ ] **Monitoring Deep Dives:** Add **SNMP or NetFlow** in the advanced lab to visualize exfil patterns.
+
+---
+
+### Automation & Programmability
+
+_Goal: Understand how automation transforms network operations and software-defined architectures._
+
+**Automation Impact on Network Management:**
+- [ ] **Why Automation:** Understand benefits of **consistency, speed, scale, reduced human error, version control** in network operations.
+
+- [ ] **Traditional vs Modern:** Compare **manual CLI configuration** vs **API-driven automation, Infrastructure as Code (IaC)**.
+
+- [ ] **Use Cases:** Master **bulk configuration, compliance auditing, automated backup/restore, zero-touch provisioning (ZTP)**.
+
+- [ ] **DevOps for NetOps:** Understand **CI/CD pipelines, Git version control, testing** applied to network configs.
+
+**Controller-Based & Software-Defined Networking:**
+- [ ] **Traditional Networks:** Understand **distributed control plane** where each device makes forwarding decisions independently.
+
+- [ ] **Controller-Based Networks:** Master **centralized control plane** with **Cisco DNA Center, SD-WAN, Meraki Dashboard**.
+
+- [ ] **Software-Defined Architecture Components:**
+  - [ ] **Control Plane:** Centralized **routing decisions, policy management** (moved to controller).
+  - [ ] **Data Plane:** Distributed **packet forwarding** (remains on network devices).
+  - [ ] **Separation Benefits:** Understand **policy abstraction, simplified management, rapid deployment**.
+
+- [ ] **Underlay Network:** Physical infrastructure providing **IP connectivity** between devices.
+
+- [ ] **Overlay Network:** Logical **tunnels (VXLAN, GRE, IPsec)** built over underlay for **segmentation and abstraction**.
+
+- [ ] **Fabric Architecture:** Understand **SD-Access fabric** with **control, data, policy** planes unified.
+
+**Northbound vs Southbound APIs:**
+- [ ] **Southbound APIs:** Controller-to-device communication using **OpenFlow, NETCONF, RESTCONF, SNMP** to **program forwarding behavior**.
+
+- [ ] **Northbound APIs:** Application-to-controller communication using **REST APIs** for **orchestration, management apps, custom automation**.
+
+- [ ] **API Direction:** Remember **Southbound = down to devices**, **Northbound = up to applications**.
+
+**AI & Machine Learning in Network Operations:**
+- [ ] **Predictive AI:** Understand ML for **capacity planning, failure prediction, anomaly detection, traffic forecasting**.
+
+- [ ] **Generative AI:** Use AI for **network design suggestions, configuration generation, natural language troubleshooting**.
+
+- [ ] **AI-Driven Insights:** Leverage **Cisco DNA Assurance, ThousandEyes** for **proactive issue detection, root cause analysis**.
+
+- [ ] **ML Use Cases:** Master **security threat detection, user experience monitoring, wireless optimization**.
+
+**REST APIs & Data Encoding:**
+- [ ] **REST (Representational State Transfer):** Understand stateless **client-server** architecture over **HTTP/HTTPS**.
+
+- [ ] **HTTP Verbs/CRUD:** Master mapping:
+  - [ ] **GET = Read** (retrieve resource)
+  - [ ] **POST = Create** (add new resource)
+  - [ ] **PUT/PATCH = Update** (modify existing resource)
+  - [ ] **DELETE = Delete** (remove resource)
+
+- [ ] **RESTful API Authentication:** Understand **Basic Auth, Token-based (Bearer), OAuth 2.0, API Keys**.
+
+- [ ] **Response Codes:** Know **200 OK, 201 Created, 204 No Content, 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Server Error**.
+
+- [ ] **JSON Data Encoding:** Understand **JSON structure** (objects, arrays, key-value pairs) as primary REST API data format.
+
+- [ ] **JSON Components:** Recognize **{} = object, [] = array, "key": "value"** pairs, data types (string, number, boolean, null).
+
+- [ ] **JSON vs XML:** Understand **JSON** is more lightweight and preferred for modern APIs.
+
+**Configuration Management Tools:**
+- [ ] **Ansible Capabilities:** Understand **agentless, YAML playbooks, SSH-based** automation for **network device configuration**.
+
+- [ ] **Ansible Modules:** Recognize **ios_command, ios_config, nxos_*, eos_*** modules for vendor-specific automation.
+
+- [ ] **Terraform Capabilities:** Understand **Infrastructure as Code (IaC)** with **declarative HCL syntax, state management**.
+
+- [ ] **Terraform Providers:** Recognize **Cisco ACI, NSX, AWS VPC, Azure VNET** providers for network infrastructure.
+
+- [ ] **Idempotency:** Understand both tools ensure **desired state** without duplicate changes on re-run.
+
+- [ ] **Version Control Integration:** Know both integrate with **Git** for **configuration versioning and rollback**.
+
+**Python for Network Automation (Foundation):**
+- [ ] **Python Libraries:** Recognize **Netmiko, NAPALM, Paramiko** for SSH-based device management.
+
+- [ ] **API Libraries:** Understand **requests library** for REST API interactions.
+
+- [ ] **Data Parsing:** Use **json module** to parse API responses and **jinja2** for config templating.
+
+- [ ] **Scripting Use Cases:** Automate **config backups, bulk changes, compliance checks, inventory collection**.
 
 
 ## Part 3: Footprinting and Reconnaissance
@@ -1217,6 +1513,89 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **MFA Bypass:** Exploit **MFA fatigue, SIM-swap, push notification spoofing**.
 
 - [ ] **Credential Stuffing:** Reuse leaked passwords from **breach corpuses** (HIBP/Dehashed).
+
+**Security Fundamentals:**
+- [ ] **Key Security Concepts:**
+  - [ ] **Threats:** Understand **potential dangers** (malware, DDoS, insider threats, APTs).
+  - [ ] **Vulnerabilities:** Know **weaknesses** in systems (unpatched software, misconfigs, weak passwords).
+  - [ ] **Exploits:** Master **methods to leverage vulnerabilities** (buffer overflow, SQL injection, privilege escalation).
+  - [ ] **Mitigation Techniques:** Apply **defense-in-depth, patching, hardening, segmentation, least privilege**.
+
+- [ ] **Security Program Elements:**
+  - [ ] **User Awareness Training:** Implement **phishing simulations, security policies, acceptable use training**.
+  - [ ] **Security Training:** Conduct **role-based training** for **admins, developers, end-users**.
+  - [ ] **Physical Access Control:** Understand **badge systems, cameras, mantrap doors, visitor logs, secure disposal**.
+
+**Device Access Control & Local Passwords:**
+- [ ] **Local Password Configuration:** Configure **enable secret** (hashed with SHA-256), **line console/vty passwords**.
+
+- [ ] **Local User Accounts:** Create **username/password** pairs with **privilege levels (0-15)**.
+
+- [ ] **Password Encryption:** Enable **service password-encryption** to encrypt plaintext passwords (Type 7 - weak).
+
+- [ ] **Password Strength Verification:** Use **show running-config** to verify password encryption types.
+
+**Security Password Policy Elements:**
+- [ ] **Password Management:** Implement **centralized password management** (AAA servers, password vaults).
+
+- [ ] **Password Complexity Requirements:**
+  - [ ] **Minimum Length:** Enforce **8+ characters** (12+ for privileged accounts).
+  - [ ] **Character Diversity:** Require **uppercase, lowercase, numbers, special characters**.
+  - [ ] **Dictionary/Common Password Blocking:** Prevent **common passwords** (Password123, admin).
+
+- [ ] **Password Rotation:** Enforce **90-day expiration** with **password history** to prevent reuse.
+
+- [ ] **Password Alternatives (Modern Security):**
+  - [ ] **Multifactor Authentication (MFA):** Require **something you know (password) + something you have (token/phone)**.
+  - [ ] **Certificates (PKI):** Use **X.509 certificates** for device/user authentication.
+  - [ ] **Biometrics:** Implement **fingerprint, facial recognition, iris scan** for high-security access.
+  - [ ] **Hardware Tokens:** Use **YubiKey, RSA SecurID** for **FIDO2/WebAuthn** authentication.
+  - [ ] **Passwordless Authentication:** Leverage **Windows Hello, FIDO2, certificate-based auth**.
+
+**AAA (Authentication, Authorization, Accounting):**
+- [ ] **Authentication:** Verify **who you are** (username/password, certificate, biometric, token).
+
+- [ ] **Authorization:** Determine **what you can do** (privilege level, command access, resource permissions).
+
+- [ ] **Accounting:** Track **what you did** (login time, commands executed, config changes, logout).
+
+- [ ] **AAA Implementation Methods:**
+  - [ ] **Local AAA:** Authentication via **local device database** (username/password on device).
+  - [ ] **Server-Based AAA:** Centralized authentication via **TACACS+** or **RADIUS** servers.
+
+- [ ] **TACACS+ vs RADIUS Comparison:**
+  - [ ] **TACACS+:** **Cisco proprietary**, **TCP port 49**, **encrypts entire packet**, **granular command authorization**, **preferred for device administration**.
+  - [ ] **RADIUS:** **Industry standard**, **UDP ports 1812/1813**, **encrypts only password**, **network access control**, **preferred for 802.1X, VPN, wireless**.
+
+- [ ] **AAA Configuration:** Configure **aaa new-model**, **aaa authentication login**, **aaa authorization**, **aaa accounting**.
+
+**IPsec VPN Fundamentals:**
+- [ ] **Site-to-Site VPN:** Connect **branch office to headquarters** with **permanent encrypted tunnels**.
+
+- [ ] **Remote Access VPN:** Allow **individual users** to connect to **corporate network** from anywhere.
+
+- [ ] **IPsec Components:**
+  - [ ] **IKE Phase 1:** Establish **secure management connection** using **Main Mode or Aggressive Mode**.
+  - [ ] **IKE Phase 2:** Negotiate **IPsec parameters** and establish **data tunnel (Quick Mode)**.
+  - [ ] **AH (Authentication Header):** Provides **integrity and authentication** (rarely used alone).
+  - [ ] **ESP (Encapsulating Security Payload):** Provides **confidentiality, integrity, authentication**.
+
+- [ ] **IPsec Modes:**
+  - [ ] **Transport Mode:** Encrypts **only payload** (used for host-to-host).
+  - [ ] **Tunnel Mode:** Encrypts **entire IP packet** (used for site-to-site VPN).
+
+**Access Control Lists:**
+- [ ] **Standard ACLs:** Filter based on **source IP only** (1-99, 1300-1999); apply **close to destination**.
+
+- [ ] **Extended ACLs:** Filter based on **source/dest IP, protocol, port** (100-199, 2000-2699); apply **close to source**.
+
+- [ ] **Named ACLs:** Use **descriptive names** instead of numbers for better management.
+
+- [ ] **ACL Processing:** Understand **top-to-bottom processing, implicit deny all** at end.
+
+- [ ] **ACL Placement Best Practices:** **Standard ACLs near destination**, **Extended ACLs near source** to minimize unnecessary traffic.
+
+- [ ] **ACL Verification:** Use **show access-lists**, **show ip interface**, **debug ip packet** for troubleshooting.
 
 **Human Vector & Social Engineering:**
 - [ ] **Phishing:** Craft **HTML-smuggled payloads, ISO/LNK loaders, OneNote macros** with pretexting.
