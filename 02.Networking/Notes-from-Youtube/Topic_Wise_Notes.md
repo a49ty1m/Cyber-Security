@@ -1082,6 +1082,12 @@ After this section, you'll understand:
   - Number of interfaces/ports
   - Latency (routing delay)
 
+**Key Concept: Routers vs Switches:**
+- **Routers** are used to interact between 2 devices in **different networks**
+- **Switches** are used when interacting with devices on the **same network**
+- Routers operate at Layer 3 (Network Layer) using IP addresses for inter-network communication
+- Switches operate at Layer 2 (Data Link Layer) using MAC addresses for intra-network communication
+
 ### 5.5 Multi-Layer / Special Purpose Devices
 
 **Gateway 🚪:**
@@ -1949,6 +1955,12 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 
 **Primary Function:** Reliable node-to-node data transfer over physical layer
 
+**Key Concept: Frames**
+- A **Frame** is the Protocol Data Unit (PDU) at Layer 2 that encapsulates Layer 3 packets with Data Link layer headers (MAC addresses) and trailers (FCS checksum)
+- Frames are used for local network transmission between devices on the same network segment
+- When a packet travels from one network segment to another, the frame headers are stripped and replaced with new frame headers (re-framing), but the IP packet inside remains the same
+- Switches operate at Layer 2 and forward frames based on MAC addresses
+
 **Two Sublayers:**
 1. **LLC (Logical Link Control - IEEE 802.2):**
    - Flow control
@@ -2010,6 +2022,12 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 #### **Layer 3: Network Layer**
 
 **Primary Function:** Routing packets across multiple networks from source to destination
+
+**Key Concept: Packets**
+- A **Packet** is the Protocol Data Unit (PDU) at Layer 3 that contains the IP header and payload (which includes Layer 4 segments and application data)
+- Packets are routed across different networks using IP addresses (logical addressing)
+- A packet's IP header remains the same as it travels from source to destination, even though it may be placed in different frames at each hop
+- Routers operate at Layer 3 and forward packets based on destination IP addresses
 
 **Responsibilities:**
 - **Logical Addressing:** IP addresses (IPv4: 32-bit, IPv6: 128-bit)
@@ -2324,6 +2342,11 @@ Layer 7: Deliver to application
 - Layer 3: Packet
 - Layer 2: Frame
 - Layer 1: Bits
+
+**Packets vs Frames:**
+- **Packet:** A unit of data at Layer 3 (Network Layer) that includes IP header and payload. Packets are routed across different networks using IP addresses. Routers work with packets.
+- **Frame:** A unit of data at Layer 2 (Data Link Layer) that includes Ethernet header, the packet, and a trailer. Frames are used for local network transmission between devices on the same network segment using MAC addresses. Switches work with frames.
+- **Key Difference:** A packet is the IP-layer container sent across networks, while a frame is the Link-layer wrapper used for local delivery. When a packet travels from one network to another, it may be re-framed (different frame headers) but keeps the same packet (same IP headers).
 
 ### 9.5 Benefits of Layered Architecture
 
