@@ -120,8 +120,17 @@
   - [13.5 CIDR (Classless Inter-Domain Routing)](#135-cidr-classless-inter-domain-routing)
   - [13.6 Subnetting](#136-subnetting)
   - [13.7 IPv4 Header (Recap)](#137-ipv4-header-recap)
-  - [13.8 NAT (Network Address Translation)](#138-nat-network-address-translation)
-  - [13.9 IPv4 Limitations](#139-ipv4-limitations)
+  - [13.8 ICMP (Internet Control Message Protocol)](#138-icmp-internet-control-message-protocol)
+  - [13.9 NAT (Network Address Translation)](#139-nat-network-address-translation)
+  - [13.10 IPv4 Limitations](#1310-ipv4-limitations)
+  - [13.11 Routing Basics](#1311-routing-basics)
+  - [13.12 Distance Vector Routing (DVR)](#1312-distance-vector-routing-dvr)
+  - [13.13 Link State Routing (LSR)](#1313-link-state-routing-lsr)
+  - [13.14 Path Vector Routing (PVR)](#1314-path-vector-routing-pvr)
+  - [13.15 Hierarchical Routing & Autonomous Systems](#1315-hierarchical-routing--autonomous-systems)
+  - [13.16 RIP (Routing Information Protocol)](#1316-rip-routing-information-protocol)
+  - [13.17 OSPF (Open Shortest Path First)](#1317-ospf-open-shortest-path-first)
+  - [13.18 BGP (Border Gateway Protocol)](#1318-bgp-border-gateway-protocol)
 
 - [14. IPv6 — Next Generation IP](#14-ipv6--next-generation-ip)
   - [14.1 Overview & History](#141-overview--history)
@@ -192,6 +201,8 @@
   - [19.1 Overview](#191-overview)
   - [19.2 DNS Resolution Process](#192-dns-resolution-process)
   - [19.3 DNS Hierarchy](#193-dns-hierarchy)
+    - [19.3.1 DNS Zones & Delegation](#1931-dns-zones--delegation)
+    - [19.3.2 Zone Files (SOA & Resource Records)](#1932-zone-files-soa--resource-records)
   - [19.4 DNS Record Types](#194-dns-record-types)
   - [19.5 DNS Caching and TTL](#195-dns-caching-and-ttl)
   - [19.6 DNS Query Types](#196-dns-query-types)
@@ -1909,16 +1920,57 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 
 **Primary Function:** Transmission of raw bits over physical medium
 
-**Responsibilities:**
-- Define electrical, mechanical, and timing specifications
+**Introduction & Positioning:**
+- **Position:** The Physical Layer is the bottom-most layer (Layer 1) of the OSI and TCP/IP models.
+- **Role:** Backbone of networking; upper layers rely on it to move data across real media.
+- **Core Function:** Provides the physical connection between devices and defines the mechanical/electrical specs for the interface and transmission medium.
+
+**PDU:** Bits
+
+**Addressing:** None
+
+**Logical vs Physical Data:**
+- **Logical Data:** Upper layers create packets (software-only logical units).
+- **Physical Data:** The Physical Layer converts logical packets into **bit streams** (0s and 1s).
+- **Sender Side:** Encodes bits into electrical/optical signals (encoding).
+- **Receiver Side:** Decodes signals back into bits and passes them to the Data Link Layer.
+
+**E‑Commerce Analogy (Abstraction):**
+- You place an order (upper layers). The shipping dock handles the real-world transport (Physical Layer).
+- The dock workers handle containers, ships, and routes; you just want delivery.
+- The Physical Layer hides the complex hardware details from upper layers.
+
+**Core Responsibilities (What It Controls):**
+- Electrical, mechanical, and timing specifications
 - Bit encoding and signaling
 - Physical topology (star, bus, ring)
-- Transmission mode (simplex, half-duplex, full-duplex)
+- Transmission modes (simplex, half‑duplex, full‑duplex)
 - Cable specifications and connector types
 - Bit rate (data transmission speed)
-- Synchronization of bits
+- Bit synchronization
 
-**Hardware:**
+**Core Physical Concepts (Often Tested):**
+- **Line Coding & Modulation:** How bits map to signals (digital line coding, analog modulation).
+- **Bandwidth vs Throughput:** Channel capacity vs actual data delivered.
+- **Attenuation, Noise, SNR:** Signal loss, interference, and signal‑to‑noise ratio.
+- **Impedance & Crosstalk:** Mismatched impedance causes reflections; crosstalk leaks signals between pairs.
+- **Clocking & Bit Timing:** Sender/receiver must stay synchronized to interpret bits correctly.
+- **Bit Error Rate (BER):** Percentage of bits received in error.
+- **MTU/Frame Size Limits:** Maximum payload size a medium/link can carry without fragmentation.
+
+**Key Functions (Expanded):**
+- **Cables and Connectors:** Defines guided/unguided media and connector standards (shape, pins, wiring).
+- **Physical Topology:** Mesh, Star, Bus, Ring, Tree; supports point‑to‑point and multi‑point links.
+- **Hardware Components:**
+  - **Repeater:** Regenerates weak signals to counter attenuation.
+  - **Hub:** Multi‑port repeater that broadcasts to all ports.
+- **Transmission Modes:** Simplex, Half‑Duplex, Full‑Duplex.
+- **Multiplexing:**
+  - **FDM:** Split bandwidth into frequency bands.
+  - **TDM:** Split time into slots.
+- **Encoding:** Represents 0s/1s as signals (digital pulses or analog waves).
+
+**Hardware (Common Devices):**
 - Cables (copper, fiber)
 - Hubs
 - Repeaters
@@ -1926,92 +1978,338 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 - Modems
 - Transceivers
 
-**Specifications:**
+**Specifications (Examples):**
 - Voltage levels (e.g., +5V = 1, 0V = 0)
 - Cable length limitations
 - Pin assignments (RJ45, RJ11)
 - Frequencies for wireless transmission
 
 **Encoding Schemes:**
-- NRZ (Non-Return to Zero)
+- NRZ (Non‑Return to Zero)
 - Manchester encoding
 - 4B/5B, 8B/10B encoding
 
 **Standards:**
-- RS-232 (serial communication)
+- RS‑232 (serial communication)
 - V.35 (synchronous transmission)
 - IEEE 802.3 (Ethernet physical)
-- IEEE 802.11 (Wi-Fi physical)
+- IEEE 802.11 (Wi‑Fi physical)
+
+**Classification of Transmission Media:**
+- **Guided (Wired):**
+  - **Coaxial Cable:** Baseband, Broadband
+  - **Twisted Pair:** UTP, STP
+  - **Fiber Optics:** Light-based, fastest
+- **Unguided (Wireless):**
+  - Radio Waves
+  - Microwaves
+  - Infrared
 
 **Example Troubleshooting:**
 - Cable damage or loose connections
 - Signal attenuation
 - Electromagnetic interference
-- Wrong cable type (crossover vs straight-through)
+- Wrong cable type (crossover vs straight‑through)
 
 ---
 
 #### **Layer 2: Data Link Layer**
 
-**Primary Function:** Reliable node-to-node data transfer over physical layer
+**Primary Function:** Reliable node-to-node data transfer over the physical layer.
+
+**Position & Purpose**
+- **Location:** Between Layer 3 (Network) and Layer 1 (Physical).
+- **Bridge role:** Prepares Layer 3 data for transmission over the physical medium.
+- **Core job:** **Hop‑to‑hop delivery** between directly connected devices.
 
 **Key Concept: Frames**
-- A **Frame** is the Protocol Data Unit (PDU) at Layer 2 that encapsulates Layer 3 packets with Data Link layer headers (MAC addresses) and trailers (FCS checksum)
-- Frames are used for local network transmission between devices on the same network segment
-- When a packet travels from one network segment to another, the frame headers are stripped and replaced with new frame headers (re-framing), but the IP packet inside remains the same
-- Switches operate at Layer 2 and forward frames based on MAC addresses
+- A **frame** is the Layer 2 PDU that encapsulates Layer 3 packets with a header (MAC addresses) and trailer (FCS).
+- Frames are used for local transmission on the same network segment.
+- As packets cross segments, frames are stripped and rebuilt (re‑framing) while the IP packet stays the same.
 
-**Two Sublayers:**
-1. **LLC (Logical Link Control - IEEE 802.2):**
-   - Flow control
-   - Error control
-   - Multiplexing
-   
-2. **MAC (Media Access Control - IEEE 802.3/802.11):**
-   - Physical addressing (MAC addresses)
-   - Media access control (CSMA/CD, CSMA/CA)
-   - Frame delimiters
+**Packets vs Frames (Framing)**
+- **Layer 3:** Packet
+- **Layer 2:** Frame (header + trailer)
+- Think: Packet = letter, Frame = addressed envelope.
 
-**Responsibilities:**
-- **Framing:** Encapsulate network layer packets into frames
-- **Physical Addressing:** MAC addresses (48-bit/6-byte hex addresses)
-- **Error Detection:** CRC (Cyclic Redundancy Check), checksums
-- **Error Correction:** ARQ (Automatic Repeat Request)
-- **Flow Control:** Manage data rate between sender/receiver
-- **Access Control:** Determine which device transmits on shared medium
+**Addressing (Physical vs Logical)**
+- **Layer 3:** IP addresses (logical)
+- **Layer 2:** MAC addresses (physical)
 
-**Frame Structure (Ethernet Example):**
+**Core Responsibilities (Quick List)**
+- **Hop‑to‑hop delivery**
+- **Flow control**
+- **Error control**
+- **Access control** (shared media)
+- **Physical addressing**
+- **Framing**
+
+---
+
+##### **Sublayers: LLC vs MAC**
+
+**Two Sublayers**
+- **LLC (Logical Link Control - IEEE 802.2):** Flow control, error control, multiplexing.
+- **MAC (Media Access Control - IEEE 802.3/802.11):** Physical addressing, media access control, frame delimiters.
+
+**Why Sub‑Layers?** Separate **software‑facing** control tasks from **hardware‑facing** media access tasks.
+
+**Order (Top → Bottom):** LLC → MAC
+
+**Flow:** Network Layer → LLC → MAC → Physical Layer
+
+**LLC (Upper Sub‑Layer)**
+- **Multiplexing & de‑multiplexing** of upper‑layer protocols
+- **Flow control**
+- **Error control**
+- **Multi‑point communication** coordination
+
+**MAC (Lower Sub‑Layer)**
+- **Encapsulation (framing)**
+- **Physical addressing** (Src/Dst MAC)
+- **Media access control** (CSMA/CD, CSMA/CA, ALOHA, Token Passing)
+- **Collision resolution** on shared media
+
+---
+
+##### **Access Control Protocols (Shared Medium)**
+
+**Core Problem:** Simultaneous transmissions on shared media cause **collisions**. Access control decides **who transmits and when**.
+
+**A) Random Access (Contention‑Based)**
+- **ALOHA:** Send anytime; high collision rate.
+- **CSMA:** Listen before talk.
+- **CSMA/CD:** Collision detection (wired Ethernet).
+- **CSMA/CA:** Collision avoidance (Wi‑Fi).
+
+**B) Controlled Access**
+- **Reservation:** Book time slots before sending.
+- **Polling:** Central controller asks nodes in turn.
+- **Token Passing:** Transmit only with the token (Token Ring/Token Bus).
+
+**C) Channelization (Multiplexing)**
+- **FDMA:** Split by frequency (guard bands).
+- **TDMA:** Split by time slots.
+- **CDMA:** Split by orthogonal codes.
+
+---
+
+##### **CSMA/CD (Carrier Sense Multiple Access with Collision Detection)**
+
+**Context & Why It Matters**
+- Used in early Ethernet with **bus topology** (shared medium).
+- Mostly obsolete in switched Ethernet but critical for collision physics.
+
+**Name Breakdown**
+- **CS:** Carrier sense (listen first)
+- **MA:** Multiple access (shared medium)
+- **CD:** Collision detection
+
+**Propagation Delay & Vulnerable Time**
+- **Propagation time $(T_p)$:** Time for a signal to travel end‑to‑end.
+- During $T_p$, another station may not yet sense the signal → collision.
+
+**Golden Equation**
+$$
+T_t \ge 2 \times T_p
+$$
+Sender must still be transmitting when collision signal returns.
+
+**Algorithm Steps**
+1. Sense the medium.
+2. If idle, transmit; if busy, wait.
+3. Transmit and monitor simultaneously.
+4. On collision: stop, send jam signal.
+5. Apply **binary exponential backoff** and retry.
+
+---
+
+##### **ALOHA (Random Access Protocol)**
+
+**Overview**
+- Originated for radio links in Hawaii.
+- **Transmit immediately** (no carrier sensing).
+
+**Operation**
+- Success confirmed by **ACK**.
+- If no ACK → collision assumed → random backoff.
+
+**Types**
+- **Pure ALOHA:** Any overlap destroys frames; vulnerable time $2 \times$ frame time; ~18.4% efficiency.
+- **Slotted ALOHA:** Start only at slot boundaries; collisions only within same slot; ~36.8% efficiency.
+
+---
+
+##### **Framing Concepts**
+
+**Why Framing?**
+- Clear boundaries
+- Error checking
+- Addressing
+- Flow & access control
+
+**Problems in Framing**
+- Boundary ambiguity
+- Data transparency (escape/stuffing)
+- Length field corruption
+- Clock drift/noise
+
+**Types of Framing**
+- **Character Count**
+- **Byte/Character Stuffing**
+- **Bit Stuffing**
+- **Physical Layer Violations**
+
+**Pros / Cons**
+- **Advantages:** Reliable delimitation, error detection, local delivery
+- **Disadvantages:** Overhead, complexity, error sensitivity
+
+---
+
+##### **Ethernet Frame Format (IEEE 802.3)**
+
+**Frame Structure (Example)**
 ```
 [Preamble|Dest MAC|Src MAC|Type/Length|Payload|FCS]
   7 bytes  6 bytes  6 bytes   2 bytes  46-1500B 4 bytes
 ```
 
-**Hardware:**
+**Overview**
+- **Standard:** IEEE 802.3
+- **OSI Layer:** Data Link (Layer 2)
+- **Sublayers:** LLC (upper), MAC (lower)
+
+**Ethernet Frame Fields**
+
+| Field | Size | Description & Function |
+| --- | --- | --- |
+| Preamble | 7 bytes | Alternating 1s and 0s (101010...) for clock synchronization. |
+| SFD | 1 byte | 10101011 pattern; marks frame start. |
+| Destination Address | 6 bytes | Receiver MAC address. |
+| Source Address | 6 bytes | Sender MAC address (unicast). |
+| Length | 2 bytes | Payload size in bytes (max 1500). |
+| Data / Payload | 46–1500 bytes | Encapsulated Layer 3 packet; padded if under 46 bytes. |
+| CRC (FCS) | 4 bytes | Error check. |
+
+**Frame Size Constraints**
+- **Minimum:** 64 bytes
+- **Maximum:** 1518 bytes
+
+---
+
+##### **MAC Address (Physical Address)**
+
+**What it is**
+- Unique NIC identifier used for local delivery.
+- Also called **Physical**, **Hardware**, or **Link‑Layer** address.
+- **Length:** 48 bits (6 bytes), typically burned into hardware.
+
+**Format & Structure**
+- Hex format: **00:1A:2B:3C:4D:5E**
+- **OUI (first 24 bits):** Manufacturer ID (IEEE assigned)
+- **NIC‑specific (last 24 bits):** Device identifier
+
+**Why MAC vs IP?**
+- **IP:** End‑to‑end routing
+- **MAC:** Hop‑to‑hop delivery
+
+**Address Types**
+- **Unicast:** LSB of first byte = 0
+- **Multicast:** LSB of first byte = 1
+- **Broadcast:** **FF:FF:FF:FF:FF:FF**
+
+**MAC in Action (Hop‑to‑Hop)**
+- Destination MAC is **next hop** (default gateway), not final host.
+- Routers rewrite MAC headers at every hop.
+
+---
+
+##### **ARP (Address Resolution Protocol)**
+
+**Purpose**
+- Resolves **IP → MAC** on the local network.
+
+**Request → Reply**
+- **Request:** Broadcast to FF:FF:FF:FF:FF:FF asking “Who has $IP_B$?”
+- **Reply:** Unicast response with $MAC_B$.
+
+**Packet Fields (Key)**
+- Hardware type, Protocol type, Hardware length, Protocol length
+- Opcode (1=Request, 2=Reply)
+- Sender/Target MAC and IP fields
+
+**ARP Cache**
+- Stores IP↔MAC mappings temporarily (TTL‑based).
+
+---
+
+##### **Collision Domain vs Broadcast Domain**
+
+**Collision Domain**
+- Hub: 1 domain
+- Switch: 1 per port
+- Router: 1 per interface
+
+**Broadcast Domain**
+- Hub: 1 domain
+- Switch: 1 domain (default)
+- Router: 1 per interface
+
+**Summary**
+| Device | Collision Domains | Broadcast Domains |
+| --- | --- | --- |
+| **Hub** | 1 (entire device) | 1 (entire device) |
+| **Switch** | N (1 per port) | 1 (entire device) |
+| **Router** | N (1 per interface) | N (1 per interface) |
+
+**Circle Technique**
+- Collision: circle each switch/router port (hub = one big circle)
+- Broadcast: circle until router boundary
+
+---
+
+##### **VLAN (Virtual LAN)**
+
+**Problem**
+- Single switch = one large broadcast domain
+- Separate physical switches = expensive
+
+**Solution**
+- VLANs split a physical switch into multiple **logical broadcast domains**.
+
+**Benefits**
+- Performance (broadcast control)
+- Virtual grouping
+- Security isolation
+- Flexibility & scalability
+- Cost reduction
+
+**Inter‑VLAN Routing**
+- Use router or Layer 3 switch
+- **Trunk link** carries multiple VLANs with **tags**
+
+---
+
+**Hardware**
 - Switches (Layer 2)
 - Bridges
-- Network Interface Cards (MAC functions)
+- Network Interface Cards
 - Wireless Access Points
 
-**Protocols:**
+**Protocols**
 - Ethernet (IEEE 802.3)
-- Wi-Fi (IEEE 802.11)
-- PPP (Point-to-Point Protocol)
-- HDLC (High-Level Data Link Control)
+- Wi‑Fi (IEEE 802.11)
+- PPP
+- HDLC
 - Frame Relay
 - ATM
 
-**MAC Address:**
-- 48-bit address (e.g., 00:1A:2B:3C:4D:5E)
-- First 24 bits: OUI (Organizationally Unique Identifier) - manufacturer
-- Last 24 bits: Device-specific identifier
-- Broadcast: FF:FF:FF:FF:FF:FF
+**Error Detection Methods**
+- Parity Bit
+- Checksum
+- CRC (Cyclic Redundancy Check)
 
-**Error Detection Methods:**
-- **Parity Bit:** Simple, detects single-bit errors
-- **Checksum:** Sum of data bytes
-- **CRC (Cyclic Redundancy Check):** Polynomial division, very reliable
-
-**Example Issues:**
+**Example Issues**
 - MAC address conflicts
 - Broadcast storms
 - Spanning tree loops
@@ -2022,6 +2320,173 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 #### **Layer 3: Network Layer**
 
 **Primary Function:** Routing packets across multiple networks from source to destination
+
+**Position & Role**
+- **Location:** Between Layer 4 (Transport) and Layer 2 (Data Link).
+- **Core responsibility:** **Host‑to‑host delivery** across multiple networks.
+- **Contrast:** Layer 2 = node‑to‑node; Layer 3 = end‑to‑end across networks.
+
+**Packets & Datagrams**
+- **PDU:** Packet (Datagram in connectionless services).
+- **Behavior:** Packets are independent and may take different paths; order is not guaranteed.
+
+**Key Functions**
+- **Packetizing (Encapsulation):** Adds IP header (Src/Dst IP + control info).
+- **Logical Addressing:** Uses IP (IPv4/IPv6); IP stays constant end‑to‑end.
+- **Routing & Forwarding:** Routers choose paths (routing tables) and forward packets to next hop.
+- **Error Control (Limited):** Header checksum only; payload reliability handled by Transport layer.
+
+**Connectionless Service (Best Effort)**
+- No dedicated connection.
+- No delivery guarantee; packets may be lost or reordered.
+- Reliability handled by upper layers (e.g., TCP).
+
+**Flow Example (Host A → Host B)**
+1. Host A builds packet with Src IP (A) and Dst IP (B).
+2. If B is off‑net, A sends the packet to its **default gateway**.
+3. Router reads Dst IP, consults routing table, forwards to next hop.
+4. Packet is re‑framed at each hop until it reaches B’s network.
+
+**Packet Switching (Network Layer)**
+
+**What it is**
+- Data is split into small **packets** instead of one large stream.
+
+**How it works**
+- **Store‑and‑forward:** Each router receives, stores, inspects header, forwards to next hop.
+- **Pipelining:** Sender transmits packet 2 as soon as packet 1 moves to next hop (no waiting end‑to‑end).
+- **On‑demand resources:** Bandwidth is used only when data exists (unlike circuit switching).
+
+**Two Approaches**
+
+**A) Datagram (Connectionless)**
+- **Used in:** IP (Internet)
+- Each packet is independent; may take different paths.
+- **Out‑of‑order delivery** possible.
+- **Higher overhead:** Full header in every packet.
+- **Fault tolerance:** Reroutes around failures.
+
+**B) Virtual Circuit (Connection‑Oriented)**
+- **Used in:** X.25, Frame Relay, ATM (legacy)
+- **Setup → Data Transfer → Teardown**
+- All packets follow the same path in order.
+- **Lower overhead:** Short VC‑ID/label after setup.
+- **Single point of failure:** Path breaks if a link fails.
+
+**Advantages**
+- Efficient bandwidth sharing
+- Lower delay via pipelining
+- Fault tolerance (datagram)
+- Cost‑effective vs dedicated circuits
+
+**Disadvantages**
+- Variable delay (jitter)
+- Packet loss under congestion
+- Protocol complexity (ordering, headers, routing)
+
+**Network Delays (Latency Components)**
+
+**1) Transmission Delay ($T_t$)**
+- Time to push all bits onto the link.
+- Depends on packet length and bandwidth.
+$$
+T_t = \frac{L}{R}
+$$
+
+**2) Propagation Delay ($T_p$)**
+- Time for a bit to travel end‑to‑end on the link.
+- Depends on distance and signal speed.
+$$
+T_p = \frac{d}{s}
+$$
+($s$ is close to $2 \times 10^8$ m/s in copper/fiber.)
+
+**3) Processing Delay**
+- Time for routers to inspect headers, check errors, and select output port.
+
+**4) Queuing Delay**
+- Time waiting in buffers due to congestion (traffic buildup).
+
+**Total Delay (Approx.)**
+If a packet crosses $N$ routers (so $N+1$ links):
+$$
+\mathrm{Total\ Latency} \approx (N+1)(T_t + T_p) + N(\mathrm{Processing} + \mathrm{Queuing})
+$$
+
+**Bandwidth vs Throughput**
+- **Bandwidth:** Theoretical maximum capacity of the link.
+- **Throughput:** Actual data rate observed (usually lower due to overhead, delay, loss).
+
+**Bottleneck Concept**
+- End‑to‑end throughput is limited by the **slowest link** in the path.
+- Example: $200$ Kbps → $100$ Kbps → Destination ⇒ throughput ≈ $100$ Kbps.
+
+**Solved Problems (Practice)**
+
+**Problem 1: Minimum Frame Size for CSMA/CD**
+
+**Given:**
+- Bandwidth = 100 Mbps
+- Distance = 1 km
+- Signal speed = $2 \times 10^8$ m/s
+
+**Condition:**
+$$
+T_t \ge 2 \times T_p
+$$
+
+**Propagation time:**
+$$
+T_p = \frac{1000}{2 \times 10^8} = 5 \times 10^{-6} \, \mathrm{s}
+$$
+
+**Minimum transmission time:**
+$$
+T_t \ge 2 \times 5 \, \mu\mathrm{s} = 10 \, \mu\mathrm{s}
+$$
+
+**Frame size:**
+$$
+T_t = \frac{L}{B} \Rightarrow L = 10 \times 10^{-6} \times 100 \times 10^6 = 1000 \, \mathrm{bits}
+$$
+
+**Answer:** Minimum frame size = **1000 bits**.
+
+**Problem 2: Total Delay with Multiple Hops (Pipelining)**
+
+**Given:**
+- File size = $10^6$ bits
+- 1000 packets × 1000 bits
+- 3 links (S → R1 → R2 → D)
+- Link length = 100 km each
+- Signal speed = $10^8$ m/s
+- Bandwidth = 1 Mbps
+
+**Per‑link delays:**
+$$
+T_t = \frac{1000}{10^6} = 1 \, \mathrm{ms}
+$$
+$$
+T_p = \frac{10^5}{10^8} = 1 \, \mathrm{ms}
+$$
+Total per link = 2 ms
+
+**First packet (3 links):**
+$$
+3 \times 2 \, \mathrm{ms} = 6 \, \mathrm{ms}
+$$
+
+**Remaining 999 packets (pipelined):**
+$$
+999 \times T_t = 999 \, \mathrm{ms}
+$$
+
+**Total time:**
+$$
+6 \, \mathrm{ms} + 999 \, \mathrm{ms} = 1005 \, \mathrm{ms}
+$$
+
+**Answer:** **1005 ms** (≈ 1 second).
 
 **Key Concept: Packets**
 - A **Packet** is the Protocol Data Unit (PDU) at Layer 3 that contains the IP header and payload (which includes Layer 4 segments and application data)
@@ -2060,17 +2525,8 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 - **ARP (Address Resolution Protocol):** Maps IP to MAC (border with Layer 2)
 - **NAT (Network Address Translation):** Private to public IP mapping
 
-**IP Address Classes (IPv4):**
-- Class A: 1.0.0.0 - 126.255.255.255 (16M hosts per network)
-- Class B: 128.0.0.0 - 191.255.255.255 (65K hosts per network)
-- Class C: 192.0.0.0 - 223.255.255.255 (254 hosts per network)
-- Class D: 224.0.0.0 - 239.255.255.255 (Multicast)
-- Class E: 240.0.0.0 - 255.255.255.255 (Reserved)
-
-**Private IP Ranges:**
-- 10.0.0.0/8 (Class A)
-- 172.16.0.0/12 (Class B)
-- 192.168.0.0/16 (Class C)
+**IPv4 Addressing Details:**
+- See Section 13 for classes, private ranges, CIDR, subnetting, and routing protocols.
 
 **Example Issues:**
 - IP address conflicts
@@ -2085,29 +2541,72 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 
 **Primary Function:** End-to-end reliable data delivery between applications
 
-**Responsibilities:**
-- **Segmentation & Reassembly:** Break messages into segments, rebuild at destination
-- **Connection Management:** Establish, maintain, terminate connections
-- **Flow Control:** Prevent sender from overwhelming receiver (sliding window)
-- **Error Detection & Recovery:** Detect errors, request retransmission
-- **Multiplexing:** Multiple applications share network connection via port numbers
-- **Reliable vs Unreliable Delivery:** Choose based on application needs
+**Position & Purpose**
+- **Location:** Above Network Layer (IP), below Application Layer.
+- **Core role:** **Process‑to‑process delivery** (targets the correct application).
+- **Logical connection:** Creates an end‑to‑end “pipe” between sender and receiver apps.
+
+**Why We Need the Transport Layer**
+- IP is **best‑effort** (no guarantees of delivery/order).
+- IP identifies **hosts**, not applications.
+- Transport adds **reliability, ordering, and port‑based app identification**.
+
+**Key Services**
+
+**A) Process‑to‑Process Communication (Ports)**
+- **Port numbers** identify specific applications.
+- **Socket = IP + Port** (unique process endpoint).
+
+**B) Segmentation & Reassembly**
+- **Sender:** Splits app data into **segments**, adds headers.
+- **Receiver:** Reassembles segments and delivers to the app.
+
+**C) Multiplexing & Demultiplexing**
+- **Multiplexing:** Combine data from multiple apps into one stream.
+- **Demultiplexing:** Deliver segments to the correct app by port.
+
+**D) Flow Control**
+- Prevents sender from overwhelming receiver (e.g., TCP windowing).
+
+**E) Error Control (Reliability)**
+- **Sequence numbers** detect loss/out‑of‑order.
+- **ACKs** trigger retransmission.
+- **Checksums** detect corruption.
+
+**F) Congestion Control**
+- Reduces sending rate when the network is congested.
 
 **Port Numbers:**
 - 16-bit numbers (0-65535)
 - **Well-Known Ports:** 0-1023 (require root/admin)
-  - HTTP: 80, HTTPS: 443
-  - FTP: 20, 21
-  - SSH: 22
-  - Telnet: 23
-  - SMTP: 25
-  - DNS: 53
 - **Registered Ports:** 1024-49151 (assigned by IANA)
 - **Dynamic/Private Ports:** 49152-65535 (ephemeral)
 
+**Socket Address:** IP + Port uniquely identifies a process endpoint.
+
+**Port Categories (IANA)**
+
+| Category | Range | Description | Examples |
+| --- | --- | --- | --- |
+| Well‑Known | 0–1023 | Core system services | HTTP(80), HTTPS(443), SSH(22), DNS(53) |
+| Registered | 1024–49151 | Assigned to apps/vendors | RDP(3389), DB/Apps |
+| Dynamic/Ephemeral | 49152–65535 | Temporary client ports | Browser source ports |
+
 **Protocols:**
 
-**1. TCP (Transmission Control Protocol):**
+**Connectionless vs Connection‑Oriented**
+
+**Connectionless (UDP)**
+- No setup/handshake; each packet is independent.
+- **No reliability**, **no ordering**, **no flow/congestion control**.
+- **Best for:** Real‑time streaming, gaming, broadcast.
+
+**Connection‑Oriented (TCP)**
+- Setup → Data Transfer → Teardown.
+- **Reliable**, **ordered delivery**, **flow & congestion control**.
+- **Best for:** Web, email, file transfer.
+
+**TCP (Transmission Control Protocol):**
 - **Connection-Oriented:** Three-way handshake (SYN, SYN-ACK, ACK)
 - **Reliable:** Guarantees delivery, in-order, no duplicates
 - **Flow Control:** Sliding window mechanism
@@ -2116,11 +2615,151 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 - **Use Cases:** HTTP, HTTPS, FTP, SSH, email
 - **Overhead:** Higher (20-60 byte header)
 
+**TCP Overview & Lifecycle**
+- **Connection‑oriented** and **reliable** (ordered, accurate delivery).
+- **Phases:**
+  - **Connection setup** (handshake)
+  - **Data transfer** (flow + error control)
+  - **Teardown** (close session, free resources)
+
+**Key Services**
+
+**A) Stream Delivery**
+- Byte‑oriented **stream** (virtual tube) rather than independent packets.
+- Ensures byte order (e.g., byte 100 → byte 101).
+
+**B) Sending & Receiving Buffers**
+- Smooths speed differences between app and network.
+- **Send buffer:** unsent data + sent‑unACKed data retained for retransmit.
+- **Receive buffer:** holds data until app reads it (circular buffer).
+
+**C) Segmentation**
+- Splits byte stream into **segments** with TCP headers.
+
+**D) Full‑Duplex**
+- Simultaneous send/receive in both directions.
+
+**Reliability Mechanisms (Brief)**
+- **Sequence numbers** (order + loss detection)
+- **ACKs** (confirm received bytes)
+- **Checksums** (corruption detection)
+- **Flow control** (receiver‑advertised window)
+
+**TCP Error Control (Details)**
+
+**A) Checksum (Detection)**
+- Sender computes checksum over header + data; receiver recomputes.
+- Mismatch → segment discarded, **no ACK**, retransmission triggered.
+
+**B) Acknowledgments (ACKs)**
+- **Cumulative ACK (default):** “Received everything up to byte X.”
+- **Selective ACK (SACK):** “Missing X, but have Y–Z.” (TCP option)
+- **Benefit:** Avoids unnecessary retransmissions.
+
+**C) Retransmission (Correction)**
+- **RTO (Retransmission Timeout):** If timer expires before ACK, resend.
+- **Dynamic RTO:** Adjusted using RTT measurements.
+- **Fast Retransmit:** 3 duplicate ACKs → retransmit immediately.
+
+**TCP Connection Management**
+
+**Phases**
+- **Establishment** → **Data Transfer** → **Termination**
+
+**Connection States (Concept)**
+- **Passive open (Server):** Listen for connections.
+- **Active open (Client):** Initiate connection to IP/port.
+
+**3‑Way Handshake (Setup)**
+1. **SYN (Client → Server):** Client sends SYN with ISN (client enters **SYN_SENT**).
+2. **SYN‑ACK (Server → Client):** ACK = ISN+1, server sends its own ISN (server enters **SYN_RCVD**).
+3. **ACK (Client → Server):** ACK = server ISN+1; both enter **ESTABLISHED** (may include data).
+
+**Handshake Example (SEQ/ACK)**
+
+| Step | Sender → Receiver | Flags | SEQ | ACK | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Client → Server | SYN | 8000 | — | “My sequence starts at 8000.” |
+| 2 | Server → Client | SYN, ACK | 15000 | 8001 | “ACK 8001, my seq starts at 15000.” |
+| 3 | Client → Server | ACK | 8001 | 15001 | “ACK 15001, connection open.” |
+
+**Note:** SYN consumes **1 sequence number**.
+
+**4‑Way Teardown (Full Duplex)**
+1. **FIN (Client → Server):** Client finished sending.
+2. **ACK (Server → Client):** Acknowledges client FIN.
+3. **FIN (Server → Client):** Server finished sending.
+4. **ACK (Client → Server):** Connection closed.
+
+**Teardown Example (Half‑Close)**
+
+| Step | Sender → Receiver | Flags | SEQ | ACK | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Client → Server | FIN, ACK | x | y | Client done sending (FIN_WAIT_1). |
+| 2 | Server → Client | ACK | y | x+1 | Client done acknowledged (FIN_WAIT_2). |
+| 3 | Server → Client | FIN, ACK | y | x+1 | Server done (LAST_ACK). |
+| 4 | Client → Server | ACK | x+1 | y+1 | Connection closed. |
+
+**Half‑Close State**
+- After client FIN, client **can’t send** but can still **receive**.
+- Application sees **EOF** when peer sends FIN.
+
+**Data Transfer Example (SEQ/ACK)**
+
+| Step | Action | Flags | SEQ | ACK | Length | Explanation |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Client sends Data 1 | PSH, ACK | 8001 | 15001 | 1000 | Bytes 8001–9000 |
+| 2 | Client sends Data 2 | PSH, ACK | 9001 | 15001 | 1000 | Bytes 9001–10000 |
+| 3 | Server ACKs | ACK | 15001 | 10001 | 0 | Next expected byte 10001 |
+
+**Notes**
+- ACKs can be **piggybacked** on outgoing data.
+- Receiver advertises **Window Size** in every packet.
+
+**Security Note: SYN Flood**
+- Server allocates resources on SYN‑ACK.
+- Attackers send many SYNs without final ACK → **half‑open** connections → DoS.
+
 **TCP Segment Header:**
 ```
 [Src Port|Dst Port|Seq#|Ack#|Flags|Window|Checksum|Urgent|Options|Data]
   2 bytes  2 bytes  4B   4B   1B    2B     2B       2B      var    var
 ```
+
+**TCP Segment Structure & Header Format**
+
+**Overview**
+- TCP segment = **Header + Data (Payload)**.
+- **Header size:** 20–60 bytes (larger than UDP due to reliability + control).
+
+**Byte‑Oriented Numbering**
+- TCP numbers **every byte** in the stream (not just segments).
+- **Initial Sequence Number (ISN):** Random 32‑bit value ($0$ to $2^{32}-1$).
+
+**Header Fields (Detailed)**
+- **Source Port (16 bits)**
+- **Destination Port (16 bits)**
+- **Sequence Number (32 bits):**
+  - If **SYN** set → ISN.
+  - Otherwise → sequence number of first data byte.
+- **Acknowledgment Number (32 bits):**
+  - Valid when **ACK** set.
+  - Next expected byte (if last byte = $N$, ACK = $N+1$).
+- **Data Offset (4 bits):** Header length in 32‑bit words.
+  - Min = 5 (20 bytes), Max = 15 (60 bytes).
+- **Reserved (6 bits):** Set to 0.
+- **Control Flags (6 bits):**
+  - **URG:** Urgent pointer valid
+  - **ACK:** Acknowledgment valid
+  - **PSH:** Push to application immediately
+  - **RST:** Reset/abort connection
+  - **SYN:** Start connection (sync)
+  - **FIN:** Graceful close
+- **Window Size (16 bits):** Receiver’s available buffer (flow control).
+- **Checksum (16 bits):** Error detection over header + data + pseudo‑header.
+- **Urgent Pointer (16 bits):** End of urgent data (valid if URG set).
+- **Options (0–40 bytes):** MSS, Window Scale, Timestamps, etc.
+- **Padding:** Aligns header to 32‑bit boundary.
 
 **TCP Flags:**
 - SYN: Synchronize sequence numbers (connection setup)
@@ -2130,13 +2769,40 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 - PSH: Push data immediately
 - URG: Urgent data
 
-**2. UDP (User Datagram Protocol):**
+**UDP (User Datagram Protocol):**
 - **Connectionless:** No handshake, no connection state
 - **Unreliable:** No delivery guarantee, no ordering, possible loss/duplication
 - **Fast:** Minimal overhead (8-byte header)
 - **No Flow/Congestion Control:** Application responsibility
 - **Use Cases:** DNS, DHCP, VoIP, video streaming, online gaming, SNMP
 - **Trade-off:** Speed vs reliability
+
+**Why Use UDP?**
+- **Low latency:** No handshake or retransmissions.
+- **Small header:** 8 bytes (more payload, less overhead).
+- **Real‑time friendly:** Better to drop a frame than wait.
+
+**UDP Header (8 Bytes)**
+- **Source Port (16 bits)**
+- **Destination Port (16 bits)**
+- **Length (16 bits):** Header + Data (max 65,535 bytes)
+- **Checksum (16 bits):** Error detection
+  - Optional in IPv4, **mandatory in IPv6**
+
+**Pseudo Header (Checksum)**
+- UDP borrows **Src IP, Dst IP, Protocol** from IP header for checksum.
+- Ensures the segment belongs to the correct endpoint.
+
+**Common Applications**
+- DNS, DHCP, VoIP, live streaming, gaming, SNMP, multicast
+
+**Limitations**
+- No built‑in stream/reassembly across packets.
+- Loss handled by the application (best‑effort delivery).
+
+**SCTP (Stream Control Transmission Protocol):**
+- **Message‑oriented**, supports multi‑streaming and multi‑homing
+- Mix of reliability + lower overhead in certain use cases
 
 **UDP Datagram Header:**
 ```
@@ -2246,6 +2912,15 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 
 **Primary Function:** Interface between user applications and network
 
+**Position & Role**
+- Top of OSI (Layer 7) / Application layer in TCP/IP.
+- Sits directly above Transport.
+- Provides network services to end‑user applications.
+
+**User Application vs Application Layer**
+- **User app:** Chrome, Outlook, Discord (the software you use).
+- **Application layer:** Protocols and rules the app uses (HTTP, SMTP, FTP).
+
 **Responsibilities:**
 - Provide network services directly to end-user applications
 - Enable software applications to communicate over network
@@ -2256,51 +2931,275 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 - OSI Layer 7 is NOT the application (e.g., web browser)
 - It's the protocols and services the application uses
 
+**Key Services Provided**
+- **Web:** HTTP/HTTPS
+- **File Transfer:** FTP/SFTP/FTAM
+- **Email:** SMTP/POP3/IMAP
+- **Remote Login:** SSH/Telnet
+- **Directory/Name Services:** DNS
+- **Network Management:** SNMP
+
+**Network Architectures**
+
+**Client‑Server**
+- **Server:** Always‑on host, permanent IP, provides services.
+- **Client:** Initiates requests, often dynamic IP.
+- **Pros:** Centralized control, easier management.
+- **Cons:** Single‑point scalability limits, higher cost.
+
+**Peer‑to‑Peer (P2P)**
+- Peers act as both client and server.
+- **Pros:** Scales with users, low infrastructure cost.
+- **Cons:** Harder security/management, variable availability.
+
+**Sockets (Process‑to‑Process)**
+- Socket = software “door” between app and transport.
+- **Addressing:** IP + Port identifies the target process.
+
+**World Wide Web (WWW) & HTTP**
+
+**WWW Basics**
+- Proposed by **Tim Berners‑Lee (1989, CERN)**.
+- Web = **linked documents** (hypertext/hypermedia) distributed globally.
+- **Internet vs WWW:** Internet = infrastructure; WWW = content/services on top.
+
+**Client‑Server Model (Web)**
+- **Client (browser)** requests a resource via URL.
+- **Server** returns the document.
+- Pages are **compound**: HTML + CSS + JS + images → multiple requests.
+
+**URL Structure**
+- **protocol://host:port/path**
+- Example: `https://www.google.com:443/images/logo.png`
+
+**HTTP Overview**
+- Application‑layer protocol for web messaging.
+- Runs over **TCP** (usually port 80/443).
+- **Stateless:** Each request is independent (cookies add state).
+
+**HTTP Connections**
+- **Non‑persistent (HTTP/1.0):** New TCP connection per object.
+- **Persistent (HTTP/1.1):** Reuse one connection for multiple objects.
+
+**HTTP Message Format**
+- **Request:** Request line + headers + optional body
+- **Response:** Status line + headers + body
+
+**Common Methods**
+- **GET, POST, PUT, DELETE, HEAD**
+
+**Common Status Codes**
+- **200 OK**, **301 Moved Permanently**, **400 Bad Request**, **403 Forbidden**, **404 Not Found**, **500 Internal Server Error**
+
+**Web Caching (Proxy)**
+- Proxy checks cache before fetching from origin.
+- **Hit:** Serve cached copy.
+- **Miss:** Fetch, cache, serve.
+- **Conditional GET:** `304 Not Modified` → use cached copy.
+
+**FTP (File Transfer Protocol)**
+
+**What is FTP?**
+- Application‑layer protocol for file transfer (client ↔ server).
+- **Stateful:** Maintains login/session state.
+- Supports directory listing, upload/download, and file management.
+
+**Dual‑Connection Architecture**
+- **Control connection:** TCP **21** (commands, responses) — stays open.
+- **Data connection:** TCP **20** (file data) — opens per transfer.
+
+**Active vs Passive Mode**
+- **Active:** Server connects from port 20 to client’s chosen port (firewall issues).
+- **Passive:** Server opens a high port; client connects (firewall‑friendly).
+
+**Common FTP Commands**
+- **USER / PASS**, **LIST**, **RETR**, **STOR**, **DELE**, **PWD**, **QUIT**
+
+**Data Types & Transfer Modes**
+- **ASCII:** Text files (CR/LF conversion)
+- **Binary (Image):** Exact byte transfer
+- **Stream:** Default
+- **Block:** Headered blocks
+- **Compressed:** Rare today
+
+**Security Concerns & Alternatives**
+- **FTP is clear‑text** (credentials exposed).
+- **FTPS:** FTP over TLS
+- **SFTP:** SSH File Transfer (port 22)
+- **SCP:** Simple secure copy over SSH
+
+**Email Systems & Protocols**
+
+**Email Basics**
+- Asynchronous, **one‑way** message delivery (send now, read later).
+
+**Architecture (Roles)**
+- **UA (User Agent):** Client app/webmail UI (Outlook, Gmail).
+- **MTA (Message Transfer Agent):** Moves mail between servers (Postfix, Sendmail).
+- **MAA (Message Access Agent):** Fetch protocols (POP3/IMAP).
+
+**Email Flow (High‑Level)**
+1. Sender UA → local mail server via **SMTP**.
+2. Sender MTA → recipient MTA via **SMTP**.
+3. Recipient stores mail in mailbox.
+4. Receiver UA fetches via **POP3/IMAP**.
+
+**Core Protocols**
+- **SMTP:** Push protocol (ports **25**, **587**).
+- **POP3:** Download‑and‑delete (ports **110**, **995**).
+- **IMAP:** Sync‑and‑manage (ports **143**, **993**).
+
+**MIME (Email Attachments)**
+- Extends SMTP to support **non‑ASCII** and **binary** data.
+- Encodes content (e.g., Base64) and decodes on receipt.
+
+**Webmail**
+- Browser ↔ provider uses **HTTP/HTTPS**.
+- Provider ↔ provider still uses **SMTP**.
+
+**Proxy Servers**
+
+**What is a Proxy?**
+- Intermediary between client and destination server.
+- Client sends request to proxy; proxy forwards on client’s behalf.
+
+**Why Use a Proxy?**
+- **Monitoring/Logging**
+- **Filtering/Policy control**
+- **Caching** (performance/bandwidth savings)
+- **Translation** (protocol/data)
+- **Anonymity** (hide client IP)
+- **Security** (inspection, protection)
+
+**Types of Proxies**
+- **Forward Proxy:** Client → Proxy → Internet (enterprise control).
+- **Open Proxy:** Public proxy for anyone (IP hiding/bypass).
+- **Reverse Proxy:** Internet → Proxy → Internal servers (load‑balancing, shielding, SSL offload).
+- **SSL Proxy:** Decrypts/inspects TLS, then re‑encrypts.
+- **SOCKS Proxy:** Low‑level TCP/UDP forwarding (SOCKS5 adds auth + UDP).
+- **Anonymous Proxy:** Removes identifying headers/IP.
+
+**Proxy vs VPN (Brief)**
+- **Proxy:** App‑level traffic only.
+- **VPN:** Tunnels all device traffic at network layer.
+
+**VPN (Virtual Private Network)**
+
+**What is a VPN?**
+- Extends a private network over a public network (Internet).
+- Creates a **secure tunnel** so devices behave as if on the same private LAN.
+
+**How VPN Works**
+- **Tunneling:** Encapsulates the original packet inside a new packet.
+- **Inner packet:** Original IP/ports/data.
+- **Outer packet:** VPN headers + VPN server IP.
+- **Encryption:** Protects payload and hides original addresses.
+
+**VPN vs Proxy**
+- **Proxy:** Often no encryption; app‑level only.
+- **VPN:** Encrypts **all device traffic** (OS‑level).
+
+**Benefits**
+- Secure public Wi‑Fi
+- Bypass geo‑restrictions
+- Hide real IP from sites/ISP
+- Remote access to intranet
+- Reduce ISP throttling visibility
+
+**Disadvantages**
+- Slower speed (encryption + routing)
+- Cost for reliable providers
+- Trust shifts to VPN provider
+- Compatibility issues on older devices
+
+**Types of VPN**
+- **Remote Access:** User → corporate network
+- **Site‑to‑Site:** Network ↔ network
+  - **Intranet VPN:** Same organization
+  - **Extranet VPN:** Partner/supplier access
+
+**Common VPN Protocols**
+- **IPsec** (network layer suite)
+- **SSL/TLS** (browser‑based)
+- **PPTP** (legacy, weaker)
+- **L2TP/IPsec** (combined)
+- **OpenVPN** (open‑source, secure)
+
+**Remote Login (Telnet vs SSH)**
+
+**What is Remote Login?**
+- Access and control a **single remote host** from a client.
+- Send commands → remote host executes → results returned.
+
+**Remote Login vs VPN**
+- **VPN:** Access to an entire network (virtual node).
+- **Remote login:** Access to one specific host.
+
+**Telnet**
+- Legacy remote terminal protocol.
+- **Port:** TCP 23
+- **NVT:** Network Virtual Terminal for cross‑platform compatibility.
+- **Security:** **No encryption** (clear‑text credentials). Obsolete on public networks.
+
+**SSH (Secure Shell)**
+- Modern, secure replacement for Telnet.
+- **Port:** TCP 22
+- **Encryption + integrity + authentication** (public‑key).
+- Extra features: **SFTP/SCP**, port forwarding (tunneling).
+
+**Telnet vs SSH (Quick Table)**
+
+| Feature | Telnet | SSH |
+| --- | --- | --- |
+| Security | None (clear text) | Encrypted |
+| Port | 23 | 22 |
+| Usage | Legacy/debug | Remote admin, file transfer |
+
 **Common Protocols:**
 
-**1. Web & HTTP:**
+**Web & HTTP:**
 - **HTTP (Hypertext Transfer Protocol):** Port 80, stateless web protocol
 - **HTTPS (HTTP Secure):** Port 443, encrypted with TLS
 - **HTTP/2:** Multiplexing, server push
 - **HTTP/3:** QUIC protocol, faster, more resilient
 
-**2. File Transfer:**
+**File Transfer:**
 - **FTP (File Transfer Protocol):** Ports 20/21, control & data channels
 - **FTPS:** FTP over SSL/TLS
 - **SFTP (SSH File Transfer Protocol):** Port 22, secure file transfer
 - **TFTP (Trivial FTP):** Port 69, simple, no authentication
 
-**3. Email:**
+**Email:**
 - **SMTP (Simple Mail Transfer Protocol):** Port 25 (sending)
 - **POP3 (Post Office Protocol):** Port 110 (downloading)
 - **IMAP (Internet Message Access Protocol):** Port 143 (syncing)
 - **SMTPS, POP3S, IMAPS:** Secure versions over TLS
 
-**4. DNS:**
+**DNS:**
 - **DNS (Domain Name System):** Port 53, name resolution
 - Translates domain names to IP addresses
 
-**5. Network Management:**
+**Network Management:**
 - **SNMP (Simple Network Management Protocol):** Ports 161/162, device monitoring
 - **Syslog:** Port 514, centralized logging
 - **NTP (Network Time Protocol):** Port 123, time synchronization
 
-**6. Remote Access:**
+**Remote Access:**
 - **SSH (Secure Shell):** Port 22, secure remote terminal
 - **Telnet:** Port 23, insecure remote terminal (obsolete)
 - **RDP (Remote Desktop Protocol):** Port 3389, Windows remote desktop
 - **VNC (Virtual Network Computing):** Port 5900, remote desktop
 
-**7. Messaging:**
+**Messaging:**
 - **IRC (Internet Relay Chat):** Real-time text chat
 - **XMPP (Extensible Messaging and Presence Protocol):** Instant messaging
 - **SIP (Session Initiation Protocol):** VoIP call signaling
 
-**8. Directory Services:**
+**Directory Services:**
 - **LDAP (Lightweight Directory Access Protocol):** Port 389, directory queries
 - **Active Directory:** Windows domain services
 
-**9. DHCP:**
+**DHCP:**
 - **DHCP (Dynamic Host Configuration Protocol):** Ports 67/68, automatic IP assignment
 
 **Example Use Cases:**
@@ -2980,6 +3879,8 @@ After this section, you'll understand:
 
 **IPv4 (Internet Protocol version 4)** is the fourth version of the Internet Protocol and the most widely deployed protocol for routing traffic on the Internet.
 
+**Core Idea:** IPv4 provides a **logical address** for a device. Unlike MAC addresses, IPs can **change** when a device moves to a different network.
+
 **Key Statistics:**
 - **Address Space:** 32-bit addresses = 2³² = 4,294,967,296 (~4.3 billion unique addresses)
 - **Deployment:** Since 1983 (over 40 years)
@@ -2999,6 +3900,8 @@ After this section, you'll understand:
 - **Host Portion:** Identifies the specific device on that network
 - **Subnet Mask:** Determines the boundary between network and host portions
 
+**NetID vs HostID:** Every IPv4 address is logically split into **Network ID** and **Host ID**.
+
 ### 13.3 IPv4 Address Classes (Classful Addressing)
 
 **Class A:**
@@ -3008,6 +3911,8 @@ After this section, you'll understand:
 - **Networks:** 126 (2⁷ - 2)
 - **Hosts per Network:** 16,777,214 (2²⁴ - 2)
 - **Use:** Very large organizations, ISPs
+
+**Note:** 127.0.0.0/8 is Class A but **reserved for loopback**.
 
 **Class B:**
 - **Range:** 128.0.0.0 to 191.255.255.255
@@ -3043,12 +3948,47 @@ After this section, you'll understand:
 
 ### 13.4 Special IPv4 Addresses
 
+**Public vs Private:**
+- **Public IP:** Globally unique and routable on the Internet.
+- **Private IP:** Non‑routable; used inside LANs (RFC 1918).
+
+**Why Private IPs Exist (Ambiguity Problem)**
+- Randomly assigning public‑looking IPs inside a LAN can collide with real Internet owners.
+- Leaked packets could be routed to the wrong global host, causing confusion and risk.
+
+**Private IP Characteristics (RFC 1918)**
+- **Non‑routable on the public Internet** (dropped by Internet routers).
+- **Free to use** inside any private network.
+- **Reusable:** Different LANs can safely use the same private ranges.
+
 **Private IP Ranges (RFC 1918):**
 - **10.0.0.0/8:** 10.0.0.0 - 10.255.255.255 (Class A)
 - **172.16.0.0/12:** 172.16.0.0 - 172.31.255.255 (Class B)
 - **192.168.0.0/16:** 192.168.0.0 - 192.168.255.255 (Class C)
 - **Purpose:** Internal networks, not routable on public Internet
 - **NAT:** Used with NAT to access Internet
+
+**Private Blocks (Summary)**
+
+| Class | IP Range | CIDR | Typical Usage |
+| --- | --- | --- | --- |
+| Class A | 10.0.0.0 – 10.255.255.255 | 10.0.0.0/8 | Large networks, ISPs (CGNAT) |
+| Class B | 172.16.0.0 – 172.31.255.255 | 172.16.0.0/12 | Medium orgs |
+| Class C | 192.168.0.0 – 192.168.255.255 | 192.168.0.0/16 | Home/SMB |
+
+**Public vs Private (Quick Comparison)**
+
+| Feature | Public IP | Private IP |
+| --- | --- | --- |
+| Scope | Global (Internet) | Local (LAN) |
+| Uniqueness | Must be unique worldwide | Unique only within the LAN |
+| Routing | Routable on Internet | Non‑routable on Internet |
+| Cost | Paid (ISP) | Free |
+| Example | 8.8.8.8 | 192.168.1.1 |
+
+**Connecting to the Internet (NAT)**
+- **NAT** translates private IPs to a public IP at the router.
+- To the Internet, all devices appear as the router’s public IP.
 
 **Loopback:**
 - **127.0.0.0/8:** 127.0.0.1 - 127.255.255.255
@@ -3071,6 +4011,9 @@ After this section, you'll understand:
 **Default Route:**
 - **0.0.0.0/0:** Catch-all route (matches any destination)
 
+**Current Network (Bootstrapping):**
+- **0.0.0.0:** Used by a host before it has a valid IP (e.g., during DHCP boot).
+
 ### 13.5 CIDR (Classless Inter-Domain Routing)
 
 **Purpose:** Replace classful addressing, more efficient address allocation
@@ -3083,6 +4026,32 @@ After this section, you'll understand:
 - **Flexible Subnetting:** Not limited to class boundaries
 - **Address Aggregation:** Combine multiple networks into one route (supernetting)
 - **Efficient Allocation:** Allocate exactly what's needed
+
+**Why Classful Addressing Failed**
+- **Inflexible sizes:** Only /8, /16, /24 boundaries.
+- **IP wastage:** Example needing ~300 IPs:
+  - Class C = 254 (too small)
+  - Class B = 65,534 (too large)
+  - Result: massive waste → faster IPv4 exhaustion.
+
+**Classless Addressing (CIDR) Solution**
+- Boundary can be **anywhere**, not just 8/16/24.
+- **Borrow bits** from host portion to grow the network portion (or vice‑versa).
+- Allows right‑sized allocations (e.g., 12, 300, 1000 IPs).
+
+**CIDR / Slash Notation**
+- Format: **IP / n**
+- **n = prefix length** (network bits from the left)
+- **Host bits = 32 − n**
+- Example: **192.168.10.0/28**
+  - Network bits = 28
+  - Host bits = 4
+  - Total IPs = $2^4 = 16$
+
+**Introduction to Subnetting**
+- **Definition:** Split one network into smaller sub‑networks by borrowing host bits.
+- **Goal:** Fit network size to needs and improve organization/security.
+- **Analogy:** A college campus (network) split into departments (subnets).
 
 **Common CIDR Masks:**
 | CIDR | Subnet Mask       | Usable Hosts | Use Case             |
@@ -3110,6 +4079,98 @@ After this section, you'll understand:
 - Improved security (isolate segments)
 - Reduced broadcast domains
 - Efficient address utilization
+
+**Subnetting Basics**
+- **Definition:** Divide a single large network into smaller sub‑networks by borrowing host bits.
+- **Why:** Reduce wastage and isolate departments/traffic for security and management.
+
+**Key Terminology (CIDR Context)**
+- **Prefix ($n$):** Number of network bits (e.g., /24).
+- **Suffix ($32 - n$):** Number of host bits.
+- **Block size:** Total addresses in the subnet.
+
+**Three Golden Calculations**
+
+**A) Number of Addresses**
+- **Total:** $2^{(32-n)}$
+- **Valid hosts:** $2^{(32-n)} - 2$ (exclude network and broadcast)
+
+**B) Network ID (First Address)**
+- Keep prefix bits; set host bits to 0.
+- Equivalent to **IP AND Subnet Mask**.
+
+**C) Broadcast ID (Last Address)**
+- Keep prefix bits; set host bits to 1.
+- Equivalent to **IP OR (inverted subnet mask)**.
+
+**Subnet Design (Requirement Method)**
+- Need **5 subnets** from a /21 network.
+- Find borrowed bits: $2^2=4$ (not enough), $2^3=8$ (enough).
+- **New prefix:** /21 + 3 = **/24** (8 subnets total, 5 usable).
+
+**Subnetting Rules**
+- **Power of 2:** Subnet sizes are always powers of 2.
+- **Contiguous blocks:** No gaps within a subnet.
+- **Divisibility:** Network ID must be divisible by block size.
+
+**Example Walkthrough (/27)**
+- **IP:** 167.199.170.82/27
+- **Host bits:** $32 - 27 = 5$
+- **Total IPs:** $2^5 = 32$
+- **Valid hosts:** $32 - 2 = 30$
+- **Block size:** 32
+- Subnet boundaries: .0, .32, .64, .96, ...
+- .82 falls in **64–95**
+- **Network ID:** 167.199.170.64
+- **Broadcast ID:** 167.199.170.95
+
+**FLSM vs VLSM**
+
+**Problem with FLSM (Fixed‑Length Subnet Mask)**
+- One subnet size must fit all.
+- Example on 200.1.2.0/24:
+  - Dept A needs 120 hosts, Dept B 60, Dept C 10.
+  - If you choose /25 for A (128 IPs) → only 2 subnets, massive waste for C.
+  - If you choose /28 or /29 for C → A won’t fit.
+
+**VLSM (Variable‑Length Subnet Mask)**
+- Use **different subnet masks** within the same network.
+- Allocate largest needs first, then split the remaining space.
+
+**VLSM Step‑by‑Step Example**
+
+**Root Network:** 200.1.2.0/24
+
+**Requirements:**
+- Network A: 120 hosts
+- Network B: 60 hosts
+- Network C: 60 hosts
+
+**Step 1: Allocate A (Largest First)**
+- Need 120 → closest power of 2 = 128 → **/25**
+- Assign: **200.1.2.0/25** (range .0 – .127)
+
+**Step 2: Allocate B (Next Largest)**
+- Remaining block: 200.1.2.128/25
+- Need 60 → closest power of 2 = 64 → **/26**
+- Assign: **200.1.2.128/26** (range .128 – .191)
+
+**Step 3: Allocate C**
+- Remaining block: 200.1.2.192/26
+- Assign: **200.1.2.192/26** (range .192 – .255)
+
+**Final Network Map**
+
+| Network | Requirement | Allocated Range | Subnet Mask | Prefix |
+| --- | --- | --- | --- | --- |
+| Net A | 120 hosts | 200.1.2.0 – 200.1.2.127 | 255.255.255.128 | /25 |
+| Net B | 60 hosts | 200.1.2.128 – 200.1.2.191 | 255.255.255.192 | /26 |
+| Net C | 60 hosts | 200.1.2.192 – 200.1.2.255 | 255.255.255.192 | /26 |
+
+**Benefits of VLSM**
+- **Optimized allocation:** Minimal wastage of IPs.
+- **Route summarization:** Contiguous blocks can be summarized.
+- **Flexibility:** Supports mixed sizes (e.g., /30 WAN, /24 LAN).
 
 **Subnetting Example:**
 - **Network:** 192.168.1.0/24 (254 hosts)
@@ -3146,7 +4207,70 @@ After this section, you'll understand:
 - **Destination IP:** Receiver's IP address
 - **Options:** Rarely used (security, routing, timestamps)
 
-### 13.8 NAT (Network Address Translation)
+**MTU & Fragmentation**
+
+**MTU (Maximum Transmission Unit)**
+- Maximum payload size a link can carry.
+- IPv4 supports packets up to **65,535 bytes**, but link layers can be smaller.
+- **Ethernet MTU:** 1500 bytes (common default).
+
+**Fragmentation (IPv4)**
+- Splits a large IP datagram into smaller fragments to fit MTU limits.
+- Can be done by the **source** or **routers**.
+- **Reassembly happens only at the final destination**, not intermediate routers.
+
+**Key Header Fields for Fragmentation**
+- **Identification (16 bits):** Same value for all fragments of the original packet.
+- **Flags (3 bits):**
+  - **DF (Don’t Fragment):** If set, router drops oversized packets and sends ICMP error.
+  - **MF (More Fragments):** 1 = more fragments follow, 0 = last fragment.
+- **Fragment Offset (13 bits):** Position of fragment in **8‑byte units**.
+
+**Fragmentation Example (MTU 1500)**
+- Original: **4000 bytes data + 20 bytes header**
+- Max data/fragment: **1500 − 20 = 1480 bytes**
+
+| Fragment | Data Range | Data Size | Offset | MF |
+| --- | --- | --- | --- | --- |
+| 1 | 0–1479 | 1480 | $0/8 = 0$ | 1 |
+| 2 | 1480–2959 | 1480 | $1480/8 = 185$ | 1 |
+| 3 | 2960–3999 | 1040 | $2960/8 = 370$ | 0 |
+
+**Re‑Fragmentation**
+- Fragments can be fragmented again on smaller MTU links.
+- **Identification** stays the same across all sub‑fragments.
+
+### 13.8 ICMP (Internet Control Message Protocol)
+
+**Why ICMP exists**
+- IP is best‑effort and **does not report errors** or provide diagnostics.
+- ICMP is the **companion protocol** for error reporting and network queries.
+
+**How ICMP works**
+- ICMP messages are **encapsulated inside IP**.
+- Structure: **[IP Header][ICMP Header][ICMP Data]**
+- IP **Protocol field = 1** indicates ICMP payload.
+
+**ICMP Message Types**
+
+**A) Error Reporting**
+- **Destination Unreachable:** No route/host/port/protocol unreachable.
+- **Source Quench:** Congestion warning (deprecated).
+- **Redirect:** Better route exists via another router.
+- **Time Exceeded:** TTL reached 0 (used by traceroute).
+- **Parameter Problem:** Invalid or ambiguous IP header.
+
+**B) Query / Diagnostic**
+- **Echo Request/Reply:** Used by **ping**.
+- **Timestamp Request/Reply:** RTT measurement and clock sync.
+
+**Rules (When NOT to send ICMP errors)**
+- **No ICMP for ICMP errors** (avoid loops).
+- **No ICMP for non‑first fragments** (only first fragment triggers errors).
+- **No ICMP for multicast** traffic.
+- **No ICMP for special addresses** (loopback/broadcast).
+
+### 13.9 NAT (Network Address Translation)
 
 **Purpose:** Allow multiple devices to share one public IP address
 
@@ -3173,7 +4297,7 @@ After this section, you'll understand:
 - Additional processing overhead
 - Not compatible with some protocols (IPsec in tunnel mode)
 
-### 13.9 IPv4 Limitations
+### 13.10 IPv4 Limitations
 
 **1. Address Exhaustion:**
 - Only 4.3 billion addresses
@@ -3200,6 +4324,279 @@ After this section, you'll understand:
 
 Note: NAT is commonly used to extend IPv4 address utility in private networks.
 
+---
+
+### 13.11 Routing Basics
+
+**What is Routing?**
+- **Routing** selects the best path for packets between **different networks**.
+- **Switching** = intra‑LAN delivery (MAC). **Routing** = inter‑network delivery (IP).
+- Packets move **hop‑by‑hop** across routers.
+
+**Internet as a Weighted Graph**
+- **Nodes:** Routers
+- **Edges:** Links between routers
+- **Weights (metrics):** Hop count, bandwidth, delay, load, reliability
+- Routing algorithms find the **lowest‑cost path**.
+
+**Routing Table vs Forwarding Table**
+- **Routing table (control plane):** Full topology/route knowledge; calculates best paths.
+- **Forwarding table (data plane):** Optimized lookup used to forward packets quickly.
+
+**Types of Routing**
+
+**A) Static Routing**
+- Manually configured by admin.
+- **Pros:** No overhead, predictable, secure.
+- **Cons:** Not scalable, no automatic failover.
+
+**B) Default Routing**
+- “Gateway of last resort.”
+- Used in stub networks or edge routers.
+- **Route:** 0.0.0.0/0 → next‑hop gateway.
+
+**C) Dynamic Routing**
+- Routers exchange routes using protocols (RIP, OSPF, BGP).
+- **Pros:** Scalable, fault‑tolerant, automatic updates.
+- **Cons:** Consumes CPU/bandwidth for updates.
+
+**Routing Metrics (Path Selection)**
+- **Hop count** (RIP)
+- **Bandwidth** (OSPF)
+- **Delay/Latency**
+- **Load/Congestion**
+- **Reliability**
+
+---
+
+### 13.12 Distance Vector Routing (DVR)
+
+**Introduction**
+- A **dynamic routing algorithm** based on **Bellman‑Ford**.
+- Routers discover best paths without manual configuration.
+
+**Three Golden Rules**
+- **Limited view:** Knows only costs to immediate neighbors.
+- **Neighbor exchange:** Shares routes only with direct neighbors.
+- **Periodic updates:** Sends routing tables at fixed intervals.
+
+**Bellman‑Ford Equation**
+$$
+D_x(y) = \min \{ c(x,v) + D_v(y) \}
+$$
+- $D_x(y)$ = least cost from router $x$ to destination $y$
+- $c(x,v)$ = cost to neighbor $v$
+- $D_v(y)$ = neighbor’s cost to $y$
+
+**Distance Vector Table**
+- **Destination network**
+- **Cost/metric**
+- **Next hop**
+
+**Count‑to‑Infinity Problem**
+- Bad news travels slowly; routers can form loops and keep increasing cost.
+
+**Stability Fixes**
+- **Split Horizon:** Don’t advertise a route back to the neighbor you learned it from.
+- **Poison Reverse:** Advertise it back with **infinite** cost to explicitly mark unreachable.
+
+---
+
+### 13.13 Link State Routing (LSR)
+
+**Core Idea: Global Knowledge**
+- Each router builds a **complete map** of the network.
+
+**Key Concepts**
+- **Flooding:** Routers advertise their links and costs to the entire network.
+- **LSDB (Link State Database):** All routers build the same topology database.
+- **Dijkstra’s SPF:** Each router computes shortest paths from itself.
+
+**Process (High Level)**
+1. **Neighbor discovery** (hello packets)
+2. **LSA creation** (link state advertisement)
+3. **Flooding** LSAs to all routers
+4. **SPF calculation** → routing table
+
+**Pros vs Distance Vector**
+- **Fast convergence** (no count‑to‑infinity)
+- **Fewer loops** due to global view
+
+**Cons**
+- **Higher bandwidth overhead** (flooding)
+- **CPU intensive** (Dijkstra on large graphs)
+
+---
+
+### 13.14 Path Vector Routing (PVR)
+
+**Where it’s used**
+- **Inter‑domain routing** (between ISPs/AS) — foundation of **BGP**.
+
+**Key Difference**
+- **Distance Vector:** “Destination X is 5 hops away.”
+- **Path Vector:** “Path to X is A → B → C.”
+
+**Policy‑Based Routing**
+- Shortest path isn’t always best; ISPs choose routes by policy.
+
+**Loop Prevention**
+- If a router sees **itself** in the path list, it rejects the route.
+
+---
+
+### 13.15 Hierarchical Routing & Autonomous Systems
+
+**Why Hierarchical Routing?**
+- The Internet is too large for flat routing tables.
+- Huge tables waste memory and slow convergence.
+- Hierarchy divides the Internet into **manageable administrative zones**.
+
+**Internet Hierarchy (Tiers)**
+- **Tier‑1 ISPs (Backbone):** Global carriers with major infrastructure.
+- **Tier‑2 ISPs:** Regional providers buying transit from Tier‑1.
+- **Tier‑3 ISPs:** Local access providers for homes/businesses.
+
+**Autonomous Systems (AS)**
+- A set of networks under **one administrative control** (ISP, university, enterprise).
+- Externally, an AS appears as a single routing entity.
+- Identified by a unique **ASN** (16‑bit or 32‑bit), assigned by IANA.
+
+**Routing Protocol Scope**
+- **IGP (Intra‑Domain):** Inside an AS (RIP, OSPF, EIGRP).
+- **EGP (Inter‑Domain):** Between ASs; **BGP** is the standard.
+
+**Types of Autonomous Systems**
+- **Stub AS:** One external connection; no transit for others.
+- **Multihomed AS:** Two+ connections for redundancy; still no transit.
+- **Transit AS:** Multiple connections; carries traffic for other ASs (ISPs).
+
+---
+
+### 13.16 RIP (Routing Information Protocol)
+
+**What is RIP?**
+- **IGP** (intra‑domain) routing protocol.
+- **Distance Vector** (Bellman‑Ford) algorithm.
+- **Metric:** **Hop count** only (fewest hops wins).
+
+**Key Characteristics**
+- **Max hops:** 15 (16 = unreachable).
+- **Periodic updates:** Full table every **30s**.
+- Uses **UDP port 520** (application‑layer transport, routing function at L3).
+
+**RIP v2 Packet Format (Fields)**
+- **Command (1B):** Request or Response
+- **Version (1B):** v1 or v2
+- **Entry list (up to 25):**
+  - Address Family Identifier (AFI)
+  - Route Tag
+  - Network Address
+  - Subnet Mask (v2)
+  - Next Hop
+  - Metric (hop count)
+
+**RIP Timers**
+- **Update:** 30s
+- **Invalid:** 180s (mark route unreachable)
+- **Hold‑down:** 180s (stability)
+- **Flush:** 240s (remove route)
+
+**How RIP Converges (Simple Example)**
+- Routers share tables every 30s.
+- If B knows Network X in 1 hop, A learns it as **2 hops** via B.
+
+**RIPv1 vs RIPv2**
+
+| Feature | RIPv1 | RIPv2 |
+| --- | --- | --- |
+| Addressing | Classful (no mask) | Classless (sends mask) |
+| Updates | Broadcast (255.255.255.255) | Multicast (224.0.0.9) |
+| Security | None | Authentication (MD5) |
+| VLSM Support | No | Yes |
+
+---
+
+### 13.17 OSPF (Open Shortest Path First)
+
+**Why OSPF? (RIP Limitations)**
+- RIP uses **hop count only** and can pick slow paths.
+- OSPF uses **cost based on bandwidth**, preferring faster links.
+
+**OSPF Overview**
+- **Type:** IGP, **Link‑State** protocol
+- **Algorithm:** Dijkstra’s SPF
+- **Metric (Cost):**
+  $$
+\mathrm{Cost} = \frac{\mathrm{Reference\ Bandwidth}}{\mathrm{Interface\ Bandwidth}}
+  $$
+- **Protocol ID:** 89 (runs directly over IP)
+- **Administrative Distance (AD):** 110 (Cisco default)
+
+**Key Concepts**
+- **Router ID (RID):** 32‑bit identifier
+  - Selection: Manual > Highest Loopback IP > Highest Active Interface IP
+- **LSDB:** Shared topology database per area
+- **LSA:** Link State Advertisement (topology info)
+- **Areas:** Hierarchical design; all areas connect to **Area 0**
+- **DR/BDR:** Designated/Backup router on multi‑access networks
+
+**OSPF Packet Types**
+- **Hello:** Neighbor discovery/keep‑alive
+- **DBD:** Database description (summary)
+- **LSR:** Link State Request (missing info)
+- **LSU:** Link State Update (LSAs)
+- **LSAck:** Acknowledge LSUs
+
+**Neighbor States (7)**
+1. Down
+2. Init
+3. 2‑Way (DR/BDR election)
+4. ExStart
+5. Exchange
+6. Loading
+7. Full
+
+**Advantages**
+- **Fast convergence** (triggered updates)
+- **Scalable** (areas)
+- **Loop‑free** in stable state
+- **Supports VLSM/CIDR**
+
+---
+
+### 13.18 BGP (Border Gateway Protocol)
+
+**What is BGP?**
+- **EGP (Inter‑Domain)** routing protocol connecting **Autonomous Systems**.
+- Internet’s de‑facto exterior routing protocol (BGP‑4, since 1989).
+
+**Characteristics**
+- **Algorithm:** Path Vector
+- **Transport:** **TCP port 179**
+- **Policy‑based:** Chooses paths by business/policy, not just speed.
+
+**Path Vector Concept**
+- Routes include an **AS_PATH** list (sequence of ASNs).
+- **Loop prevention:** Reject routes containing your own ASN.
+
+**BGP Modes**
+- **eBGP:** Between different ASs (ISP ↔ ISP/Customer)
+- **iBGP:** Within the same AS to distribute external routes
+  - Requires full mesh (or route reflectors) to prevent loops
+
+**BGP Message Types**
+- **OPEN:** Establish session (version, ASN, hold time)
+- **UPDATE:** Advertise/withdraw routes + attributes
+- **KEEPALIVE:** Maintain session (default 60s)
+- **NOTIFICATION:** Error → session closes
+
+**Key Path Attributes**
+- **AS_PATH:** Shorter preferred
+- **NEXT_HOP:** Next router IP
+- **LOCAL_PREF:** Preferred exit within an AS (outbound)
+- **MED:** Suggested entry for neighbors (inbound)
+
 [↑ Back to top](#table-of-contents)
 
 ---
@@ -3221,7 +4618,7 @@ Note: NAT is commonly used to extend IPv4 address utility in private networks.
 ## 14. IPv6 — Next Generation IP
 
 **Section Overview:**
-IPv6 solves IPv4's address exhaustion with 128-bit addresses (2^128 unique addresses—enough for trillions of devices) and simplifies header processing. While IPv4 dominates (99%+ of internet traffic), IPv6 is growing rapidly—and it's often **poorly monitored and understands as an attack surface**. For attackers, IPv6 on dual-stack networks is an underexplored attack vector. For defenders, IPv6 requires new monitoring and segmentation strategies. Understanding IPv6 is increasingly critical as deployment accelerates globally.
+IPv6 solves IPv4's address exhaustion with 128-bit addresses (2^128 unique addresses—enough for trillions of devices) and simplifies header processing. While IPv4 dominates (99%+ of internet traffic), IPv6 is growing rapidly—and it's often **poorly monitored and poorly understood as an attack surface**. For attackers, IPv6 on dual-stack networks is an underexplored attack vector. For defenders, IPv6 requires new monitoring and segmentation strategies. Understanding IPv6 is increasingly critical as deployment accelerates globally.
 
 **Learning Outcomes:**
 After this section, you'll understand:
@@ -5584,6 +6981,44 @@ Client ← [6. IP Address]
   - `www.example.com.` (note trailing dot for root)
   - `mail.google.com.`
 - Trailing dot usually omitted by users (added automatically)
+
+#### 19.3.1 DNS Zones & Delegation
+
+**What is a DNS Zone?**
+- A **zone** is an **administrative portion** of the DNS namespace.
+- It represents a slice of the hierarchy managed by a specific organization or admin.
+- A zone is **administrative**, not geographic—one server can host multiple zones.
+
+**Why Zones Exist (Delegation Use‑Case)**
+- Managing all records in one huge database becomes complex as organizations grow.
+- **Delegation** lets you split control:
+  - You keep `example.com`.
+  - Delegate `shop.example.com` to a separate admin team.
+  - Delegate `app.example.com` to another team.
+
+**Hierarchy Examples**
+- **Root Zone (`.`):** Maintains the list of TLDs.
+- **TLD Zones (`.com`, `.org`):** Manage domains under that TLD.
+- **User Zone (`craftsvilla.com`):** You control this zone.
+- **Sub‑delegation:** If `blog.craftsvilla.com` grows, it can become its own zone with a different admin.
+
+**Key Idea:** Zones **distribute workload** and **isolate administrative control** without breaking the global DNS hierarchy.
+
+#### 19.3.2 Zone Files (SOA & Resource Records)
+
+**Zone File:**
+- A **plain text** file stored on the DNS server.
+- Contains all **resource records** for that zone.
+
+**Must Start With SOA (Start of Authority)**
+- Identifies the **primary name server** for the zone.
+- Includes **administrator contact** (email) and **zone transfer** parameters (sync timing).
+
+**Resource Records (Examples)**
+- **A / AAAA:** Name to IP mapping
+- **MX:** Mail servers
+- **CNAME:** Aliases
+- **NS:** Delegation to name servers
 
 ### 19.4 DNS Record Types
 
