@@ -67,6 +67,52 @@
 
 ---
 
+## Scanning Technology Chart
+
+### **Scanning Techniques**
+
+**Scanning TCP Network Services:**
+- **Open TCP Scanning Methods**
+  - TCP Connect / Full Open Scan (-sT)
+  - Vanilla TCP Scanning
+
+- **Stealth TCP Scanning Methods**
+  - Half-open Scan (SYN Scan / -sS)
+  - Stealth Port Scanning
+  
+  - Inverse TCP Flag Scanning
+    - Xmas Scan (-sX)
+    - FIN Scan (-sF)
+    - NULL Scan (-sN)
+  
+  - ACK Flag Probe Scanning (-sA)
+  - Firewall Rule Determination
+
+- **Third Party and Spoofed TCP Scanning Methods**
+  - IDLE / IP ID Header Scanning (-sI)
+  - Zombie Host Scanning
+  - Decoy Scanning (-D)
+
+**Scanning UDP Network Services:**
+- **UDP Scanning Methods**
+  - UDP Scan (-sU)
+  - ICMP Port Unreachable Detection
+  - Service Detection
+
+**Host Discovery & Enumeration:**
+- **Ping Sweep** - ICMP Echo probes to range
+- **ARP Scan** - ARP request to identify live hosts
+- **Banner Grabbing** - Service version enumeration
+- **OS Fingerprinting** - Stack behavior analysis
+
+**Evasion & Speed Control:**
+- **Fragmentation** - Fragment probes to bypass filters
+- **Timing Templates** - Slow (-T0/-T1) to IDS evasion
+- **Decoy Scanning** - Mix real scan with dummy sources
+- **Source Port Manipulation** - Use port 53/80 for bypass
+
+---
+
 ## Scanning Methodology (Module 6)
 
 1. **Checking for live systems**
