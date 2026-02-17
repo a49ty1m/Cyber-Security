@@ -571,6 +571,126 @@ Networks are classified by their geographical scope, ownership, and architecture
   - 802.11ax (Wi-Fi 6/6E): up to 9.6 Gbps
   - 802.11be (Wi-Fi 7): up to 46 Gbps
 
+**Wi-Fi Frequency Bands: 2.4 GHz vs 5 GHz vs 6 GHz**
+
+Wi-Fi operates on multiple frequency bands, each with distinct characteristics affecting range, speed, and reliability:
+
+---
+
+**2.4 GHz Band — The Long-Range Workhorse**
+
+The 2.4 GHz band was the original Wi-Fi frequency and remains the most widely supported.
+
+*Technical Characteristics:*
+- **Frequency Range:** 2.400 - 2.4835 GHz
+- **Channel Width:** 20 MHz (40 MHz optional, but causes more overlap)
+- **Channels Available:** 14 total (varies by country), but only **3 non-overlapping channels** (1, 6, 11 in US/Canada; 1, 5, 9, 13 in some regions)
+- **Range:** ~45m indoors, ~90m outdoors (varies with obstacles)
+- **Max Speed:** 150-600 Mbps (depending on Wi-Fi standard and MIMO configuration)
+
+*Why It Has Better Range:*
+Lower frequency waves travel farther and penetrate solid objects (walls, floors, furniture) more effectively. Think of it like bass sounds traveling through walls better than treble.
+
+*Interference Challenges:*
+The 2.4 GHz band is extremely crowded because many devices use it:
+- Microwave ovens (emit 2.45 GHz radiation when operating)
+- Bluetooth devices (also use 2.4 GHz ISM band)
+- Cordless phones and baby monitors
+- Zigbee IoT devices
+- Neighboring Wi-Fi networks
+- USB 3.0 cables (can emit interference)
+
+With only 3 non-overlapping channels and high device density, congestion is common in apartments and offices.
+
+*Best Use Cases:*
+- IoT devices (smart home sensors, thermostats)
+- Devices far from the router
+- Older devices without 5 GHz support
+- Basic web browsing and email
+
+---
+
+**5 GHz Band — The Speed Champion**
+
+The 5 GHz band offers significantly faster speeds and less congestion at the cost of range.
+
+*Technical Characteristics:*
+- **Frequency Range:** 5.150 - 5.825 GHz (varies by region)
+- **Channel Width:** 20, 40, 80, or 160 MHz
+- **Channels Available:** **23+ non-overlapping channels** (exact count varies by country)
+- **Range:** ~15m indoors, ~30m outdoors
+- **Max Speed:** Up to 3.5 Gbps (Wi-Fi 5) or 9.6 Gbps (Wi-Fi 6)
+
+*Why It's Faster:*
+- **Wider channels:** 80 MHz and 160 MHz channel bonding allows more data throughput
+- **More channels:** Less congestion means dedicated bandwidth
+- **Less interference:** Fewer devices compete on this band
+
+*Range Limitations:*
+Higher frequency waves are more easily absorbed by walls, floors, and obstacles. The signal degrades faster with distance and struggles to penetrate:
+- Concrete and brick walls
+- Multiple floors
+- Metal objects and appliances
+- Water (including fish tanks, humans)
+
+*DFS Channels (Dynamic Frequency Selection):*
+Some 5 GHz channels (52-144) overlap with radar systems (weather, military, aviation). Devices must detect radar and automatically switch channels, which can cause brief disconnections.
+
+*Best Use Cases:*
+- 4K/8K video streaming
+- Online gaming (low latency)
+- Video conferencing
+- Large file transfers
+- Devices close to the router
+
+---
+
+**6 GHz Band — The New Frontier (Wi-Fi 6E/7)**
+
+The 6 GHz band is the newest addition, offering unprecedented bandwidth and minimal congestion.
+
+*Technical Characteristics:*
+- **Frequency Range:** 5.925 - 7.125 GHz
+- **Channel Width:** 20, 40, 80, 160, or **320 MHz** (Wi-Fi 7)
+- **Channels Available:** **59 non-overlapping 20 MHz channels** (or 7 × 160 MHz channels)
+- **Range:** Very short (~10m indoors), highly affected by obstacles
+- **Max Speed:** Up to 9.6 Gbps (Wi-Fi 6E), 46 Gbps (Wi-Fi 7)
+
+*Advantages:*
+- **Completely uncongested:** Only Wi-Fi 6E/7 devices can use it (no legacy devices)
+- **Massive channel availability:** 1200 MHz of spectrum (compared to 500 MHz for 5 GHz)
+- **320 MHz channels:** Wi-Fi 7 can bond two 160 MHz channels for extreme throughput
+- **Lower latency:** Less contention = faster response times
+
+*Limitations:*
+- **Very short range:** Even worse wall penetration than 5 GHz
+- **Device compatibility:** Requires Wi-Fi 6E or Wi-Fi 7 hardware (released 2021+)
+- **Regulatory differences:** Not all countries have released the full 6 GHz spectrum
+- **Power restrictions:** Indoor-only in some regions; outdoor use limited
+
+*Best Use Cases:*
+- AR/VR applications
+- Real-time gaming and esports
+- 8K streaming and professional video production
+- High-density environments (stadiums, conference centers)
+- Future-proofing network infrastructure
+
+---
+
+**2.4 GHz vs 5 GHz — Quick Comparison:**
+
+| Feature           | 2.4 GHz                    | 5 GHz                       |
+|-------------------|----------------------------|-----------------------------|
+| **Range**         | Long (~45m indoor)         | Short (~15m indoor)         |
+| **Speed**         | Lower (150-600 Mbps)       | Higher (up to 9.6 Gbps)     |
+| **Wall Penetration** | Better                  | Weaker                      |
+| **Interference**  | High (crowded band)        | Low (less crowded)          |
+| **Channels**      | 3 non-overlapping          | 23+ non-overlapping         |
+| **Best For**      | Coverage, IoT, old devices | Speed, streaming, gaming    |
+| **Compatibility** | All Wi-Fi devices          | Wi-Fi 5+ devices            |
+
+> **Tip:** Use 2.4 GHz for devices far from the router or IoT devices. Use 5 GHz for bandwidth-intensive tasks like streaming, gaming, or video calls when close to the router.
+
 **LAN Topologies:**
 
 1. **Star Topology:**
@@ -881,6 +1001,18 @@ After this section, you'll understand:
 - **Bandwidth:** Maximum theoretical capacity
 - **Throughput:** Actual measured data rate
 - Always: Throughput ≤ Bandwidth (due to overhead, latency, packet loss)
+
+> **Water & Pipeline Analogy:**
+> - **Bandwidth** = The pipe's diameter (how much water *could* flow)
+> - **Throughput** = The actual water flowing through (how much *actually* flows)
+> 
+> A 100 Mbps line (wide pipe) might only deliver 80 Mbps throughput (actual water flow) because of:
+> - **Rust/scaling** inside the pipe → Protocol overhead, packet headers
+> - **Kinks or bends** → Network congestion, router bottlenecks  
+> - **Leaks** → Packet loss, retransmissions
+> - **Multiple taps sharing the same pipe** → Shared bandwidth with other users
+> 
+> *You pay for the pipe size (bandwidth), but you experience the water flow (throughput).*
 
 **Latency/Ping:**
 - Time for packet to reach destination and return

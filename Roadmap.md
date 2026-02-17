@@ -1,4 +1,4 @@
-# Red Team Fundamentals: Master Checklist
+7\# Red Team Fundamentals: Master Checklist
 
 ## ✅📋 Completion Tracker & Quick Navigation
 
@@ -656,9 +656,9 @@ _Goal: Understand software stacks and cloud computing basics._
 
 - [ ] **NTP Hierarchy:** Master **Stratum levels** (0-15), where **Stratum 0 = atomic clock**, **Stratum 1 = primary**, etc.
 
-- [ ] **NTP Client Configuration:** Configure devices as **NTP clients** using **ntp server <ip>** to sync time.
+- [ ] **NTP Client Configuration:** Configure devices as **NTP clients** using   to sync time.
 
-- [ ] **NTP Server Configuration:** Configure router as **NTP server** using **ntp master** for internal time distribution.
+- [ ] **NTP Server Configuration:** Configure router as **NTP server** using **ntp master** for internal time distribution. 
 
 - [ ] **NTP Authentication:** Implement **NTP authentication** using **keys** to prevent time manipulation attacks.
 
@@ -680,7 +680,7 @@ _Goal: Understand software stacks and cloud computing basics._
 
 - [ ] **Syslog Severity Levels:** Master **0-7 severity** (0=Emergency, 1=Alert, 2=Critical, 3=Error, 4=Warning, 5=Notice, 6=Informational, 7=Debug).
 
-- [ ] **Syslog Configuration:** Configure **logging host <ip>**, **logging trap <level>**, and **logging source-interface**.
+- [ ] **Syslog Configuration:** Configure `logging host <ip>`, `logging trap <level>`, and `logging source-interface`.
 
 - [ ] **Syslog vs Local Logging:** Understand **logging buffer, console, monitor** vs **centralized syslog server**.
 
@@ -700,11 +700,11 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **Secure Alternatives:** Prefer **SCP, SFTP** over **TFTP/FTP** for secure file transfers.
 
 **NAT Configuration:**
-- [ ] **Static NAT Configuration:** Configure **ip nat inside source static <local-ip> <global-ip>** for 1:1 mapping.
+- [ ] **Static NAT Configuration:** Configure `ip nat inside source static <local-ip> <global-ip>` for 1:1 mapping.
 
-- [ ] **Dynamic NAT with Pools:** Configure **ip nat pool** and **ip nat inside source list <acl> pool <name>**.
+- [ ] **Dynamic NAT with Pools:** Configure `ip nat pool` and `ip nat inside source list <acl> pool <name>`.
 
-- [ ] **PAT (NAT Overload):** Configure **ip nat inside source list <acl> interface <outside-int> overload**.
+- [ ] **PAT (NAT Overload):** Configure `ip nat inside source list <acl> interface <outside-int> overload`.
 
 - [ ] **NAT Inside/Outside:** Apply **ip nat inside** and **ip nat outside** to appropriate interfaces.
 
@@ -994,7 +994,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 **Configuration Management Tools:**
 - [ ] **Ansible Capabilities:** Understand **agentless, YAML playbooks, SSH-based** automation for **network device configuration**.
 
-- [ ] **Ansible Modules:** Recognize **ios_command, ios_config, nxos_*, eos_*** modules for vendor-specific automation.
+- [ ] **Ansible Modules:** Recognize `ios_command`, `ios_config`, `nxos_*`, `eos_*` modules for vendor-specific automation.
 
 - [ ] **Terraform Capabilities:** Understand **Infrastructure as Code (IaC)** with **declarative HCL syntax, state management**.
 
