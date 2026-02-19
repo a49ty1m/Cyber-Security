@@ -25,6 +25,11 @@
 | [Video 6](#video-6-the-osi-model) | The OSI Model | 7 Layers, Encapsulation |
 | [Video 7](#video-7-tcpip-model) | TCP/IP Model | 4 Layers, TCP vs UDP |
 
+### Part 4: Packet Deep Dive
+| Video | Topic | Key Concepts |
+|-------|-------|-------------|
+| [Video 8](#video-8-ipv4-header) | IPv4 Header | Header fields, Fragmentation, TTL, Protocol |
+
 ### Appendix
 - [OSI vs TCP/IP Quick Reference](#-quick-reference-osi-vs-tcpip-models)
 - [Common Ports Reference](#-common-ports-quick-reference)
@@ -1045,6 +1050,235 @@ You ──[Encrypted Tunnel]──→ VPN Server (IP: 198.51.100.1) ──→ We
 
 ---
 
+# Video 8 (IPv4 Header)
+
+The IPv4 Header is a 20 to 60-byte instruction block attached to every packet. It tells routers where to send data (IP), how to handle it (Priority/TTL), and what is inside it (Protocol). It is processed in hardware by routers, so its structure is rigid and optimized for speed.
+
+> 💡 **Cross-Reference:** For IPv4 vs IPv6 comparison, see [Video 3](#video-3-ipv4-vs-ipv6). For how IP works at the Internet Layer, see [Video 7](#video-7-tcpip-model).
+
+## **35. Header Architecture Overview**
+- **Size:** Minimum 20 Bytes (Standard) / Maximum 60 Bytes (If Options are used).
+- **Structure:** Read in 32-bit (4-byte) rows. The header consists of 5 mandatory rows (20 bytes) plus optional rows for Options.
+
+> 📋 **IPv4 Header Field Summary:**
+> | Field | Size | Purpose |
+> |-------|------|---------|
+> | Version | 4 bits | Identifies IP version (4 or 6) |
+> | IHL | 4 bits | Header length in 32-bit words |
+> | DSCP | 6 bits | Traffic priority/QoS marking |
+> | ECN | 2 bits | Congestion notification |
+> | Total Length | 16 bits | Entire packet size (header + data) |
+> | Identification | 16 bits | Fragment grouping ID |
+> | Flags | 3 bits | DF, MF fragmentation control |
+> | Fragment Offset | 13 bits | Position of fragment in original |
+> | TTL | 8 bits | Hop limit (self-destruct timer) |
+> | Protocol | 8 bits | Identifies payload type (TCP/UDP/ICMP) |
+> | Header Checksum | 16 bits | Header integrity verification |
+> | Source IP | 32 bits | Sender's address |
+> | Destination IP | 32 bits | Receiver's address |
+> | Options | Variable | Testing, debugging, security (rare) |
+> | Padding | Variable | Aligns header to 32-bit boundary |
+
+## **36. Row 1: Basic Information & Dimensions**
+- **Version (4 bits):** Identifies the IP protocol version. Always set to `4` (`0100` in binary) for IPv4. This is the very first thing a router reads. If this field says `6`, the router switches to IPv6 processing rules.
+- **IHL - Internet Header Length (4 bits):** Specifies the length of the header itself, measured in 32-bit words (4 bytes each).
+  - **Minimum:** `5` (5 words × 4 bytes = **20 Bytes**)
+  - **Maximum:** `15` (15 words × 4 bytes = **60 Bytes**)
+  - It tells the receiving device exactly where the header ends and the payload (data) begins.
+- **DSCP (Differentiated Services Code Point) - 6 bits:** Used for Quality of Service (QoS). Marks packets for priority handling (Voice/Video → High priority, Email/Downloads → Low priority).
+- **ECN (Explicit Congestion Notification) - 2 bits:** Allows routers to signal "congestion is happening" to the sender **without dropping the packet**.
+- **Total Length (16 bits):** Defines the size of the entire packet (Header + Payload).
+  - **Minimum:** 20 Bytes (Header only, no data)
+  - **Maximum:** 65,535 Bytes ($2^{16} - 1$)
+  - **Constraint:** The physical network (Ethernet) limits packet size via **MTU (Maximum Transmission Unit)**, typically **1500 Bytes**. Packets larger* than MTU must be fragmented.
+
+> 📋 **Common DSCP Values:**
+> | DSCP Value | Name | Use Case |
+> |------------|------|----------|
+> | 46 (EF) | Expedited Forwarding | VoIP, real-time traffic |
+> | 34 (AF41) | Assured Forwarding | Video conferencing |
+> | 26 (AF31) | Assured Forwarding | Streaming media |
+> | 0 (BE) | Best Effort | Default, no priority |
+
+## **37. Row 2: Fragmentation Control**
+This entire row manages **Fragmentation**—the process of slicing a large packet into smaller chunks to fit through a network link with a smaller MTU.
+
+- **Identification (16 bits):** A unique ID assigned to the original packet. When a packet is fragmented, every fragment carries this same ID. This allows the receiving device to identify which fragments belong to the same original message.
+- **Flags (3 bits):**
+  - **Bit 0 (Reserved):** Always set to `0`.
+  - **Bit 1 (DF - Don't Fragment):** If `1`, "Do not fragment this packet." If too big, router drops it and sends ICMP error. If `0`, fragmentation is allowed.
+  - **Bit 2 (MF - More Fragments):** If `1`, "There are more fragments coming after me." If `0`, "I am the last fragment."
+- **Fragment Offset (13 bits):** Indicates the position of this specific fragment in the original packet. The receiver uses this to reassemble the fragments in the correct order (e.g., "This piece starts at byte 0," "This piece starts at byte 1480").
+
+| Bit | Name | Value | Meaning |
+|-----|------|-------|---------|
+| 0 | Reserved | 0 | Always set to 0 |
+| 1 | DF (Don't Fragment) | 1 | "Do not fragment this packet." If too big, router drops it and sends ICMP error |
+| 1 | DF (Don't Fragment) | 0 | Fragmentation is allowed |
+| 2 | MF (More Fragments) | 1 | "There are more fragments coming after me" |
+| 2 | MF (More Fragments) | 0 | "I am the last fragment" |
+
+```
+Original Packet (4000 bytes)        MTU = 1500 bytes
+┌──────────────────────────────┐
+│     Data: 4000 bytes         │
+└──────────────────────────────┘
+              ↓
+         Fragmentation
+              ↓
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ Fragment 1  │ │ Fragment 2  │ │ Fragment 3  │
+│ ID=12345    │ │ ID=12345    │ │ ID=12345    │
+│ Offset=0    │ │ Offset=185  │ │ Offset=370  │
+│ MF=1        │ │ MF=1        │ │ MF=0        │
+└─────────────┘ └─────────────┘ └─────────────┘
+```
+
+## **38. Fragmentation Attacks (Cybersecurity Angle)**
+- **Teardrop:** Overlapping fragment offsets crash older systems during reassembly.
+- **Tiny Fragment:** Fragments so small that TCP ports span multiple fragments, bypassing firewalls.
+- **Fragment Reassembly DoS:** Flood incomplete fragments to exhaust memory buffers.
+- **Defense:** Modern firewalls perform **fragment reassembly** before inspection to detect hidden payloads.
+
+| Attack | How It Works |
+|--------|--------------|
+| **Teardrop** | Overlapping fragment offsets crash older systems during reassembly |
+| **Tiny Fragment** | Fragments so small that TCP ports span multiple fragments, bypassing firewalls |
+| **Fragment Reassembly DoS** | Flood incomplete fragments to exhaust memory buffers |
+
+## **39. Row 3: Routing & Integrity**
+- **TTL - Time to Live (8 bits):** A "Self-Destruct" counter to prevent infinite loops. Every time a packet passes through a router (a "hop"), the router decrements TTL by 1. If TTL reaches 0, the packet is discarded, and an **ICMP "Time Exceeded"** message is sent to the sender.
+- **Protocol (8 bits):** Identifies the type of data (cargo) carried inside the packet so the destination OS knows which application to hand it to.
+- **Header Checksum (16 bits):** Error-checking for the header only (not the data). Because the TTL changes at every hop, the header changes at every hop. Therefore, **routers must recalculate this checksum at every single router** to ensure the header hasn't been corrupted.
+  - **Note:** Modern NICs often offload checksum calculation to hardware. In Wireshark, you may see "Checksum Invalid" because the capture happens before the NIC adds the checksum—this is normal.
+
+> 📋 **Common Default TTL Values by OS:**
+> | Operating System | Default TTL |
+> |------------------|-------------|
+> | Linux/Mac | 64 |
+> | Windows | 128 |
+> | Cisco/Network Devices | 255 |
+
+**Security Use:** Attackers can fingerprint your OS by analyzing TTL values in captured packets.
+
+> 📋 **Common Protocol Numbers:**
+> | Number | Protocol | Use Case |
+> |--------|----------|----------|
+> | 1 | ICMP | Ping, traceroute, error messages |
+> | 6 | TCP | Web (HTTP/S), Email, SSH, FTP |
+> | 17 | UDP | DNS, Gaming, VoIP, Streaming |
+> | 47 | GRE | VPN tunneling |
+> | 50 | ESP | IPsec encrypted payload |
+> | 51 | AH | IPsec authentication header |
+
+## **40. Row 4 & 5: Addressing**
+- **Source IP Address (32 bits):** The IP address of the sender. Used by the destination to know where to send responses.
+- **Destination IP Address (32 bits):** The IP address of the final recipient. This is the **primary field routers use to make forwarding decisions**.
+
+## **41. Row 6: Options & Padding**
+- **Options (Variable Length):** Used for network testing, debugging, or security features. Rarely used in modern networks because they slow down routing—routers process packets with options in the **CPU rather than hardware**.
+  - **Strict Source Routing (SSRR):** Sender specifies the exact path.
+  - **Loose Source Routing (LSRR):** Sender specifies waypoints.
+  - **Record Route:** Records the path taken.
+  - **Timestamp:** Records time at each hop.
+  - **Security:** Options like Source Routing are almost always blocked because they allow attackers to map networks or bypass security controls.
+- **Padding (Variable Length):** Ensures the header ends on a 32-bit boundary. If the "Options" field is an odd size (e.g., 2 bytes), Padding adds **Zeros (0s)** to fill the remaining space so the next 32-bit row aligns perfectly.
+
+## **42. TTL in Action: Traceroute**
+Traceroute exploits TTL to map network paths:
+
+```bash
+traceroute google.com
+```
+
+1. Send packet with TTL=1 → First router decrements to 0, sends ICMP "Time Exceeded"
+2. Send packet with TTL=2 → Second router responds
+3. Repeat until destination reached
+
+**Security Use:** Attackers use traceroute for **network reconnaissance** to map infrastructure.
+
+## **The Coach's Verdict: Logic Gaps & Growth**
+Where this video succeeds: It provides a clear field-by-field breakdown. Understanding Fragmentation (Flags and Offsets) is critical because many firewalls use "Fragment Reassembly" to check for malware hidden across multiple packets.
+
+### **Where it falls short (The "So-What"):**
+
+- **The Security Implications of Options:** The video mentions "Options" are rare. In cybersecurity, IP Options (like Source Routing) are almost always blocked because they allow attackers to map networks. If you see IP Options in a packet capture, it's 99% likely a scan or an attack.
+- **Header Checksum Offloading:** Modern Network Cards (NICs) calculate the checksum, not the CPU. If you look at Wireshark, it often says "Checksum Invalid" because the capture happens before the card adds the checksum. Don't panic; this is normal.
+- **IP Options Security:** Loose Source Routing (LSRR) and Strict Source Routing (SSRR) let attackers specify the route a packet takes—great for bypassing security controls. Most enterprise firewalls drop packets with IP Options.
+- **TTL Fingerprinting:** Different operating systems use different default TTLs. Linux uses 64, Windows uses 128. Attackers can fingerprint your OS by analyzing TTL values.
+
+### **Immediate Action Items:**
+- Open Wireshark. Click on any packet. Expand "Internet Protocol Version 4". Match every field you just learned (Version, IHL, TTL, *Protocol) to the live data.
+- Execute `traceroute google.com` (Linux/Mac) or `tracert google.com` (Windows). Watch TTL in action as it maps the path.
+- Run `ping -M do -s 1472 8.8.8.8` (Linux) to test if fragmentation is needed. If it fails, your MTU is smaller than 1500.
+
+Source URL: https://www.youtube.com/watch?v=Mj1o2y7ph78
+
+### 📝 Self-Test Questions (Video 8)
+
+<details>
+<summary><b>Q1: What is the maximum size of an IPv4 Header?</b></summary>
+
+**Answer:** **60 Bytes** (20 Bytes minimum + 40 Bytes of Options).
+
+The IHL field is 4 bits, max value 15, representing 15 × 4 = 60 bytes.
+</details>
+
+<details>
+<summary><b>Q2: What is the use of TTL (Time To Live)?</b></summary>
+
+**Answer:** To **prevent packets from looping infinitely** in a network. It decrements by 1 at every hop. When it reaches 0, the router discards the packet and sends an ICMP "Time Exceeded" message.
+
+| OS | Default TTL |
+|----|-------------|
+| Linux | 64 |
+| Windows | 128 |
+| Cisco | 255 |
+</details>
+
+<details>
+<summary><b>Q3: What is the function of the Protocol Field?</b></summary>
+
+**Answer:** It tells the destination computer **which service (TCP, UDP, ICMP) handles the data** inside the packet.
+
+Without this field, the OS wouldn't know whether to send the payload to the TCP stack, UDP stack, or ICMP handler.
+</details>
+
+<details>
+<summary><b>Q4: What is the role of Fragmentation?</b></summary>
+
+**Answer:** To **break large packets into smaller chunks** that fit the MTU (Maximum Transmission Unit) of the network link.
+
+**Example:** A 4000-byte packet on an Ethernet link (MTU 1500) gets split into 3 fragments, each marked with the same Identification field so they can be reassembled.
+</details>
+
+<details>
+<summary><b>Q5: What is the Protocol Number for TCP?</b></summary>
+
+**Answer:** `6`
+
+**Common protocol numbers to memorize:**
+- ICMP = 1
+- TCP = 6
+- UDP = 17
+- GRE = 47
+- ESP = 50
+</details>
+
+<details>
+<summary><b>Q6: Why would a packet have the DF (Don't Fragment) flag set?</b></summary>
+
+**Answer:** To **ensure the packet arrives intact or not at all**. This is common for:
+
+- **Path MTU Discovery:** The sender tests if the entire path can handle the packet size
+- **IPsec/VPN traffic:** Fragmentation can break encrypted tunnels
+- **Applications requiring atomic delivery:** Some protocols don't handle fragmented data well
+
+If DF is set and the packet exceeds MTU, the router drops it and sends an ICMP "Fragmentation Needed" message back to the sender.
+</details>
+
+---
+
 # Appendix
 
 ## 🔑 Key Terms Glossary
@@ -1077,3 +1311,4 @@ You ──[Encrypted Tunnel]──→ VPN Server (IP: 198.51.100.1) ──→ We
 | 5 | Switch vs Router | https://www.youtube.com/watch?v=wtxMkv4Jspw |
 | 6 | The OSI Model | https://youtu.be/gR0xB25hhzU |
 | 7 | TCP/IP Model | http://www.youtube.com/watch?v=sA5xpIEWzDE |
+| 8 | IPv4 Header | https://www.youtube.com/watch?v=Mj1o2y7ph78 |
