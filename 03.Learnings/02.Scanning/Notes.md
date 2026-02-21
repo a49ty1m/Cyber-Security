@@ -90,8 +90,12 @@
 
 - **Third Party and Spoofed TCP Scanning Methods**
   - IDLE / IP ID Header Scanning (-sI)
+    - *Advantages:* Ultimate stealth (uses zombie host), attacker IP never appears in logs, can bypass IP-based access controls
+    - *Disadvantages:* Requires finding suitable zombie host, complex to set up, slower than direct scans, zombie must have predictable IP ID sequence
   - Zombie Host Scanning
   - Decoy Scanning (-D)
+    - *Advantages:* Hides real scanner IP among decoys, makes tracing back difficult, useful for evading IDS correlation
+    - *Disadvantages:* Does not provide anonymity (real IP still visible), decoy IPs may trigger alerts, blocked by egress filtering
 
 **Scanning UDP Network Services:**
 - **UDP Scanning Methods**
@@ -102,6 +106,8 @@
 **Host Discovery & Enumeration:**
 - **Ping Sweep** - ICMP Echo probes to range
 - **ARP Scan** - ARP request to identify live hosts
+  - *Advantages:* Cannot be blocked by firewalls (Layer 2), extremely fast, very reliable on local networks, works even if host blocks all IP traffic
+  - *Disadvantages:* Only works on local subnet, limited to same broadcast domain, no use for remote targets
 - **Banner Grabbing** - Service version enumeration
 - **OS Fingerprinting** - Stack behavior analysis
 
@@ -131,12 +137,38 @@
 - Live hosts respond with ICMP ECHO replies.
 - Useful to determine whether ICMP is allowed through firewalls.
 
+**Advantages:**
+- Quick way to check if a single host is alive
+- Very low resource consumption
+- Simple and widely supported
+- No special privileges needed for basic ping
+
+**Disadvantages:**
+- Blocked by many firewalls and security devices
+- Host may be alive but not responding to ICMP
+- Limited information (only alive/dead status)
+- Can be logged and trigger alerts
+
 ### Ping Sweep
 
 - Sends ICMP ECHO requests to multiple hosts in a range.
 - Live hosts respond with ICMP ECHO replies.
 - Subnet mask calculators help determine host counts.
 - Builds an inventory of live systems in a subnet.
+
+**Advantages:**
+- Fast and efficient for host discovery
+- Low network overhead
+- Simple to implement and understand
+- Works across routed networks
+- Easy to script and automate
+
+**Disadvantages:**
+- ICMP is often blocked by firewalls
+- Many hosts are configured to ignore ICMP requests
+- High false-negative rate in secured environments
+- Can miss hosts with ICMP disabled
+- Easily detected by network monitoring tools
 
 **Examples (authorized use only):**
 - `nmap -sn 192.168.1.0/24`
@@ -189,11 +221,37 @@ To exploit a system, attackers must identify services listening on publicly acce
 - Ends with a RST packet to tear down the connection
 - Does not require super user privileges
 
+**Advantages:**
+- No root/admin privileges required
+- Works on any system with socket API
+- Highly accurate results (definitive open/closed)
+- Works through proxies and SOCKS
+
+**Disadvantages:**
+- Easily detected and logged by target systems
+- Slower than SYN scan (full handshake overhead)
+- Leaves connection traces in application logs
+- More likely to trigger IDS/IPS alerts
+
 ### Stealth / Half‑Open Scan (`-sS`)
 
 - Sends SYN, receives SYN/ACK if open
 - Sends RST before handshake completes
 - If RST received from server → port is closed
+
+**Advantages:**
+- Faster than full connect scan
+- Less likely to be logged (no full connection established)
+- Can scan thousands of ports quickly
+- Bypasses some older logging mechanisms
+- Reliable results for most scenarios
+
+**Disadvantages:**
+- Requires root/admin privileges (raw sockets)
+- Modern IDS can still detect SYN floods
+- May be blocked by stateful firewalls
+- Can crash older or unstable systems
+- Leaves half-open connections that may timeout
 
 ### Inverse TCP Flag Scans (`-sF`, `-sN`)
 
@@ -201,10 +259,36 @@ To exploit a system, attackers must identify services listening on publicly acce
 - **NULL scan:** No flags set
 - No response usually indicates open; RST indicates closed
 
+**Advantages:**
+- Can bypass non-stateful firewalls and packet filters
+- More stealthy than SYN scan against some systems
+- Avoids SYN-based IDS signatures
+- Useful for firewall rule mapping
+
+**Disadvantages:**
+- Does not work against Windows systems (always sends RST)
+- Cannot distinguish open from filtered ports reliably
+- Slower due to waiting for timeouts
+- Less accurate results overall
+- Requires root/admin privileges
+
 ### Xmas Scan (`-sX`)
 
 - Sends FIN, URG, and PSH flags set
 - Used to infer OS stack behavior
+
+**Advantages:**
+- Can evade some non-stateful firewalls
+- Useful for OS fingerprinting (stack behavior differs)
+- Bypasses SYN-based packet filters
+- Less common, may avoid signature-based IDS
+
+**Disadvantages:**
+- Does not work against Windows/Cisco/BSDI/IBM systems
+- Generates unusual flag combinations (easy to detect if monitored)
+- Cannot distinguish open from filtered ports
+- Requires root/admin privileges
+- Slower due to timeout reliance
 
 ### ACK Flag Probe Scan (`-sA`)
 
@@ -213,12 +297,39 @@ To exploit a system, attackers must identify services listening on publicly acce
 - **WINDOW value non‑zero** in RST implies open
 - No response implies filtered
 
+**Advantages:**
+- Excellent for mapping firewall rules (filtered vs unfiltered)
+- Can determine if firewall is stateful or stateless
+- Hard to log since it appears as part of existing connection
+- Useful for discovering firewall misconfigurations
+
+**Disadvantages:**
+- Cannot determine if a port is open or closed
+- Only reveals filtering status
+- Requires root/admin privileges
+- Modern stateful firewalls block unsolicited ACK packets
+- Results may be inconsistent across different firewall types
+
 ### UDP Scan (`-sU`)
 
 - No three‑way handshake for UDP
 - **Open UDP port:** Often no response
 - **Closed UDP port:** ICMP port unreachable (type 3, code 3)
 - Many spyware and Trojans use UDP ports
+
+**Advantages:**
+- Only reliable method to discover UDP services
+- Identifies DNS, SNMP, DHCP, NTP, and other UDP services
+- Essential for comprehensive port coverage
+- Can reveal services invisible to TCP scans
+
+**Disadvantages:**
+- Very slow (ICMP rate limiting by most systems)
+- High false-negative rate (open ports often don't respond)
+- Hard to distinguish open from filtered
+- Requires root/admin privileges
+- Results are less reliable than TCP scans
+- Can be blocked if ICMP unreachable messages are filtered
 
 ---
 
@@ -255,11 +366,36 @@ Determines OS or software version running on a remote system.
 - Send crafted packets and compare responses to a database
 - Responses differ across OSes due to TCP/IP stack variations
 
+**Advantages:**
+- Accurate and detailed service/OS information
+- Works against most standard services
+- Provides specific version numbers for vulnerability matching
+- Quick turnaround for results
+
+**Disadvantages:**
+- Easily detected and logged
+- Can trigger IDS/IPS alerts
+- Banners can be spoofed or modified
+- Reveals attacker's presence on the network
+
 ### Passive Banner Grabbing
 
 - **Error messages:** Reveal server type, OS, and SSL tool
 - **Traffic sniffing:** Analyze captured packets for OS hints
 - **Page extensions:** `.aspx` suggests IIS/Windows, etc.
+
+**Advantages:**
+- Completely undetectable (no packets sent)
+- Cannot be blocked by firewalls
+- No direct interaction with target
+- Works against any observable traffic
+
+**Disadvantages:**
+- Requires network access to sniff traffic
+- May take longer to gather useful data
+- Information may be incomplete or outdated
+- Depends on available traffic (passive observation only)
+- May require privileged access for packet capture
 
 ---
 
