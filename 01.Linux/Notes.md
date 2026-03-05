@@ -31,6 +31,7 @@ How to use these notes:
 - [Troubleshooting Matrix](#31-troubleshooting-matrix-symptom-to-action)
 - [Glossary](#32-glossary-fast-recall)
 - [Missing Topics To Add Next](#33-important-linux-topics-not-covered-deeply-yet)
+- [Advanced Mini-Labs](#34-advanced-mini-labs-for-section-33)
 
 ### Part-wise structure
 - Part A: Foundation and Core Linux Mechanics
@@ -81,6 +82,12 @@ How to use these notes:
 - `26` Data Extraction and Stream Handling at Scale
 - `27` Permission Matrix and Privilege Escalation Surface
 - `28` Cloud VPS Operations and Initial Hardening
+- `29` Scenario-Based Runbook Index (Fast Lookup)
+- `30` Revision Modes (Use by Time Available)
+- `31` Troubleshooting Matrix (Symptom to Action)
+- `32` Glossary (Fast Recall)
+- `33` Important Linux Topics Not Covered Deeply Yet
+- `34` Advanced Mini-Labs for Section 33
 
 ---
 
@@ -788,6 +795,25 @@ echo "$XDG_SESSION_TYPE"
 
 This matters mostly on desktop Linux, less on headless servers.
 
+### 18.3 Practical admin implications
+- Some GUI remote workflows depend on X11 forwarding (`ssh -X`/`ssh -Y`).
+- Wayland-native sessions may require different remoting workflows than legacy X11 tooling.
+- Clipboard/screen capture behavior can differ due to stronger compositor controls in Wayland.
+
+### 18.4 Troubleshooting GUI session basics
+```bash
+echo "$XDG_SESSION_TYPE"
+echo "$DISPLAY"
+loginctl show-session "$XDG_SESSION_ID" -p Type -p Name -p Remote
+```
+
+Use-case:
+- Confirm whether desktop session is X11 or Wayland before debugging app compatibility or remote display behavior.
+
+### 18.5 Security posture notes
+- On shared or high-sensitivity systems, prefer modern display stack defaults and avoid broad trust forwarding.
+- For remote admin, prefer terminal-first workflows and narrowly scoped secure channels.
+
 ---
 
 ## 19. GUI Topics Mentioned (Lower Priority for Server Ops)
@@ -798,6 +824,21 @@ Covered but less critical for pure server administration:
 - GUI apps: LibreOffice, GIMP, VLC, Thunderbird
 
 For server/infra path, prioritize CLI mastery first.
+
+### 19.1 When GUI is still useful
+- Initial desktop Linux onboarding for new users.
+- Visual diff/edit workflows for complex text/config comparison.
+- Hardware troubleshooting tasks where vendor tools are GUI-first.
+
+### 19.2 Resource and attack-surface tradeoff
+- GUI stacks consume additional CPU, RAM, and storage.
+- Extra packages mean extra services and libraries to patch.
+- On production servers, minimal installs reduce maintenance and exposure.
+
+### 19.3 Recommended learning balance
+1. Learn core operations in CLI first.
+2. Use GUI tools as optional accelerators, not dependencies.
+3. Ensure every GUI workflow has a CLI equivalent in your notes.
 
 ---
 
@@ -1306,61 +1347,304 @@ ls -l ~/.ssh
 
 ## 33. Important Linux Topics Not Covered Deeply Yet
 
-These are high-value Linux areas that are only lightly touched (or not yet detailed) in this note and should be added next for stronger system administration depth.
+These areas are often the difference between beginner-level command usage and production-grade Linux operations.
 
 ### 33.1 Storage and filesystem administration
-- Partition management: `lsblk`, `fdisk`, `parted`.
-- Filesystem creation/check: `mkfs`, `fsck`, `tune2fs`.
-- Mount lifecycle and persistence: `mount`, `umount`, `/etc/fstab` validation workflow.
-- Logical Volume Manager (LVM): PV/VG/LV concepts, resize and snapshot basics.
-- Filesystem usage analysis: `df`, `du`, inode exhaustion checks.
 
-### 33.2 Service internals and startup control
-- `systemd` unit anatomy (`.service`, `.target`, `.timer`).
-- Service override files: `systemctl edit <service>`.
-- Boot analysis: `systemd-analyze`, dependency graph reading.
-- Persistent vs runtime service enablement and masking.
+#### Core command workflow
+```bash
+lsblk -f
+sudo fdisk -l
+sudo parted -l
+df -h
+df -i
+du -sh /var/*
+```
 
-### 33.3 Security frameworks beyond chmod/chown
-- ACLs (`setfacl`, `getfacl`) for fine-grained permissions.
-- Linux capabilities (`getcap`, `setcap`) and least-privilege alternatives to SUID.
-- Mandatory Access Control:
-  - SELinux basics (`getenforce`, contexts, booleans),
-  - AppArmor profile model.
+What to verify:
+- Device name and partition layout.
+- Filesystem type and mountpoint.
+- Space utilization and inode utilization.
+
+#### Filesystem maintenance
+```bash
+sudo mkfs.ext4 /dev/sdb1
+sudo fsck -f /dev/sdb1
+sudo tune2fs -l /dev/sdb1 | head -n 25
+```
+
+#### Mount persistence and safe `/etc/fstab` flow
+1. Add new entry in `/etc/fstab`.
+2. Validate before reboot:
+```bash
+sudo mount -a
+```
+3. If errors appear, fix immediately before restarting.
+
+#### LVM baseline concepts
+- `PV`: physical volume (disk/partition prepared for LVM).
+- `VG`: volume group (pool of one or more PVs).
+- `LV`: logical volume (virtual block device from VG).
+
+Common inspection commands:
+```bash
+sudo pvs
+sudo vgs
+sudo lvs
+```
+
+### 33.2 Service internals and startup control (`systemd`)
+
+#### Unit types you should recognize
+- `.service`: daemon/service definition.
+- `.target`: boot or operational grouping point.
+- `.timer`: schedule trigger managed by systemd.
+
+#### Daily operations
+```bash
+systemctl status nginx
+systemctl is-enabled nginx
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+sudo systemctl mask nginx
+sudo systemctl unmask nginx
+```
+
+#### Safe override pattern (without editing vendor file)
+```bash
+sudo systemctl edit nginx
+sudo systemctl daemon-reload
+sudo systemctl restart nginx
+systemctl cat nginx
+```
+
+#### Boot analysis
+```bash
+systemd-analyze
+systemd-analyze blame | head -n 20
+systemd-analyze critical-chain
+```
+
+### 33.3 Security frameworks beyond basic permissions
+
+#### ACLs (fine-grained file permissions)
+```bash
+getfacl shared.txt
+setfacl -m u:alice:rw shared.txt
+setfacl -x u:alice shared.txt
+```
+
+Use-case:
+- Grant specific user access without changing file owner/group model.
+
+#### Linux capabilities (least-privilege privilege model)
+```bash
+getcap -r / 2>/dev/null | head
+sudo setcap cap_net_bind_service=+ep /usr/local/bin/myapp
+```
+
+Use-case:
+- Let service bind low ports without full root execution.
+
+#### SELinux/AppArmor quick checks
+```bash
+getenforce
+sestatus
+aa-status
+```
+
+Operational note:
+- If service works in permissive mode but fails in enforcing mode, inspect policy denials rather than disabling security framework permanently.
 
 ### 33.4 Firewall and packet filtering
-- `nftables`/`iptables` fundamentals (chains, rules, default policy).
-- Host firewall workflows with `ufw` or `firewalld`.
-- Service exposure validation with `ss -tulnp` + firewall rule checks.
+
+#### UFW workflow (common on Ubuntu)
+```bash
+sudo ufw status verbose
+sudo ufw allow OpenSSH
+sudo ufw allow 80/tcp
+sudo ufw enable
+```
+
+#### firewalld workflow (common on RHEL family)
+```bash
+sudo firewall-cmd --state
+sudo firewall-cmd --get-active-zones
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --reload
+```
+
+#### Validate actual service exposure
+```bash
+ss -tulnp
+sudo ufw status
+sudo firewall-cmd --list-all
+```
 
 ### 33.5 Logging, auditing, and observability
-- Deeper `journalctl` filters (`-u`, `--since`, priority levels).
-- Traditional logs in `/var/log` and `logrotate` behavior.
-- `auditd` basics for security event trail and rule design.
+
+#### `journalctl` filters you should use
+```bash
+journalctl -p err -b
+journalctl -u ssh -b
+journalctl --since "1 hour ago"
+journalctl -f
+```
+
+#### Log rotation awareness
+- `/etc/logrotate.conf`
+- `/etc/logrotate.d/*`
+
+Why it matters:
+- Prevents logs from consuming disk indefinitely.
+- Keeps historical slices for incident review.
+
+#### auditd baseline
+```bash
+sudo systemctl status auditd
+sudo ausearch -m USER_LOGIN -ts today
+sudo aureport -au
+```
 
 ### 33.6 Authentication and account policy
-- PAM basics and lockout policy concepts.
-- Password aging and account expiry (`chage`).
-- Sudo policy structure and `visudo` best practices.
 
-### 33.7 Network services and troubleshooting depth
-- DHCP client/server basics.
-- DNS record types and resolver behavior (`A`, `AAAA`, `CNAME`, `MX`, `TXT`).
-- TCP troubleshooting with `ss`, `tcpdump` basics, and route tracing depth.
+#### Password aging and expiry
+```bash
+sudo chage -l username
+sudo chage -M 90 -W 14 username
+```
+
+#### Account lock status
+```bash
+sudo passwd -S username
+sudo faillock --user username
+```
+
+#### Sudo policy best practice
+```bash
+sudo visudo
+sudo visudo -c
+```
+
+Rules:
+- Never edit sudoers file with plain editor.
+- Prefer specific command allowlists over full shell access where possible.
+
+### 33.7 Network services and deep troubleshooting
+
+#### DHCP and resolver sanity checks
+```bash
+ip addr show
+ip route show
+resolvectl status
+cat /etc/resolv.conf
+```
+
+#### DNS record inspection
+```bash
+dig A example.com +short
+dig AAAA example.com +short
+dig MX example.com +short
+dig TXT example.com +short
+```
+
+#### Packet-level inspection basics
+```bash
+sudo tcpdump -ni any port 53
+sudo tcpdump -ni any host 8.8.8.8
+```
 
 ### 33.8 Backup and recovery strategy
-- Point-in-time backup patterns (tar + timestamped archives).
-- Incremental sync strategy with `rsync` and retention model.
-- Restore drills and integrity checks (backup is not valid until restore is tested).
 
-### 33.9 Bash scripting reliability
-- Safe script mode: `set -euo pipefail`.
-- Exit code handling and trap/cleanup patterns.
-- Parameter parsing (`getopts`) and input validation.
+#### Point-in-time archive pattern
+```bash
+sudo tar -czvf /backup/etc-$(date +%F).tar.gz /etc
+```
 
-### 33.10 Time and scheduled operations
-- NTP/time sync (`timedatectl`, chrony/ntpd concepts).
-- `cron` vs `systemd timers`: when to use which.
+#### Incremental sync pattern
+```bash
+rsync -av --delete /data/ /backup/data/
+```
+
+#### Restore validation principle
+- A backup is considered valid only after a test restore succeeds.
+
+Minimum restore drill:
+```bash
+mkdir -p /tmp/restore-test
+tar -xzvf /backup/etc-2026-03-05.tar.gz -C /tmp/restore-test
+```
+
+### 33.9 Bash scripting reliability patterns
+
+#### Safe script skeleton
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+cleanup() {
+  rm -f /tmp/mytempfile
+}
+trap cleanup EXIT
+```
+
+#### Argument parsing baseline
+```bash
+while getopts ":f:n:" opt; do
+  case "$opt" in
+    f) file="$OPTARG" ;;
+    n) count="$OPTARG" ;;
+    *) echo "Invalid option"; exit 1 ;;
+  esac
+done
+```
+
+### 33.10 Time sync and scheduled operations
+
+#### Time and timezone checks
+```bash
+timedatectl
+timedatectl list-timezones | head
+```
+
+#### NTP status check
+```bash
+timedatectl show-timesync --all
+```
+
+#### `cron` vs `systemd timer` guidance
+- Use `cron` for simple periodic commands.
+- Use `systemd timers` for dependency-aware, service-native scheduling with better logging visibility.
+
+---
+
+## 34. Advanced Mini-Labs for Section 33
+
+### Lab A: Mount and fstab validation
+1. Attach an extra virtual disk.
+2. Partition and format it.
+3. Add `/etc/fstab` entry.
+4. Validate with `mount -a`.
+
+### Lab B: Service override and boot analysis
+1. Create service override using `systemctl edit`.
+2. Confirm with `systemctl cat`.
+3. Run `systemd-analyze blame` and identify slowest units.
+
+### Lab C: ACL and capability practice
+1. Create shared file and assign ACL for one test user.
+2. Inspect ACL output with `getfacl`.
+3. Inspect existing capabilities with `getcap -r /`.
+
+### Lab D: Firewall validation
+1. Open one port with UFW or firewalld.
+2. Confirm service listens on expected port with `ss -tulnp`.
+3. Re-check firewall state and remove temporary rule.
+
+### Lab E: Backup and restore drill
+1. Archive `/etc` to timestamped backup path.
+2. Restore to temp directory.
+3. Compare restored structure with source paths.
 
 
 
