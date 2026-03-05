@@ -45,24 +45,42 @@
 
 - [6. Switching (Motivation)](#6-switching-motivation)
   - [6.1 Problem Statement](#61-problem-statement)
-  - [6.2 The Solution](#62-the-solution)
-  - [6.3 Network Evolution](#63-network-evolution)
-  - [6.4 Benefits of Switched Networks](#64-benefits-of-switched-networks)
+  - [6.2 Solution: Switched Networks](#62-solution-switched-networks)
+  - [6.3 Types of Switched Networks](#63-types-of-switched-networks)
+  - [6.4 Evolution of Switching](#64-evolution-of-switching)
 
 - [7. Types of Switching](#7-types-of-switching)
   - [7.1 Message Switching](#71-message-switching)
   - [7.2 Circuit Switching](#72-circuit-switching)
   - [7.3 Packet Switching](#73-packet-switching)
-  - [7.4 Comparison Table](#74-comparison-table)
-  - [7.5 Modern Applications](#75-modern-applications)
+  - [7.4 Switching Comparison Table](#74-switching-comparison-table)
+  - [7.5 Real-World Applications](#75-real-world-applications)
 
 - [8. Transmission Media](#8-transmission-media)
   - [8.1 Twisted Pair Cable](#81-twisted-pair-cable)
+    - [8.1.1 UTP vs STP](#811-utp-vs-stp)
+    - [8.1.2 Category Ratings](#812-category-ratings)
+    - [8.1.3 Connectors](#813-connectors)
+    - [8.1.4 Security Considerations](#814-security-considerations)
   - [8.2 Coaxial Cable](#82-coaxial-cable)
+    - [8.2.1 Coaxial Variants](#821-coaxial-variants)
+    - [8.2.2 Advantages & Disadvantages](#822-advantages--disadvantages)
+    - [8.2.3 Security Considerations](#823-security-considerations)
   - [8.3 Fiber Optic Cable](#83-fiber-optic-cable)
-  - [8.4 Unguided Media](#84-unguided-media)
-  - [8.5 Comparison and Use Cases](#85-comparison-and-use-cases)
-  - [8.6 Quick Reference](#86-quick-reference)
+    - [8.3.1 Single-Mode vs Multi-Mode Fiber](#831-single-mode-fiber-smf-vs-multi-mode-fiber-mmf)
+    - [8.3.2 Fiber Categories (OM/OS)](#832-fiber-categories-om--os-standards)
+    - [8.3.3 Common Connectors](#833-common-fiber-connectors)
+    - [8.3.4 DWDM](#834-dwdm--dense-wavelength-division-multiplexing)
+    - [8.3.5 Security Considerations](#835-security-considerations)
+  - [8.4 Unguided Media (Wireless)](#84-unguided-media-wireless-transmission)
+    - [8.4.1 Radio Waves](#841-radio-waves)
+    - [8.4.2 Microwave](#842-microwave)
+    - [8.4.3 Infrared](#843-infrared-ir)
+    - [8.4.4 Bluetooth](#844-bluetooth)
+    - [8.4.5 Wireless Security Protocols](#845-wireless-security-protocols)
+    - [8.4.6 Wireless Attack Surface](#846-wireless-attack-surface)
+  - [8.5 Comparison and Use Case Guide](#85-comparison-and-use-case-guide)
+  - [8.6 Physical Layer Security Summary](#86-physical-layer-security--summary)
 
 ### **Part III: OSI & TCP/IP Models (Sections 9-12)**
 
@@ -95,6 +113,16 @@
   - [11.2 Model Architecture](#112-model-architecture)
   - [11.3 Application Layer (Layer 5)](#113-application-layer-layer-5)
   - [11.4 Transport Layer (Layer 4)](#114-transport-layer-layer-4)
+    - [11.4.1 TCP Overview](#1141-transmission-control-protocol-tcp)
+    - [11.4.2 TCP Segment Structure](#1142-tcp-segment-structure)
+    - [11.4.3 TCP Flags (Control Bits)](#1143-tcp-flags-control-bits)
+    - [11.4.4 TCP Three-Way Handshake](#1144-tcp-three-way-handshake)
+    - [11.4.5 TCP Connection Termination](#1145-tcp-connection-termination-4-way-fin-teardown)
+    - [11.4.6 TCP Flow Control (Sliding Window)](#1146-tcp-flow-control-sliding-window)
+    - [11.4.7 TCP Congestion Control](#1147-tcp-congestion-control)
+    - [11.4.8 UDP Overview](#1148-user-datagram-protocol-udp)
+    - [11.4.9 TCP vs UDP Comparison](#1149-tcp-vs-udp--complete-comparison)
+    - [11.4.10 Port Numbers](#11410-port-numbers)
   - [11.5 Internet Layer (Layer 3)](#115-internet-layer-layer-3)
   - [11.6 Link Layer (Layer 2)](#116-link-layer-layer-2)
   - [11.7 Comparison with OSI Model](#117-comparison-with-osi-model)
@@ -116,21 +144,21 @@
   - [13.1 IPv4 Overview](#131-ipv4-overview)
   - [13.2 IPv4 Address Structure](#132-ipv4-address-structure)
   - [13.3 IPv4 Address Classes (Classful Addressing)](#133-ipv4-address-classes-classful-addressing)
-  - [13.4 Special IPv4 Addresses](#134-special-ipv4-addresses)
-  - [13.5 CIDR (Classless Inter-Domain Routing)](#135-cidr-classless-inter-domain-routing)
+  - [13.4 IPv4 Header Fields Explained](#134-ipv4-header-fields-explained)
+  - [13.5 CIDR and Classless Addressing](#135-cidr-and-classless-addressing)
   - [13.6 Subnetting](#136-subnetting)
   - [13.7 IPv4 Header (Recap)](#137-ipv4-header-recap)
   - [13.8 ICMP (Internet Control Message Protocol)](#138-icmp-internet-control-message-protocol)
   - [13.9 NAT (Network Address Translation)](#139-nat-network-address-translation)
   - [13.10 IPv4 Limitations](#1310-ipv4-limitations)
   - [13.11 Routing Basics](#1311-routing-basics)
-  - [13.12 Distance Vector Routing (DVR)](#1312-distance-vector-routing-dvr)
-  - [13.13 Link State Routing (LSR)](#1313-link-state-routing-lsr)
-  - [13.14 Path Vector Routing (PVR)](#1314-path-vector-routing-pvr)
-  - [13.15 Hierarchical Routing & Autonomous Systems](#1315-hierarchical-routing--autonomous-systems)
-  - [13.16 RIP (Routing Information Protocol)](#1316-rip-routing-information-protocol)
-  - [13.17 OSPF (Open Shortest Path First)](#1317-ospf-open-shortest-path-first)
-  - [13.18 BGP (Border Gateway Protocol)](#1318-bgp-border-gateway-protocol)
+    - [13.11.1 Distance Vector Routing (DVR)](#13111-distance-vector-routing-dvr)
+    - [13.11.2 Link State Routing (LSR)](#13112-link-state-routing-lsr)
+    - [13.11.3 Path Vector Routing (PVR)](#13113-path-vector-routing-pvr)
+    - [13.11.4 Hierarchical Routing & Autonomous Systems](#13114-hierarchical-routing--autonomous-systems)
+    - [13.11.5 RIP (Routing Information Protocol)](#13115-rip-routing-information-protocol)
+    - [13.11.6 OSPF (Open Shortest Path First)](#13116-ospf-open-shortest-path-first)
+    - [13.11.7 BGP (Border Gateway Protocol)](#13117-bgp-border-gateway-protocol)
 
 - [14. IPv6 — Next Generation IP](#14-ipv6--next-generation-ip)
   - [14.1 Overview & History](#141-overview--history)
@@ -512,6 +540,7 @@ The **Client/Server model** is a distributed computing architecture that separat
 - **Blue teams focus on server hardening because a single compromised server can affect hundreds of clients** — Defense-in-depth is essential
 - **P2P networks avoid single points of failure but create management and security nightmares** — Decentralization trades control for resilience
 - **Hybrid models combine both approaches** — Most modern systems (cloud, microservices) blend centralized and distributed characteristics
+
 
 [↑ Back to top](#table-of-contents)
 
@@ -1793,109 +1822,401 @@ Phase 5: Teardown
 ## 8. Transmission Media
 
 **Section Overview:**
-Data travels through physical media (copper wires, fiber optics) or through air (radio waves, microwaves). Each medium has trade-offs: copper is cheap but noisy and limited distance; fiber is expensive but immune to interference; wireless is flexible but easy to eavesdrop on. From a cybersecurity perspective, understanding media types reveals attack surfaces: copper can be tapped (eavesdropping), wireless can be jammed (denial of service), fiber is harder to tap but still possible. Media choice is often a business/cost decision with security implications.
+Data travels through physical media (copper wires, fiber optics) or through air (radio waves, microwaves). Each medium has different characteristics for bandwidth, distance, cost, noise immunity, and security. From a cybersecurity perspective, media choice determines the attack surface: copper can be tapped passively, wireless can be jammed or eavesdropped, and even fiber—though physically more secure—can be tapped with purpose-built equipment. Physical-layer attacks are often overlooked: an attacker with brief physical access and inductive tap can silently capture all traffic without alerting the network. This section provides the technical depth required to make and challenge media-selection decisions.
 
 **Learning Outcomes:**
 After this section, you'll understand:
-- ✓ Guided vs unguided media and when to use each
-- ✓ Copper (twisted pair, coaxial) characteristics and limitations
-- ✓ Fiber optic cables and advantages for enterprise networks
-- ✓ Wireless media (radio, microwave, infrared) and security implications
-- ✓ How media choice affects network performance and security
+- ✓ Guided vs unguided media categories and the key properties of each
+- ✓ Twisted pair cable: UTP vs STP, category ratings (Cat3–Cat8), connector types, attenuation
+- ✓ Coaxial cable: structure, variants (RG-6, RG-58, RG-59), use cases, near-obsolescence in enterprise
+- ✓ Fiber optic: single-mode vs multi-mode, wavelengths, connectors, DWDM for backbone
+- ✓ Unguided media: radio, microwave (terrestrial + satellite), infrared, ultrasonic
+- ✓ Security vulnerabilities per medium: tapping, jamming, crosstalk sniffing, Van Eck phreaking
+- ✓ Defense strategies: shielding, TEMPEST standards, WPA3, fiber monitoring (optical OTDR)
+- ✓ How to select media for specific use cases balancing cost, performance, and security
 
 **Difficulty:** 🟡 Intermediate | **Prerequisites:** Sections 1-7
 
-Definition: The physical or wireless paths used to transmit data between network devices.
+**Definition:** The physical or wireless paths used to carry encoded data signals between network devices.
 
-Two main categories:
-
-- Guided Media: Physical cables (Twisted Pair, Coaxial, Fiber Optic).
-- Unguided Media: Wireless transmission (Radio, Microwave, Infrared).
+Two primary categories:
+- **Guided (Bounded) Media:** Physical cables — Twisted Pair, Coaxial, Fiber Optic
+- **Unguided (Unbounded) Media:** Wireless transmission — Radio, Microwave, Infrared, Satellite
 
 > [!TIP]
-> Choose the medium based on distance, bandwidth, EMI/noise, cost, and security requirements.
+> Select transmission media based on: distance, required bandwidth, EMI environment, physical security requirements, budget, and installation constraints. No single medium is best for all scenarios.
+
+---
 
 ### 8.1 Twisted Pair Cable
 
-Consists of pairs of insulated copper wires twisted together to minimize electromagnetic interference (EMI).
+**Definition:** Two independently insulated copper conductors twisted around each other to reduce electromagnetic interference (EMI) via mutual cancellation.
 
-Types:
+**Why Twist?**
+- Twisting creates equal and opposite EMI interference between wire pair
+- Noise picked up on one wire is nearly equal and opposite on its partner → noise cancels out at receiver
+- More twists per inch = better noise immunity but higher cost
 
-- UTP (Unshielded Twisted Pair): Most common in LANs; cheaper, easier to install.
-- STP (Shielded Twisted Pair): Has metallic shielding for noise resistance.
+**Structure:**
+```
+  ┌─────────────────────────────────┐
+  │  Outer Jacket (PVC/Plenum)       │
+  │  ┌──────────┐  ┌──────────┐     │
+  │  │ Pair 1   │  │ Pair 2   │     │
+  │  │ (~twist) │  │ (~twist) │     │
+  │  └──────────┘  └──────────┘     │
+  │  ┌──────────┐  ┌──────────┐     │
+  │  │ Pair 3   │  │ Pair 4   │     │
+  │  └──────────┘  └──────────┘     │
+  └─────────────────────────────────┘
+```
 
-Pros: Cheap, flexible, easy to install.
+#### 8.1.1 UTP vs STP
 
-Cons: Limited range, lower bandwidth, susceptible to noise.
+| Property            | UTP (Unshielded)                     | STP (Shielded)                         |
+|---------------------|--------------------------------------|----------------------------------------|
+| Shielding           | None                                | Foil or braid around pairs/cable       |
+| EMI Resistance      | Low                                 | High                                   |
+| Crosstalk           | Higher (especially near equipment)  | Lower                                  |
+| Cost                | Lower                               | Higher                                 |
+| Flexibility         | More flexible                       | Stiffer                                |
+| Installation        | Easier (no grounding required)      | Grounding required for shield to work  |
+| Use Case            | Enterprise LAN, home networks       | Industrial, high-EMI environments      |
+| Common Standard     | TIA/EIA 568                         | ISO/IEC 11801                          |
 
-Common categories: Cat5e, Cat6, Cat6a, Cat7 (higher category → higher supported frequencies, better shielding, and potential throughput).
+> [!IMPORTANT]
+> STP must be properly grounded — ungrounded STP can perform worse than UTP because the ungrounded shield acts as an antenna.
+
+#### 8.1.2 Category Ratings
+
+| Category | Max Frequency | Max Bandwidth    | Max Distance | Common Use                        |
+|----------|---------------|------------------|--------------|-----------------------------------|
+| Cat 3    | 16 MHz        | 10 Mbps          | 100 m        | Old telephone / 10BASE-T          |
+| Cat 5    | 100 MHz       | 100 Mbps         | 100 m        | Fast Ethernet (obsolete)          |
+| Cat 5e   | 100 MHz       | 1 Gbps           | 100 m        | Gigabit Ethernet (still common)   |
+| Cat 6    | 250 MHz       | 1 Gbps / 10 Gbps | 100m / 55m   | Gigabit / short 10G runs          |
+| Cat 6a   | 500 MHz       | 10 Gbps          | 100 m        | 10G Ethernet in enterprise        |
+| Cat 7    | 600 MHz       | 10 Gbps          | 100 m        | Data centers (individual shielded pairs) |
+| Cat 8    | 2000 MHz      | 25/40 Gbps       | 30 m         | Server/switch uplinks             |
+
+#### 8.1.3 Connectors
+
+- **RJ-45:** Standard 8-pin modular connector for Ethernet
+- **RJ-11:** 6-pin connector for telephone
+- **Pinout Standards:**
+  - **T568A:** Green-White, Green, Orange-White, Blue, Blue-White, Orange, Brown-White, Brown
+  - **T568B:** Orange-White, Orange, Green-White, Blue, Blue-White, Green, Brown-White, Brown
+  - Use **straight-through** (same pinout both ends) for device-to-switch
+  - Use **crossover** (T568A one end, T568B other end) for device-to-device (mostly obsolete with auto-MDI/MDIX)
+
+#### 8.1.4 Security Considerations
+
+| Threat              | Description                                                             | Mitigation                                         |
+|---------------------|-------------------------------------------------------------------------|----------------------------------------------------|
+| Passive Tapping     | Inductive tap placed near cable reads signals without breaking circuit  | Cable tracing, physical access controls, NIDS      |
+| Crosstalk Sniffing  | Reading signals from adjacent pairs/cables in cable bundle              | STP, distance, cable management                    |
+| Van Eck Phreaking   | Capturing electromagnetic emanations radiating from copper cable/device | TEMPEST-rated shielding, secure facilities         |
+| Physical Splice     | Physically splicing into cable to insert device                         | Cable seals, tamper detection, cable management    |
+
+---
 
 ### 8.2 Coaxial Cable
 
-Copper core with metal shielding to block interference. Common in TV and broadband Internet.
+**Definition:** Single copper conductor surrounded by insulating dielectric, wrapped in metal shielding (braid or foil), and covered by outer jacket. The shield and center conductor share the same axis — hence *coaxial*.
 
-Pros: High frequency support, better noise immunity, higher bandwidth.
+**Structure:**
+```
+  ┌─────────────────────────────────────┐
+  │  Outer Jacket (PVC)                  │
+  │   ┌──────────────────────────────┐  │
+  │   │  Metallic Braided Shielding   │  │
+  │   │   ┌────────────────────────┐ │  │
+  │   │   │  Dielectric Insulator  │ │  │
+  │   │   │    ┌────────────┐      │ │  │
+  │   │   │    │ Copper Core│      │ │  │
+  │   │   │    └────────────┘      │ │  │
+  │   │   └────────────────────────┘ │  │
+  │   └──────────────────────────────┘  │
+  └─────────────────────────────────────┘
+```
 
-Cons: Bulky, harder to install, grounding required, less secure.
+#### 8.2.1 Coaxial Variants
 
-Use: legacy Ethernet, cable TV, broadband last‑mile.
+| Type   | Impedance | Diameter | Primary Use                     |
+|--------|-----------|----------|---------------------------------|
+| RG-6   | 75 Ω      | ~6.9 mm  | Cable TV, satellite, DOCSIS broadband |
+| RG-59  | 75 Ω      | ~6.1 mm  | Analog CCTV, short video runs   |
+| RG-58  | 50 Ω      | ~5 mm    | Legacy 10BASE-2 Ethernet (thinnet) |
+| RG-8   | 50 Ω      | ~12 mm   | Legacy 10BASE-5 (thicknet), amateur radio |
+| LMR-400| 50 Ω      | ~10 mm   | Wireless antenna feedlines       |
+
+#### 8.2.2 Advantages & Disadvantages
+
+**Pros:**
+- ✅ Good EMI shielding (built-in metal braid)
+- ✅ Supports higher frequencies than twisted pair (older standards)
+- ✅ Long runs possible (CATV up to 500 m before amplification)
+- ✅ One cable = one channel (simple planning)
+
+**Cons:**
+- ❌ Bulkier and heavier than twisted pair
+- ❌ More difficult to bend and install
+- ❌ Terminated with BNC or F-type connectors (specialized tooling)
+- ❌ Obsolete for modern enterprise Ethernet — replaced by twisted pair and fiber
+- ❌ Ground required; incorrect grounding creates hum/noise
+
+#### 8.2.3 Security Considerations
+
+| Threat              | Description                                                              | Mitigation                         |
+|---------------------|--------------------------------------------------------------------------|------------------------------------|
+| Physical Tap        | Penetrate outer jacket and braid to attach signal reader                 | Physical security, cable auditing  |
+| Signal Injection    | Inject malicious signals by connecting to unsecured coax port            | Port access control, cable locks   |
+| Legacy 10BASE-2     | Old shared coax bus — any tap point sees all traffic                     | Replaced by switched Ethernet      |
+
+---
 
 ### 8.3 Fiber Optic Cable
 
-Transmits data as pulses of light through glass or plastic fibers.
+**Definition:** Thin strands of glass (or plastic) that transmit data as pulses of light. Signal travels as photons, not electrons — immune to EMI and extremely low attenuation over long distances.
 
-Types:
+**Structure:**
+```
+  ┌──────────────────────────────────────────┐
+  │  Outer Jacket                             │
+  │   ┌──────────────────────────────────┐   │
+  │   │  Strengthening Layer (Kevlar)     │   │
+  │   │   ┌────────────────────────────┐ │   │
+  │   │   │  Cladding (lower n glass)  │ │   │
+  │   │   │   ┌────────────────────┐   │ │   │
+  │   │   │   │  Core (high n glass│   │ │   │
+  │   │   │   │  light travels here│   │ │   │
+  │   │   │   └────────────────────┘   │ │   │
+  │   │   └────────────────────────────┘ │   │
+  │   └──────────────────────────────────┘   │
+  └──────────────────────────────────────────┘
+```
 
-- Single Mode (SMF): Long-distance, one light path.
-- Multi Mode (MMF): Short-distance, multiple light paths.
+**Principle:** Total Internal Reflection — light bounces along fiber core because core has higher refractive index than cladding; light angle greater than critical angle stays trapped in core.
 
-Pros: Very high bandwidth, low attenuation, immune to EMI, secure.
+#### 8.3.1 Single-Mode Fiber (SMF) vs Multi-Mode Fiber (MMF)
 
-Cons: Expensive, fragile, difficult to install.
+| Property             | Single-Mode (SMF)                   | Multi-Mode (MMF)                     |
+|----------------------|--------------------------------------|--------------------------------------|
+| Core diameter        | ~8–10 µm                            | ~50 or 62.5 µm                       |
+| Light paths          | One (single mode only)               | Many (multiple modes/paths)          |
+| Wavelengths used     | 1310 nm, 1550 nm                     | 850 nm, 1300 nm                      |
+| Max distance         | 10–100+ km                           | ~550 m (10 Gbps OM4)                 |
+| Bandwidth            | Very high (limited by dispersion)    | Limited by modal dispersion          |
+| Attenuation          | ~0.3 dB/km                          | ~3 dB/km                             |
+| Laser type           | Single-frequency laser               | VCSEL (Vertical-Cavity Surface-Emitting Laser) or LED |
+| Cost                 | Higher (precision optics)            | Lower                                |
+| Use case             | WAN, backbone, metro, long-haul      | Data center, campus, short runs      |
+| Color code (common)  | Yellow jacket                        | Orange (OM1/OM2) or Aqua/Violet (OM3/OM4/OM5) |
 
-Connectors: LC, SC, ST; common wavelengths 850/1310/1550 nm.
+#### 8.3.2 Fiber Categories (OM / OS Standards)
 
-### 8.4 Unguided Media
+| Standard | Type        | Core    | Bandwidth (eff.) | Max Distance @ 10G  |
+|----------|-------------|---------|------------------|---------------------|
+| OM1      | Multi-Mode  | 62.5 µm | 200 MHz·km       | ~33 m               |
+| OM2      | Multi-Mode  | 50 µm   | 500 MHz·km       | ~82 m               |
+| OM3      | Multi-Mode  | 50 µm   | 2000 MHz·km      | ~300 m              |
+| OM4      | Multi-Mode  | 50 µm   | 4700 MHz·km      | ~550 m              |
+| OM5      | Multi-Mode  | 50 µm   | Wideband SWDM    | ~400 m (100G SWDM4) |
+| OS1      | Single-Mode | 9 µm    | Unlimited*       | ~10 km (indoor)     |
+| OS2      | Single-Mode | 9 µm    | Unlimited*       | ~10–80+ km          |
 
-- Radio Waves: Used in Wi‑Fi, mobile networks — omnidirectional.
-- Microwaves: High frequency, point-to-point communication.
-- Infrared: Short-range, line-of-sight links (remote controls, sensors).
+#### 8.3.3 Common Fiber Connectors
 
-### 8.5 Comparison and Use Cases
+| Connector | Type          | Notes                                      |
+|-----------|---------------|--------------------------------------------|
+| LC        | Small Form    | Most common in modern data centers (push-pull latch) |
+| SC        | Square, Snap  | Common in telecom, single and duplex       |
+| ST        | Bayonet twist | Older, still found in some campus networks |
+| MPO/MTP   | Multi-Fiber   | 12/24 fiber ribbons, used in high-density DC |
+| FC        | Screw-on      | Vibration-resistant; lab and telecom use   |
 
-- Short office runs: UTP Cat6/6a.
-- Noisy/industrial environment: STP or fiber.
-- Long-haul/backbone: SMF fiber.
-- Building‑to‑building without trenching: microwave links.
+#### 8.3.4 DWDM — Dense Wavelength Division Multiplexing
+
+**Concept:** Multiple data streams transmitted simultaneously on a single fiber using different wavelengths (channels) of light.
+
+- **Typical:** 40–160 channels per fiber, each carrying 10–100+ Gbps
+- **Total capacity:** 10+ Tbps per fiber possible
+- **Use:** Internet backbone, carrier networks, data center interconnects
+- **Security relevance:** DWDM tapping requires precision equipment but allows passive monitoring of all channels on a fiber
+
+#### 8.3.5 Security Considerations
+
+| Threat                   | Description                                                             | Mitigation                                         |
+|--------------------------|-------------------------------------------------------------------------|----------------------------------------------------|
+| Fiber Bending Attack     | Bending fiber causes light to exit core — optical coupler reads signal  | Cable routing inspection, fiber protection channels |
+| Physical Splice Tap      | Cut fiber, insert splitter — network may briefly drop during install    | OTDR monitoring, physical access controls          |
+| Fiber Tap (Coupler)      | Optical coupler extracts small fraction of light passively             | Optical power monitoring, OTDR baseline comparison |
+| OTDR Fingerprinting      | Attacker maps fiber infrastructure from outside using OTDR device       | Restrict physical access to fiber termination points |
 
 > [!NOTE]
-> Security: Fiber is harder to tap than copper; wireless requires strong encryption and authentication.
+> Fiber tapping is detectable using Optical Time Domain Reflectometry (OTDR): a baseline scan then periodic comparison reveals added loss events. Government-grade fiber infrastructure uses this routinely.
 
-### 8.6 Quick Reference
+---
 
-| Medium       | Typical Distance | Bandwidth            | EMI Immunity | Cost  |
-|--------------|-------------------|----------------------|--------------|-------|
-| UTP Cat6     | ~100 m            | 1–10 Gbps (short)    | Low          | Low   |
-| Coax         | ~100–500 m        | 100s Mbps–Gbps       | Medium       | Med   |
-| MMF Fiber    | ~550 m (10 Gbps)  | 1–100+ Gbps          | High         | Med   |
-| SMF Fiber    | 10s–100s of km    | 10–400+ Gbps         | High         | High  |
-| Microwave RF | 1–50+ km LOS      | 10s–100s Mbps+       | N/A          | Med   |
+### 8.4 Unguided Media (Wireless Transmission)
+
+**Definition:** Signals propagate through air (or vacuum) without a physical conductor. Also called wireless, RF, or unbound transmission.
+
+**Common Properties:**
+- Signal spreads in all directions (omnidirectional) or focused beam (directional)
+- Subject to path loss, absorption, reflection, diffraction, multipath fading
+- Shared medium — anyone in range can receive (and attempt to inject) signals
+
+#### 8.4.1 Radio Waves
+
+**Frequency Range:** 3 kHz – 300 GHz (broadly)
+
+**Key Sub-bands:**
+
+| Band        | Frequency       | Propagation          | Common Use                         |
+|-------------|-----------------|----------------------|------------------------------------|
+| LF/MF       | 30 kHz – 3 MHz  | Ground wave          | AM radio, navigation beacons       |
+| HF          | 3–30 MHz        | Ionosphere bounce    | Shortwave radio, amateur radio     |
+| VHF         | 30–300 MHz      | Line-of-sight        | FM radio, TV, air traffic control  |
+| UHF         | 300 MHz–3 GHz   | Line-of-sight        | Wi-Fi (2.4/5 GHz), LTE, Bluetooth |
+| SHF         | 3–30 GHz        | Short LOS, rain loss | Wi-Fi (5/6 GHz), 5G, satellite TV  |
+| EHF (mmWave)| 30–300 GHz      | Very short, blocked  | 5G mmWave, 60 GHz Wi-Fi, radar     |
+
+**Wi-Fi Frequencies:**
+- **2.4 GHz:** Longer range, more interference (microwaves, Bluetooth, other Wi-Fi), 3 non-overlapping channels (1, 6, 11)
+- **5 GHz:** More channels, less interference, shorter range, more affected by walls
+- **6 GHz (Wi-Fi 6E/7):** Newest band, best capacity, shortest range, fewest legacy devices
+
+#### 8.4.2 Microwave
+
+**Terrestrial Microwave (Terrestrial Point-to-Point):**
+- **Frequency:** 6–40+ GHz
+- **Range:** 1–80+ km (line of sight only)
+- **Use:** Building-to-building links, backhaul for cellular towers, bypass for fiber outages
+- **Requirements:** Antenna alignment < 1° precision; Fresnel zone clearance (obstacle-free elliptical zone)
+- **Bandwidth:** 10–1000 Mbps per link
+- **License:** Most frequencies require FCC/OFCOM/etc. licensing
+
+**Satellite Microwave:**
+- **GEO (Geostationary):** 35,786 km altitude; ~600 ms round-trip latency; large coverage area
+- **MEO (Medium Earth Orbit):** 2,000–35,000 km; moderate latency (~60–150 ms); GPS, some broadband
+- **LEO (Low Earth Orbit):** 200–2,000 km; low latency (~20–40 ms); Starlink (SpaceX), OneWeb
+- **Use cases:** Remote Internet, military comms, GPS, maritime/aviation
+
+#### 8.4.3 Infrared (IR)
+
+- **Frequency:** 300 GHz – 400 THz (just below visible light)
+- **Range:** Up to a few meters (typically < 10 m without specialized equipment)
+- **Line-of-sight:** Required — cannot pass through walls
+- **Use Cases:** TV remotes, IrDA ports (legacy laptops/PDAs), short-range data transfer
+- **Networking use:** Essentially obsolete; replaced by Bluetooth and Wi-Fi
+- **Security:** Low interception risk due to very short range and line-of-sight requirement
+
+#### 8.4.4 Bluetooth
+
+**Standard:** IEEE 802.15.1
+
+| Version  | Max Range | Max Bandwidth       | Notable Feature                      |
+|----------|-----------|---------------------|--------------------------------------|
+| 1.x      | 10 m      | 1 Mbps              | Original                             |
+| 2.0 +EDR | 30 m      | 3 Mbps              | Enhanced Data Rate                   |
+| 3.0      | 10 m      | 24 Mbps (via Wi-Fi) | High Speed mode                      |
+| 4.0 (BLE)| 60 m      | 1 Mbps              | Bluetooth Low Energy — IoT sensors   |
+| 5.0      | 240 m     | 2 Mbps              | 4× range, 2× bandwidth vs 4.2       |
+| 5.3/5.4  | 240 m     | 2+ Mbps             | Improved coexistence, LE Audio       |
+
+**Security Issues:**
+- **Bluejacking:** Send unsolicited messages to nearby Bluetooth device
+- **Bluesnarfing:** Unauthorized data access via Bluetooth (contact lists, files)
+- **Bluebugging:** Gain full remote access to device via Bluetooth
+- **BIAS attack (CVE-2020-10135):** Authentication bypass in Bluetooth Classic
+- **Defense:** Disable Bluetooth when not in use, use pairing PIN, apply firmware patches
+
+#### 8.4.5 Wireless Security Protocols
+
+| Protocol    | Year | Encryption       | Key Exchange  | Notes                                       |
+|-------------|------|------------------|---------------|---------------------------------------------|
+| WEP         | 1997 | RC4 (broken)     | Shared key    | Completely broken — never use              |
+| WPA         | 2003 | TKIP (RC4-based) | PSK/Enterprise| Deprecated — transitional after WEP        |
+| WPA2        | 2004 | AES-CCMP         | PSK/802.1X    | Still widely deployed; KRACK vulnerability |
+| WPA3        | 2018 | AES-GCMP-256     | SAE/802.1X    | Current standard; resistant to offline attacks |
+| WPA3-E      | 2018 | AES-256          | 802.1X + PMF  | Enterprise version, Protected Mgmt Frames  |
+
+#### 8.4.6 Wireless Attack Surface
+
+| Attack                     | Description                                                                 | Mitigation                                       |
+|----------------------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| Passive Sniffing           | Capture all frames in range with Wi-Fi card in monitor mode                | Encryption (WPA2/WPA3); rarely preventable       |
+| Evil Twin AP               | Rogue access point mimicking legitimate SSID to intercept traffic           | 802.1X with certificate validation; network monitor |
+| Deauthentication Attack    | Send spoofed 802.11 deauth frames to disconnect clients (DoS)               | 802.11w (Protected Management Frames), WPA3      |
+| KRACK (WPA2)               | Key Reinstallation Attack — downgrade nonce, decrypt traffic                | Patching; WPA3 eliminates vulnerability          |
+| PMKID Attack               | Capture PMKID from AP beacon without client — offline brute-force PMKID    | Strong random PSK (20+ random chars) or WPA3     |
+| Rogue DHCP via Wi-Fi       | DHCP server on rogue AP assigns attacker-controlled DNS/gateway             | 802.1X, network monitoring, DHCP snooping        |
+| RF Jamming                 | Flood 2.4/5 GHz band with noise to deny Wi-Fi service                      | 5 GHz / 6 GHz fallback; 802.11ax interference mitigation |
+| Channel Hopping Scan       | Continuously scan all 2.4/5/6 GHz channels for APs, clients, hidden SSIDs | Awareness; not a direct threat unless combined   |
+
+---
+
+### 8.5 Comparison and Use Case Guide
+
+| Medium         | Max Distance    | Max Speed        | EMI Immunity | Tap Difficulty | Cost (relative) | Best For                              |
+|----------------|-----------------|------------------|--------------|----------------|-----------------|---------------------------------------|
+| UTP Cat5e      | 100 m           | 1 Gbps           | Low          | Easy           | Very Low        | Standard office LAN                   |
+| UTP Cat6       | 100 m / 55 m    | 1G / 10 Gbps     | Low          | Easy           | Low             | Gigabit LAN, short 10G runs           |
+| UTP Cat6a      | 100 m           | 10 Gbps          | Med (STP var)| Easy           | Low-Med         | 10G to desktop, enterprise            |
+| STP Cat7       | 100 m           | 10 Gbps          | High         | Harder         | Med             | High-EMI environments                 |
+| Coaxial (RG-6) | ~100–300 m      | Gbps (DOCSIS 3.1)| Med          | Harder         | Low-Med         | Cable TV, broadband last-mile         |
+| MMF OM4        | 550 m           | 10–40 Gbps       | Immune       | Very Hard      | Med             | Data center intra-rack, campus        |
+| SMF OS2        | 10–80+ km       | 10–400+ Gbps     | Immune       | Very Hard      | High            | WAN backbone, inter-building, ISP     |
+| Microwave RF   | 1–80 km (LOS)   | 10–1000 Mbps     | N/A          | Medium         | Med             | Building-to-building, cellular backhaul |
+| Wi-Fi 6 (5G)   | ~50–100 m indoor| 9.6 Gbps (theory)| N/A          | Very Easy      | Low             | Mobile devices, IoT, flexible access  |
+| Bluetooth 5    | ~240 m (open)   | 2 Mbps           | N/A          | Easy           | Very Low        | Peripherals, IoT sensors, wearables   |
+| Satellite LEO  | 2000 km orbit   | 50–300 Mbps      | N/A          | Hard           | High            | Remote Internet, maritime/aviation    |
+
+---
+
+### 8.6 Physical Layer Security — Summary
+
+**Threat Model by Medium:**
+
+```
+COPPER (Twisted Pair / Coax)
+├── Passive tap (inductive coupling)     → Physical access controls, tamper seals
+├── Van Eck phreaking (EMI leakage)      → TEMPEST-rated shielding (NSA/NATO standard)
+└── Physical splice / bridge tap        → Continuous OTDR-equivalent monitoring
+
+FIBER OPTIC
+├── Fiber bend tap (optical coupler)     → OTDR baseline + periodic comparison, physical access
+├── Splice-based tap                    → Same as above; brief outage detectable with monitoring
+└── Endpoint compromise                 → Secure fiber patch panels and ODF rooms
+
+WIRELESS
+├── Passive sniffing (monitor mode)     → WPA3, strong encryption always
+├── Active injection / MITM (evil twin) → 802.1X + certificate auth, EAP-TLS
+├── DoS (deauth / jamming)              → PMF (802.11w), WPA3, dual-band fallback
+└── Misconfiguration                   → Regular audits, rogue AP detection (WIDS)
+```
+
+**TEMPEST Standards:**
+- NATO SDIP-27 Level A/B/C classify shielding requirements for classified facilities
+- US NSA evaluates equipment against "TEMPEST" (Transient Electromagnetic Pulse Emanation Standard)
+- Zone A: 1 m separation; Zone B: 20 m; Zone C: minimal shielding
+- Ethernet cables can radiate up to 20 m readable signal without shielding
 
 ---
 
 ### 🎯 Key Takeaways - Section 8
 
-**TL;DR:** Physical transmission media ranges from slow copper (10 Mbps) to ultra-fast fiber (1+ Gbps), with wireless media offering mobility at the cost of higher latency and vulnerability. Understanding media limitations helps with attack planning: sniffing is easier on shared copper; fiber requires physical taps; wireless is subject to jamming and eavesdropping.
+**TL;DR:** Physical transmission media ranges from twisted copper pair (cheap, ubiquitous, easy to tap) to fiber (expensive, immune to EMI, physically harder to tap) to wireless (flexible, easy to eavesdrop). Every medium has specific attack vectors — passive tapping on copper, OTDR-detectable splicing on fiber, deauth/evil-twin on wireless. Security professionals must understand media characteristics to accurately assess physical-layer threats and defenses.
 
-- **Guided media (copper, fiber) = controlled; unguided (wireless) = uncontrolled** — Attacks differ by medium (physical access vs RF attacks)
-- **Fiber is expensive to deploy but impossible to tap without leaving traces** — Used in secure/critical infrastructure
-- **Twisted pair dominates because it's cheap, easy to install, and "good enough"** — Ubiquitous in enterprise networks; standard target for social engineering
-- **Wireless media is inherently insecure** — All traffic is broadcast; encryption mandatory
-- **Media bandwidth ≠ network throughput** — Media can support 10 Gbps but network devices may limit to 1 Gbps due to switching fabric bottlenecks
-
-[↑ Back to top](#table-of-contents)
-
----
+- **Copper is the easiest to tap passively** — Inductive taps require no physical packet injection and are silent on the wire; physical access control is the only defense
+- **Fiber tap is detectable with OTDR** — Any added coupler creates measurable optical power loss; baseline + periodic comparison reveals intrusions
+- **Wireless is inherently shared medium** — Any 802.11 card in monitor mode receives all frames; WPA2 KRACK was patched but WPA3 SAE is the real fix
+- **Cat 6a vs Cat 6 — the 10G difference is distance** — Both support 10 Gbps but Cat 6 only to 55 m vs Cat 6a to full 100 m; incorrect category = underperforming cabling
+- **STP must be grounded or it performs worse than UTP** — A floating shield acts as a noise antenna, not a shield; grounding is mandatory
+- **Microwave links require LOS and licensed spectrum** — Fresnel zone obstruction (even trees) dramatically reduces performance; frequency licensing prevents interference in dense areas
+- **Wi-Fi 6E (6 GHz band) is less congested** — No legacy devices; all devices must support WPA3; shortest range means primarily used indoors for high-density environments
+- **Media bandwidth ≠ realized throughput** — Overhead, error correction, retransmission, and congestion reduce throughput to 60–80% of theoretical max under best conditions
 
 [↑ Back to top](#table-of-contents)
 
@@ -2042,7 +2363,7 @@ Process: ENCAPSULATION (↓)  |  DE-ENCAPSULATION (↑)
 
 ---
 
-#### **Layer 1: Physical Layer**
+#### 9.3.1 **Layer 1: Physical Layer**
 
 **Primary Function:** Transmission of raw bits over physical medium
 
@@ -2611,7 +2932,7 @@ WPA3 requires MFP by default!
 
 ---
 
-#### **Layer 2: Data Link Layer**
+#### 9.3.2 **Layer 2: Data Link Layer**
 
 **Primary Function:** Reliable node-to-node data transfer over the physical layer.
 
@@ -3568,7 +3889,7 @@ Time ──|────|────|────|────|────|─
 
 ---
 
-#### **Layer 3: Network Layer**
+#### 9.3.3 **Layer 3: Network Layer**
 
 **Primary Function:** Routing packets across multiple networks from source to destination
 
@@ -3620,7 +3941,7 @@ Time ──|────|────|────|────|────|─
 
 ##### **Routing & Path Selection**
 
-> 📖 *For comprehensive routing coverage including protocols (RIP, OSPF, BGP), algorithms, and routing tables, see [Section 13.11 Routing Basics](#1311-routing-basics) through [Section 13.18 BGP](#1318-bgp-border-gateway-protocol).*
+> 📖 *For comprehensive routing coverage including protocols (RIP, OSPF, BGP), algorithms, and routing tables, see [Section 13.11 Routing Basics](#1311-routing-basics) through [Section 13.11.7 BGP](#13117-bgp-border-gateway-protocol).*
 
 - **Routing Tables:** Store destination prefixes with next hop and metrics.
 - **Static Routing:** Simple and predictable but not adaptive.
@@ -3634,7 +3955,7 @@ Time ──|────|────|────|────|────|─
 
 ##### **Dynamic Routing Protocols**
 
-> 📖 *For comprehensive routing protocol coverage, see [Section 13.12 Distance Vector Routing](#1312-distance-vector-routing-dvr), [Section 13.17 OSPF](#1317-ospf-open-shortest-path-first), and [Section 13.18 BGP](#1318-bgp-border-gateway-protocol).*
+> 📖 *For comprehensive routing protocol coverage, see [Section 13.11.1 Distance Vector Routing](#13111-distance-vector-routing-dvr), [Section 13.11.6 OSPF](#13116-ospf-open-shortest-path-first), and [Section 13.11.7 BGP](#13117-bgp-border-gateway-protocol).*
 
 - **OSPF:** Link‑state protocol using areas and LSAs with SPF calculations.
 - **OSPFv2:** IPv4 version; supports DR/BDR for multi‑access segments.
@@ -3874,7 +4195,7 @@ $$
 
 ---
 
-#### **Layer 4: Transport Layer**
+#### 9.3.4 **Layer 4: Transport Layer**
 
 **Primary Function:** End-to-end reliable data delivery between applications
 
@@ -4402,7 +4723,7 @@ sudo tcpkill -i eth0 host 192.168.1.100
 
 ---
 
-#### **Layer 5: Session Layer**
+#### 9.3.5 **Layer 5: Session Layer**
 
 **Primary Function:** Establish, manage, and terminate sessions between applications
 
@@ -4441,7 +4762,7 @@ sudo tcpkill -i eth0 host 192.168.1.100
 
 ---
 
-#### **Layer 6: Presentation Layer**
+#### 9.3.6 **Layer 6: Presentation Layer**
 
 **Primary Function:** Data translation, encryption, and compression
 
@@ -4707,7 +5028,7 @@ Public-Key-Pins: pin-sha256="base64hash"; max-age=5184000
 
 ---
 
-#### **Layer 7: Application Layer**
+#### 9.3.7 **Layer 7: Application Layer**
 
 **Primary Function:** Interface between user applications and network
 
@@ -5408,28 +5729,687 @@ Host A Layer 1 ←→ (physical) ←→ Host B Layer 1
 ## 11. TCP/IP Model
 
 **Section Overview:**
-The TCP/IP model is the **practical internet stack**, the real-world implementation that powers the internet. Unlike the theoretical OSI model, TCP/IP actually describes how modern networks work: Link, Internet, Transport, Application layers (some split Transport into Transport and Application). Understanding TCP/IP layers is essential for packet analysis, firewall rules, IDS signatures, and exploit development. Red teamers use TCP/IP thinking to craft exploits; blue teamers use it to detect attacks. This model is where theory meets practice.
+The TCP/IP model is the **practical internet stack** — the real-world implementation that powers the entire internet. Unlike the theoretical OSI model, TCP/IP actually describes how modern networks operate: Link, Internet, Transport, and Application layers. Understanding TCP/IP layers is essential for packet analysis, firewall rules, IDS signatures, and exploit development. Red teamers use TCP/IP thinking to craft exploits; blue teamers use it to detect and respond to attacks. This model is where theory meets practice.
 
 **Learning Outcomes:**
 After this section, you'll understand:
-- ✓ 4-layer and 5-layer TCP/IP models
+- ✓ History and motivation behind the TCP/IP model
+- ✓ 4-layer and 5-layer TCP/IP model variants
 - ✓ How TCP/IP layers map to OSI layers
-- ✓ Protocols at each TCP/IP layer
-- ✓ Why TCP/IP is simpler than OSI but practical
+- ✓ Protocols at each TCP/IP layer in depth
+- ✓ TCP segment structure, flags, and the 3-way handshake
+- ✓ TCP vs UDP — when and why each is used
 - ✓ The dominance of TCP/IP in real-world networks
 
 **Difficulty:** 🟡 Intermediate | **Prerequisites:** Sections 1-10
 
-Foundation of the modern Internet. Simpler than OSI.
+---
 
-Typical layering (4–5 layers):
+### 11.1 History and Motivation
 
-- Physical/Data Link: Hardware transmission.
-- Network: Internet Protocol (IP) handles addressing and routing.
-- Transport: Reliable or best-effort delivery (TCP/UDP).
-- Application: User protocols like HTTP, DNS, FTP, SMTP.
+**Origins:**
+The TCP/IP model emerged from **ARPANET**, the predecessor to the modern Internet, funded by the U.S. Department of Defense (DARPA). In the 1970s, Vint Cerf and Bob Kahn designed TCP/IP to handle reliable communication across heterogeneous networks.
 
-Note: Real-world systems map OSI’s 7 layers into these 4–5 layers for practicality.
+**Key Milestones:**
+
+| Year | Event |
+|------|-------|
+| 1969 | ARPANET first deployed |
+| 1974 | TCP/IP concept introduced by Cerf & Kahn |
+| 1983 | ARPANET officially switched to TCP/IP |
+| 1991 | World Wide Web launched over TCP/IP |
+| 1994 | Commercial Internet explosion begins |
+| Present | TCP/IP powers all modern internet traffic |
+
+**Why TCP/IP was Created:**
+- **Survivability:** Military needed a network that could survive partial destruction — packet switching + dynamic routing solved this.
+- **Interoperability:** Different hardware/OS needed to communicate — a common protocol suite enabled this.
+- **Scalability:** Network needed to grow indefinitely — hierarchical addressing (IP) made this possible.
+- **Simplicity:** OSI (7 layers) was too complex to implement efficiently — TCP/IP condensed this to 4 practical layers.
+
+**RFC Basis — TCP/IP is defined in RFCs (Request For Comments):**
+- **RFC 791** — Internet Protocol (IP)
+- **RFC 793** — Transmission Control Protocol (TCP)
+- **RFC 768** — User Datagram Protocol (UDP)
+- **RFC 792** — Internet Control Message Protocol (ICMP)
+
+[↑ Back to top](#table-of-contents)
+
+---
+
+### 11.2 Model Architecture
+
+**The 4-Layer TCP/IP Model:**
+
+```
++---------------------------+-----------------------------+
+|    OSI Layer              |    TCP/IP Layer             |
++---------------------------+-----------------------------+
+|  7 - Application          |                             |
+|  6 - Presentation         |  Application Layer (L4)     |
+|  5 - Session              |                             |
++---------------------------+-----------------------------+
+|  4 - Transport            |  Transport Layer (L3)       |
++---------------------------+-----------------------------+
+|  3 - Network              |  Internet Layer (L2)        |
++---------------------------+-----------------------------+
+|  2 - Data Link            |                             |
+|  1 - Physical             |  Link Layer (L1)            |
++---------------------------+-----------------------------+
+```
+
+**5-Layer Variant (expanded detail):**
+
+```
++-------------------------------+
+|  Application Layer (L5)       |  HTTP, DNS, FTP, SSH, SMTP
++-------------------------------+
+|  Transport Layer (L4)         |  TCP, UDP, SCTP
++-------------------------------+
+|  Internet/Network Layer (L3)  |  IP, ICMP, ARP
++-------------------------------+
+|  Data Link Layer (L2)         |  Ethernet, Wi-Fi (802.11), PPP
++-------------------------------+
+|  Physical Layer (L1)          |  Cables, Radio, Fiber, Signals
++-------------------------------+
+```
+
+**Data Unit at Each Layer:**
+
+| Layer | Data Unit Name | Example |
+|-------|---------------|---------|
+| Application | Message / Data | HTTP request body |
+| Transport | Segment (TCP) / Datagram (UDP) | TCP segment with port numbers |
+| Internet | Packet / Datagram | IP packet with source/dest IP |
+| Data Link | Frame | Ethernet frame with MAC addresses |
+| Physical | Bits | 101100110010... |
+
+**Encapsulation Flow (Sender Side):**
+
+```
+Application data
+    down + TCP/UDP Header  =>  Segment
+    down + IP Header       =>  Packet
+    down + Ethernet Header =>  Frame
+    down + Physical bits   =>  Transmitted on wire
+```
+
+**Decapsulation Flow (Receiver Side):**
+
+```
+Physical bits received
+    up: Remove Ethernet Header => Packet
+    up: Remove IP Header       => Segment
+    up: Remove TCP/UDP Header  => Application data
+```
+
+[↑ Back to top](#table-of-contents)
+
+---
+
+### 11.3 Application Layer (Layer 5 / Layer 4 in 4-layer)
+
+**Function:**
+The Application Layer provides network services directly to user applications. It handles high-level protocols, data representation, encoding, and dialog control — absorbing what OSI calls Session (L5) and Presentation (L6) as well as Application (L7).
+
+**Key Protocols and Port Numbers:**
+
+| Protocol | Port(s) | Purpose | Transport |
+|----------|---------|---------|-----------|
+| HTTP | 80 | Web traffic (unencrypted) | TCP |
+| HTTPS | 443 | Secure web (TLS-encrypted) | TCP |
+| FTP | 20 (data), 21 (control) | File transfer | TCP |
+| SFTP | 22 | Secure file transfer (over SSH) | TCP |
+| SSH | 22 | Secure remote shell | TCP |
+| Telnet | 23 | Unencrypted remote shell | TCP |
+| SMTP | 25 | Sending emails | TCP |
+| DNS | 53 | Name resolution | UDP (TCP for zone xfers) |
+| DHCP | 67/68 | IP address assignment | UDP |
+| TFTP | 69 | Trivial file transfer | UDP |
+| POP3 | 110 | Email retrieval | TCP |
+| IMAP | 143 | Email sync/retrieval | TCP |
+| SNMP | 161/162 | Network management | UDP |
+| LDAP | 389 | Directory services | TCP |
+| RDP | 3389 | Remote Desktop Protocol | TCP/UDP |
+
+**Application Layer Security Issues:**
+
+| Protocol | Risk | Mitigation |
+|----------|------|-----------|
+| HTTP | Credentials in plaintext | Use HTTPS |
+| Telnet | Everything unencrypted | Replace with SSH |
+| FTP | Credentials visible in pcap captures | Replace with SFTP/FTPS |
+| DNS | Tunneling for C2/data exfiltration | Monitor DNS traffic, use DoH/DoT |
+| SMTP | Open relays => spam and phishing | SPF, DKIM, DMARC records |
+
+[↑ Back to top](#table-of-contents)
+
+---
+
+### 11.4 Transport Layer (Layer 4 / Layer 3 in 4-layer)
+
+The Transport Layer is responsible for **end-to-end communication** between processes on two hosts. It provides reliable (TCP) or best-effort (UDP) delivery, port addressing, and multiplexing of multiple connections on a single IP.
+
+---
+
+#### 11.4.1 Transmission Control Protocol (TCP)
+
+**Overview:**
+TCP is a **connection-oriented, reliable, ordered, error-checked** transport protocol. It guarantees that all data arrives completely, in order, and without corruption.
+
+| Feature | TCP Behavior |
+|---------|-------------|
+| Connection | Requires handshake (connection-oriented) |
+| Reliability | ACKs every segment; retransmits lost ones |
+| Ordering | Sequence numbers guarantee in-order delivery |
+| Error Checking | Checksum covers header and data |
+| Flow Control | Sliding window prevents receiver overflow |
+| Congestion Control | Reduces send rate under network congestion |
+| Header Overhead | Higher — 20 to 60 bytes per segment |
+| Use Cases | HTTP/S, SSH, FTP, SMTP, databases |
+
+---
+
+#### 11.4.2 TCP Segment Structure
+
+A TCP segment: **header** (minimum 20 bytes) + **data payload**.
+
+```
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Data |       |U|A|P|R|S|F|                                   |
+| Offset|  Res. |R|C|S|S|Y|I|            Window Size            |
+|       |       |G|K|H|T|N|N|                                   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Checksum            |         Urgent Pointer        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options (if Data Offset > 5)               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Payload Data                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+**Field Reference:**
+
+| Field | Size | Description |
+|-------|------|-------------|
+| Source Port | 16 bits | Sender's port (1 to 65535) |
+| Destination Port | 16 bits | Receiver's port |
+| Sequence Number | 32 bits | Position of first byte in this segment |
+| Acknowledgment Number | 32 bits | Next expected byte from the remote side |
+| Data Offset | 4 bits | Header length in 32-bit words (min 5 = 20 bytes) |
+| Reserved | 6 bits | Must be zero |
+| Control Flags | 6 bits | URG, ACK, PSH, RST, SYN, FIN |
+| Window Size | 16 bits | Receiver buffer available (flow control) |
+| Checksum | 16 bits | Error detection over header + data |
+| Urgent Pointer | 16 bits | Offset to urgent data (URG flag must be set) |
+| Options | Variable | MSS, SACK, timestamps, window scaling |
+
+---
+
+#### 11.4.3 TCP Flags (Control Bits)
+
+TCP flags are 1-bit fields controlling connection state:
+
+| Flag | Full Name | Hex | Purpose |
+|------|-----------|-----|---------|
+| **URG** | Urgent | 0x20 | Urgent data present; urgent pointer valid |
+| **ACK** | Acknowledgment | 0x10 | Ack number field is valid |
+| **PSH** | Push | 0x08 | Push data to application immediately (no buffering) |
+| **RST** | Reset | 0x04 | Abort connection immediately |
+| **SYN** | Synchronize | 0x02 | Initiate connection; sync sequence numbers |
+| **FIN** | Finish | 0x01 | No more data from sender; graceful close |
+| **ECE** | ECN-Echo | -- | Congestion notification (RFC 3168) |
+| **CWR** | Congestion Window Reduced | -- | Sender reduced congestion window |
+
+**Common Flag Combinations:**
+
+| Flags | Meaning |
+|-------|---------|
+| SYN | Step 1 of handshake — connection request |
+| SYN + ACK | Step 2 of handshake — server accepts |
+| ACK | Acknowledgment of data received |
+| PSH + ACK | Push data immediately + acknowledge previous |
+| FIN + ACK | Graceful close initiation |
+| RST | Abrupt reset (port closed or error) |
+| RST + ACK | Abrupt reset in reply to a SYN |
+
+**Security Abuse of TCP Flags:**
+
+| Technique | Flag(s) | How It Works |
+|-----------|---------|--------------|
+| **SYN Flood** | SYN | Send thousands of SYNs without completing handshake — exhaust server's SYN_RCVD table |
+| **RST Injection** | RST | Forge RST packet — kill legitimate TCP session mid-flow |
+| **FIN Scan** (Nmap) | FIN | FIN to closed port — RST returned; stealthy port detection |
+| **XMAS Scan** | FIN+PSH+URG | All bits lit up; RFC-compliant closed ports return RST |
+| **NULL Scan** | (none) | No flags; closed ports return RST |
+| **ACK Scan** | ACK | Maps firewall rules: which ACKs get through? |
+| **Idle Scan** | SYN+ACK / RST | Uses zombie host's IP ID increments for completely silent port scan |
+
+---
+
+#### 11.4.4 TCP Three-Way Handshake
+
+Before any data flows, TCP establishes a connection using a **three-way handshake** that synchronizes sequence numbers on both sides.
+
+```
+   Client                              Server
+     |                                   |
+     |--- SYN (seq=1000) --------------->|   Step 1: Client initiates
+     |                                   |
+     |<-- SYN-ACK (seq=5000, ack=1001) --|   Step 2: Server accepts + syncs
+     |                                   |
+     |--- ACK (ack=5001) --------------->|   Step 3: Client confirms
+     |                                   |
+     |======= Connection Established ====|
+     |                                   |
+     |--- DATA ------------------------->|   Data transfer begins
+```
+
+**Step 1 — SYN (Client to Server):**
+- SYN flag set; includes client's random **Initial Sequence Number (ISN)**
+- `SYN, seq=1000`
+- "I want to connect; my byte stream starts at 1000"
+
+**Step 2 — SYN-ACK (Server to Client):**
+- SYN + ACK flags set
+- ACK = client ISN + 1 (the SYN consumed one sequence number)
+- Includes server's own random ISN
+- `SYN-ACK, seq=5000, ack=1001`
+- "Accepted; my stream starts at 5000; I received your byte 1000"
+
+**Step 3 — ACK (Client to Server):**
+- ACK flag set; ACK = server ISN + 1
+- `ACK, ack=5001`
+- "I got your byte 5000; we are connected"
+
+**Why Randomize ISNs?**
+Prevents **TCP Sequence Prediction Attacks** where an off-path attacker guesses sequence numbers to inject data. RFC 6528 mandates cryptographically random ISN generation.
+
+**Connection States During Handshake:**
+
+| State | Who | Meaning |
+|-------|-----|---------|
+| LISTEN | Server | Awaiting incoming SYN |
+| SYN_SENT | Client | SYN sent, awaiting SYN-ACK |
+| SYN_RECEIVED | Server | SYN-ACK sent, awaiting final ACK |
+| ESTABLISHED | Both | Connection active; data flows freely |
+
+---
+
+#### 11.4.5 TCP Connection Termination (4-Way FIN Teardown)
+
+TCP uses a **4-way handshake** for graceful close. Either side can initiate.
+
+```
+   Client                              Server
+     |                                   |
+     |--- FIN (seq=u) ------------------>|   Step 1: Client done sending
+     |                                   |
+     |<-- ACK (ack=u+1) -----------------|   Step 2: Server acknowledges
+     |                                   |
+     |   [Server finishes its sending]   |
+     |                                   |
+     |<-- FIN (seq=v) -------------------|   Step 3: Server done sending
+     |                                   |
+     |--- ACK (ack=v+1) --------------->|    Step 4: Client acknowledges
+     |                                   |
+     |======= Connection Closed =========|
+```
+
+**TIME_WAIT State:**
+After the final ACK, the initiating side enters `TIME_WAIT` for **2 x MSL** (Maximum Segment Lifetime, ~60s). Purpose:
+- Ensures final ACK reaches the server
+- Prevents stale packets from corrupting new connections on the same port pair
+
+**RST vs FIN:**
+
+| Method | Type | Use Case |
+|--------|------|---------|
+| FIN | Graceful | Normal close; finish buffered data |
+| RST | Abrupt | Error, refuse connection, force kill |
+
+---
+
+#### 11.4.6 TCP Flow Control (Sliding Window)
+
+**Problem:** Sender transmits faster than receiver can process — buffer overflow and retransmissions.
+
+**Solution — Sliding Window:**
+Receiver advertises a **window size** = bytes it can currently accept. Sender keeps unacknowledged data within that window.
+
+```
+Sender view:
+[sent + acked] [sent, unacked] [can send now] [cannot send yet]
+               |<---  window  -->|
+```
+
+As the receiver processes data and ACKs arrive, the window slides forward allowing more bytes.
+
+**Window Scaling (RFC 1323):**
+- Base 16-bit field caps at 65,535 bytes
+- Window scale option (negotiated in SYN) multiplies by up to 2^14
+- Essential for high-bandwidth, high-latency links (satellite, transoceanic)
+
+**Zero Window (Attack Surface):**
+- Receiver sets `window=0` => sender must pause completely
+- Attacker can manipulate this to stall connections (Zero Window DoS)
+
+---
+
+#### 11.4.7 TCP Congestion Control
+
+**Problem:** Network routers drop packets under load — TCP must detect and reduce send rate.
+
+| Algorithm | Behavior |
+|-----------|---------|
+| **Slow Start** | Begin with cwnd=1 MSS; double every RTT until ssthresh |
+| **Congestion Avoidance** | After ssthresh, increase cwnd by 1 MSS per RTT (linear) |
+| **Fast Retransmit** | 3 duplicate ACKs => retransmit immediately (no timeout wait) |
+| **Fast Recovery** | After fast retransmit: ssthresh = cwnd/2, re-enter avoidance |
+
+**Modern Algorithms:**
+
+| Algorithm | Default For | Characteristic |
+|-----------|------------|----------------|
+| TCP Reno | Classic | Standard congestion avoidance |
+| TCP CUBIC | Linux default | Better for high-speed / high-delay |
+| TCP BBR | Google services | Bottleneck-bandwidth based; lower latency |
+| QUIC (UDP-based) | Chrome / HTTP/3 | Implements own CC at application layer |
+
+---
+
+#### 11.4.8 User Datagram Protocol (UDP)
+
+**Overview:**
+UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no retransmission.
+
+**UDP Segment Structure (8 bytes total):**
+
+```
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|             Length            |            Checksum           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Payload Data                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+| Field | Size | Description |
+|-------|------|-------------|
+| Source Port | 16 bits | Sender's port (optional; 0 if unused) |
+| Destination Port | 16 bits | Receiver's port |
+| Length | 16 bits | Total datagram length in bytes (min 8) |
+| Checksum | 16 bits | Optional error detection |
+
+| Feature | Description |
+|---------|------------|
+| Connection | Connectionless — zero handshake |
+| Reliability | None — no ACK, no retransmission |
+| Ordering | Packets may arrive out of order |
+| Speed | Very fast — minimal header overhead |
+| Header Size | 8 bytes (vs TCP's 20 to 60 bytes) |
+| Broadcast/Multicast | Fully supported |
+| Use Cases | DNS, DHCP, VoIP, video streaming, gaming, TFTP, NTP |
+
+---
+
+#### 11.4.9 TCP vs UDP — Complete Comparison
+
+| Feature | TCP | UDP |
+|---------|-----|-----|
+| Connection model | Connection-oriented | Connectionless |
+| Reliability | Reliable (ACK + retransmit) | Unreliable |
+| Ordering | Guaranteed in-order delivery | Unordered |
+| Speed | Slower | Faster |
+| Header Size | 20 to 60 bytes | 8 bytes |
+| Flow Control | Yes (sliding window) | No |
+| Congestion Control | Yes | No |
+| Broadcast/Multicast | No | Yes |
+| Error Detection | Mandatory checksum | Optional checksum |
+| Handshake | 3-way SYN handshake | None |
+| Termination | 4-way FIN teardown | None |
+| Applications | HTTP/S, SSH, FTP, email, databases | DNS, VoIP, streaming, gaming, TFTP |
+| Wireshark Filter | `tcp` | `udp` |
+
+**Use TCP when:** Data integrity is critical, ordering matters, or you cannot tolerate loss.
+**Use UDP when:** Speed/latency is critical, or the application provides its own reliability (QUIC).
+
+**QUIC — The Modern Evolution:**
+- Built by Google; now IETF RFC 9000
+- Runs over **UDP** but implements reliable delivery, ordering, and TLS 1.3
+- Powers **HTTP/3** — the next-generation web protocol
+- 0-RTT or 1-RTT handshake (faster than TCP + TLS)
+- Eliminates head-of-line blocking at the transport layer
+
+---
+
+#### 11.4.10 Port Numbers
+
+**Definition:** A **port** is a 16-bit logical number (0 to 65535) that identifies a specific process/service on a host. Enables **multiplexing** — many simultaneous connections on one IP address.
+
+**Port Ranges:**
+
+| Range | Category | Notes |
+|-------|----------|-------|
+| 0 to 1023 | Well-known (System) | Assigned by IANA; require root/admin to bind |
+| 1024 to 49151 | Registered | Assigned for specific applications |
+| 49152 to 65535 | Dynamic / Ephemeral | Auto-assigned for client connections |
+
+**Critical Ports for Security:**
+
+| Port | Protocol | Service | Security Note |
+|------|----------|---------|--------------|
+| 21 | TCP | FTP | Credentials sent in plaintext |
+| 22 | TCP | SSH | Target for brute-force; keep updated |
+| 23 | TCP | Telnet | Completely unencrypted; do not use |
+| 25 | TCP | SMTP | Abuse for spam via open relays |
+| 53 | TCP/UDP | DNS | DNS tunneling / zone transfer abuse |
+| 80 | TCP | HTTP | Clear-text web; intercept/MITM |
+| 135 to 139 | TCP | NetBIOS | Legacy Windows exploitation |
+| 443 | TCP | HTTPS | TLS; verify certificate validity |
+| 445 | TCP | SMB | EternalBlue, WannaCry, lateral movement |
+| 3306 | TCP | MySQL | DB exposed to internet — disaster |
+| 3389 | TCP | RDP | BlueKeep, brute force, credential spray |
+| 5432 | TCP | PostgreSQL | Often misconfigured and exposed |
+| 6379 | TCP | Redis | Frequently deployed unauthenticated |
+| 27017 | TCP | MongoDB | Often world-readable by default |
+
+**Socket Address:**
+A **socket** uniquely identifies a connection endpoint: `IP_Address:Port`
+
+A TCP connection is uniquely identified by the **5-tuple:**
+```
+( Protocol, Source IP, Source Port, Destination IP, Destination Port )
+```
+
+Two clients connecting from different ephemeral ports to the same server port = two distinct connections.
+
+[↑ Back to top](#table-of-contents)
+
+---
+
+### 11.5 Internet Layer (Layer 3 / Layer 2 in 4-layer)
+
+**Function:**
+Handles **logical addressing and routing** — moving packets from source to destination across multiple heterogeneous networks. Completely network-agnostic: doesn't care if the underlying link is Ethernet, Wi-Fi, or fiber.
+
+**Key Protocols:**
+
+| Protocol | Purpose |
+|----------|---------|
+| IPv4 | Core 32-bit addressing and routing |
+| IPv6 | 128-bit next-generation addressing |
+| ICMP | Control messages and diagnostics (ping, traceroute) |
+| ARP | Resolves IP to MAC address (bridges Internet and Link layers) |
+| IGMP | Manages multicast group membership |
+| IPsec | Encryption and authentication at IP layer (used in VPNs) |
+
+**Internet Layer Responsibilities:**
+1. **Logical Addressing** — Every host gets a unique IP; routers use destination IP for forwarding
+2. **Routing** — Determining best path through interconnected networks
+3. **Packet Forwarding** — Moving packets hop-by-hop toward destination
+4. **Fragmentation** — Splitting packets when they exceed link MTU
+5. **TTL Management** — Decrementing TTL at each hop; drop packet at 0 to prevent loops
+
+**ICMP Message Types:**
+
+| Type | Name | Common Use |
+|------|------|-----------|
+| 0 | Echo Reply | Response to ping |
+| 3 | Destination Unreachable | Port/host/network not reachable |
+| 5 | Redirect | Inform host of better route |
+| 8 | Echo Request | ping request |
+| 11 | Time Exceeded | TTL hit zero (used by traceroute) |
+| 12 | Parameter Problem | Malformed IP header |
+
+**Security Issues at Internet Layer:**
+
+| Attack | Mechanism | Defense |
+|--------|-----------|---------|
+| IP Spoofing | Forge source IP address | BCP38 ingress filtering at ISP |
+| ICMP Flood (Smurf) | Broadcast ICMP with victim's IP as source | Disable directed broadcasts |
+| Ping of Death | Oversized fragmented ICMP | Patched in all modern OSes |
+| Traceroute Recon | Map network topology by observing TTL expiry | Block ICMP Time Exceeded at perimeter |
+| IP Fragmentation | Overlapping fragments bypass IDS inspection | Reassemble before inspection |
+| BGP Hijacking | Advertise victim's IP prefix | RPKI, BGPsec |
+
+[↑ Back to top](#table-of-contents)
+
+---
+
+### 11.6 Link Layer (Layer 2 / Layer 1 in 4-layer)
+
+**Function:**
+Handles **node-to-node delivery** on the same network segment. Deals with physical addressing (MAC), framing, and local error detection.
+
+**Key Protocols:**
+
+| Protocol | Use |
+|----------|-----|
+| Ethernet (IEEE 802.3) | Wired LAN — dominant wired standard |
+| Wi-Fi (IEEE 802.11) | Wireless LAN |
+| PPP | Point-to-point links (DSL, VPN tunnels) |
+| ARP | Resolves IP addresses to MAC addresses |
+| 802.1Q | VLAN tagging on Ethernet frames |
+| STP / RSTP | Spanning Tree — prevents Layer 2 loops |
+
+**MAC Address:**
+- 48-bit hardware address embedded in NIC
+- Format: `AA:BB:CC:DD:EE:FF` (hex, colon-separated)
+- **OUI (first 24 bits):** Manufacturer identifier (e.g., `00:50:56` = VMware)
+- **NIC specific (last 24 bits):** Device-unique portion
+- Can be spoofed in software: `ip link set eth0 address AA:BB:CC:DD:EE:FF`
+
+**ARP (Address Resolution Protocol):**
+When host knows target IP but not MAC, it broadcasts an ARP Request:
+
+```
+Host A                             Host B (192.168.1.2)
+  |                                       |
+  |-- ARP Request: "Who has .1.2?" ------>| (Layer 2 broadcast)
+  |                                       |
+  |<- ARP Reply: "I'm .1.2; MAC=XX:XX" --|
+  |                                       |
+  | [A caches B's MAC in ARP table]       |
+```
+
+- Check ARP table: `arp -a` or `ip neigh show` (Linux)
+- ARP has **no authentication** — anyone can reply
+
+**Ethernet Frame Structure:**
+
+```
++----------+----------+---------+------------------+---------+---------+
+| Preamble | Dst MAC  | Src MAC | EtherType/Length | Payload | FCS/CRC |
+| 7 bytes  | 6 bytes  | 6 bytes | 2 bytes          | 46-1500B| 4 bytes |
++----------+----------+---------+------------------+---------+---------+
+```
+
+**Common EtherType Values:**
+
+| Value | Protocol |
+|-------|---------|
+| 0x0800 | IPv4 |
+| 0x0806 | ARP |
+| 0x86DD | IPv6 |
+| 0x8100 | 802.1Q VLAN tag |
+
+**Link Layer Security Issues:**
+
+| Attack | Mechanism | Defense |
+|--------|-----------|---------|
+| ARP Spoofing (Poisoning) | Fake ARP replies to redirect traffic — MITM | Dynamic ARP Inspection (DAI), static ARP entries |
+| MAC Flooding | Fill switch CAM table — switch broadcasts all frames | Port security: limit MACs per port |
+| VLAN Hopping | Double-tag frames to jump VLAN boundaries | Disable DTP trunk negotiation; dedicated native VLAN |
+| Rogue DHCP | Attacker responds to DHCP before real server — controls gateway | DHCP Snooping on managed switches |
+
+[↑ Back to top](#table-of-contents)
+
+---
+
+### 11.7 Comparison with OSI Model
+
+**Layer Mapping:**
+
+```
+   OSI Model (7 layers)              TCP/IP Model (4 layers)
+  +----------------------+          +----------------------+
+  | 7. Application       |          |                      |
+  +----------------------+          |                      |
+  | 6. Presentation      |  ------> | 4. Application       |
+  +----------------------+          |                      |
+  | 5. Session           |          |                      |
+  +----------------------+          +----------------------+
+  | 4. Transport         |  ------> | 3. Transport         |
+  +----------------------+          +----------------------+
+  | 3. Network           |  ------> | 2. Internet          |
+  +----------------------+          +----------------------+
+  | 2. Data Link         |          |                      |
+  +----------------------+  ------> | 1. Link              |
+  | 1. Physical          |          |                      |
+  +----------------------+          +----------------------+
+```
+
+**Detailed Comparison:**
+
+| Feature | OSI Model | TCP/IP Model |
+|---------|-----------|-------------|
+| Number of Layers | 7 | 4 (or 5) |
+| Developed By | ISO/IEC | DARPA / IETF |
+| Purpose | Conceptual reference model | Practical working implementation |
+| Protocol Binding | Protocol-independent | Directly tied to TCP/IP suite |
+| Session Layer | Explicit (Layer 5) | Merged into Application |
+| Presentation Layer | Explicit (Layer 6) | Merged into Application |
+| Physical Layer | Explicit (Layer 1) | Part of Link layer |
+| Primary Use | Teaching, troubleshooting | Networking, coding, security |
+| Security Model | Per-layer abstract | L3 (IPsec), L4 (ports), L7 (TLS) |
+
+**Key Differences:**
+
+1. **OSI L5 (Session) + L6 (Presentation) merged** into TCP/IP Application — applications handle their own sessions (HTTP cookies, TLS) and encoding (JSON, Base64, cipher suites)
+2. **OSI is prescriptive** (defines what each layer MUST do); **TCP/IP is descriptive** (documents what the internet ACTUALLY does)
+3. **TCP/IP won in practice** because ARPANET was already running it before OSI was standardized
+4. **OSI Physical layer** is implicit in 4-layer TCP/IP (part of Link); explicit in the 5-layer variant
+
+**When to Use Which:**
+
+| Situation | Preferred Model |
+|-----------|----------------|
+| Teaching networking concepts | OSI (clear layer separation) |
+| Troubleshooting a failure | OSI (pinpoint failing layer) |
+| Writing firewall/iptables rules | TCP/IP (ports, IPs, protocols) |
+| Wireshark packet analysis | TCP/IP layers |
+| Designing a network app (sockets) | TCP/IP (maps directly to API) |
+| Discussing protocol-layer attacks | Both, depending on target layer |
 
 [↑ Back to top](#table-of-contents)
 
@@ -5437,13 +6417,16 @@ Note: Real-world systems map OSI’s 7 layers into these 4–5 layers for practi
 
 ### 🎯 Key Takeaways - Section 11
 
-**TL;DR:** The TCP/IP model is the practical 4-5 layer version of the OSI model. It maps directly to internet protocols: Layer 4 (Application) = HTTP/SMTP/DNS, Layer 3 (Transport) = TCP/UDP, Layer 2 (Internet) = IP/ICMP, Layer 1 (Link) = Ethernet/PPP. Use TCP/IP model for real-world networking; use OSI for teaching fundamentals.
+**TL;DR:** The TCP/IP model is the practical 4-5 layer internet stack. TCP provides reliable, connection-oriented, ordered delivery via 3-way handshake, flags, and flow/congestion control. UDP delivers fast, connectionless datagrams for latency-sensitive traffic. Every security professional must master TCP segment structure, flags, ports, and ARP — the foundation of virtually every network attack and defense technique.
 
-- **TCP/IP model is what the Internet actually uses** — OSI is theoretical; TCP/IP is reality
-- **Only 4-5 layers make TCP/IP lean and focused** — Easier to implement and understand than OSI's 7 layers
-- **Layer 4 is the magic layer for security** — Port-based access control, firewalls, VPNs all operate here
-- **"Internet Layer" = IP; "Transport Layer" = TCP/UDP** — These two layers are the internet's foundation
-- **Application Layer diversity = protocol proliferation** — HTTP, HTTPS, DNS, SSH, Telnet, FTP all live here; each has unique security implications
+- **TCP/IP model is what the Internet uses** — OSI is the teaching model; TCP/IP is the deployed reality
+- **3-way handshake (SYN => SYN-ACK => ACK)** — establishes sequence sync; SYN flood exploits incomplete handshakes
+- **TCP flags are attack primitives** — SYN flood, RST injection, FIN/NULL/XMAS scans all manipulate specific flag combinations
+- **Sliding window + congestion control** — flow control stops receiver overflow; congestion control stops network collapse
+- **UDP = speed, TCP = reliability** — QUIC (HTTP/3) runs on UDP but implements reliability at application layer
+- **Ports identify services; sockets = IP + port** — every connection = 5-tuple (proto, srcIP, srcPort, dstIP, dstPort)
+- **ARP has no authentication** — ARP poisoning => attacker becomes the MITM between any two hosts on the LAN
+- **Application layer absorbs OSI L5+L6+L7** — HTTP, TLS, DNS, SSH all live here with distinct security profiles
 
 [↑ Back to top](#table-of-contents)
 
@@ -5928,14 +6911,14 @@ After this section, you'll understand:
 
 | Class | Leading bits | Size of *network* number bit field | Size of *rest* bit field | Number of networks | Addresses per network | Start address | End address |
 |-------|--------------|-----------------------------------|-------------------------|-------------------|----------------------|---------------|-------------|
-| Class A | 0 | 8 | 24 | 128 (2⁷) | 16,777,216 (2²⁴) | 0.0.0.0 | 127.255.255.255 |
+| Class A | 0 | 8 | 24 | 126 (2⁷ − 2) | 16,777,216 (2²⁴) | 0.0.0.0 | 127.255.255.255 |
 | Class B | 10 | 16 | 16 | 16,384 (2¹⁴) | 65,536 (2¹⁶) | 128.0.0.0 | 191.255.255.255 |
 | Class C | 110 | 24 | 8 | 2,097,152 (2²¹) | 256 (2⁸) | 192.0.0.0 | 223.255.255.255 |
 | Class D (multicast) | 1110 | not defined | not defined | not defined | not defined | 224.0.0.0 | 239.255.255.255 |
 | Class E (reserved) | 1111 | not defined | not defined | not defined | not defined | 240.0.0.0 | 255.255.255.255 |
 
 
-### 12.4 IPv4 Header Fields Explained
+### 13.4 IPv4 Header Fields Explained
 
 Each field in the IPv4 header has a specific purpose. Here’s a breakdown:
 
@@ -5957,7 +6940,8 @@ Each field in the IPv4 header has a specific purpose. Here’s a breakdown:
 
 **Fragmentation Example:**
 If a datagram is too large for the next network’s MTU, it’s split into fragments. Each fragment gets its own header, with the same Identification value and different Fragment Offset values. The MF (More Fragments) flag is set on all but the last fragment.
-- **Efficient Allocation:** Allocate exactly what's needed
+
+### 13.5 CIDR and Classless Addressing
 
 **Why Classful Addressing Failed**
 - **Inflexible sizes:** Only /8, /16, /24 boundaries.
@@ -6562,6 +7546,37 @@ $$
 - **LOCAL_PREF:** Preferred exit within an AS (outbound)
 - **MED:** Suggested entry for neighbors (inbound)
 
+
+#### Routing Protocols on Border and Non-Border Routers
+
+##### Visual Representation
+
+![BGP and IGP Sessions in Autonomous Systems](attachment:image)
+
+##### Main Points: How Many Routing Protocols Run at a Time?
+
+- **Border Routers (e.g., R1, R2, R4, R6 in the diagram):**
+  - Typically run **two types of routing protocols simultaneously**:
+    1. **IGP (Interior Gateway Protocol)** for routing within the AS (intra-domain).
+    2. **EGP (Exterior Gateway Protocol)**, most commonly BGP, for routing between ASes (inter-domain).
+    3. **OSPF, RIP:** Any one of these IGPs (OSPF or RIP) might be running, depending on the network design and configuration.
+  - This allows border routers to exchange routes with both internal routers and external ASes.
+
+- **Non-Border Routers (e.g., R3, R7, R8, R9):**
+  - Usually run **only one routing protocol**:
+    - **IGP (e.g., OSPF, RIP)** for internal routing within the AS.
+  - They do not participate in BGP sessions with external ASes.
+
+**Summary Table:**
+
+| Router Type      | Protocols Typically Running         |
+|------------------|-------------------------------------|
+| Border Router    | IGP + BGP (EGP)                     |
+| Non-Border Router| IGP only                            |
+
+**Key Takeaway:**
+- Border routers act as translators between internal and external routing domains, so they must run both IGP and BGP. Non-border routers only need to understand the internal topology, so they run just the IGP.
+
 [↑ Back to top](#table-of-contents)
 
 ---
@@ -6570,7 +7585,7 @@ $$
 
 **TL;DR:** IPv4 uses 32-bit addresses, organized historically by classes (A-E) but now by CIDR notation (10.0.0.0/8). Subnetting divides networks into smaller pieces; NAT hides internal addressing behind a single public IP. IPv4 exhaustion (2011) drove IPv6 adoption. Understanding subnetting is essential for network design, reconnaissance, and exploitation planning.
 
-- **CIDR notation is life** — 10.0.0.0/8 means all 32-2 bits are network (first 8), remaining are hosts (24 bits) = 2^24 hosts
+- **CIDR notation is life** — 10.0.0.0/8 means first 8 bits are network, remaining 24 bits are hosts = 2^24 hosts
 - **Subnetting formulas: 2^(host bits) = usable hosts** — /30 = 2^2-2 = 2 usable hosts (used for point-to-point links)
 - **NAT = hiding game** — 192.168.1.0/24 behind single public IP (e.g., 1.2.3.4) via port translation
 - **Private ranges are RFC 1918** — 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 never routable on public internet

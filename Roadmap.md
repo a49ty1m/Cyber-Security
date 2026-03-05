@@ -1,4 +1,4 @@
-7\# Red Team Fundamentals: Master Checklist
+# Red Team Fundamentals: Master Checklist
 
 ## ✅📋 Completion Tracker & Quick Navigation
 

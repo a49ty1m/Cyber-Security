@@ -1,6 +1,6 @@
 # Networking Mix-notes
 
-> **Quick Reference:** This document covers core networking concepts from 7 YouTube videos. Use the Table of Contents to jump between topics. Each section includes cybersecurity angles and hands-on action items.
+> **Quick Reference:** This document covers core networking concepts from 9 YouTube videos. Use the Table of Contents to jump between topics. Each section includes cybersecurity angles and hands-on action items.
 
 ---
 
@@ -29,6 +29,7 @@
 | Video | Topic | Key Concepts |
 |-------|-------|-------------|
 | [Video 8](#video-8-ipv4-header) | IPv4 Header | Header fields, Fragmentation, TTL, Protocol |
+| [Video 9](#video-9-ipv6-header) | IPv6 Header | Fixed 40B header, Flow Label, Extension Headers, No Checksum |
 
 ### Appendix
 - [OSI vs TCP/IP Quick Reference](#-quick-reference-osi-vs-tcpip-models)
@@ -50,6 +51,8 @@
 │                        Video 5: Switch vs Router                │
 │                                          ↓                      │
 │              Video 6: OSI Model ──→ Video 7: TCP/IP Model       │
+│                                          ↓                      │
+│           Video 8: IPv4 Header ──→ Video 9: IPv6 Header         │
 │                                          ↓                      │
 │                                    PRACTICE WITH WIRESHARK      │
 └─────────────────────────────────────────────────────────────────┘
@@ -152,6 +155,13 @@ Where this video succeeds: It builds a functional intuition. Most students fail 
 - Download Wireshark, open it, and watch your own "packets" move when you load a website. 
 - See the TCP Handshake with your own eyes. Theory is for students; observation is for experts.
 
+### 🧪 Commands Used (Lab Practice)
+```bash
+ip addr
+ping -c 4 8.8.8.8
+traceroute 8.8.8.8
+```
+
 Source URL: https://www.youtube.com/watch?v=NUFPWtrQgmA
 
 ### 📝 Self-Test Questions (Video 1)
@@ -209,7 +219,7 @@ An IP (Internet Protocol) address is a unique numerical label assigned to every 
 - **Why:** Saves addresses, enhances security, and allows better local management.
 - **Assignment:** Handed out automatically by your router via **DHCP**.
 
-> � **See:** [RFC 1918 Private IP Ranges](#-rfc-1918-private-ip-ranges) in Quick References above.
+ > 💡 **See:** [RFC 1918 Private IP Ranges](#-rfc-1918-private-ip-ranges) in Quick References above.
 
 ## **8. NAT: The Bridge Between Worlds**
 - **Need:** Private IPs are non-routable on the public internet, so you need a middleman.
@@ -231,6 +241,13 @@ An IP (Internet Protocol) address is a unique numerical label assigned to every 
 - Check your Public IP: Go to Google and type "What is my IP."
 - Check your Private IP: In terminal/CMD run ipconfig (Windows) or ifconfig/ip addr (Linux/Mac).
 - Compare: They differ; that boundary separates your private network from the global internet.
+
+### 🧪 Commands Used (Lab Practice)
+```bash
+ip addr
+ip route
+curl ifconfig.me
+```
 
 Source URL: https://www.youtube.com/watch?v=-T1JypIFhSk
 
@@ -312,6 +329,13 @@ The real-world danger today is the **"IPv6 Blind Spot."** Most corporate firewal
 - **Check for Dual-Stack:** In your terminal, run `ipconfig` (Windows) or `ip addr` (Linux). If you see a `2001:` or `fe80:` address, you are running IPv6.
 - **Test your Security:** Go to an IPv6 test site (like `test-ipv6.com`) to see how the world sees your futuristic address.
 - **Learn SLAAC:** Don't just rely on DHCP. Understand how devices "talk" to routers to get their own IPs. That "conversation" is a prime target for **NDP Spoofing** attacks.
+
+### 🧪 Commands Used (Lab Practice)
+```bash
+ip -6 addr
+ping -6 -c 4 google.com
+tracepath -6 google.com
+```
 
 Source URL: https://www.youtube.com/watch?v=Epnna90H0os
 
@@ -470,6 +494,13 @@ It perfectly differentiates between "Hardware ID" and "Network Location." Most b
 2. **Inspect the OUI:** Take the first 3 bytes of your MAC address and put them into an "OUI Lookup" tool online. Verify if it actually shows your device manufacturer (Apple, Dell, etc.).
 3. **Check for Spoofing:** See if your phone has "Private Wi-Fi Address" turned on in its settings. Realize that this is changing your MAC address to stop companies from tracking you as you walk through a mall.
 
+### 🧪 Commands Used (Lab Practice)
+```bash
+ip link
+ip neigh
+arp -a
+```
+
 Source URL: https://www.youtube.com/watch?v=tztDn4WWMKI
 
 ### 📝 Self-Test Questions (Video 4)
@@ -580,6 +611,13 @@ Where this video succeeds: It kills the confusion between **Layer 2 (Physical Id
 - **Understand the hop:** LAN-to-LAN traffic stays on the switch; internet traffic hits the router.
 - **Study ARP:** It binds **IP ↔ MAC**. This is a core attack surface.
 
+### 🧪 Commands Used (Lab Practice)
+```bash
+ip neigh
+ss -tuln
+traceroute google.com
+```
+
 Source URL: https://www.youtube.com/watch?v=wtxMkv4Jspw
 
 ### 📝 Self-Test Questions (Video 5)
@@ -688,6 +726,13 @@ Where the video succeeds: It provides a clean, linear way to think about a proce
 - **Memorize the mnemonic:** "Please Do Not Throw Sausage Pizza Away" (Physical, Data Link, Network, Transport, Session, Presentation, Application).
 - **Bottom-Up Challenge:** Next time your Wi-Fi fails, mentally "walk" up the layers. Is it the light on the router (L1)? Can you ping your gateway (L2/L3)? Is the website down (L7)?
 - **Research Wireshark:** Re-open Wireshark and look at a single packet. Notice how the software explicitly labels the layers for you. This is where the theory becomes reality.
+
+### 🧪 Commands Used (Lab Practice)
+```bash
+ping -c 4 192.168.1.1
+traceroute 8.8.8.8
+ss -tuln
+```
 
 Source URL: https://youtu.be/gR0xB25hhzU
 
@@ -899,7 +944,14 @@ It strips the "theoretical" weight of the OSI model and shows you how your compu
 2. **Port Mapping:** Run `netstat -an` in your terminal. Look at the "Local Address" column. See those numbers after the colon (e.g., `:443`)? Those are the active ports your Transport layer is managing right now.
 3. **Ping Test:** Ping your own router (`ping 192.168.1.1`). You are using the ICMP protocol at the Internet Layer to test the Physical Layer.
 
-Source URL: http://www.youtube.com/watch?v=sA5xpIEWzDE
+### 🧪 Commands Used (Lab Practice)
+```bash
+netstat -an
+ss -tulnp
+ping -c 4 8.8.8.8
+```
+
+Source URL: https://www.youtube.com/watch?v=sA5xpIEWzDE
 
 ### 📝 Self-Test Questions (Video 7)
 
@@ -1212,6 +1264,13 @@ Where this video succeeds: It provides a clear field-by-field breakdown. Underst
 - Execute `traceroute google.com` (Linux/Mac) or `tracert google.com` (Windows). Watch TTL in action as it maps the path.
 - Run `ping -M do -s 1472 8.8.8.8` (Linux) to test if fragmentation is needed. If it fails, your MTU is smaller than 1500.
 
+### 🧪 Commands Used (Lab Practice)
+```bash
+traceroute google.com
+ping -M do -s 1472 8.8.8.8
+netstat -s
+```
+
 Source URL: https://www.youtube.com/watch?v=Mj1o2y7ph78
 
 ### 📝 Self-Test Questions (Video 8)
@@ -1279,6 +1338,183 @@ If DF is set and the packet exceeds MTU, the router drops it and sends an ICMP "
 
 ---
 
+# Video 9 (IPv6 Header)
+IPv6 was engineered for speed. A rigid, fixed 40-byte header lets routers use hardware-level (ASIC) processing — no CPU overhead, no variable-length calculations. All complexity (fragmentation, options) is offloaded to end-devices via Extension Headers. If a router has to think, the network slows down. IPv6 removes the thinking so the router can just forward.
+
+> 💡 **Cross-Reference:** For the IPv4 header this replaces, see [Video 8](#video-8-ipv4-header). For the broader IPv4 vs IPv6 comparison, see [Video 3](#video-3-ipv4-vs-ipv6).
+
+## **43. The Flaws of IPv4 (Why It Had to Die)** [01:24]
+
+| Problem | Description |
+|---------|-------------|
+| **Variable Header Size** | IPv4 headers ranged from 20–60 bytes. Routers had to calculate where the header ended on every packet. |
+| **Router-Centric Fragmentation** | If a packet was too big, the router had to pause, chop it, recalculate fields, and forward. [01:36] |
+| **Checksum Nightmare** | Each hop decremented TTL → field changed → router recalculated the full Header Checksum. Millions of packets/sec = massive CPU overhead. [05:16] |
+
+---
+
+## **44. The IPv6 Base Header (40 Bytes / 320 Bits)** [01:48]
+
+The IPv6 header is **always exactly 40 bytes**. No exceptions. Routers know exactly where every field is — enabling hardware-level (ASIC) forwarding without CPU bottlenecks.
+
+### Field Breakdown [02:44]
+
+| Field | Size | Description |
+|-------|------|-------------|
+| **Version** | 4 bits | Always `6` (binary `0110`). First field checked. |
+| **Traffic Class** | 8 bits | QoS — equivalent of IPv4's DSCP/ToS. Prioritizes traffic (e.g. VoIP over file downloads). |
+| **Flow Label** ⚠️ NEW | 20 bits | Tags packets of the same session/flow (e.g. a 4K stream or gaming session). Routers forward the entire flow on the same path instantly — no route recalculation per packet. [03:27] |
+| **Payload Length** | 16 bits | Size of data after the 40-byte base header. |
+| **Next Header** ⚠️ CRITICAL | 8 bits | Replaces IPv4's "Protocol" field. Points to the next Extension Header or upper-layer protocol (TCP/UDP). Enables daisy-chaining of Extension Headers. [04:04] |
+| **Hop Limit** | 8 bits | Replaces IPv4's TTL. Decrements by 1 at every router. Reaches 0 → packet dropped (prevents infinite loops). [04:17] |
+| **Source Address** | 128 bits | Sender's IPv6 address. |
+| **Destination Address** | 128 bits | Receiver's IPv6 address. |
+
+```
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version| Traffic Class |           Flow Label                  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Payload Length        |  Next Header  |   Hop Limit   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         Source Address                        +
+|                        (128 bits)                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                      Destination Address                      +
+|                        (128 bits)                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+---
+
+## **45. What IPv6 Removed (and Why)**
+
+### A. Header Checksum Removed [04:43]
+
+IPv6 **deleted the Header Checksum entirely** — it was mathematically redundant:
+
+| Layer | Mechanism | Purpose |
+|-------|-----------|----------|
+| Layer 2 (Data Link) | Ethernet CRC | Detects corruption on the wire |
+| Layer 4 (Transport) | TCP/UDP checksum | Verifies the data payload |
+
+- **UDP checksums** were optional in IPv4. They are **mandatory in IPv6** to compensate.
+- **Result:** Routers no longer waste CPU cycles recalculating checksums at every hop just because Hop Limit decremented by 1. [06:27]
+
+### B. Fragmentation Shifted to Source [07:31]
+
+| | IPv4 | IPv6 |
+|-|------|------|
+| **Who fragments?** | Router | Source device only |
+| **If packet too big?** | Router chops it up | Router drops it + sends ICMPv6 "Packet Too Big" |
+| **Why?** | Compatibility | Keeps core routers fast |
+
+The source device uses a **Fragment Extension Header** to pre-fragment before sending.
+
+---
+
+## **46. IPv4 vs IPv6 Header Comparison**
+
+| Feature | IPv4 | IPv6 |
+|---------|------|------|
+| Header Size | 20–60 bytes (variable) | Fixed 40 bytes |
+| Checksum | Yes (recalculated every hop) | No |
+| TTL / Hop Limit | TTL (8 bits) | Hop Limit (8 bits) |
+| Fragmentation | Router performs it | Source device only |
+| Options | Inside main header | Extension Headers (chained) |
+| Flow identification | None | Flow Label (20 bits) |
+| Address size | 32 bits | 128 bits |
+
+---
+
+## **47. Interview & Exam Quick-Fire** [08:05]
+
+| Question | Answer |
+|----------|--------|
+| Fixed size of an IPv6 header? | **40 Bytes (320 bits)** |
+| IPv6 equivalent of TTL? | **Hop Limit** |
+| Purpose of the Flow Label? | Tags packets of the same session so routers forward them on the same path without recalculating routes |
+| Why was Header Checksum removed? | Redundant — Layer 2 (Ethernet CRC) and Layer 4 (TCP/UDP) already cover error-checking |
+| Who does fragmentation in IPv6? | **Source device only** (not routers) |
+| What happens if an IPv6 packet is too big? | Router drops it and sends ICMPv6 "Packet Too Big" back to the source |
+| Are UDP checksums optional in IPv6? | **No — mandatory** |
+
+---
+
+## **The Coach's Verdict: Red Team Application**
+
+Extension Headers are where attackers operate. IPv6 allows chaining multiple Extension Headers (Routing Header, Fragment Header, Destination Options, etc.).
+
+**Extension Header Evasion:**
+- Most IDS/IPS only inspect the **first couple of headers**
+- If an attacker buries malicious payload behind 5–6 nested Extension Headers, a poorly configured firewall may **give up parsing and let the packet through**
+- This is an active attack vector in IPv6-capable networks — many security tools have incomplete IPv6 Extension Header support
+
+**Next Step:** Learn IPv6 addressing mechanics — specifically the difference between `fe80::` (Link-Local) and Global Unicast addresses. Without that, this header knowledge is incomplete.
+
+---
+
+### 🧪 Commands Used (Lab Practice)
+```bash
+ip -6 addr
+ping -6 -c 4 google.com
+tracepath -6 google.com
+```
+
+Source URL: https://www.youtube.com/watch?v=koMWqugkab0
+
+### 📝 Self-Test Questions (Video 9)
+
+<details>
+<summary><b>Q1: What is the fixed size of an IPv6 header?</b></summary>
+
+**Answer:** **40 Bytes (320 bits).** It never changes — no options inside the main header, no variable-length fields.
+</details>
+
+<details>
+<summary><b>Q2: What replaced TTL in IPv6, and how does it work?</b></summary>
+
+**Answer:** **Hop Limit.** Behaves identically to TTL — decrements by 1 at each router. When it reaches 0, the packet is dropped and an ICMPv6 "Time Exceeded" message is sent back to the source.
+</details>
+
+<details>
+<summary><b>Q3: What is the Flow Label and why is it important?</b></summary>
+
+**Answer:** A 20-bit field that tags all packets belonging to the same session (e.g. a video stream or gaming session). Routers use it to forward the entire flow along the same path instantly — without re-examining routing tables per packet.
+</details>
+
+<details>
+<summary><b>Q4: Why was the Header Checksum removed in IPv6?</b></summary>
+
+**Answer:** It was redundant. Error-checking is already performed by:
+- **Layer 2:** Ethernet's CRC
+- **Layer 4:** TCP/UDP checksums (UDP checksums are now **mandatory** in IPv6)
+
+Removing it means routers don't recalculate math at every hop.
+</details>
+
+<details>
+<summary><b>Q5: How does IPv6 handle fragmentation?</b></summary>
+
+**Answer:** Routers do **not** fragment. If a packet is too large:
+1. Router drops the packet
+2. Router sends ICMPv6 **"Packet Too Big"** to the source
+3. Source device re-sends using a Fragment Extension Header
+
+This keeps transit routers fast.
+</details>
+
+<details>
+<summary><b>Q6: What is the "Next Header" field and why is it critical?</b></summary>
+
+**Answer:** It replaces IPv4's "Protocol" field. Instead of stuffing options inside the main header, IPv6 chains **Extension Headers** after the base header. The Next Header field tells the receiver what comes next — either an Extension Header type or the final upper-layer protocol (TCP=6, UDP=17, ICMPv6=58).
+</details>
+
+---
+
 # Appendix
 
 ## 🔑 Key Terms Glossary
@@ -1297,6 +1533,11 @@ If DF is set and the packet exceeds MTU, the router drops it and sends an ICMP "
 | **OUI** | Organizationally Unique Identifier — first 3 bytes of MAC (manufacturer) |
 | **SLAAC** | Stateless Address Auto-Configuration — IPv6 self-assignment |
 | **TTL** | Time To Live — packet's hop limit before being discarded |
+| **Flow Label** | 20-bit IPv6 field that tags packets of the same session for fast, consistent forwarding |
+| **Extension Header** | IPv6 mechanism for chaining optional processing instructions after the base header |
+| **ICMPv6** | IPv6 control protocol — handles errors (e.g. Packet Too Big) and neighbor discovery |
+| **ASIC** | Application-Specific Integrated Circuit — hardware chip that processes packets at line rate without CPU |
+| **Hop Limit** | IPv6 equivalent of TTL — decrements by 1 per router hop; packet dropped at 0 |
 
 ---
 
@@ -1310,5 +1551,6 @@ If DF is set and the packet exceeds MTU, the router drops it and sends an ICMP "
 | 4 | MAC vs IP | https://www.youtube.com/watch?v=tztDn4WWMKI |
 | 5 | Switch vs Router | https://www.youtube.com/watch?v=wtxMkv4Jspw |
 | 6 | The OSI Model | https://youtu.be/gR0xB25hhzU |
-| 7 | TCP/IP Model | http://www.youtube.com/watch?v=sA5xpIEWzDE |
+| 7 | TCP/IP Model | https://www.youtube.com/watch?v=sA5xpIEWzDE |
 | 8 | IPv4 Header | https://www.youtube.com/watch?v=Mj1o2y7ph78 |
+| 9 | IPv6 Header | https://www.youtube.com/watch?v=koMWqugkab0 |
