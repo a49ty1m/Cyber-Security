@@ -123,6 +123,7 @@
     - [11.4.8 UDP Overview](#1148-user-datagram-protocol-udp)
     - [11.4.9 TCP vs UDP Comparison](#1149-tcp-vs-udp--complete-comparison)
     - [11.4.10 Port Numbers](#11410-port-numbers)
+    - [11.4.11 Transport Layer Troubleshooting](#11411-transport-layer-troubleshooting-practical)
   - [11.5 Internet Layer (Layer 3)](#115-internet-layer-layer-3)
   - [11.6 Link Layer (Layer 2)](#116-link-layer-layer-2)
   - [11.7 Comparison with OSI Model](#117-comparison-with-osi-model)
@@ -4531,6 +4532,10 @@ sudo tcpkill -i eth0 host 192.168.1.100
 - Smooths speed differences between app and network.
 - **Send buffer:** unsent data + sent‑unACKed data retained for retransmit.
 - **Receive buffer:** holds data until app reads it (circular buffer).
+- **Visualization (common teaching model):**
+  - White cells = free buffer space
+  - Blue cells = sent but not yet ACKed (must be retained for possible retransmit)
+  - Black cells = written by app but not yet transmitted
 
 **C) Segmentation**
 - Splits byte stream into **segments** with TCP headers.
@@ -4552,6 +4557,7 @@ sudo tcpkill -i eth0 host 192.168.1.100
 
 **B) Acknowledgments (ACKs)**
 - **Cumulative ACK (default):** “Received everything up to byte X.”
+- **Cumulative ACK limitation:** if segment 3 is missing but 4 and 5 arrive, receiver still ACKs only up to 2.
 - **Selective ACK (SACK):** “Missing X, but have Y–Z.” (TCP option)
 - **Benefit:** Avoids unnecessary retransmissions.
 
@@ -4559,6 +4565,7 @@ sudo tcpkill -i eth0 host 192.168.1.100
 - **RTO (Retransmission Timeout):** If timer expires before ACK, resend.
 - **Dynamic RTO:** Adjusted using RTT measurements.
 - **Fast Retransmit:** 3 duplicate ACKs → retransmit immediately.
+- **Why it works:** duplicate ACKs imply later packets arrived, so path is alive and one segment is likely missing.
 
 **TCP Connection Management**
 
@@ -4583,6 +4590,10 @@ sudo tcpkill -i eth0 host 192.168.1.100
 | 3 | Client → Server | ACK | 8001 | 15001 | “ACK 15001, connection open.” |
 
 **Note:** SYN consumes **1 sequence number**.
+
+**Sequence Number Consumption Rule**
+- **SYN** and **FIN** each consume one sequence number even with no payload.
+- A **pure ACK** (no payload, no SYN/FIN) does not consume sequence numbers.
 
 **4‑Way Teardown (Full Duplex)**
 1. **FIN (Client → Server):** Client finished sending.
@@ -5952,6 +5963,12 @@ A TCP segment: **header** (minimum 20 bytes) + **data payload**.
 | Urgent Pointer | 16 bits | Offset to urgent data (URG flag must be set) |
 | Options | Variable | MSS, SACK, timestamps, window scaling |
 
+**Important Header/Path Relationships:**
+- **MSS (Maximum Segment Size):** Largest TCP payload per segment (announced in SYN options).
+- **MTU (Maximum Transmission Unit):** Largest Layer 3 packet size on a link.
+- **Typical Ethernet math:** MTU 1500 -> IPv4 header 20 + TCP header 20 => MSS 1460 bytes.
+- If TCP payload exceeds path MTU behavior, fragmentation or black-hole MTU issues can appear.
+
 ---
 
 #### 11.4.3 TCP Flags (Control Bits)
@@ -6042,6 +6059,11 @@ Prevents **TCP Sequence Prediction Attacks** where an off-path attacker guesses 
 | SYN_RECEIVED | Server | SYN-ACK sent, awaiting final ACK |
 | ESTABLISHED | Both | Connection active; data flows freely |
 
+**Operational Hardening (Server Side):**
+- Enable **SYN cookies** where available to reduce SYN flood impact.
+- Tune backlog queues and monitor half-open connection rates.
+- Rate-limit abusive SYN sources at edge firewall/load balancer.
+
 ---
 
 #### 11.4.5 TCP Connection Termination (4-Way FIN Teardown)
@@ -6068,6 +6090,12 @@ TCP uses a **4-way handshake** for graceful close. Either side can initiate.
 After the final ACK, the initiating side enters `TIME_WAIT` for **2 x MSL** (Maximum Segment Lifetime, ~60s). Purpose:
 - Ensures final ACK reaches the server
 - Prevents stale packets from corrupting new connections on the same port pair
+
+**Common Teardown-Related States (Practical):**
+- `FIN_WAIT_1` / `FIN_WAIT_2`: Side initiated close and waits for peer progression.
+- `CLOSE_WAIT`: Peer closed, local app still has not closed its socket.
+- `LAST_ACK`: Local side sent FIN and waits for final ACK.
+- Excessive `CLOSE_WAIT` often indicates application/socket handling bugs.
 
 **RST vs FIN:**
 
@@ -6098,6 +6126,16 @@ As the receiver processes data and ACKs arrive, the window slides forward allowi
 - Window scale option (negotiated in SYN) multiplies by up to 2^14
 - Essential for high-bandwidth, high-latency links (satellite, transoceanic)
 
+**Flow Control vs Congestion Control (Critical Distinction):**
+- **Flow control (rwnd):** protects receiver buffers.
+- **Congestion control (cwnd):** protects the network path.
+- Sender can transmit up to: `min(rwnd, cwnd)` (minus bytes already in flight).
+
+**Bandwidth-Delay Product (BDP) Sizing:**
+- `BDP = bandwidth * RTT` (in bits).
+- Rule of thumb: effective window should be near BDP for full link utilization.
+- Example: 100 Mbps and RTT 50 ms -> BDP ~5,000,000 bits (~625 KB).
+
 **Zero Window (Attack Surface):**
 - Receiver sets `window=0` => sender must pause completely
 - Attacker can manipulate this to stall connections (Zero Window DoS)
@@ -6124,12 +6162,26 @@ As the receiver processes data and ACKs arrive, the window slides forward allowi
 | TCP BBR | Google services | Bottleneck-bandwidth based; lower latency |
 | QUIC (UDP-based) | Chrome / HTTP/3 | Implements own CC at application layer |
 
+**ECN (Explicit Congestion Notification):**
+- Lets routers signal congestion before drops (marks packets instead of dropping first).
+- TCP endpoints use ECE/CWR flags to react to ECN marks.
+- Reduces retransmission cost in some congested environments.
+
 ---
 
 #### 11.4.8 User Datagram Protocol (UDP)
 
 **Overview:**
 UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no retransmission.
+
+**Core Philosophy:**
+- "Straight talk, no nonsense" transport: send now, recover at the application if needed.
+- No session state is established between sender and receiver.
+
+**Why UDP is still useful:**
+- Lower latency than TCP because setup/retransmission logic is skipped.
+- Small fixed header (8 bytes) leaves more room for payload.
+- In real-time traffic (VoIP, live streaming, gaming), stale data is often worse than dropped data.
 
 **UDP Segment Structure (8 bytes total):**
 
@@ -6147,8 +6199,17 @@ UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no r
 |-------|------|-------------|
 | Source Port | 16 bits | Sender's port (optional; 0 if unused) |
 | Destination Port | 16 bits | Receiver's port |
-| Length | 16 bits | Total datagram length in bytes (min 8) |
-| Checksum | 16 bits | Optional error detection |
+| Length | 16 bits | Total datagram length in bytes (header + data); min 8, max 65,535 |
+| Checksum | 16 bits | Error detection (optional in IPv4, mandatory in IPv6) |
+
+**Length and MTU note:**
+- UDP can carry up to 65,535 bytes at the IP level.
+- In practice, path MTU limits payload size (commonly around 1500-byte Ethernet MTU) unless fragmentation is used.
+- For performance-sensitive UDP apps, keep datagrams below path MTU to avoid fragmentation loss amplification.
+
+**Pseudo Header (for checksum calculation):**
+- UDP temporarily uses Source IP, Destination IP, and Protocol from IP to compute checksum.
+- This helps detect misdelivery to the wrong endpoint, not just bit errors in payload.
 
 | Feature | Description |
 |---------|------------|
@@ -6157,8 +6218,21 @@ UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no r
 | Ordering | Packets may arrive out of order |
 | Speed | Very fast — minimal header overhead |
 | Header Size | 8 bytes (vs TCP's 20 to 60 bytes) |
+| Flow/Congestion Control | None at UDP layer; handled by app/protocol above UDP |
 | Broadcast/Multicast | Fully supported |
 | Use Cases | DNS, DHCP, VoIP, video streaming, gaming, TFTP, NTP |
+
+**Limitations:**
+- No continuous byte-stream abstraction; applications send discrete datagrams.
+- No built-in recovery for loss/reordering/duplication.
+- Under congestion, UDP datagrams may be dropped; apps must tolerate or recover.
+
+**Key Takeaway:**
+- UDP is like a sports car: lightweight and fast, ideal when latency matters more than perfection.
+- TCP is like an armored truck: heavier and slower, but designed for reliable delivery.
+
+**Concept Check:**
+- For a file transfer app (for example, sending a `.zip`), prefer TCP because losing even 1 byte can corrupt the file.
 
 ---
 
@@ -6174,7 +6248,7 @@ UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no r
 | Flow Control | Yes (sliding window) | No |
 | Congestion Control | Yes | No |
 | Broadcast/Multicast | No | Yes |
-| Error Detection | Mandatory checksum | Optional checksum |
+| Error Detection | Mandatory checksum | Checksum used for error detection (optional in IPv4, mandatory in IPv6) |
 | Handshake | 3-way SYN handshake | None |
 | Termination | 4-way FIN teardown | None |
 | Applications | HTTP/S, SSH, FTP, email, databases | DNS, VoIP, streaming, gaming, TFTP |
@@ -6183,12 +6257,28 @@ UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no r
 **Use TCP when:** Data integrity is critical, ordering matters, or you cannot tolerate loss.
 **Use UDP when:** Speed/latency is critical, or the application provides its own reliability (QUIC).
 
+**Decision Matrix (Quick):**
+
+| Requirement | Better Fit | Why |
+|-------------|------------|-----|
+| Exact, complete file delivery | TCP | Retransmission + ordering guarantee |
+| Real-time voice/video | UDP (or QUIC) | Freshness more important than perfect recovery |
+| Lossy links with app-level reliability | QUIC/UDP-based app | Recovery logic tuned at application level |
+| Simple request/response with tiny payload | UDP (case-dependent) | Lower setup overhead |
+
 **QUIC — The Modern Evolution:**
 - Built by Google; now IETF RFC 9000
 - Runs over **UDP** but implements reliable delivery, ordering, and TLS 1.3
 - Powers **HTTP/3** — the next-generation web protocol
 - 0-RTT or 1-RTT handshake (faster than TCP + TLS)
 - Eliminates head-of-line blocking at the transport layer
+
+**Concept Checks (Video-Aligned)**
+- **UDP file transfer check:** Should `.zip` transfer use UDP or TCP? Use **TCP** because even small loss can corrupt the file.
+- **Handshake math:** If client sends `SYN seq=1000`, server replies with `ACK=1001` in `SYN-ACK`.
+- **Seq/Ack math:** If a segment has `SEQ=1000` and length `50`, expected ACK is `1050` (or `1051` if counting from the next expected byte in one-based teaching examples).
+- **Buffer logic:** Sent-but-unACKed data must remain in sender buffer for potential retransmission.
+- **Error-control behavior:** If segment 2 is dropped and segments 3/4 arrive, receiver keeps sending duplicate ACK requesting segment 2; sender fast-retransmits after 3 duplicate ACKs.
 
 ---
 
@@ -6232,6 +6322,56 @@ A TCP connection is uniquely identified by the **5-tuple:**
 ```
 
 Two clients connecting from different ephemeral ports to the same server port = two distinct connections.
+
+**NAT and Ephemeral Ports (Operations):**
+- Client-side ephemeral ports are usually NAT-translated at edge devices.
+- Large-scale systems can hit **ephemeral port exhaustion** under high short-lived connection churn.
+- Reuse, keep-alive strategy, and proper timeout tuning help reduce pressure.
+
+#### 11.4.11 Transport Layer Troubleshooting (Practical)
+
+**Fast Diagnosis Workflow:**
+1. Confirm listener and socket state (`LISTEN`, `ESTABLISHED`, `CLOSE_WAIT`, `TIME_WAIT`).
+2. Check handshake success/failure patterns (SYN, SYN-ACK, ACK).
+3. Verify retransmissions, duplicate ACKs, and window behavior.
+4. Check MTU/MSS mismatches and fragmentation symptoms.
+5. Correlate with firewall/NAT timeout behavior.
+
+**Useful Linux Commands:**
+
+```bash
+# Socket state and listening services
+ss -tuln
+
+# Active TCP connections with timers/state
+ss -tanp
+
+# Retransmission and stack counters
+netstat -s | grep -Ei 'retrans|listen|drops|reset'
+
+# Quick capture for a single service
+sudo tcpdump -i any -nn 'tcp port 443'
+
+# UDP traffic check (example DNS)
+sudo tcpdump -i any -nn 'udp port 53'
+```
+
+**High-Signal Wireshark Filters:**
+- `tcp.flags.syn == 1 && tcp.flags.ack == 0` -> new connection attempts
+- `tcp.analysis.retransmission` -> retransmitted segments
+- `tcp.analysis.duplicate_ack` -> duplicate ACK patterns
+- `tcp.window_size_value == 0` -> zero-window events
+- `udp && ip.frag_offset > 0` -> fragmented UDP behavior
+
+**Common Symptoms -> Likely Causes:**
+
+| Symptom | Likely Cause | First Check |
+|---------|--------------|-------------|
+| Many `SYN_SENT` connections | Upstream filtering/server unreachable | Firewall ACLs, route reachability |
+| Many `SYN_RECV` entries | SYN flood / incomplete handshakes | SYN cookies, backlog, source rate |
+| Repeated retransmissions | Loss/congestion/MTU issue | RTT/loss, PMTUD, interface errors |
+| Excessive `CLOSE_WAIT` | App not closing sockets | Application connection lifecycle |
+| UDP intermittent drop spikes | Congestion or oversized datagrams | Queue drops, MTU-safe payload size |
 
 [↑ Back to top](#table-of-contents)
 
