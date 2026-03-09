@@ -577,3 +577,470 @@ Nmap is an indispensable tool for:
 - Penetration testing
 
 Master the basics first (host discovery, port scanning), then progress to advanced features (NSE scripts, evasion techniques). Always scan responsibly and legally.
+
+
+
+# hping3
+## What is hping3?
+hping3 is a packet-crafting and active network testing tool for TCP/IP analysis. Unlike `nmap` (which automates host/service discovery workflows), `hping3` gives low-level control over packet headers and flags so you can test how hosts, firewalls, IDS/IPS, and routing devices behave under specific packet patterns.
+
+It is commonly used for:
+- Firewall rule validation
+- Custom TCP/UDP/ICMP probing
+- Host/port reachability checks when standard tools fail
+- MTU and fragmentation testing
+- Manual traceroute-style analysis
+- Controlled lab stress testing (authorized environments only)
+
+## Key Features
+- **Packet crafting**: Build custom TCP, UDP, ICMP, and raw IP packets
+- **Flag control**: Set SYN/ACK/FIN/RST/PSH/URG exactly as needed
+- **Port targeting**: Define source and destination ports manually
+- **Payload control**: Add custom data and packet sizes
+- **TTL and fragmentation tuning**: Useful for firewall and path behavior testing
+- **Flexible output**: Observe replies with sequence/ack/window/RTT details
+- **Script-friendly**: Works well in shell automation pipelines
+
+## Installation
+```bash
+# Debian/Ubuntu/Kali
+sudo apt update
+sudo apt install hping3
+
+# RHEL/CentOS (EPEL may be required)
+sudo yum install hping3
+
+# Arch Linux
+sudo pacman -S hping
+
+# Verify installation
+hping3 --version
+```
+
+## Basic Syntax
+```bash
+hping3 [mode] [options] <target>
+```
+
+### Core Modes
+- `--icmp`: ICMP mode (echo-style probes)
+- `--udp`: UDP mode
+- Default mode is TCP if no mode is specified
+
+## Most Important Options (Quick Table)
+
+| Option | Meaning |
+|---|---|
+| `-S` | Set SYN flag |
+| `-A` | Set ACK flag |
+| `-F` | Set FIN flag |
+| `-R` | Set RST flag |
+| `-P` | Set PSH flag |
+| `-U` | Set URG flag |
+| `-p <port>` | Destination port |
+| `-s <port>` | Source port |
+| `-c <count>` | Number of packets to send |
+| `-i <interval>` | Packet interval (for example `u1000` = 1000 microseconds) |
+| `--faster` / `--fast` | Preset fast sending intervals |
+| `-a <spoofed_ip>` | Spoof source IP (test only, carefully authorized) |
+| `-t <ttl>` | Set TTL |
+| `-d <size>` | Payload size in bytes |
+| `-E <file>` | Read payload from file |
+| `-0` | Raw IP mode |
+| `-1` | ICMP mode |
+| `-2` | UDP mode |
+| `-V` | Verbose output |
+
+## Reading hping3 Output
+
+Example output line:
+```text
+len=46 ip=192.168.1.10 ttl=64 DF id=0 sport=80 flags=SA seq=0 win=64240 rtt=1.2 ms
+```
+
+Interpretation:
+- `ip=...`: Reply source host
+- `sport=80`: Reply source port
+- `flags=SA`: SYN/ACK received, often indicates open TCP port when probing with SYN
+- `flags=RA`: RST/ACK received, often indicates closed TCP port
+- `rtt=...`: Round-trip time
+- `DF`: Don't Fragment flag present
+
+## TCP Scanning With hping3
+
+### 1. SYN Probe to a Single Port
+```bash
+sudo hping3 -S -p 80 -c 3 192.168.1.10
+```
+Use case: Validate if TCP/80 appears open from your scanning position.
+
+Typical interpretation:
+- `flags=SA` reply: port likely open
+- `flags=RA` reply: port likely closed
+- No reply / ICMP unreachable: filtered or blocked
+
+### 2. ACK Probe for Firewall Rule Testing
+```bash
+sudo hping3 -A -p 443 -c 3 192.168.1.10
+```
+Use case: Check whether stateless/stateful filtering treats unsolicited ACK traffic differently.
+
+### 3. FIN Probe (Behavior Testing)
+```bash
+sudo hping3 -F -p 22 -c 3 192.168.1.10
+```
+Use case: Observe RFC-dependent stack/firewall behavior with unusual flags.
+
+### 4. Custom Flag Combination
+```bash
+sudo hping3 -S -A -p 8080 -c 5 192.168.1.10
+```
+Use case: IDS/firewall detection tuning and packet normalization tests.
+
+## UDP and ICMP Probing
+
+### UDP Port Probe
+```bash
+sudo hping3 --udp -p 53 -c 5 192.168.1.10
+```
+Interpretation guideline:
+- ICMP port unreachable may indicate closed UDP port
+- No response can mean open, filtered, or silently dropped
+
+### ICMP Echo-Style Probe
+```bash
+sudo hping3 --icmp -c 4 192.168.1.10
+```
+Use case: Reachability checks where `ping` behavior needs custom control.
+
+## TTL, Path, and MTU Testing
+
+### TTL-Limited Probes (Traceroute-Like)
+```bash
+sudo hping3 -S -p 80 -t 1 -c 1 8.8.8.8
+sudo hping3 -S -p 80 -t 2 -c 1 8.8.8.8
+sudo hping3 -S -p 80 -t 3 -c 1 8.8.8.8
+```
+Use case: Observe hop-by-hop ICMP Time Exceeded behavior manually.
+
+### Fragmentation Behavior Test
+```bash
+sudo hping3 -S -p 443 -f -d 1200 -c 3 192.168.1.10
+```
+Use case: Check whether middleboxes drop/reassemble fragments unexpectedly.
+
+### DF/MTU Style Probing
+```bash
+sudo hping3 -S -p 443 -d 1472 -c 3 192.168.1.10
+```
+Use case: Estimate path constraints with packet sizes near MTU boundaries.
+
+## Source Port and Egress Policy Testing
+
+### Set Source Port
+```bash
+sudo hping3 -S -s 53 -p 443 -c 3 192.168.1.10
+```
+Use case: Validate ACL rules that trust traffic based on source port (common misconfiguration).
+
+### Compare Multiple Source Ports
+```bash
+sudo hping3 -S -s 12345 -p 443 -c 3 192.168.1.10
+sudo hping3 -S -s 53    -p 443 -c 3 192.168.1.10
+```
+Use case: Confirm policy asymmetry and firewall rule correctness.
+
+## Payload Control
+
+### Fixed Payload Size
+```bash
+sudo hping3 -S -p 80 -d 64 -c 5 192.168.1.10
+```
+
+### Payload From File
+```bash
+sudo hping3 -S -p 80 -E payload.bin -c 3 192.168.1.10
+```
+Use case: Reproduce a packet signature while troubleshooting IDS/WAF behavior in a lab.
+
+## Practical Lab Workflows
+
+### 1. Validate Web Port Reachability
+```bash
+sudo hping3 -S -p 80 -c 5 10.10.10.20
+sudo hping3 -S -p 443 -c 5 10.10.10.20
+```
+Goal: Confirm which web ports respond and compare latency.
+
+### 2. Check Firewall State Handling
+```bash
+sudo hping3 -A -p 22 -c 5 10.10.10.20
+sudo hping3 -S -p 22 -c 5 10.10.10.20
+```
+Goal: Compare ACK vs SYN behavior to infer filtering logic.
+
+### 3. UDP DNS Reachability Test
+```bash
+sudo hping3 --udp -p 53 -c 5 10.10.10.53
+```
+Goal: Confirm UDP path before deeper DNS testing.
+
+### 4. Manual Hop Behavior Check
+```bash
+for ttl in 1 2 3 4 5; do sudo hping3 -S -p 443 -t "$ttl" -c 1 8.8.8.8; done
+```
+Goal: Observe route progression and TTL-expired responses.
+
+## hping3 vs Nmap (When to Use Which)
+
+| Task | Better Tool | Reason |
+|---|---|---|
+| Fast host/port inventory | `nmap` | Automated discovery at scale |
+| Service/version enumeration | `nmap` | Built-in probes + NSE ecosystem |
+| Custom packet behavior test | `hping3` | Fine-grained header/flag control |
+| Firewall rule verification | `hping3` | Craft exact packet patterns |
+| Full engagement baseline scan | `nmap` | Standardized and repeatable |
+| Deep packet-level troubleshooting | `hping3` | Manual and precise |
+
+Best practice: Use `nmap` for broad mapping first, then `hping3` for focused validation.
+
+## Common Errors and Troubleshooting
+
+### "Operation not permitted"
+Cause: Raw packet operations need elevated privileges.
+
+Fix:
+```bash
+sudo hping3 -S -p 80 -c 3 192.168.1.10
+```
+
+### No Replies Seen
+Possible reasons:
+- Target offline
+- Firewall drops probes silently
+- Wrong destination IP/port
+- Routing issue between scanner and target
+
+Checks:
+```bash
+ip route
+ping -c 2 192.168.1.10
+sudo hping3 --icmp -c 2 192.168.1.10
+```
+
+### Inconsistent Results
+Possible reasons:
+- Stateful filtering differences
+- IDS/IPS active response
+- Load balancer behavior
+- Rate limiting
+
+Approach:
+- Retry with lower speed (`-i u50000`)
+- Compare multiple flag types (`-S`, `-A`, `-F`)
+- Run repeated small sample tests and log timestamps
+
+## Best Practices (Authorized Testing Only)
+- Only test systems you are explicitly authorized to assess.
+- Start with low packet counts (`-c 3` to `-c 10`) before increasing volume.
+- Document each test: target, flags, ports, timing, and observed response.
+- Prefer reproducible one-liners over ad-hoc long command chains.
+- Correlate `hping3` findings with `nmap`, `tcpdump`, and service logs.
+- Avoid uncontrolled high-rate traffic in production networks.
+
+## Useful Command Reference (Cheat Block)
+```bash
+# TCP SYN probe
+sudo hping3 -S -p 80 -c 3 192.168.1.10
+
+# ACK probe
+sudo hping3 -A -p 80 -c 3 192.168.1.10
+
+# UDP probe
+sudo hping3 --udp -p 53 -c 3 192.168.1.10
+
+# ICMP probe
+sudo hping3 --icmp -c 3 192.168.1.10
+
+# Set source port
+sudo hping3 -S -s 53 -p 443 -c 3 192.168.1.10
+
+# Verbose output
+sudo hping3 -S -p 443 -V -c 3 192.168.1.10
+```
+
+## Summary
+hping3 is a precision tool for packet-level network testing. It complements `nmap` by giving direct control over packet structure and transmission behavior. In a professional workflow:
+1. Use `nmap` for broad discovery and service mapping.
+2. Use `hping3` to validate edge cases, firewall logic, and path behavior.
+3. Confirm observations with captures/logs and document everything clearly.
+
+# Netcraft (Banner Grabbing)
+## What is Netcraft?
+Netcraft is primarily a **passive intelligence** source. For banner grabbing workflows, its value is that it can reveal likely web/server technologies before you run active probes. This helps you build smarter, lower-noise banner validation steps with tools like `nc`, `nmap -sV`, or manual protocol requests.
+
+## Netcraft Focus for Banner Grabbing
+Use Netcraft to collect pre-scan clues such as:
+- Web server and hosting indicators (for example Apache, Nginx, IIS hints)
+- Platform/technology fingerprints
+- Domain and infrastructure context that may affect service exposure
+- Historical observations that suggest old stacks still in use
+
+This gives you a hypothesis like: "Target likely runs Nginx + PHP behind reverse proxy," then you validate that hypothesis with direct banner checks.
+
+## Banner-Grabbing Workflow With Netcraft
+
+### 1. Passive Hypothesis Building
+- Lookup target domain in Netcraft.
+- Record observed technology/provider hints.
+- Identify likely service ports to verify (80, 443, 22, 25, 110, 143, 21).
+
+### 2. Active Banner Validation
+- Use `nc` for manual application-layer banner checks.
+- Use `nmap -sV` for structured service version detection.
+
+### 3. Correlation
+- Compare passive Netcraft hints with active banner responses.
+- Flag mismatches (useful for detecting reverse proxies, WAFs, or stale intelligence).
+
+## What to Record (Netcraft for Banner Grabbing)
+- Target host/domain
+- Netcraft-observed technology hints
+- Timestamp of passive lookup
+- Active banner output collected later
+- Match status: `matched`, `partial`, or `mismatch`
+- Analyst note on confidence level
+
+## Example Correlation Note
+```text
+Target: shop.example.com
+Netcraft hint: nginx (reverse-proxy profile)
+Active banner (nc HTTP HEAD): Server: nginx
+Result: matched
+Confidence: high
+```
+
+## Limitations in Banner Context
+- Netcraft does not replace direct service banner checks.
+- Passive data can be outdated.
+- Some servers intentionally suppress or falsify banners.
+- CDN/WAF layers can mask backend technologies.
+
+## Summary
+For banner grabbing, Netcraft is your passive intelligence starter: use it to form technology hypotheses, then validate with direct protocol-level banner collection.
+
+# Netcat (nc) for Banner Grabbing
+## What is Netcat?
+`netcat` (`nc`) is a raw TCP/UDP client/server utility often called the "Swiss army knife" of networking. In reconnaissance, it is excellent for **manual banner grabbing** because you can connect directly to a service and read its immediate response or send protocol-specific requests.
+
+## Why Use nc for Banner Grabbing
+- Lightweight and available on most Linux systems
+- Excellent for quick, manual verification
+- Lets you control exactly what request is sent
+- Useful for confirming findings from Netcraft and Nmap
+
+## Basic Syntax
+```bash
+nc [options] <target> <port>
+```
+
+## Common Options for Banner Grabbing
+
+| Option | Meaning |
+|---|---|
+| `-v` | Verbose output |
+| `-n` | Do not resolve DNS |
+| `-w <sec>` | Timeout in seconds |
+| `-u` | UDP mode |
+| `-z` | Zero-I/O mode (probe/check open port) |
+
+## Quick Banner Grabs by Service
+
+### HTTP Banner (Port 80)
+```bash
+printf 'HEAD / HTTP/1.1\r\nHost: target.example\r\nConnection: close\r\n\r\n' | nc -nv -w 3 target.example 80
+```
+Look for headers like:
+- `Server:`
+- `X-Powered-By:`
+
+### SMTP Banner (Port 25)
+```bash
+nc -nv -w 5 192.168.1.10 25
+```
+Typical immediate banner starts with `220`.
+
+### POP3 Banner (Port 110)
+```bash
+nc -nv -w 5 192.168.1.10 110
+```
+Typical immediate banner starts with `+OK`.
+
+### IMAP Banner (Port 143)
+```bash
+nc -nv -w 5 192.168.1.10 143
+```
+Typical banner often includes `* OK`.
+
+### FTP Banner (Port 21)
+```bash
+nc -nv -w 5 192.168.1.10 21
+```
+Typical immediate banner starts with `220`.
+
+### SSH Banner (Port 22)
+```bash
+nc -nv -w 5 192.168.1.10 22
+```
+Typical banner looks like `SSH-2.0-<implementation>`.
+
+## HTTPS Banner Note
+Direct `nc` on port `443` does not complete TLS negotiation by itself, so HTTP headers are not usually visible. For TLS-enabled banner/metadata checks, use:
+```bash
+openssl s_client -connect target.example:443 -servername target.example </dev/null
+```
+
+## UDP Service Check With nc
+UDP banner grabbing is less reliable because many UDP services do not return data without protocol-correct payloads.
+```bash
+nc -nvu -w 3 192.168.1.10 53
+```
+Use this as a quick probe only, then validate with protocol-specific tools.
+
+## Practical nc Banner Workflow
+1. Start with Netcraft hints.
+2. Select likely service ports.
+3. Use `nc` to collect raw banners.
+4. Run `nmap -sV` for version correlation.
+5. Document exact banner lines and timestamps.
+
+## Banner Output Logging Examples
+```bash
+# Save HTTP banner response
+printf 'HEAD / HTTP/1.1\r\nHost: target.example\r\nConnection: close\r\n\r\n' | nc -nv -w 3 target.example 80 | tee http_banner.txt
+
+# Save SSH banner
+nc -nv -w 5 192.168.1.10 22 | tee ssh_banner.txt
+```
+
+## Common Errors and Fixes
+
+### Connection timed out
+- Service may be filtered or offline.
+- Increase timeout (`-w 8`) and verify route/firewall.
+
+### Connection refused
+- Host reachable, port closed.
+- Try correct port/service pair.
+
+### No output shown
+- Service may require protocol-specific request first.
+- Send proper request string (for example HTTP `HEAD`).
+
+## Legal and Safe Use
+- Perform banner grabbing only on authorized targets.
+- Keep requests minimal and non-destructive.
+- Store evidence for reporting with timestamps.
+
+## Summary
+`nc` is one of the best tools for manual banner grabbing. Use Netcraft first for passive hints, then confirm reality with `nc` protocol probes and `nmap -sV` correlation.
