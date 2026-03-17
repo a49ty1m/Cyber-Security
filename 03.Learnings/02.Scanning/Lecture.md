@@ -157,6 +157,55 @@ nmap --version
 nmap [Scan Type] [Options] {target specification}
 ```
 
+## Nmap for Specific Scanning Purpose (IP + Port)
+
+If your goal is only to scan by target IP and port, use these patterns first.
+
+### 1. Scan one IP with default top ports
+```bash
+nmap 192.168.1.100
+```
+Purpose: quick check of the most common ports on one host.
+
+### 2. Scan specific port(s) on one IP
+```bash
+nmap -p 22 192.168.1.100
+nmap -p 22,80,443 192.168.1.100
+```
+Purpose: verify whether exact service ports are open.
+
+### 3. Scan a port range on one IP
+```bash
+nmap -p 1-1024 192.168.1.100
+```
+Purpose: check standard/system ports only.
+
+### 4. Scan all ports on one IP
+```bash
+nmap -p- 192.168.1.100
+```
+Purpose: full TCP port coverage when you need complete visibility.
+
+### 5. Scan multiple IPs for same ports
+```bash
+nmap -p 22,80,443 192.168.1.10 192.168.1.20 192.168.1.30
+nmap -p 22,80,443 192.168.1.0/24
+```
+Purpose: same port validation across several hosts or a subnet.
+
+### 6. Host discovery first, then port scan
+```bash
+nmap -sn 192.168.1.0/24
+nmap -p 22,80,443 192.168.1.15
+```
+Purpose: identify live IPs first, then do focused port scans.
+
+### Minimal workflow (recommended)
+1. Discover live IPs (`-sn`).
+2. Choose target IP(s).
+3. Scan only required ports with `-p`.
+4. Use `-p-` only when full-port coverage is required.
+
 ## Common Scan Types
 
 ### 1. TCP Connect Scan (-sT)
@@ -1044,3 +1093,72 @@ nc -nv -w 5 192.168.1.10 22 | tee ssh_banner.txt
 
 ## Summary
 `nc` is one of the best tools for manual banner grabbing. Use Netcraft first for passive hints, then confirm reality with `nc` protocol probes and `nmap -sV` correlation.
+
+# Nmap Vulnerability Scanning (NSE Scripts)
+
+## Goal
+Use Nmap's NSE `vuln` scripts to check for known weaknesses on specific IPs and specific service ports.
+
+## Recommended Syntax Pattern
+```bash
+nmap -sV --script=vuln -p <ports> <target-ip>
+```
+
+Why this pattern:
+- `-sV` identifies service versions so scripts can map checks better.
+- `--script=vuln` runs vulnerability-focused NSE scripts.
+- `-p` keeps scans targeted to required ports only.
+
+## Specific Commands by Purpose
+
+### 1. Quick vuln check on common web ports
+```bash
+nmap -sV --script=vuln -p 80,443 192.168.1.100
+```
+
+### 2. SMB vulnerability checks (common internal target)
+```bash
+nmap -sV -p 445 --script=smb-vuln* 192.168.1.100
+```
+
+### 3. SSL/TLS weakness checks
+```bash
+nmap -sV -p 443 --script=ssl-enum-ciphers,ssl-cert 192.168.1.100
+```
+
+### 4. HTTP vulnerability-focused checks
+```bash
+nmap -sV -p 80,443 --script=http-vuln* 192.168.1.100
+```
+
+### 5. Full vuln scripts on selected high-value ports
+```bash
+nmap -sV --script=vuln -p 21,22,25,53,80,110,139,143,443,445,3306,3389 192.168.1.100
+```
+
+### 6. Multiple hosts, same vuln scope
+```bash
+nmap -sV --script=vuln -p 80,443 192.168.1.10 192.168.1.20 192.168.1.30
+```
+
+## Safer and Cleaner Output (for reporting)
+```bash
+nmap -sV --script=vuln -p 80,443 -oA nmap_vuln_web_192.168.1.100 192.168.1.100
+```
+
+This creates:
+- `.nmap` normal output
+- `.xml` structured output
+- `.gnmap` grepable output
+
+## Practical Workflow
+1. Identify live host(s): `nmap -sn <subnet>`
+2. Identify open port(s): `nmap -p- <target-ip>` (or targeted `-p`)
+3. Run focused vuln scripts only on open/important ports.
+4. Save output with `-oA`.
+5. Validate findings manually before reporting as confirmed vulnerabilities.
+
+## Important Notes
+- NSE `vuln` output shows potential findings; always verify before final reporting.
+- Some scripts can be intrusive on fragile systems; scan only with approval.
+- Prefer targeted ports over blanket all-port vuln scans to reduce noise and risk.
