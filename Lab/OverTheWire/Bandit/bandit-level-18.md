@@ -1,14 +1,22 @@
-# [Project] Bandit Level 18 — Short Title
-**Date:** 2025-10-06  
+# [Project] Bandit Level 18 — SSH Command Execution Bypass
+**Date:** 2026-04-02  
 **Target:** OverTheWire Bandit (level 18)  
 **Author:** Aditya Mishra
 
 ## Executive summary
-One-line: for this level enetring is blocked so you need to go to another shell like sh using -t option iin ssh 
+This level logs you out immediately on normal login, so run a command directly with SSH to read `readme`.
+
+## Goal
+- Retrieve the password for level 19.
 
 ## Tools & methodology
-Tools: ssh, ls, cat, file  
-Method: connect via SSH → inspect files → read target file
+Tools: `ssh`, `cat`  
+Method: execute remote command non-interactively with SSH instead of opening a normal shell.
+
+## Commands used
+```bash
+ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+```
 
 ## Findings / Solution
 - **Goal:** retrieve password for next level  
