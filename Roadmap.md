@@ -145,9 +145,9 @@ _Goal: Understand the resource manager and its internal logic._
 
 ---
 
-### 3. Memory Management
+### **Stage 3: Memory Management**
 
-_Understanding how memory is organized and managed._
+_Goal: Understand how memory is organized and managed._
 
 - [ ] **Virtual Memory:** Learn how the OS maps physical RAM to virtual addresses to provide process isolation.
 - [ ] **The Stack:** Master the **LIFO** (Last-In, First-Out) structure and the **Function Prologue/Epilogue** to understand how return addresses are stored.
@@ -1293,7 +1293,7 @@ _Goal: Use geospatial data to understand physical assets and infrastructure._
 
 ---
 
-### **Phase 6: Strategy & Attack Mapping**
+### **Phase 8: Strategy & Attack Mapping**
 
 _Goal: Convert raw data into an execution plan._
 
