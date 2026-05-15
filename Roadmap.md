@@ -2,6 +2,7 @@
 
 ## ✅📋 Completion Tracker & Quick Navigation
 
+- [ ] [Career Foundation & Lab Setup](#career-foundation--lab-setup) — Academic Alignment, Lab Platforms, Dev Enablers
 - [ ] [Part 1: Fundamentals](#part-1-fundamentals) — Hardware, OS, Memory, Data, Wireless, Applications
 - [ ] [Part 2: Networking Fundamentals](#part-2-networking-fundamentals) — Layers 1-7, Protocols, Tools
 - [ ] [Part 3: Footprinting & Reconnaissance](#part-3-footprinting-and-reconnaissance) — Passive → Active → Strategy
@@ -28,7 +29,7 @@
 - [ ] [Part 24: Container & Orchestration Security](#part-24-container--orchestration-security) — Docker, Kubernetes, Secrets Management
 - [ ] [Part 25: OT/ICS/SCADA Security](#part-25-oticsscada-security) — Industrial Protocols, PLC, HMI, Safety Systems
 - [ ] [Part 26: Hardware Hacking & Embedded Systems](#part-26-hardware-hacking--embedded-systems) — Firmware, JTAG, UART, Side-Channel, IoT
-- [ ] [Part 27: AI & LLM Red Teaming](#part-27-ai--llm-red-teaming) — Prompt Injection → Agent Abuse → RAG Poisoning → Model Theft
+- [ ] [Part 27: AI & LLM Red Teaming](#part-27-ai--llm-red-teaming) — AI Fundamentals → Adversarial Attacks → Agentic AI → Workflow Integration → Projects → Career
 - [ ] [Part 28: Active Directory & Entra ID](#part-28-active-directory--entra-id) — On-Prem AD → ADCS → Entra ID/OAuth
 - [ ] [Part 29: Modern Exploitation](#part-29-modern-exploitation) — Memory Safety → Sandbox Escape → Mitigation Bypass
 - [ ] [Part 30: Reverse Engineering & Malware Analysis](#part-30-reverse-engineering--malware-analysis) — Static → Dynamic → Debugging → Anti-RE → Automation
@@ -41,7 +42,7 @@
 - [ ] [Part 37: VoIP & Telecommunications Security](#part-37-voip--telecommunications-security) — SS7, SIP/RTP, VoIP Exploitation, 5G
 - [ ] [Part 38: Blockchain & Web3 Security](#part-38-blockchain--web3-security) — Smart Contracts, DeFi Attacks, Wallet Security
 - [ ] [Part Extra: Red Team Operations & Tradecraft](#part-extra-red-team-operations--tradecraft) — Infrastructure, Discipline, Operations
-- [ ] [Career Foundation & Lab Setup](#career-foundation--lab-setup) — Academic Alignment, Lab Platforms, Dev Enablers
+
 
 ---
 
