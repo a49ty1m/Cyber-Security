@@ -111,6 +111,8 @@ _Goal: Build practical muscle memory through structured, hands-on hacking exerci
 
 - [ ] **Active Directory Labs:** Build dedicated **AD lab environments** (DC + workstations) in **VirtualBox/VMware** or use **GOAD (Game of Active Directory)** to practice **Kerberoasting, BloodHound, lateral movement, and domain persistence**.
 
+- [ ] **TryHackMe AI Security Path:** Complete the dedicated AI security learning path covering **AI Threat Modeling, Data Poisoning, Prompt Security, and AI Forensics** — isolated lab environments for safe, hands-on AI attack/defense exercises.
+
 ---
 
 ## Part 1: Fundamentals
@@ -120,21 +122,12 @@ _Goal: Build practical muscle memory through structured, hands-on hacking exerci
 _Goal: Master the machine before the Operating System initializes._
 
 - [ ] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
-     
 - [ ] **Registers:** Command the "steering wheel" of the CPU: **EAX/RAX** (accumulator), **ESP/RSP** (stack pointer), and **EIP/RIP** (instruction pointer).
-    
 - [ ] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
-    
 - [ ] **Instruction Sets:** Develop a working familiarity with **Assembly** language (**MOV**, **PUSH**, **POP**, **CALL**, **JMP**).
-    
 - [ ] **The Boot Chain:** Master the sequence from **UEFI/Secure Boot** $\rightarrow$ **Bootloader** $\rightarrow$ **Kernel Load** $\rightarrow$ **Init/Systemd**.
-    
 - [ ] **Hardware I/O & DMA:** Understand how **Direct Memory Access (DMA)** allows peripherals to read/write system RAM by bypassing the CPU.
-    
 - [ ] **Storage Forensics:** Understand the physical data storage on **HDDs vs. SSDs** and why "deleting" is not "wiping" in a forensics context.
-    
-
-
 
 ---
 
@@ -143,21 +136,12 @@ _Goal: Master the machine before the Operating System initializes._
 _Goal: Understand the resource manager and its internal logic._
 
 - [ ] **Privilege Levels:** Master the **"Ring" architecture**; specifically the separation between **Ring 0** (Kernel) and **Ring 3** (User).
-    
 - [ ] **System Calls:** Trace syscall execution (e.g., **NtCreateFile** or **execve**) from user-space API calls through the Interrupt to the kernel handler.
-    
 - [ ] **Process & Thread Mechanics:** Understand the lifecycle of processes and threads, including scheduling and context switching.
-    
 - [ ] **Process Environment Block (PEB):** In Windows, master the **PEB structure** to find loaded DLLs or implement anti-debugging techniques.
-    
 - [ ] **Authorization & Tokens:** Master Windows **SIDs**, **Access Tokens**, and **Token Impersonation**; understand Linux **Namespaces** and **Cgroups** (the basis for containers).
-    
 - [ ] **File Systems (Linux):** Master the root directory structure, **Inodes**, and the **"Everything is a file"** philosophy.
-    
 - [ ] **File Systems (Windows):** Master **NTFS permissions**, **Registry hives**, and the usage of **Alternate Data Streams (ADS)** to hide payloads.
-    
-
-
 
 ---
 
@@ -166,17 +150,10 @@ _Goal: Understand the resource manager and its internal logic._
 _Understanding how memory is organized and managed._
 
 - [ ] **Virtual Memory:** Learn how the OS maps physical RAM to virtual addresses to provide process isolation.
-    
 - [ ] **The Stack:** Master the **LIFO** (Last-In, First-Out) structure and the **Function Prologue/Epilogue** to understand how return addresses are stored.
-    
 - [ ] **The Heap:** Understand **dynamic memory allocation** and how applications request memory at runtime.
-    
 - [ ] **Segmentation & Paging:** Understand **segment descriptors** and **page tables** for virtual address translation.
-    
 - [ ] **Memory Protection:** Learn about **page permissions (R/W/X)** and **privilege level separation**.
-    
-
-
 
 ---
 
@@ -185,11 +162,8 @@ _Understanding how memory is organized and managed._
 _Goal: Master binary representation and Boolean logic fundamentals._
 
 - [ ] **Number Systems:** Be able to convert between **Binary, Decimal, and Hexadecimal** mentally.
-    
 - [ ] **Boolean Logic:** Master **AND, OR, NOT, and XOR** (the foundation of encryption and obfuscation).
-    
 - [ ] **File Headers:** Identify file types (EXE, ELF, JPG) by their **"Magic Bytes"** instead of extensions.
-    
 - [ ] **Instruction Sets:** Basic familiarity with **Assembly** (MOV, PUSH, POP, CALL, JMP).
 
 ---
@@ -199,6 +173,7 @@ _Goal: Master binary representation and Boolean logic fundamentals._
 _Goal: Understand wireless protocols and physical security infrastructure._
 
 **WiFi Fundamentals:**
+
 - [ ] **802.11 Standards:** Understand **802.11a/b/g/n/ac/ax**, frequency bands (**2.4GHz, 5GHz, 6GHz**), and channel allocation.
 
 - [ ] **WiFi Authentication:** Learn **Open, WEP, WPA/WPA2/WPA3** handshakes and encryption methods (**TKIP, CCMP, GCMP**).
@@ -208,6 +183,7 @@ _Goal: Understand wireless protocols and physical security infrastructure._
 - [ ] **Regulatory:** Know **FCC/ETSI** regulations, **DFS**, and regional channel restrictions.
 
 **RF Survey Fundamentals:**
+
 - [ ] **Antennas & Gain:** Understand antenna types (omni/directional), **dBi gain**, **attenuation**, and **FSPL**.
 
 - [ ] **Channel Planning:** Know **2.4/5/6 GHz** channel spacing, **overlap**, and interference concepts.
@@ -215,6 +191,7 @@ _Goal: Understand wireless protocols and physical security infrastructure._
 - [ ] **Tools Intro:** Basic understanding of **Kismet, iw, iwconfig** for monitoring networks.
 
 **Bluetooth & BLE Fundamentals:**
+
 - [ ] **BLE Stack:** Understand **GAP, GATT**, **advertising**, **pairing/bonding**, and **security modes**.
 
 - [ ] **BLE Protocols:** Know **UUID, services, characteristics**, and connection establishment.
@@ -222,6 +199,7 @@ _Goal: Understand wireless protocols and physical security infrastructure._
 - [ ] **Bluetooth Classic:** Understand **profiles, L2CAP, RFCOMM**, and basic architecture.
 
 **NFC/RFID Fundamentals:**
+
 - [ ] **NFC Standards:** Know **ISO14443, ISO15693**, and **Type 1-4** tag families.
 
 - [ ] **MIFARE Overview:** Understand **Classic vs. DESFire/Ultralight** architecture and basic operation.
@@ -229,11 +207,13 @@ _Goal: Understand wireless protocols and physical security infrastructure._
 - [ ] **RFID Basics:** Know **passive vs. active**, range, frequency bands, and use cases.
 
 **IoT Protocols:**
+
 - [ ] **Zigbee/Z-Wave:** Understand mesh networking, **joining mechanisms**, and basic security architecture.
 
 - [ ] **LoRaWAN:** Know **gateway-node architecture**, **join requests**, and regional parameters.
 
 **Physical Security:**
+
 - [ ] **Access Control Systems:** Understand **magstripe, smart card, RFID readers** and tamper detection basics.
 
 - [ ] **Cable Infrastructure:** Know **UTP/STP, fiber optics**, connector types, and physical plant organization.
@@ -247,6 +227,7 @@ _Goal: Understand wireless protocols and physical security infrastructure._
 _Goal: Understand Android and iOS architecture and security models._
 
 **Android Fundamentals:**
+
 - [ ] **APK Structure:** Understand **APK format, manifest, resources, assets**, and signed vs. unsigned APKs.
 
 - [ ] **Android Security Model:** Learn **sandboxing, SELinux, permissions model (M+)**, and **app verification**.
@@ -256,6 +237,7 @@ _Goal: Understand Android and iOS architecture and security models._
 - [ ] **Storage:** Know internal vs. **external storage**, **app-specific storage**, and permission implications.
 
 **iOS Fundamentals:**
+
 - [ ] **IPA Structure:** Understand **IPA format, Mach-O binaries, Info.plist**, and provisioning profiles.
 
 - [ ] **iOS Security Model:** Learn **code signing**, **Secure Enclave**, **Data Protection**, and **sandbox restrictions**.
@@ -265,6 +247,7 @@ _Goal: Understand Android and iOS architecture and security models._
 - [ ] **iOS Permissions:** Know **privacy labels**, **tracking prevention**, and **privacy controls**.
 
 **Cross-Platform Basics:**
+
 - [ ] **Certificate Pinning:** Understand why apps implement **SSL/TLS certificate pinning** and its purpose.
 
 - [ ] **Biometric Auth:** Know **fingerprint/face recognition** APIs and their security model.
@@ -280,6 +263,7 @@ _Goal: Understand Android and iOS architecture and security models._
 - [ ] **Runtime Manipulation:** Hook **Objective-C methods** with **Frida/Cycript** for dynamic analysis.
 
 **Mobile Device Management (MDM) & Enterprise:**
+
 - [ ] **MDM Bypass:** Exploit **enrollment gaps**, remove **configuration profiles**, escape **DEP/supervised mode**.
 
 - [ ] **Enterprise App Abuse:** Sideload **unsigned apps** via **enterprise certificates**, exploit **provisioning misconfigs**.
@@ -293,6 +277,7 @@ _Goal: Understand Android and iOS architecture and security models._
 _Goal: Understand software stacks and cloud computing basics._
 
 **Office & Document Exploits:**
+
 - [ ] **VBA & XLM 4.0 Macros:** Build payloads, sign macros, and abuse **template injection (remote DOTM)**.
 
 - [ ] **DDE & Template Abuse:** Trigger code via **DDEAUTO**, external templates, and **Follina-style** URL template fetches.
@@ -302,11 +287,13 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **Protected View/ATP Evasion:** Study **mark-of-the-web**, **protected view**, and common sandbox evasion tricks.
 
 **Email Client Abuse:**
+
 - [ ] **Outlook Rules & Forms:** Create **client-side rules** for auto-forwarding/persistence and malicious **custom forms/add-ins**.
 
 - [ ] **MAPI/Extended MAPI:** Leverage **Redemption/Outlook interop** for covert access and exfil.
 
 **Cloud & SaaS Persistence:**
+
 - [ ] **OAuth Consent Phishing:** Steal **refresh tokens** via malicious app registration; understand **scopes** and consent screens.
 
 - [ ] **Device Code & App Passwords:** Abuse **device code flow**, **legacy auth**, and **app passwords** for bypassing MFA.
@@ -316,6 +303,7 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **Shared Mailboxes & Delegation:** Maintain access via **delegate rights** and mailbox rules.
 
 **Data Exfiltration & Covert Channels:**
+
 - [ ] **Cloud Storage APIs:** Use **Drive/OneDrive/Dropbox** APIs with **service accounts/tokens**; rotate tokens for persistence.
 
 - [ ] **Covert Channels:** Exfil via **DNS-over-HTTPS**, **S3 pre-signed URLs**, **steganography in images/docs**, and throttled uploads.
@@ -323,13 +311,12 @@ _Goal: Understand software stacks and cloud computing basics._
 - [ ] **Egress Controls:** Understand common **CASB/SWG** controls and how to mimic normal user traffic patterns.
 
 **Logging, Forensics, and Cleanup:**
+
 - [ ] **O365/Azure Audit:** Know where **Sign-In, Audit, Unified Audit** logs land; plan for artifacts.
 
 - [ ] **Google Workspace Logs:** Review **Admin/Drive/Access Transparency** for trace evidence.
 
 - [ ] **Artifact Hygiene:** Track **recent documents, registry keys, LNK files**, and clear only when within ROE.
-
-
 
 ---
 
@@ -338,6 +325,7 @@ _Goal: Understand software stacks and cloud computing basics._
 _Goal: Build the coding foundation required to write custom tools, exploits, and undetected payloads._
 
 **Python (Automation & Scripting):**
+
 - [ ] **Core Language:** Master **data types, control flow, functions, OOP, file I/O, exception handling**, and **virtual environments (venv/pip)**.
 
 - [ ] **Security Libraries:** Learn **socket, requests, scapy, pwntools, paramiko, impacket, beautifulsoup** for network interaction, exploit development, and scraping.
@@ -347,6 +335,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Exploit Prototyping:** Use Python for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
 
 **C (System-Level & Exploit Development):**
+
 - [ ] **Core Language:** Master **pointers, memory allocation (malloc/free), structs, arrays, strings, bitwise operations**, and **compilation (gcc/clang)**.
 
 - [ ] **System Programming:** Understand **syscalls, file descriptors, process creation (fork/exec), signal handling**, and **shared memory/IPC**.
@@ -358,6 +347,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
 
 **C++ (Performance-Critical Tooling):**
+
 - [ ] **Core Language:** Understand **classes, templates, STL containers, smart pointers, RAII**, and how C++ extends C for structured exploit frameworks.
 
 - [ ] **Tool Development:** Build **custom implants, packers, crypters**, and **network tools** requiring performance and low-level control.
@@ -365,6 +355,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Reverse Engineering Context:** Read and understand **C++ compiled binaries** (vtables, name mangling, exception handling) during **static analysis with Ghidra/IDA**.
 
 **C# & .NET (Windows API & Offensive Tooling):**
+
 - [ ] **Core Language:** Master **C# syntax, .NET runtime (CLR), namespaces, assemblies, NuGet packages**, and **Visual Studio workflow**.
 
 - [ ] **Windows API Interaction:** Use **P/Invoke and D/Invoke** to call **native Win32 APIs** from managed code for **process injection, token theft, registry manipulation**.
@@ -376,6 +367,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **AMSI/ETW Bypass:** Understand how **.NET interacts with AMSI (Antimalware Scan Interface)** and **ETW (Event Tracing for Windows)** and techniques to patch or disable them.
 
 **Assembly (Shellcode & Low-Level Exploitation):**
+
 - [ ] **x86/x64 Assembly:** Develop working fluency in **MOV, PUSH, POP, CALL, JMP, INT, SYSCALL** and understand **calling conventions (cdecl, stdcall, fastcall, System V AMD64)**.
 
 - [ ] **Shellcode Writing:** Craft **position-independent shellcode** for **reverse shells, bind shells, staged loaders** avoiding null bytes and bad characters.
@@ -383,6 +375,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
 
 **Bash & PowerShell (Operational Scripting):**
+
 - [ ] **Bash Mastery:** Script **recon pipelines, log parsing, cron automation, SSH key management**, and **iptables/nftables rule generation** on Linux.
 
 - [ ] **PowerShell Mastery:** Script **AD enumeration, WMI queries, registry operations, service management**, and **remote execution (Invoke-Command, Enter-PSSession)**.
@@ -398,6 +391,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 ### Layer 1: Physical (The Hardware Surface)
 
 **Transmission Media & Cabling:**
+
 - [ ] **Copper Cables:** Master **UTP, STP, and Coaxial** cables; understand **crosstalk**, **attenuation**, and **impedance**.
 
 - [ ] **Fiber Optics:** Learn **Single-Mode (SMF)** vs. **Multi-Mode (MMF)**; understand **signal decay** and **dispersion**.
@@ -407,6 +401,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Cable Standards:** Know **Cat5e, Cat6, Cat6A, Cat7** specifications and maximum distances.
 
 **Network Topologies & Layout:**
+
 - [ ] **Star Topology:** Central switch/hub; understand single point of failure and ease of management.
 
 - [ ] **Ring Topology:** Sequential device connections; understand token-passing mechanisms (Token Ring).
@@ -418,6 +413,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Hybrid Topologies:** Understand modern mixed approaches combining multiple topology types.
 
 **Wireless Standards & Frequencies:**
+
 - [ ] **NFC (Near Field Communication):** 13.56 MHz, short range; understand **Type 1, 2, 3, 4 tags**.
 
 - [ ] **Bluetooth:** 2.4 GHz ISM band; master **BLE (1 Mbps), Classic (3 Mbps), and Bluetooth 5.x speeds**.
@@ -429,6 +425,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Infrared (IR):** Understand line-of-sight requirements and usage in IoT/remote controls.
 
 **Hardware Components & Connectors:**
+
 - [ ] **RJ45 Connectors:** Understand **T568A/T568B wiring standards** and pin assignments.
 
 - [ ] **Network Interface Cards (NICs):** Master **MAC addresses**, **promiscuous mode**, and **driver attacks**.
@@ -440,6 +437,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Power over Ethernet (PoE):** Understand **PoE (802.3af - 15.4W), PoE+ (802.3at - 25.5W), PoE++ (802.3bt - 51-71W)** standards for powering **IP phones, APs, cameras** over Ethernet.
 
 **Network Architecture & Topology Designs:**
+
 - [ ] **Two-Tier (Collapsed Core):** Understand **Access + Distribution/Core** combined design for small-to-medium networks.
 
 - [ ] **Three-Tier (Hierarchical):** Master **Access, Distribution, Core** layers for scalable enterprise networks.
@@ -453,6 +451,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **WAN Architecture:** Master **hub-and-spoke, partial mesh, full mesh** WAN designs.
 
 **Physical Layer Security & Attacks:**
+
 - [ ] **Cable Interception:** Understand **fiber tapping**, **copper snooping**, and physical plant security.
 
 - [ ] **Signal Jamming:** Learn frequency jamming techniques for wireless networks.
@@ -466,6 +465,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 ### Layer 2: Data Link (The Local Target)
 
 **MAC Addressing & Frame Structure:**
+
 - [ ] **MAC Address Format:** Understand **OUI (Organizationally Unique Identifier)** and manufacturer identification.
 
 - [ ] **Unicast vs. Multicast:** Master **FF:FF:FF:FF:FF:FF** (broadcast) and multicast MAC ranges.
@@ -475,6 +475,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **MAC Address Spoofing:** Learn tools like **macchanger** and implications for network security.
 
 **ARP Protocol & Attacks:**
+
 - [ ] **ARP Cache Mechanics:** Understand how **ARP tables** map IP addresses to MAC addresses.
 
 - [ ] **ARP Spoofing:** Master **ARP Cache Poisoning** to position yourself for MITM attacks.
@@ -486,6 +487,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **ARP Defense:** Understand **static ARP entries**, **ARP inspection (DAI)**, and detection mechanisms.
 
 **VLAN & Virtual Networks:**
+
 - [ ] **VLAN Tagging (802.1Q):** Master the 12-bit VLAN ID and priority bits.
 
 - [ ] **VLAN Hopping:** Execute **double-tagging attacks** via trunk misconfigurations.
@@ -497,6 +499,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Private VLANs:** Learn secondary VLAN restrictions and bypass techniques.
 
 **Switch Architecture & Attacks:**
+
 - [ ] **CAM Tables:** Understand **Content Addressable Memory** and port learning mechanisms.
 
 - [ ] **CAM Table Flooding:** Learn to force a switch into "hub mode" and flood traffic.
@@ -508,6 +511,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Spanning Tree Protocol (STP):** Understand BPDU manipulation and loop prevention bypass.
 
 **Layer 2 Security Features:**
+
 - [ ] **Port Security:** Configure **maximum MAC addresses, violation modes (protect/restrict/shutdown)**, and **sticky MAC learning**.
 
 - [ ] **DHCP Snooping:** Enable **DHCP snooping** to build a trusted **IP-MAC binding table** and block rogue DHCP servers.
@@ -517,6 +521,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **IP Source Guard:** Understand **IPSG** to prevent **IP spoofing** by filtering traffic based on DHCP snooping bindings.
 
 **Rapid PVST+ Spanning Tree Protocol:**
+
 - [ ] **Root Bridge Election:** Understand **primary/secondary root bridge** configuration using **priority values (0-61440 in 4096 increments)**.
 
 - [ ] **Port States:** Master **Discarding, Learning, Forwarding** states in Rapid PVST+.
@@ -534,6 +539,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Loop Guard:** Enable **Loop Guard** to prevent **alternate/root ports** from becoming designated due to **unidirectional link failure**.
 
 **Network Scope & Physical Reach:**
+
 - [ ] **PAN (Personal Area Network):** Bluetooth/NFC range (meters); personal device networks.
 
 - [ ] **LAN (Local Area Network):** Ethernet/WiFi; typically single building or campus.
@@ -545,6 +551,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **WAN (Wide Area Network):** Global reach via ISP connections, VPNs, and dedicated circuits.
 
 **Layer 2 Protocols & Analysis:**
+
 - [ ] **Spanning Tree Protocol (STP):** Understand topology changes and BPDU manipulation.
 
 - [ ] **Link Aggregation (802.3ad):** Master **EtherChannel** and multi-link trunking.
@@ -554,6 +561,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Packet Capture & Analysis:** Master **Wireshark** for Layer 2 frame analysis.
 
 **Cisco Discovery Protocols:**
+
 - [ ] **CDP (Cisco Discovery Protocol):** Configure and verify **CDP** for discovering **directly connected Cisco devices**; understand security risks.
 
 - [ ] **LLDP (Link Layer Discovery Protocol):** Configure **LLDP** as vendor-neutral alternative to CDP; understand **LLDP-MED** for VoIP.
@@ -561,6 +569,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **CDP/LLDP Security:** Understand **information disclosure** risks and when to **disable on edge ports**.
 
 **EtherChannel & Link Aggregation:**
+
 - [ ] **LACP (802.3ad):** Configure **Link Aggregation Control Protocol** with **active/passive** modes for dynamic bundling.
 
 - [ ] **PAgP (Port Aggregation Protocol):** Understand Cisco proprietary **PAgP** with **desirable/auto** modes.
@@ -570,6 +579,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Layer 2 vs Layer 3 EtherChannel:** Understand **L2 EtherChannel (switch ports)** vs **L3 EtherChannel (routed ports)**.
 
 **Cisco Wireless Architecture:**
+
 - [ ] **Autonomous AP Mode:** Understand **standalone APs** with individual management (legacy).
 
 - [ ] **Lightweight AP (LAP) Mode:** Master **CAPWAP tunneling** to **Wireless LAN Controller (WLC)** for centralized management.
@@ -579,13 +589,13 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **WLC Deployment:** Know **centralized, distributed, cloud-based** WLC architectures.
 
 - [ ] **WLAN Physical Infrastructure:** Understand **AP connections (access/trunk ports), WLC uplinks, LAG (Link Aggregation)** for redundancy.
-    
 
 ---
 
 ### Layer 3: Network (The Routing Logic)
 
 **IP Addressing & Subnetting:**
+
 - [ ] **IPv4 Addressing:** Master **dotted-decimal notation** and **binary conversion** for IP blocks.
 
 - [ ] **Public vs. Private Space:** Know **10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16** and reserved ranges.
@@ -601,6 +611,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **IPv6 Shorthand:** Understand **::1, ::/128, fe80::/10** and common IPv6 patterns.
 
 **Routing & Path Selection:**
+
 - [ ] **Routing Tables:** Understand **route entries**, **metric**, and **next-hop** selection.
 
 - [ ] **Static Routing:** Configure and exploit hardcoded route entries.
@@ -612,6 +623,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Longest Prefix Match:** Understand how routers select the most specific route.
 
 **Dynamic Routing Protocols:**
+
 - [ ] **OSPF (Open Shortest Path First):** Master **Areas, LSA, SPF algorithm**, and DR/BDR election.
 
 - [ ] **OSPFv2 Configuration:** Configure **single-area OSPF**, understand **neighbor adjacencies, point-to-point vs broadcast networks**.
@@ -629,6 +641,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Routing Protocol Vulnerabilities:** Learn **route injection, spoofing, and redistribution attacks**.
 
 **First Hop Redundancy Protocols (FHRP):**
+
 - [ ] **HSRP (Hot Standby Router Protocol):** Understand Cisco proprietary **virtual IP/MAC**, **active/standby routers**, and **priority/preemption**.
 
 - [ ] **VRRP (Virtual Router Redundancy Protocol):** Learn industry-standard **VRRP** with **master/backup** election.
@@ -638,6 +651,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **FHRP Purpose:** Know FHRP provides **default gateway redundancy** to prevent **single point of failure** for end hosts.
 
 **NAT & PAT Mechanics:**
+
 - [ ] **Static NAT:** Understand 1:1 IP mapping for incoming connections.
 
 - [ ] **Dynamic NAT:** Learn pool-based translation with overloading.
@@ -651,6 +665,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **NAT Vulnerabilities:** Learn **ARP spoofing behind NAT** and dual-stack exploitation.
 
 **Gateway & Border Security:**
+
 - [ ] **Default Gateway:** Master the primary exit point for all non-local traffic.
 
 - [ ] **Gateway Discovery:** Use **DHCP analysis** and **traceroute** to identify gateways.
@@ -662,6 +677,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Exit Points:** Identify alternative exfiltration paths (secondary gateways, VPNs, proxies).
 
 **ICMP & Diagnostics:**
+
 - [ ] **Ping (Echo Request/Reply):** Understand ICMP type 8/0 and reachability testing.
 
 - [ ] **Traceroute (TTL Exceeded):** Master hop-by-hop path discovery and **UDP/TCP variants**.
@@ -671,13 +687,13 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **ICMP Tunneling:** Master data exfiltration via ICMP payloads.
 
 - [ ] **ICMP Filtering:** Understand **ping blocking** and defensive implications.
-    
 
 ---
 
 ### Layer 4: Transport (The Reliability Layer)
 
 **TCP Protocol Mechanics:**
+
 - [ ] **TCP Header Structure:** Master **source/destination ports, sequence numbers, acknowledgments**.
 
 - [ ] **TCP Flags:** Understand **SYN, ACK, FIN, RST, PSH, URG** and their roles in connection states.
@@ -691,6 +707,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **TCP Options:** Understand **MSS, SACK, Timestamps, and Window Scaling** negotiation.
 
 **UDP Protocol & Characteristics:**
+
 - [ ] **UDP Header:** Understand lightweight **source port, destination port, length, checksum**.
 
 - [ ] **Connectionless Nature:** Learn stateless operation and lack of delivery guarantees.
@@ -700,6 +717,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **UDP Flooding:** Understand **bandwidth attacks** and amplification vectors.
 
 **Port & Service Enumeration:**
+
 - [ ] **Common Ports:** Memorize **SSH (22), RDP (3389), DNS (53), HTTP (80), HTTPS (443)**.
 
 - [ ] **Mail Services:** Master **SMTP (25), POP3 (110), IMAP (143)** and secure variants.
@@ -711,6 +729,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Application Ports:** Understand **RPC (135), NetBIOS (139,445), VNC (5900)** and exploitation risks.
 
 **Network Scanning & Reconnaissance:**
+
 - [ ] **Nmap TCP Scan:** Master **-sS (SYN), -sT (connect), -sA (ACK)** scan types.
 
 - [ ] **Nmap UDP Scan:** Understand **-sU** and **ICMP unreachable** responses.
@@ -724,6 +743,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Timing Templates:** Understand **-T0 (paranoid) through -T5 (insane)** for evasion vs. speed.
 
 **TCP/UDP Vulnerabilities & Attacks:**
+
 - [ ] **SYN Flood:** Understand **half-open connections** and resource exhaustion.
 
 - [ ] **TCP Sequence Prediction:** Learn **session hijacking** via predicted sequence numbers.
@@ -737,18 +757,19 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Source Port Spoofing:** Understand **DNS amplification** and **NTP reflection** attacks.
 
 **Transport Layer Filtering:**
+
 - [ ] **Stateless Firewalls:** Understand **ACL-based blocking** and bypass via fragmentation.
 
 - [ ] **Stateful Firewalls:** Learn **connection state tracking** and evasion techniques.
 
 - [ ] **IDS/IPS Evasion:** Master **packet fragmentation, timing delays, and payload obfuscation**.
-    
 
 ---
 
 ### Layers 5-7: Application & Session (The Payload)
 
 **DNS Protocol & Exploitation:**
+
 - [ ] **DNS Record Types:** Master **A, AAAA, MX, CNAME, NS, SOA, TXT, SPF, DKIM**.
 
 - [ ] **DNS Query Process:** Understand **recursive vs. iterative** queries and resolver chain.
@@ -766,6 +787,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **DNS Tools:** Master **nslookup, dig, host** for reconnaissance and manipulation.
 
 **DHCP Protocol & Attacks:**
+
 - [ ] **DHCP Lease Cycle:** Understand **DISCOVER, OFFER, REQUEST, ACK** sequence.
 
 - [ ] **DHCP Options:** Master **Option 3 (gateway), Option 6 (DNS), Option 15 (domain)**.
@@ -779,6 +801,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **DHCP Relay:** Understand across-subnet DHCP and manipulation vectors.
 
 **IP Services Configuration:**
+
 - [ ] **DHCP Server Configuration:** Configure **Cisco IOS DHCP server** with **pools, exclusions, default-router, dns-server, lease time**.
 
 - [ ] **DHCP Client Configuration:** Configure interfaces as **DHCP clients** using **ip address dhcp**.
@@ -790,17 +813,19 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **DNS Configuration:** Configure **ip name-server** and **ip domain-lookup** for hostname resolution on network devices.
 
 **NTP (Network Time Protocol):**
+
 - [ ] **NTP Purpose:** Understand **time synchronization** importance for **logging, authentication, certificates, troubleshooting**.
 
 - [ ] **NTP Hierarchy:** Master **Stratum levels** (0-15), where **Stratum 0 = atomic clock**, **Stratum 1 = primary**, etc.
 
-- [ ] **NTP Client Configuration:** Configure devices as **NTP clients** using   to sync time.
+- [ ] **NTP Client Configuration:** Configure devices as **NTP clients** using to sync time.
 
-- [ ] **NTP Server Configuration:** Configure router as **NTP server** using **ntp master** for internal time distribution. 
+- [ ] **NTP Server Configuration:** Configure router as **NTP server** using **ntp master** for internal time distribution.
 
 - [ ] **NTP Authentication:** Implement **NTP authentication** using **keys** to prevent time manipulation attacks.
 
 **SNMP (Simple Network Management Protocol):**
+
 - [ ] **SNMP Architecture:** Understand **Manager-Agent** model, **MIB (Management Information Base)**, and **OID** hierarchy.
 
 - [ ] **SNMP Versions:** Know **SNMPv1 (insecure), SNMPv2c (community strings), SNMPv3 (authentication & encryption)**.
@@ -814,6 +839,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **SNMP Security Risks:** Understand **community string exposure, SNMP enumeration, unauthorized config changes**.
 
 **Syslog (System Logging):**
+
 - [ ] **Syslog Facilities:** Understand **facility codes** (local0-7, kern, user, mail, daemon, auth, etc.) for message categorization.
 
 - [ ] **Syslog Severity Levels:** Master **0-7 severity** (0=Emergency, 1=Alert, 2=Critical, 3=Error, 4=Warning, 5=Notice, 6=Informational, 7=Debug).
@@ -825,6 +851,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Syslog for Security:** Use syslog for **incident response, forensics, compliance, anomaly detection**.
 
 **TFTP/FTP File Transfer:**
+
 - [ ] **TFTP (Trivial File Transfer Protocol):** Understand **UDP port 69**, **no authentication**, simple operation.
 
 - [ ] **TFTP Use Cases:** Use for **IOS upgrades, config backup/restore, boot image loading** on Cisco devices.
@@ -838,6 +865,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Secure Alternatives:** Prefer **SCP, SFTP** over **TFTP/FTP** for secure file transfers.
 
 **NAT Configuration:**
+
 - [ ] **Static NAT Configuration:** Configure `ip nat inside source static <local-ip> <global-ip>` for 1:1 mapping.
 
 - [ ] **Dynamic NAT with Pools:** Configure `ip nat pool` and `ip nat inside source list <acl> pool <name>`.
@@ -849,6 +877,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **NAT Verification:** Use **show ip nat translations**, **show ip nat statistics** for troubleshooting.
 
 **QoS (Quality of Service) Fundamentals:**
+
 - [ ] **QoS Purpose:** Understand managing **bandwidth, latency, jitter, packet loss** for critical applications (VoIP, video).
 
 - [ ] **Classification:** Identify and **mark traffic** based on **Layer 2 (CoS), Layer 3 (DSCP/ToS), Layer 4 (ports), Layer 7 (application)**.
@@ -870,6 +899,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Trust Boundaries:** Know where to **trust/classify** markings (access layer) vs where to **enforce** (distribution/core).
 
 **Authentication Protocols:**
+
 - [ ] **Kerberos (Port 88):** Master **TGT, TGS, and mutual authentication** with Windows AD.
 
 - [ ] **LDAP (Port 389):** Understand **directory queries** and **credential validation** against AD.
@@ -887,6 +917,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Identity Protection (NHI):** Hunt **service principals, app registrations, API keys, OAuth tokens**; classify **non-human identities** and guard **least privilege/rotation**.
 
 **SSL/TLS & Encryption:**
+
 - [ ] **TLS Handshake:** Master **ClientHello, ServerHello, key exchange, finished messages**.
 
 - [ ] **Certificate Chain:** Understand **root, intermediate, end-entity** certificates and validation.
@@ -904,6 +935,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Perfect Forward Secrecy (PFS):** Master **ephemeral key exchange** to limit past compromise.
 
 **HTTP Protocol & Web Attacks:**
+
 - [ ] **HTTP Methods:** Understand **GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD**.
 
 - [ ] **HTTP Headers:** Master **Host, User-Agent, Authorization, Cookie, X-Forwarded-For**.
@@ -917,6 +949,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **REST APIs:** Understand **resource endpoints, authentication, rate limiting** bypass.
 
 **Session & Application Layer Attacks:**
+
 - [ ] **Session Hijacking:** Steal cookies via **network sniffing, XSS, malware**.
 
 - [ ] **Session Fixation:** Force victim into attacker-known session ID.
@@ -932,6 +965,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Deserialization:** Learn **unsafe object unmarshaling** leading to RCE.
 
 **VPN & Tunneling Protocols:**
+
 - [ ] **IPSec (Layer 3):** Master **AH, ESP**, tunnel vs. transport modes, and key exchange.
 
 - [ ] **GRE (Generic Routing Encapsulation):** Understand **stateless tunneling** and encapsulation.
@@ -943,6 +977,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **VPN Bypass:** Learn **DNS leaks, IPv6 leaks**, and split-tunneling exploitation.
 
 **Network Device Management Access:**
+
 - [ ] **Console Access:** Connect via **console cable (RJ45/USB)** using **9600 baud, 8N1** for out-of-band management.
 
 - [ ] **Telnet (Port 23):** Understand **unencrypted** remote CLI access; avoid in production.
@@ -962,6 +997,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **Privilege Levels:** Understand **privilege levels 0-15** and **exec-timeout** for security.
 
 **Wireless LAN GUI Configuration:**
+
 - [ ] **WLAN Creation:** Create **SSID/WLAN** profiles via **WLC GUI** or standalone AP interface.
 
 - [ ] **WLAN Security Settings:** Configure **WPA2-Personal (PSK)**, **WPA2-Enterprise (802.1X/RADIUS)**, **WPA3** authentication.
@@ -977,6 +1013,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **FlexConnect Local Switching:** Enable for **local data switching** at branch APs with **central authentication**.
 
 **Network Monitoring & Analysis:**
+
 - [ ] **Packet Capture (tcpdump/Wireshark):** Master **filter syntax** and protocol dissection.
 
 - [ ] **NetFlow/sFlow:** Understand **flow-based monitoring** for traffic patterns without full capture.
@@ -986,7 +1023,6 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 - [ ] **IDS/IPS Systems:** Understand **signature-based detection** and evasion techniques.
 
 - [ ] **SIEM Concepts:** Learn **log aggregation, correlation**, and **alert tuning**.
-    
 
 ---
 
@@ -995,6 +1031,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 _Goal: Move from local simulation to cloud-native networks using a "hack to root" mindset._
 
 **Phase 1: Foundations (Simulation)** — Tools: **Cisco Packet Tracer, IP Calculator**
+
 - [ ] Simple Connectivity: Two PCs + switch; verify **ping/basic reachability**.
 
 - [ ] The "Phonebook": Stand up **local DNS**; resolve custom hostnames.
@@ -1006,6 +1043,7 @@ _Goal: Move from local simulation to cloud-native networks using a "hack to root
 - [ ] VLAN Creation: Segment by department (e.g., HR, Sales) with **VLANs**.
 
 **Phase 2: Tactical (Emulation & Packets)** — Tools: **GNS3, Wireshark, Nmap**
+
 - [ ] Packet Analysis: Capture **TCP 3-way handshake + HTTP** in Wireshark.
 
 - [ ] Routing: Build **static routes**, then **OSPF** for auto path discovery.
@@ -1017,6 +1055,7 @@ _Goal: Move from local simulation to cloud-native networks using a "hack to root
 - [ ] Inter-VLAN Routing: Use **router-on-a-stick** for isolated VLAN comms.
 
 **Phase 3: Linux Muscle Memory**
+
 - [ ] Discovery: Use **ip a, ss -tulpn, arp -a** to map interfaces/listeners/peers.
 
 - [ ] Connectivity & Routing: Troubleshoot with **traceroute, nslookup, dig**.
@@ -1026,6 +1065,7 @@ _Goal: Move from local simulation to cloud-native networks using a "hack to root
 - [ ] Firewall Basics: Block ports with **iptables/ufw**.
 
 **Phase 4: Red Team Edge (Kali/Battle Tests)** — Tools: **Kali, Bettercap, Metasploit**
+
 - [ ] Recon: Run **Nmap stealth scans (SYN) + version detection** on lab targets.
 
 - [ ] MITM: Perform **ARP spoof** with **Bettercap/Ettercap** in a controlled lab.
@@ -1035,6 +1075,7 @@ _Goal: Move from local simulation to cloud-native networks using a "hack to root
 - [ ] VPN & Tunneling: Stand up **OpenVPN/IPsec**; practice **SSH tunnels** to bypass local firewalls.
 
 **Phase 5: Cloud Networking (2026 Standard)** — Tools: **AWS/Azure Free Tier, Terraform**
+
 - [ ] VPC Design: Build **public + private subnets** in **AWS or Azure**.
 
 - [ ] IaC: Use **Terraform** to deploy web server + security group/NACL.
@@ -1050,6 +1091,7 @@ _Goal: Move from local simulation to cloud-native networks using a "hack to root
 _Goal: Understand how automation transforms network operations and software-defined architectures._
 
 **Automation Impact on Network Management:**
+
 - [ ] **Why Automation:** Understand benefits of **consistency, speed, scale, reduced human error, version control** in network operations.
 
 - [ ] **Traditional vs Modern:** Compare **manual CLI configuration** vs **API-driven automation, Infrastructure as Code (IaC)**.
@@ -1059,6 +1101,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 - [ ] **DevOps for NetOps:** Understand **CI/CD pipelines, Git version control, testing** applied to network configs.
 
 **Controller-Based & Software-Defined Networking:**
+
 - [ ] **Traditional Networks:** Understand **distributed control plane** where each device makes forwarding decisions independently.
 
 - [ ] **Controller-Based Networks:** Master **centralized control plane** with **Cisco DNA Center, SD-WAN, Meraki Dashboard**.
@@ -1075,6 +1118,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 - [ ] **Fabric Architecture:** Understand **SD-Access fabric** with **control, data, policy** planes unified.
 
 **Northbound vs Southbound APIs:**
+
 - [ ] **Southbound APIs:** Controller-to-device communication using **OpenFlow, NETCONF, RESTCONF, SNMP** to **program forwarding behavior**.
 
 - [ ] **Northbound APIs:** Application-to-controller communication using **REST APIs** for **orchestration, management apps, custom automation**.
@@ -1082,6 +1126,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 - [ ] **API Direction:** Remember **Southbound = down to devices**, **Northbound = up to applications**.
 
 **AI & Machine Learning in Network Operations:**
+
 - [ ] **Predictive AI:** Understand ML for **capacity planning, failure prediction, anomaly detection, traffic forecasting**.
 
 - [ ] **Generative AI:** Use AI for **network design suggestions, configuration generation, natural language troubleshooting**.
@@ -1091,6 +1136,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 - [ ] **ML Use Cases:** Master **security threat detection, user experience monitoring, wireless optimization**.
 
 **REST APIs & Data Encoding:**
+
 - [ ] **REST (Representational State Transfer):** Understand stateless **client-server** architecture over **HTTP/HTTPS**.
 
 - [ ] **HTTP Verbs/CRUD:** Master mapping:
@@ -1110,6 +1156,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 - [ ] **JSON vs XML:** Understand **JSON** is more lightweight and preferred for modern APIs.
 
 **Configuration Management Tools:**
+
 - [ ] **Ansible Capabilities:** Understand **agentless, YAML playbooks, SSH-based** automation for **network device configuration**.
 
 - [ ] **Ansible Modules:** Recognize `ios_command`, `ios_config`, `nxos_*`, `eos_*` modules for vendor-specific automation.
@@ -1123,6 +1170,7 @@ _Goal: Understand how automation transforms network operations and software-defi
 - [ ] **Version Control Integration:** Know both integrate with **Git** for **configuration versioning and rollback**.
 
 **Python for Network Automation (Foundation):**
+
 - [ ] **Python Libraries:** Recognize **Netmiko, NAPALM, Paramiko** for SSH-based device management.
 
 - [ ] **API Libraries:** Understand **requests library** for REST API interactions.
@@ -1131,7 +1179,6 @@ _Goal: Understand how automation transforms network operations and software-defi
 
 - [ ] **Scripting Use Cases:** Automate **config backups, bulk changes, compliance checks, inventory collection**.
 
-
 ## Part 3: Footprinting and Reconnaissance
 
 ### **Phase 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
@@ -1139,15 +1186,10 @@ _Goal: Understand how automation transforms network operations and software-defi
 _Goal: Maximum data acquisition with zero target interaction._
 
 - [ ] **Organizational Hierarchy:** Profile the **Audience** (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link.
-    
 - [ ] **Search Engine Hacking:** Use **Google Dorks** (`site:`, `filetype:`, `intitle:`) to find exposed documents and login portals.
-    
 - [ ] **Social Vector Mapping:** Scrape LinkedIn and professional sites to identify targets for **Phishing, Whishing, Whaling, or Smishing** based on reported tech stacks.
-    
 - [ ] **Physical Perimeter Assessment:** Evaluate the likelihood of **Shoulder Surfing, Tailgating, or Dumpster Diving** vulnerabilities.
-    
 - [ ] **Metadata & Leak Analysis:** Use **Wayback Machine** for historical paths and **GitHub/GitLab Dorking** for hardcoded API keys or internal naming conventions.
-    
 - [ ] **Domain & Ownership:** Perform **WHOIS Lookups** to identify registration dates, contact info, and associated subdomains.
 
 - [ ] **Passive DNS & CT:** Pull **passive DNS** and **Certificate Transparency (crt.sh)** to surface shadow subdomains and SANs; cluster hosting/ASN/country.
@@ -1155,7 +1197,6 @@ _Goal: Maximum data acquisition with zero target interaction._
 - [ ] **Breach & Paste Monitoring:** Check **breach corpuses** (HIBP/Dehashed) and pastes/code search for leaked creds, API keys, or internal hostnames.
 
 - [ ] **Mail Posture Recon:** Review **SPF/DMARC/DKIM** to assess spoofing risk and likely mail providers.
-    
 
 ---
 
@@ -1164,17 +1205,13 @@ _Goal: Maximum data acquisition with zero target interaction._
 _Goal: Querying third-party aggregators to see what the world already knows about them._
 
 - [ ] **External Intel Scouring:** Query **VirusTotal, urlscan, any.run, Joe Sandbox, and urlvoid** for existing malware samples or documented domain behavior.
-    
 - [ ] **Third-Party Scans:** Use **Shodan & Censys** to find open ports, outdated services, and geographical distribution without scanning the target yourself.
-    
 - [ ] **Subdomain & DNS Enumeration:** Use **Sublist3r/Amass** for subdomains and check **DNS records** (MX, TXT, NS) to map mail providers and third-party integrations.
-    
 - [ ] **Protocol Audit:** Identify if the target is clinging to **Insecure Protocols** (FTP vs. SFTP, SSL vs. TLS).
 
 - [ ] **WAF/CDN/TLS Fingerprinting:** Detect **WAF/CDN** fronting via **JA3/JA4, HTTP header quirks, TLS ALPN/HTTP2**, and favicon hashes.
 
 - [ ] **VHost & Favicon Hunts:** Bruteforce **vhosts/domains** and use **favicon hash**/HTTP header diffs to find hidden apps.
-    
 
 ---
 
@@ -1183,19 +1220,14 @@ _Goal: Querying third-party aggregators to see what the world already knows abou
 _Goal: Direct contact to map the live network fabric. Risk of detection is now ACTIVE._
 
 - [ ] **Live Host Discovery:** Use **ping, arp, and hping** to identify which internal or external assets are actually breathing.
-    
 - [ ] **Network Path Analysis:** Use **tracert** to map the hops and identify **Perimeter vs. DMZ vs. Segmentation** boundaries.
-    
 - [ ] **Surgical Port Scanning:** Execute **Nmap Essentials** (starting with `-sS` stealth scans) to identify listening services and **OS Fingerprinting**.
-    
 - [ ] **Aggressive DNS Interrogation:** Use **nslookup and dig** to force the disclosure of hidden internal records or mail servers.
-    
 - [ ] **Web Content Discovery:** Run **ffuf or Gobuster** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
 
 - [ ] **TLS Surface:** Harvest **cert SANs**, check **cipher/curve** support, **HTTP/2/ALPN** negotiation, and redirect/downgrade behavior.
 
 - [ ] **Web Route Mapping:** Parse **robots.txt/sitemap.xml** and fuzz **parameters/paths** with status/length filters to uncover hidden routes.
-    
 
 ---
 
@@ -1204,9 +1236,7 @@ _Goal: Direct contact to map the live network fabric. Risk of detection is now A
 _Goal: Understand the defensive "brain" of the target._
 
 - [ ] **Traffic Analysis:** If vantage is gained, use **Wireshark** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
-    
 - [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down your operation immediately.
-    
 - [ ] **Unintended Binary Research:** Map the target's OS to potential **LOLBAS, GTFOBINS, or WADCOMS** vectors for later movement.
 
 - [ ] **Version-to-CVE Correlation:** Cluster hosts by **banners/JA3/favicons** and map exposed versions to **CVE** candidates before exploitation.
@@ -1282,15 +1312,11 @@ _Goal: Convert raw data into an execution plan._
 _Goal: Identify live assets without wasting time on dead IPs or triggering ICMP alarms._
 
 - [ ] **ARP Discovery:** Use `arp-scan` or `nmap -PR` for local segment discovery to bypass host firewalls that drop ICMP.
-    
 - [ ] **ICMP & TCP/UDP Sweeps:** Perform standard `ping` sweeps or use `nmap -PS/-PU` (ports 80, 443, 53) to find external hosts that block standard pings.
-    
 - [ ] **Passive Traffic Capture:** Utilize **Wireshark** to capture broadcast traffic, revealing active hosts without sending a single packet.
-    
 - [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
 
 - [ ] **IPv6 Discovery:** Include **NDP/`nmap -6`** sweeps for dual-stack assets and SLAAC-derived hosts.
-    
 
 ---
 
@@ -1299,19 +1325,14 @@ _Goal: Identify live assets without wasting time on dead IPs or triggering ICMP 
 _Goal: Determine exactly what applications are running and how they communicate._
 
 - [ ] **Stealth SYN Scanning:** Use `nmap -sS` to identify open ports without completing the three-way **Handshake**, minimizing your footprint in application logs.
-    
 - [ ] **Version & OS Fingerprinting:** Deploy `nmap -sV` for service banners and `nmap -O` to analyze TCP/IP stack responses for **Operating System Hardening** clues.
-    
 - [ ] **Protocol Audit:** Analyze discovered services to determine if they use **Secure vs Insecure Protocols** (e.g., FTP vs SFTP, SSL vs TLS).
-    
 - [ ] **Connection Handshake Analysis:** Examine **Handshakes** to understand the specific authentication and encryption methods protecting the service.
-    
 - [ ] **UDP Surface Check:** Do not ignore `nmap -sU` for often-overlooked services like DNS (53), SNMP (161), and DHCP (67).
 
 - [ ] **Timing & Hygiene:** Apply sane **-T profiles**, exclusion lists, and prefer **safe NSE** scripts before vuln categories to avoid tripping controls.
 
 - [ ] **IPv6 Stack:** Mirror key scans with **`nmap -6`** for IPv6 services.
-    
 
 ---
 
@@ -1320,13 +1341,10 @@ _Goal: Determine exactly what applications are running and how they communicate.
 _Goal: Identify security controls that will attempt to block or alert on your presence._
 
 - [ ] **Firewall & ACL Enumeration:** Detect the presence of a **Firewall & Nextgen Firewall** or **Host Based Firewalls** by analyzing filtered ports and **ACL** (Access Control List) behavior.
-    
 - [ ] **IDS/IPS Probing:** Use fragmentation (`-f`) or timing decoys (`-D`) to identify active **NIDS, NIPS, or HIPS** systems that may block aggressive patterns.
-    
 - [ ] **Web Surface Discovery:** Use `ffuf` or `Gobuster` for **Directory Brute-forcing** to find hidden `/admin` or `/config` panels that are not linked publicly.
 
 - [ ] **Service-Specific Enum:** Targeted checks for **SMB/RPC/WinRM**, **LDAP/Kerberos (AS-REP preauth, SPNs)**, **SNMP v1/v2c/v3**, **SMTP VRFY/EXPN**, **SSH KEX/ciphers**, **RDP/NLA**, **DBs (MySQL/MSSQL/Postgres)**, **Redis/Mongo/Elastic**.
-    
 
 ---
 
@@ -1335,11 +1353,8 @@ _Goal: Identify security controls that will attempt to block or alert on your pr
 _Goal: Convert raw scan data into actionable exploitation vectors._
 
 - [ ] **Scripted Vulnerability Probing:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for known **Zero Day** or common exploits in identified versions.
-    
 - [ ] **Attack Surface Selection:** Match findings to your known **Common Attacks**—e.g., **SQL Injection** for web servers or **Buffer Overflows** for legacy binaries.
-    
 - [ ] **Unintended Tool Research:** For discovered OS versions, research **LOLBAS, GTFOBINS, or WADCOMS** to leverage existing system binaries for lateral movement.
-    
 - [ ] **Traffic Intelligence:** Finalize your plan by inspecting **Packet Captures** for cleartext protocols or weak encryption that allows for **MITM** or **Replay Attacks**.
 
 - [ ] **Cluster & Correlate:** Group hosts by **banners/JA3/favicons** and map versions to likely **CVEs** before exploitation.
@@ -1382,22 +1397,16 @@ _Goal: Optimize scanning efficiency and discover hidden services._
 
 - [ ] **Proxychains & Proxy Pivoting:** Route scans through **VPNs, proxies, compromised hosts** to obscure source IP and bypass **geographic restrictions**.
 
-
-
 ### **Phase 1: Foundations & Network Discovery (The "Ghost" Phase)**
 
 _Goal: Build a theoretical base while mapping the live environment with zero noise._
 
 - [ ] **Core Principles & Discovery:** Apply the **CIA Triad** and **Definition of Risk** to identify high-value targets. Use `ping` and `arp` for **Live Host Identification**.
-    
 - [ ] **Stealth Host Mapping:** Use `arp-scan` or `nmap -PR` for local segments to bypass **Host Based Firewalls**. Utilize **Wireshark** for passive traffic capture to reveal hosts without sending packets.
-    
 - [ ] **Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map network hops. Define the boundaries between **Perimeter vs DMZ vs Segmentation** to understand the **Concept of Isolation**.
-    
 - [ ] **Cryptographic Baseline:** Understand the **Basics of Cryptography**, specifically **Hashing** and **Salting**, to recognize how stored credentials might be protected.
 
 - [ ] **TLS & Mail Recon:** Collect **cert SANs**, cipher/curve support, **SPF/DMARC/DKIM**, and note redirect/downgrade behaviors.
-    
 
 ---
 
@@ -1406,15 +1415,11 @@ _Goal: Build a theoretical base while mapping the live environment with zero noi
 _Goal: Interrogate listening services while identifying the target's "armor."_
 
 - [ ] **Stealth Port Scanning:** Execute `nmap -sS` (SYN scan) to identify open ports without completing the **Handshake**, keeping your footprint out of application logs.
-    
 - [ ] **Service & OS Fingerprinting:** Use `nmap -sV` for banners and `nmap -O` for **Operating System Hardening** clues. Identify the use of **Antivirus**, **EDR**, or **HIPS**.
-    
 - [ ] **Protocol & Handshake Audit:** Analyze discovered services for **Secure vs Insecure Protocols** (e.g., FTP vs SFTP, SSL vs TLS). Examine connection **Handshakes** to understand authentication and encryption.
-    
 - [ ] **Defensive Technology Identification:** Map the presence of a **Firewall & Nextgen Firewall**, **IDS and IPS**, and **ACLs** by analyzing filtered ports and packet fragmentation.
 
 - [ ] **IPv6 & Dual-Stack:** Repeat key enumeration over **IPv6** where present.
-    
 
 ---
 
@@ -1423,19 +1428,13 @@ _Goal: Interrogate listening services while identifying the target's "armor."_
 _Goal: Convert raw scan data into actionable exploitation vectors._
 
 - [ ] **Scripted Probing & Zero-Days:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for **Known vs Unknown** vulnerabilities and **Zero Day** potential.
-    
 - [ ] **Attack Vector Selection:** Match findings to **Common Attacks**:
-    
-    - **Web:** Use `ffuf` or `Gobuster` for **Directory Traversal** and **SQL Injection**.
-        
-    - **Network:** Prep for **MITM** or **Replay Attacks** based on cleartext **Packet Captures**.
-        
-    - **System:** Research **LOLBAS**, **GTFOBINS**, or **WADCOMS** to leverage existing binaries for **Privilege Escalation**.
-        
+  - **Web:** Use `ffuf` or `Gobuster` for **Directory Traversal** and **SQL Injection**.
+  - **Network:** Prep for **MITM** or **Replay Attacks** based on cleartext **Packet Captures**.
+  - **System:** Research **LOLBAS**, **GTFOBINS**, or **WADCOMS** to leverage existing binaries for **Privilege Escalation**.
 - [ ] **Identity Attack Prep:** If **Active Directory** is detected, plan for **Pass the Hash** or **Kerberoasting** by auditing **Authentication vs Authorization** protocols.
 
 - [ ] **Service-Focused Deep Dives:** Enumerate **SMB/LDAP/Kerberos/WinRM**, **SNMP**, **SMTP**, **SSH/RDP**, and **databases** with safe scripts/banners before vuln scans.
-    
 
 ---
 
@@ -1444,9 +1443,7 @@ _Goal: Convert raw scan data into actionable exploitation vectors._
 _Goal: Align offensive findings with industry standards and professional reporting._
 
 - [ ] **Framework Alignment:** Map discovered vulnerabilities against the **Cyber Kill Chain**, **Diamond Model**, or **MITRE ATT&CK** framework.
-    
 - [ ] **Compliance & Reporting:** Tailor your findings for the correct **Audience** (Stakeholders, HR, Legal, or Management). Reference standards like **NIST**, **ISO**, or **CIS** to provide context for remediation.
-    
 - [ ] **Incident Response Integration:** Understand the **Incident Response Process** (Preparation to Lessons Learned) to anticipate how a **Blue Team** will react to your presence.
 
 ---
@@ -1487,7 +1484,6 @@ _Goal: Maintain stealth while gathering intelligence._
 
 - [ ] **Privilege Escalation Path Planning:** Map **sudo/SUID/ACL misconfigs** before execution to minimize detection window.
 
-
 ## Part 5: Enumeration
 
 ### **Phase 1: Foundations & Network Discovery (The "Ghost" Phase)**
@@ -1495,15 +1491,11 @@ _Goal: Maintain stealth while gathering intelligence._
 _Goal: Build a theoretical base while mapping the live environment with zero noise._
 
 - [ ] **Core Principles & Discovery:** Apply the **CIA Triad** and **Definition of Risk** to identify high-value targets. Use `ping` and `arp` for **Live Host Identification**.
-    
 - [ ] **Stealth Host Mapping:** Use `arp-scan` or `nmap -PR` for local segments to bypass **Host Based Firewalls**. Utilize **Wireshark** for passive traffic capture to reveal hosts without sending packets.
-    
 - [ ] **Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map network hops. Define the boundaries between **Perimeter vs DMZ vs Segmentation** to understand the **Concept of Isolation**.
-    
 - [ ] **Cryptographic Baseline:** Understand the **Basics of Cryptography**, specifically **Hashing** and **Salting**, to recognize how stored credentials might be protected.
 
 - [ ] **TLS & Mail Recon:** Collect **cert SANs**, cipher/curve support, **SPF/DMARC/DKIM**, and note redirect/downgrade behaviors.
-    
 
 ---
 
@@ -1512,11 +1504,8 @@ _Goal: Build a theoretical base while mapping the live environment with zero noi
 _Goal: Interrogate listening services while identifying the target's "armor."_
 
 - [ ] **Stealth Port Scanning:** Execute `nmap -sS` (SYN scan) to identify open ports without completing the **Handshake**, keeping your footprint out of application logs.
-    
 - [ ] **Service & OS Fingerprinting:** Use `nmap -sV` for banners and `nmap -O` for **Operating System Hardening** clues. Identify the use of **Antivirus**, **EDR**, or **HIPS**.
-    
 - [ ] **Protocol & Handshake Audit:** Analyze discovered services for **Secure vs Insecure Protocols** (e.g., FTP vs SFTP, SSL vs TLS). Examine connection **Handshakes** to understand authentication and encryption.
-    
 - [ ] **Defensive Technology Identification:** Map the presence of a **Firewall & Nextgen Firewall**, **IDS and IPS**, and **ACLs** by analyzing filtered ports and packet fragmentation.
 
 - [ ] **IPv6 & Dual-Stack:** Repeat key enumeration over **IPv6** where present.
@@ -1528,13 +1517,9 @@ _Goal: Interrogate listening services while identifying the target's "armor."_
 _Goal: Consolidate and map all findings into your attack roadmap._
 
 - [ ] **Attack Vector Selection:** Match findings to **Common Attacks**:
-    
-    - **Web:** Use `ffuf` or `Gobuster` for **Directory Traversal** and **SQL Injection**.
-        
-    - **Network:** Prep for **MITM** or **Replay Attacks** based on cleartext **Packet Captures**.
-        
-    - **System:** Research **LOLBAS**, **GTFOBINS**, or **WADCOMS** to leverage existing binaries for **Privilege Escalation**.
-        
+  - **Web:** Use `ffuf` or `Gobuster` for **Directory Traversal** and **SQL Injection**.
+  - **Network:** Prep for **MITM** or **Replay Attacks** based on cleartext **Packet Captures**.
+  - **System:** Research **LOLBAS**, **GTFOBINS**, or **WADCOMS** to leverage existing binaries for **Privilege Escalation**.
 - [ ] **Identity Attack Prep:** If **Active Directory** is detected, plan for **Pass the Hash** or **Kerberoasting** by auditing **Authentication vs Authorization** protocols.
 
 - [ ] **Service-Focused Deep Dives:** Enumerate **SMB/LDAP/Kerberos/WinRM**, **SNMP**, **SMTP**, **SSH/RDP**, and **databases** with safe scripts/banners before vuln scans.
@@ -1568,9 +1553,7 @@ _Goal: Extract detailed directory, naming, and data service information._
 _Goal: Align offensive findings with industry standards and professional reporting._
 
 - [ ] **Framework Alignment:** Map discovered vulnerabilities against the **Cyber Kill Chain**, **Diamond Model**, or **MITRE ATT&CK** framework.
-    
 - [ ] **Compliance & Reporting:** Tailor your findings for the correct **Audience** (Stakeholders, HR, Legal, or Management). Reference standards like **NIST**, **ISO**, or **CIS** to provide context for remediation.
-    
 - [ ] **Incident Response Integration:** Understand the **Incident Response Process** (Preparation to Lessons Learned) to anticipate how a **Blue Team** will react to your presence.
 
 ---
@@ -1589,7 +1572,6 @@ _Goal: Maintain stealth while gathering intelligence._
 
 - [ ] **Privilege Escalation Path Planning:** Map **sudo/SUID/ACL misconfigs** before execution to minimize detection window.
 
-
 ## Part 6: System Hacking & Initial Compromise
 
 ### **Phase 1: The Breach (Initial Access & Exploitation)**
@@ -1597,6 +1579,7 @@ _Goal: Maintain stealth while gathering intelligence._
 _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold._
 
 **Application & Web Exploitation:**
+
 - [ ] **SQL Injection:** Craft payloads for **error-based, blind, union-based, and time-based** exfiltration.
 
 - [ ] **Buffer Overflow:** Target legacy binaries; craft **ROP chains** to bypass **ASLR/DEP**.
@@ -1624,6 +1607,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **GraphQL Exploitation:** Perform **introspection queries**, abuse **batching/aliasing** for **DoS**, exploit **nested queries** and **IDOR**.
 
 **Credential Assault:**
+
 - [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling**.
 
 - [ ] **Password Spray:** Low-and-slow attacks across many accounts to avoid lockout.
@@ -1635,6 +1619,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **Credential Stuffing:** Reuse leaked passwords from **breach corpuses** (HIBP/Dehashed).
 
 **Security Fundamentals:**
+
 - [ ] **Key Security Concepts:**
   - [ ] **Threats:** Understand **potential dangers** (malware, DDoS, insider threats, APTs).
   - [ ] **Vulnerabilities:** Know **weaknesses** in systems (unpatched software, misconfigs, weak passwords).
@@ -1647,6 +1632,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
   - [ ] **Physical Access Control:** Understand **badge systems, cameras, mantrap doors, visitor logs, secure disposal**.
 
 **Device Access Control & Local Passwords:**
+
 - [ ] **Local Password Configuration:** Configure **enable secret** (hashed with SHA-256), **line console/vty passwords**.
 
 - [ ] **Local User Accounts:** Create **username/password** pairs with **privilege levels (0-15)**.
@@ -1656,6 +1642,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **Password Strength Verification:** Use **show running-config** to verify password encryption types.
 
 **Security Password Policy Elements:**
+
 - [ ] **Password Management:** Implement **centralized password management** (AAA servers, password vaults).
 
 - [ ] **Password Complexity Requirements:**
@@ -1673,6 +1660,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
   - [ ] **Passwordless Authentication:** Leverage **Windows Hello, FIDO2, certificate-based auth**.
 
 **AAA (Authentication, Authorization, Accounting):**
+
 - [ ] **Authentication:** Verify **who you are** (username/password, certificate, biometric, token).
 
 - [ ] **Authorization:** Determine **what you can do** (privilege level, command access, resource permissions).
@@ -1690,6 +1678,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **AAA Configuration:** Configure **aaa new-model**, **aaa authentication login**, **aaa authorization**, **aaa accounting**.
 
 **IPsec VPN Fundamentals:**
+
 - [ ] **Site-to-Site VPN:** Connect **branch office to headquarters** with **permanent encrypted tunnels**.
 
 - [ ] **Remote Access VPN:** Allow **individual users** to connect to **corporate network** from anywhere.
@@ -1705,6 +1694,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
   - [ ] **Tunnel Mode:** Encrypts **entire IP packet** (used for site-to-site VPN).
 
 **Access Control Lists:**
+
 - [ ] **Standard ACLs:** Filter based on **source IP only** (1-99, 1300-1999); apply **close to destination**.
 
 - [ ] **Extended ACLs:** Filter based on **source/dest IP, protocol, port** (100-199, 2000-2699); apply **close to source**.
@@ -1718,6 +1708,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **ACL Verification:** Use **show access-lists**, **show ip interface**, **debug ip packet** for troubleshooting.
 
 **Human Vector & Social Engineering:**
+
 - [ ] **Phishing:** Craft **HTML-smuggled payloads, ISO/LNK loaders, OneNote macros** with pretexting.
 
 - [ ] **Whaling/Spear Phishing:** Target **executives** with personalized, researched lures.
@@ -1729,6 +1720,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **Watering Hole:** Compromise **public websites** frequented by targets to deliver **malware/tracker**.
 
 **Network Interception & MITM:**
+
 - [ ] **ARP Spoofing:** Poison **ARP tables** to intercept **unencrypted traffic**.
 
 - [ ] **DNS Spoofing:** Redirect traffic via **cache poisoning or rogue DNS servers**.
@@ -1746,6 +1738,7 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 _Goal: Move from low-level foothold to administrative control by exploiting system logic._
 
 **Windows Privilege Escalation:**
+
 - [ ] **UAC Bypass:** Exploit **COM elevation, DLL hijack, token impersonation** to bypass **User Account Control**.
 
 - [ ] **Service Misconfigs:** Abuse **weak service permissions, unquoted paths, service binaries** for **privilege hijack**.
@@ -1759,6 +1752,7 @@ _Goal: Move from low-level foothold to administrative control by exploiting syst
 - [ ] **Group Policy Exploitation:** Abuse **GPP passwords, startup scripts, scheduled tasks** for **privilege gain**.
 
 **Active Directory Attacks:**
+
 - [ ] **Kerberoasting:** Extract **TGS tickets** for **service accounts (SPNs)**, crack offline with **hashcat/JtR** to recover **plaintext passwords**.
 
 - [ ] **AS-REP Roasting:** Target accounts with **pre-authentication disabled**, extract **AS-REP hashes** for offline cracking.
@@ -1774,6 +1768,7 @@ _Goal: Move from low-level foothold to administrative control by exploiting syst
 - [ ] **Constrained/Unconstrained Delegation:** Abuse **delegation rights** to impersonate **privileged users** across domain services.
 
 **Linux Privilege Escalation:**
+
 - [ ] **setuid/setgid Abuse:** Exploit **vulnerable SUID binaries** (vim, cp, find) with **PATH manipulation**.
 
 - [ ] **Capabilities Abuse:** Abuse **CAP_SETUID/CAP_SYS_ADMIN** for **shell execution as root**.
@@ -1785,6 +1780,7 @@ _Goal: Move from low-level foothold to administrative control by exploiting syst
 - [ ] **Cron/Systemd Abuse:** Hijack **cron jobs, systemd timers, .timer files** for **privilege execution**.
 
 **Container & K8s Breakout:**
+
 - [ ] **Mounted docker.sock:** Escape **container to host** via **Docker socket abuse**.
 
 - [ ] **Privileged Containers:** Escape from **--privileged, CAP_SYS_ADMIN** containers.
@@ -1794,6 +1790,7 @@ _Goal: Move from low-level foothold to administrative control by exploiting syst
 - [ ] **RBAC/CNI Misconfigs:** Abuse **Kubernetes role bindings** and **network policy gaps**.
 
 **Cloud Platform Attacks:**
+
 - [ ] **AWS IAM Exploitation:** Enumerate **overprivileged roles**, abuse **AssumeRole**, exploit **resource-based policies** for **privilege escalation**.
 
 - [ ] **S3 Bucket Abuse:** Find **public buckets** via **bucket enumeration**, exploit **ACL misconfigs**, steal data from **pre-signed URLs**.
@@ -1807,6 +1804,7 @@ _Goal: Move from low-level foothold to administrative control by exploiting syst
 - [ ] **Lambda/Function Abuse:** Inject code into **serverless functions**, abuse **environment variables**, exfil via **function logs**.
 
 **LOLBAS & Living off the Land:**
+
 - [ ] **Windows:** Abuse **PowerShell, WMI, certutil, bitsadmin, mshta** for **execution and evasion**.
 
 - [ ] **Linux:** Leverage **bash, find, awk, sed, curl, wget** for **lateral movement and persistence**.
@@ -1818,6 +1816,7 @@ _Goal: Move from low-level foothold to administrative control by exploiting syst
 _Goal: Establish permanent presence and move horizontally across network._
 
 **Credential Harvesting & Token Abuse:**
+
 - [ ] **Pass-the-Hash:** Capture **NTLM hashes** and re-authenticate without cracking passwords.
 
 - [ ] **Pass-the-Ticket:** Steal **Kerberos TGS tickets** to access **network services as compromised user**.
@@ -1829,6 +1828,7 @@ _Goal: Establish permanent presence and move horizontally across network._
 - [ ] **SSH Key Harvesting:** Steal **private keys** from **~/.ssh/id_rsa, agent sockets**.
 
 **Malware & Backdoors:**
+
 - [ ] **Rootkit Deployment:** Hide **files, processes, ports** via **kernel-mode rootkit** for **deep persistence**.
 
 - [ ] **Trojan Backdoors:** Deploy **reverse shells, C2 beacons** disguised as **legitimate services**.
@@ -1840,6 +1840,7 @@ _Goal: Establish permanent presence and move horizontally across network._
 - [ ] **Cron/Registry Backdoors:** Install **cron jobs, registry RunOnce** for **automatic re-execution**.
 
 **Lateral Movement & Pivoting:**
+
 - [ ] **SMB/WinRM:** Use **PsExec, Invoke-Command** to execute **commands on adjacent machines**.
 
 - [ ] **SSH Agent Hijack:** Compromise **SSH forwarding** to move to **key-trusted hosts**.
@@ -1856,6 +1857,7 @@ _Goal: Establish permanent presence and move horizontally across network._
 _Goal: Blind the Blue Team and minimize evidence of compromise._
 
 **Log Manipulation & Cleanup:**
+
 - [ ] **Windows Event Log:** Delete or clear **Security, System, Application** logs; disable **audit logging**.
 
 - [ ] **Linux Auditd:** Disable **auditd**, flush **auth.log, syslog** via **log rotation abuse**.
@@ -1875,6 +1877,7 @@ _Goal: Blind the Blue Team and minimize evidence of compromise._
 - [ ] **AppArmor/SELinux Bypass:** Disable or escape **mandatory access controls**.
 
 **Anti-Forensics:**
+
 - [ ] **File Deletion:** Use **shred, srm, cipher /w** for **secure wiping** of tools and artifacts.
 
 - [ ] **Timestomping:** Modify **file timestamps** (touch -t, $MFT, xattr) to **hide activity**.
@@ -1892,6 +1895,7 @@ _Goal: Blind the Blue Team and minimize evidence of compromise._
 _Goal: Extract sensitive data and demonstrate business impact._
 
 **Data Exfiltration Channels:**
+
 - [ ] **DNS Tunneling:** Encode **data in DNS queries** and exfil via **recursive lookups**.
 
 - [ ] **HTTPS Covert Channels:** Blend **exfil into normal HTTPS** streams with **size/timing variance**.
@@ -1903,6 +1907,7 @@ _Goal: Extract sensitive data and demonstrate business impact._
 - [ ] **Dead-Drop Upload:** Stage **files to attacker-controlled sites** (GitHub gists, pastebin, etc.).
 
 **Impact & Damage:**
+
 - [ ] **Ransomware Deployment:** Encrypt **critical files** with **RSA/AES hybrid** and demand **ransom**.
 
 - [ ] **Data Destruction:** Wipe **backups, system restore points** to prevent **recovery**.
@@ -1916,6 +1921,7 @@ _Goal: Extract sensitive data and demonstrate business impact._
 _Goal: Execute within legal/ethical boundaries and deliver findings professionally._
 
 **Rules of Engagement & Compliance:**
+
 - [ ] **Scope Adherence:** Operate only within **authorized IP ranges, domains, systems** per engagement letter.
 
 - [ ] **ROE Documentation:** Track **timeline, actions, access paths, artifacts discovered** for audit trail.
@@ -1925,6 +1931,7 @@ _Goal: Execute within legal/ethical boundaries and deliver findings professional
 - [ ] **Data Handling:** Secure **screenshots, credentials, exfiltrated files** with **encryption, access control**.
 
 **Framework Alignment & Documentation:**
+
 - [ ] **MITRE ATT&CK Mapping:** Correlate **every technique used** (T1234.567) to **documented tactics**.
 
 - [ ] **Kill Chain Analysis:** Track the **Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions** flow.
@@ -1932,6 +1939,7 @@ _Goal: Execute within legal/ethical boundaries and deliver findings professional
 - [ ] **Vulnerability Timeline:** Document **discovery date, exploitation date, remediation deadline**.
 
 **Audience-Centric Reporting:**
+
 - [ ] **Executive Summary:** Non-technical **risk/impact narrative** for **board/C-suite**.
 
 - [ ] **Technical Deep-Dive:** Detailed **attack chain, proof-of-concept, IOCs** for **security/engineering teams**.
@@ -1957,7 +1965,6 @@ _Goal: Design the malware's purpose using core security principles._
 - [ ] **C2 Protocol Design:** Choose **Secure vs Insecure Protocols** for Command & Control. Will you hide inside **HTTPS** traffic or use **DNS** tunneling to evade **Firewall & Next-Gen Firewall** inspection?
 
 - [ ] **Risk Assessment:** Use the **Diamond Model** or **Cyber Kill Chain** to map out how your malware will move from **Reconnaissance** to **Actions on Objectives**.
-    
 
 ---
 
@@ -1990,7 +1997,6 @@ _Goal: Blind the defensive stack._
 - [ ] **Traffic Masking:** Encrypt C2 traffic to look like normal web browsing, defeating **NIDS/NIPS** (Network Intrusion Prevention Systems).
 
 - [ ] **In-Memory Evasion:** Apply **sleep obfuscation, call stack spoofing, indirect syscalls** to evade **memory scanning and EDR heuristics** during beacon idle time.
-    
 
 ---
 
@@ -2005,7 +2011,6 @@ _Goal: Survive reboots and gain total control._
 - [ ] **Lateral Movement:** Use **Pass the Hash** or compromised **MFA & 2FA** tokens to pivot to other systems within the **Perimeter**.
 
 - [ ] **Defense Disabling:** Actively terminate **Antimalware** or **Host Based Firewall** processes if privileges allow.
-    
 
 ---
 
@@ -2186,7 +2191,6 @@ _Goal: Understand the battlefield. You cannot spoof what you cannot map._
 - [ ] **Interface Configuration:** Configure NIC to **Promiscuous Mode** (tcpdump, Wireshark) to capture all traffic, not just destined to your MAC; practice with **monitor mode** on wireless cards.
 
 - [ ] **Handshake & Session Logic:** Study **TCP/TLS handshakes** (SYN/ACK, ClientHello/ServerHello) to identify session boundaries; understand **sequence numbers, window size, timestamps** for **replay and hijack** timing.
-    
 
 ---
 
@@ -2201,7 +2205,6 @@ _Goal: Capture data without alerting the target. "Listen before act."_
 - [ ] **Protocol Analysis:** Filter **pcap** by protocol (HTTP, FTP, SMTP, DNS); identify **cleartext credentials, API keys, session tokens**, and software **User-Agent/Server banners**.
 
 - [ ] **Stream Reassembly:** Use **tcpflow, Wireshark Follow TCP Stream** to reassemble files, images, emails, or form submissions from fragmented packets.
-    
 
 ---
 
@@ -2220,7 +2223,6 @@ _Goal: Inject false information into the network to redirect or manipulate traff
 - [ ] **IP Spoofing:** Forge **source IP** in packet headers to **hide identity, impersonate trusted hosts**, or launch **reflection/amplification attacks** in DDoS.
 
 - [ ] **SSL Stripping & HTTP Downgrade:** Intercept **HTTPS traffic** and downgrade to **HTTP** by breaking the TLS handshake; use **sslstrip, mitmproxy** to expose encrypted traffic in cleartext.
-    
 
 ---
 
@@ -2239,7 +2241,6 @@ _Goal: Intercept, modify, and relay traffic to extract or manipulate data._
 - [ ] **Rogue Access Point / Evil Twin:** Deploy **fake Wi-Fi AP** with legitimate SSID + stronger signal; force users to connect and route all traffic through your box for **MITM harvesting**.
 
 - [ ] **Traffic Injection & Modification:** Inject malicious **JavaScript, HTML, iframes** into unencrypted HTTP responses; modify **DNS responses** to redirect to attacker servers.
-    
 
 ---
 
@@ -2264,11 +2265,8 @@ _Goal: Understand defensive controls to anticipate and evade them._
 _Goal: Know the target better than they know themselves._
 
 - [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
-    
 - [ ] **Physical Recon:** Perform **dumpster diving** to recover **org charts, vendor invoices, sticky notes** with passwords; observe **badge access patterns, delivery procedures**.
-    
 - [ ] **Domain & Infrastructure Prep:** Register **typo-squatting domains** (e.g., `companysupport.com`, `company-login.net`) that mimic target portals; prepare **phishing landing pages**.
-    
 - [ ] **Social Media Profiling:** Mine **LinkedIn, Twitter, GitHub, Glassdoor** for **personal details, relationships, job changes** to craft personalized lures.
 
 ### **Stage 2: The Digital Assault (Remote Vectors)**
@@ -2276,11 +2274,8 @@ _Goal: Know the target better than they know themselves._
 _Goal: Compromise the target from a distance via electronic channels._
 
 - [ ] **Mass Campaign:** Launch **broad phishing campaigns** with generic lures (password resets, package delivery) for large-scale **credential harvesting**.
-    
 - [ ] **Executive Targeting:** Execute **whaling attacks** against **C-suite/CFO** using deep **OSINT context** (recent news, personal interests, vendor relationships) to bypass skepticism.
-    
 - [ ] **Mobile Vector:** Deploy **SMS phishing (smishing)** with **MFA reset codes, delivery notifications, bank alerts**; use **VoIP/voice phishing (vishing)** to call employees directly.
-    
 - [ ] **Watering Hole:** Compromise **industry-specific forums, GitHub repos, or shared tools** to inject **malware/tracking code** that targets specific teams via **drive-by downloads**.
 
 - [ ] **Deepfake Vishing:** Use **voice cloning/video deepfakes** (e.g., ElevenLabs) for **executive impersonation** in calls/meetings.
@@ -2292,9 +2287,7 @@ _Goal: Compromise the target from a distance via electronic channels._
 _Goal: Use psychology and social manipulation to bypass logic._
 
 - [ ] **Voice Pretexting:** Call as **IT support, HR, vendor, auditor, law enforcement** using social engineering pretexts; use **authority, urgency, fear** to bypass critical thinking.
-    
 - [ ] **Authority & Compliance Trigger:** Leverage **IT/Security/Auditor/Legal persona** to demand compliance; abuse **helpfulness bias** to force password resets or system access.
-    
 - [ ] **Reciprocity & Obligation:** Provide small **favors (tech help, free tools)** to create sense of obligation; ask for credentials or access in return.
 
 ### **Stage 4: The Physical Breach (Boots on the Ground)**
@@ -2302,11 +2295,8 @@ _Goal: Use psychology and social manipulation to bypass logic._
 _Goal: Gain physical access to networks and facilities._
 
 - [ ] **Tailgating:** Follow **authorized employees** into secure zones using badges/access cards; use **coffee cup hold, uniform/vendor persona** to bypass visual checks.
-    
 - [ ] **Shoulder Surfing:** Observe **PIN entry, password typing, screen content** in public spaces (airports, coffee shops, open offices) to capture credentials.
-    
 - [ ] **Badge Cloning:** Capture **RFID badge data** using **Proxmark3, ACR122U** and clone to malicious card; bypass **magnetic stripe readers** via cloning.
-    
 - [ ] **Physical Device Placement:** Plant **USB drops, rogue access points, hardware keyloggers** in common areas for **auto-execution** when connected by unsuspecting users.
 
 ### **Stage 5: Defense & Awareness (The Shield)**
@@ -2314,11 +2304,8 @@ _Goal: Gain physical access to networks and facilities._
 _Goal: Prevent the human hack through training and controls._
 
 - [ ] **Authentication:** Enforce **MFA/2FA** (TOTP, hardware keys, push notifications) so password compromise alone doesn't grant access; watch for **MFA fatigue attacks**.
-    
 - [ ] **Verification Protocols:** Train staff to **challenge unknown callers** via **secondary channel callback**; never trust caller ID alone; verify requests through official channels.
-    
 - [ ] **Physical Security:** Enforce **no-tailgating policies, visitor escorts, badge display requirements, clean desk policies** to prevent **dumpster diving and shoulder surfing**.
-    
 - [ ] **Security Awareness:** Regular **phishing simulations, red team testing, security training** to build **skepticism and reporting culture**; reward **security-first behavior**.
 
 - [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
@@ -2512,6 +2499,7 @@ _Goal: Prevent and detect these attacks._
 - [ ] **Security Headers:** Implement **CSP, X-Frame-Options, HSTS, X-Content-Type-Options** to mitigate client-side attacks.
 
 - [ ] **Continuous Monitoring:** Deploy **SIEM, web server logging, intrusion detection** to identify attack patterns.
+
 ## Part 14: Web Server Hacking
 
 ### **Stage 1: Target Acquisition & Reconnaissance**
@@ -2573,6 +2561,7 @@ _Goal: Escalate privileges and maintain control._
 - [ ] **Credential Harvesting:** Dump **database credentials, config files** (`web.config`, `wp-config.php`), **SSH keys** for lateral movement.
 
 - [ ] **Covering Tracks:** Clear **access logs, error logs, auth logs**; use **timestomping** to hide file modifications.
+
 ## Part 15: IDS, Firewalls, and Honeypots
 
 ### **Stage 1: Foundational Strategy & Networking**
@@ -2580,46 +2569,33 @@ _Goal: Escalate privileges and maintain control._
 _Goal: Establish the theoretical base and network understanding._
 
 - [ ] **Defense in Depth:** Adopt the `Understand Concept of Defense in Depth` philosophy, using multiple layers of security controls.
-    
 - [ ] **Network Segmentation:** Design the network with clear boundaries, utilizing `Perimeter vs DMZ vs Segmentation` to limit blast radius.
-    
 - [ ] **Protocol Knowledge:** Master networking fundamentals, including `Understand Handshakes` and identifying `Secure vs Unsecure Protocols`.
-    
 
 ### **Stage 2: Deploying Firewalls (The Shield)**
 
 _Goal: Implement access control and segmentation._
 
 - [ ] **Perimeter Defense:** Deploy a `Firewall & Nextgen Firewall` at the network edge, configuring `ACLs` for ingress and egress filtering.
-    
 - [ ] **Endpoint Protection:** Enable and configure `Host Based Firewall` on servers and workstations for granular `Port Blocking`.
-    
 - [ ] **Log Analysis:** Set up centralized collection for `Firewall Logs` to monitor policy violations and traffic patterns.
-    
 
 ### **Stage 3: Implementing IDS/IPS (The Watchers)**
 
 _Goal: Detect and stop malicious traffic that bypasses firewalls._
 
 - [ ] **Strategic Deployment:** Place `NIDS` sensors at critical network choke points to monitor east-west and north-south traffic.
-    
 - [ ] **Host Monitoring:** Install `HIPS` agents on critical servers to detect suspicious process execution and file changes.
-    
 - [ ] **Rule Tuning:** Continuously tune signature and anomaly rules to minimize `False Positives` while ensuring no `False Negatives` occur.
-    
 - [ ] **SIEM Integration:** Feed IDS/IPS alerts into a `SIEM` for correlation with other security events.
-    
 
 ### **Stage 4: Utilizing Deception (The Traps)**
 
 _Goal: Gather threat intelligence and waste attacker time._
 
 - [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers.
-    
 - [ ] **Traffic Redirection:** Use `Sinkholes` to capture traffic destined for known malicious domains or IPs.
-    
 - [ ] **Intelligence Gathering:** Analyze logs and activity from deception tools to inform `Basics and Concepts of Threat Hunting`.
-    
 
 ---
 
@@ -2646,31 +2622,23 @@ _Goal: Integrate into daily security operations._
 _Goal: Map the airspace and identify targets._
 
 - [ ] **Monitor Mode:** Configure hardware to capture raw 802.11 frames.
-    
 - [ ] **Protocol Audit:** Identify the target's encryption: **WPA vs WPA2 vs WPA3 vs WEP**. Note that WEP is obsolete but trivial to crack; WPA3 is resistant to dictionary attacks.
-    
 - [ ] **WPS Check:** Scan for **WPS** enabled APs. If active, this is the primary high-value target for PIN brute-forcing (Pixie Dust).
-    
 
 ### **Stage 2: Access Point Assault (The Breaching of Keys)**
 
 _Goal: Obtain the credentials to join the network._
 
 - [ ] **Handshake Capture:** Execute a **Deauth Attack** against a connected client to force a reconnection and capture the 4-way handshake.
-    
 - [ ] **Replay Attacks:** (For legacy/WEP) Use **Replay Attack** techniques to generate traffic and accelerate IV collection for cracking.
-    
 - [ ] **Offline Cracking:** Run the captured handshake against wordlists using Hashcat/Aircrack-ng.
-    
 
 ### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)**
 
 _Goal: Steal individual user identities or hijack connections._
 
 - [ ] **Evil Twin Deployment:** Launch an **Evil Twin** attack to impersonate the target SSID. Use a captive portal to harvest credentials.
-    
 - [ ] **Enterprise Stripping:** Target **EAP vs PEAP** configurations. Downgrade encryption or crack the challenge-response hashes (MSCHAPv2) captured from the Evil Twin.
-    
 - [ ] **Rogue AP:** Plant a **Rogue Access Point** physically in the facility to create an unauthorized backdoor into the LAN.
 
 - [ ] **KRACK Attack:** Exploit **Key Reinstallation Attack** against WPA2 to decrypt traffic (requires client participation, patches available).
@@ -2788,44 +2756,32 @@ _Goal: Secure the airwaves._
 _Goal: Prepare the environment and understand the target._
 
 - [ ] **Environment Prep:** Configure a Rooted (Android) or Jailbroken (iOS) device to bypass **Operating System Hardening**.
-    
 - [ ] **Binary Acquisition:** Extract the APK or IPA and perform **Basics of Reverse Engineering** using tools like `jadx` or `Ghidra`.
-    
 - [ ] **Reconnaissance:** Map the app's attack surface (activities, services, URL schemes) and identify backend endpoints.
-    
 
 ### **Stage 2: Static Analysis (Code Review)**
 
 _Goal: Find hardcoded secrets and configuration flaws._
 
 - [ ] **Manifest/Plist Audit:** Check for exported components or insecure permissions that violate **Zero Trust** principles.
-    
 - [ ] **Secret Hunting:** Search decompiled code for **Key Exchange** material, API tokens, or hardcoded credentials.
-    
 - [ ] **Crypto Audit:** Verify if the app uses weak **Hashing** or **Salting** algorithms for local storage.
-    
 
 ### **Stage 3: Dynamic Analysis (Runtime Manipulation)**
 
 _Goal: Bypass client-side controls._
 
 - [ ] **Security Control Bypass:** Use Frida to bypass Root Detection and SSL Pinning (breaking the **SSL vs TLS** trust chain).
-    
 - [ ] **Logic Manipulation:** Hook functions to bypass **Authentication vs Authorization** checks (e.g., bypassing a PIN screen).
-    
 - [ ] **Memory Dumping:** Analyze device memory for sensitive data that should have been cleared (violating **Confidentiality** in the **CIA Triad**).
-    
 
 ### **Stage 4: Network & API Attacks**
 
 _Goal: Compromise the backend server._
 
 - [ ] **Traffic Interception:** Proxy traffic to analyze **Secure vs Unsecure Protocols** and payload structures.
-    
 - [ ] **API Vulnerability Testing:** Test backend endpoints for **OWASP10** vulnerabilities like **SQL Injection**, **IDOR**, and **Broken Access Control**.
-    
 - [ ] **Session Management:** Test for weak **Session ID** generation or lack of **MFA & 2FA** on the mobile endpoints.
-    
 
 ---
 
@@ -2854,6 +2810,7 @@ _Goal: Build security into mobile apps._
 - [ ] **Runtime Protection:** Implement **root/jailbreak detection, debugger detection, integrity checks**.
 
 - [ ] **Secure Communication:** Enforce **TLS 1.2+**, validate **certificates**, use **certificate pinning** for API calls.
+
 ---
 
 ## Part 18: Cryptography
@@ -2863,31 +2820,23 @@ _Goal: Build security into mobile apps._
 _Goal: Understand the mathematical tools available._
 
 - [ ] **CIA Alignment:** Map your crypto goals to the **Understand CIA Triad** (Confidentiality = Encryption, Integrity = Hashing).
-    
 - [ ] **Asymmetric Mastery:** Define the roles of **Private vs Public Keys**: Public to Encrypt/Verify, Private to Decrypt/Sign.
-    
 - [ ] **Integrity Checks:** Implement **Hashing** (SHA-256) to verify data integrity and detect **False Positives/Negatives** in file transfers.
-    
 
 ### **Stage 2: Secure Communication (Data in Transit)**
 
 _Goal: Secure the pipe between two points._
 
 - [ ] **Protocol Hardening:** Enforce **Secure Protocols** by disabling **SSL** (deprecated) and enforcing **TLS** 1.2/1.3.
-    
 - [ ] **Secure Transfer:** Replace cleartext protocols with encrypted alternatives: **FTP vs SFTP** (SSH-based) or **IPSEC** for VPNs.
-    
 - [ ] **Handshake Analysis:** Analyze the **Key Exchange** (Diffie-Hellman) within the **Understand Handshakes** process to ensure Forward Secrecy.
-    
 
 ### **Stage 3: Identity & Trust (PKI)**
 
 _Goal: Prove that you are who you say you are._
 
 - [ ] **Infrastructure:** Deploy **PKI** to manage digital certificates, ensuring the validity of public keys.
-    
 - [ ] **Email Security:** Implement **S/MIME** to sign and encrypt corporate email, preventing **Phishing** and spoofing.
-    
 
 ---
 
@@ -2928,31 +2877,23 @@ _Goal: Understand how crypto fails._
 _Goal: Define the battlefield and the rules of engagement._
 
 - [ ] **Model Selection:** Select the correct `Cloud Models` (`Public`, `Private`, `Hybrid`) based on data sensitivity.
-    
 - [ ] **Responsibility Mapping:** Apply the **Shared Responsibility Model** based on the service type (`IaaS`, `PaaS`, `SaaS`) to identify what you must secure vs. the provider.
-    
 - [ ] **Environment Setup:** Initialize the tenant in a `Common Cloud Environment` (`AWS`, `GCP`, or `Azure`) with a secure root account setup.
-    
 
 ### **Stage 2: Storage & Data Security**
 
 _Goal: Lock down the data assets._
 
 - [ ] **Object Storage Security:** Audit `S3` buckets and `Common Cloud Storage` (Drive, Box) for public access and enforce encryption.
-    
 - [ ] **Access Control:** Implement strict IAM policies ensuring only authorized identities can access storage blobs.
-    
 
 ### **Stage 3: Modern Infrastructure & Deployment**
 
 _Goal: Secure the compute and the pipeline._
 
 - [ ] **Code-Defined Security:** Use `Infrastructure as Code` (IaC) to template firewalls and permissions, preventing human configuration errors.
-    
 - [ ] **Serverless Hardening:** Secure `Serverless` functions by minimizing privileges and auditing dependencies for vulnerabilities.
-    
 - [ ] **Pipeline Security:** Audit the `general flow of deploying in the cloud` to ensure secrets (API keys) are not hardcoded in the deployment scripts.
-    
 
 ---
 
@@ -2993,31 +2934,23 @@ _Goal: Understand unique cloud threats._
 _Goal: Secure the scene without corrupting evidence._
 
 - [ ] **Incident Identification:** Trigger the `Incident Response Process` upon `Identification` of a breach.
-    
 - [ ] **Volatile Collection:** Capture RAM immediately using `memdump` before the system is powered off or rebooted.
-    
 - [ ] **Static Acquisition:** Create a forensic image of hard drives using `FTK Imager` or `dd`, ensuring a write-blocker is used.
-    
 
 ### **Stage 2: Evidence Analysis (The Deep Dive)**
 
 _Goal: Find the needle in the haystack._
 
 - [ ] **Disk Analysis:** Load the evidence into `autopsy` to recover deleted files, analyze web history, and search for keywords.
-    
 - [ ] **Binary Inspection:** Use `winhex` to manually inspect file headers (signatures) to identify files with changed extensions (e.g., an EXE renamed to JPG).
-    
 - [ ] **Log Review:** Correlate actions by analyzing `Event Logs` (Login times, Service installs) and `syslogs`.
-    
 
 ### **Stage 3: Network Forensics**
 
 _Goal: Trace the attacker's path._
 
 - [ ] **Traffic Reconstruction:** Open `Packet Captures` in `wireshark` to find C2 communication, data exfiltration, or cleartext passwords.
-    
 - [ ] **Flow Analysis:** If full packets are missing, use `netflow` logs to identify connections to malicious IPs.
-    
 
 ---
 
@@ -3046,6 +2979,7 @@ _Goal: Present findings professionally._
 - [ ] **Executive Summary:** Translate technical findings into **business impact, risk assessment** for management.
 
 - [ ] **Legal Coordination:** Work with **legal counsel, HR, law enforcement** on evidence disclosure and prosecution.
+
 ---
 
 ## Part 21: Bug Bounty and Penetration Testing
@@ -3055,44 +2989,32 @@ _Goal: Present findings professionally._
 _Goal: Stay legal and define the target._
 
 - [ ] **Legal Check:** Read and sign the `Penetration Testing Rules of Engagement` or the Bug Bounty Policy (Safe Harbor).
-    
 - [ ] **Scope Validation:** Confirm IP ranges and domains. Ensure you are not attacking "Out of Scope" assets.
-    
 - [ ] **Framework Selection:** Decide if you are testing against `NIST`, `ISO`, or `OWASP10` standards.
-    
 
 ### **Stage 2: Reconnaissance (The Wide Net)**
 
 _Goal: Find what others missed._
 
 - [ ] **Subdomain Enumeration:** Use **OSINT** tools to find `dev`, `stage`, or `test` subdomains.
-    
 - [ ] **Port Scanning:** Run `nmap` to identify non-standard ports (e.g., 8080, 8443) and running services.
-    
 - [ ] **Tech Stack Analysis:** Use `curl` or browser extensions to identify the server, framework (React, Angular), and backend (PHP, Python).
-    
 
 ### **Stage 3: Vulnerability Assessment (The Deep Dive)**
 
 _Goal: Find the flaw._
 
 - [ ] **Input Fuzzing:** Test all input fields for `SQL Injection`, `XSS`, and `Buffer Overflow`.
-    
 - [ ] **Access Control:** Test for `IDOR` (Insecure Direct Object Reference) and verify `Authentication vs Authorization` logic.
-    
 - [ ] **Configuration Check:** Look for `Directory Traversal`, exposed `.git` folders, or default credentials (`admin/admin`).
-    
 
 ### **Stage 4: Exploitation & Validation**
 
 _Goal: Prove the risk without breaking the system._
 
 - [ ] **PoC Development:** Create a non-destructive Proof of Concept. (e.g., `alert(1)` for XSS, `whoami` for RCE).
-    
 - [ ] **False Positive Check:** Verify the finding is a `True Positive` before reporting.
-    
 - [ ] **Lateral Movement:** (Pentest only) Attempt `Privilege Escalation` or `Pass the Hash` if internal access is achieved.
-    
 
 ---
 
@@ -3654,9 +3576,7 @@ _Goal: Harden AI systems against attacks and ensure ethical deployment._
 
 ---
 
----
-
-### **Stage 5: Tooling & Evaluation**
+### **Stage 11: Tooling & Evaluation**
 
 _Goal: Automate and measure AI red team coverage._
 
@@ -3668,11 +3588,97 @@ _Goal: Automate and measure AI red team coverage._
 
 ---
 
+### **Stage 12: AI Fundamentals for Security Practitioners**
+
+_Goal: Understand the raw mechanics of AI/ML models to attack and defend them effectively._
+
+- [ ] **Transformer Architecture:** Study the **Transformer model** (attention heads, tokenization, embeddings, positional encoding) — understand how LLMs generate text at a mechanistic level to identify exploitable behavior.
+
+- [ ] **Retrieval-Augmented Generation (RAG):** Understand the full **RAG pipeline** (chunking → embedding → vector DB → retrieval → generation); know how each stage can be poisoned or manipulated.
+
+- [ ] **Fine-Tuning Concepts:** Learn how **supervised fine-tuning (SFT), RLHF, and LoRA** work; understand how fine-tuning changes model behavior and creates new attack surfaces (backdoors, alignment drift).
+
+- [ ] **AI Math Foundations:** Study the underlying math — **gradient descent, loss functions, attention weights, softmax probabilities** — to understand why adversarial inputs work and how to craft more effective attacks.
+
+- [ ] **API Integration (Python & Bash):** Integrate **OpenAI, Claude (Anthropic), and Gemini (Google)** APIs into Python and Bash scripts; build wrappers for security automation tasks (recon summarization, vuln explanation, report drafting).
+
+- [ ] **Prompt Engineering for Security:** Master structured prompting techniques — **system/user role separation, chain-of-thought, few-shot examples** — applied strictly to security contexts (threat modeling, CVE analysis, payload generation assistance).
+
+- [ ] **AI/ML Course Grounding:** Complete foundational AI courses (e.g., **DeepLearning.AI Specialization** or **Google AI Essentials**) to understand the math behind models before testing them offensively.
+
+---
+
+### **Stage 13: AI-Augmented Red Team Workflow**
+
+_Goal: Force-multiply your existing red team toolkit with AI-native tooling._
+
+- [ ] **Burp Suite AI Plugins:** Install and operate AI-powered Burp extensions — use **AI-assisted scanning, request analysis, and vulnerability explanation** plugins to accelerate web app assessments.
+
+- [ ] **AutoRecon + LLM Analysis:** Run **AutoRecon** for automated multi-tool recon; pipe structured output into an **LLM (GPT/Claude/Gemini)** for intelligent prioritization, service context, and attack path recommendations.
+
+- [ ] **PentestGPT:** Use **PentestGPT** (LLM-guided pentest assistant) to navigate complex engagement steps — test its guidance quality, understand its failure modes, and learn to correct its reasoning.
+
+- [ ] **AI-Assisted Report Writing:** Use LLMs to draft **findings, risk ratings, and executive summaries** from structured notes; review and correct output for accuracy, then refine prompts for consistency.
+
+- [ ] **AI Threat Modeling:** Apply LLM-assisted **STRIDE/PASTA threat modeling** — feed system architecture descriptions into an AI to enumerate threats; validate against manual analysis.
+
+- [ ] **AI Forensics Concepts:** Understand how **AI systems leave forensic artifacts** (inference logs, model versioning, embedding stores) and how to investigate AI-assisted attacks post-incident.
+
+---
+
+### **Stage 14: Agentic AI & Autonomous Attack Infrastructure**
+
+_Goal: Build autonomous agents that execute security tasks end-to-end._
+
+- [ ] **LangChain for Security Automation:** Build **LangChain-based agents** in Python that chain tools (Nmap, Shodan API, CVE search, Burp) with LLM reasoning to automate multi-step recon and enumeration workflows.
+
+- [ ] **CrewAI Multi-Agent Systems:** Design **CrewAI role-based agent crews** (e.g., Recon Agent + Exploit Agent + Report Agent) that collaborate autonomously on a penetration testing engagement.
+
+- [ ] **Model Context Protocol (MCP):** Learn the **MCP standard** — how AI agents communicate with external tools and data sources; understand MCP server architecture and security implications of poorly scoped MCP permissions.
+
+- [ ] **Adversarial Testing Against Live LLMs:** Practice offensive testing against **production LLMs** (within authorized scope/bug bounty programs) — attempt prompt injection, context manipulation, and tool abuse against real deployed systems.
+
+- [ ] **AI-Specific CTFs:** Participate in **AI/LLM-focused Capture The Flag competitions** (e.g., Gandalf AI CTF, HackAPrompt, CTFd-based AI challenges) to build speed and creativity against novel AI attack scenarios.
+
+- [ ] **Custom GPT for Recon Automation:** Build a **custom GPT or assistant** (via OpenAI API or open-source models) designed solely for reconnaissance automation — feeds it OSINT data, outputs structured attack surface maps and prioritized targets.
+
+---
+
+### **Stage 15: AI Security Projects & Portfolio**
+
+_Goal: Prove production capability through real, complex, integrated AI-security projects._
+
+- [ ] **AI-Driven Fuzzer (C/C++):** Build a **machine learning-guided fuzzer** in C/C++ that uses coverage feedback and learned mutation strategies to discover vulnerabilities faster than traditional dumb fuzzing.
+
+- [ ] **Automated Payload Obfuscator:** Develop an AI-assisted tool that **automatically transforms payloads** (shellcode, scripts) to evade AV/EDR signatures using LLM-guided encoding, variable substitution, and structure mutation.
+
+- [ ] **Integrated AI-Security Project (GitHub):** Push **2–3 highly complex, integrated AI-security tools** to a public GitHub repository — include README, architecture diagrams, usage examples, and documented attack scenarios.
+
+- [ ] **Technical Writeups (Medium/LinkedIn):** Write **substantive, technical breakdowns** of your AI security research — document methodology, failures, and findings in long-form posts targeting both practitioners and hiring managers.
+
+- [ ] **Community Presentation:** Present findings at **local hacker meetups, BSides, or DEF CON AI Village** — build credibility through live demonstrations and Q&A with the community.
+
+---
+
+### **Stage 16: AI Security Career Targeting**
+
+_Goal: Position yourself specifically for AI-native security roles._
+
+- [ ] **AI Security Role Identification:** Target roles explicitly requiring **AI security skills** — LLM Red Teamer, AI Safety Engineer, ML Security Researcher, Prompt Security Engineer — at AI labs, security consultancies, and enterprise AI teams.
+
+- [ ] **Resume Differentiation:** Highlight **autonomous systems engineered, agents built, AI tools integrated** — frame contributions in terms of capability delivered, not just technologies used.
+
+- [ ] **AI Security Community Engagement:** Contribute to **OWASP LLM Top 10 working group**, open-source AI security tools (**Garak, PyRIT**), or AI safety research to build verifiable community presence.
+
+- [ ] **Portfolio Alignment:** Ensure your **GitHub, Medium, and LinkedIn** tell a coherent story — each project links to a writeup, each writeup links to working code.
+
+---
+
 ## Part 28: Active Directory & Entra ID
 
 ### **Stage 1: Discovery & Enumeration**
 
-_Goal: Map identity surfaces across on-prem AD and Entra ID (Azure AD)._ 
+_Goal: Map identity surfaces across on-prem AD and Entra ID (Azure AD)._
 
 - [ ] **Domain Recon:** Enumerate **domains/forests, trusts, sites, subnets, FSMO roles**; collect **OU/Group/ACL** data.
 
@@ -4517,11 +4523,13 @@ _Goal: Build secure smart contracts and Web3 applications._
 ### Strategy & Core Operations
 
 **Planning, ROE, and Safety:**
+
 - [ ] Define **objectives, success criteria, scope, and exclusions**; align with **Rules of Engagement** and legal guardrails.
 
 - [ ] Establish **comms plan, abort criteria, and blowout procedures**; document all operator actions for auditability.
 
 **Infrastructure & C2:**
+
 - [ ] Build **redirectors/frontends** (Nginx/Apache/Cloud/CDN) to shield C2 and rotate domains/certs.
 
 - [ ] Operate multiple **C2 profiles** (HTTP(S)/DNS/SMB/MTLS) with **jitter, sleep, and OPSEC** tuning.
@@ -4535,11 +4543,13 @@ _Goal: Build secure smart contracts and Web3 applications._
 - [ ] **IaC for Red Teams:** Provision disposable infra via **Terraform/Ansible** (C2, redirectors, TLS, DNS, storage) for rapid tear-down/rotation.
 
 **Initial Access & Payload Delivery:**
+
 - [ ] Craft **phishing/pretexting** with **HTML smuggling, ISO/LNK/Shortcut** loaders, and **macro/OneNote** lures.
 
 - [ ] Harden payloads with **AMSI evasion, ETW patching, obfuscation**, and staged vs. stageless choices.
 
 **Privilege Escalation & Credential Access:**
+
 - [ ] **Windows:** Exploit **UAC bypass, service misconfigs, token impersonation, vulnerable drivers**, and **LSASS/DPAPI/SAM** extraction.
 
 - [ ] **Linux:** Abuse **sudo/suid/cap_setuid files, misconfigured services, kernel LPE**, and harvest **ssh keys/agent sockets**.
@@ -4547,12 +4557,13 @@ _Goal: Build secure smart contracts and Web3 applications._
 - [ ] Practice **pass-the-hash, pass-the-ticket, Kerberoasting/AS-REP roast**, and **vault/credential manager** theft.
 
 **Lateral Movement & Persistence:**
+
 - [ ] Move via **SMB/WinRM/WMI/RDP**, **SSH agent hijack**, and **PsExec/Impacket** equivalents.
 
 - [ ] Persist with **services, scheduled tasks, WMI event consumers, startup scripts, cron/systemd timers, SSH authorized_keys**.
 
-
 **Living Off the Land & Evasion:**
+
 - [ ] Use **LOLBAS/GTFOBins** to blend in; prefer **native binaries** over custom tools.
 
 - [ ] Evade **EDR/IDS** with **sideloading, DLL hijack, LOL drivers, memory-only beacons, timestomping, and log tampering**.
@@ -4560,11 +4571,13 @@ _Goal: Build secure smart contracts and Web3 applications._
 - [ ] Tune noise: minimize **parent/child process anomalies**, limit **PowerShell logs (ScriptBlock/Module)**, and watch **Sysmon** events.
 
 **Logging, Monitoring, and Cleanup:**
+
 - [ ] Track footprints in **Windows Event Logs, Sysmon, ETW, Prefetch, AmCache, SRUM**; on Linux in **auth.log, auditd, bash history, journalctl**.
 
 - [ ] Plan **cleanup and restoration** per ROE; document **IOCs, timelines, and access paths** for reporting.
 
 **Automation & Scripting Discipline:**
+
 - [ ] Maintain fluency in **Bash, PowerShell, Python**; script **collection, parsing, and lateral movement** tasks.
 
 - [ ] Template **checklists/playbooks** for repeatable ops; version control tooling and payloads.
