@@ -3426,169 +3426,7 @@ _Goal: Secure embedded systems against attacks._
 
 ## Part 27: AI & LLM Red Teaming
 
-### **Stage 1: Attack Surface & Frameworks**
-
-_Goal: Test LLMs and agentic systems against the latest threat models._
-
-- [ ] **OWASP LLM Top 10 (2025):** Prioritize **LLM01 Prompt Injection**, **LLM02 Sensitive Information Disclosure**, and **LLM10 Unbounded Consumption (denial-of-wallet)**; build test cases for each.
-
-- [ ] **Model Scoping:** Identify **system prompts, guardrails, plugins/tools, retrieval sources, rate limits** and what data the model can reach.
-
-- [ ] **Safety Policy Mapping:** Map controls to **content filters, tool permission boundaries, data classification**, and measure gaps.
-
----
-
-### **Stage 2: Adversarial Techniques (LLM01/LLM06)**
-
-_Goal: Break safety controls and force unintended actions._
-
-- [ ] **Jailbreaking:** Use **role-play prompts (e.g., DAN), multi-turn “crescendo” manipulation**, and **character/encoding obfuscation** to bypass safety layers.
-
-- [ ] **Agentic Exploitation (LLM06 Excessive Agency):** Trick autonomous agents into **calling disallowed tools, escalating permissions, or executing dangerous actions**.
-
-- [ ] **Prompt Injection:** Deliver **in-band and out-of-band injections** via user input, files, and linked resources to override system prompts.
-
----
-
-### **Stage 3: RAG & Data Supply Chain Attacks**
-
-_Goal: Poison or subvert the knowledge base feeding the model._
-
-- [ ] **RAG Poisoning:** Inject **malicious documents or vectors** into **vector DBs/indices** to induce **hallucinations or payload delivery**.
-
-- [ ] **Retrieval Abuse:** Manipulate **chunking, scoring, metadata filters** to force **malicious context** into responses.
-
-- [ ] **Data Exfil via RAG:** Weaponize **document recall** to leak **sensitive embeddings or proprietary content**.
-
----
-
-### **Stage 4: Adversarial Examples & ML Robustness**
-
-_Goal: Craft inputs that cause model misclassification or unexpected behavior._
-
-- [ ] **Adversarial Patch Generation:** Create **minimal perturbations** (pixel-level or token-level) to flip model predictions (e.g., misclassify objects, bypass spam filters).
-
-- [ ] **Universal Adversarial Perturbations (UAP):** Develop **single perturbation sequences** that fool the model across many inputs.
-
-- [ ] **Text-Based Adversarial Examples:** Generate **typos, special chars, unicode tricks** to bypass **content filters, keyword detection**.
-
-- [ ] **Robustness Testing Frameworks:** Use tools like **CleverHans, Foolbox, Adversarial-Robustness-Toolbox** to systematically find weaknesses.
-
-- [ ] **Defense Evasion via Adversarial Samples:** Understand how **adversarial training, input sanitization, ensemble defenses** are applied.
-
----
-
-### **Stage 5: Model Extraction & Inversion**
-
-_Goal: Steal or reverse-engineer the model's behavior and weights._
-
-- [ ] **Model Extraction via API:** Use **probing queries, decision boundary mapping** to reverse-engineer **model architecture, layer sizes**.
-
-- [ ] **Training Data Extraction:** Use **membership inference attacks** to determine if **specific data was in training set**.
-
-- [ ] **Prompt Leakage:** Extract **system prompts, fine-tuning instructions, API keys** via **prompt injection, log manipulation**.
-
-- [ ] **Functionality Cloning:** Build **surrogate model** that mimics extracted behavior, cheaper than using the original API.
-
----
-
-### **Stage 6: Dataset Poisoning & Backdoors**
-
-_Goal: Corrupt training pipelines to install persistent behavior changes._
-
-- [ ] **Label Flipping:** Inject **mislabeled examples** during training to degrade model accuracy on target classes.
-
-- [ ] **Trojan/Backdoor Attacks:** Insert **trigger patterns** that cause specific misbehavior only when triggered (e.g., misclassify specific images when watermark present).
-
-- [ ] **Gradual Poisoning:** Inject **subtle, distributed poisoning** to avoid detection while degrading performance.
-
-- [ ] **Federated Learning Poisoning:** Attack **distributed training** by sending malicious gradients from compromised workers.
-
-- [ ] **Supply Chain Poisoning:** Compromise **training data sources, pre-trained models, dependencies** to plant backdoors.
-
----
-
-### **Stage 7: Privacy Attacks & PII Leakage**
-
-_Goal: Extract private information embedded in models._
-
-- [ ] **Membership Inference:** Determine if **specific records were used in training** via prediction confidence analysis.
-
-- [ ] **Attribute Inference:** Deduce **sensitive attributes** of training individuals from model behavior.
-
-- [ ] **Model Inversion:** Reconstruct **training data samples** (e.g., faces from facial recognition model).
-
-- [ ] **Reconstruction Attacks:** Use **gradient descent** to reconstruct **sensitive inputs** from model outputs.
-
-- [ ] **De-anonymization:** Link **anonymized training data** to real identities via **model predictions and external data**.
-
----
-
-### **Stage 8: Language Model Specific Attacks**
-
-_Goal: Exploit LLM architecture and fine-tuning vulnerabilities._
-
-- [ ] **Prompt Injection (LLM01):** Master **direct, indirect, multi-turn, and encoding-based injections** to override safety guardrails.
-
-- [ ] **Excessive Agency (LLM06):** Force LLM-powered agents to **call unintended tools, escalate permissions, bypass access controls**.
-
-- [ ] **Training Data Leakage:** Extract **memorized training data** via **completion, prefix completion, membership inference**.
-
-- [ ] **Instruction Hierarchy Bypass:** Exploit **conflicting instructions** (system prompt vs. user input) to cause **unsafe behavior**.
-
-- [ ] **Sycophancy & Alignment Hacking:** Manipulate models to prioritize **user approval over accuracy, safety**, causing deceptive outputs.
-
----
-
-### **Stage 9: Multi-Model & Agent Attacks**
-
-_Goal: Exploit weaknesses in agentic and multi-model systems._
-
-- [ ] **Agent Jailbreaking:** Trick **agents with tool access** to call **disallowed APIs or perform escalated actions**.
-
-- [ ] **Tool Confusion:** Supply **conflicting or misleading tools** to cause **agent to misuse capabilities**.
-
-- [ ] **Multi-Model Poisoning:** Compromise **upstream models** in a pipeline to degrade **downstream results**.
-
-- [ ] **Agent Exfiltration:** Use **agent tool calls** to exfiltrate **data, model outputs, system information**.
-
-- [ ] **Prompt Leakage via Agents:** Trigger **verbose logging or error messages** to leak **system prompts, API keys, context**.
-
----
-
-### **Stage 10: Defense & Responsible AI**
-
-_Goal: Harden AI systems against attacks and ensure ethical deployment._
-
-- [ ] **Input Validation & Sanitization:** Filter **prompt injections, adversarial patterns, malicious encodings**.
-
-- [ ] **Output Guardrails:** Implement **content filtering, toxicity detection, sensitive info masking** on responses.
-
-- [ ] **Model Hardening:** Use **adversarial training, regularization, ensemble methods** to improve robustness.
-
-- [ ] **Monitoring & Detection:** Track **unusual queries, repeated failures, extraction signals** to detect attacks.
-
-- [ ] **Audit Logging:** Log **all prompts, model outputs, decisions** for **post-incident forensics and compliance**.
-
-- [ ] **Responsible Disclosure:** Establish **vulnerability bounty programs, responsible disclosure timelines** for AI security researchers.
-
-- [ ] **Threat Model Documentation:** Maintain **risk register** of **known weaknesses, mitigations, residual risk** in AI systems.
-
----
-
-### **Stage 11: Tooling & Evaluation**
-
-_Goal: Automate and measure AI red team coverage._
-
-- [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**Metasploit**) for orchestration.
-
-- [ ] **Benchmarking:** Track **success rates** across **OWASP LLM Top 10** and **agent/tool abuse cases**; log **prompt, response, decision traces**.
-
-- [ ] **Safety Regression:** Build **automated test suites** to prevent **prompt regressions** after model or policy updates.
-
----
-
-### **Stage 12: AI Fundamentals for Security Practitioners**
+### **Stage 1: AI Fundamentals for Security Practitioners**
 
 _Goal: Understand the raw mechanics of AI/ML models to attack and defend them effectively._
 
@@ -3608,7 +3446,137 @@ _Goal: Understand the raw mechanics of AI/ML models to attack and defend them ef
 
 ---
 
-### **Stage 13: AI-Augmented Red Team Workflow**
+### **Stage 2: Attack Surface & Frameworks**
+
+_Goal: Map the AI/LLM attack surface using structured threat models._
+
+- [ ] **OWASP LLM Top 10 (2025):** Prioritize **LLM01 Prompt Injection**, **LLM02 Sensitive Information Disclosure**, and **LLM10 Unbounded Consumption (denial-of-wallet)**; build test cases for each.
+
+- [ ] **Model Scoping:** Identify **system prompts, guardrails, plugins/tools, retrieval sources, rate limits** and what data the model can reach.
+
+- [ ] **Safety Policy Mapping:** Map controls to **content filters, tool permission boundaries, data classification**, and measure gaps.
+
+---
+
+### **Stage 3: Adversarial Techniques (LLM01/LLM06)**
+
+_Goal: Break safety controls and force unintended actions._
+
+- [ ] **Jailbreaking:** Use **role-play prompts (e.g., DAN), multi-turn "crescendo" manipulation**, and **character/encoding obfuscation** to bypass safety layers.
+
+- [ ] **Agentic Exploitation (LLM06 Excessive Agency):** Trick autonomous agents into **calling disallowed tools, escalating permissions, or executing dangerous actions**.
+
+- [ ] **Prompt Injection:** Deliver **in-band and out-of-band injections** via user input, files, and linked resources to override system prompts.
+
+---
+
+### **Stage 4: RAG & Data Supply Chain Attacks**
+
+_Goal: Poison or subvert the knowledge base feeding the model._
+
+- [ ] **RAG Poisoning:** Inject **malicious documents or vectors** into **vector DBs/indices** to induce **hallucinations or payload delivery**.
+
+- [ ] **Retrieval Abuse:** Manipulate **chunking, scoring, metadata filters** to force **malicious context** into responses.
+
+- [ ] **Data Exfil via RAG:** Weaponize **document recall** to leak **sensitive embeddings or proprietary content**.
+
+---
+
+### **Stage 5: Language Model Specific Attacks**
+
+_Goal: Exploit LLM architecture and fine-tuning vulnerabilities._
+
+- [ ] **Prompt Injection (LLM01):** Master **direct, indirect, multi-turn, and encoding-based injections** to override safety guardrails.
+
+- [ ] **Excessive Agency (LLM06):** Force LLM-powered agents to **call unintended tools, escalate permissions, bypass access controls**.
+
+- [ ] **Training Data Leakage:** Extract **memorized training data** via **completion, prefix completion, membership inference**.
+
+- [ ] **Instruction Hierarchy Bypass:** Exploit **conflicting instructions** (system prompt vs. user input) to cause **unsafe behavior**.
+
+- [ ] **Sycophancy & Alignment Hacking:** Manipulate models to prioritize **user approval over accuracy, safety**, causing deceptive outputs.
+
+---
+
+### **Stage 6: Multi-Model & Agent Attacks**
+
+_Goal: Exploit weaknesses in agentic and multi-model systems._
+
+- [ ] **Agent Jailbreaking:** Trick **agents with tool access** to call **disallowed APIs or perform escalated actions**.
+
+- [ ] **Tool Confusion:** Supply **conflicting or misleading tools** to cause **agent to misuse capabilities**.
+
+- [ ] **Multi-Model Poisoning:** Compromise **upstream models** in a pipeline to degrade **downstream results**.
+
+- [ ] **Agent Exfiltration:** Use **agent tool calls** to exfiltrate **data, model outputs, system information**.
+
+- [ ] **Prompt Leakage via Agents:** Trigger **verbose logging or error messages** to leak **system prompts, API keys, context**.
+
+---
+
+### **Stage 7: Adversarial Examples & ML Robustness**
+
+_Goal: Craft inputs that cause model misclassification or unexpected behavior._
+
+- [ ] **Adversarial Patch Generation:** Create **minimal perturbations** (pixel-level or token-level) to flip model predictions (e.g., misclassify objects, bypass spam filters).
+
+- [ ] **Universal Adversarial Perturbations (UAP):** Develop **single perturbation sequences** that fool the model across many inputs.
+
+- [ ] **Text-Based Adversarial Examples:** Generate **typos, special chars, unicode tricks** to bypass **content filters, keyword detection**.
+
+- [ ] **Robustness Testing Frameworks:** Use tools like **CleverHans, Foolbox, Adversarial-Robustness-Toolbox** to systematically find weaknesses.
+
+- [ ] **Defense Evasion via Adversarial Samples:** Understand how **adversarial training, input sanitization, ensemble defenses** are applied.
+
+---
+
+### **Stage 8: Model Extraction & Inversion**
+
+_Goal: Steal or reverse-engineer the model's behavior and weights._
+
+- [ ] **Model Extraction via API:** Use **probing queries, decision boundary mapping** to reverse-engineer **model architecture, layer sizes**.
+
+- [ ] **Training Data Extraction:** Use **membership inference attacks** to determine if **specific data was in training set**.
+
+- [ ] **Prompt Leakage:** Extract **system prompts, fine-tuning instructions, API keys** via **prompt injection, log manipulation**.
+
+- [ ] **Functionality Cloning:** Build **surrogate model** that mimics extracted behavior, cheaper than using the original API.
+
+---
+
+### **Stage 9: Dataset Poisoning & Backdoors**
+
+_Goal: Corrupt training pipelines to install persistent behavior changes._
+
+- [ ] **Label Flipping:** Inject **mislabeled examples** during training to degrade model accuracy on target classes.
+
+- [ ] **Trojan/Backdoor Attacks:** Insert **trigger patterns** that cause specific misbehavior only when triggered (e.g., misclassify specific images when watermark present).
+
+- [ ] **Gradual Poisoning:** Inject **subtle, distributed poisoning** to avoid detection while degrading performance.
+
+- [ ] **Federated Learning Poisoning:** Attack **distributed training** by sending malicious gradients from compromised workers.
+
+- [ ] **Supply Chain Poisoning:** Compromise **training data sources, pre-trained models, dependencies** to plant backdoors.
+
+---
+
+### **Stage 10: Privacy Attacks & PII Leakage**
+
+_Goal: Extract private information embedded in models._
+
+- [ ] **Membership Inference:** Determine if **specific records were used in training** via prediction confidence analysis.
+
+- [ ] **Attribute Inference:** Deduce **sensitive attributes** of training individuals from model behavior.
+
+- [ ] **Model Inversion:** Reconstruct **training data samples** (e.g., faces from facial recognition model).
+
+- [ ] **Reconstruction Attacks:** Use **gradient descent** to reconstruct **sensitive inputs** from model outputs.
+
+- [ ] **De-anonymization:** Link **anonymized training data** to real identities via **model predictions and external data**.
+
+---
+
+### **Stage 11: AI-Augmented Red Team Workflow**
 
 _Goal: Force-multiply your existing red team toolkit with AI-native tooling._
 
@@ -3626,7 +3594,7 @@ _Goal: Force-multiply your existing red team toolkit with AI-native tooling._
 
 ---
 
-### **Stage 14: Agentic AI & Autonomous Attack Infrastructure**
+### **Stage 12: Agentic AI & Autonomous Attack Infrastructure**
 
 _Goal: Build autonomous agents that execute security tasks end-to-end._
 
@@ -3641,6 +3609,38 @@ _Goal: Build autonomous agents that execute security tasks end-to-end._
 - [ ] **AI-Specific CTFs:** Participate in **AI/LLM-focused Capture The Flag competitions** (e.g., Gandalf AI CTF, HackAPrompt, CTFd-based AI challenges) to build speed and creativity against novel AI attack scenarios.
 
 - [ ] **Custom GPT for Recon Automation:** Build a **custom GPT or assistant** (via OpenAI API or open-source models) designed solely for reconnaissance automation — feeds it OSINT data, outputs structured attack surface maps and prioritized targets.
+
+---
+
+### **Stage 13: Tooling & Evaluation**
+
+_Goal: Automate and measure AI red team coverage._
+
+- [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**Metasploit**) for orchestration.
+
+- [ ] **Benchmarking:** Track **success rates** across **OWASP LLM Top 10** and **agent/tool abuse cases**; log **prompt, response, decision traces**.
+
+- [ ] **Safety Regression:** Build **automated test suites** to prevent **prompt regressions** after model or policy updates.
+
+---
+
+### **Stage 14: Defense & Responsible AI**
+
+_Goal: Harden AI systems against attacks and ensure ethical deployment._
+
+- [ ] **Input Validation & Sanitization:** Filter **prompt injections, adversarial patterns, malicious encodings**.
+
+- [ ] **Output Guardrails:** Implement **content filtering, toxicity detection, sensitive info masking** on responses.
+
+- [ ] **Model Hardening:** Use **adversarial training, regularization, ensemble methods** to improve robustness.
+
+- [ ] **Monitoring & Detection:** Track **unusual queries, repeated failures, extraction signals** to detect attacks.
+
+- [ ] **Audit Logging:** Log **all prompts, model outputs, decisions** for **post-incident forensics and compliance**.
+
+- [ ] **Responsible Disclosure:** Establish **vulnerability bounty programs, responsible disclosure timelines** for AI security researchers.
+
+- [ ] **Threat Model Documentation:** Maintain **risk register** of **known weaknesses, mitigations, residual risk** in AI systems.
 
 ---
 
