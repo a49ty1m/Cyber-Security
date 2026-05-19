@@ -52,23 +52,165 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ### **Professional Development & Enablers**
 
-- [ ] **Lab Progression Map:** Packet Tracer → GNS3/EVE-NG; validate packets with **Wireshark** after each change.
+- [ ] **Lab Progression Map (Packet Tracer → GNS3/EVE-NG → Wireshark validation)**
+  - Goal: Move from simple networking practice to realistic, packet-level practice without guessing.
+  - Stage A — Packet Tracer (learning topology + basic configs)
+    - Build networks quickly (routers/switches/firewalls).
+    - Learn addressing, routing, VLANs, ACLs, NAT basics.
+    - Focus: “Does my design work?”
+  - Stage B — GNS3/EVE-NG (real OS images + realistic behavior)
+    - Same idea, but with actual services and Linux-based networking stacks.
+    - Use real images (where possible) to practice:
+      - routing protocols (OSPF/BGP basics)
+      - firewall policies
+      - DNS/DHCP
+      - VPNs (IPsec/OpenVPN)
+      - segmentation, multi-tier routing
+  - Stage C — Validate everything with Wireshark (packet truth)
+    - After each change/config push:
+      - Capture traffic (pcap) at the interface where you expect behavior to occur.
+      - Confirm:
+        - correct IPs, ports, protocols
+        - correct routes (SYN/SYN-ACK/ACK flows)
+        - DNS queries/responses
+        - firewall drops/rejects
+      - Save captures (naming convention like `LAB01_vlan_trunk_acl_v1.pcap`) to compare later.
+    - Result: You stop relying on “it seems to work” and start learning from evidence.
 
-- [ ] **Virtualization Breadth:** Practice Type-1 (**ESXi, Proxmox**) and Type-2 (**VMWare, VirtualBox**) so labs migrate easily.
+- [ ] **Virtualization Breadth (Type-1 + Type-2)**
+  - Goal: Avoid being locked into one platform. Labs should migrate.
+  - Type-1 hypervisors (closer to the hardware)
+    - ESXi, Proxmox
+    - Usually better performance and easier “lab appliance” patterns.
+  - Type-2 hypervisors (runs on top of an OS)
+    - VMware Workstation, VirtualBox
+    - Great for quick VMs, testing, and local dev.
+  - Practice habit:
+    - Make at least one “template VM” that can be moved (or recreated quickly) between platforms.
+    - Use consistent disk images / cloud-init / documented steps.
+    - Result: If one platform breaks, your lab doesn’t die with it.
 
-- [ ] **Cloud Assets Core:** Build **VPCs/VNETs**, set **Security Groups/NACLs**, front with **Load Balancers**, wire **IAM** in **AWS/Azure/GCP**.
+- [ ] **Cloud Assets Core (VPC/VNET + Security controls + IAM + Load Balancing)**
+  - Goal: Learn cloud networking the way defenders and attackers reason about it.
+  - Core components to practice
+    - VPC/VNET
+      - subnets
+      - route tables
+      - gateways
+    - Security Groups / NACLs
+      - stateful vs stateless thinking
+      - least privilege rules
+    - Load Balancers
+      - front-end distribution
+      - listener rules
+      - health checks
+    - IAM
+      - who can create/modify networking resources
+      - role-based access
+      - permissions boundaries
+  - Why it matters: Cloud security incidents often happen because of misconfigured networking and overly permissive IAM.
 
-- [ ] **Automation Muscle:** Script **subnet discovery, config pushes, log cleanup** in **Python/Bash/PowerShell**; keep runs idempotent.
+- [ ] **Automation Muscle (idempotent scripts for repeated lab tasks)**
+  - Goal: Your time should go to learning—not clicking the same steps.
+  - Automate things like:
+    - Subnet discovery
+      - detect existing CIDRs
+      - propose non-overlapping subnets
+    - Config pushes
+      - push configs to routers/firewalls via SSH/Ansible
+    - Log cleanup
+      - rotate logs
+      - clear test artifacts before retesting
+  - “Idempotent” means:
+    - If you run the script 10 times, the environment ends in the same correct state each time.
+    - No duplicates, no random drift, no “works only the first time”.
+  - Example outcomes:
+    - Rebuild the same lab topology in minutes.
+    - Retest after Wireshark capture without manual cleanup.
 
-- [ ] **Monitoring & Evasion:** Baseline with **NetFlow/SNMP/pcap**; label what defenders see vs. miss (**Zero Trust/SIEM/SOAR** gaps).
+- [ ] **Monitoring & Evasion (baseline: NetFlow/SNMP/pcap; label what defenders see)**
+  - Goal: Become fluent in “visibility.” What logging exists, what it misses, and why.
+  - Baseline data sources
+    - NetFlow
+      - high-level “who talked to whom”
+      - bytes/flows
+    - SNMP
+      - device metrics
+      - traffic counters (less granular than pcap)
+    - pcap
+      - full packet headers
+      - payload (most detailed)
+  - Key mindset
+    - For each technique or network change, determine what’s observable in each tool:
+      - Does NetFlow show the connection attempt?
+      - Does SNMP increase counters?
+      - Is the packet content visible in pcap?
+    - Record gaps:
+      - Some changes appear only at L7.
+      - Some are blocked before NetFlow can classify them.
+      - Some are “silent” depending on where capture happens.
+  - Defender-oriented framing
+    - Even if you’re doing offensive-style practice, the lab should answer: “If I were the defender, what would I detect?”
+    - This builds real-world operational awareness.
 
-- [ ] **Certifications:** Consider **CompTIA Network+** (entry) or **Cisco certifications** (core); add **AWS Advanced Networking** for cloud-heavy ops.
+- [ ] **Certifications (CompTIA Network+ / Cisco / AWS Advanced Networking)**
+  - Goal: Use structured certification objectives to avoid missing basics.
+  - Network+ (entry)
+    - fundamentals: routing concepts
+    - subnetting
+    - troubleshooting
+  - Cisco core certs
+    - deeper routing/switching knowledge
+    - firewall-adjacent networking knowledge
+  - AWS Advanced Networking
+    - cloud-native routing
+    - segmentation
+    - scaling patterns
+  - This isn’t “to collect badges”—it’s to ensure you learn networking in a complete sequence.
 
-- [ ] **Ethics & ROE:** Keep **Rules of Engagement** explicit; log operator actions for audit trails.
+- [ ] **Ethics & ROE (Rules of Engagement + audit trails)**
+  - Goal: Make your practice safe and accountable.
+  - Explicit ROE:
+    - what systems are allowed
+    - what test types are allowed
+    - data-handling rules
+  - Audit trails:
+    - record what you ran and when
+      - script logs
+      - command history exports
+      - change notes
+  - Always use labs/consented environments for hands-on activities.
+  - Why it belongs in lab setup: Without ROE, even “harmless” testing habits can become unsafe.
 
-- [ ] **Automation Scaling:** Script **mass config/port scans** with **Python**.
+- [ ] **Automation Scaling (mass config / port scans with Python)**
+  - Goal: Prepare for high-volume tasks you’ll face in real workflows.
+  - What to scale:
+    - Mass config deployment across many lab nodes
+    - Port scan sweeps to baseline services
+    - Faster feedback loops
+  - Good practice:
+    - Use rate limiting.
+    - Use concurrency controls.
+    - Store scan results as structured output (JSON/CSV) so you can diff runs.
 
-- [ ] **Monitoring Deep Dives:** Add **SNMP or NetFlow** in the advanced lab to visualize exfil patterns.
+- [ ] **Monitoring Deep Dives (SNMP/NetFlow to visualize exfil patterns)**
+  - Goal: Practice detection at the “pattern” level, not just “did the packets work?”
+  - Advanced lab idea:
+    - Create a scenario resembling data movement.
+    - Simulate “exfil-like” flows:
+      - large transfers
+      - repeated small transfers
+      - odd destinations
+    - Then observe:
+      - NetFlow charts
+        - spikes in egress bytes
+        - unusual destination patterns
+      - SNMP counters
+        - traffic anomalies at the interface level
+        - traffic anomalies at the device level
+      - Correlate with pcap
+        - confirm what created the pattern
+    - Result: You learn to connect “what happened” (pcap) to “what detection sees” (NetFlow/SNMP).
 
 ---
 
@@ -76,17 +218,36 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 _Goal: Maximize your formal education and align academic work with offensive security career requirements._
 
-- [ ] **Degree Baseline:** A formal undergraduate degree (**B-Tech in CS, IT, or related field**) fulfills baseline **HR screening requirements** for entry-level security roles and many certifications.
+- [ ] **Degree Baseline**
+  - A formal undergraduate degree (**B-Tech in CS, IT, or related field**) fulfills baseline **HR screening requirements** for entry-level security roles and many certifications.
 
-- [ ] **Leverage Academic Projects:** Treat university **database, networking, and software engineering projects** as structural training for **backend exploit development, API security, and system architecture** understanding.
+- [ ] **Leverage Academic Projects**
+  - Treat university **database, networking, and software engineering projects** as structural training for:
+    - **backend exploit development**
+    - **API security**
+    - **system architecture** understanding
 
-- [ ] **Coding Curriculum Alignment:** The **C, C++, and Python** coding taught in engineering semesters provides the exact **architectural foundation** needed to eventually write **custom, undetected payloads** and **exploit primitives**.
+- [ ] **Coding Curriculum Alignment**
+  - The **C, C++, and Python** coding taught in engineering semesters provides the **architectural foundation** needed to eventually write:
+    - custom, undetected payloads
+    - exploit primitives
 
-- [ ] **Capstone/Final Year Projects:** Target a security-related capstone (**vulnerability scanner, SIEM dashboard, malware analysis sandbox, network IDS**) to build a **portfolio piece** that demonstrates applied security knowledge to employers.
+- [ ] **Capstone/Final Year Projects**
+  - Target a security-related capstone to build a **portfolio piece** (examples):
+    - vulnerability scanner
+    - SIEM dashboard
+    - malware analysis sandbox
+    - network IDS
 
-- [ ] **Internship Targeting:** Pursue internships at **SOCs, MSSPs, consulting firms, or product security teams** during academic years to build **real-world defensive/offensive experience** before graduation.
+- [ ] **Internship Targeting**
+  - Pursue internships at **SOCs, MSSPs, consulting firms, or product security teams** during academic years to build **real-world defensive/offensive experience** before graduation.
 
-- [ ] **Research & Publications:** If possible, contribute to **academic security research, CVE disclosures, or conference talks (BSides, DefCon villages)** to differentiate from other graduates.
+- [ ] **Research & Publications**
+  - If possible, contribute to:
+    - academic security research
+    - CVE disclosures
+    - conference talks (BSides, DefCon villages)
+  - Goal: differentiate from other graduates.
 
 ---
 
@@ -94,25 +255,73 @@ _Goal: Maximize your formal education and align academic work with offensive sec
 
 _Goal: Build practical muscle memory through structured, hands-on hacking exercises._
 
-- [ ] **TryHackMe (Beginner → Intermediate):** Complete **learning paths** (Pre-Security, Jr Penetration Tester, Offensive Pentesting) for **guided, room-based** progressive skill building.
+- [ ] **TryHackMe (Beginner → Intermediate)**
+  - Complete **learning paths** for guided, progressive skill building:
+    - Pre-Security
+    - Jr Penetration Tester
+    - Offensive Pentesting
 
-- [ ] **Hack The Box (Intermediate → Advanced):** Progress through **active and retired machines** covering **Linux/Windows privesc, AD exploitation, web attacks**; target **Hacker rank** or above.
+- [ ] **Hack The Box (Intermediate → Advanced)**
+  - Progress through active and retired machines covering:
+    - Linux/Windows privesc
+    - AD exploitation
+    - web attacks
+  - Target: **Hacker rank** or above.
 
-- [ ] **OverTheWire Bandit (Linux Fundamentals):** Complete all **34 levels** to build **Linux CLI muscle memory** — file manipulation, SSH, permissions, scripting, and process management.
+- [ ] **OverTheWire Bandit (Linux Fundamentals)**
+  - Complete all **34 levels** to build Linux CLI muscle memory:
+    - file manipulation
+    - SSH
+    - permissions
+    - scripting
+    - process management
 
-- [ ] **OverTheWire Natas (Web Security):** Complete levels to practice **server-side web exploitation** (command injection, SQLi, file inclusion, session attacks).
+- [ ] **OverTheWire Natas (Web Security)**
+  - Complete levels to practice server-side web exploitation:
+    - command injection
+    - SQLi
+    - file inclusion
+    - session attacks
 
-- [ ] **PentesterLab (Web Exploitation):** Work through **exercises and badges** focusing on **OWASP Top 10, JWT attacks, OAuth flaws, deserialization**.
+- [ ] **PentesterLab (Web Exploitation)**
+  - Work through exercises and badges focusing on:
+    - OWASP Top 10
+    - JWT attacks
+    - OAuth flaws
+    - deserialization
 
-- [ ] **VulnHub (Offline Labs):** Download and attack **purposely vulnerable VMs** in your local **VMware/VirtualBox lab** for offline practice without internet dependency.
+- [ ] **VulnHub (Offline Labs)**
+  - Download and attack purposely vulnerable VMs in your local **VMware/VirtualBox** lab for offline practice (no internet dependency).
 
-- [ ] **CyberDefenders (Blue Team):** Practice **DFIR challenges** (memory forensics, malware analysis, log analysis) to understand the **defender's perspective** and sharpen evasion awareness.
+- [ ] **CyberDefenders (Blue Team)**
+  - Practice DFIR challenges to understand the defender’s perspective:
+    - memory forensics
+    - malware analysis
+    - log analysis
+  - Use this to sharpen evasion awareness.
 
-- [ ] **Capture The Flag (CTFs):** Participate in **picoCTF, NahamCon CTF, HTB CTF, Google CTF** to develop **speed, creativity, and multi-domain problem solving** under pressure.
+- [ ] **Capture The Flag (CTFs)**
+  - Participate in:
+    - picoCTF
+    - NahamCon CTF
+    - HTB CTF
+    - Google CTF
+  - Goal: develop speed, creativity, and multi-domain problem solving under pressure.
 
-- [ ] **Active Directory Labs:** Build dedicated **AD lab environments** (DC + workstations) in **VirtualBox/VMware** or use **GOAD (Game of Active Directory)** to practice **Kerberoasting, BloodHound, lateral movement, and domain persistence**.
+- [ ] **Active Directory Labs**
+  - Build dedicated AD lab environments (DC + workstations) in **VirtualBox/VMware**, or use **GOAD (Game of Active Directory)** to practice:
+    - Kerberoasting
+    - BloodHound
+    - lateral movement
+    - domain persistence
 
-- [ ] **TryHackMe AI Security Path:** Complete the dedicated AI security learning path covering **AI Threat Modeling, Data Poisoning, Prompt Security, and AI Forensics** — isolated lab environments for safe, hands-on AI attack/defense exercises.
+- [ ] **TryHackMe AI Security Path**
+  - Complete the dedicated AI security learning path covering:
+    - AI Threat Modeling
+    - Data Poisoning
+    - Prompt Security
+    - AI Forensics
+  - Isolated lab environments keep hands-on AI attack/defense exercises safe.
 
 ---
 
