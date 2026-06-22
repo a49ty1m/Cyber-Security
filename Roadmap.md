@@ -1,51 +1,97 @@
-# Red Team Fundamentals: Master Checklist
+# Cybersecurity & AI Security: Master Roadmap
 
-## ✅📋 Completion Tracker & Quick Navigation
+> **Core Philosophy:** AI security is built ON TOP of traditional security mastery — not in place of it.
 
-- [ ] [Career Foundation & Lab Setup](#career-foundation--lab-setup) — Academic Alignment, Lab Platforms, Dev Enablers
-- [ ] [Part 1: Fundamentals](#part-1-fundamentals) — Hardware, OS, Memory, Data, Wireless, Applications
-- [ ] [Part 2: Networking Fundamentals](#part-2-networking-fundamentals) — Layers 1-7, Protocols, Tools
-- [ ] [Part 3: Footprinting & Reconnaissance](#part-3-footprinting-and-reconnaissance) — Passive → Active → Strategy
-- [ ] [Part 4: Scanning](#part-4-scanning) — Host Discovery → Port Enumeration → Defense Assessment
-- [ ] [Part 5: Enumeration](#part-5-enumeration) — Network Discovery → Service Profiling → Attack Mapping
-- [ ] [Part 6: System Hacking & Initial Compromise](#part-6-system-hacking--initial-compromise) — Breach → Escalation → Persistence → Evasion → Exfil → Reporting
-- [ ] [Part 7: Malware & Weaponization](#part-7-malware--weaponization) — Design → Weaponization → Evasion → Persistence → Anti-Forensics
-- [ ] [Part 8: Detection & Mitigation](#part-8-detection--mitigation) — Blue Team perspective for understanding defensive detection
-- [ ] [Part 9: Sniffing & Spoofing](#part-9-sniffing--spoofing) — Protocols → Sniffing → Spoofing → MITM → Defenses
-- [ ] [Part 10: Social Engineering](#part-10-social-engineering) — Recon → Digital → Human → Physical → Defense
-- [ ] [Part 11: Denial of Service](#part-11-denial-of-service) — Planning → Methods → Execution → Mitigation
-- [ ] [Part 12: Session Hijacking](#part-12-session-hijacking) — Steal → Hijack → Secure
-- [ ] [Part 13: Web Application Hacking](#part-13-web-application-hacking) — Recon → Analysis → Exploit → Persist → Defend
-- [ ] [Part 14: Web Server Hacking](#part-14-web-server-hacking) — Recon → Hardening → Exploit → Persist
-- [ ] [Part 15: IDS, Firewalls, and Honeypots](#part-15-ids-firewalls-and-honeypots) — Strategy → Deployment → Deception → Operations
-- [ ] [Part 16: Wireless Pentesting](#part-16-wireless-pentesting) — Recon → Breach → MITM → Defense
-- [ ] [Part 17: Mobile Platform Pentesting](#part-17-mobile-platform-pentesting) — Static → Dynamic → Network → Defense
-- [ ] [Part 18: Cryptography](#part-18-cryptography) — Concepts → Transit → Trust → Rest → Attacks
-- [ ] [Part 19: Cloud Computing](#part-19-cloud-computing) — Architecture → Storage → Deployment → Automation → Attacks
-- [ ] [Part 20: Digital Forensics](#part-20-digital-forensics) — Prep → Analysis → Network → Reporting
-- [ ] [Part 21: Bug Bounty and Penetration Testing](#part-21-bug-bounty-and-penetration-testing) — Scope → Recon → Exploit → Report
-- [ ] [Part 22: OSINT & Threat Intelligence](#part-22-osint--threat-intelligence) — Collection → Analysis → Automation → Dissemination
-- [ ] [Part 23: Adversary Emulation & Purple Teaming](#part-23-adversary-emulation--purple-teaming) — MITRE ATT&CK, APT Simulation, Metrics
-- [ ] [Part 24: Container & Orchestration Security](#part-24-container--orchestration-security) — Docker, Kubernetes, Secrets Management
-- [ ] [Part 25: OT/ICS/SCADA Security](#part-25-oticsscada-security) — Industrial Protocols, PLC, HMI, Safety Systems
-- [ ] [Part 26: Hardware Hacking & Embedded Systems](#part-26-hardware-hacking--embedded-systems) — Firmware, JTAG, UART, Side-Channel, IoT
-- [ ] [Part 27: AI & LLM Red Teaming](#part-27-ai--llm-red-teaming) — AI Fundamentals → Adversarial Attacks → Agentic AI → Workflow Integration → Projects → Career
-- [ ] [Part 28: Active Directory & Entra ID](#part-28-active-directory--entra-id) — On-Prem AD → ADCS → Entra ID/OAuth
-- [ ] [Part 29: Modern Exploitation](#part-29-modern-exploitation) — Memory Safety → Sandbox Escape → Mitigation Bypass
-- [ ] [Part 30: Reverse Engineering & Malware Analysis](#part-30-reverse-engineering--malware-analysis) — Static → Dynamic → Debugging → Anti-RE → Automation
-- [ ] [Part 31: Governance, Risk & Compliance](#part-31-governance-risk--compliance) — Frameworks, Regulations, Audit, Scope
-- [ ] [Part 32: API Security](#part-32-api-security) — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks, Testing Methodology
-- [ ] [Part 33: Password Cracking & Hash Analysis](#part-33-password-cracking--hash-analysis) — Methodology, Tools, Rules, Wordlists, Offline Cracking
-- [ ] [Part 34: Physical Penetration Testing](#part-34-physical-penetration-testing) — Lock Bypass, HID Attacks, Facility Assessment, Reporting
-- [ ] [Part 35: Supply Chain Security](#part-35-supply-chain-security) — Dependency Attacks, SBOM, Build Integrity, OSS Risk
-- [ ] [Part 36: DevSecOps & Secure SDLC](#part-36-devsecops--secure-sdlc) — SAST/DAST/SCA, Secrets Scanning, Pipeline Security
-- [ ] [Part 37: VoIP & Telecommunications Security](#part-37-voip--telecommunications-security) — SS7, SIP/RTP, VoIP Exploitation, 5G
-- [ ] [Part 38: Blockchain & Web3 Security](#part-38-blockchain--web3-security) — Smart Contracts, DeFi Attacks, Wallet Security
-- [ ] [Part Extra: Red Team Operations & Tradecraft](#part-extra-red-team-operations--tradecraft) — Infrastructure, Discipline, Operations
-
+> **Companion Audit:** [Roadmap_AUDIT.md](Roadmap_AUDIT.md)
 
 ---
 
+## Table of Contents
+
+**🏗️ Phase 1 — Foundation**
+- [Career Foundation & Lab Setup](#toc-career-foundation--lab-setup)
+- [Part 1: Fundamentals](#toc-part-1-fundamentals) — Hardware, OS, Memory, Data, Wireless, Programming, Applications
+- [Part 2: Networking Fundamentals](#toc-part-2-networking-fundamentals) — Layers 1–7, Protocols, Tools
+- [Part 3: Cryptography](#toc-part-3-cryptography) — Concepts → Transit → Trust → Rest → Attacks
+
+**⚔️ Phase 2 — Offensive Core**
+- [Part 4: Footprinting and Reconnaissance](#toc-part-4-footprinting-and-reconnaissance) — Passive → Active → Strategy
+- [Part 5: Scanning](#toc-part-5-scanning) — Host Discovery → Port Enumeration → Defense Assessment
+- [Part 6: Enumeration](#toc-part-6-enumeration) — Network Discovery → Service Profiling → Attack Mapping
+- [Part 7: System Hacking & Initial Compromise](#toc-part-7-system-hacking--initial-compromise) — Breach → Escalation → Persistence → Evasion → Exfil
+- [Part 8: Malware & Weaponization](#toc-part-8-malware--weaponization) — Design → Weaponization → Evasion → Persistence
+- [Part 9: Sniffing & Spoofing](#toc-part-9-sniffing--spoofing) — Protocols → Sniffing → Spoofing → MITM → Defenses
+- [Part 10: Social Engineering](#toc-part-10-social-engineering) — Recon → Digital → Human → Physical → Defense
+- [Part 11: Denial of Service](#toc-part-11-denial-of-service) — Planning → Methods → Execution → Mitigation
+- [Part 12: Session Hijacking](#toc-part-12-session-hijacking) — Steal → Hijack → Secure
+
+**🛡️ Phase 3 — Defense & Detection**
+- [Part 13: Detection & Mitigation](#toc-part-13-detection--mitigation-blue-team-perspective) — Blue Team defensive detection
+- [Part 14: IDS, Firewalls, and Honeypots](#toc-part-14-ids-firewalls-and-honeypots) — Strategy → Deployment → Deception → Operations
+- [Part 15: OSINT & Threat Intelligence](#toc-part-15-osint--threat-intelligence) — Collection → Analysis → Automation → Dissemination
+- [Part 16: Adversary Emulation & Purple Teaming](#toc-part-16-adversary-emulation--purple-teaming) — MITRE ATT&CK, APT Simulation, Metrics
+
+**🌐 Phase 4 — Web & Application Security**
+- [Part 17: Web Application Hacking](#toc-part-17-web-application-hacking) — Recon → Analysis → Exploit → Persist → Defend
+- [Part 18: Web Server Hacking](#toc-part-18-web-server-hacking) — Recon → Hardening → Exploit → Persist
+- [Part 19: API Security](#toc-part-19-api-security) — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks
+- [Part 20: Bug Bounty and Penetration Testing](#toc-part-20-bug-bounty-and-penetration-testing) — Scope → Recon → Exploit → Report
+
+**📡 Phase 5 — Wireless & Mobile**
+- [Part 21: Wireless Pentesting](#toc-part-21-wireless-pentesting) — Recon → Breach → MITM → BLE/Zigbee/NFC/GPS/SDR → Defense
+- [Part 22: Mobile Platform Pentesting](#toc-part-22-mobile-platform-pentesting) — Static → Dynamic → Network → Defense
+
+**☁️ Phase 6 — Infrastructure & Identity**
+- [Part 23: Active Directory & Entra ID](#toc-part-23-active-directory--entra-id) — On-Prem AD → ADCS → Entra ID/OAuth
+- [Part 24: Cloud Computing](#toc-part-24-cloud-computing) — Architecture → Storage → Deployment → Automation → Attacks
+- [Part 25: Container & Orchestration Security](#toc-part-25-container--orchestration-security) — Docker, Kubernetes, Secrets Management
+- [Part 26: OT/ICS/SCADA Security](#toc-part-26-oticsscada-security) — Industrial Protocols, PLC, HMI, Safety Systems
+
+**🔬 Phase 7 — Advanced Specializations**
+- [Part 27: Digital Forensics](#toc-part-27-digital-forensics) — Prep → Analysis → Network → Reporting
+- [Part 28: Reverse Engineering & Malware Analysis](#toc-part-28-reverse-engineering--malware-analysis) — Static → Dynamic → Debugging → Anti-RE → Automation
+- [Part 29: Modern Exploitation](#toc-part-29-modern-exploitation) — Memory Safety → Sandbox Escape → Mitigation Bypass
+- [Part 30: Hardware Hacking & Embedded Systems](#toc-part-30-hardware-hacking--embedded-systems) — Firmware, JTAG, UART, Side-Channel, IoT
+- [Part 31: Password Cracking & Hash Analysis](#toc-part-31-password-cracking--hash-analysis) — Methodology, Tools, Rules, Wordlists
+- [Part 32: Physical Penetration Testing](#toc-part-32-physical-penetration-testing) — Lock Bypass, HID Attacks, Facility Assessment
+- [Part 33: VoIP & Telecommunications Security](#toc-part-33-voip--telecommunications-security) — SS7, SIP/RTP, VoIP Exploitation, 5G
+- [Part 34: Blockchain & Web3 Security](#toc-part-34-blockchain--web3-security) — Smart Contracts, DeFi Attacks, Wallet Security
+
+**📋 Phase 8 — Governance, Supply Chain & DevSecOps**
+- [Part 35: Governance, Risk & Compliance](#toc-part-35-governance-risk--compliance-grc) — Frameworks, Regulations, Audit, Scope
+- [Part 36: Supply Chain Security](#toc-part-36-supply-chain-security) — Dependency Attacks, SBOM, Build Integrity, OSS Risk
+- [Part 37: DevSecOps & Secure SDLC](#toc-part-37-devsecops--secure-sdlc) — SAST/DAST/SCA, Secrets Scanning, Pipeline Security
+
+**🧠 Phase 9 — AI Security**
+- [Part 38: AI & LLM Red Teaming](#toc-part-38-ai--llm-red-teaming) — Adversarial Attacks → Agentic AI → Defensive AI → Projects
+
+**🎯 Operations & Career**
+- [Part 39: Penetration Testing Methodologies & Report Writing](#toc-part-39-penetration-testing-methodologies--report-writing) — PTES, OWASP WSTG, NIST 800-115, CVSS
+- [Part 40: Red Team Operations & Tradecraft](#toc-part-40-red-team-operations--tradecraft) — Infrastructure, Discipline, Operations
+- [Part 41: Proof of Work & Career Portfolio](#toc-part-41-proof-of-work--career-portfolio) — Tools, GitHub, Writing, Bug Bounties, Certifications
+
+---
+
+## ⏱️ Pacing Estimates
+
+_Multi-year curriculum. Not a weekend plan._
+
+| Phase | Full-Time | Part-Time |
+|---|---|---|
+| Phase 1: Foundation | 2–3 months | 4–6 months |
+| Phase 2: Offensive Core | 3–4 months | 6–8 months |
+| Phase 3: Defense & Detection | 1–2 months | 2–4 months |
+| Phase 4: Web & App Security | 2–3 months | 4–6 months |
+| Phase 5: Wireless & Mobile | 1–2 months | 2–4 months |
+| Phase 6: Infrastructure & Identity | 2–3 months | 4–6 months |
+| Phase 7: Advanced Specializations | 3–5 months | 6–10 months |
+| Phase 8: GRC, Supply Chain & DevSecOps | 1–2 months | 2–4 months |
+| Phase 9: AI Security | 2–3 months | 4–6 months |
+| **Total** | **~18–30 months** | **~36–58 months** |
+
+---
+
+<a id="toc-career-foundation--lab-setup"></a>
 ## Career Foundation & Lab Setup
 
 _Before starting the technical curriculum, establish your academic foundation, lab environment, and practice platforms._
@@ -323,8 +369,62 @@ _Goal: Build practical muscle memory through structured, hands-on hacking exerci
     - AI Forensics
   - Isolated lab environments keep hands-on AI attack/defense exercises safe.
 
+- [ ] **PortSwigger Web Security Academy (Free)**
+  - Complete labs covering the **full OWASP Top 10** plus advanced topics:
+    - SQL injection, XSS, CSRF, SSRF, XXE
+    - JWT attacks, OAuth flaws, WebSocket attacks
+    - **Web LLM Attacks** — dedicated labs for attacking LLM-integrated web applications
+  - Goal: Earn the **Burp Suite Certified Practitioner (BSCP)** certification.
+
+- [ ] **OWASP AI Security Resources**
+  - Study the **OWASP LLM Top 10 (2025)** and the **OWASP AI Security Project**
+  - Use the **AI Red Team Lab** for structured prompt injection and jailbreaking exercises
+  - Contribute to the **OWASP AI Exchange** for community-driven threat intelligence
+
+- [ ] **Local AI Security Lab Setup (Recommended)**
+  - Build a **self-hosted AI testing playground** for safe exploit practice:
+    - **Ollama** — run open-source LLMs (Llama, Mistral, Gemma) locally without cloud dependency
+    - **Open WebUI** — deploy a ChatGPT-like interface connected to your local Ollama instance
+    - **Custom MCP Configurations** — configure Model Context Protocol servers to test tool-use exploits, permission escalation, and agentic attack scenarios
+    - **Vulnerable AI Apps** — deploy intentionally vulnerable LLM applications (OWASP AI Goat, Damn Vulnerable LLM Agent) for structured exploitation practice
+  - This is the **most recommended method** for testing prompt injection, jailbreaking, and agentic exploits safely without risking production API bans.
+
 ---
 
+### **Foundation Proof Gate**
+
+_Goal: Prove readiness before touching serious offensive material._
+
+- [ ] **Linux Administration Proof**
+  - Create users/groups, set file permissions/ACLs, configure `sudo`, manage services with `systemctl`, inspect logs with `journalctl`, configure networking, and document all commands.
+  - Deliverable: `linux_admin_baseline.md` with commands, outputs, mistakes, and fixes.
+
+- [ ] **Windows Administration Proof**
+  - Create local users/groups, inspect Event Viewer, manage services, use PowerShell remoting in a lab, read registry locations safely, and enable basic audit logging.
+  - Deliverable: `windows_admin_baseline.md` with screenshots, commands, and event IDs observed.
+
+- [ ] **Networking Packet Proof**
+  - Capture and explain ARP, DNS, TCP handshake, TLS handshake, HTTP request/response, ICMP, DHCP, NAT behavior, firewall deny, and one failed connection.
+  - Deliverable: 10 named `.pcap` files plus a short explanation for each.
+
+- [ ] **Scripting Proof**
+  - Build three small tools:
+    - log parser
+    - subnet/IP helper
+    - HTTP/API requester
+  - Deliverable: scripts in a Git repository with README, usage examples, and test input/output.
+
+- [ ] **Documentation Proof**
+  - Write one complete lab report using the Part 39 reporting style: scope, environment, steps, evidence, findings, remediation, and lessons learned.
+  - Deliverable: `foundation_lab_report.md`.
+
+- [ ] **Safety Proof**
+  - Write a personal lab ROE covering allowed targets, forbidden targets, network isolation, malware handling, cloud budget limits, credential storage, and data cleanup.
+  - Deliverable: `lab_rules_of_engagement.md`.
+
+---
+
+<a id="toc-part-1-fundamentals"></a>
 ## Part 1: Fundamentals
 
 ### **Stage 1: Hardware, CPU & Pre-Boot Environment**
@@ -332,11 +432,17 @@ _Goal: Build practical muscle memory through structured, hands-on hacking exerci
 _Goal: Master the machine before the Operating System initializes._
 
 - [ ] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
+
 - [ ] **Registers:** Command the "steering wheel" of the CPU: **EAX/RAX** (accumulator), **ESP/RSP** (stack pointer), and **EIP/RIP** (instruction pointer).
+
 - [ ] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
+
 - [ ] **Instruction Sets:** Develop a working familiarity with **Assembly** language (**MOV**, **PUSH**, **POP**, **CALL**, **JMP**).
+
 - [ ] **The Boot Chain:** Master the sequence from **UEFI/Secure Boot** $\rightarrow$ **Bootloader** $\rightarrow$ **Kernel Load** $\rightarrow$ **Init/Systemd**.
+
 - [ ] **Hardware I/O & DMA:** Understand how **Direct Memory Access (DMA)** allows peripherals to read/write system RAM by bypassing the CPU.
+
 - [ ] **Storage Forensics:** Understand the physical data storage on **HDDs vs. SSDs** and why "deleting" is not "wiping" in a forensics context.
 
 ---
@@ -346,11 +452,17 @@ _Goal: Master the machine before the Operating System initializes._
 _Goal: Understand the resource manager and its internal logic._
 
 - [ ] **Privilege Levels:** Master the **"Ring" architecture**; specifically the separation between **Ring 0** (Kernel) and **Ring 3** (User).
+
 - [ ] **System Calls:** Trace syscall execution (e.g., **NtCreateFile** or **execve**) from user-space API calls through the Interrupt to the kernel handler.
+
 - [ ] **Process & Thread Mechanics:** Understand the lifecycle of processes and threads, including scheduling and context switching.
+
 - [ ] **Process Environment Block (PEB):** In Windows, master the **PEB structure** to find loaded DLLs or implement anti-debugging techniques.
+
 - [ ] **Authorization & Tokens:** Master Windows **SIDs**, **Access Tokens**, and **Token Impersonation**; understand Linux **Namespaces** and **Cgroups** (the basis for containers).
+
 - [ ] **File Systems (Linux):** Master the root directory structure, **Inodes**, and the **"Everything is a file"** philosophy.
+
 - [ ] **File Systems (Windows):** Master **NTFS permissions**, **Registry hives**, and the usage of **Alternate Data Streams (ADS)** to hide payloads.
 
 ---
@@ -360,9 +472,13 @@ _Goal: Understand the resource manager and its internal logic._
 _Goal: Understand how memory is organized and managed._
 
 - [ ] **Virtual Memory:** Learn how the OS maps physical RAM to virtual addresses to provide process isolation.
+
 - [ ] **The Stack:** Master the **LIFO** (Last-In, First-Out) structure and the **Function Prologue/Epilogue** to understand how return addresses are stored.
+
 - [ ] **The Heap:** Understand **dynamic memory allocation** and how applications request memory at runtime.
+
 - [ ] **Segmentation & Paging:** Understand **segment descriptors** and **page tables** for virtual address translation.
+
 - [ ] **Memory Protection:** Learn about **page permissions (R/W/X)** and **privilege level separation**.
 
 ---
@@ -372,8 +488,11 @@ _Goal: Understand how memory is organized and managed._
 _Goal: Master binary representation and Boolean logic fundamentals._
 
 - [ ] **Number Systems:** Be able to convert between **Binary, Decimal, and Hexadecimal** mentally.
+
 - [ ] **Boolean Logic:** Master **AND, OR, NOT, and XOR** (the foundation of encryption and obfuscation).
+
 - [ ] **File Headers:** Identify file types (EXE, ELF, JPG) by their **"Magic Bytes"** instead of extensions.
+
 - [ ] **Instruction Sets:** Basic familiarity with **Assembly** (MOV, PUSH, POP, CALL, JMP).
 
 ---
@@ -544,6 +663,18 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 
 - [ ] **Exploit Prototyping:** Use Python for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
 
+**JavaScript & Node.js (Web & API Security):**
+
+- [ ] **Core Language:** Master **ES6+ syntax, async/await, Promises, closures, prototypal inheritance, DOM manipulation**, and **event-driven architecture**.
+
+- [ ] **Node.js Runtime:** Understand **npm ecosystem, module system (CommonJS/ESM), Express.js**, and **server-side JavaScript** for building and auditing web applications.
+
+- [ ] **Web Security Context:** Learn **DOM-based XSS, prototype pollution, client-side injection, postMessage abuse**, and **WebSocket security** — JavaScript is the language of the web attack surface.
+
+- [ ] **API Interaction:** Use **fetch API, Axios, Puppeteer/Playwright** for **automated web scraping, API fuzzing, headless browser automation**, and **browser-based exploit delivery**.
+
+- [ ] **AI Interface Relevance:** Understand that modern AI model interfaces (**ChatGPT, Gemini, Claude**) are delivered via **JavaScript web applications** — fluency is essential for auditing these frontends.
+
 **C (System-Level & Exploit Development):**
 
 - [ ] **Core Language:** Master **pointers, memory allocation (malloc/free), structs, arrays, strings, bitwise operations**, and **compilation (gcc/clang)**.
@@ -596,6 +727,7 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 
 ---
 
+<a id="toc-part-2-networking-fundamentals"></a>
 ## Part 2: Networking Fundamentals
 
 ### Layer 1: Physical (The Hardware Surface)
@@ -1158,6 +1290,10 @@ _Goal: Build the coding foundation required to write custom tools, exploits, and
 
 - [ ] **REST APIs:** Understand **resource endpoints, authentication, rate limiting** bypass.
 
+- [ ] **CORS (Cross-Origin Resource Sharing):** Master **preflight requests (OPTIONS), Access-Control-Allow-Origin headers, credentialed requests**, and how **CORS misconfigurations** enable **cross-origin data theft** from APIs and AI model endpoints.
+
+- [ ] **WebSockets:** Understand **WebSocket handshake (HTTP Upgrade), persistent bidirectional channels**, and security implications — **cross-site WebSocket hijacking, origin validation bypass**, and use in **real-time AI streaming interfaces**.
+
 **Session & Application Layer Attacks:**
 
 - [ ] **Session Hijacking:** Steal cookies via **network sniffing, XSS, malware**.
@@ -1389,17 +1525,101 @@ _Goal: Understand how automation transforms network operations and software-defi
 
 - [ ] **Scripting Use Cases:** Automate **config backups, bulk changes, compliance checks, inventory collection**.
 
-## Part 3: Footprinting and Reconnaissance
+<a id="toc-part-3-cryptography"></a>
+## Part 3: Cryptography
+
+### **Stage 1: Core Concepts & Algorithms**
+
+_Goal: Understand the mathematical tools available._
+
+- [ ] **CIA Alignment:** Map your crypto goals to the **Understand CIA Triad** (Confidentiality = Encryption, Integrity = Hashing).
+
+- [ ] **Asymmetric Mastery:** Define the roles of **Private vs Public Keys**: Public to Encrypt/Verify, Private to Decrypt/Sign.
+
+- [ ] **Integrity Checks:** Implement **Hashing** (SHA-256) to verify data integrity and detect **False Positives/Negatives** in file transfers.
+
+---
+
+### **Stage 2: Secure Communication (Data in Transit)**
+
+_Goal: Secure the pipe between two points._
+
+- [ ] **Protocol Hardening:** Enforce **Secure Protocols** by disabling **SSL** (deprecated) and enforcing **TLS** 1.2/1.3.
+
+- [ ] **Secure Transfer:** Replace cleartext protocols with encrypted alternatives: **FTP vs SFTP** (SSH-based) or **IPSEC** for VPNs.
+
+- [ ] **Handshake Analysis:** Analyze the **Key Exchange** (Diffie-Hellman) within the **Understand Handshakes** process to ensure Forward Secrecy.
+
+---
+
+### **Stage 3: Identity & Trust (PKI)**
+
+_Goal: Prove that you are who you say you are._
+
+- [ ] **Infrastructure:** Deploy **PKI** to manage digital certificates, ensuring the validity of public keys.
+
+- [ ] **Email Security:** Implement **S/MIME** to sign and encrypt corporate email, preventing **Phishing** and spoofing.
+
+---
+
+### **Stage 4: Data at Rest & Password Security**
+
+_Goal: Secure stored data._
+
+- [ ] **Disk Encryption:** Deploy **BitLocker, LUKS, FileVault** for full-disk encryption.
+
+- [ ] **Password Storage:** Never store plaintext passwords; use **bcrypt, scrypt, Argon2** with **salting** to defeat rainbow tables.
+
+- [ ] **Key Management:** Use **HSM, KMS (AWS KMS, Azure Key Vault)** for secure key storage and rotation.
+
+- [ ] **Modern Hashing Profiles:** Standardize **Argon2id** (memory-hard) with tuned **memory (e.g., 64–256 MB), iterations, parallelism**, or **bcrypt** with current cost; prefer **password peppering** server-side and enforce **per-user salts**. Deprecate **MD5/SHA-1/SHA-256 for password storage** and legacy **PBKDF2-low-iteration** configs.
+
+---
+
+### **Stage 5: Cryptographic Attacks & Weaknesses**
+
+_Goal: Understand how crypto fails._
+
+- [ ] **Weak Algorithms:** Identify and avoid **MD5, SHA-1, DES, RC4** in production systems.
+
+- [ ] **Implementation Flaws:** Understand **padding oracle, timing attacks, side-channel attacks** that break otherwise strong algorithms.
+
+- [ ] **Key Management Failures:** Exploit **hardcoded keys, weak KDF, insecure storage** in applications.
+
+- [ ] **Downgrade Attacks:** Force **SSL/TLS downgrade** to weaker ciphers or protocols.
+
+- [ ] **Cryptanalysis:** Understand basics of **frequency analysis, known-plaintext attacks, chosen-plaintext attacks**.
+
+### **Lab Progression**
+
+_Goal: Turn crypto from vocabulary into observable behavior._
+
+- [ ] **Hashing Lab:** Generate hashes for files, modify bytes, and prove integrity failure with SHA-256.
+- [ ] **Password Storage Lab:** Compare unsalted hash, salted hash, bcrypt, and Argon2id behavior; document cracking cost differences.
+- [ ] **TLS Handshake Lab:** Capture TLS 1.3 in Wireshark and identify ClientHello, ServerHello, certificate chain, cipher suite, and key exchange.
+- [ ] **Certificate Lab:** Create a local CA, issue a server certificate, trust it in a lab client, then break trust by expiration/name mismatch.
+- [ ] **Post-Quantum Awareness:** Document NIST PQC primitives such as ML-KEM and ML-DSA, hybrid deployment, and crypto-agility migration risk.
+- [ ] **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke.
+
+---
+
+<a id="toc-part-4-footprinting-and-reconnaissance"></a>
+## Part 4: Footprinting and Reconnaissance
 
 ### **Phase 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
 
 _Goal: Maximum data acquisition with zero target interaction._
 
 - [ ] **Organizational Hierarchy:** Profile the **Audience** (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link.
+
 - [ ] **Search Engine Hacking:** Use **Google Dorks** (`site:`, `filetype:`, `intitle:`) to find exposed documents and login portals.
+
 - [ ] **Social Vector Mapping:** Scrape LinkedIn and professional sites to identify targets for **Phishing, Whishing, Whaling, or Smishing** based on reported tech stacks.
+
 - [ ] **Physical Perimeter Assessment:** Evaluate the likelihood of **Shoulder Surfing, Tailgating, or Dumpster Diving** vulnerabilities.
+
 - [ ] **Metadata & Leak Analysis:** Use **Wayback Machine** for historical paths and **GitHub/GitLab Dorking** for hardcoded API keys or internal naming conventions.
+
 - [ ] **Domain & Ownership:** Perform **WHOIS Lookups** to identify registration dates, contact info, and associated subdomains.
 
 - [ ] **Passive DNS & CT:** Pull **passive DNS** and **Certificate Transparency (crt.sh)** to surface shadow subdomains and SANs; cluster hosting/ASN/country.
@@ -1415,8 +1635,11 @@ _Goal: Maximum data acquisition with zero target interaction._
 _Goal: Querying third-party aggregators to see what the world already knows about them._
 
 - [ ] **External Intel Scouring:** Query **VirusTotal, urlscan, any.run, Joe Sandbox, and urlvoid** for existing malware samples or documented domain behavior.
+
 - [ ] **Third-Party Scans:** Use **Shodan & Censys** to find open ports, outdated services, and geographical distribution without scanning the target yourself.
+
 - [ ] **Subdomain & DNS Enumeration:** Use **Sublist3r/Amass** for subdomains and check **DNS records** (MX, TXT, NS) to map mail providers and third-party integrations.
+
 - [ ] **Protocol Audit:** Identify if the target is clinging to **Insecure Protocols** (FTP vs. SFTP, SSL vs. TLS).
 
 - [ ] **WAF/CDN/TLS Fingerprinting:** Detect **WAF/CDN** fronting via **JA3/JA4, HTTP header quirks, TLS ALPN/HTTP2**, and favicon hashes.
@@ -1430,9 +1653,13 @@ _Goal: Querying third-party aggregators to see what the world already knows abou
 _Goal: Direct contact to map the live network fabric. Risk of detection is now ACTIVE._
 
 - [ ] **Live Host Discovery:** Use **ping, arp, and hping** to identify which internal or external assets are actually breathing.
+
 - [ ] **Network Path Analysis:** Use **tracert** to map the hops and identify **Perimeter vs. DMZ vs. Segmentation** boundaries.
+
 - [ ] **Surgical Port Scanning:** Execute **Nmap Essentials** (starting with `-sS` stealth scans) to identify listening services and **OS Fingerprinting**.
+
 - [ ] **Aggressive DNS Interrogation:** Use **nslookup and dig** to force the disclosure of hidden internal records or mail servers.
+
 - [ ] **Web Content Discovery:** Run **ffuf or Gobuster** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
 
 - [ ] **TLS Surface:** Harvest **cert SANs**, check **cipher/curve** support, **HTTP/2/ALPN** negotiation, and redirect/downgrade behavior.
@@ -1446,7 +1673,9 @@ _Goal: Direct contact to map the live network fabric. Risk of detection is now A
 _Goal: Understand the defensive "brain" of the target._
 
 - [ ] **Traffic Analysis:** If vantage is gained, use **Wireshark** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
+
 - [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down your operation immediately.
+
 - [ ] **Unintended Binary Research:** Map the target's OS to potential **LOLBAS, GTFOBINS, or WADCOMS** vectors for later movement.
 
 - [ ] **Version-to-CVE Correlation:** Cluster hosts by **banners/JA3/favicons** and map exposed versions to **CVE** candidates before exploitation.
@@ -1515,15 +1744,19 @@ _Goal: Convert raw data into an execution plan._
 
 ---
 
-## Part 4: Scanning
+<a id="toc-part-5-scanning"></a>
+## Part 5: Scanning
 
 ### **Stage 1: Host Discovery & Network Topology (The "Roll Call")**
 
 _Goal: Identify live assets without wasting time on dead IPs or triggering ICMP alarms._
 
 - [ ] **ARP Discovery:** Use `arp-scan` or `nmap -PR` for local segment discovery to bypass host firewalls that drop ICMP.
+
 - [ ] **ICMP & TCP/UDP Sweeps:** Perform standard `ping` sweeps or use `nmap -PS/-PU` (ports 80, 443, 53) to find external hosts that block standard pings.
+
 - [ ] **Passive Traffic Capture:** Utilize **Wireshark** to capture broadcast traffic, revealing active hosts without sending a single packet.
+
 - [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
 
 - [ ] **IPv6 Discovery:** Include **NDP/`nmap -6`** sweeps for dual-stack assets and SLAAC-derived hosts.
@@ -1535,9 +1768,13 @@ _Goal: Identify live assets without wasting time on dead IPs or triggering ICMP 
 _Goal: Determine exactly what applications are running and how they communicate._
 
 - [ ] **Stealth SYN Scanning:** Use `nmap -sS` to identify open ports without completing the three-way **Handshake**, minimizing your footprint in application logs.
+
 - [ ] **Version & OS Fingerprinting:** Deploy `nmap -sV` for service banners and `nmap -O` to analyze TCP/IP stack responses for **Operating System Hardening** clues.
+
 - [ ] **Protocol Audit:** Analyze discovered services to determine if they use **Secure vs Insecure Protocols** (e.g., FTP vs SFTP, SSL vs TLS).
+
 - [ ] **Connection Handshake Analysis:** Examine **Handshakes** to understand the specific authentication and encryption methods protecting the service.
+
 - [ ] **UDP Surface Check:** Do not ignore `nmap -sU` for often-overlooked services like DNS (53), SNMP (161), and DHCP (67).
 
 - [ ] **Timing & Hygiene:** Apply sane **-T profiles**, exclusion lists, and prefer **safe NSE** scripts before vuln categories to avoid tripping controls.
@@ -1551,7 +1788,9 @@ _Goal: Determine exactly what applications are running and how they communicate.
 _Goal: Identify security controls that will attempt to block or alert on your presence._
 
 - [ ] **Firewall & ACL Enumeration:** Detect the presence of a **Firewall & Nextgen Firewall** or **Host Based Firewalls** by analyzing filtered ports and **ACL** (Access Control List) behavior.
+
 - [ ] **IDS/IPS Probing:** Use fragmentation (`-f`) or timing decoys (`-D`) to identify active **NIDS, NIPS, or HIPS** systems that may block aggressive patterns.
+
 - [ ] **Web Surface Discovery:** Use `ffuf` or `Gobuster` for **Directory Brute-forcing** to find hidden `/admin` or `/config` panels that are not linked publicly.
 
 - [ ] **Service-Specific Enum:** Targeted checks for **SMB/RPC/WinRM**, **LDAP/Kerberos (AS-REP preauth, SPNs)**, **SNMP v1/v2c/v3**, **SMTP VRFY/EXPN**, **SSH KEX/ciphers**, **RDP/NLA**, **DBs (MySQL/MSSQL/Postgres)**, **Redis/Mongo/Elastic**.
@@ -1563,8 +1802,11 @@ _Goal: Identify security controls that will attempt to block or alert on your pr
 _Goal: Convert raw scan data into actionable exploitation vectors._
 
 - [ ] **Scripted Vulnerability Probing:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for known **Zero Day** or common exploits in identified versions.
+
 - [ ] **Attack Surface Selection:** Match findings to your known **Common Attacks**—e.g., **SQL Injection** for web servers or **Buffer Overflows** for legacy binaries.
+
 - [ ] **Unintended Tool Research:** For discovered OS versions, research **LOLBAS, GTFOBINS, or WADCOMS** to leverage existing system binaries for lateral movement.
+
 - [ ] **Traffic Intelligence:** Finalize your plan by inspecting **Packet Captures** for cleartext protocols or weak encryption that allows for **MITM** or **Replay Attacks**.
 
 - [ ] **Cluster & Correlate:** Group hosts by **banners/JA3/favicons** and map versions to likely **CVEs** before exploitation.
@@ -1607,68 +1849,62 @@ _Goal: Optimize scanning efficiency and discover hidden services._
 
 - [ ] **Proxychains & Proxy Pivoting:** Route scans through **VPNs, proxies, compromised hosts** to obscure source IP and bypass **geographic restrictions**.
 
-### **Phase 1: Foundations & Network Discovery (The "Ghost" Phase)**
+<a id="toc-part-6-enumeration"></a>
+## Part 6: Enumeration
 
-_Goal: Build a theoretical base while mapping the live environment with zero noise._
+> **Note:** Part 5 (Scanning) covers host discovery, port scanning, and defense identification. Part 6 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If you haven't completed Part 5, do so first.
 
-- [ ] **Core Principles & Discovery:** Apply the **CIA Triad** and **Definition of Risk** to identify high-value targets. Use `ping` and `arp` for **Live Host Identification**.
-- [ ] **Stealth Host Mapping:** Use `arp-scan` or `nmap -PR` for local segments to bypass **Host Based Firewalls**. Utilize **Wireshark** for passive traffic capture to reveal hosts without sending packets.
-- [ ] **Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map network hops. Define the boundaries between **Perimeter vs DMZ vs Segmentation** to understand the **Concept of Isolation**.
-- [ ] **Cryptographic Baseline:** Understand the **Basics of Cryptography**, specifically **Hashing** and **Salting**, to recognize how stored credentials might be protected.
+### **Stage 1: Service Enumeration & Banner Grabbing**
 
-- [ ] **TLS & Mail Recon:** Collect **cert SANs**, cipher/curve support, **SPF/DMARC/DKIM**, and note redirect/downgrade behaviors.
+_Goal: Extract version, configuration, and identity information from each discovered service._
 
----
+- [ ] **Banner Grabbing:** Use **Netcat, Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
 
-### **Phase 2: Service Enumeration & Defense Profiling (The "Door Check")**
+- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, CrackMapExec** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
 
-_Goal: Interrogate listening services while identifying the target's "armor."_
+- [ ] **SNMP Enumeration:** Query **SNMP (UDP 161)** with **snmpwalk, onesixtyone** using **community strings (public/private)** to extract **system info, interfaces, running processes, installed software**.
 
-- [ ] **Stealth Port Scanning:** Execute `nmap -sS` (SYN scan) to identify open ports without completing the **Handshake**, keeping your footprint out of application logs.
-- [ ] **Service & OS Fingerprinting:** Use `nmap -sV` for banners and `nmap -O` for **Operating System Hardening** clues. Identify the use of **Antivirus**, **EDR**, or **HIPS**.
-- [ ] **Protocol & Handshake Audit:** Analyze discovered services for **Secure vs Insecure Protocols** (e.g., FTP vs SFTP, SSL vs TLS). Examine connection **Handshakes** to understand authentication and encryption.
-- [ ] **Defensive Technology Identification:** Map the presence of a **Firewall & Nextgen Firewall**, **IDS and IPS**, and **ACLs** by analyzing filtered ports and packet fragmentation.
+- [ ] **NFS Enumeration:** Use **showmount -e** to discover **exported shares**; check for **world-readable exports** and **root squash misconfigurations**.
 
-- [ ] **IPv6 & Dual-Stack:** Repeat key enumeration over **IPv6** where present.
+- [ ] **SSH Enumeration:** Fingerprint **SSH versions, supported algorithms, key exchange methods** using **ssh-audit**; identify **weak ciphers, deprecated protocols**.
+
+- [ ] **RDP Enumeration:** Use **nmap --script rdp-enum-encryption, rdp-ntlm-info** to extract **OS version, domain info, NLA requirements** from RDP endpoints.
 
 ---
 
-### **Phase 3: Vulnerability Association & Attack Mapping**
+### **Stage 2: Directory & Identity Enumeration**
 
-_Goal: Convert raw scan data into actionable exploitation vectors._
-
-- [ ] **Scripted Probing & Zero-Days:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for **Known vs Unknown** vulnerabilities and **Zero Day** potential.
-- [ ] **Attack Vector Selection:** Match findings to **Common Attacks**:
-  - **Web:** Use `ffuf` or `Gobuster` for **Directory Traversal** and **SQL Injection**.
-  - **Network:** Prep for **MITM** or **Replay Attacks** based on cleartext **Packet Captures**.
-  - **System:** Research **LOLBAS**, **GTFOBINS**, or **WADCOMS** to leverage existing binaries for **Privilege Escalation**.
-- [ ] **Identity Attack Prep:** If **Active Directory** is detected, plan for **Pass the Hash** or **Kerberoasting** by auditing **Authentication vs Authorization** protocols.
-
-- [ ] **Service-Focused Deep Dives:** Enumerate **SMB/LDAP/Kerberos/WinRM**, **SNMP**, **SMTP**, **SSH/RDP**, and **databases** with safe scripts/banners before vuln scans.
-
----
-
-### **Phase 4: Governance & Operational Response**
-
-_Goal: Align offensive findings with industry standards and professional reporting._
-
-- [ ] **Framework Alignment:** Map discovered vulnerabilities against the **Cyber Kill Chain**, **Diamond Model**, or **MITRE ATT&CK** framework.
-- [ ] **Compliance & Reporting:** Tailor your findings for the correct **Audience** (Stakeholders, HR, Legal, or Management). Reference standards like **NIST**, **ISO**, or **CIS** to provide context for remediation.
-- [ ] **Incident Response Integration:** Understand the **Incident Response Process** (Preparation to Lessons Learned) to anticipate how a **Blue Team** will react to your presence.
-
----
-
-### **Phase 4: Advanced Enumeration (LDAP, DNS, Databases)**
-
-_Goal: Extract detailed directory, naming, and data service information._
+_Goal: Map users, groups, and organizational structure from directory services._
 
 - [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
 
 - [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, BloodHound** to map **domain trusts, group membership, SPNs, delegation**.
 
+- [ ] **Kerberos Enumeration:** Use **kerbrute** for **username enumeration** via **AS-REQ responses**; identify **accounts without pre-authentication (AS-REP Roastable)**.
+
+- [ ] **SMTP Enumeration:** Use **VRFY, EXPN, RCPT TO** commands to **verify valid email addresses and usernames** on mail servers.
+
+- [ ] **RPC Enumeration:** Use **rpcclient, rpcinfo** to enumerate **RPC endpoints, user SIDs, domain information, printer shares**.
+
+---
+
+### **Stage 3: DNS & Infrastructure Enumeration**
+
+_Goal: Extract naming, network, and infrastructure intelligence from DNS._
+
 - [ ] **DNS Zone Transfer:** Attempt **AXFR/IXFR** transfers to extract **full DNS records** and internal hostnames.
 
+- [ ] **DNS Record Enumeration:** Query **A, AAAA, MX, TXT, SRV, CNAME, NS, PTR** records to map **mail servers, services, subdomains, SPF/DMARC/DKIM** policies.
+
 - [ ] **DNS Spoofing Prep:** Identify **DNS split-view** configurations and **internal domain naming** for **DNS rebinding attacks**.
+
+- [ ] **Reverse DNS Sweeps:** Perform **PTR record lookups** across discovered IP ranges to reveal **hostnames, naming conventions, and hidden services**.
+
+---
+
+### **Stage 4: Database & Application Enumeration**
+
+_Goal: Extract schemas, credentials, and data from discovered database and application services._
 
 - [ ] **Database Discovery:** Identify **MySQL, MSSQL, PostgreSQL, Oracle, MongoDB, Redis, Elasticsearch** on standard/non-standard ports.
 
@@ -1678,111 +1914,26 @@ _Goal: Extract detailed directory, naming, and data service information._
 
 - [ ] **Backup & Recovery:** Identify **backup locations, recovery mode**, and **log files** that may contain **plaintext passwords or recovery keys**.
 
----
-
-### **Phase 5: Operational Security (OpSec)**
-
-_Goal: Maintain stealth while gathering intelligence._
-
-- [ ] **Tool Fingerprinting Awareness:** Understand **Nmap signatures, Metasploit patterns, Burp user-agents** and use legitimate tools to blend in.
-
-- [ ] **Timing & Behavior:** Spread enumeration requests over time; avoid **rapid-fire queries** that trigger **anomaly detection**.
-
-- [ ] **Traffic Obfuscation:** Use **DNS tunneling, HTTP tunneling** to exfiltrate enumeration data over legitimate protocols.
-
-- [ ] **Log Cleanup Prep:** Identify **log locations** (Windows Event Logs, syslog servers) to understand what will be logged during exploitation.
-
-- [ ] **Privilege Escalation Path Planning:** Map **sudo/SUID/ACL misconfigs** before execution to minimize detection window.
-
-## Part 5: Enumeration
-
-### **Phase 1: Foundations & Network Discovery (The "Ghost" Phase)**
-
-_Goal: Build a theoretical base while mapping the live environment with zero noise._
-
-- [ ] **Core Principles & Discovery:** Apply the **CIA Triad** and **Definition of Risk** to identify high-value targets. Use `ping` and `arp` for **Live Host Identification**.
-- [ ] **Stealth Host Mapping:** Use `arp-scan` or `nmap -PR` for local segments to bypass **Host Based Firewalls**. Utilize **Wireshark** for passive traffic capture to reveal hosts without sending packets.
-- [ ] **Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map network hops. Define the boundaries between **Perimeter vs DMZ vs Segmentation** to understand the **Concept of Isolation**.
-- [ ] **Cryptographic Baseline:** Understand the **Basics of Cryptography**, specifically **Hashing** and **Salting**, to recognize how stored credentials might be protected.
-
-- [ ] **TLS & Mail Recon:** Collect **cert SANs**, cipher/curve support, **SPF/DMARC/DKIM**, and note redirect/downgrade behaviors.
+- [ ] **Web Application Enumeration:** Use **Gobuster, feroxbuster, ffuf** to discover **hidden directories, API endpoints, admin panels, configuration files, and backup archives** (.bak, .old, .swp).
 
 ---
 
-### **Phase 2: Service Enumeration & Defense Profiling (The "Door Check")**
+### **Stage 5: Attack Surface Consolidation & Enumeration OpSec**
 
-_Goal: Interrogate listening services while identifying the target's "armor."_
+_Goal: Consolidate findings into an attack plan while maintaining stealth._
 
-- [ ] **Stealth Port Scanning:** Execute `nmap -sS` (SYN scan) to identify open ports without completing the **Handshake**, keeping your footprint out of application logs.
-- [ ] **Service & OS Fingerprinting:** Use `nmap -sV` for banners and `nmap -O` for **Operating System Hardening** clues. Identify the use of **Antivirus**, **EDR**, or **HIPS**.
-- [ ] **Protocol & Handshake Audit:** Analyze discovered services for **Secure vs Insecure Protocols** (e.g., FTP vs SFTP, SSL vs TLS). Examine connection **Handshakes** to understand authentication and encryption.
-- [ ] **Defensive Technology Identification:** Map the presence of a **Firewall & Nextgen Firewall**, **IDS and IPS**, and **ACLs** by analyzing filtered ports and packet fragmentation.
+- [ ] **Attack Surface Map:** Combine all enumeration results into a **structured target profile** — users, credentials, shares, services, misconfigurations, and potential exploitation vectors.
 
-- [ ] **IPv6 & Dual-Stack:** Repeat key enumeration over **IPv6** where present.
+- [ ] **Prioritized Attack Paths:** Rank targets by **exploitability and impact** — prioritize **null sessions, default credentials, writable shares, exposed admin panels, and AS-REP Roastable accounts**.
 
----
+- [ ] **Tool Fingerprinting Awareness:** Understand that enumeration tools leave signatures — **vary User-Agents, throttle requests, rotate source IPs** where possible.
 
-### **Phase 3: Target Assessment & Attack Planning (The "Puzzle Assembly")**
+- [ ] **Timing Discipline:** Spread enumeration queries over time; avoid **rapid-fire LDAP/SMB/SNMP queries** that trigger **anomaly-based detection**.
 
-_Goal: Consolidate and map all findings into your attack roadmap._
+- [ ] **Documentation:** Record all findings with **timestamps, source IPs, and tool commands** used — this feeds directly into **reporting and evidence collection**.
 
-- [ ] **Attack Vector Selection:** Match findings to **Common Attacks**:
-  - **Web:** Use `ffuf` or `Gobuster` for **Directory Traversal** and **SQL Injection**.
-  - **Network:** Prep for **MITM** or **Replay Attacks** based on cleartext **Packet Captures**.
-  - **System:** Research **LOLBAS**, **GTFOBINS**, or **WADCOMS** to leverage existing binaries for **Privilege Escalation**.
-- [ ] **Identity Attack Prep:** If **Active Directory** is detected, plan for **Pass the Hash** or **Kerberoasting** by auditing **Authentication vs Authorization** protocols.
-
-- [ ] **Service-Focused Deep Dives:** Enumerate **SMB/LDAP/Kerberos/WinRM**, **SNMP**, **SMTP**, **SSH/RDP**, and **databases** with safe scripts/banners before vuln scans.
-
----
-
-### **Phase 4: Advanced Enumeration (LDAP, DNS, Databases)**
-
-_Goal: Extract detailed directory, naming, and data service information._
-
-- [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
-
-- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, BloodHound** to map **domain trusts, group membership, SPNs, delegation**.
-
-- [ ] **DNS Zone Transfer:** Attempt **AXFR/IXFR** transfers to extract **full DNS records** and internal hostnames.
-
-- [ ] **DNS Spoofing Prep:** Identify **DNS split-view** configurations and **internal domain naming** for **DNS rebinding attacks**.
-
-- [ ] **Database Discovery:** Identify **MySQL, MSSQL, PostgreSQL, Oracle, MongoDB, Redis, Elasticsearch** on standard/non-standard ports.
-
-- [ ] **Database Default Creds:** Test **default credentials** (root/password, sa/sa, admin/admin) against discovered databases.
-
-- [ ] **Database Information Schema:** Query **INFORMATION_SCHEMA** tables to enumerate **user accounts, object permissions, stored procedures**.
-
-- [ ] **Backup & Recovery:** Identify **backup locations, recovery mode**, and **log files** that may contain **plaintext passwords or recovery keys**.
-
----
-
-### **Phase 5: Governance & Operational Response**
-
-_Goal: Align offensive findings with industry standards and professional reporting._
-
-- [ ] **Framework Alignment:** Map discovered vulnerabilities against the **Cyber Kill Chain**, **Diamond Model**, or **MITRE ATT&CK** framework.
-- [ ] **Compliance & Reporting:** Tailor your findings for the correct **Audience** (Stakeholders, HR, Legal, or Management). Reference standards like **NIST**, **ISO**, or **CIS** to provide context for remediation.
-- [ ] **Incident Response Integration:** Understand the **Incident Response Process** (Preparation to Lessons Learned) to anticipate how a **Blue Team** will react to your presence.
-
----
-
-### **Phase 6: Operational Security (OpSec)**
-
-_Goal: Maintain stealth while gathering intelligence._
-
-- [ ] **Tool Fingerprinting Awareness:** Understand **Nmap signatures, Metasploit patterns, Burp user-agents** and use legitimate tools to blend in.
-
-- [ ] **Timing & Behavior:** Spread enumeration requests over time; avoid **rapid-fire queries** that trigger **anomaly detection**.
-
-- [ ] **Traffic Obfuscation:** Use **DNS tunneling, HTTP tunneling** to exfiltrate enumeration data over legitimate protocols.
-
-- [ ] **Log Cleanup Prep:** Identify **log locations** (Windows Event Logs, syslog servers) to understand what will be logged during exploitation.
-
-- [ ] **Privilege Escalation Path Planning:** Map **sudo/SUID/ACL misconfigs** before execution to minimize detection window.
-
-## Part 6: System Hacking & Initial Compromise
+<a id="toc-part-7-system-hacking--initial-compromise"></a>
+## Part 7: System Hacking & Initial Compromise
 
 ### **Phase 1: The Breach (Initial Access & Exploitation)**
 
@@ -1827,95 +1978,6 @@ _Goal: Weaponize theoretical vulnerabilities to bypass the perimeter and establi
 - [ ] **MFA Bypass:** Exploit **MFA fatigue, SIM-swap, push notification spoofing**.
 
 - [ ] **Credential Stuffing:** Reuse leaked passwords from **breach corpuses** (HIBP/Dehashed).
-
-**Security Fundamentals:**
-
-- [ ] **Key Security Concepts:**
-  - [ ] **Threats:** Understand **potential dangers** (malware, DDoS, insider threats, APTs).
-  - [ ] **Vulnerabilities:** Know **weaknesses** in systems (unpatched software, misconfigs, weak passwords).
-  - [ ] **Exploits:** Master **methods to leverage vulnerabilities** (buffer overflow, SQL injection, privilege escalation).
-  - [ ] **Mitigation Techniques:** Apply **defense-in-depth, patching, hardening, segmentation, least privilege**.
-
-- [ ] **Security Program Elements:**
-  - [ ] **User Awareness Training:** Implement **phishing simulations, security policies, acceptable use training**.
-  - [ ] **Security Training:** Conduct **role-based training** for **admins, developers, end-users**.
-  - [ ] **Physical Access Control:** Understand **badge systems, cameras, mantrap doors, visitor logs, secure disposal**.
-
-**Device Access Control & Local Passwords:**
-
-- [ ] **Local Password Configuration:** Configure **enable secret** (hashed with SHA-256), **line console/vty passwords**.
-
-- [ ] **Local User Accounts:** Create **username/password** pairs with **privilege levels (0-15)**.
-
-- [ ] **Password Encryption:** Enable **service password-encryption** to encrypt plaintext passwords (Type 7 - weak).
-
-- [ ] **Password Strength Verification:** Use **show running-config** to verify password encryption types.
-
-**Security Password Policy Elements:**
-
-- [ ] **Password Management:** Implement **centralized password management** (AAA servers, password vaults).
-
-- [ ] **Password Complexity Requirements:**
-  - [ ] **Minimum Length:** Enforce **8+ characters** (12+ for privileged accounts).
-  - [ ] **Character Diversity:** Require **uppercase, lowercase, numbers, special characters**.
-  - [ ] **Dictionary/Common Password Blocking:** Prevent **common passwords** (Password123, admin).
-
-- [ ] **Password Rotation:** Enforce **90-day expiration** with **password history** to prevent reuse.
-
-- [ ] **Password Alternatives (Modern Security):**
-  - [ ] **Multifactor Authentication (MFA):** Require **something you know (password) + something you have (token/phone)**.
-  - [ ] **Certificates (PKI):** Use **X.509 certificates** for device/user authentication.
-  - [ ] **Biometrics:** Implement **fingerprint, facial recognition, iris scan** for high-security access.
-  - [ ] **Hardware Tokens:** Use **YubiKey, RSA SecurID** for **FIDO2/WebAuthn** authentication.
-  - [ ] **Passwordless Authentication:** Leverage **Windows Hello, FIDO2, certificate-based auth**.
-
-**AAA (Authentication, Authorization, Accounting):**
-
-- [ ] **Authentication:** Verify **who you are** (username/password, certificate, biometric, token).
-
-- [ ] **Authorization:** Determine **what you can do** (privilege level, command access, resource permissions).
-
-- [ ] **Accounting:** Track **what you did** (login time, commands executed, config changes, logout).
-
-- [ ] **AAA Implementation Methods:**
-  - [ ] **Local AAA:** Authentication via **local device database** (username/password on device).
-  - [ ] **Server-Based AAA:** Centralized authentication via **TACACS+** or **RADIUS** servers.
-
-- [ ] **TACACS+ vs RADIUS Comparison:**
-  - [ ] **TACACS+:** **Cisco proprietary**, **TCP port 49**, **encrypts entire packet**, **granular command authorization**, **preferred for device administration**.
-  - [ ] **RADIUS:** **Industry standard**, **UDP ports 1812/1813**, **encrypts only password**, **network access control**, **preferred for 802.1X, VPN, wireless**.
-
-- [ ] **AAA Configuration:** Configure **aaa new-model**, **aaa authentication login**, **aaa authorization**, **aaa accounting**.
-
-**IPsec VPN Fundamentals:**
-
-- [ ] **Site-to-Site VPN:** Connect **branch office to headquarters** with **permanent encrypted tunnels**.
-
-- [ ] **Remote Access VPN:** Allow **individual users** to connect to **corporate network** from anywhere.
-
-- [ ] **IPsec Components:**
-  - [ ] **IKE Phase 1:** Establish **secure management connection** using **Main Mode or Aggressive Mode**.
-  - [ ] **IKE Phase 2:** Negotiate **IPsec parameters** and establish **data tunnel (Quick Mode)**.
-  - [ ] **AH (Authentication Header):** Provides **integrity and authentication** (rarely used alone).
-  - [ ] **ESP (Encapsulating Security Payload):** Provides **confidentiality, integrity, authentication**.
-
-- [ ] **IPsec Modes:**
-  - [ ] **Transport Mode:** Encrypts **only payload** (used for host-to-host).
-  - [ ] **Tunnel Mode:** Encrypts **entire IP packet** (used for site-to-site VPN).
-
-**Access Control Lists:**
-
-- [ ] **Standard ACLs:** Filter based on **source IP only** (1-99, 1300-1999); apply **close to destination**.
-
-- [ ] **Extended ACLs:** Filter based on **source/dest IP, protocol, port** (100-199, 2000-2699); apply **close to source**.
-
-- [ ] **Named ACLs:** Use **descriptive names** instead of numbers for better management.
-
-- [ ] **ACL Processing:** Understand **top-to-bottom processing, implicit deny all** at end.
-
-- [ ] **ACL Placement Best Practices:** **Standard ACLs near destination**, **Extended ACLs near source** to minimize unnecessary traffic.
-
-- [ ] **ACL Verification:** Use **show access-lists**, **show ip interface**, **debug ip packet** for troubleshooting.
 
 **Human Vector & Social Engineering:**
 
@@ -2054,10 +2116,13 @@ _Goal: Establish permanent presence and move horizontally across network._
 - [ ] **SMB/WinRM:** Use **PsExec, Invoke-Command** to execute **commands on adjacent machines**.
 
 - [ ] **SSH Agent Hijack:** Compromise **SSH forwarding** to move to **key-trusted hosts**.
+
 - [ ] **RDP Relay/NTLM Relay:** Exploit **weak signing** to relay **RDP/HTTP credentials** to **other systems**.
 
 - [ ] **DNS Exfiltration:** Tunnel **data over DNS queries** to exfiltrate **files incrementally**.
+
 - [ ] **Printer/SNMP Abuse:** Exploit **print servers, SNMP v1/v2c** for **lateral access**.
+
 - [ ] **SaaS-to-SaaS Pivoting:** Leverage **OAuth tokens/app integrations** to pivot from **Slack/Teams** into **Salesforce/GitHub/Google Workspace**.
 
 ---
@@ -2158,7 +2223,20 @@ _Goal: Execute within legal/ethical boundaries and deliver findings professional
 
 - [ ] **Metrics & KPIs:** Highlight **MTTD (Mean Time to Detect), MTTC (Mean Time to Contain), detection gaps**.
 
-## Part 7: Malware & Weaponization
+### **Lab Progression**
+
+_Goal: Practice compromise only in controlled environments and produce professional evidence._
+
+- [ ] **Beginner Host Labs:** Complete at least 5 intentionally vulnerable Linux/Windows machines; document initial access, privilege escalation, evidence, and remediation.
+- [ ] **Credential Handling Lab:** Capture and crack lab-only hashes, then document storage, chain of custody, and cleanup. Use the Password Cracking Gate before attempting this.
+- [ ] **Post-Exploitation Timeline:** Build an operator timeline and defender timeline for one lab compromise.
+- [ ] **Detection Pairing:** For every exploit path, identify Windows Event Logs, Sysmon, auditd, network, or SIEM artifacts.
+- [ ] **Move-On Gate:** Submit 3 full lab attack reports using the Part 39 structure.
+
+<a id="toc-part-8-malware--weaponization"></a>
+## Part 8: Malware & Weaponization
+
+> **Safety Gate:** Malware work is restricted to isolated local labs with snapshots, host-only networking, no shared clipboard, no mounted host folders, and no third-party targets. Before running any sample or payload, define expected behavior, logging sources, rollback steps, and containment checks.
 
 ### **Phase 1: The Design & Logic (Architecture)**
 
@@ -2238,7 +2316,296 @@ _Goal: Hide the tracks and adhere to engagement rules._
 
 ---
 
-## Part 8: Detection & Mitigation (Blue Team Perspective)
+<a id="toc-part-9-sniffing--spoofing"></a>
+## Part 9: Sniffing & Spoofing
+
+### **Phase 1: The Environment & Fundamentals (The Setup)**
+
+_Goal: Understand the battlefield. You cannot spoof what you cannot map._
+
+- [ ] **Protocol Hierarchy & Trust:** Differentiate between **MAC Addresses** (Layer 2 - Local Trust) and **IP Addresses** (Layer 3 - Routing). Spoofing relies on exploiting the trust mismatch between these layers.
+
+- [ ] **Secure vs. Insecure Protocols:** Identify targets using cleartext protocols like **HTTP, FTP, Telnet, DNS**. These are trivial to sniff. Encrypted protocols like **TLS/HTTPS** and **SSH** require advanced downgrade attacks or decryption to bypass.
+
+- [ ] **The Switch vs. Hub Reality:** Modern networks use switches which segment traffic by MAC. You cannot passively sniff; you must **ARP spoof, MAC flood**, or **VLAN hop** to bypass segmentation.
+
+- [ ] **Interface Configuration:** Configure NIC to **Promiscuous Mode** (tcpdump, Wireshark) to capture all traffic, not just destined to your MAC; practice with **monitor mode** on wireless cards.
+
+- [ ] **Handshake & Session Logic:** Study **TCP/TLS handshakes** (SYN/ACK, ClientHello/ServerHello) to identify session boundaries; understand **sequence numbers, window size, timestamps** for **replay and hijack** timing.
+
+---
+
+### **Phase 2: Sniffing & Passive Reconnaissance (The Ear)**
+
+_Goal: Capture data without alerting the target. "Listen before act."_
+
+- [ ] **Passive Packet Capture:** Use **tcpdump/Wireshark** to capture broadcast/multicast traffic (ARP, DHCP, mDNS) to identify active hosts, gateways, and services without sending directed traffic.
+
+- [ ] **Wireless Interception:** Set wireless NIC to **monitor mode**; capture **WPA2/WPA3 4-way handshakes, PMKID** for offline cracking; identify **SSID, client MAC, AP MAC** patterns.
+
+- [ ] **Protocol Analysis:** Filter **pcap** by protocol (HTTP, FTP, SMTP, DNS); identify **cleartext credentials, API keys, session tokens**, and software **User-Agent/Server banners**.
+
+- [ ] **Stream Reassembly:** Use **tcpflow, Wireshark Follow TCP Stream** to reassemble files, images, emails, or form submissions from fragmented packets.
+
+---
+
+### **Phase 3: Spoofing & Active Deception (The Lie)**
+
+_Goal: Inject false information into the network to redirect or manipulate traffic._
+
+- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, bettercap**.
+
+- [ ] **DNS Spoofing:** Respond to **DNS queries faster than the legitimate server**; redirect victims to malicious login pages for **credential harvesting** or **malware distribution**.
+
+- [ ] **DHCP Starvation & Rogue DHCP:** Exhaust legitimate DHCP pools and serve your own **gateway/DNS** to all clients; enables **MITM and traffic redirection**.
+
+- [ ] **MAC Spoofing:** Change burned-in MAC to bypass **MAC filtering, NAC (Network Access Control), DHCP reservations**; use **macchanger** (Linux) or **SetMACAddress** (Windows).
+
+- [ ] **IP Spoofing:** Forge **source IP** in packet headers to **hide identity, impersonate trusted hosts**, or launch **reflection/amplification attacks** in DDoS.
+
+- [ ] **SSL Stripping & HTTP Downgrade:** Intercept **HTTPS traffic** and downgrade to **HTTP** by breaking the TLS handshake; use **sslstrip, mitmproxy** to expose encrypted traffic in cleartext.
+
+---
+
+### **Phase 4: Man-in-the-Middle & Exploitation (The Kill)**
+
+_Goal: Intercept, modify, and relay traffic to extract or manipulate data._
+
+- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, Burp Suite** to intercept and modify traffic in real-time.
+
+- [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
+
+- [ ] **Credential Sniffing:** Capture **cleartext logins** (FTP, Telnet, HTTP Basic Auth, SMTP); extract **form credentials** from unencrypted POST requests.
+
+- [ ] **Replay Attacks:** Capture valid **authentication tokens, API requests, or RF signals** and retransmit later to bypass time-based controls; works for **garage door openers, payment terminals, VoIP**.
+
+- [ ] **Rogue Access Point / Evil Twin:** Deploy **fake Wi-Fi AP** with legitimate SSID + stronger signal; force users to connect and route all traffic through your box for **MITM harvesting**.
+
+- [ ] **Traffic Injection & Modification:** Inject malicious **JavaScript, HTML, iframes** into unencrypted HTTP responses; modify **DNS responses** to redirect to attacker servers.
+
+---
+
+### **Phase 5: Defenses & Mitigation (The Shield)**
+
+_Goal: Understand defensive controls to anticipate and evade them._
+
+- [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
+
+- [ ] **Switch-Level Protection:** **Dynamic ARP Inspection (DAI)**, **DHCP Snooping**, **port security** reject malformed ARP/DHCP; **802.1X authentication** prevents rogue device connection.
+
+- [ ] **Network Segmentation:** **VLAN isolation, micro-segmentation, zero trust** limits sniffing scope per compromised segment; east-west traffic encryption adds extra layers.
+
+- [ ] **Detection Systems:** **IDS/IPS** flag high ARP packet volume, **MITM tools (ettercap signatures)**, SSL downgrade attempts; **Netflow/sFlow** detects unusual traffic patterns.
+
+- [ ] **User Awareness:** Train users to verify **SSL certificates**, recognize **phishing login pages**, and use **password managers** to avoid clipboard paste attacks.
+
+<a id="toc-part-10-social-engineering"></a>
+## Part 10: Social Engineering
+
+> **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
+
+### **Stage 1: Intelligence & Reconnaissance (The Setup)**
+
+_Goal: Know the target better than they know themselves._
+
+- [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
+
+- [ ] **Physical Recon:** Perform **dumpster diving** to recover **org charts, vendor invoices, sticky notes** with passwords; observe **badge access patterns, delivery procedures**.
+
+- [ ] **Domain & Infrastructure Prep:** Register **typo-squatting domains** (e.g., `companysupport.com`, `company-login.net`) that mimic target portals; prepare **phishing landing pages**.
+
+- [ ] **Social Media Profiling:** Mine **LinkedIn, Twitter, GitHub, Glassdoor** for **personal details, relationships, job changes** to craft personalized lures.
+
+---
+
+### **Stage 2: The Digital Assault (Remote Vectors)**
+
+_Goal: Compromise the target from a distance via electronic channels._
+
+- [ ] **Mass Campaign:** Launch **broad phishing campaigns** with generic lures (password resets, package delivery) for large-scale **credential harvesting**.
+
+- [ ] **Executive Targeting:** Execute **whaling attacks** against **C-suite/CFO** using deep **OSINT context** (recent news, personal interests, vendor relationships) to bypass skepticism.
+
+- [ ] **Mobile Vector:** Deploy **SMS phishing (smishing)** with **MFA reset codes, delivery notifications, bank alerts**; use **VoIP/voice phishing (vishing)** to call employees directly.
+
+- [ ] **Watering Hole:** Compromise **industry-specific forums, GitHub repos, or shared tools** to inject **malware/tracking code** that targets specific teams via **drive-by downloads**.
+
+- [ ] **Deepfake Vishing:** Use **voice cloning/video deepfakes** (e.g., ElevenLabs) for **executive impersonation** in calls/meetings.
+
+- [ ] **ClickFix/ClearFake:** Simulate browser/OS errors that instruct users to **copy-paste provided PowerShell/terminal scripts** (“fix/update now”).
+
+---
+
+### **Stage 3: The Human Element (Direct Interaction)**
+
+_Goal: Use psychology and social manipulation to bypass logic._
+
+- [ ] **Voice Pretexting:** Call as **IT support, HR, vendor, auditor, law enforcement** using social engineering pretexts; use **authority, urgency, fear** to bypass critical thinking.
+
+- [ ] **Authority & Compliance Trigger:** Leverage **IT/Security/Auditor/Legal persona** to demand compliance; abuse **helpfulness bias** to force password resets or system access.
+
+- [ ] **Reciprocity & Obligation:** Provide small **favors (tech help, free tools)** to create sense of obligation; ask for credentials or access in return.
+
+---
+
+### **Stage 4: The Physical Breach (Boots on the Ground)**
+
+_Goal: Gain physical access to networks and facilities._
+
+- [ ] **Tailgating:** Follow **authorized employees** into secure zones using badges/access cards; use **coffee cup hold, uniform/vendor persona** to bypass visual checks.
+
+- [ ] **Shoulder Surfing:** Observe **PIN entry, password typing, screen content** in public spaces (airports, coffee shops, open offices) to capture credentials.
+
+- [ ] **Badge Cloning:** Capture **RFID badge data** using **Proxmark3, ACR122U** and clone to malicious card; bypass **magnetic stripe readers** via cloning.
+
+- [ ] **Physical Device Placement:** Plant **USB drops, rogue access points, hardware keyloggers** in common areas for **auto-execution** when connected by unsuspecting users.
+
+---
+
+### **Stage 5: Defense & Awareness (The Shield)**
+
+_Goal: Prevent the human hack through training and controls._
+
+- [ ] **Authentication:** Enforce **MFA/2FA** (TOTP, hardware keys, push notifications) so password compromise alone doesn't grant access; watch for **MFA fatigue attacks**.
+
+- [ ] **Verification Protocols:** Train staff to **challenge unknown callers** via **secondary channel callback**; never trust caller ID alone; verify requests through official channels.
+
+- [ ] **Physical Security:** Enforce **no-tailgating policies, visitor escorts, badge display requirements, clean desk policies** to prevent **dumpster diving and shoulder surfing**.
+
+- [ ] **Security Awareness:** Regular **phishing simulations, red team testing, security training** to build **skepticism and reporting culture**; reward **security-first behavior**.
+
+- [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
+
+### **Lab Progression**
+
+_Goal: Learn social engineering defensively and ethically._
+
+- [ ] **Email Authentication Lab:** Configure and validate SPF, DKIM, and DMARC on a test domain or lab mail stack.
+- [ ] **Header Forensics Lab:** Analyze benign/phishing email headers and identify sender path, SPF/DKIM/DMARC result, and suspicious infrastructure.
+- [ ] **GoPhish Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
+- [ ] **Pretext Review:** Write three pretexts and then write the defensive awareness guidance that would defeat them.
+- [ ] **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
+
+<a id="toc-part-11-denial-of-service"></a>
+## Part 11: Denial of Service
+
+> **Safety Gate:** DoS testing is local-lab-only unless a written contract explicitly authorizes it. Never run DoS tools against public IPs, SaaS platforms, school networks, ISP infrastructure, or bug bounty targets unless the scope explicitly permits availability testing.
+
+### **Stage 1: Objective & Strategy (The Planning)**
+
+_Goal: Understand DoS/DDoS scope and firepower requirements._
+
+- [ ] **Denial of Service (DoS):** Single attacker sends **crafted traffic** to overwhelm a target's **CPU, bandwidth, or connections**; from one IP; **relatively easy detection**.
+
+- [ ] **Distributed Denial of Service (DDoS):** **Multiple sources** (botnet, amplification servers) send traffic **simultaneously**; harder to trace and block; **stronger firepower**.
+
+- [ ] **Target Assessment:** Identify **critical services** (web, DNS, mail, VPN) and **upstream bottlenecks** (ISP bandwidth, DDoS mitigation capacity) to determine **attack viability**.
+
+---
+
+### **Stage 2: The Arsenal (Attack Methods)**
+
+_Goal: Select the right DoS technique for target vulnerabilities._
+
+- [ ] **Volumetric Attacks:** Consume **bandwidth** using **SYN floods, UDP floods, ICMP floods** to saturate network pipes; use **DNS amplification, NTP reflection** to multiply traffic (1 request → 1000× response).
+
+- [ ] **Protocol Attacks:** Exploit **TCP/IP stack weaknesses** (malformed packets, fragment handling, connection states) using **Ping of Death, Teardrop, SYN floods** to crash systems or exhaust connection limits.
+
+- [ ] **Application-Layer Attacks:** Target **specific services** with **HTTP floods (Slowloris), database queries (CPU spike), cached assets** to overwhelm **web servers, APIs, load balancers** at Layer 7.
+
+- [ ] **IoT/Botnets:** Compromise **webcams, routers, smart devices** via **default creds, unpatched firmware** to join **Mirai, Dridex-style botnets** for DDoS-as-a-Service.
+
+---
+
+### **Stage 3: Infrastructure & Execution (The Assault)**
+
+_Goal: Deploy and sustain the attack at scale._
+
+- [ ] **Botnet Assembly:** Recruit **thousands of infected IoT/servers** or use **existing botnet services** (DDoS-as-a-Service, rent botnet time); establish **C&C control** via IRC/DNS/Peer-to-Peer.
+
+- [ ] **Traffic Generation:** Use **tools like hping3, slowhttptest, LOIC, Colasoft PacketBuilder** to craft and blast custom packets; coordinate **multi-vector attacks** (volumetric + protocol + app-layer simultaneously).
+
+- [ ] **Proxy/Spoofing:** Use **open reflectors/amplifiers** (DNS servers, NTP, SNMP) to amplify traffic; spoof **source IP addresses** to obscure attacker origin.
+
+- [ ] **Duration & Monitoring:** Sustain attack for **hours/days** while monitoring **target availability, ISP response, filtering changes**; adjust payload/vector on-the-fly.
+
+---
+
+### **Stage 4: Defense & Mitigation (The Shield)**
+
+_Goal: Detect, absorb, and neutralize DoS attacks._
+
+- [ ] **Edge Defense:** Deploy **Cloudflare, Akamai, AWS Shield Standard** to absorb DDoS at **ISP/CDN level** before traffic reaches origin; filter **malformed packets, spoofed IPs** at network edge.
+
+- [ ] **Rate Limiting & Throttling:** Implement **connection limits, request rate caps, CAPTCHAs, geo-blocking** to let legitimate users through while rejecting flood traffic.
+
+- [ ] **Monitoring & Detection:** Deploy **NetFlow/sFlow analysis, IDS/IPS (Suricata, Zeek)** to detect **unusual traffic patterns, connection spikes, protocol anomalies**; alert on **RTO timeouts, CPU/bandwidth saturation**.
+
+- [ ] **Architectural Resilience:** Use **anycast DNS, geographically distributed servers, auto-scaling, load balancing** to spread load; oversizing infrastructure to **absorb baseline attacks**; prepare **incident response playbooks**.
+
+- [ ] **ISP/Carrier Coordination:** Work with **ISP's DDoS mitigation services** to scrub traffic upstream; establish **BGP blackholing** to discard attack traffic at border; maintain **redundant ISPs/circuits**.
+
+<a id="toc-part-12-session-hijacking"></a>
+## Part 12: Session Hijacking
+
+### **Stage 1: Reconnaissance & Vulnerability Analysis**
+
+_Goal: Find a target and identify its weaknesses._
+
+- [ ] **Target Identification:** Use **Reconnaissance** and **OSINT** to identify target web applications.
+
+- [ ] **Protocol Analysis:** Check if the application uses **Unsecure Protocols** (HTTP) for any part of the session, making it vulnerable to sniffing.
+
+- [ ] **Session Mechanism Analysis:** Study **session ID generation, cookie attributes, token entropy** for weak patterns.
+
+- [ ] **Vulnerability Scanning:** Test for **XSS, CSRF, MITM susceptibility, weak session timeouts**.
+
+---
+
+### **Stage 2: Stealing the Session ID (The Attack Vectors)**
+
+_Goal: Execute the attack to acquire the victim's session token._
+
+- [ ] **Network Sniffing:** If HTTP is in use, launch **packet capture** with **Wireshark** on the local network or from a **Rogue Access Point** to intercept session cookies.
+
+- [ ] **Client-Side Injection:** Craft and deliver an **XSS** payload (via **Phishing** or a stored vulnerability) to steal `document.cookie` from the user's browser.
+
+- [ ] **Man-in-the-Middle:** Execute a **MITM** attack using **ARP spoofing, DNS spoofing**, or **SSL stripping** to intercept encrypted sessions.
+
+- [ ] **Session Fixation:** Force victim to use **attacker-controlled session ID** by injecting it via URL or cookies before authentication.
+
+- [ ] **Browser Extension Abuse:** Exploit **malicious browser extensions** to exfiltrate cookies from victim's browser storage.
+
+---
+
+### **Stage 3: Execution & Impersonation**
+
+_Goal: Use the stolen token to access the user's account._
+
+- [ ] **Token Injection & Hijack:** Inject the stolen session ID into your browser cookies to achieve **impersonation** of the victim, bypassing **authentication** completely.
+
+- [ ] **Session Replay:** Reuse captured **authentication tokens, API keys, JWT** to access protected resources.
+
+- [ ] **Privilege Escalation:** If session belongs to **privileged user**, exploit to gain **administrative access**.
+
+---
+
+### **Stage 4: Defense & Mitigation (The Shield)**
+
+_Goal: Prevent the attack from succeeding._
+
+- [ ] **Enforce Encryption:** Mandate **TLS 1.2+** for all web traffic; implement **HSTS** to prevent SSL stripping.
+
+- [ ] **Secure Cookie Attributes:** Implement `HttpOnly`, `Secure`, `SameSite=Strict` flags on cookies to mitigate **XSS** theft and CSRF.
+
+- [ ] **Session Management:** Implement **session regeneration after login**, **absolute/idle timeouts**, **IP/User-Agent binding**.
+
+- [ ] **Multi-Factor Authentication:** Deploy **MFA/2FA** to ensure stolen session token alone is insufficient for sensitive actions.
+
+- [ ] **Network Monitoring:** Use **IDS/IPS** to detect **MITM patterns, ARP spoofing, SSL stripping attempts**.
+
+<a id="toc-part-13-detection--mitigation-blue-team-perspective"></a>
+## Part 13: Detection & Mitigation (Blue Team Perspective)
 
 _Understand defensive detection to know what to evade._
 
@@ -2250,6 +2617,8 @@ _Understand defensive detection to know what to evade._
 
 - [ ] **Incident Response Plan:** Document **detection, containment, eradication, recovery, lessons learned** phases with **clear ownership and escalation paths**.
 
+---
+
 ### **Phase 2: Offensive Indicators & TTPs**
 
 - [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, Metasploit, custom).
@@ -2257,6 +2626,8 @@ _Understand defensive detection to know what to evade._
 - [ ] **MITRE ATT&CK Mapping:** Correlate **detected behaviors** to **tactics/techniques** to understand adversary intent and prioritize detection investment.
 
 - [ ] **Artifact Analysis:** Understand forensic artifacts (prefetch, MFT, journal logs, browser history, registry hives, event logs) as **evidence of compromise**.
+
+---
 
 ### **Phase 3: Evasion Detection & Hardening**
 
@@ -2267,6 +2638,8 @@ _Understand defensive detection to know what to evade._
 - [ ] **Anti-Forensics Detection:** Identify **log clearing, file timestomping, registry deletion, bash history removal** via **SIEM correlation and immutable audit logs**.
 
 - [ ] **Command-Line Auditing:** Enable and monitor **PowerShell transcript logging, command-line audit logs (4688), script block logging** for obfuscated execution.
+
+---
 
 ### **Phase 4: Detection Engineering & Response**
 
@@ -2376,8 +2749,6 @@ _Goal: Know how defenders detect and counter red team techniques._
 
 - [ ] **Behavioral Blocking:** EDRs use **behavior analysis** to block **suspicious chains** (e.g., Office → PowerShell → network); develop awareness of **detectable patterns**.
 
----
-
 - [ ] **Alert Tuning:** Build **low false-positive alerts** for high-confidence indicators (e.g., AMSI evasion, direct syscalls, token theft patterns).
 
 - [ ] **Playbook Development:** Create **runbooks** for common attack patterns (ransomware deployment, credential theft, lateral movement) with **clear triage and containment steps**.
@@ -2386,249 +2757,225 @@ _Goal: Know how defenders detect and counter red team techniques._
 
 ---
 
-## Part 9: Sniffing & Spoofing
+### **Lab Progression**
 
-### **Phase 1: The Environment & Fundamentals (The Setup)**
+_Goal: Build a working detection environment, not just blue-team vocabulary._
 
-_Goal: Understand the battlefield. You cannot spoof what you cannot map._
+- [ ] **SIEM Build:** Deploy Wazuh, Security Onion, Splunk Free, or ELK in a lab and ingest Windows Event Logs, Sysmon, Linux auth logs, and firewall/DNS logs.
+- [ ] **Query Lab:** Write 10 searches across SPL/KQL/Elastic-style syntax for process creation, suspicious PowerShell, failed logons, DNS anomalies, and lateral movement.
+- [ ] **Detection Rule Lab:** Write 5 Sigma/YARA/Suricata/Zeek/osquery rules and test them against lab activity.
+- [ ] **Incident Timeline Lab:** Reconstruct 2 incidents from logs and produce analyst notes with evidence and containment actions.
+- [ ] **Move-On Gate:** Produce a detection coverage matrix mapped to MITRE ATT&CK tactics.
 
-- [ ] **Protocol Hierarchy & Trust:** Differentiate between **MAC Addresses** (Layer 2 - Local Trust) and **IP Addresses** (Layer 3 - Routing). Spoofing relies on exploiting the trust mismatch between these layers.
+<a id="toc-part-14-ids-firewalls-and-honeypots"></a>
+## Part 14: IDS, Firewalls, and Honeypots
 
-- [ ] **Secure vs. Insecure Protocols:** Identify targets using cleartext protocols like **HTTP, FTP, Telnet, DNS**. These are trivial to sniff. Encrypted protocols like **TLS/HTTPS** and **SSH** require advanced downgrade attacks or decryption to bypass.
+### **Stage 1: Foundational Strategy & Networking**
 
-- [ ] **The Switch vs. Hub Reality:** Modern networks use switches which segment traffic by MAC. You cannot passively sniff; you must **ARP spoof, MAC flood**, or **VLAN hop** to bypass segmentation.
+_Goal: Establish the theoretical base and network understanding._
 
-- [ ] **Interface Configuration:** Configure NIC to **Promiscuous Mode** (tcpdump, Wireshark) to capture all traffic, not just destined to your MAC; practice with **monitor mode** on wireless cards.
+- [ ] **Defense in Depth:** Adopt the `Understand Concept of Defense in Depth` philosophy, using multiple layers of security controls.
 
-- [ ] **Handshake & Session Logic:** Study **TCP/TLS handshakes** (SYN/ACK, ClientHello/ServerHello) to identify session boundaries; understand **sequence numbers, window size, timestamps** for **replay and hijack** timing.
+- [ ] **Network Segmentation:** Design the network with clear boundaries, utilizing `Perimeter vs DMZ vs Segmentation` to limit blast radius.
 
----
-
-### **Phase 2: Sniffing & Passive Reconnaissance (The Ear)**
-
-_Goal: Capture data without alerting the target. "Listen before act."_
-
-- [ ] **Passive Packet Capture:** Use **tcpdump/Wireshark** to capture broadcast/multicast traffic (ARP, DHCP, mDNS) to identify active hosts, gateways, and services without sending directed traffic.
-
-- [ ] **Wireless Interception:** Set wireless NIC to **monitor mode**; capture **WPA2/WPA3 4-way handshakes, PMKID** for offline cracking; identify **SSID, client MAC, AP MAC** patterns.
-
-- [ ] **Protocol Analysis:** Filter **pcap** by protocol (HTTP, FTP, SMTP, DNS); identify **cleartext credentials, API keys, session tokens**, and software **User-Agent/Server banners**.
-
-- [ ] **Stream Reassembly:** Use **tcpflow, Wireshark Follow TCP Stream** to reassemble files, images, emails, or form submissions from fragmented packets.
+- [ ] **Protocol Knowledge:** Master networking fundamentals, including `Understand Handshakes` and identifying `Secure vs Unsecure Protocols`.
 
 ---
 
-### **Phase 3: Spoofing & Active Deception (The Lie)**
+### **Stage 2: Deploying Firewalls (The Shield)**
 
-_Goal: Inject false information into the network to redirect or manipulate traffic._
+_Goal: Implement access control and segmentation._
 
-- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, bettercap**.
+- [ ] **Perimeter Defense:** Deploy a `Firewall & Nextgen Firewall` at the network edge, configuring `ACLs` for ingress and egress filtering.
 
-- [ ] **DNS Spoofing:** Respond to **DNS queries faster than the legitimate server**; redirect victims to malicious login pages for **credential harvesting** or **malware distribution**.
+- [ ] **Endpoint Protection:** Enable and configure `Host Based Firewall` on servers and workstations for granular `Port Blocking`.
 
-- [ ] **DHCP Starvation & Rogue DHCP:** Exhaust legitimate DHCP pools and serve your own **gateway/DNS** to all clients; enables **MITM and traffic redirection**.
-
-- [ ] **MAC Spoofing:** Change burned-in MAC to bypass **MAC filtering, NAC (Network Access Control), DHCP reservations**; use **macchanger** (Linux) or **SetMACAddress** (Windows).
-
-- [ ] **IP Spoofing:** Forge **source IP** in packet headers to **hide identity, impersonate trusted hosts**, or launch **reflection/amplification attacks** in DDoS.
-
-- [ ] **SSL Stripping & HTTP Downgrade:** Intercept **HTTPS traffic** and downgrade to **HTTP** by breaking the TLS handshake; use **sslstrip, mitmproxy** to expose encrypted traffic in cleartext.
+- [ ] **Log Analysis:** Set up centralized collection for `Firewall Logs` to monitor policy violations and traffic patterns.
 
 ---
 
-### **Phase 4: Man-in-the-Middle & Exploitation (The Kill)**
+### **Stage 3: Implementing IDS/IPS (The Watchers)**
 
-_Goal: Intercept, modify, and relay traffic to extract or manipulate data._
+_Goal: Detect and stop malicious traffic that bypasses firewalls._
 
-- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, Burp Suite** to intercept and modify traffic in real-time.
+- [ ] **Strategic Deployment:** Place `NIDS` sensors at critical network choke points to monitor east-west and north-south traffic.
 
-- [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
+- [ ] **Host Monitoring:** Install `HIPS` agents on critical servers to detect suspicious process execution and file changes.
 
-- [ ] **Credential Sniffing:** Capture **cleartext logins** (FTP, Telnet, HTTP Basic Auth, SMTP); extract **form credentials** from unencrypted POST requests.
+- [ ] **Rule Tuning:** Continuously tune signature and anomaly rules to minimize `False Positives` while ensuring no `False Negatives` occur.
 
-- [ ] **Replay Attacks:** Capture valid **authentication tokens, API requests, or RF signals** and retransmit later to bypass time-based controls; works for **garage door openers, payment terminals, VoIP**.
-
-- [ ] **Rogue Access Point / Evil Twin:** Deploy **fake Wi-Fi AP** with legitimate SSID + stronger signal; force users to connect and route all traffic through your box for **MITM harvesting**.
-
-- [ ] **Traffic Injection & Modification:** Inject malicious **JavaScript, HTML, iframes** into unencrypted HTTP responses; modify **DNS responses** to redirect to attacker servers.
+- [ ] **SIEM Integration:** Feed IDS/IPS alerts into a `SIEM` for correlation with other security events.
 
 ---
 
-### **Phase 5: Defenses & Mitigation (The Shield)**
+### **Stage 4: Utilizing Deception (The Traps)**
 
-_Goal: Understand defensive controls to anticipate and evade them._
+_Goal: Gather threat intelligence and waste attacker time._
 
-- [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
+- [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers.
 
-- [ ] **Switch-Level Protection:** **Dynamic ARP Inspection (DAI)**, **DHCP Snooping**, **port security** reject malformed ARP/DHCP; **802.1X authentication** prevents rogue device connection.
+- [ ] **Traffic Redirection:** Use `Sinkholes` to capture traffic destined for known malicious domains or IPs.
 
-- [ ] **Network Segmentation:** **VLAN isolation, micro-segmentation, zero trust** limits sniffing scope per compromised segment; east-west traffic encryption adds extra layers.
-
-- [ ] **Detection Systems:** **IDS/IPS** flag high ARP packet volume, **MITM tools (ettercap signatures)**, SSL downgrade attempts; **Netflow/sFlow** detects unusual traffic patterns.
-
-- [ ] **User Awareness:** Train users to verify **SSL certificates**, recognize **phishing login pages**, and use **password managers** to avoid clipboard paste attacks.
-
-## Part 10: Social Engineering
-
-### **Stage 1: Intelligence & Reconnaissance (The Setup)**
-
-_Goal: Know the target better than they know themselves._
-
-- [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
-- [ ] **Physical Recon:** Perform **dumpster diving** to recover **org charts, vendor invoices, sticky notes** with passwords; observe **badge access patterns, delivery procedures**.
-- [ ] **Domain & Infrastructure Prep:** Register **typo-squatting domains** (e.g., `companysupport.com`, `company-login.net`) that mimic target portals; prepare **phishing landing pages**.
-- [ ] **Social Media Profiling:** Mine **LinkedIn, Twitter, GitHub, Glassdoor** for **personal details, relationships, job changes** to craft personalized lures.
-
-### **Stage 2: The Digital Assault (Remote Vectors)**
-
-_Goal: Compromise the target from a distance via electronic channels._
-
-- [ ] **Mass Campaign:** Launch **broad phishing campaigns** with generic lures (password resets, package delivery) for large-scale **credential harvesting**.
-- [ ] **Executive Targeting:** Execute **whaling attacks** against **C-suite/CFO** using deep **OSINT context** (recent news, personal interests, vendor relationships) to bypass skepticism.
-- [ ] **Mobile Vector:** Deploy **SMS phishing (smishing)** with **MFA reset codes, delivery notifications, bank alerts**; use **VoIP/voice phishing (vishing)** to call employees directly.
-- [ ] **Watering Hole:** Compromise **industry-specific forums, GitHub repos, or shared tools** to inject **malware/tracking code** that targets specific teams via **drive-by downloads**.
-
-- [ ] **Deepfake Vishing:** Use **voice cloning/video deepfakes** (e.g., ElevenLabs) for **executive impersonation** in calls/meetings.
-
-- [ ] **ClickFix/ClearFake:** Simulate browser/OS errors that instruct users to **copy-paste provided PowerShell/terminal scripts** (“fix/update now”).
-
-### **Stage 3: The Human Element (Direct Interaction)**
-
-_Goal: Use psychology and social manipulation to bypass logic._
-
-- [ ] **Voice Pretexting:** Call as **IT support, HR, vendor, auditor, law enforcement** using social engineering pretexts; use **authority, urgency, fear** to bypass critical thinking.
-- [ ] **Authority & Compliance Trigger:** Leverage **IT/Security/Auditor/Legal persona** to demand compliance; abuse **helpfulness bias** to force password resets or system access.
-- [ ] **Reciprocity & Obligation:** Provide small **favors (tech help, free tools)** to create sense of obligation; ask for credentials or access in return.
-
-### **Stage 4: The Physical Breach (Boots on the Ground)**
-
-_Goal: Gain physical access to networks and facilities._
-
-- [ ] **Tailgating:** Follow **authorized employees** into secure zones using badges/access cards; use **coffee cup hold, uniform/vendor persona** to bypass visual checks.
-- [ ] **Shoulder Surfing:** Observe **PIN entry, password typing, screen content** in public spaces (airports, coffee shops, open offices) to capture credentials.
-- [ ] **Badge Cloning:** Capture **RFID badge data** using **Proxmark3, ACR122U** and clone to malicious card; bypass **magnetic stripe readers** via cloning.
-- [ ] **Physical Device Placement:** Plant **USB drops, rogue access points, hardware keyloggers** in common areas for **auto-execution** when connected by unsuspecting users.
-
-### **Stage 5: Defense & Awareness (The Shield)**
-
-_Goal: Prevent the human hack through training and controls._
-
-- [ ] **Authentication:** Enforce **MFA/2FA** (TOTP, hardware keys, push notifications) so password compromise alone doesn't grant access; watch for **MFA fatigue attacks**.
-- [ ] **Verification Protocols:** Train staff to **challenge unknown callers** via **secondary channel callback**; never trust caller ID alone; verify requests through official channels.
-- [ ] **Physical Security:** Enforce **no-tailgating policies, visitor escorts, badge display requirements, clean desk policies** to prevent **dumpster diving and shoulder surfing**.
-- [ ] **Security Awareness:** Regular **phishing simulations, red team testing, security training** to build **skepticism and reporting culture**; reward **security-first behavior**.
-
-- [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
-
-## Part 11: Denial of Service
-
-### **Stage 1: Objective & Strategy (The Planning)**
-
-_Goal: Understand DoS/DDoS scope and firepower requirements._
-
-- [ ] **Denial of Service (DoS):** Single attacker sends **crafted traffic** to overwhelm a target's **CPU, bandwidth, or connections**; from one IP; **relatively easy detection**.
-
-- [ ] **Distributed Denial of Service (DDoS):** **Multiple sources** (botnet, amplification servers) send traffic **simultaneously**; harder to trace and block; **stronger firepower**.
-
-- [ ] **Target Assessment:** Identify **critical services** (web, DNS, mail, VPN) and **upstream bottlenecks** (ISP bandwidth, DDoS mitigation capacity) to determine **attack viability**.
-
-### **Stage 2: The Arsenal (Attack Methods)**
-
-_Goal: Select the right DoS technique for target vulnerabilities._
-
-- [ ] **Volumetric Attacks:** Consume **bandwidth** using **SYN floods, UDP floods, ICMP floods** to saturate network pipes; use **DNS amplification, NTP reflection** to multiply traffic (1 request → 1000× response).
-
-- [ ] **Protocol Attacks:** Exploit **TCP/IP stack weaknesses** (malformed packets, fragment handling, connection states) using **Ping of Death, Teardrop, SYN floods** to crash systems or exhaust connection limits.
-
-- [ ] **Application-Layer Attacks:** Target **specific services** with **HTTP floods (Slowloris), database queries (CPU spike), cached assets** to overwhelm **web servers, APIs, load balancers** at Layer 7.
-
-- [ ] **IoT/Botnets:** Compromise **webcams, routers, smart devices** via **default creds, unpatched firmware** to join **Mirai, Dridex-style botnets** for DDoS-as-a-Service.
-
-### **Stage 3: Infrastructure & Execution (The Assault)**
-
-_Goal: Deploy and sustain the attack at scale._
-
-- [ ] **Botnet Assembly:** Recruit **thousands of infected IoT/servers** or use **existing botnet services** (DDoS-as-a-Service, rent botnet time); establish **C&C control** via IRC/DNS/Peer-to-Peer.
-
-- [ ] **Traffic Generation:** Use **tools like hping3, slowhttptest, LOIC, Colasoft PacketBuilder** to craft and blast custom packets; coordinate **multi-vector attacks** (volumetric + protocol + app-layer simultaneously).
-
-- [ ] **Proxy/Spoofing:** Use **open reflectors/amplifiers** (DNS servers, NTP, SNMP) to amplify traffic; spoof **source IP addresses** to obscure attacker origin.
-
-- [ ] **Duration & Monitoring:** Sustain attack for **hours/days** while monitoring **target availability, ISP response, filtering changes**; adjust payload/vector on-the-fly.
-
-### **Stage 4: Defense & Mitigation (The Shield)**
-
-_Goal: Detect, absorb, and neutralize DoS attacks._
-
-- [ ] **Edge Defense:** Deploy **Cloudflare, Akamai, AWS Shield Standard** to absorb DDoS at **ISP/CDN level** before traffic reaches origin; filter **malformed packets, spoofed IPs** at network edge.
-
-- [ ] **Rate Limiting & Throttling:** Implement **connection limits, request rate caps, CAPTCHAs, geo-blocking** to let legitimate users through while rejecting flood traffic.
-
-- [ ] **Monitoring & Detection:** Deploy **NetFlow/sFlow analysis, IDS/IPS (Suricata, Zeek)** to detect **unusual traffic patterns, connection spikes, protocol anomalies**; alert on **RTO timeouts, CPU/bandwidth saturation**.
-
-- [ ] **Architectural Resilience:** Use **anycast DNS, geographically distributed servers, auto-scaling, load balancing** to spread load; oversizing infrastructure to **absorb baseline attacks**; prepare **incident response playbooks**.
-
-- [ ] **ISP/Carrier Coordination:** Work with **ISP's DDoS mitigation services** to scrub traffic upstream; establish **BGP blackholing** to discard attack traffic at border; maintain **redundant ISPs/circuits**.
-
-## Part 12: Session Hijacking
-
-### **Stage 1: Reconnaissance & Vulnerability Analysis**
-
-_Goal: Find a target and identify its weaknesses._
-
-- [ ] **Target Identification:** Use **Reconnaissance** and **OSINT** to identify target web applications.
-
-- [ ] **Protocol Analysis:** Check if the application uses **Unsecure Protocols** (HTTP) for any part of the session, making it vulnerable to sniffing.
-
-- [ ] **Session Mechanism Analysis:** Study **session ID generation, cookie attributes, token entropy** for weak patterns.
-
-- [ ] **Vulnerability Scanning:** Test for **XSS, CSRF, MITM susceptibility, weak session timeouts**.
+- [ ] **Intelligence Gathering:** Analyze logs and activity from deception tools to inform `Basics and Concepts of Threat Hunting`.
 
 ---
 
-### **Stage 2: Stealing the Session ID (The Attack Vectors)**
+### **Stage 5: Operations & Continuous Improvement**
 
-_Goal: Execute the attack to acquire the victim's session token._
+_Goal: Integrate into daily security operations._
 
-- [ ] **Network Sniffing:** If HTTP is in use, launch **packet capture** with **Wireshark** on the local network or from a **Rogue Access Point** to intercept session cookies.
+- [ ] **Incident Response Integration:** Utilize these tools during **Incident Response Process** for rapid **threat identification and containment** of affected systems.
 
-- [ ] **Client-Side Injection:** Craft and deliver an **XSS** payload (via **Phishing** or a stored vulnerability) to steal `document.cookie` from the user's browser.
+- [ ] **Zero Trust Alignment:** Ensure firewall and IPS policies align with **Zero Trust** principles, verifying every connection attempt.
 
-- [ ] **Man-in-the-Middle:** Execute a **MITM** attack using **ARP spoofing, DNS spoofing**, or **SSL stripping** to intercept encrypted sessions.
+- [ ] **Performance Tuning:** Regularly review and tune **IDS/IPS rules, firewall ACLs** to balance security and performance.
 
-- [ ] **Session Fixation:** Force victim to use **attacker-controlled session ID** by injecting it via URL or cookies before authentication.
+- [ ] **Threat Intelligence Integration:** Feed **IOCs from threat intelligence** into firewalls and IDS for proactive blocking.
 
-- [ ] **Browser Extension Abuse:** Exploit **malicious browser extensions** to exfiltrate cookies from victim's browser storage.
-
----
-
-### **Stage 3: Execution & Impersonation**
-
-_Goal: Use the stolen token to access the user's account._
-
-- [ ] **Token Injection & Hijack:** Inject the stolen session ID into your browser cookies to achieve **impersonation** of the victim, bypassing **authentication** completely.
-
-- [ ] **Session Replay:** Reuse captured **authentication tokens, API keys, JWT** to access protected resources.
-
-- [ ] **Privilege Escalation:** If session belongs to **privileged user**, exploit to gain **administrative access**.
+- [ ] **Red/Purple Team Testing:** Conduct regular **red team exercises** to validate detection capabilities and identify blind spots.
 
 ---
 
-### **Stage 4: Defense & Mitigation (The Shield)**
+<a id="toc-part-15-osint--threat-intelligence"></a>
+## Part 15: OSINT & Threat Intelligence
 
-_Goal: Prevent the attack from succeeding._
+### **Stage 1: Passive Reconnaissance & Data Collection**
 
-- [ ] **Enforce Encryption:** Mandate **TLS 1.2+** for all web traffic; implement **HSTS** to prevent SSL stripping.
+_Goal: Gather intelligence without touching target infrastructure._
 
-- [ ] **Secure Cookie Attributes:** Implement `HttpOnly`, `Secure`, `SameSite=Strict` flags on cookies to mitigate **XSS** theft and CSRF.
+- [ ] **Search Engine Intelligence:** Master **Google/Bing/Yandex dorks** for exposed data; use **Shodan/Censys/Zoomeye** for internet-wide scanning.
 
-- [ ] **Session Management:** Implement **session regeneration after login**, **absolute/idle timeouts**, **IP/User-Agent binding**.
+- [ ] **Social Media Mining:** Scrape **LinkedIn, Twitter, Facebook, Instagram** for employees, org structure, tech stack mentions, and personal details.
 
-- [ ] **Multi-Factor Authentication:** Deploy **MFA/2FA** to ensure stolen session token alone is insufficient for sensitive actions.
+- [ ] **Domain & Infrastructure:** Use **WHOIS, DNS records (MX, TXT, SPF, DMARC), Certificate Transparency logs** to map infrastructure.
 
-- [ ] **Network Monitoring:** Use **IDS/IPS** to detect **MITM patterns, ARP spoofing, SSL stripping attempts**.
+- [ ] **Breach Data Analysis:** Query **HIBP (Have I Been Pwned), Dehashed, Snusbase** for leaked credentials and PII.
 
-## Part 13: Web Application Hacking
+- [ ] **Code Repository Mining:** Search **GitHub, GitLab, Bitbucket** for exposed **API keys, credentials, internal IPs, architecture docs**.
+
+- [ ] **Dark Web Monitoring:** Monitor **paste sites, forums, dark web marketplaces** for leaked data, exploit sales, threat actor chatter.
+
+---
+
+### **Stage 2: Threat Intelligence Analysis**
+
+_Goal: Convert raw data into actionable intelligence._
+
+- [ ] **IOC Collection:** Aggregate **file hashes, domains, IPs, email patterns** from **threat feeds, MISP, AlienVault OTX**.
+
+- [ ] **Threat Actor Profiling:** Study **APT groups, TTPs, infrastructure patterns** using **MITRE ATT&CK, threat reports (Mandiant, CrowdStrike)**.
+
+- [ ] **Campaign Tracking:** Monitor **active campaigns, malware families, exploit trends** to understand current threat landscape.
+
+- [ ] **Attribution Analysis:** Correlate **infrastructure, code patterns, language artifacts** to attribute attacks to specific actors.
+
+- [ ] **Victimology Studies:** Understand **target selection, industry focus, geographic distribution** of threat actors.
+
+---
+
+### **Stage 3: OSINT Automation & Tooling**
+
+_Goal: Scale reconnaissance with automation._
+
+- [ ] **Reconnaissance Frameworks:** Master **Recon-ng, theHarvester, SpiderFoot, Maltego** for automated data collection.
+
+- [ ] **Subdomain Enumeration:** Use **Amass, Subfinder, Assetfinder, DNSRecon** to discover **subdomains, ASNs, IP ranges**.
+
+- [ ] **API Integration:** Leverage **VirusTotal, Shodan, SecurityTrails, Hunter.io APIs** for programmatic data access.
+
+- [ ] **Custom Scripting:** Build **Python/Bash scripts** to automate **scraping, parsing, correlation** of OSINT data.
+
+- [ ] **Data Pipeline:** Create **ETL pipelines** to aggregate, normalize, and store intelligence in **databases/dashboards**.
+
+---
+
+### **Stage 4: Threat Intelligence Dissemination**
+
+_Goal: Communicate intelligence effectively to stakeholders._
+
+- [ ] **Intelligence Reports:** Create **tactical (IOCs), operational (TTPs), strategic (trends)** reports for different audiences.
+
+- [ ] **TLP Classification:** Apply **Traffic Light Protocol (White, Green, Amber, Red)** for information sharing sensitivity.
+
+- [ ] **STIX/TAXII:** Use **Structured Threat Information Expression (STIX)** and **TAXII** for standardized intel sharing.
+
+- [ ] **Threat Briefings:** Deliver **executive briefings** highlighting **risks, trends, recommended actions** in non-technical language.
+
+- [ ] **Community Collaboration:** Participate in **ISACs, threat intel communities, CTI sharing platforms** for collective defense.
+
+---
+
+<a id="toc-part-16-adversary-emulation--purple-teaming"></a>
+## Part 16: Adversary Emulation & Purple Teaming
+
+### **Stage 1: MITRE ATT&CK Framework Mastery**
+
+_Goal: Understand the universal language of adversary behavior._
+
+- [ ] **Tactic Familiarity:** Master all **14 tactics** (Initial Access → Impact) and their relationships in the attack lifecycle.
+
+- [ ] **Technique Deep-Dive:** Study **100+ core techniques** with focus on **prevalence, detection difficulty, impact** ratings.
+
+- [ ] **Sub-Technique Granularity:** Understand **sub-technique variations** for precise emulation (e.g., T1059.001 PowerShell vs T1059.003 CMD).
+
+- [ ] **Data Source Mapping:** Link techniques to **detection data sources** (process creation, network traffic, registry modifications).
+
+- [ ] **Mitigation Strategies:** Review **MITRE mitigations** for each technique to understand defensive controls.
+
+---
+
+### **Stage 2: APT & Threat Actor Emulation**
+
+_Goal: Replicate real-world adversary campaigns._
+
+- [ ] **APT Profiling:** Study **APT groups** (APT28, APT29, Lazarus, FIN7) including **TTPs, tools, targeting, infrastructure**.
+
+- [ ] **Campaign Recreation:** Emulate **documented campaigns** step-by-step using **MITRE ATT&CK Navigator** for technique mapping.
+
+- [ ] **Tool Replication:** Use **adversary tools** (Mimikatz, Cobalt Strike, Empire, custom malware) to match TTP fidelity.
+
+- [ ] **Infrastructure Mimicry:** Build **attack infrastructure** (domains, IPs, C2) that mimics **APT patterns and behaviors**.
+
+- [ ] **Operational Tempo:** Match **adversary dwell time, persistence patterns, exfil timing** for realistic simulation.
+
+- [ ] **Adversary Emulation Plans:** Execute **MITRE ATT&CK Adversary Emulation Plans** for groups like **APT29, Scattered Spider** to test realistic kill chains.
+
+---
+
+### **Stage 3: Purple Team Exercises**
+
+_Goal: Collaborative offense-defense improvement._
+
+- [ ] **Joint Planning:** Define **objectives, scope, techniques, success criteria** with both red and blue teams.
+
+- [ ] **Live Detection Tuning:** Execute **attacks in controlled environment** while defenders **tune detection rules in real-time**.
+
+- [ ] **Gap Analysis:** Identify **detection blind spots, control failures, response deficiencies** through collaborative testing.
+
+- [ ] **Playbook Development:** Create **detection playbooks** with **queries, alerts, response procedures** for each emulated technique.
+
+- [ ] **Iterative Improvement:** Run **multiple rounds** of testing with **incremental detection improvements** to measure progress.
+
+---
+
+### **Stage 4: Metrics & Reporting**
+
+_Goal: Quantify security posture improvement._
+
+- [ ] **Detection Coverage:** Calculate **% of ATT&CK techniques** with detection coverage across the matrix.
+
+- [ ] **MTTD/MTTR:** Measure **Mean Time to Detect** and **Mean Time to Respond** for each technique tested.
+
+- [ ] **False Positive Rate:** Track **alert accuracy** and **tuning effectiveness** over multiple exercises.
+
+- [ ] **Control Effectiveness:** Rate **preventative, detective, responsive** controls against each technique (None/Partial/Full).
+
+- [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
+
+---
+
+<a id="toc-part-17-web-application-hacking"></a>
+## Part 17: Web Application Hacking
 
 ### **Stage 1: Reconnaissance & Mapping**
 
@@ -2710,7 +3057,8 @@ _Goal: Prevent and detect these attacks._
 
 - [ ] **Continuous Monitoring:** Deploy **SIEM, web server logging, intrusion detection** to identify attack patterns.
 
-## Part 14: Web Server Hacking
+<a id="toc-part-18-web-server-hacking"></a>
+## Part 18: Web Server Hacking
 
 ### **Stage 1: Target Acquisition & Reconnaissance**
 
@@ -2772,83 +3120,207 @@ _Goal: Escalate privileges and maintain control._
 
 - [ ] **Covering Tracks:** Clear **access logs, error logs, auth logs**; use **timestomping** to hide file modifications.
 
-## Part 15: IDS, Firewalls, and Honeypots
+<a id="toc-part-19-api-security"></a>
+## Part 19: API Security
 
-### **Stage 1: Foundational Strategy & Networking**
+### **Stage 1: API Reconnaissance & Mapping**
 
-_Goal: Establish the theoretical base and network understanding._
+_Goal: Discover and map API attack surface._
 
-- [ ] **Defense in Depth:** Adopt the `Understand Concept of Defense in Depth` philosophy, using multiple layers of security controls.
-- [ ] **Network Segmentation:** Design the network with clear boundaries, utilizing `Perimeter vs DMZ vs Segmentation` to limit blast radius.
-- [ ] **Protocol Knowledge:** Master networking fundamentals, including `Understand Handshakes` and identifying `Secure vs Unsecure Protocols`.
+- [ ] **API Discovery:** Find undocumented endpoints via **JS file analysis, Wayback Machine, Google Dorks (`site:target.com api`), Shodan**, and **Burp Suite passive crawling**.
 
-### **Stage 2: Deploying Firewalls (The Shield)**
+- [ ] **Spec File Harvesting:** Locate exposed **OpenAPI/Swagger (`/swagger.json`, `/api-docs`), WSDL, GraphQL introspection** schemas that reveal all routes, parameters, and data models.
 
-_Goal: Implement access control and segmentation._
+- [ ] **Endpoint Enumeration:** Fuzz **API paths and versions** (`/api/v1/`, `/api/v2/`, `/v3/`) using **ffuf, kiterunner, Arjun** with API-specific wordlists.
 
-- [ ] **Perimeter Defense:** Deploy a `Firewall & Nextgen Firewall` at the network edge, configuring `ACLs` for ingress and egress filtering.
-- [ ] **Endpoint Protection:** Enable and configure `Host Based Firewall` on servers and workstations for granular `Port Blocking`.
-- [ ] **Log Analysis:** Set up centralized collection for `Firewall Logs` to monitor policy violations and traffic patterns.
-
-### **Stage 3: Implementing IDS/IPS (The Watchers)**
-
-_Goal: Detect and stop malicious traffic that bypasses firewalls._
-
-- [ ] **Strategic Deployment:** Place `NIDS` sensors at critical network choke points to monitor east-west and north-south traffic.
-- [ ] **Host Monitoring:** Install `HIPS` agents on critical servers to detect suspicious process execution and file changes.
-- [ ] **Rule Tuning:** Continuously tune signature and anomaly rules to minimize `False Positives` while ensuring no `False Negatives` occur.
-- [ ] **SIEM Integration:** Feed IDS/IPS alerts into a `SIEM` for correlation with other security events.
-
-### **Stage 4: Utilizing Deception (The Traps)**
-
-_Goal: Gather threat intelligence and waste attacker time._
-
-- [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers.
-- [ ] **Traffic Redirection:** Use `Sinkholes` to capture traffic destined for known malicious domains or IPs.
-- [ ] **Intelligence Gathering:** Analyze logs and activity from deception tools to inform `Basics and Concepts of Threat Hunting`.
+- [ ] **Technology Fingerprinting:** Identify **framework, auth scheme, rate limiting, versioning strategy** from headers, response patterns, and error messages.
 
 ---
 
-### **Stage 5: Operations & Continuous Improvement**
+### **Stage 2: OWASP API Security Top 10**
 
-_Goal: Integrate into daily security operations._
+_Goal: Methodically test each API-specific vulnerability class._
 
-- [ ] **Incident Response Integration:** Utilize these tools during **Incident Response Process** for rapid **threat identification and containment** of affected systems.
+- [ ] **API1 — Broken Object Level Authorization (BOLA/IDOR):** Substitute **object IDs** (user, order, account) in requests to access **other users' resources** without authorization check.
 
-- [ ] **Zero Trust Alignment:** Ensure firewall and IPS policies align with **Zero Trust** principles, verifying every connection attempt.
+- [ ] **API2 — Broken Authentication:** Test **weak tokens, missing expiry, no rate limiting on login, JWT algorithm confusion (`alg:none`), token reuse after logout**.
 
-- [ ] **Performance Tuning:** Regularly review and tune **IDS/IPS rules, firewall ACLs** to balance security and performance.
+- [ ] **API3 — Broken Object Property Level Authorization (BOPLA):** Send **extra fields** in PUT/PATCH requests to modify properties the user shouldn't control (e.g., `"role":"admin"`, `"is_verified":true`).
 
-- [ ] **Threat Intelligence Integration:** Feed **IOCs from threat intelligence** into firewalls and IDS for proactive blocking.
+- [ ] **API4 — Unrestricted Resource Consumption:** Test **missing rate limits, no pagination caps, large payload DoS, CPU-exhausting regex/query parameters**.
 
-- [ ] **Red/Purple Team Testing:** Conduct regular **red team exercises** to validate detection capabilities and identify blind spots.
+- [ ] **API5 — Broken Function Level Authorization (BFLA):** Access **admin-only endpoints** (`/api/admin/users`, `/api/internal/`) using **regular user tokens**; test HTTP method switching (GET → DELETE).
+
+- [ ] **API6 — Unrestricted Access to Sensitive Business Flows:** Abuse **checkout flows, invite systems, voting, coupon redemption** without rate limiting or workflow enforcement.
+
+- [ ] **API7 — Server-Side Request Forgery (SSRF):** Supply **internal URLs, cloud metadata endpoints** (`169.254.169.254`) as API parameters for internal network pivoting.
+
+- [ ] **API8 — Security Misconfiguration:** Find **exposed debug endpoints, verbose errors, missing CORS restrictions, HTTP instead of HTTPS, default API keys**.
+
+- [ ] **API9 — Improper Inventory Management:** Target **deprecated API versions, shadow APIs, staging/dev endpoints** still accessible in production.
+
+- [ ] **API10 — Unsafe Consumption of APIs:** Exploit **third-party API data** that is trusted and processed without validation, causing **injection or SSRF** on the consuming server.
 
 ---
 
-## Part 16: Wireless Pentesting
+### **Stage 3: Protocol-Specific API Attacks**
+
+_Goal: Attack REST, GraphQL, gRPC, and SOAP distinctly._
+
+- [ ] **REST API Testing:** Chain **BOLA + privilege escalation**, test **HTTP verb tampering**, exploit **mass assignment** via undocumented writable fields.
+
+- [ ] **GraphQL Attacks:** Run **introspection queries** to dump full schema; exploit **batching/aliasing for DoS**, **nested query depth abuse**, **IDOR via node IDs**, and **mutations without auth checks**.
+
+- [ ] **gRPC Security:** Use **grpcurl, Evans** to enumerate services; test for **missing auth interceptors, reflection enabled in prod, proto injection**.
+
+- [ ] **SOAP/XML APIs:** Exploit **XXE via SOAP body**, test **WS-Security header bypass**, abuse **type confusion in XML parsing**.
+
+---
+
+### **Stage 4: API Authentication & Token Attacks**
+
+_Goal: Break API authentication mechanisms._
+
+- [ ] **JWT Attacks:** Test **`alg:none` bypass, RS256→HS256 confusion, weak secret brute-force (hashcat mode 16500), kid injection, jku/x5u header injection** to forge arbitrary tokens.
+
+- [ ] **OAuth 2.0 Attacks:** Exploit **CSRF on authorization endpoint, open redirect in redirect_uri, state parameter bypass, token leakage via Referer header**.
+
+- [ ] **API Key Attacks:** Find **keys in JS bundles, git history, response headers, error messages**; test **key rotation absence, missing key scoping**.
+
+- [ ] **mTLS Bypass:** Identify **endpoints that skip client certificate validation**, abuse **certificate pinning gaps**, exploit **proxy stripping of client certs**.
+
+---
+
+### **Stage 5: Defense & Hardening**
+
+_Goal: Know what defenders implement so you can test it properly._
+
+- [ ] **API Gateway Controls:** Understand **rate limiting, quota enforcement, request validation, JWT verification, IP allowlisting** at the gateway layer.
+
+- [ ] **Input Validation:** Test that **schema validation, type enforcement, max length, allowed values** are enforced server-side not just client-side.
+
+- [ ] **Logging & Monitoring:** Verify **all API calls are logged** with enough context (user, IP, endpoint, response code) for anomaly detection.
+
+---
+
+<a id="toc-part-20-bug-bounty-and-penetration-testing"></a>
+## Part 20: Bug Bounty and Penetration Testing
+
+### **Stage 1: Preparation & Scoping**
+
+_Goal: Stay legal and define the target._
+
+- [ ] **Legal Check:** Read and sign the `Penetration Testing Rules of Engagement` or the Bug Bounty Policy (Safe Harbor).
+
+- [ ] **Scope Validation:** Confirm IP ranges and domains. Ensure you are not attacking "Out of Scope" assets.
+
+- [ ] **Framework Selection:** Decide if you are testing against `NIST`, `ISO`, or `OWASP10` standards.
+
+---
+
+### **Stage 2: Reconnaissance (The Wide Net)**
+
+_Goal: Find what others missed._
+
+- [ ] **Subdomain Enumeration:** Use **OSINT** tools to find `dev`, `stage`, or `test` subdomains.
+
+- [ ] **Port Scanning:** Run `nmap` to identify non-standard ports (e.g., 8080, 8443) and running services.
+
+- [ ] **Tech Stack Analysis:** Use `curl` or browser extensions to identify the server, framework (React, Angular), and backend (PHP, Python).
+
+---
+
+### **Stage 3: Vulnerability Assessment (The Deep Dive)**
+
+_Goal: Find the flaw._
+
+- [ ] **Input Fuzzing:** Test all input fields for `SQL Injection`, `XSS`, and `Buffer Overflow`.
+
+- [ ] **Access Control:** Test for `IDOR` (Insecure Direct Object Reference) and verify `Authentication vs Authorization` logic.
+
+- [ ] **Configuration Check:** Look for `Directory Traversal`, exposed `.git` folders, or default credentials (`admin/admin`).
+
+---
+
+### **Stage 4: Exploitation & Validation**
+
+_Goal: Prove the risk without breaking the system._
+
+- [ ] **PoC Development:** Create a non-destructive Proof of Concept. (e.g., `alert(1)` for XSS, `whoami` for RCE).
+
+- [ ] **False Positive Check:** Verify the finding is a `True Positive` before reporting.
+
+- [ ] **Lateral Movement:** (Pentest only) Attempt `Privilege Escalation` or `Pass the Hash` if internal access is achieved.
+
+---
+
+### **Stage 5: Reporting & Triage**
+
+_Goal: Get paid and drive remediation._
+
+- [ ] **Impact Assessment:** Clearly explain **business risk** (data breach, financial loss, compliance violation) to management.
+
+- [ ] **Proof of Concept:** Provide **detailed steps, screenshots, videos, request/response** to reproduce the vulnerability.
+
+- [ ] **Remediation Guidance:** Offer **specific technical fixes** (parameterized queries, input validation, patching) with code examples.
+
+- [ ] **CVSS Scoring:** Calculate **CVSS score** to quantify severity and prioritize remediation.
+
+---
+
+### **Stage 6: Professional Development**
+
+_Goal: Build skills and reputation._
+
+- [ ] **Platform Selection:** Focus on **HackerOne, Bugcrowd, Synack, Intigriti** platforms with active programs.
+
+- [ ] **Specialization:** Develop expertise in **specific areas** (API security, mobile, cloud, blockchain).
+
+- [ ] **Documentation:** Maintain **personal writeups, CVEs, Hall of Fame entries** for portfolio building.
+
+- [ ] **Community Engagement:** Participate in **CTFs, conferences, Twitter/Discord security communities** for networking.
+
+- [ ] **Continuous Learning:** Stay updated on **latest vulnerabilities, techniques, tools** through blogs, research papers, trainings.
+
+---
+
+<a id="toc-part-21-wireless-pentesting"></a>
+## Part 21: Wireless Pentesting
+
+> **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use your own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
 ### **Stage 1: RF Reconnaissance & Setup**
 
 _Goal: Map the airspace and identify targets._
 
 - [ ] **Monitor Mode:** Configure hardware to capture raw 802.11 frames.
+
 - [ ] **Protocol Audit:** Identify the target's encryption: **WPA vs WPA2 vs WPA3 vs WEP**. Note that WEP is obsolete but trivial to crack; WPA3 is resistant to dictionary attacks.
+
 - [ ] **WPS Check:** Scan for **WPS** enabled APs. If active, this is the primary high-value target for PIN brute-forcing (Pixie Dust).
+
+---
 
 ### **Stage 2: Access Point Assault (The Breaching of Keys)**
 
 _Goal: Obtain the credentials to join the network._
 
 - [ ] **Handshake Capture:** Execute a **Deauth Attack** against a connected client to force a reconnection and capture the 4-way handshake.
+
 - [ ] **Replay Attacks:** (For legacy/WEP) Use **Replay Attack** techniques to generate traffic and accelerate IV collection for cracking.
+
 - [ ] **Offline Cracking:** Run the captured handshake against wordlists using Hashcat/Aircrack-ng.
+
+---
 
 ### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)**
 
 _Goal: Steal individual user identities or hijack connections._
 
 - [ ] **Evil Twin Deployment:** Launch an **Evil Twin** attack to impersonate the target SSID. Use a captive portal to harvest credentials.
+
 - [ ] **Enterprise Stripping:** Target **EAP vs PEAP** configurations. Downgrade encryption or crack the challenge-response hashes (MSCHAPv2) captured from the Evil Twin.
+
 - [ ] **Rogue AP:** Plant a **Rogue Access Point** physically in the facility to create an unauthorized backdoor into the LAN.
 
 - [ ] **KRACK Attack:** Exploit **Key Reinstallation Attack** against WPA2 to decrypt traffic (requires client participation, patches available).
@@ -2959,38 +3431,53 @@ _Goal: Secure the airwaves._
 
 ---
 
-## Part 17: Mobile Platform Pentesting
+<a id="toc-part-22-mobile-platform-pentesting"></a>
+## Part 22: Mobile Platform Pentesting
 
 ### **Stage 1: Lab Setup & Reconnaissance**
 
 _Goal: Prepare the environment and understand the target._
 
 - [ ] **Environment Prep:** Configure a Rooted (Android) or Jailbroken (iOS) device to bypass **Operating System Hardening**.
+
 - [ ] **Binary Acquisition:** Extract the APK or IPA and perform **Basics of Reverse Engineering** using tools like `jadx` or `Ghidra`.
+
 - [ ] **Reconnaissance:** Map the app's attack surface (activities, services, URL schemes) and identify backend endpoints.
+
+---
 
 ### **Stage 2: Static Analysis (Code Review)**
 
 _Goal: Find hardcoded secrets and configuration flaws._
 
 - [ ] **Manifest/Plist Audit:** Check for exported components or insecure permissions that violate **Zero Trust** principles.
+
 - [ ] **Secret Hunting:** Search decompiled code for **Key Exchange** material, API tokens, or hardcoded credentials.
+
 - [ ] **Crypto Audit:** Verify if the app uses weak **Hashing** or **Salting** algorithms for local storage.
+
+---
 
 ### **Stage 3: Dynamic Analysis (Runtime Manipulation)**
 
 _Goal: Bypass client-side controls._
 
 - [ ] **Security Control Bypass:** Use Frida to bypass Root Detection and SSL Pinning (breaking the **SSL vs TLS** trust chain).
+
 - [ ] **Logic Manipulation:** Hook functions to bypass **Authentication vs Authorization** checks (e.g., bypassing a PIN screen).
+
 - [ ] **Memory Dumping:** Analyze device memory for sensitive data that should have been cleared (violating **Confidentiality** in the **CIA Triad**).
+
+---
 
 ### **Stage 4: Network & API Attacks**
 
 _Goal: Compromise the backend server._
 
 - [ ] **Traffic Interception:** Proxy traffic to analyze **Secure vs Unsecure Protocols** and payload structures.
+
 - [ ] **API Vulnerability Testing:** Test backend endpoints for **OWASP10** vulnerabilities like **SQL Injection**, **IDOR**, and **Broken Access Control**.
+
 - [ ] **Session Management:** Test for weak **Session ID** generation or lack of **MFA & 2FA** on the mobile endpoints.
 
 ---
@@ -3023,86 +3510,123 @@ _Goal: Build security into mobile apps._
 
 ---
 
-## Part 18: Cryptography
+<a id="toc-part-23-active-directory--entra-id"></a>
+## Part 23: Active Directory & Entra ID
 
-### **Stage 1: Core Concepts & Algorithms**
+### **Stage 1: Discovery & Enumeration**
 
-_Goal: Understand the mathematical tools available._
+_Goal: Map identity surfaces across on-prem AD and Entra ID (Azure AD)._
 
-- [ ] **CIA Alignment:** Map your crypto goals to the **Understand CIA Triad** (Confidentiality = Encryption, Integrity = Hashing).
-- [ ] **Asymmetric Mastery:** Define the roles of **Private vs Public Keys**: Public to Encrypt/Verify, Private to Decrypt/Sign.
-- [ ] **Integrity Checks:** Implement **Hashing** (SHA-256) to verify data integrity and detect **False Positives/Negatives** in file transfers.
+- [ ] **Domain Recon:** Enumerate **domains/forests, trusts, sites, subnets, FSMO roles**; collect **OU/Group/ACL** data.
 
-### **Stage 2: Secure Communication (Data in Transit)**
+- [ ] **Identity Inventory:** List **users, computers, service accounts, Tier0 assets, SPNs**, and **LAPS** posture.
 
-_Goal: Secure the pipe between two points._
+- [ ] **Policy & Exposure:** Audit **GPOs, login scripts, startup tasks**, and **Unconstrained/Constrained/RBCD** exposure.
 
-- [ ] **Protocol Hardening:** Enforce **Secure Protocols** by disabling **SSL** (deprecated) and enforcing **TLS** 1.2/1.3.
-- [ ] **Secure Transfer:** Replace cleartext protocols with encrypted alternatives: **FTP vs SFTP** (SSH-based) or **IPSEC** for VPNs.
-- [ ] **Handshake Analysis:** Analyze the **Key Exchange** (Diffie-Hellman) within the **Understand Handshakes** process to ensure Forward Secrecy.
-
-### **Stage 3: Identity & Trust (PKI)**
-
-_Goal: Prove that you are who you say you are._
-
-- [ ] **Infrastructure:** Deploy **PKI** to manage digital certificates, ensuring the validity of public keys.
-- [ ] **Email Security:** Implement **S/MIME** to sign and encrypt corporate email, preventing **Phishing** and spoofing.
+- [ ] **Entra ID/Cloud Recon:** Enumerate **tenants, apps, service principals, consented permissions, conditional access** and **enterprise apps**.
 
 ---
 
-### **Stage 4: Data at Rest & Password Security**
+### **Stage 2: Credential & Auth Attacks**
 
-_Goal: Secure stored data._
+_Goal: Steal or replay credentials to gain higher privilege._
 
-- [ ] **Disk Encryption:** Deploy **BitLocker, LUKS, FileVault** for full-disk encryption.
+- [ ] **Kerberoast / AS-REP Roast:** Extract **TGS/AS-REP** tickets for offline cracking; prioritize **high-priv SPNs**.
 
-- [ ] **Password Storage:** Never store plaintext passwords; use **bcrypt, scrypt, Argon2** with **salting** to defeat rainbow tables.
+- [ ] **NTLM Relay/SMB/HTTP:** Abuse **NTLM relays** against **SMB/LDAP/HTTP/ADCS HTTP endpoints**; combine with **mTLS gaps**.
 
-- [ ] **Key Management:** Use **HSM, KMS (AWS KMS, Azure Key Vault)** for secure key storage and rotation.
+- [ ] **Token Abuse:** Steal **TGT/TGS, DPAPI, LSASS, browser tokens**, and **OAuth refresh tokens** across hybrid joins.
 
-- [ ] **Modern Hashing Profiles:** Standardize **Argon2id** (memory-hard) with tuned **memory (e.g., 64–256 MB), iterations, parallelism**, or **bcrypt** with current cost; prefer **password peppering** server-side and enforce **per-user salts**. Deprecate **MD5/SHA-1/SHA-256 for password storage** and legacy **PBKDF2-low-iteration** configs.
-
----
-
-### **Stage 5: Cryptographic Attacks & Weaknesses**
-
-_Goal: Understand how crypto fails._
-
-- [ ] **Weak Algorithms:** Identify and avoid **MD5, SHA-1, DES, RC4** in production systems.
-
-- [ ] **Implementation Flaws:** Understand **padding oracle, timing attacks, side-channel attacks** that break otherwise strong algorithms.
-
-- [ ] **Key Management Failures:** Exploit **hardcoded keys, weak KDF, insecure storage** in applications.
-
-- [ ] **Downgrade Attacks:** Force **SSL/TLS downgrade** to weaker ciphers or protocols.
-
-- [ ] **Cryptanalysis:** Understand basics of **frequency analysis, known-plaintext attacks, chosen-plaintext attacks**.
+- [ ] **Password Hygiene:** Spray with **safe lockout windows**, target **legacy auth (POP/IMAP/SMTP)**, and downgrade to **basic auth** where possible.
 
 ---
 
-## Part 19: Cloud Computing
+### **Stage 3: Delegation, ACL, and ADCS Abuse**
+
+_Goal: Abuse trust relationships and misconfigurations for escalation._
+
+- [ ] **Delegation Abuse:** Exploit **Unconstrained, Constrained (service/alt service), and Resource-Based Constrained Delegation (RBCD)** for impersonation.
+
+- [ ] **ACL/ACE Abuse:** Exploit **WriteOwner, WriteDACL, GenericAll/GenericWrite, AddMember** on critical principals (DA, EA, DCs, Tier0 groups).
+
+- [ ] **Shadow Credentials:** Abuse **msDS-KeyCredentialLink** to add rogue keys for persistence.
+
+- [ ] **ADCS (PKI) Abuse:** Exploit **ESC1-ESC8** templates (ENROLLEE_SUPPLIES_SUBJECT, weak EKUs, SAN impersonation) to mint **golden certs**; target **HTTP enrollment endpoints** for relays.
+
+---
+
+### **Stage 4: Lateral Movement & Persistence**
+
+_Goal: Move horizontally and maintain footholds._
+
+- [ ] **Lateral Paths:** Use **WinRM/SMB/RDP/WMI/PowerShell Remoting**, **admin shares**, and **task/svc installs** guided by **BloodHound** paths.
+
+- [ ] **GPO Persistence:** Implant via **logon scripts, immediate scheduled tasks, startup items**; abuse **restricted groups** for re-add.
+
+- [ ] **DC Sync / DC Shadow:** Abuse **Replicating Directory Changes** to pull **NTDS.dit** or inject rogue DC changes.
+
+- [ ] **Golden/Silver Tickets:** Forge **krbtgt/service hashes** for long-lived access; manage **ticket lifetime/renewal** OPSEC.
+
+---
+
+### **Stage 5: Entra ID (Azure AD) & Hybrid Attacks**
+
+_Goal: Exploit cloud identity to pivot and persist._
+
+- [ ] **Consent & OAuth Abuse:** Steal or register **malicious multi-tenant apps**, abuse **illicit consent grants**, and persist via **refresh tokens**.
+
+- [ ] **Conditional Access Bypass:** Exploit **trusted locations, device compliance gaps, legacy auth exemptions**, and **MFA registration weaknesses**.
+
+- [ ] **Passwordless/Passkeys:** Target **FIDO2/Passkey registration flows**, backup methods, and **SSPR** to hijack accounts.
+
+- [ ] **Cross-Cloud Pivot:** Use **Entra app roles** and **federation trusts** to pivot into **AWS/GCP** integrations; harvest **Graph/SharePoint** data for lateral move.
+
+---
+
+### **Lab Progression**
+
+_Goal: Build and attack identity infrastructure with evidence and rollback._
+
+- [ ] **AD Lab Build:** Deploy a domain controller, at least one workstation, DNS, domain users/groups, and basic GPOs.
+- [ ] **Vulnerable AD Lab:** Use GOAD, DetectionLab, PurpleCloud, or a self-built intentionally weak domain to practice safely.
+- [ ] **BloodHound Lab:** Ingest data, identify attack paths, validate one path in the lab, then write the remediation.
+- [ ] **Kerberos Lab:** Perform lab-only AS-REP roasting/Kerberoasting and crack only synthetic passwords created for the exercise.
+- [ ] **Entra ID Lab:** Create test users, app registrations, conditional access policies, and sign-in logs; document identity detections.
+- [ ] **Move-On Gate:** Produce an AD/Entra attack-path report with screenshots, graph evidence, event IDs, and hardening steps.
+
+<a id="toc-part-24-cloud-computing"></a>
+## Part 24: Cloud Computing
 
 ### **Stage 1: Architecture & Governance**
 
 _Goal: Define the battlefield and the rules of engagement._
 
 - [ ] **Model Selection:** Select the correct `Cloud Models` (`Public`, `Private`, `Hybrid`) based on data sensitivity.
+
 - [ ] **Responsibility Mapping:** Apply the **Shared Responsibility Model** based on the service type (`IaaS`, `PaaS`, `SaaS`) to identify what you must secure vs. the provider.
+
 - [ ] **Environment Setup:** Initialize the tenant in a `Common Cloud Environment` (`AWS`, `GCP`, or `Azure`) with a secure root account setup.
+
+---
 
 ### **Stage 2: Storage & Data Security**
 
 _Goal: Lock down the data assets._
 
 - [ ] **Object Storage Security:** Audit `S3` buckets and `Common Cloud Storage` (Drive, Box) for public access and enforce encryption.
+
 - [ ] **Access Control:** Implement strict IAM policies ensuring only authorized identities can access storage blobs.
+
+---
 
 ### **Stage 3: Modern Infrastructure & Deployment**
 
 _Goal: Secure the compute and the pipeline._
 
 - [ ] **Code-Defined Security:** Use `Infrastructure as Code` (IaC) to template firewalls and permissions, preventing human configuration errors.
+
 - [ ] **Serverless Hardening:** Secure `Serverless` functions by minimizing privileges and auditing dependencies for vulnerabilities.
+
 - [ ] **Pipeline Security:** Audit the `general flow of deploying in the cloud` to ensure secrets (API keys) are not hardcoded in the deployment scripts.
 
 ---
@@ -3137,266 +3661,8 @@ _Goal: Understand unique cloud threats._
 
 ---
 
-## Part 20: Digital Forensics
-
-### **Stage 1: Preparation & First Response**
-
-_Goal: Secure the scene without corrupting evidence._
-
-- [ ] **Incident Identification:** Trigger the `Incident Response Process` upon `Identification` of a breach.
-- [ ] **Volatile Collection:** Capture RAM immediately using `memdump` before the system is powered off or rebooted.
-- [ ] **Static Acquisition:** Create a forensic image of hard drives using `FTK Imager` or `dd`, ensuring a write-blocker is used.
-
-### **Stage 2: Evidence Analysis (The Deep Dive)**
-
-_Goal: Find the needle in the haystack._
-
-- [ ] **Disk Analysis:** Load the evidence into `autopsy` to recover deleted files, analyze web history, and search for keywords.
-- [ ] **Binary Inspection:** Use `winhex` to manually inspect file headers (signatures) to identify files with changed extensions (e.g., an EXE renamed to JPG).
-- [ ] **Log Review:** Correlate actions by analyzing `Event Logs` (Login times, Service installs) and `syslogs`.
-
-### **Stage 3: Network Forensics**
-
-_Goal: Trace the attacker's path._
-
-- [ ] **Traffic Reconstruction:** Open `Packet Captures` in `wireshark` to find C2 communication, data exfiltration, or cleartext passwords.
-- [ ] **Flow Analysis:** If full packets are missing, use `netflow` logs to identify connections to malicious IPs.
-
----
-
-### **Stage 4: Advanced Analysis & Reporting**
-
-_Goal: Understand the "How" and tell the story._
-
-- [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs.
-
-- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch).
-
-- [ ] **Anti-Forensics Detection:** Look for signs of **timestomping, log clearing, secure deletion, encryption** indicating sophisticated attacker.
-
-- [ ] **Attribution Analysis:** Correlate **TTPs, IOCs, tools** with known threat actors using **MITRE ATT&CK, threat intelligence**.
-
----
-
-### **Stage 5: Legal & Reporting**
-
-_Goal: Present findings professionally._
-
-- [ ] **Chain of Custody:** Maintain strict **evidence handling, documentation** for legal admissibility.
-
-- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs** for technical teams.
-
-- [ ] **Executive Summary:** Translate technical findings into **business impact, risk assessment** for management.
-
-- [ ] **Legal Coordination:** Work with **legal counsel, HR, law enforcement** on evidence disclosure and prosecution.
-
----
-
-## Part 21: Bug Bounty and Penetration Testing
-
-### **Stage 1: Preparation & Scoping**
-
-_Goal: Stay legal and define the target._
-
-- [ ] **Legal Check:** Read and sign the `Penetration Testing Rules of Engagement` or the Bug Bounty Policy (Safe Harbor).
-- [ ] **Scope Validation:** Confirm IP ranges and domains. Ensure you are not attacking "Out of Scope" assets.
-- [ ] **Framework Selection:** Decide if you are testing against `NIST`, `ISO`, or `OWASP10` standards.
-
-### **Stage 2: Reconnaissance (The Wide Net)**
-
-_Goal: Find what others missed._
-
-- [ ] **Subdomain Enumeration:** Use **OSINT** tools to find `dev`, `stage`, or `test` subdomains.
-- [ ] **Port Scanning:** Run `nmap` to identify non-standard ports (e.g., 8080, 8443) and running services.
-- [ ] **Tech Stack Analysis:** Use `curl` or browser extensions to identify the server, framework (React, Angular), and backend (PHP, Python).
-
-### **Stage 3: Vulnerability Assessment (The Deep Dive)**
-
-_Goal: Find the flaw._
-
-- [ ] **Input Fuzzing:** Test all input fields for `SQL Injection`, `XSS`, and `Buffer Overflow`.
-- [ ] **Access Control:** Test for `IDOR` (Insecure Direct Object Reference) and verify `Authentication vs Authorization` logic.
-- [ ] **Configuration Check:** Look for `Directory Traversal`, exposed `.git` folders, or default credentials (`admin/admin`).
-
-### **Stage 4: Exploitation & Validation**
-
-_Goal: Prove the risk without breaking the system._
-
-- [ ] **PoC Development:** Create a non-destructive Proof of Concept. (e.g., `alert(1)` for XSS, `whoami` for RCE).
-- [ ] **False Positive Check:** Verify the finding is a `True Positive` before reporting.
-- [ ] **Lateral Movement:** (Pentest only) Attempt `Privilege Escalation` or `Pass the Hash` if internal access is achieved.
-
----
-
-### **Stage 5: Reporting & Triage**
-
-_Goal: Get paid and drive remediation._
-
-- [ ] **Impact Assessment:** Clearly explain **business risk** (data breach, financial loss, compliance violation) to management.
-
-- [ ] **Proof of Concept:** Provide **detailed steps, screenshots, videos, request/response** to reproduce the vulnerability.
-
-- [ ] **Remediation Guidance:** Offer **specific technical fixes** (parameterized queries, input validation, patching) with code examples.
-
-- [ ] **CVSS Scoring:** Calculate **CVSS score** to quantify severity and prioritize remediation.
-
----
-
-### **Stage 6: Professional Development**
-
-_Goal: Build skills and reputation._
-
-- [ ] **Platform Selection:** Focus on **HackerOne, Bugcrowd, Synack, Intigriti** platforms with active programs.
-
-- [ ] **Specialization:** Develop expertise in **specific areas** (API security, mobile, cloud, blockchain).
-
-- [ ] **Documentation:** Maintain **personal writeups, CVEs, Hall of Fame entries** for portfolio building.
-
-- [ ] **Community Engagement:** Participate in **CTFs, conferences, Twitter/Discord security communities** for networking.
-
-- [ ] **Continuous Learning:** Stay updated on **latest vulnerabilities, techniques, tools** through blogs, research papers, trainings.
-
----
-
-## Part 22: OSINT & Threat Intelligence
-
-### **Stage 1: Passive Reconnaissance & Data Collection**
-
-_Goal: Gather intelligence without touching target infrastructure._
-
-- [ ] **Search Engine Intelligence:** Master **Google/Bing/Yandex dorks** for exposed data; use **Shodan/Censys/Zoomeye** for internet-wide scanning.
-
-- [ ] **Social Media Mining:** Scrape **LinkedIn, Twitter, Facebook, Instagram** for employees, org structure, tech stack mentions, and personal details.
-
-- [ ] **Domain & Infrastructure:** Use **WHOIS, DNS records (MX, TXT, SPF, DMARC), Certificate Transparency logs** to map infrastructure.
-
-- [ ] **Breach Data Analysis:** Query **HIBP (Have I Been Pwned), Dehashed, Snusbase** for leaked credentials and PII.
-
-- [ ] **Code Repository Mining:** Search **GitHub, GitLab, Bitbucket** for exposed **API keys, credentials, internal IPs, architecture docs**.
-
-- [ ] **Dark Web Monitoring:** Monitor **paste sites, forums, dark web marketplaces** for leaked data, exploit sales, threat actor chatter.
-
----
-
-### **Stage 2: Threat Intelligence Analysis**
-
-_Goal: Convert raw data into actionable intelligence._
-
-- [ ] **IOC Collection:** Aggregate **file hashes, domains, IPs, email patterns** from **threat feeds, MISP, AlienVault OTX**.
-
-- [ ] **Threat Actor Profiling:** Study **APT groups, TTPs, infrastructure patterns** using **MITRE ATT&CK, threat reports (Mandiant, CrowdStrike)**.
-
-- [ ] **Campaign Tracking:** Monitor **active campaigns, malware families, exploit trends** to understand current threat landscape.
-
-- [ ] **Attribution Analysis:** Correlate **infrastructure, code patterns, language artifacts** to attribute attacks to specific actors.
-
-- [ ] **Victimology Studies:** Understand **target selection, industry focus, geographic distribution** of threat actors.
-
----
-
-### **Stage 3: OSINT Automation & Tooling**
-
-_Goal: Scale reconnaissance with automation._
-
-- [ ] **Reconnaissance Frameworks:** Master **Recon-ng, theHarvester, SpiderFoot, Maltego** for automated data collection.
-
-- [ ] **Subdomain Enumeration:** Use **Amass, Subfinder, Assetfinder, DNSRecon** to discover **subdomains, ASNs, IP ranges**.
-
-- [ ] **API Integration:** Leverage **VirusTotal, Shodan, SecurityTrails, Hunter.io APIs** for programmatic data access.
-
-- [ ] **Custom Scripting:** Build **Python/Bash scripts** to automate **scraping, parsing, correlation** of OSINT data.
-
-- [ ] **Data Pipeline:** Create **ETL pipelines** to aggregate, normalize, and store intelligence in **databases/dashboards**.
-
----
-
-### **Stage 4: Threat Intelligence Dissemination**
-
-_Goal: Communicate intelligence effectively to stakeholders._
-
-- [ ] **Intelligence Reports:** Create **tactical (IOCs), operational (TTPs), strategic (trends)** reports for different audiences.
-
-- [ ] **TLP Classification:** Apply **Traffic Light Protocol (White, Green, Amber, Red)** for information sharing sensitivity.
-
-- [ ] **STIX/TAXII:** Use **Structured Threat Information Expression (STIX)** and **TAXII** for standardized intel sharing.
-
-- [ ] **Threat Briefings:** Deliver **executive briefings** highlighting **risks, trends, recommended actions** in non-technical language.
-
-- [ ] **Community Collaboration:** Participate in **ISACs, threat intel communities, CTI sharing platforms** for collective defense.
-
----
-
-## Part 23: Adversary Emulation & Purple Teaming
-
-### **Stage 1: MITRE ATT&CK Framework Mastery**
-
-_Goal: Understand the universal language of adversary behavior._
-
-- [ ] **Tactic Familiarity:** Master all **14 tactics** (Initial Access → Impact) and their relationships in the attack lifecycle.
-
-- [ ] **Technique Deep-Dive:** Study **100+ core techniques** with focus on **prevalence, detection difficulty, impact** ratings.
-
-- [ ] **Sub-Technique Granularity:** Understand **sub-technique variations** for precise emulation (e.g., T1059.001 PowerShell vs T1059.003 CMD).
-
-- [ ] **Data Source Mapping:** Link techniques to **detection data sources** (process creation, network traffic, registry modifications).
-
-- [ ] **Mitigation Strategies:** Review **MITRE mitigations** for each technique to understand defensive controls.
-
----
-
-### **Stage 2: APT & Threat Actor Emulation**
-
-_Goal: Replicate real-world adversary campaigns._
-
-- [ ] **APT Profiling:** Study **APT groups** (APT28, APT29, Lazarus, FIN7) including **TTPs, tools, targeting, infrastructure**.
-
-- [ ] **Campaign Recreation:** Emulate **documented campaigns** step-by-step using **MITRE ATT&CK Navigator** for technique mapping.
-
-- [ ] **Tool Replication:** Use **adversary tools** (Mimikatz, Cobalt Strike, Empire, custom malware) to match TTP fidelity.
-
-- [ ] **Infrastructure Mimicry:** Build **attack infrastructure** (domains, IPs, C2) that mimics **APT patterns and behaviors**.
-
-- [ ] **Operational Tempo:** Match **adversary dwell time, persistence patterns, exfil timing** for realistic simulation.
-
-- [ ] **Adversary Emulation Plans:** Execute **MITRE ATT&CK Adversary Emulation Plans** for groups like **APT29, Scattered Spider** to test realistic kill chains.
-
----
-
-### **Stage 3: Purple Team Exercises**
-
-_Goal: Collaborative offense-defense improvement._
-
-- [ ] **Joint Planning:** Define **objectives, scope, techniques, success criteria** with both red and blue teams.
-
-- [ ] **Live Detection Tuning:** Execute **attacks in controlled environment** while defenders **tune detection rules in real-time**.
-
-- [ ] **Gap Analysis:** Identify **detection blind spots, control failures, response deficiencies** through collaborative testing.
-
-- [ ] **Playbook Development:** Create **detection playbooks** with **queries, alerts, response procedures** for each emulated technique.
-
-- [ ] **Iterative Improvement:** Run **multiple rounds** of testing with **incremental detection improvements** to measure progress.
-
----
-
-### **Stage 4: Metrics & Reporting**
-
-_Goal: Quantify security posture improvement._
-
-- [ ] **Detection Coverage:** Calculate **% of ATT&CK techniques** with detection coverage across the matrix.
-
-- [ ] **MTTD/MTTR:** Measure **Mean Time to Detect** and **Mean Time to Respond** for each technique tested.
-
-- [ ] **False Positive Rate:** Track **alert accuracy** and **tuning effectiveness** over multiple exercises.
-
-- [ ] **Control Effectiveness:** Rate **preventative, detective, responsive** controls against each technique (None/Partial/Full).
-
-- [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
-
-- [ ] **MTTD/MTTR:** Capture **Mean Time to Detect/Respond** per technique; highlight **validated capabilities** where controls stopped full kill chains.
-
----
-
-## Part 24: Container & Orchestration Security
+<a id="toc-part-25-container--orchestration-security"></a>
+## Part 25: Container & Orchestration Security
 
 ### **Stage 1: Container Fundamentals & Attacks**
 
@@ -3480,7 +3746,18 @@ _Goal: Compromise the software supply chain and automation tier._
 
 ---
 
-## Part 25: OT/ICS/SCADA Security
+### **Lab Progression**
+
+_Goal: Practice container and Kubernetes security with real clusters, not diagrams._
+
+- [ ] **Container Escape Awareness Lab:** Run a deliberately misconfigured container and document which Linux primitives made it unsafe: capabilities, mounts, namespaces, cgroups, seccomp, AppArmor/SELinux.
+- [ ] **KubernetesGoat / k8s-ctf Lab:** Complete at least 5 Kubernetes attack scenarios and map each to a control failure.
+- [ ] **Image Security Lab:** Build an image, scan it with Trivy/Grype, fix high-risk findings, and rebuild.
+- [ ] **Secrets Lab:** Demonstrate unsafe secret exposure, then fix it using Kubernetes secrets, external secret managers, or workload identity.
+- [ ] **Move-On Gate:** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes.
+
+<a id="toc-part-26-oticsscada-security"></a>
+## Part 26: OT/ICS/SCADA Security
 
 ### **Stage 1: Industrial Protocol Fundamentals**
 
@@ -3548,7 +3825,258 @@ _Goal: Implement defense-in-depth for industrial environments._
 
 ---
 
-## Part 26: Hardware Hacking & Embedded Systems
+<a id="toc-part-27-digital-forensics"></a>
+## Part 27: Digital Forensics
+
+### **Stage 1: Preparation & First Response**
+
+_Goal: Secure the scene without corrupting evidence._
+
+- [ ] **Incident Identification:** Trigger the `Incident Response Process` upon `Identification` of a breach.
+
+- [ ] **Volatile Collection:** Capture RAM immediately using `memdump` before the system is powered off or rebooted.
+
+- [ ] **Static Acquisition:** Create a forensic image of hard drives using `FTK Imager` or `dd`, ensuring a write-blocker is used.
+
+---
+
+### **Stage 2: Evidence Analysis (The Deep Dive)**
+
+_Goal: Find the needle in the haystack._
+
+- [ ] **Disk Analysis:** Load the evidence into `autopsy` to recover deleted files, analyze web history, and search for keywords.
+
+- [ ] **Binary Inspection:** Use `winhex` to manually inspect file headers (signatures) to identify files with changed extensions (e.g., an EXE renamed to JPG).
+
+- [ ] **Log Review:** Correlate actions by analyzing `Event Logs` (Login times, Service installs) and `syslogs`.
+
+---
+
+### **Stage 3: Network Forensics**
+
+_Goal: Trace the attacker's path._
+
+- [ ] **Traffic Reconstruction:** Open `Packet Captures` in `wireshark` to find C2 communication, data exfiltration, or cleartext passwords.
+
+- [ ] **Flow Analysis:** If full packets are missing, use `netflow` logs to identify connections to malicious IPs.
+
+---
+
+### **Stage 4: Advanced Analysis & Reporting**
+
+_Goal: Understand the "How" and tell the story._
+
+- [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs.
+
+- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch).
+
+- [ ] **Anti-Forensics Detection:** Look for signs of **timestomping, log clearing, secure deletion, encryption** indicating sophisticated attacker.
+
+- [ ] **Attribution Analysis:** Correlate **TTPs, IOCs, tools** with known threat actors using **MITRE ATT&CK, threat intelligence**.
+
+---
+
+### **Stage 5: Legal & Reporting**
+
+_Goal: Present findings professionally._
+
+- [ ] **Chain of Custody:** Maintain strict **evidence handling, documentation** for legal admissibility.
+
+- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs** for technical teams.
+
+- [ ] **Executive Summary:** Translate technical findings into **business impact, risk assessment** for management.
+
+- [ ] **Legal Coordination:** Work with **legal counsel, HR, law enforcement** on evidence disclosure and prosecution.
+
+---
+
+<a id="toc-part-28-reverse-engineering--malware-analysis"></a>
+## Part 28: Reverse Engineering & Malware Analysis
+
+### **Stage 1: Static Analysis Foundations**
+
+_Goal: Analyze binaries without executing them._
+
+- [ ] **File Identification:** Use **file, exiftool, DIE (Detect It Easy)** to identify **file type, architecture, compiler, packer** before loading into a disassembler.
+
+- [ ] **PE/ELF/Mach-O Structure:** Master **executable format headers, sections (.text, .data, .rdata, .bss), import/export tables, relocation entries**, and **entry points**.
+
+- [ ] **Disassembly Tools:** Develop proficiency in **Ghidra** (free) and **IDA Pro** (industry standard) for **disassembly, decompilation, cross-referencing, and function signature recognition**.
+
+- [ ] **String Analysis:** Extract **hardcoded URLs, IPs, registry keys, API calls, encryption keys, error messages** using **strings, FLOSS (FLARE Obfuscated String Solver)**.
+
+- [ ] **Import/Export Analysis:** Identify **suspicious API imports** (VirtualAlloc, CreateRemoteThread, WriteProcessMemory, InternetOpenUrl) that reveal **injection, download, or persistence behavior**.
+
+- [ ] **Control Flow Analysis:** Trace **function call graphs, conditional branches, loops** to understand **program logic, decision points, and hidden functionality**.
+
+- [ ] **.NET/Java Reversing:** Decompile **managed code** using **dnSpy, ILSpy** (.NET) or **JD-GUI, JADX, CFR** (Java/Android) for near-source-level analysis.
+
+---
+
+### **Stage 2: Dynamic Analysis & Debugging**
+
+_Goal: Observe malware behavior during live execution._
+
+- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **Procmon, Process Hacker, Regshot, Wireshark, FakeNet-NG**.
+
+- [ ] **Behavioral Indicators:** Document **file system changes, registry modifications, network connections, process creation, mutex creation, service installs** during execution.
+
+- [ ] **Debugger Proficiency:** Master **x64dbg/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
+
+- [ ] **API Hooking & Tracing:** Use **API Monitor, Frida, strace/ltrace** to intercept and log **system calls and library calls** at runtime.
+
+- [ ] **Memory Forensics During Execution:** Dump **process memory** with **Volatility, procdump** to find **decrypted payloads, injected code, unpacked stages** that only exist in RAM.
+
+- [ ] **Network Traffic Analysis:** Capture **C2 communications, DNS queries, HTTP beacons, exfiltration attempts** using **Wireshark, mitmproxy, INetSim** during detonation.
+
+---
+
+### **Stage 3: Anti-Reverse Engineering & Evasion Techniques**
+
+_Goal: Understand and defeat techniques malware uses to resist analysis._
+
+- [ ] **Anti-Debugging:** Detect and bypass **IsDebuggerPresent, NtQueryInformationProcess, timing checks (RDTSC), int 2D/int 3, TLS callbacks** used to detect debuggers.
+
+- [ ] **Anti-VM/Anti-Sandbox:** Identify checks for **VMware/VirtualBox artifacts (registry keys, MAC prefixes, CPUID), mouse movement, screen resolution, uptime, username** and patch them out.
+
+- [ ] **Packing & Crypters:** Unpack **UPX, Themida, VMProtect, custom packers** using **manual unpacking (OEP finding, IAT reconstruction)** and automated tools.
+
+- [ ] **Obfuscation:** Defeat **control flow flattening, dead code insertion, string encryption, opaque predicates** through **symbolic execution, pattern matching, and scripting**.
+
+- [ ] **Code Virtualization:** Understand **VM-based protectors** (Themida, VMProtect) that translate code to **custom bytecode**; use **devirtualization techniques** and trace analysis.
+
+---
+
+### **Stage 4: Malware Classification & Threat Intelligence**
+
+_Goal: Categorize malware and extract actionable intelligence._
+
+- [ ] **Malware Taxonomy:** Classify samples as **RAT, ransomware, worm, rootkit, bootkit, stealer, loader, dropper, wiper, cryptominer, botnet agent** based on behavior.
+
+- [ ] **IOC Extraction:** Extract **file hashes (MD5/SHA256), domains, IPs, URLs, mutexes, registry keys, YARA signatures** for threat intelligence sharing.
+
+- [ ] **YARA Rule Writing:** Write **custom YARA rules** to detect malware families by **string patterns, byte sequences, file structure, import combinations**.
+
+- [ ] **MITRE ATT&CK Mapping:** Map observed **malware behaviors** to **specific techniques/sub-techniques** for standardized reporting and detection engineering.
+
+- [ ] **Campaign Attribution:** Correlate **code similarities, infrastructure overlaps, TTPs, timestamps, language artifacts** to link samples to **threat actor groups**.
+
+---
+
+### **Stage 5: Advanced RE & Automation**
+
+_Goal: Scale analysis with scripting and handle complex targets._
+
+- [ ] **Ghidra Scripting:** Write **Ghidra scripts (Java/Python)** to automate **function renaming, string decryption, pattern searching, cross-reference analysis**.
+
+- [ ] **IDAPython:** Use **IDAPython scripts** for **bulk analysis, signature generation, automated deobfuscation, plugin development**.
+
+- [ ] **Binary Diffing:** Use **BinDiff, Diaphora** to compare **patched vs. unpatched binaries** to identify **vulnerability patches and 1-day exploit targets**.
+
+- [ ] **Emulation:** Use **Unicorn Engine, QEMU, Qiling** to **emulate code snippets** (decryption routines, shellcode) without full execution.
+
+- [ ] **Firmware RE:** Apply RE skills to **embedded firmware** (binwalk extraction, architecture identification, cross-compilation debugging).
+
+- [ ] **Kernel-Level RE:** Analyze **drivers, rootkits, bootkits** using **WinDbg kernel debugging, IDA with kernel symbols, Volatility memory analysis**.
+
+---
+
+### **Lab Progression**
+
+_Goal: Build reverse-engineering muscle memory in a safe malware-analysis environment._
+
+- [ ] **Lab Setup:** Deploy FLARE VM and REMnux in isolated VMs with snapshots and no shared folders.
+- [ ] **Static Analysis Lab:** Analyze 5 benign or training binaries with strings, PE/ELF headers, imports, sections, and entropy.
+- [ ] **Dynamic Analysis Lab:** Execute controlled samples in a sandbox and capture filesystem, registry, process, and network behavior.
+- [ ] **Debugger Lab:** Use x64dbg/GDB to set breakpoints, step through functions, inspect stack/registers, and patch one branch in a toy binary.
+- [ ] **YARA Lab:** Write 3 YARA rules for training samples and test false positives against clean files.
+- [ ] **Move-On Gate:** Produce one malware-analysis-style report with IOCs, behavior summary, ATT&CK mapping, and detection logic.
+
+<a id="toc-part-29-modern-exploitation"></a>
+## Part 29: Modern Exploitation
+
+### **Stage 1: Recon, Triage & Tooling**
+
+_Goal: Prepare targets and environments for exploit development._
+
+- [ ] **Binary Recon:** Identify **arch, compiler, protections (ASLR, DEP/NX, PIE, RELRO, Stack Canaries, CFG, CET/PAC/BTI)**.
+
+- [ ] **Debug Setup:** Configure **GDB/gef/pwndbg, WinDbg, Frida**; obtain **symbols, PDBs, DWARF** where possible.
+
+- [ ] **Fuzzing:** Use **AFL++, libFuzzer, honggfuzz, Peach**; seed corpora, add **sanitizers (ASan/UBSan/MSan)**; triage crashes.
+
+---
+
+### **Stage 2: Memory Exploitation (Userland)**
+
+_Goal: Exploit memory-safety bugs under modern mitigations._
+
+- [ ] **Buffer Overflows:** Master how data can overwrite adjacent memory to hijack the **EIP/RIP (Instruction Pointer)**; understand **stack vs heap overflows**.
+
+- [ ] **Stack/Heap Primitives:** Develop **overflow, UAF, double-free, type confusion, OOB read/write** primitives.
+
+- [ ] **Bypass Strategies:** Use **ROP/JOP/SROP, ret2libc, ret2dlresolve, stack pivoting**, and **heap grooming** (tcache/fastbin/largebin, LFH) to gain PC control.
+
+- [ ] **Exploit Mitigations:** Study **ASLR** (Address Space Layout Randomization) and **DEP/NX** (Data Execution Prevention); master **ROP** (Return Oriented Programming) to bypass them. Learn **stack canary** bypass via leaks.
+
+- [ ] **Mitigation Bypass:** Defeat **RELRO/PIE**, **CFG/CET/PAC/BTI** with **COOP, SIGRETURN, pointer authentication bypass**, or **JIT spraying**.
+
+- [ ] **Sandbox Escape:** Target **browser/render sandboxes**, **container seccomp/AppArmor**, and **Win32k lockdown** using **IPC/shmem/race** primitives.
+
+---
+
+### **Stage 3: Advanced Targets**
+
+_Goal: Move beyond basic binaries to complex environments._
+
+- [ ] **Kernel Exploitation:** Leverage **UAF/race/logic bugs**, bypass **SMEP/SMAP/KASLR/KPTRR**, and use **token stealing/privilege escalation** primitives.
+
+- [ ] **Browser & JS Engines:** Exploit **JIT/IC/GC** bugs; chain **type confusion → infoleak → RCE → sandbox escape**.
+
+- [ ] **Deserialization & Logic:** Exploit **Java/.NET/Python/PHP** gadget chains, **serialization format** confusion, and **race conditions**.
+
+- [ ] **Cloud/Serverless:** Abuse **function sandboxes, cold-start leaks, metadata services (IMDS), and SSRF-to-role** chains.
+
+---
+
+### **Stage 4: Exploit Delivery & OPSEC**
+
+_Goal: Deliver and operate exploits stealthily._
+
+- [ ] **Stagers & Payloads:** Build **stageless/staged** payloads with **in-memory loaders, reflective DLL/ELF**, and **syscall/indirect syscall** execution.
+
+- [ ] **Evasion:** Apply **sleep obfuscation, call-stack spoofing, DLL hollowing, APC/ETW/AMSI tampering**, and **PPID spoofing**.
+
+- [ ] **Crash Handling:** Implement **auto-retry, watchdogs, safe-fail** to avoid blue screens/service crashes.
+
+- [ ] **Telemetry Shaping:** Throttle **network/beacon timing**, pad **packet sizes**, and mimic **legit protocol usage**.
+
+---
+
+### **Stage 5: Post-Exploitation Hardening & Safety**
+
+_Goal: Maintain control while minimizing detection and impact._
+
+- [ ] **Cleanup & Rollback:** Remove **artifacts, logs, crash dumps**, restore configs; support **idempotent rollback**.
+
+- [ ] **Persistence Choices:** Select **low-noise persistence** (scheduled tasks, services, WMI events, cron/systemd timers) with **time-bounded lifetimes**.
+
+- [ ] **Safety & Blast Radius:** Gate exploit use with **kill-switches, rate limits, environment checks**, and **canary endpoints** to avoid collateral damage.
+
+---
+
+### **Lab Progression**
+
+_Goal: Approach exploitation with prerequisites, safety controls, and repeatable labs._
+
+- [ ] **Assembly Gate:** Complete x86/x64 basics: registers, stack frames, calling conventions, `call`, `ret`, jumps, and memory layout.
+- [ ] **pwn.college / ROP Emporium Lab:** Complete beginner shellcode, stack overflow, and ROP exercises before touching harder targets.
+- [ ] **Fuzzing Lab:** Build a toy parser, fuzz it, crash it, triage the crash, and write a minimal proof of concept.
+- [ ] **Mitigation Lab:** Demonstrate how NX, ASLR, stack canaries, PIE, and RELRO change exploitability.
+- [ ] **Move-On Gate:** Produce one exploit writeup with root cause, crash analysis, exploit reliability notes, and mitigation guidance.
+
+<a id="toc-part-30-hardware-hacking--embedded-systems"></a>
+## Part 30: Hardware Hacking & Embedded Systems [OPTIONAL SPECIALIZATION]
 
 ### **Stage 1: Hardware Reconnaissance**
 
@@ -3634,13 +4162,577 @@ _Goal: Secure embedded systems against attacks._
 
 ---
 
-## Part 27: AI & LLM Red Teaming
+<a id="toc-part-31-password-cracking--hash-analysis"></a>
+## Part 31: Password Cracking & Hash Analysis
+
+### **Stage 1: Hash Identification & Acquisition**
+
+_Goal: Identify what you have before cracking._
+
+- [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
+
+- [ ] **Hash Acquisition:** Obtain hashes from **SAM/NTDS.dit (Windows), /etc/shadow (Linux), database dumps, LSASS memory, pcap files, web app source**.
+
+- [ ] **Common Hash Types:** Master identifying and handling **NTLM, NTLMv1/v2, NetNTLM, MD5, SHA-1, SHA-256, bcrypt, Argon2, PBKDF2, WPA2-PMKID, Kerberos (5/17/18/23)**.
+
+---
+
+### **Stage 2: Cracking Methodology & Tools**
+
+_Goal: Apply the right technique to each hash type._
+
+- [ ] **Hashcat Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
+
+- [ ] **John the Ripper:** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
+
+- [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
+
+- [ ] **Rule-Based Attacks:** Apply **Hashcat rules (best64.rule, OneRuleToRuleThemAll, d3ad0ne)** to mangle wordlists — capitalize, add numbers, leet-speak substitutions — to crack complex passwords efficiently.
+
+- [ ] **Mask Attacks:** Use **Hashcat mask syntax** (`?u?l?l?l?l?d?d?s`) to brute-force **known password patterns** (e.g., company naming conventions, seasonal passwords like `Summer2024!`).
+
+- [ ] **Hybrid Attacks:** Combine **wordlist + mask** (`-a 6` / `-a 7`) to crack passwords like `rockyou_words + 2024!` or `!2024 + rockyou_words`.
+
+- [ ] **Rainbow Tables:** Understand **precomputed hash-to-plaintext lookup tables** and why **salting defeats them**; use **RainbowCrack** for legacy unsalted MD5/SHA1.
+
+---
+
+### **Stage 3: Protocol-Specific Cracking**
+
+_Goal: Crack hashes captured from real network protocols._
+
+- [ ] **NTLM / NetNTLMv2:** Capture with **Responder, ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
+
+- [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
+
+- [ ] **WPA2 Handshakes:** Crack **4-way handshake (-m 22000)** and **PMKID (-m 22001)** from wireless captures with GPU-accelerated hashcat.
+
+- [ ] **SSH Private Keys:** Use **ssh2john** to extract crackable hash from passphrase-protected keys; crack with JtR.
+
+- [ ] **Office / PDF / ZIP:** Extract hashes with **office2john, pdf2john, zip2john**; crack with JtR or hashcat for document password recovery.
+
+---
+
+### **Stage 4: Wordlist & Intelligence Curation**
+
+_Goal: Build targeted wordlists that outperform generic lists._
+
+- [ ] **OSINT-Driven Wordlists:** Use **CeWL** to spider target websites and extract **company-specific vocabulary** for highly targeted password lists.
+
+- [ ] **Custom Rule Writing:** Write **Hashcat/JtR rules** encoding target's known password policy — minimum length, required chars, common suffix patterns.
+
+- [ ] **Credential Stuffing Lists:** Use **breach corpora (Collection #1, Dehashed)** to build target-specific lists from previously leaked passwords for the same user base.
+
+- [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
+
+---
+
+<a id="toc-part-32-physical-penetration-testing"></a>
+## Part 32: Physical Penetration Testing [OPTIONAL SPECIALIZATION]
+
+> **Safety Gate:** Physical testing requires written authorization, named locations, dates/times, emergency contacts, stop conditions, and a get-out-of-jail letter. Do not practice bypasses on real facilities, campuses, offices, hotels, apartments, or transit systems.
+
+### **Stage 1: Pre-Engagement & Reconnaissance**
+
+_Goal: Plan the physical assessment within legal scope._
+
+- [ ] **Scope Definition:** Confirm **written authorization, target facilities, allowed hours, assumed identity (e.g., contractor, vendor)**, and **emergency abort contact** before any physical operation.
+
+- [ ] **Facility OSINT:** Use **Google Maps, Satellite imagery, LinkedIn (employee badge photos), job postings (physical security tools mentioned), public filings** to map facility layout, entry points, and security posture.
+
+- [ ] **Physical Observation:** Conduct **covert surveillance** — observe **employee badge behavior, delivery procedures, tailgate vulnerability, smoking areas, loading docks** as low-security entry vectors.
+
+- [ ] **Social Engineering Pretext:** Prepare **believable personas** (IT contractor, fire inspector, HVAC technician, delivery person) with **supporting props, business cards, uniforms, fake work orders**.
+
+---
+
+### **Stage 2: Entry & Access Control Bypass**
+
+_Goal: Defeat physical barriers to gain facility access._
+
+- [ ] **Tailgating / Piggybacking:** Follow authorized personnel through secured doors using **timing, props (heavy boxes, hands full), social confidence**; test anti-tailgate detection systems.
+
+- [ ] **Lock Picking:** Practice **single-pin picking, raking, bump keys** for standard pin-tumbler locks; understand **high-security locks (Medeco, Abloy)** that resist standard attacks.
+
+- [ ] **Bypass Tools:** Use **under-door tools (UDT), latch slipping tools, door gap attacks** to manipulate door hardware without the key.
+
+- [ ] **RFID/NFC Badge Cloning:** Capture **low-frequency (125kHz HID, EM4100)** badge data with **Proxmark3** from up to 30cm; clone to blank T5577 card; understand **13.56MHz (MIFARE, DESFire)** attack complexity.
+
+- [ ] **Electric Strike / Maglock Bypass:** Use **REX (Request-to-Exit) sensor exploitation, power interruption, crash bar manipulation** to open magnetically locked doors.
+
+- [ ] **Elevator & Stairwell Access:** Identify **fire escape stairwells, service elevators, parking garage access** that bypass reception and security desks.
+
+---
+
+### **Stage 3: HID & USB Payload Attacks**
+
+_Goal: Deploy physical implants and hardware attack tools._
+
+- [ ] **USB HID Attacks (Rubber Ducky / Bash Bunny):** Craft **DuckyScript payloads** to execute **reverse shells, credential theft, backdoor installation** within seconds when plugged into an unlocked machine.
+
+- [ ] **O.MG Cable:** Deploy **USB cables with embedded implants** that appear legitimate but exfiltrate data or execute commands over WiFi.
+
+- [ ] **LAN Turtle / Shark Jack:** Drop **network implants** that provide **remote SSH access, packet capture, and network scanning** from inside the target network.
+
+- [ ] **USB Drop Attacks:** Leave **weaponized USB drives** in common areas (parking lot, reception, bathroom); craft **autorun payloads, LNK files, fake docs** that execute on Windows/Linux.
+
+- [ ] **Rogue Network Devices:** Plant **WiFi Pineapple, rogue AP, network tap** in server rooms, comms closets, or under desks for persistent network access.
+
+---
+
+### **Stage 4: On-Site Operations & Data Collection**
+
+_Goal: Achieve objectives once inside._
+
+- [ ] **Workstation Access:** Target **unlocked machines, password-protected screens (bypass with HID)**, install **implants, keyloggers, screen capture tools**.
+
+- [ ] **Shoulder Surfing:** Observe **password entry, sensitive documents, screen content** in open offices, meeting rooms, and public areas.
+
+- [ ] **Dumpster Diving:** Recover **printed credentials, org charts, hardware serial numbers, network diagrams, decommissioned drives** from trash/recycling.
+
+- [ ] **Server Room / Comms Closet:** Attempt access to **network switches, patch panels, servers**; document **unencrypted hardware, unsecured console ports, accessible management interfaces**.
+
+---
+
+### **Stage 5: Reporting Physical Findings**
+
+_Goal: Document and communicate physical security gaps professionally._
+
+- [ ] **Evidence Collection:** Capture **covert photos/video (within ROE), cloned badge data, dropped USB recovery, access logs** as proof-of-concept evidence.
+
+- [ ] **Risk Mapping:** Map findings to **physical security frameworks (PSIA, ISO 27001 Annex A.11)** and quantify **business impact** (data theft, sabotage, insider threat facilitation).
+
+- [ ] **Remediation Guidance:** Recommend **anti-tailgate turnstiles, RFID upgrade paths, clean desk policy, USB port lockdown, security awareness training, camera placement**.
+
+---
+
+<a id="toc-part-33-voip--telecommunications-security"></a>
+## Part 33: VoIP & Telecommunications Security [OPTIONAL SPECIALIZATION]
+
+### **Stage 1: VoIP Protocol Fundamentals**
+
+_Goal: Understand how VoIP systems communicate._
+
+- [ ] **SIP (Session Initiation Protocol):** Master **SIP message structure (INVITE, ACK, BYE, REGISTER, OPTIONS)**, **dialog establishment**, **authentication (Digest Auth)**, and **common ports (UDP/TCP 5060, TLS 5061)**.
+
+- [ ] **RTP (Real-time Transport Protocol):** Understand **media stream transport**, **SRTP (Secure RTP)** for encryption, **RTCP** for control, and how **RTP ports are negotiated via SDP**.
+
+- [ ] **VoIP Infrastructure:** Map **components**: **IP-PBX (Asterisk, FreePBX), SBC (Session Border Controller), SIP Trunk, softphones, IP handsets, voicemail servers**.
+
+- [ ] **Codec Identification:** Identify **G.711, G.729, Opus** codecs from SDP negotiation; understand quality vs. bandwidth tradeoffs and how codecs affect capture/decode.
+
+---
+
+### **Stage 2: VoIP Reconnaissance & Enumeration**
+
+_Goal: Discover and map VoIP infrastructure._
+
+- [ ] **SIP Scanning:** Use **svmap (SIPVicious), nmap SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
+
+- [ ] **Extension Enumeration:** Use **svwar** to enumerate **valid SIP extensions** via REGISTER/OPTIONS probing; map **active users and voicemail accounts**.
+
+- [ ] **Banner Grabbing:** Identify **PBX vendor and version** from **SIP User-Agent headers**; cross-reference with **CVE databases** for known exploits.
+
+- [ ] **SDP Analysis:** Parse **Session Description Protocol** messages to identify **media types, codec preferences, RTP port ranges, and IP addresses**.
+
+---
+
+### **Stage 3: VoIP Attacks**
+
+_Goal: Exploit weaknesses in VoIP deployments._
+
+- [ ] **SIP Brute Force:** Use **svcrack (SIPVicious)** to brute-force **SIP extension passwords**; test default credentials (1234, extension number as password).
+
+- [ ] **RTP Interception:** Position in MITM via **ARP spoofing**; capture **RTP streams with Wireshark**; reassemble and decode audio with **VoIPmonitor, sngrep, rtpbreak**.
+
+- [ ] **Call Hijacking:** Send **spoofed BYE messages** to terminate active calls; send **CANCEL or re-INVITE** to redirect calls to attacker-controlled endpoints.
+
+- [ ] **VoIP Fuzzing:** Use **Sip-Proxy, Codenomicon** to fuzz **SIP parsers** for crashes, memory corruption, and denial of service in PBX software.
+
+- [ ] **Vishing Infrastructure:** Understand how **VoIP enables scalable vishing** — spoofed caller ID, auto-dialers, SIP trunk abuse for mass calling campaigns.
+
+- [ ] **VLAN Hopping to Voice VLAN:** Exploit **voice VLAN misconfiguration** (untagged/double-tagged frames) to access VoIP network segment from data VLAN.
+
+---
+
+### **Stage 4: SS7 & Telecom Signaling Attacks**
+
+_Goal: Understand mobile network signaling vulnerabilities._
+
+- [ ] **SS7 Architecture:** Understand **Signaling System 7 (SS7)** — the global telephone signaling protocol connecting **mobile network operators, MSCs, HLRs, VLRs**.
+
+- [ ] **SS7 Attack Types:** Study **location tracking (SendRoutingInfo), call interception (MAP UpdateLocation), SMS interception (ForwardSM)** — attacks that work against **any mobile network globally**.
+
+- [ ] **Diameter Protocol:** Understand **Diameter** (4G/LTE replacement for SS7) and its own **attack surface** — roaming exploitation, subscriber data disclosure, DoS.
+
+- [ ] **SIM Swapping (Technical):** Understand the **social engineering + SS7/carrier abuse chain** — porting credentials, carrier authentication weaknesses, and MFA bypass consequences.
+
+- [ ] **IMSI Catchers (Stingrays):** Understand how **fake base stations force 2G downgrade**, capture **IMSI identifiers**, and enable **passive interception** of unencrypted traffic.
+
+---
+
+### **Stage 5: 5G Security**
+
+_Goal: Understand the 5G threat landscape._
+
+- [ ] **5G Architecture:** Understand **5G SA (Standalone) vs NSA (Non-Standalone)**, **gNB (base station), AMF, SMF, UPF** core network functions, and **network slicing**.
+
+- [ ] **5G Attack Surface:** Study **SBA (Service-Based Architecture) HTTP/2 API attacks**, **SUPI/SUCI identifier exposure**, **slice isolation bypass**, **roaming security gaps**.
+
+- [ ] **5G vs 4G Security:** Understand improvements (**SUPI concealment, mandatory mutual auth**) and remaining weaknesses (**legacy 2G/3G fallback, roaming interfaces**).
+
+---
+
+### **Stage 6: Defense & Hardening**
+
+_Goal: Secure VoIP and telecom infrastructure._
+
+- [ ] **SRTP Enforcement:** Mandate **SRTP** for all media streams and **TLS (SIP over TLS/SIPS)** for signaling; disable unencrypted SIP on all production systems.
+
+- [ ] **SBC Hardening:** Configure **Session Border Controllers** to perform **topology hiding, rate limiting, anomaly detection, and geographic call blocking**.
+
+- [ ] **Authentication Hardening:** Enforce **strong SIP digest passwords**, implement **IP allowlisting** for SIP trunks, disable **anonymous REGISTER**.
+
+---
+
+<a id="toc-part-34-blockchain--web3-security"></a>
+## Part 34: Blockchain & Web3 Security [OPTIONAL SPECIALIZATION]
+
+### **Stage 1: Blockchain Fundamentals for Security**
+
+_Goal: Understand how blockchain and smart contracts work before attacking them._
+
+- [ ] **Blockchain Mechanics:** Master **distributed ledger, consensus mechanisms (PoW, PoS, PoA)**, **immutability, transaction finality, mempool**, and **public/private key cryptography** in blockchain context.
+
+- [ ] **Smart Contract Architecture:** Understand **EVM (Ethereum Virtual Machine)**, **Solidity language basics**, **ABI (Application Binary Interface)**, **bytecode vs. source code**, and **contract deployment lifecycle**.
+
+- [ ] **DeFi Ecosystem:** Map **protocols**: **DEXs (Uniswap, Curve), lending (Aave, Compound), oracles (Chainlink), bridges, yield aggregators** — understand how they interact and compose.
+
+- [ ] **Wallet Security:** Understand **EOA (Externally Owned Accounts) vs contract wallets**, **seed phrases (BIP39), HD derivation paths, hardware wallets (Ledger, Trezor)**, and **private key storage risks**.
+
+---
+
+### **Stage 2: Smart Contract Vulnerabilities**
+
+_Goal: Identify and exploit common Solidity security flaws._
+
+- [ ] **Reentrancy Attacks:** Exploit **recursive external calls before state updates** (The DAO hack pattern); understand `checks-effects-interactions` as the fix; test with **Hardhat/Foundry**.
+
+- [ ] **Integer Overflow/Underflow:** Exploit **arithmetic overflow in Solidity <0.8.0** (e.g., `uint256 balance = 0; balance -= 1;` wraps to MAX); understand SafeMath and Solidity 0.8 built-in checks.
+
+- [ ] **Access Control Flaws:** Find **missing `onlyOwner` modifiers, tx.origin authentication, unprotected `initialize()` functions** in upgradeable contracts.
+
+- [ ] **Logic Flaws & Business Logic Errors:** Exploit **incorrect assumptions** about token prices, balances, or state — often unique to each protocol's design.
+
+- [ ] **Flash Loan Attacks:** Understand **uncollateralized loans within a single transaction**; exploit **oracle price manipulation, liquidity pool imbalances, governance attacks** using flash loans.
+
+- [ ] **Oracle Manipulation:** Exploit **reliance on on-chain DEX spot price as oracle** — manipulate pool price via large swap, exploit contracts that trust it, profit.
+
+- [ ] **Front-Running & MEV:** Understand **Maximal Extractable Value** — sandwich attacks, arbitrage, and liquidation front-running by miners/validators in the mempool.
+
+---
+
+### **Stage 3: Smart Contract Auditing Methodology**
+
+_Goal: Systematically audit contracts for vulnerabilities._
+
+- [ ] **Static Analysis Tools:** Use **Slither, MythX, Aderyn, Semgrep Solidity rules** to automatically detect common vulnerability patterns.
+
+- [ ] **Symbolic Execution:** Use **Manticore, Echidna (fuzzer), Halmos (formal verification)** to find edge cases not caught by static analysis.
+
+- [ ] **Manual Code Review:** Read contract logic line-by-line; trace **all external calls, state transitions, and access control checks**; verify invariants hold under all conditions.
+
+- [ ] **PoC in Foundry/Hardhat:** Write **test exploits in Foundry (`forge test`)** forking mainnet to demonstrate real attack viability without deploying to live chain.
+
+- [ ] **Audit Report Writing:** Document findings with **severity (Critical/High/Medium/Low/Informational), impact, likelihood, proof-of-concept, and recommended fix**.
+
+---
+
+### **Stage 4: Web3 Infrastructure Attacks**
+
+_Goal: Attack the broader Web3 ecosystem beyond smart contracts._
+
+- [ ] **Wallet Drainer Attacks:** Understand **malicious `approve()` / `permit()` signatures** that give attackers unlimited token spending rights; study **phishing sites** targeting Web3 users.
+
+- [ ] **Bridge Attacks:** Analyze **cross-chain bridge vulnerabilities** (Ronin $625M, Wormhole $320M) — **validator compromise, signature replay, logic errors in lock/mint mechanisms**.
+
+- [ ] **NFT Security:** Examine **metadata centralization risks, royalty bypass, reentrancy in `onERC721Received`**, and **enumeration attacks** on NFT collections.
+
+- [ ] **Private Key Extraction:** Study attack vectors — **weak entropy in key generation, compromised RNG, phishing for seed phrases, clipboard hijackers, malicious browser extensions**.
+
+- [ ] **RPC Node Attacks:** Understand **exposure of `eth_accounts`, `personal_sign` on misconfigured nodes**; test for **open JSON-RPC endpoints** that can sign transactions.
+
+---
+
+### **Stage 5: Defense & Secure Development**
+
+_Goal: Build secure smart contracts and Web3 applications._
+
+- [ ] **Security Patterns:** Implement **checks-effects-interactions, pull-over-push payments, rate limiting, circuit breakers (pause mechanisms)** in contract design.
+
+- [ ] **Upgradeable Contract Security:** Use **OpenZeppelin Upgrades Plugins**; understand **storage collision risks, initializer protection, proxy admin key management**.
+
+- [ ] **Formal Verification:** Apply **Certora Prover or K Framework** to mathematically prove critical invariants hold under all possible inputs.
+
+- [ ] **Bug Bounties:** Engage **Immunefi, Code4rena, Sherlock** for smart contract audits and bug bounties; understand **responsible disclosure in Web3 context**.
+
+---
+
+<a id="toc-part-35-governance-risk--compliance-grc"></a>
+## Part 35: Governance, Risk & Compliance (GRC)
+
+### **Stage 1: Security Frameworks & Standards**
+
+_Goal: Understand the regulatory and standards landscape that defines what pentesters test against._
+
+- [ ] **NIST Cybersecurity Framework (CSF):** Master the **5 functions (Identify, Protect, Detect, Respond, Recover)** and how they map to security controls.
+
+- [ ] **NIST 800-53 / 800-171:** Understand **security control families** (Access Control, Audit, Incident Response) used in **federal and defense** compliance.
+
+- [ ] **ISO 27001/27002:** Know the **ISMS (Information Security Management System)** framework, **Annex A controls**, and **certification audit process**.
+
+- [ ] **CIS Controls (v8):** Master the **18 Critical Security Controls** as a prioritized, actionable defense checklist; understand **Implementation Groups (IG1-IG3)**.
+
+- [ ] **MITRE ATT&CK as Compliance:** Use **ATT&CK coverage mapping** to demonstrate detection maturity against specific adversary techniques.
+
+---
+
+### **Stage 2: Industry Regulations & Legal Requirements**
+
+_Goal: Know the laws and regulations that dictate security requirements across industries._
+
+- [ ] **PCI-DSS (Payment Card Industry):** Understand the **12 requirements** for protecting cardholder data; know **scope reduction (network segmentation), SAQ types**, and how pentesters validate Requirement 11.3.
+
+- [ ] **HIPAA (Healthcare):** Understand **PHI (Protected Health Information)** safeguards, **technical/administrative/physical** controls, and **breach notification requirements**.
+
+- [ ] **GDPR (EU Data Protection):** Know **data subject rights, lawful basis for processing, Data Protection Impact Assessments (DPIA), breach notification (72-hour rule)**, and **extraterritorial scope**.
+
+- [ ] **SOC 2 (Service Organizations):** Understand **Trust Services Criteria (Security, Availability, Processing Integrity, Confidentiality, Privacy)** and how pentest findings map to SOC 2 reports.
+
+- [ ] **SOX (Sarbanes-Oxley):** Know **IT General Controls (ITGCs)** for financial system integrity — **access control, change management, backup/recovery**.
+
+- [ ] **DPDP Act (India):** Understand **India's Digital Personal Data Protection Act** — consent-based processing, Data Fiduciary obligations, cross-border transfer rules, and **Board penalties**.
+
+- [ ] **Computer Fraud & Abuse Act (CFAA):** Understand US federal law on **unauthorized access**; know how **scope of engagement** and **written authorization** protect pentesters legally.
+
+---
+
+### **Stage 3: Risk Management & Assessment**
+
+_Goal: Quantify and communicate risk so findings drive action._
+
+- [ ] **Risk Equation:** Master **Risk = Threat × Vulnerability × Impact** and use it to **prioritize findings** over raw CVSS scores.
+
+- [ ] **Risk Assessment Methodologies:** Understand **NIST 800-30 (qualitative), FAIR (quantitative), OCTAVE, CRAMM** for structured risk evaluation.
+
+- [ ] **Threat Modeling:** Apply **STRIDE, PASTA, Attack Trees** to proactively identify **threats to systems before testing** and guide scope selection.
+
+- [ ] **Business Impact Analysis (BIA):** Map **technical vulnerabilities to business consequences** — revenue loss, reputational damage, regulatory fines, operational downtime.
+
+- [ ] **Risk Appetite & Tolerance:** Understand how organizations define **acceptable risk levels** and how pentest recommendations must align with business context.
+
+---
+
+### **Stage 4: Audit, Scope & Compliance Testing**
+
+_Goal: Execute engagements that satisfy compliance requirements._
+
+- [ ] **Scoping for Compliance:** Define pentest scope to cover **specific compliance requirements** (e.g., PCI-DSS Req 11.3 requires internal/external pentest + segmentation testing).
+
+- [ ] **Control Validation:** Test whether **implemented controls** (MFA, encryption, logging, access controls) actually function as documented in policies.
+
+- [ ] **Evidence Collection:** Gather **screenshots, logs, packet captures, configuration exports** formatted for **auditor review** and compliance documentation.
+
+- [ ] **Gap Analysis Reporting:** Identify **missing controls, partial implementations, policy violations** and map them to **specific framework requirements** with remediation guidance.
+
+- [ ] **Third-Party Risk:** Assess **vendor/supplier security posture** via **questionnaires, pentest scoping, SLA review**, and **supply chain risk evaluation**.
+
+- [ ] **Continuous Compliance:** Understand shift from **point-in-time audits** to **continuous monitoring, automated compliance checks, and DevSecOps integration**.
+
+---
+
+### **Lab Progression**
+
+_Goal: Make GRC practical by producing audit-ready artifacts._
+
+- [ ] **Risk Register Lab:** Build a risk register for your home lab or a sample SaaS system with likelihood, impact, owner, treatment, and due date.
+- [ ] **Policy Lab:** Write one access-control policy and one incident-response policy with scope, roles, exceptions, and review cadence.
+- [ ] **Control Mapping Lab:** Map 10 technical controls to NIST CSF, CIS Controls, or ISO 27001 Annex A.
+- [ ] **Vendor Risk Lab:** Create a lightweight vendor security questionnaire and score a fictional third-party service.
+- [ ] **Business Continuity Lab:** Write a basic BIA and recovery priority list for a sample business process.
+- [ ] **Move-On Gate:** Produce an audit evidence pack with policy, risk register, control mapping, and remediation plan.
+
+<a id="toc-part-36-supply-chain-security"></a>
+## Part 36: Supply Chain Security
+
+### **Stage 1: Understanding the Attack Surface**
+
+_Goal: Map how software and hardware dependencies become attack vectors._
+
+- [ ] **Supply Chain Threat Model:** Understand the **three attack vectors**: compromised **source code** (SolarWinds), compromised **build/distribution** (XZ Utils backdoor), and compromised **dependencies** (event-stream npm).
+
+- [ ] **SBOM (Software Bill of Materials):** Generate and analyze **SBOM (CycloneDX, SPDX format)** to inventory all third-party components, transitive dependencies, and their known CVEs.
+
+- [ ] **Dependency Inventory:** Map **direct + transitive dependencies** across package ecosystems (**npm, PyPI, Maven, NuGet, RubyGems**) to understand total exposed surface.
+
+---
+
+### **Stage 2: Dependency & Package Attacks**
+
+_Goal: Exploit weaknesses in open-source package ecosystems._
+
+- [ ] **Dependency Confusion:** Register **public packages with the same name** as internal private packages; force targets to download your malicious version when their registry falls back to public PyPI/npm.
+
+- [ ] **Typosquatting:** Publish packages with **names one keystroke away** from popular packages (`reqeusts`, `colourama`, `crypt0`) to catch developer typos during `pip install`.
+
+- [ ] **Malicious Package Injection:** Study real cases (**event-stream, PyTorch-nightly, ctx**) where **legitimate packages were backdoored** post-compromise of the maintainer account.
+
+- [ ] **Version Pinning Attacks:** Target packages using **unpinned `latest`** or **broad version ranges** (`>=1.0`); understand how **lock files (package-lock.json, Pipfile.lock)** mitigate this.
+
+- [ ] **Protestware & Intentional Sabotage:** Understand cases where **maintainers intentionally introduced bugs/wipes** (colors.js, node-ipc) and the supply chain trust model risks this exposes.
+
+---
+
+### **Stage 3: Build System & CI/CD Attacks**
+
+_Goal: Compromise the pipeline that produces software._
+
+- [ ] **Pipeline Poisoning:** Inject **malicious steps into CI/CD workflows** (GitHub Actions, Jenkins, GitLab CI) to **steal secrets, alter artifacts, plant backdoors** in compiled output.
+
+- [ ] **Workflow Injection:** Exploit **untrusted input in GitHub Actions expressions** (`${{ github.event.pull_request.title }}`) to achieve **command injection in CI runners**.
+
+- [ ] **Secrets Exfiltration:** Steal **CI/CD secrets (API keys, deploy tokens, signing certs)** from **environment variables, GitHub Secrets, HashiCorp Vault** during pipeline execution.
+
+- [ ] **Artifact Tampering:** Replace **legitimate build artifacts** post-build but pre-deployment; understand **artifact signing (Sigstore/Cosign)** as a defense.
+
+- [ ] **SLSA Framework:** Understand **Supply-chain Levels for Software Artifacts (SLSA)** maturity model (L1-L4) and what each level proves about build provenance.
+
+---
+
+### **Stage 4: Open-Source & Third-Party Risk**
+
+_Goal: Assess and test third-party component security._
+
+- [ ] **OSS Vulnerability Scanning:** Use **Trivy, Grype, Snyk, OWASP Dependency-Check** to scan project dependencies for **known CVEs** and **license violations**.
+
+- [ ] **Maintainer Account Takeover:** Understand how **compromised npm/PyPI maintainer accounts** (via credential stuffing or social engineering) enable **silent package backdooring**.
+
+- [ ] **Repo Jacking:** Exploit **GitHub repository namespace reuse** — when a user changes their username, old repo URLs can be claimed by attackers to serve malicious packages.
+
+- [ ] **Trojanized Tooling:** Test environments for **compromised developer tools** (malicious VS Code extensions, backdoored CLI tools, modified build systems).
+
+---
+
+### **Stage 5: Defense & Verification**
+
+_Goal: Know how to validate supply chain integrity._
+
+- [ ] **Sigstore / Cosign:** Verify **container image and artifact signatures** to ensure provenance; understand **keyless signing with OIDC identity**.
+
+- [ ] **Dependency Pinning:** Enforce **exact version pinning + hash verification** in lock files; use **Renovate/Dependabot** for automated safe updates.
+
+- [ ] **Private Registries:** Maintain **internal package mirrors (Artifactory, Nexus)** with **allowlisting** to prevent dependency confusion attacks.
+
+- [ ] **Code Signing:** Implement **code signing for all releases**; verify signatures in deployment pipelines before execution.
+
+---
+
+<a id="toc-part-37-devsecops--secure-sdlc"></a>
+## Part 37: DevSecOps & Secure SDLC
+
+### **Stage 1: Security in the Development Lifecycle**
+
+_Goal: Understand where security integrates across the SDLC._
+
+- [ ] **SDLC Security Gates:** Map **security activities to SDLC phases** — threat modeling (design), SAST (code), SCA (build), DAST (test), pentest (pre-release), monitoring (production).
+
+- [ ] **Shift-Left Security:** Understand the **cost and benefit model** — finding a bug in design costs 10x less than finding it in production; align testing earlier in the cycle.
+
+- [ ] **Threat Modeling:** Apply **STRIDE to application architecture** — identify **Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege** risks before coding.
+
+- [ ] **Secure Design Principles:** Master **least privilege, defense-in-depth, fail securely, complete mediation, open design, separation of privilege** as architectural requirements.
+
+---
+
+### **Stage 2: Static Analysis (SAST)**
+
+_Goal: Find vulnerabilities in source code without executing it._
+
+- [ ] **SAST Tools:** Use **Semgrep, SonarQube, Checkmarx, Bandit (Python), Brakeman (Rails), SpotBugs (Java)** to scan source code for **injection flaws, insecure crypto, hardcoded secrets**.
+
+- [ ] **Custom SAST Rules:** Write **Semgrep rules** to detect **organization-specific insecure patterns** (custom crypto usage, missing input validation in internal frameworks).
+
+- [ ] **False Positive Management:** Triage SAST output — distinguish **true positives, false positives, and low-risk findings**; suppress noise without hiding real issues.
+
+- [ ] **IDE Integration:** Understand how **security plugins (Snyk IDE, SonarLint, Semgrep VS Code)** give developers **real-time feedback** during coding.
+
+---
+
+### **Stage 3: Dynamic Analysis (DAST & IAST)**
+
+_Goal: Test running applications for security flaws._
+
+- [ ] **DAST Tools:** Use **OWASP ZAP, Burp Suite Pro (automated scan), Nikto** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
+
+- [ ] **IAST (Interactive Application Security Testing):** Understand how **IAST agents (Contrast Security, Seeker)** instrument running code to detect vulnerabilities from the inside during functional tests.
+
+- [ ] **API DAST:** Configure **ZAP or Burp** with **OpenAPI specs** to automatically fuzz all API endpoints for **injection, auth bypass, and BOLA**.
+
+- [ ] **Authenticated Scanning:** Configure DAST tools with **session cookies or API keys** to test **post-login functionality** inaccessible to anonymous scans.
+
+---
+
+### **Stage 4: Software Composition Analysis (SCA)**
+
+_Goal: Find vulnerabilities in third-party dependencies._
+
+- [ ] **SCA Tools:** Use **Snyk, Dependabot, OWASP Dependency-Check, Black Duck** to continuously scan **package manifests** for **CVEs, outdated versions, license violations**.
+
+- [ ] **Vulnerability Prioritization:** Understand **reachability analysis** — not every CVE in a dependency is exploitable; prioritize based on **actual code paths** that use the vulnerable function.
+
+- [ ] **License Compliance:** Identify **copyleft licenses (GPL, AGPL)** that may require open-sourcing proprietary code; flag **license conflicts** in dependency trees.
+
+---
+
+### **Stage 5: Secrets Detection & Pipeline Security**
+
+_Goal: Prevent credential leakage through code and pipelines._
+
+- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection strings**.
+
+- [ ] **Pre-commit Hooks:** Install **pre-commit framework with detect-secrets or gitleaks** to block secret commits before they reach the remote repository.
+
+- [ ] **Pipeline Hardening:** Apply **least-privilege to CI service accounts**, use **short-lived OIDC tokens** instead of long-lived secrets, scope permissions to **minimum required for each job**.
+
+- [ ] **Container Image Security:** Scan **base images and Dockerfiles** with **Trivy, Dockle** for CVEs, misconfigurations, and secrets baked into image layers.
+
+- [ ] **IaC Security:** Scan **Terraform, CloudFormation, Helm charts** with **Checkov, tfsec, kics** for **open security groups, public storage, missing encryption, IAM over-permission**.
+
+### **Secure Coding & Pipeline Lab Progression**
+
+_Goal: Prove you can prevent vulnerabilities, not only scan for them._
+
+- [ ] **Secure Coding Fix Lab:** Take a small vulnerable app and fix SQL injection, XSS, command injection, path traversal, insecure deserialization, weak auth, and insecure direct object reference patterns.
+- [ ] **Code Review Lab:** Review one intentionally vulnerable repository and produce findings with file/line references, exploitability notes, and safe remediation.
+- [ ] **GitHub Actions Security Lab:** Build a CI pipeline with Semgrep, gitleaks, Trivy, dependency scanning, and artifact upload.
+- [ ] **Break-the-Build Gate:** Configure the pipeline to fail on critical secrets, critical dependency CVEs, and high-confidence SAST findings.
+- [ ] **Threat Model Lab:** Draw a DFD for a sample app and map trust boundaries, abuse cases, and required controls.
+- [ ] **Move-On Gate:** Produce a before/after report showing vulnerable code, fixed code, tests, and CI evidence.
+
+---
+
+<a id="toc-part-38-ai--llm-red-teaming"></a>
+## Part 38: AI & LLM Red Teaming
 
 ### **Stage 1: AI Fundamentals for Security Practitioners**
 
 _Goal: Understand the raw mechanics of AI/ML models to attack and defend them effectively._
 
 - [ ] **Transformer Architecture:** Study the **Transformer model** (attention heads, tokenization, embeddings, positional encoding) — understand how LLMs generate text at a mechanistic level to identify exploitable behavior.
+
+- [ ] **Context Windows & Token Limits:** Understand how **context window size** (4K, 8K, 32K, 128K+ tokens) affects model behavior — know how **context overflow, truncation, and sliding window strategies** create exploitable edge cases (instruction amnesia, guardrail escape via long contexts).
+
+- [ ] **Temperature & Sampling Parameters:** Learn how **temperature, top-p (nucleus sampling), top-k, and frequency/presence penalties** control output randomness — understand that **higher temperature increases exploitability** by making the model more likely to produce unfiltered or unexpected outputs.
 
 - [ ] **Retrieval-Augmented Generation (RAG):** Understand the full **RAG pipeline** (chunking → embedding → vector DB → retrieval → generation); know how each stage can be poisoned or manipulated.
 
@@ -3854,7 +4946,41 @@ _Goal: Harden AI systems against attacks and ensure ethical deployment._
 
 ---
 
-### **Stage 15: AI Security Projects & Portfolio**
+### **Stage 15: Shadow AI & Organizational AI Risk**
+
+_Goal: Understand and prevent unauthorized AI usage that creates organizational exposure._
+
+- [ ] **Shadow AI Identification:** Detect **unauthorized use of public LLMs (ChatGPT, Gemini, Claude)** by employees pasting **source code, customer data, internal documents, API keys** into external AI services — creating **data leakage vectors** invisible to traditional DLP.
+
+- [ ] **AI Data Loss Prevention (DLP):** Implement **DLP policies specific to AI services** — block/monitor traffic to **api.openai.com, generativelanguage.googleapis.com, api.anthropic.com** at the proxy/firewall level; deploy **endpoint DLP agents** that detect copy-paste of classified content into AI web interfaces.
+
+- [ ] **AI Acceptable Use Policy:** Draft and enforce organizational **AI usage policies** defining **approved tools, data classification restrictions, prohibited use cases**, and **consequences for violations** — align with **NIST AI RMF** and **EU AI Act** requirements.
+
+- [ ] **Approved AI Tooling:** Deploy **sanctioned, self-hosted AI solutions** (enterprise ChatGPT, Azure OpenAI, AWS Bedrock, local Ollama instances) with **audit logging, data retention controls, and access management** to replace shadow AI usage.
+
+- [ ] **AI Supply Chain Risk:** Assess **third-party AI integrations** (Copilot, Grammarly, Jasper, AI coding assistants) for **data handling, model training opt-out, and contractual data protection** — treat each as a potential exfiltration channel.
+
+---
+
+### **Stage 16: Defensive AI Operations**
+
+_Goal: Deploy AI-powered defensive capabilities and detect AI-generated threats._
+
+- [ ] **Deepfake Detection:** Understand and deploy tools for detecting **AI-generated images, video, and audio** — study **artifact analysis (compression patterns, frequency domain), temporal inconsistency detection, and provenance verification (C2PA/Content Credentials)**.
+
+- [ ] **AI Voice Cloning Defense:** Implement **voice authentication hardening** against **ElevenLabs/RVC-style cloning attacks** — deploy **anti-spoofing liveness detection, challenge-response voice verification**, and **ban voice-only authorization** for sensitive operations.
+
+- [ ] **AI-Enhanced Phishing Detection:** Deploy **ML/NLP-based email analysis** to detect **AI-generated phishing** that bypasses traditional signature-based filters — train classifiers on **stylometric analysis, sender behavior anomalies, and LLM-characteristic writing patterns**.
+
+- [ ] **AI-Powered SOC Integration:** Leverage **AI/ML for security operations** — use **anomaly detection models** for network traffic, **NLP-based log analysis** for threat hunting, and **automated alert triage** to handle volume at scale without analyst burnout.
+
+- [ ] **AI Incident Response:** Develop **playbooks for AI-specific incidents** — compromised model endpoints, data poisoning detection, prompt injection campaigns, unauthorized model access, and **AI-generated social engineering at scale**.
+
+- [ ] **AI Forensics:** Understand how **AI systems leave forensic artifacts** — **inference logs, model versioning, embedding stores, fine-tuning datasets, API call histories** — and how to investigate AI-assisted attacks post-incident.
+
+---
+
+### **Stage 17: AI Security Projects & Portfolio**
 
 _Goal: Prove production capability through real, complex, integrated AI-security projects._
 
@@ -3870,7 +4996,7 @@ _Goal: Prove production capability through real, complex, integrated AI-security
 
 ---
 
-### **Stage 16: AI Security Career Targeting**
+### **Stage 18: AI Security Career Targeting**
 
 _Goal: Position yourself specifically for AI-native security roles._
 
@@ -3884,851 +5010,112 @@ _Goal: Position yourself specifically for AI-native security roles._
 
 ---
 
-## Part 28: Active Directory & Entra ID
+<a id="toc-part-39-penetration-testing-methodologies--report-writing"></a>
+## Part 39: Penetration Testing Methodologies & Report Writing
 
-### **Stage 1: Discovery & Enumeration**
+> **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice.
 
-_Goal: Map identity surfaces across on-prem AD and Entra ID (Azure AD)._
+### **Stage 1: Industry-Standard Engagement Frameworks**
 
-- [ ] **Domain Recon:** Enumerate **domains/forests, trusts, sites, subnets, FSMO roles**; collect **OU/Group/ACL** data.
+_Goal: Understand the structured methodologies that govern professional engagements._
 
-- [ ] **Identity Inventory:** List **users, computers, service accounts, Tier0 assets, SPNs**, and **LAPS** posture.
+- [ ] **PTES (Penetration Testing Execution Standard):** Master all **7 phases** — Pre-Engagement Interactions, Intelligence Gathering, Threat Modeling, Vulnerability Research, Exploitation, Post-Exploitation, Reporting; know what deliverables each phase produces and why skipping a phase breaks engagement quality.
 
-- [ ] **Policy & Exposure:** Audit **GPOs, login scripts, startup tasks**, and **Unconstrained/Constrained/RBCD** exposure.
+- [ ] **OWASP Web Security Testing Guide (WSTG v4.x):** Use the **WSTG test case IDs** (WSTG-INFO-001 → WSTG-BUSL-009) as a structured web assessment checklist; map every finding to a WSTG ID for client-facing credibility and compliance evidence.
 
-- [ ] **Entra ID/Cloud Recon:** Enumerate **tenants, apps, service principals, consented permissions, conditional access** and **enterprise apps**.
+- [ ] **NIST SP 800-115 (Technical Guide to Information Security Testing):** Understand the federal-grade methodology covering **examination, identification, and validation techniques**; required knowledge for US government and regulated-industry engagements.
 
----
+- [ ] **OWASP MASTG (Mobile Application Security Testing Guide):** Apply dedicated **MASTG test cases** for Android/iOS assessments; use the **MAS Checklist** for compliance-grade mobile audits; map findings to MASVS security requirements.
 
-### **Stage 2: Credential & Auth Attacks**
+- [ ] **OSSTMM (Open Source Security Testing Methodology Manual):** Understand the **RAV (Risk Assessment Value)** scoring model and the concept of **attack surface measurement** — useful for mature clients who want quantified security metrics beyond CVSS.
 
-_Goal: Steal or replay credentials to gain higher privilege._
-
-- [ ] **Kerberoast / AS-REP Roast:** Extract **TGS/AS-REP** tickets for offline cracking; prioritize **high-priv SPNs**.
-
-- [ ] **NTLM Relay/SMB/HTTP:** Abuse **NTLM relays** against **SMB/LDAP/HTTP/ADCS HTTP endpoints**; combine with **mTLS gaps**.
-
-- [ ] **Token Abuse:** Steal **TGT/TGS, DPAPI, LSASS, browser tokens**, and **OAuth refresh tokens** across hybrid joins.
-
-- [ ] **Password Hygiene:** Spray with **safe lockout windows**, target **legacy auth (POP/IMAP/SMTP)**, and downgrade to **basic auth** where possible.
+- [ ] **Methodology Selection:** Know when to invoke each — PTES for comprehensive red team ops, NIST 800-115 for compliance-driven audits, OWASP WSTG for web-focused engagements, MASTG for mobile; document your methodology selection in every report.
 
 ---
 
-### **Stage 3: Delegation, ACL, and ADCS Abuse**
+### **Stage 2: Scoping, Legal Frameworks & Engagement Management**
 
-_Goal: Abuse trust relationships and misconfigurations for escalation._
+_Goal: Define engagement boundaries that protect the tester and client legally and operationally._
 
-- [ ] **Delegation Abuse:** Exploit **Unconstrained, Constrained (service/alt service), and Resource-Based Constrained Delegation (RBCD)** for impersonation.
+- [ ] **Statement of Work (SoW) Construction:** Draft and review SoW language covering **scope definition (IP ranges, domains, application URLs), deliverables, timelines, payment milestones, liability caps, and IP ownership** of testing artifacts; ambiguous scope = legal exposure.
 
-- [ ] **ACL/ACE Abuse:** Exploit **WriteOwner, WriteDACL, GenericAll/GenericWrite, AddMember** on critical principals (DA, EA, DCs, Tier0 groups).
+- [ ] **Rules of Engagement (RoE) Document:** Define in writing: **authorized IP ranges and domains, permitted testing hours (business hours vs. 24/7), testing exclusions (life-safety systems, production DBs), escalation contacts, emergency abort criteria, and data handling requirements**.
 
-- [ ] **Shadow Credentials:** Abuse **msDS-KeyCredentialLink** to add rogue keys for persistence.
+- [ ] **Get-Out-of-Jail Letter:** Understand the format and legal requirements of the **written authorization letter** — verify the signatory has authority to authorize testing, check it covers all target systems, and carry it during physical tests; know what makes it legally binding vs. inadequate.
 
-- [ ] **ADCS (PKI) Abuse:** Exploit **ESC1-ESC8** templates (ENROLLEE_SUPPLIES_SUBJECT, weak EKUs, SAN impersonation) to mint **golden certs**; target **HTTP enrollment endpoints** for relays.
+- [ ] **Legal Framework Awareness:** Understand how **CFAA (US), Computer Misuse Act 1990 (UK), IT Act 2000 + Amendment 2008 (India), GDPR, and EU Cybersecurity Act** define criminal vs. authorized access; know how cross-border engagements create dual-jurisdiction liability.
 
----
+- [ ] **Evidence & Data Handling Policy:** Establish rules for how **captured credentials, PII, financial records, source code, and exfiltrated data are classified, encrypted at rest, access-controlled, and securely destroyed** post-engagement; include this in every SoW.
 
-### **Stage 4: Lateral Movement & Persistence**
-
-_Goal: Move horizontally and maintain footholds._
-
-- [ ] **Lateral Paths:** Use **WinRM/SMB/RDP/WMI/PowerShell Remoting**, **admin shares**, and **task/svc installs** guided by **BloodHound** paths.
-
-- [ ] **GPO Persistence:** Implant via **logon scripts, immediate scheduled tasks, startup items**; abuse **restricted groups** for re-add.
-
-- [ ] **DC Sync / DC Shadow:** Abuse **Replicating Directory Changes** to pull **NTDS.dit** or inject rogue DC changes.
-
-- [ ] **Golden/Silver Tickets:** Forge **krbtgt/service hashes** for long-lived access; manage **ticket lifetime/renewal** OPSEC.
+- [ ] **Engagement Communication Cadence:** Define **weekly status calls, critical finding escalation (phone within 1 hour), interim report delivery, and final debrief meeting** structure; never let a critical finding sit unannounced for 24+ hours.
 
 ---
 
-### **Stage 5: Entra ID (Azure AD) & Hybrid Attacks**
+### **Stage 3: Structured Threat Modeling**
 
-_Goal: Exploit cloud identity to pivot and persist._
+_Goal: Apply structured threat identification before testing begins — not after._
 
-- [ ] **Consent & OAuth Abuse:** Steal or register **malicious multi-tenant apps**, abuse **illicit consent grants**, and persist via **refresh tokens**.
+- [ ] **STRIDE Threat Model:** Decompose target system components into **processes, data stores, data flows, and external entities**; apply Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege to each element; generate a ranked threat list that scopes the test.
 
-- [ ] **Conditional Access Bypass:** Exploit **trusted locations, device compliance gaps, legacy auth exemptions**, and **MFA registration weaknesses**.
+- [ ] **PASTA (Process for Attack Simulation and Threat Analysis):** Apply the **7-stage business-centric model** — define objectives → technical scope → application decomposition → threat analysis → vulnerability analysis → attack enumeration → risk/impact analysis; produces a business-risk-aligned test plan.
 
-- [ ] **Passwordless/Passkeys:** Target **FIDO2/Passkey registration flows**, backup methods, and **SSPR** to hijack accounts.
+- [ ] **Attack Trees:** Build **hierarchical attack tree diagrams** rooted at the attack goal with sub-goals as branches; use AND/OR nodes to model alternative paths; identify which branches are highest probability × highest impact for prioritized testing.
 
-- [ ] **Cross-Cloud Pivot:** Use **Entra app roles** and **federation trusts** to pivot into **AWS/GCP** integrations; harvest **Graph/SharePoint** data for lateral move.
+- [ ] **Data Flow Diagram (DFD) Trust Boundaries:** Draw Level 0–2 DFDs to identify **trust boundaries, data stores, external entities, and inter-process data flows**; every trust boundary crossing is an attack surface that must be tested.
 
----
+- [ ] **MITRE ATT&CK as Pre-Test Input:** Use ATT&CK to **pre-identify likely adversary TTPs** based on target industry, known threat actor profiles, and previously disclosed incidents in the sector; build your test plan around these TTPs.
 
-## Part 29: Modern Exploitation
-
-### **Stage 1: Recon, Triage & Tooling**
-
-_Goal: Prepare targets and environments for exploit development._
-
-- [ ] **Binary Recon:** Identify **arch, compiler, protections (ASLR, DEP/NX, PIE, RELRO, Stack Canaries, CFG, CET/PAC/BTI)**.
-
-- [ ] **Debug Setup:** Configure **GDB/gef/pwndbg, WinDbg, Frida**; obtain **symbols, PDBs, DWARF** where possible.
-
-- [ ] **Fuzzing:** Use **AFL++, libFuzzer, honggfuzz, Peach**; seed corpora, add **sanitizers (ASan/UBSan/MSan)**; triage crashes.
+- [ ] **LINDDUN (Privacy Threat Model):** Apply LINDDUN (Linkability, Identifiability, Non-repudiation, Detectability, Disclosure of information, Unawareness, Non-compliance) for privacy-focused assessments — required for GDPR/HIPAA compliance-mapped tests.
 
 ---
 
-### **Stage 2: Memory Exploitation (Userland)**
+### **Stage 4: Vulnerability Scoring & Risk Prioritization**
 
-_Goal: Exploit memory-safety bugs under modern mitigations._
+_Goal: Rate findings objectively and communicate risk in business terms — not just CVSS numbers._
 
-- [ ] **Buffer Overflows:** Master how data can overwrite adjacent memory to hijack the **EIP/RIP (Instruction Pointer)**; understand **stack vs heap overflows**.
+- [ ] **CVSS v3.1 Base Metrics:** Master all **8 base metrics** (Attack Vector, Attack Complexity, Privileges Required, User Interaction, Scope, Confidentiality/Integrity/Availability Impact); calculate scores manually before using calculators to build intuition.
 
-- [ ] **Stack/Heap Primitives:** Develop **overflow, UAF, double-free, type confusion, OOB read/write** primitives.
+- [ ] **CVSS v4.0 Changes:** Understand the **new Supplemental Metrics group** (Automatable, Recovery, Value Density, Response Effort, Provider Urgency) and the replacement of Temporal Metrics with **Threat Metrics (Exploit Maturity)**; know which scoring version your client's compliance framework requires.
 
-- [ ] **Bypass Strategies:** Use **ROP/JOP/SROP, ret2libc, ret2dlresolve, stack pivoting**, and **heap grooming** (tcache/fastbin/largebin, LFH) to gain PC control.
+- [ ] **EPSS (Exploit Prediction Scoring System):** Use **EPSS probability scores** alongside CVSS to distinguish actively exploited vulnerabilities from theoretical ones; a CVSS 9.8 with 0.1% EPSS differs operationally from a CVSS 7.5 with 95% EPSS.
 
-- [ ] **Exploit Mitigations:** Study **ASLR** (Address Space Layout Randomization) and **DEP/NX** (Data Execution Prevention); master **ROP** (Return Oriented Programming) to bypass them. Learn **stack canary** bypass via leaks.
+- [ ] **Business Risk Contextualization:** Calculate **Risk = Likelihood × Business Impact** — map vulnerabilities to: revenue exposure, regulatory fine potential, reputational damage, operational downtime, and data breach notification costs; a CVSS 5.4 on a public-facing OAuth token endpoint may carry more business risk than a CVSS 8.1 on an isolated dev server.
 
-- [ ] **Mitigation Bypass:** Defeat **RELRO/PIE**, **CFG/CET/PAC/BTI** with **COOP, SIGRETURN, pointer authentication bypass**, or **JIT spraying**.
+- [ ] **Vulnerability Chaining Analysis:** Identify when **individually low-severity findings combine** into critical-severity attack chains (e.g., SSRF [Medium] + IMDS credential access [Low] + overprivileged IAM role [Medium] = Full Cloud Compromise [Critical]); document chains as unified findings with individual component breakdowns.
 
-- [ ] **Sandbox Escape:** Target **browser/render sandboxes**, **container seccomp/AppArmor**, and **Win32k lockdown** using **IPC/shmem/race** primitives.
-
----
-
-### **Stage 3: Advanced Targets**
-
-_Goal: Move beyond basic binaries to complex environments._
-
-- [ ] **Kernel Exploitation:** Leverage **UAF/race/logic bugs**, bypass **SMEP/SMAP/KASLR/KPTRR**, and use **token stealing/privilege escalation** primitives.
-
-- [ ] **Browser & JS Engines:** Exploit **JIT/IC/GC** bugs; chain **type confusion → infoleak → RCE → sandbox escape**.
-
-- [ ] **Deserialization & Logic:** Exploit **Java/.NET/Python/PHP** gadget chains, **serialization format** confusion, and **race conditions**.
-
-- [ ] **Cloud/Serverless:** Abuse **function sandboxes, cold-start leaks, metadata services (IMDS), and SSRF-to-role** chains.
+- [ ] **Finding Deduplication:** When a single root cause produces multiple manifestations (e.g., 50 instances of the same SQLi pattern), report as **one finding with representative samples** and a count — not 50 separate findings that inflate severity perception and waste remediation effort.
 
 ---
 
-### **Stage 4: Exploit Delivery & OPSEC**
+### **Stage 5: Professional Report Writing**
 
-_Goal: Deliver and operate exploits stealthily._
+_Goal: Deliver findings in a format that survives executive scrutiny and drives budgeted remediation._
 
-- [ ] **Stagers & Payloads:** Build **stageless/staged** payloads with **in-memory loaders, reflective DLL/ELF**, and **syscall/indirect syscall** execution.
+- [ ] **Report Architecture:** Master the standard structure: **Cover Page → Executive Summary → Engagement Overview (scope, methodology, timeline) → Attack Narrative → Findings by Severity → Remediation Roadmap → Appendices (evidence, tooling, methodology references, CVSS breakdowns)**.
 
-- [ ] **Evasion:** Apply **sleep obfuscation, call-stack spoofing, DLL hollowing, APC/ETW/AMSI tampering**, and **PPID spoofing**.
+- [ ] **Executive Summary (Non-Technical):** Write a **1–2 page narrative** for the C-suite covering: overall security posture rating, total findings by severity, most critical business risks, and top 3 priority actions — written for a CFO reading at 35,000 feet, not a sysadmin.
 
-- [ ] **Crash Handling:** Implement **auto-retry, watchdogs, safe-fail** to avoid blue screens/service crashes.
+- [ ] **Technical Finding Template:** Each finding must include: **Title | Severity | CVSS Score (v3.1/v4.0) | EPSS % | Affected Asset | Vulnerability Description | Business Impact | Proof of Concept (exact request/response/screenshot) | Remediation Guidance (specific, actionable, with code examples where applicable) | References (CVE, CWE, OWASP ID)**.
 
-- [ ] **Telemetry Shaping:** Throttle **network/beacon timing**, pad **packet sizes**, and mimic **legit protocol usage**.
+- [ ] **Attack Narrative / Kill Chain Story:** Write a **linear narrative** tracing the attacker's path from initial foothold through escalation to maximum impact — this is the section that gets security budgets approved; make it read like a post-breach incident report, not a bullet list.
 
----
+- [ ] **Remediation Specificity:** Write remediation as **executable technical steps** — e.g., "Apply parameterized queries using `mysqli_prepare()` with bound parameters" not "fix SQL injection"; include patch version numbers, configuration file paths, and code snippets; vague remediation = finding stays open.
 
-### **Stage 5: Post-Exploitation Hardening & Safety**
+- [ ] **Proof-of-Concept Discipline:** PoCs must be **reproducible, minimally invasive, and clearly annotated** — include exact HTTP request/response, commands run, and observed vs. expected behavior; redact real credentials and PII captured; test PoC steps against your own notes before submission.
 
-_Goal: Maintain control while minimizing detection and impact._
+- [ ] **Remediation Roadmap Tiering:** Tier findings into **Immediate (< 7 days — critical/exploited), Short-term (< 30 days — high), Medium-term (< 90 days — medium), Long-term / Strategic (low + systemic architectural issues)**; include effort estimates and responsible team assignments.
 
-- [ ] **Cleanup & Rollback:** Remove **artifacts, logs, crash dumps**, restore configs; support **idempotent rollback**.
+- [ ] **Re-test Procedures:** Document **exactly how the client verifies each remediation** — include test steps, expected output, and acceptance criteria; schedule and execute a **formal re-test engagement** where contracted; issue a re-test supplement report with delta findings.
 
-- [ ] **Persistence Choices:** Select **low-noise persistence** (scheduled tasks, services, WMI events, cron/systemd timers) with **time-bounded lifetimes**.
-
-- [ ] **Safety & Blast Radius:** Gate exploit use with **kill-switches, rate limits, environment checks**, and **canary endpoints** to avoid collateral damage.
+- [ ] **Report Versioning & Delivery:** Maintain **draft → client review → final** versioning; deliver reports in **password-protected PDF** with restricted printing/copying; PGP-encrypt email attachments; define report retention and destruction policy in the SoW.
 
 ---
 
-## Part 30: Reverse Engineering & Malware Analysis
 
-### **Stage 1: Static Analysis Foundations**
+<a id="toc-part-40-red-team-operations--tradecraft"></a>
+## Part 40: Red Team Operations & Tradecraft
 
-_Goal: Analyze binaries without executing them._
-
-- [ ] **File Identification:** Use **file, exiftool, DIE (Detect It Easy)** to identify **file type, architecture, compiler, packer** before loading into a disassembler.
-
-- [ ] **PE/ELF/Mach-O Structure:** Master **executable format headers, sections (.text, .data, .rdata, .bss), import/export tables, relocation entries**, and **entry points**.
-
-- [ ] **Disassembly Tools:** Develop proficiency in **Ghidra** (free) and **IDA Pro** (industry standard) for **disassembly, decompilation, cross-referencing, and function signature recognition**.
-
-- [ ] **String Analysis:** Extract **hardcoded URLs, IPs, registry keys, API calls, encryption keys, error messages** using **strings, FLOSS (FLARE Obfuscated String Solver)**.
-
-- [ ] **Import/Export Analysis:** Identify **suspicious API imports** (VirtualAlloc, CreateRemoteThread, WriteProcessMemory, InternetOpenUrl) that reveal **injection, download, or persistence behavior**.
-
-- [ ] **Control Flow Analysis:** Trace **function call graphs, conditional branches, loops** to understand **program logic, decision points, and hidden functionality**.
-
-- [ ] **.NET/Java Reversing:** Decompile **managed code** using **dnSpy, ILSpy** (.NET) or **JD-GUI, JADX, CFR** (Java/Android) for near-source-level analysis.
-
----
-
-### **Stage 2: Dynamic Analysis & Debugging**
-
-_Goal: Observe malware behavior during live execution._
-
-- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **Procmon, Process Hacker, Regshot, Wireshark, FakeNet-NG**.
-
-- [ ] **Behavioral Indicators:** Document **file system changes, registry modifications, network connections, process creation, mutex creation, service installs** during execution.
-
-- [ ] **Debugger Proficiency:** Master **x64dbg/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
-
-- [ ] **API Hooking & Tracing:** Use **API Monitor, Frida, strace/ltrace** to intercept and log **system calls and library calls** at runtime.
-
-- [ ] **Memory Forensics During Execution:** Dump **process memory** with **Volatility, procdump** to find **decrypted payloads, injected code, unpacked stages** that only exist in RAM.
-
-- [ ] **Network Traffic Analysis:** Capture **C2 communications, DNS queries, HTTP beacons, exfiltration attempts** using **Wireshark, mitmproxy, INetSim** during detonation.
-
----
-
-### **Stage 3: Anti-Reverse Engineering & Evasion Techniques**
-
-_Goal: Understand and defeat techniques malware uses to resist analysis._
-
-- [ ] **Anti-Debugging:** Detect and bypass **IsDebuggerPresent, NtQueryInformationProcess, timing checks (RDTSC), int 2D/int 3, TLS callbacks** used to detect debuggers.
-
-- [ ] **Anti-VM/Anti-Sandbox:** Identify checks for **VMware/VirtualBox artifacts (registry keys, MAC prefixes, CPUID), mouse movement, screen resolution, uptime, username** and patch them out.
-
-- [ ] **Packing & Crypters:** Unpack **UPX, Themida, VMProtect, custom packers** using **manual unpacking (OEP finding, IAT reconstruction)** and automated tools.
-
-- [ ] **Obfuscation:** Defeat **control flow flattening, dead code insertion, string encryption, opaque predicates** through **symbolic execution, pattern matching, and scripting**.
-
-- [ ] **Code Virtualization:** Understand **VM-based protectors** (Themida, VMProtect) that translate code to **custom bytecode**; use **devirtualization techniques** and trace analysis.
-
----
-
-### **Stage 4: Malware Classification & Threat Intelligence**
-
-_Goal: Categorize malware and extract actionable intelligence._
-
-- [ ] **Malware Taxonomy:** Classify samples as **RAT, ransomware, worm, rootkit, bootkit, stealer, loader, dropper, wiper, cryptominer, botnet agent** based on behavior.
-
-- [ ] **IOC Extraction:** Extract **file hashes (MD5/SHA256), domains, IPs, URLs, mutexes, registry keys, YARA signatures** for threat intelligence sharing.
-
-- [ ] **YARA Rule Writing:** Write **custom YARA rules** to detect malware families by **string patterns, byte sequences, file structure, import combinations**.
-
-- [ ] **MITRE ATT&CK Mapping:** Map observed **malware behaviors** to **specific techniques/sub-techniques** for standardized reporting and detection engineering.
-
-- [ ] **Campaign Attribution:** Correlate **code similarities, infrastructure overlaps, TTPs, timestamps, language artifacts** to link samples to **threat actor groups**.
-
----
-
-### **Stage 5: Advanced RE & Automation**
-
-_Goal: Scale analysis with scripting and handle complex targets._
-
-- [ ] **Ghidra Scripting:** Write **Ghidra scripts (Java/Python)** to automate **function renaming, string decryption, pattern searching, cross-reference analysis**.
-
-- [ ] **IDAPython:** Use **IDAPython scripts** for **bulk analysis, signature generation, automated deobfuscation, plugin development**.
-
-- [ ] **Binary Diffing:** Use **BinDiff, Diaphora** to compare **patched vs. unpatched binaries** to identify **vulnerability patches and 1-day exploit targets**.
-
-- [ ] **Emulation:** Use **Unicorn Engine, QEMU, Qiling** to **emulate code snippets** (decryption routines, shellcode) without full execution.
-
-- [ ] **Firmware RE:** Apply RE skills to **embedded firmware** (binwalk extraction, architecture identification, cross-compilation debugging).
-
-- [ ] **Kernel-Level RE:** Analyze **drivers, rootkits, bootkits** using **WinDbg kernel debugging, IDA with kernel symbols, Volatility memory analysis**.
-
----
-
-## Part 31: Governance, Risk & Compliance (GRC)
-
-### **Stage 1: Security Frameworks & Standards**
-
-_Goal: Understand the regulatory and standards landscape that defines what pentesters test against._
-
-- [ ] **NIST Cybersecurity Framework (CSF):** Master the **5 functions (Identify, Protect, Detect, Respond, Recover)** and how they map to security controls.
-
-- [ ] **NIST 800-53 / 800-171:** Understand **security control families** (Access Control, Audit, Incident Response) used in **federal and defense** compliance.
-
-- [ ] **ISO 27001/27002:** Know the **ISMS (Information Security Management System)** framework, **Annex A controls**, and **certification audit process**.
-
-- [ ] **CIS Controls (v8):** Master the **18 Critical Security Controls** as a prioritized, actionable defense checklist; understand **Implementation Groups (IG1-IG3)**.
-
-- [ ] **MITRE ATT&CK as Compliance:** Use **ATT&CK coverage mapping** to demonstrate detection maturity against specific adversary techniques.
-
----
-
-### **Stage 2: Industry Regulations & Legal Requirements**
-
-_Goal: Know the laws and regulations that dictate security requirements across industries._
-
-- [ ] **PCI-DSS (Payment Card Industry):** Understand the **12 requirements** for protecting cardholder data; know **scope reduction (network segmentation), SAQ types**, and how pentesters validate Requirement 11.3.
-
-- [ ] **HIPAA (Healthcare):** Understand **PHI (Protected Health Information)** safeguards, **technical/administrative/physical** controls, and **breach notification requirements**.
-
-- [ ] **GDPR (EU Data Protection):** Know **data subject rights, lawful basis for processing, Data Protection Impact Assessments (DPIA), breach notification (72-hour rule)**, and **extraterritorial scope**.
-
-- [ ] **SOC 2 (Service Organizations):** Understand **Trust Services Criteria (Security, Availability, Processing Integrity, Confidentiality, Privacy)** and how pentest findings map to SOC 2 reports.
-
-- [ ] **SOX (Sarbanes-Oxley):** Know **IT General Controls (ITGCs)** for financial system integrity — **access control, change management, backup/recovery**.
-
-- [ ] **DPDP Act (India):** Understand **India's Digital Personal Data Protection Act** — consent-based processing, Data Fiduciary obligations, cross-border transfer rules, and **Board penalties**.
-
-- [ ] **Computer Fraud & Abuse Act (CFAA):** Understand US federal law on **unauthorized access**; know how **scope of engagement** and **written authorization** protect pentesters legally.
-
----
-
-### **Stage 3: Risk Management & Assessment**
-
-_Goal: Quantify and communicate risk so findings drive action._
-
-- [ ] **Risk Equation:** Master **Risk = Threat × Vulnerability × Impact** and use it to **prioritize findings** over raw CVSS scores.
-
-- [ ] **Risk Assessment Methodologies:** Understand **NIST 800-30 (qualitative), FAIR (quantitative), OCTAVE, CRAMM** for structured risk evaluation.
-
-- [ ] **Threat Modeling:** Apply **STRIDE, PASTA, Attack Trees** to proactively identify **threats to systems before testing** and guide scope selection.
-
-- [ ] **Business Impact Analysis (BIA):** Map **technical vulnerabilities to business consequences** — revenue loss, reputational damage, regulatory fines, operational downtime.
-
-- [ ] **Risk Appetite & Tolerance:** Understand how organizations define **acceptable risk levels** and how pentest recommendations must align with business context.
-
----
-
-### **Stage 4: Audit, Scope & Compliance Testing**
-
-_Goal: Execute engagements that satisfy compliance requirements._
-
-- [ ] **Scoping for Compliance:** Define pentest scope to cover **specific compliance requirements** (e.g., PCI-DSS Req 11.3 requires internal/external pentest + segmentation testing).
-
-- [ ] **Control Validation:** Test whether **implemented controls** (MFA, encryption, logging, access controls) actually function as documented in policies.
-
-- [ ] **Evidence Collection:** Gather **screenshots, logs, packet captures, configuration exports** formatted for **auditor review** and compliance documentation.
-
-- [ ] **Gap Analysis Reporting:** Identify **missing controls, partial implementations, policy violations** and map them to **specific framework requirements** with remediation guidance.
-
-- [ ] **Third-Party Risk:** Assess **vendor/supplier security posture** via **questionnaires, pentest scoping, SLA review**, and **supply chain risk evaluation**.
-
-- [ ] **Continuous Compliance:** Understand shift from **point-in-time audits** to **continuous monitoring, automated compliance checks, and DevSecOps integration**.
-
----
-
-## Part 32: API Security
-
-### **Stage 1: API Reconnaissance & Mapping**
-
-_Goal: Discover and map API attack surface._
-
-- [ ] **API Discovery:** Find undocumented endpoints via **JS file analysis, Wayback Machine, Google Dorks (`site:target.com api`), Shodan**, and **Burp Suite passive crawling**.
-
-- [ ] **Spec File Harvesting:** Locate exposed **OpenAPI/Swagger (`/swagger.json`, `/api-docs`), WSDL, GraphQL introspection** schemas that reveal all routes, parameters, and data models.
-
-- [ ] **Endpoint Enumeration:** Fuzz **API paths and versions** (`/api/v1/`, `/api/v2/`, `/v3/`) using **ffuf, kiterunner, Arjun** with API-specific wordlists.
-
-- [ ] **Technology Fingerprinting:** Identify **framework, auth scheme, rate limiting, versioning strategy** from headers, response patterns, and error messages.
-
----
-
-### **Stage 2: OWASP API Security Top 10**
-
-_Goal: Methodically test each API-specific vulnerability class._
-
-- [ ] **API1 — Broken Object Level Authorization (BOLA/IDOR):** Substitute **object IDs** (user, order, account) in requests to access **other users' resources** without authorization check.
-
-- [ ] **API2 — Broken Authentication:** Test **weak tokens, missing expiry, no rate limiting on login, JWT algorithm confusion (`alg:none`), token reuse after logout**.
-
-- [ ] **API3 — Broken Object Property Level Authorization (BOPLA):** Send **extra fields** in PUT/PATCH requests to modify properties the user shouldn't control (e.g., `"role":"admin"`, `"is_verified":true`).
-
-- [ ] **API4 — Unrestricted Resource Consumption:** Test **missing rate limits, no pagination caps, large payload DoS, CPU-exhausting regex/query parameters**.
-
-- [ ] **API5 — Broken Function Level Authorization (BFLA):** Access **admin-only endpoints** (`/api/admin/users`, `/api/internal/`) using **regular user tokens**; test HTTP method switching (GET → DELETE).
-
-- [ ] **API6 — Unrestricted Access to Sensitive Business Flows:** Abuse **checkout flows, invite systems, voting, coupon redemption** without rate limiting or workflow enforcement.
-
-- [ ] **API7 — Server-Side Request Forgery (SSRF):** Supply **internal URLs, cloud metadata endpoints** (`169.254.169.254`) as API parameters for internal network pivoting.
-
-- [ ] **API8 — Security Misconfiguration:** Find **exposed debug endpoints, verbose errors, missing CORS restrictions, HTTP instead of HTTPS, default API keys**.
-
-- [ ] **API9 — Improper Inventory Management:** Target **deprecated API versions, shadow APIs, staging/dev endpoints** still accessible in production.
-
-- [ ] **API10 — Unsafe Consumption of APIs:** Exploit **third-party API data** that is trusted and processed without validation, causing **injection or SSRF** on the consuming server.
-
----
-
-### **Stage 3: Protocol-Specific API Attacks**
-
-_Goal: Attack REST, GraphQL, gRPC, and SOAP distinctly._
-
-- [ ] **REST API Testing:** Chain **BOLA + privilege escalation**, test **HTTP verb tampering**, exploit **mass assignment** via undocumented writable fields.
-
-- [ ] **GraphQL Attacks:** Run **introspection queries** to dump full schema; exploit **batching/aliasing for DoS**, **nested query depth abuse**, **IDOR via node IDs**, and **mutations without auth checks**.
-
-- [ ] **gRPC Security:** Use **grpcurl, Evans** to enumerate services; test for **missing auth interceptors, reflection enabled in prod, proto injection**.
-
-- [ ] **SOAP/XML APIs:** Exploit **XXE via SOAP body**, test **WS-Security header bypass**, abuse **type confusion in XML parsing**.
-
----
-
-### **Stage 4: API Authentication & Token Attacks**
-
-_Goal: Break API authentication mechanisms._
-
-- [ ] **JWT Attacks:** Test **`alg:none` bypass, RS256→HS256 confusion, weak secret brute-force (hashcat mode 16500), kid injection, jku/x5u header injection** to forge arbitrary tokens.
-
-- [ ] **OAuth 2.0 Attacks:** Exploit **CSRF on authorization endpoint, open redirect in redirect_uri, state parameter bypass, token leakage via Referer header**.
-
-- [ ] **API Key Attacks:** Find **keys in JS bundles, git history, response headers, error messages**; test **key rotation absence, missing key scoping**.
-
-- [ ] **mTLS Bypass:** Identify **endpoints that skip client certificate validation**, abuse **certificate pinning gaps**, exploit **proxy stripping of client certs**.
-
----
-
-### **Stage 5: Defense & Hardening**
-
-_Goal: Know what defenders implement so you can test it properly._
-
-- [ ] **API Gateway Controls:** Understand **rate limiting, quota enforcement, request validation, JWT verification, IP allowlisting** at the gateway layer.
-
-- [ ] **Input Validation:** Test that **schema validation, type enforcement, max length, allowed values** are enforced server-side not just client-side.
-
-- [ ] **Logging & Monitoring:** Verify **all API calls are logged** with enough context (user, IP, endpoint, response code) for anomaly detection.
-
----
-
-## Part 33: Password Cracking & Hash Analysis
-
-### **Stage 1: Hash Identification & Acquisition**
-
-_Goal: Identify what you have before cracking._
-
-- [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
-
-- [ ] **Hash Acquisition:** Obtain hashes from **SAM/NTDS.dit (Windows), /etc/shadow (Linux), database dumps, LSASS memory, pcap files, web app source**.
-
-- [ ] **Common Hash Types:** Master identifying and handling **NTLM, NTLMv1/v2, NetNTLM, MD5, SHA-1, SHA-256, bcrypt, Argon2, PBKDF2, WPA2-PMKID, Kerberos (5/17/18/23)**.
-
----
-
-### **Stage 2: Cracking Methodology & Tools**
-
-_Goal: Apply the right technique to each hash type._
-
-- [ ] **Hashcat Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
-
-- [ ] **John the Ripper:** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
-
-- [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
-
-- [ ] **Rule-Based Attacks:** Apply **Hashcat rules (best64.rule, OneRuleToRuleThemAll, d3ad0ne)** to mangle wordlists — capitalize, add numbers, leet-speak substitutions — to crack complex passwords efficiently.
-
-- [ ] **Mask Attacks:** Use **Hashcat mask syntax** (`?u?l?l?l?l?d?d?s`) to brute-force **known password patterns** (e.g., company naming conventions, seasonal passwords like `Summer2024!`).
-
-- [ ] **Hybrid Attacks:** Combine **wordlist + mask** (`-a 6` / `-a 7`) to crack passwords like `rockyou_words + 2024!` or `!2024 + rockyou_words`.
-
-- [ ] **Rainbow Tables:** Understand **precomputed hash-to-plaintext lookup tables** and why **salting defeats them**; use **RainbowCrack** for legacy unsalted MD5/SHA1.
-
----
-
-### **Stage 3: Protocol-Specific Cracking**
-
-_Goal: Crack hashes captured from real network protocols._
-
-- [ ] **NTLM / NetNTLMv2:** Capture with **Responder, ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
-
-- [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
-
-- [ ] **WPA2 Handshakes:** Crack **4-way handshake (-m 22000)** and **PMKID (-m 22001)** from wireless captures with GPU-accelerated hashcat.
-
-- [ ] **SSH Private Keys:** Use **ssh2john** to extract crackable hash from passphrase-protected keys; crack with JtR.
-
-- [ ] **Office / PDF / ZIP:** Extract hashes with **office2john, pdf2john, zip2john**; crack with JtR or hashcat for document password recovery.
-
----
-
-### **Stage 4: Wordlist & Intelligence Curation**
-
-_Goal: Build targeted wordlists that outperform generic lists._
-
-- [ ] **OSINT-Driven Wordlists:** Use **CeWL** to spider target websites and extract **company-specific vocabulary** for highly targeted password lists.
-
-- [ ] **Custom Rule Writing:** Write **Hashcat/JtR rules** encoding target's known password policy — minimum length, required chars, common suffix patterns.
-
-- [ ] **Credential Stuffing Lists:** Use **breach corpora (Collection #1, Dehashed)** to build target-specific lists from previously leaked passwords for the same user base.
-
-- [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
-
----
-
-## Part 34: Physical Penetration Testing
-
-### **Stage 1: Pre-Engagement & Reconnaissance**
-
-_Goal: Plan the physical assessment within legal scope._
-
-- [ ] **Scope Definition:** Confirm **written authorization, target facilities, allowed hours, assumed identity (e.g., contractor, vendor)**, and **emergency abort contact** before any physical operation.
-
-- [ ] **Facility OSINT:** Use **Google Maps, Satellite imagery, LinkedIn (employee badge photos), job postings (physical security tools mentioned), public filings** to map facility layout, entry points, and security posture.
-
-- [ ] **Physical Observation:** Conduct **covert surveillance** — observe **employee badge behavior, delivery procedures, tailgate vulnerability, smoking areas, loading docks** as low-security entry vectors.
-
-- [ ] **Social Engineering Pretext:** Prepare **believable personas** (IT contractor, fire inspector, HVAC technician, delivery person) with **supporting props, business cards, uniforms, fake work orders**.
-
----
-
-### **Stage 2: Entry & Access Control Bypass**
-
-_Goal: Defeat physical barriers to gain facility access._
-
-- [ ] **Tailgating / Piggybacking:** Follow authorized personnel through secured doors using **timing, props (heavy boxes, hands full), social confidence**; test anti-tailgate detection systems.
-
-- [ ] **Lock Picking:** Practice **single-pin picking, raking, bump keys** for standard pin-tumbler locks; understand **high-security locks (Medeco, Abloy)** that resist standard attacks.
-
-- [ ] **Bypass Tools:** Use **under-door tools (UDT), latch slipping tools, door gap attacks** to manipulate door hardware without the key.
-
-- [ ] **RFID/NFC Badge Cloning:** Capture **low-frequency (125kHz HID, EM4100)** badge data with **Proxmark3** from up to 30cm; clone to blank T5577 card; understand **13.56MHz (MIFARE, DESFire)** attack complexity.
-
-- [ ] **Electric Strike / Maglock Bypass:** Use **REX (Request-to-Exit) sensor exploitation, power interruption, crash bar manipulation** to open magnetically locked doors.
-
-- [ ] **Elevator & Stairwell Access:** Identify **fire escape stairwells, service elevators, parking garage access** that bypass reception and security desks.
-
----
-
-### **Stage 3: HID & USB Payload Attacks**
-
-_Goal: Deploy physical implants and hardware attack tools._
-
-- [ ] **USB HID Attacks (Rubber Ducky / Bash Bunny):** Craft **DuckyScript payloads** to execute **reverse shells, credential theft, backdoor installation** within seconds when plugged into an unlocked machine.
-
-- [ ] **O.MG Cable:** Deploy **USB cables with embedded implants** that appear legitimate but exfiltrate data or execute commands over WiFi.
-
-- [ ] **LAN Turtle / Shark Jack:** Drop **network implants** that provide **remote SSH access, packet capture, and network scanning** from inside the target network.
-
-- [ ] **USB Drop Attacks:** Leave **weaponized USB drives** in common areas (parking lot, reception, bathroom); craft **autorun payloads, LNK files, fake docs** that execute on Windows/Linux.
-
-- [ ] **Rogue Network Devices:** Plant **WiFi Pineapple, rogue AP, network tap** in server rooms, comms closets, or under desks for persistent network access.
-
----
-
-### **Stage 4: On-Site Operations & Data Collection**
-
-_Goal: Achieve objectives once inside._
-
-- [ ] **Workstation Access:** Target **unlocked machines, password-protected screens (bypass with HID)**, install **implants, keyloggers, screen capture tools**.
-
-- [ ] **Shoulder Surfing:** Observe **password entry, sensitive documents, screen content** in open offices, meeting rooms, and public areas.
-
-- [ ] **Dumpster Diving:** Recover **printed credentials, org charts, hardware serial numbers, network diagrams, decommissioned drives** from trash/recycling.
-
-- [ ] **Server Room / Comms Closet:** Attempt access to **network switches, patch panels, servers**; document **unencrypted hardware, unsecured console ports, accessible management interfaces**.
-
----
-
-### **Stage 5: Reporting Physical Findings**
-
-_Goal: Document and communicate physical security gaps professionally._
-
-- [ ] **Evidence Collection:** Capture **covert photos/video (within ROE), cloned badge data, dropped USB recovery, access logs** as proof-of-concept evidence.
-
-- [ ] **Risk Mapping:** Map findings to **physical security frameworks (PSIA, ISO 27001 Annex A.11)** and quantify **business impact** (data theft, sabotage, insider threat facilitation).
-
-- [ ] **Remediation Guidance:** Recommend **anti-tailgate turnstiles, RFID upgrade paths, clean desk policy, USB port lockdown, security awareness training, camera placement**.
-
----
-
-## Part 35: Supply Chain Security
-
-### **Stage 1: Understanding the Attack Surface**
-
-_Goal: Map how software and hardware dependencies become attack vectors._
-
-- [ ] **Supply Chain Threat Model:** Understand the **three attack vectors**: compromised **source code** (SolarWinds), compromised **build/distribution** (XZ Utils backdoor), and compromised **dependencies** (event-stream npm).
-
-- [ ] **SBOM (Software Bill of Materials):** Generate and analyze **SBOM (CycloneDX, SPDX format)** to inventory all third-party components, transitive dependencies, and their known CVEs.
-
-- [ ] **Dependency Inventory:** Map **direct + transitive dependencies** across package ecosystems (**npm, PyPI, Maven, NuGet, RubyGems**) to understand total exposed surface.
-
----
-
-### **Stage 2: Dependency & Package Attacks**
-
-_Goal: Exploit weaknesses in open-source package ecosystems._
-
-- [ ] **Dependency Confusion:** Register **public packages with the same name** as internal private packages; force targets to download your malicious version when their registry falls back to public PyPI/npm.
-
-- [ ] **Typosquatting:** Publish packages with **names one keystroke away** from popular packages (`reqeusts`, `colourama`, `crypt0`) to catch developer typos during `pip install`.
-
-- [ ] **Malicious Package Injection:** Study real cases (**event-stream, PyTorch-nightly, ctx**) where **legitimate packages were backdoored** post-compromise of the maintainer account.
-
-- [ ] **Version Pinning Attacks:** Target packages using **unpinned `latest`** or **broad version ranges** (`>=1.0`); understand how **lock files (package-lock.json, Pipfile.lock)** mitigate this.
-
-- [ ] **Protestware & Intentional Sabotage:** Understand cases where **maintainers intentionally introduced bugs/wipes** (colors.js, node-ipc) and the supply chain trust model risks this exposes.
-
----
-
-### **Stage 3: Build System & CI/CD Attacks**
-
-_Goal: Compromise the pipeline that produces software._
-
-- [ ] **Pipeline Poisoning:** Inject **malicious steps into CI/CD workflows** (GitHub Actions, Jenkins, GitLab CI) to **steal secrets, alter artifacts, plant backdoors** in compiled output.
-
-- [ ] **Workflow Injection:** Exploit **untrusted input in GitHub Actions expressions** (`${{ github.event.pull_request.title }}`) to achieve **command injection in CI runners**.
-
-- [ ] **Secrets Exfiltration:** Steal **CI/CD secrets (API keys, deploy tokens, signing certs)** from **environment variables, GitHub Secrets, HashiCorp Vault** during pipeline execution.
-
-- [ ] **Artifact Tampering:** Replace **legitimate build artifacts** post-build but pre-deployment; understand **artifact signing (Sigstore/Cosign)** as a defense.
-
-- [ ] **SLSA Framework:** Understand **Supply-chain Levels for Software Artifacts (SLSA)** maturity model (L1-L4) and what each level proves about build provenance.
-
----
-
-### **Stage 4: Open-Source & Third-Party Risk**
-
-_Goal: Assess and test third-party component security._
-
-- [ ] **OSS Vulnerability Scanning:** Use **Trivy, Grype, Snyk, OWASP Dependency-Check** to scan project dependencies for **known CVEs** and **license violations**.
-
-- [ ] **Maintainer Account Takeover:** Understand how **compromised npm/PyPI maintainer accounts** (via credential stuffing or social engineering) enable **silent package backdooring**.
-
-- [ ] **Repo Jacking:** Exploit **GitHub repository namespace reuse** — when a user changes their username, old repo URLs can be claimed by attackers to serve malicious packages.
-
-- [ ] **Trojanized Tooling:** Test environments for **compromised developer tools** (malicious VS Code extensions, backdoored CLI tools, modified build systems).
-
----
-
-### **Stage 5: Defense & Verification**
-
-_Goal: Know how to validate supply chain integrity._
-
-- [ ] **Sigstore / Cosign:** Verify **container image and artifact signatures** to ensure provenance; understand **keyless signing with OIDC identity**.
-
-- [ ] **Dependency Pinning:** Enforce **exact version pinning + hash verification** in lock files; use **Renovate/Dependabot** for automated safe updates.
-
-- [ ] **Private Registries:** Maintain **internal package mirrors (Artifactory, Nexus)** with **allowlisting** to prevent dependency confusion attacks.
-
-- [ ] **Code Signing:** Implement **code signing for all releases**; verify signatures in deployment pipelines before execution.
-
----
-
-## Part 36: DevSecOps & Secure SDLC
-
-### **Stage 1: Security in the Development Lifecycle**
-
-_Goal: Understand where security integrates across the SDLC._
-
-- [ ] **SDLC Security Gates:** Map **security activities to SDLC phases** — threat modeling (design), SAST (code), SCA (build), DAST (test), pentest (pre-release), monitoring (production).
-
-- [ ] **Shift-Left Security:** Understand the **cost and benefit model** — finding a bug in design costs 10x less than finding it in production; align testing earlier in the cycle.
-
-- [ ] **Threat Modeling:** Apply **STRIDE to application architecture** — identify **Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege** risks before coding.
-
-- [ ] **Secure Design Principles:** Master **least privilege, defense-in-depth, fail securely, complete mediation, open design, separation of privilege** as architectural requirements.
-
----
-
-### **Stage 2: Static Analysis (SAST)**
-
-_Goal: Find vulnerabilities in source code without executing it._
-
-- [ ] **SAST Tools:** Use **Semgrep, SonarQube, Checkmarx, Bandit (Python), Brakeman (Rails), SpotBugs (Java)** to scan source code for **injection flaws, insecure crypto, hardcoded secrets**.
-
-- [ ] **Custom SAST Rules:** Write **Semgrep rules** to detect **organization-specific insecure patterns** (custom crypto usage, missing input validation in internal frameworks).
-
-- [ ] **False Positive Management:** Triage SAST output — distinguish **true positives, false positives, and low-risk findings**; suppress noise without hiding real issues.
-
-- [ ] **IDE Integration:** Understand how **security plugins (Snyk IDE, SonarLint, Semgrep VS Code)** give developers **real-time feedback** during coding.
-
----
-
-### **Stage 3: Dynamic Analysis (DAST & IAST)**
-
-_Goal: Test running applications for security flaws._
-
-- [ ] **DAST Tools:** Use **OWASP ZAP, Burp Suite Pro (automated scan), Nikto** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
-
-- [ ] **IAST (Interactive Application Security Testing):** Understand how **IAST agents (Contrast Security, Seeker)** instrument running code to detect vulnerabilities from the inside during functional tests.
-
-- [ ] **API DAST:** Configure **ZAP or Burp** with **OpenAPI specs** to automatically fuzz all API endpoints for **injection, auth bypass, and BOLA**.
-
-- [ ] **Authenticated Scanning:** Configure DAST tools with **session cookies or API keys** to test **post-login functionality** inaccessible to anonymous scans.
-
----
-
-### **Stage 4: Software Composition Analysis (SCA)**
-
-_Goal: Find vulnerabilities in third-party dependencies._
-
-- [ ] **SCA Tools:** Use **Snyk, Dependabot, OWASP Dependency-Check, Black Duck** to continuously scan **package manifests** for **CVEs, outdated versions, license violations**.
-
-- [ ] **Vulnerability Prioritization:** Understand **reachability analysis** — not every CVE in a dependency is exploitable; prioritize based on **actual code paths** that use the vulnerable function.
-
-- [ ] **License Compliance:** Identify **copyleft licenses (GPL, AGPL)** that may require open-sourcing proprietary code; flag **license conflicts** in dependency trees.
-
----
-
-### **Stage 5: Secrets Detection & Pipeline Security**
-
-_Goal: Prevent credential leakage through code and pipelines._
-
-- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection strings**.
-
-- [ ] **Pre-commit Hooks:** Install **pre-commit framework with detect-secrets or gitleaks** to block secret commits before they reach the remote repository.
-
-- [ ] **Pipeline Hardening:** Apply **least-privilege to CI service accounts**, use **short-lived OIDC tokens** instead of long-lived secrets, scope permissions to **minimum required for each job**.
-
-- [ ] **Container Image Security:** Scan **base images and Dockerfiles** with **Trivy, Dockle** for CVEs, misconfigurations, and secrets baked into image layers.
-
-- [ ] **IaC Security:** Scan **Terraform, CloudFormation, Helm charts** with **Checkov, tfsec, kics** for **open security groups, public storage, missing encryption, IAM over-permission**.
-
----
-
-## Part 37: VoIP & Telecommunications Security
-
-### **Stage 1: VoIP Protocol Fundamentals**
-
-_Goal: Understand how VoIP systems communicate._
-
-- [ ] **SIP (Session Initiation Protocol):** Master **SIP message structure (INVITE, ACK, BYE, REGISTER, OPTIONS)**, **dialog establishment**, **authentication (Digest Auth)**, and **common ports (UDP/TCP 5060, TLS 5061)**.
-
-- [ ] **RTP (Real-time Transport Protocol):** Understand **media stream transport**, **SRTP (Secure RTP)** for encryption, **RTCP** for control, and how **RTP ports are negotiated via SDP**.
-
-- [ ] **VoIP Infrastructure:** Map **components**: **IP-PBX (Asterisk, FreePBX), SBC (Session Border Controller), SIP Trunk, softphones, IP handsets, voicemail servers**.
-
-- [ ] **Codec Identification:** Identify **G.711, G.729, Opus** codecs from SDP negotiation; understand quality vs. bandwidth tradeoffs and how codecs affect capture/decode.
-
----
-
-### **Stage 2: VoIP Reconnaissance & Enumeration**
-
-_Goal: Discover and map VoIP infrastructure._
-
-- [ ] **SIP Scanning:** Use **svmap (SIPVicious), nmap SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
-
-- [ ] **Extension Enumeration:** Use **svwar** to enumerate **valid SIP extensions** via REGISTER/OPTIONS probing; map **active users and voicemail accounts**.
-
-- [ ] **Banner Grabbing:** Identify **PBX vendor and version** from **SIP User-Agent headers**; cross-reference with **CVE databases** for known exploits.
-
-- [ ] **SDP Analysis:** Parse **Session Description Protocol** messages to identify **media types, codec preferences, RTP port ranges, and IP addresses**.
-
----
-
-### **Stage 3: VoIP Attacks**
-
-_Goal: Exploit weaknesses in VoIP deployments._
-
-- [ ] **SIP Brute Force:** Use **svcrack (SIPVicious)** to brute-force **SIP extension passwords**; test default credentials (1234, extension number as password).
-
-- [ ] **RTP Interception:** Position in MITM via **ARP spoofing**; capture **RTP streams with Wireshark**; reassemble and decode audio with **VoIPmonitor, sngrep, rtpbreak**.
-
-- [ ] **Call Hijacking:** Send **spoofed BYE messages** to terminate active calls; send **CANCEL or re-INVITE** to redirect calls to attacker-controlled endpoints.
-
-- [ ] **VoIP Fuzzing:** Use **Sip-Proxy, Codenomicon** to fuzz **SIP parsers** for crashes, memory corruption, and denial of service in PBX software.
-
-- [ ] **Vishing Infrastructure:** Understand how **VoIP enables scalable vishing** — spoofed caller ID, auto-dialers, SIP trunk abuse for mass calling campaigns.
-
-- [ ] **VLAN Hopping to Voice VLAN:** Exploit **voice VLAN misconfiguration** (untagged/double-tagged frames) to access VoIP network segment from data VLAN.
-
----
-
-### **Stage 4: SS7 & Telecom Signaling Attacks**
-
-_Goal: Understand mobile network signaling vulnerabilities._
-
-- [ ] **SS7 Architecture:** Understand **Signaling System 7 (SS7)** — the global telephone signaling protocol connecting **mobile network operators, MSCs, HLRs, VLRs**.
-
-- [ ] **SS7 Attack Types:** Study **location tracking (SendRoutingInfo), call interception (MAP UpdateLocation), SMS interception (ForwardSM)** — attacks that work against **any mobile network globally**.
-
-- [ ] **Diameter Protocol:** Understand **Diameter** (4G/LTE replacement for SS7) and its own **attack surface** — roaming exploitation, subscriber data disclosure, DoS.
-
-- [ ] **SIM Swapping (Technical):** Understand the **social engineering + SS7/carrier abuse chain** — porting credentials, carrier authentication weaknesses, and MFA bypass consequences.
-
-- [ ] **IMSI Catchers (Stingrays):** Understand how **fake base stations force 2G downgrade**, capture **IMSI identifiers**, and enable **passive interception** of unencrypted traffic.
-
----
-
-### **Stage 5: 5G Security**
-
-_Goal: Understand the 5G threat landscape._
-
-- [ ] **5G Architecture:** Understand **5G SA (Standalone) vs NSA (Non-Standalone)**, **gNB (base station), AMF, SMF, UPF** core network functions, and **network slicing**.
-
-- [ ] **5G Attack Surface:** Study **SBA (Service-Based Architecture) HTTP/2 API attacks**, **SUPI/SUCI identifier exposure**, **slice isolation bypass**, **roaming security gaps**.
-
-- [ ] **5G vs 4G Security:** Understand improvements (**SUPI concealment, mandatory mutual auth**) and remaining weaknesses (**legacy 2G/3G fallback, roaming interfaces**).
-
----
-
-### **Stage 6: Defense & Hardening**
-
-_Goal: Secure VoIP and telecom infrastructure._
-
-- [ ] **SRTP Enforcement:** Mandate **SRTP** for all media streams and **TLS (SIP over TLS/SIPS)** for signaling; disable unencrypted SIP on all production systems.
-
-- [ ] **SBC Hardening:** Configure **Session Border Controllers** to perform **topology hiding, rate limiting, anomaly detection, and geographic call blocking**.
-
-- [ ] **Authentication Hardening:** Enforce **strong SIP digest passwords**, implement **IP allowlisting** for SIP trunks, disable **anonymous REGISTER**.
-
----
-
-## Part 38: Blockchain & Web3 Security
-
-### **Stage 1: Blockchain Fundamentals for Security**
-
-_Goal: Understand how blockchain and smart contracts work before attacking them._
-
-- [ ] **Blockchain Mechanics:** Master **distributed ledger, consensus mechanisms (PoW, PoS, PoA)**, **immutability, transaction finality, mempool**, and **public/private key cryptography** in blockchain context.
-
-- [ ] **Smart Contract Architecture:** Understand **EVM (Ethereum Virtual Machine)**, **Solidity language basics**, **ABI (Application Binary Interface)**, **bytecode vs. source code**, and **contract deployment lifecycle**.
-
-- [ ] **DeFi Ecosystem:** Map **protocols**: **DEXs (Uniswap, Curve), lending (Aave, Compound), oracles (Chainlink), bridges, yield aggregators** — understand how they interact and compose.
-
-- [ ] **Wallet Security:** Understand **EOA (Externally Owned Accounts) vs contract wallets**, **seed phrases (BIP39), HD derivation paths, hardware wallets (Ledger, Trezor)**, and **private key storage risks**.
-
----
-
-### **Stage 2: Smart Contract Vulnerabilities**
-
-_Goal: Identify and exploit common Solidity security flaws._
-
-- [ ] **Reentrancy Attacks:** Exploit **recursive external calls before state updates** (The DAO hack pattern); understand `checks-effects-interactions` as the fix; test with **Hardhat/Foundry**.
-
-- [ ] **Integer Overflow/Underflow:** Exploit **arithmetic overflow in Solidity <0.8.0** (e.g., `uint256 balance = 0; balance -= 1;` wraps to MAX); understand SafeMath and Solidity 0.8 built-in checks.
-
-- [ ] **Access Control Flaws:** Find **missing `onlyOwner` modifiers, tx.origin authentication, unprotected `initialize()` functions** in upgradeable contracts.
-
-- [ ] **Logic Flaws & Business Logic Errors:** Exploit **incorrect assumptions** about token prices, balances, or state — often unique to each protocol's design.
-
-- [ ] **Flash Loan Attacks:** Understand **uncollateralized loans within a single transaction**; exploit **oracle price manipulation, liquidity pool imbalances, governance attacks** using flash loans.
-
-- [ ] **Oracle Manipulation:** Exploit **reliance on on-chain DEX spot price as oracle** — manipulate pool price via large swap, exploit contracts that trust it, profit.
-
-- [ ] **Front-Running & MEV:** Understand **Maximal Extractable Value** — sandwich attacks, arbitrage, and liquidation front-running by miners/validators in the mempool.
-
----
-
-### **Stage 3: Smart Contract Auditing Methodology**
-
-_Goal: Systematically audit contracts for vulnerabilities._
-
-- [ ] **Static Analysis Tools:** Use **Slither, MythX, Aderyn, Semgrep Solidity rules** to automatically detect common vulnerability patterns.
-
-- [ ] **Symbolic Execution:** Use **Manticore, Echidna (fuzzer), Halmos (formal verification)** to find edge cases not caught by static analysis.
-
-- [ ] **Manual Code Review:** Read contract logic line-by-line; trace **all external calls, state transitions, and access control checks**; verify invariants hold under all conditions.
-
-- [ ] **PoC in Foundry/Hardhat:** Write **test exploits in Foundry (`forge test`)** forking mainnet to demonstrate real attack viability without deploying to live chain.
-
-- [ ] **Audit Report Writing:** Document findings with **severity (Critical/High/Medium/Low/Informational), impact, likelihood, proof-of-concept, and recommended fix**.
-
----
-
-### **Stage 4: Web3 Infrastructure Attacks**
-
-_Goal: Attack the broader Web3 ecosystem beyond smart contracts._
-
-- [ ] **Wallet Drainer Attacks:** Understand **malicious `approve()` / `permit()` signatures** that give attackers unlimited token spending rights; study **phishing sites** targeting Web3 users.
-
-- [ ] **Bridge Attacks:** Analyze **cross-chain bridge vulnerabilities** (Ronin $625M, Wormhole $320M) — **validator compromise, signature replay, logic errors in lock/mint mechanisms**.
-
-- [ ] **NFT Security:** Examine **metadata centralization risks, royalty bypass, reentrancy in `onERC721Received`**, and **enumeration attacks** on NFT collections.
-
-- [ ] **Private Key Extraction:** Study attack vectors — **weak entropy in key generation, compromised RNG, phishing for seed phrases, clipboard hijackers, malicious browser extensions**.
-
-- [ ] **RPC Node Attacks:** Understand **exposure of `eth_accounts`, `personal_sign` on misconfigured nodes**; test for **open JSON-RPC endpoints** that can sign transactions.
-
----
-
-### **Stage 5: Defense & Secure Development**
-
-_Goal: Build secure smart contracts and Web3 applications._
-
-- [ ] **Security Patterns:** Implement **checks-effects-interactions, pull-over-push payments, rate limiting, circuit breakers (pause mechanisms)** in contract design.
-
-- [ ] **Upgradeable Contract Security:** Use **OpenZeppelin Upgrades Plugins**; understand **storage collision risks, initializer protection, proxy admin key management**.
-
-- [ ] **Formal Verification:** Apply **Certora Prover or K Framework** to mathematically prove critical invariants hold under all possible inputs.
-
-- [ ] **Bug Bounties:** Engage **Immunefi, Code4rena, Sherlock** for smart contract audits and bug bounties; understand **responsible disclosure in Web3 context**.
-
----
-
-## Part Extra: Red Team Operations & Tradecraft
+> **Safety Gate:** Red team infrastructure, phishing, payload delivery, credential access, lateral movement, and evasion require explicit written authorization and a defined ROE. In production, undocumented operator action becomes incident noise, client risk, and legal evidence against you.
 
 ### Strategy & Core Operations
 
@@ -4791,3 +5178,121 @@ _Goal: Build secure smart contracts and Web3 applications._
 - [ ] Maintain fluency in **Bash, PowerShell, Python**; script **collection, parsing, and lateral movement** tasks.
 
 - [ ] Template **checklists/playbooks** for repeatable ops; version control tooling and payloads.
+
+<a id="toc-part-41-proof-of-work--career-portfolio"></a>
+## Part 41: Proof of Work & Career Portfolio
+
+> **Core Principle:** Theory without evidence is worthless. Every technical skill in this roadmap must be validated through _unfakeable_ proof of work — tools you've built, reports you've written, certifications you've earned, and bugs you've found. This section ties it all together.
+
+### **Stage 1: Certification Roadmap**
+
+_Goal: Validate skills through industry-recognized, hands-on certifications._
+
+**Offensive Security Certifications (Hands-On Priority):**
+
+- [ ] **OSCP (Offensive Security Certified Professional):** The **gold standard** for penetration testing. Complete the **PEN-200 course** and pass the **24-hour practical exam** — demonstrates you can hack real machines, not just answer multiple-choice questions.
+
+- [ ] **OSWE (Offensive Security Web Expert):** Earn the **WEB-300 certification** for advanced **white-box web application exploitation** — source code review, custom exploit development, authentication bypass.
+
+- [ ] **OSED (Offensive Security Exploit Developer):** Earn the **EXP-301 certification** for **Windows userland exploitation** — buffer overflows, DEP/ASLR bypass, shellcode development, ROP chains.
+
+- [ ] **OSEP (Offensive Security Experienced Penetration Tester):** Earn the **PEN-300 certification** for **advanced evasion techniques** — AMSI bypass, process injection, lateral movement in hardened environments.
+
+**Application Security Certifications:**
+
+- [ ] **BSCP (Burp Suite Certified Practitioner):** Complete **PortSwigger Web Security Academy** labs and pass the **practical exam** — validates OWASP Top 10 exploitation, JWT attacks, SSRF, deserialization, and advanced web hacking skills.
+
+- [ ] **CWEE (Certified Web Exploitation Expert):** HTB's certification focused on **advanced web exploitation** — SQL injection, template injection, file upload attacks, deserialization chains.
+
+**AI Security Certifications (Emerging):**
+
+- [ ] **COAE (Certified Offensive AI Expert):** Earn Hack The Box's **AI security certification** covering **LLM exploitation, prompt injection, RAG poisoning, AI red teaming methodology**.
+
+- [ ] **OSAI (OffSec AI-300):** Complete OffSec's **AI security certification** for **offensive AI testing** — validate ability to test and attack AI/ML systems in enterprise environments.
+
+- [ ] **Google AI Essentials / DeepLearning.AI Specialization:** Complete foundational AI courses to validate **understanding of model architecture, training pipelines, and ML math** before specializing in AI security.
+
+**Blue Team & Cloud Certifications:**
+
+- [ ] **BTL1 (Blue Team Level 1):** Validate **SOC analyst skills** — log analysis, SIEM usage, incident response, threat detection.
+
+- [ ] **CCD (Certified CyberDefender):** CyberDefenders certification for **DFIR and threat hunting** — memory forensics, malware analysis, log analysis.
+
+- [ ] **AWS SAA / Azure AZ-500 / GCP Security:** Earn **cloud security certifications** to validate **IAM, networking, compliance, and cloud-native security** skills.
+
+---
+
+### **Stage 2: Technical Portfolio & GitHub Presence**
+
+_Goal: Build a public portfolio that proves you can build, not just study._
+
+- [ ] **GitHub Repository Strategy:** Maintain a **clean, professional GitHub profile** with **2–5 significant security projects** — each with **README, architecture diagrams, usage examples, and documented attack scenarios**.
+
+- [ ] **Clean Commit History:** Practice **atomic commits with descriptive messages** — hiring managers and security teams review your commit history to assess engineering discipline.
+
+- [ ] **Project Categories:** Build projects across multiple domains to demonstrate breadth:
+  - **Offensive tool** (custom scanner, exploit framework, payload generator)
+  - **Defensive tool** (log analyzer, detection rule generator, YARA rule suite)
+  - **AI security tool** (prompt injection tester, LLM red team framework, RAG poisoning PoC)
+  - **Automation** (recon pipeline, report generator, CI/CD security scanner)
+
+- [ ] **Documentation Quality:** Every project must include: **installation instructions, usage examples, architecture overview, limitations, and license**. Poor documentation kills credibility.
+
+- [ ] **Contribution to Open Source:** Contribute to **established security tools** (Impacket, BloodHound, Garak, PyRIT, Nuclei, OWASP projects) — demonstrates ability to work with existing codebases, not just greenfield projects.
+
+---
+
+### **Stage 3: Technical Writing & Content**
+
+_Goal: Demonstrate depth of understanding through published analysis._
+
+- [ ] **Technical Blog Posts (Medium / Personal Site):** Write **5–10 substantive, technical breakdowns** of your security research — document **methodology, failures, findings, and remediation guidance** in long-form posts targeting both practitioners and hiring managers.
+
+- [ ] **CTF Writeups:** Publish **detailed writeups for solved CTF challenges** — explain the thought process, dead ends, and eventual solution with code snippets and screenshots.
+
+- [ ] **Vulnerability Disclosures:** Document any **responsibly disclosed vulnerabilities** with **CVE identifiers, impact analysis, and timeline** — these are the most credible proof of offensive capability.
+
+- [ ] **Cheat Sheets & Reference Guides:** Create **condensed reference materials** (OSCP cheat sheet, AD attack playbook, API pentesting checklist) — demonstrates synthesis of complex knowledge and helps the community.
+
+- [ ] **LinkedIn Technical Content:** Post **regular technical insights, tool reviews, and industry commentary** — LinkedIn is the primary hiring platform for security roles; build a professional narrative.
+
+---
+
+### **Stage 4: Bug Bounties & Community Engagement**
+
+_Goal: Validate offensive skills against real-world targets and build reputation._
+
+- [ ] **Bug Bounty Platforms:** Maintain active profiles on **HackerOne, Bugcrowd, Synack, Intigriti, Immunefi (Web3)** — prioritize programs in your specialization (web, API, cloud, AI).
+
+- [ ] **First 10 Valid Findings:** Target **low-hanging fruit first** (open redirects, IDOR, info disclosure) to build platform reputation, then escalate to **critical-severity findings**.
+
+- [ ] **Hall of Fame & Acknowledgments:** Collect **public acknowledgments** from bug bounty programs — these serve as third-party validation of your skills on your resume.
+
+- [ ] **CTF Competitions:** Compete regularly in **picoCTF, NahamCon, HTB CTF, Google CTF, DEFCON CTF qualifiers, AI-specific CTFs (Gandalf, HackAPrompt)** — track your ranking progression.
+
+- [ ] **Community Presentations:** Present findings at **local hacker meetups, BSides, DEFCON villages, OWASP chapter meetings** — build credibility through live demonstrations and Q&A.
+
+- [ ] **Mentorship & Teaching:** Contribute to the community by **mentoring junior practitioners, answering StackOverflow/Reddit questions, creating educational content** — teaching deepens understanding and builds network.
+
+---
+
+### **Stage 5: Career Positioning & Job Search Strategy**
+
+_Goal: Convert skills and proof into career opportunities._
+
+- [ ] **Role Targeting:** Identify specific roles matching your skill profile:
+  - **Offensive:** Penetration Tester, Red Team Operator, Exploit Developer, Bug Bounty Hunter
+  - **Defensive:** SOC Analyst, Detection Engineer, Incident Responder, Threat Hunter
+  - **AppSec:** Application Security Engineer, Security Code Reviewer, DevSecOps Engineer
+  - **AI Security:** LLM Red Teamer, AI Safety Engineer, ML Security Researcher, Prompt Security Engineer
+  - **Cloud:** Cloud Security Architect, Cloud Pentester, IAM Security Engineer
+
+- [ ] **Resume Engineering:** Structure your resume around **impact and capability delivered** — not just technologies listed. Quantify results: _"Discovered 47 vulnerabilities across 12 bug bounty programs; built automated recon pipeline reducing initial assessment time by 60%."_
+
+- [ ] **Portfolio Coherence:** Ensure your **GitHub, blog, LinkedIn, bug bounty profiles, and certifications** tell a **coherent, unified story** — each project links to a writeup, each writeup links to working code, each certification validates the skills demonstrated in projects.
+
+- [ ] **Interview Preparation:** Practice **technical interviews** covering **live hacking demonstrations, CTF-style challenges, architecture review, threat modeling exercises**, and **behavioral questions** about incident handling and team collaboration.
+
+- [ ] **Continuous Skill Maintenance:** Security is a **continuous learning field** — maintain certifications (OSCP requires CPEs), continue bug bounty hunting, publish new research, attend conferences, and stay current with emerging threats and tools.
+
+---

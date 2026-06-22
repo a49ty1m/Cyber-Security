@@ -206,7 +206,71 @@ Purpose: identify live IPs first, then do focused port scans.
 3. Scan only required ports with `-p`.
 4. Use `-p-` only when full-port coverage is required.
 
+## Common Nmap Modes (and when to use)
+
+| Flag | What it does | When to use | Why |
+|---|---|---|---|
+| `-sn` | Ping scan, **no port scan** | Finding live hosts on a LAN/subnet | Fast host discovery |
+| `-sS` | TCP SYN scan | Default serious TCP scan (root/admin) | Fast/common; doesn’t complete full TCP connection |
+| `-sT` | TCP connect scan | When you are **not** root/admin | Uses normal OS TCP connections (more compatible) |
+| `-sU` | UDP scan | Checking UDP services (DNS, SNMP, NTP, etc.) | Finds UDP services TCP scans miss |
+| `-sV` | Service/version detection | After finding open ports | Identifies software and versions |
+| `-O` | OS detection | Authorized inventory/audits | Guesses target OS from network behavior |
+| `-A` | Aggressive scan (`-O -sV -sC --traceroute`) | Lab/internal authorized scans | Convenient but noisier |
+| `-sC` | Default NSE scripts | Basic safe-ish script checks | Common extra info |
+| `--script` | Run specific NSE scripts | Targeted checks | More precise than `-A` |
+| `-p` | Select ports | Any scan | Controls scan scope |
+| `-p-` | All 65535 TCP ports | Thorough TCP audit (authorized) | Finds services on unusual ports |
+| `-T0` to `-T5` | Timing template | Tune speed/noise | Faster scans can be less reliable/noisier |
+| `-Pn` | Treat host as online | When ping is blocked | Skips host discovery |
+| `-n` | No DNS lookup | Most scans | Faster, avoids DNS noise |
+| `-oN / -oX / -oG / -oA` | Output formats | Saving results/reporting | Useful for documentation tools |
+
+## Practical Usage Patterns
+
+### Find live hosts
+```bash
+nmap -sn 192.168.1.0/24
+```
+
+### Basic TCP scan
+```bash
+nmap 192.168.1.10
+```
+
+### Better TCP scan with service detection
+```bash
+sudo nmap -sS -sV 192.168.1.10
+```
+
+### Scan all TCP ports
+```bash
+sudo nmap -sS -p- 192.168.1.10
+```
+
+### Then scan services on discovered ports
+```bash
+sudo nmap -sV -sC -p 22,80,443 192.168.1.10
+```
+
+### UDP scan (top 100 UDP ports)
+```bash
+sudo nmap -sU --top-ports 100 192.168.1.10
+```
+
+### Avoid noisy/aggressive scanning unless authorized
+```bash
+sudo nmap -A 192.168.1.10
+```
+
+### Simple Rule (recommended workflow)
+1. Start small: `nmap -sn <subnet>`
+2. Then scan TCP: `sudo nmap -sS -sV <target>`
+3. Go deeper only where needed: `sudo nmap -sC -sV -p <open-ports> <target>`
+4. Use `-A`, specific `--script`, UDP scans, or `-p-` only when you have authorization.
+
 ## Common Scan Types
+
 
 ### 1. TCP Connect Scan (-sT)
 ```bash
