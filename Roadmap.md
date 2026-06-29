@@ -2,8 +2,6 @@
 
 > **Core Philosophy:** AI security is not a separate field — it is an expansion of existing engineering and security domains. Master the foundations first, then layer AI capabilities on top.
 
-> **Changelog Summary:** Part 1 slimmed (advanced wireless/IoT/mobile moved to Phase 5). Dedicated Linux/Windows admin modules added (Parts 1B, 1C). Lab Progression tables in 15+ Parts. GRC Sidebar after Part 15. Internal naming standardized (Stage/Level vs Phase). CCNA sections marked optional. Missing topics added: SOAR, DLP, Vulnerability Management, Insider Threat, macOS awareness, DNS Security, IAM/PAM, Memory/Cloud/Mobile Forensics. Part 27 expanded to 7 stages. Part 13 split into Part 13A (Detection Engineering) and Part 13B (Security Operations). Cross-references and forward references throughout. Move-On Gates standardized. Certification Alignment Map added to Career Foundation. Lab Progression tables added to Parts 26 (OT/ICS), 30 (Hardware), 32 (Physical), 33 (VoIP), 34 (Blockchain). Total Lab Progressions: 35. Total Move-On Gates: 34.
-
 ---
 
 ## 🗺️ Phase-Based Learning Path
