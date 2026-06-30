@@ -28,6 +28,7 @@
 
 ---
 
+### 🗂️ Table of Contents
 - [Part 23: Active Directory & Entra ID](#part-23-active-directory-entra-id)
   - [Stage 1: Discovery & Enumeration](#stage-1-discovery-enumeration)
   - [Stage 2: Credential & Auth Attacks](#stage-2-credential-auth-attacks)
@@ -436,6 +437,7 @@
 
 ---
 
+<a id="part-16-adversary-emulation-purple-teaming"></a>
 ## Part 16: Adversary Emulation & Purple Teaming _(Phase 6 Capstone)_
 
 > [!WARNING]

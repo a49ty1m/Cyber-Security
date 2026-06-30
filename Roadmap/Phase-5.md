@@ -203,6 +203,8 @@
 
 - [ ] **Physical Security:** Secure AP placement to prevent **physical tampering, rogue AP installation**; use **tamper-evident seals**.
 
+---
+
 <a id="toc-part-22-mobile-platform-pentesting"></a>
 ## Part 22: Mobile Platform Pentesting
 
