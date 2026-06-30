@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 1–2 months
-> - **⏱️ Time Commitment (Part-Time):** 2–4 months
+> - **⏱️ Time Commitment (Full-Time):** 2–3 months
+> - **⏱️ Time Commitment (Part-Time):** 3–5 months
 > - **🎯 Primary Focus:** GRC frameworks (NIST, ISO 27001, PCI-DSS, DPDP Act), supply chain security (SBOM, SLSA, dependency confusion), DevSecOps integration (SAST/DAST/SCA, secrets scanning, IaC security), and security architecture & engineering (Zero Trust, defense-in-depth design, segmentation, reference architectures).
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 8 Documentation Requirements
+> Governance and architecture work must produce enterprise-grade documentation. Required artifacts:
+> - **Architecture diagrams** (Lucidchart/draw.io) — Zero Trust reference architectures, network segmentation designs
+> - **NIST CSF mapping spreadsheet** — control-by-control assessment of your lab environment
+> - **CI/CD pipeline configs** — SAST/DAST/SCA integration configs committed to Git
+> - **Compliance gap analysis** — documented gaps and remediation plans
+> - **Git commits** — all diagrams, configs, and analysis committed
+>
+> _By the end of Phase 8, you should have architecture documentation and compliance artifacts in your portfolio._
 
 ---
 
@@ -375,6 +388,40 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can design a secure network architecture from scratch, apply Zero Trust principles, create data classification and encryption strategies, and develop DR/BCP plans with realistic RPO/RTO targets.
+
+---
+
+### 🏆 Phase 8 Capstone Project
+
+**Design a Zero Trust Architecture and Create a Compliance Mapping**
+
+- [ ] **Design a Zero Trust architecture** for a fictional mid-size enterprise (500 employees, hybrid cloud, remote workforce)
+- [ ] **Create a NIST CSF compliance matrix** mapping controls to the architecture
+- [ ] **Design the detection stack** — SIEM + EDR + NDR + SOAR integration with data flow diagram
+- [ ] **Write a DR/BCP plan** covering critical system recovery
+
+**Deliverables:**
+- [ ] Zero Trust architecture document with network diagrams and data flow diagrams
+- [ ] NIST CSF compliance matrix (spreadsheet or markdown table)
+- [ ] Detection stack architecture document showing tool integration
+- [ ] DR/BCP plan with RTOs and RPOs
+- [ ] All documentation committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your architecture must be defensible in a design review. Each decision must have a documented rationale.
+
+---
+
+### 🧭 Phase 8 Reflection & Competency Check
+
+- [ ] **Reflection:** Which design decision involved the hardest tradeoff between security, usability, cost, and operations?
+- [ ] **Reflection:** Which compliance requirement changed the technical architecture most?
+- [ ] **Competency:** Can you defend your architecture using threats, controls, and business constraints?
+- [ ] **Competency:** Can you map controls to a framework without turning the exercise into checkbox compliance?
+- [ ] **Competency:** Can you explain CI/CD, supply chain, monitoring, and recovery controls as one coherent system?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when your architecture decisions are documented, reviewable, mapped to risk, and practical to operate.
 
 ---
 

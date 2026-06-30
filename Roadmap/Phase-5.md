@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 1–2 months
-> - **⏱️ Time Commitment (Part-Time):** 2–4 months
+> - **⏱️ Time Commitment (Full-Time):** 2–3 months
+> - **⏱️ Time Commitment (Part-Time):** 3–5 months
 > - **🎯 Primary Focus:** WiFi pentesting (WPA3, evil twin, PMKID), Bluetooth/BLE/Zigbee/NFC/RFID/GPS attacks, SDR spectrum analysis, and Android/iOS dynamic+static analysis.
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 5 Documentation Requirements
+> Every wireless and mobile assessment must produce professional artifacts. Required artifacts:
+> - **Wireless capture files** (.cap/.pcapng) with annotated analysis
+> - **Mobile assessment screenshots** — MobSF reports, Frida hook outputs, intercepted traffic
+> - **Frida/Objection scripts** — custom hooks committed to your Git repository
+> - **Assessment reports** — structured wireless audit and mobile app assessment documents
+> - **Git commits** — all capture files, scripts, and reports committed
+>
+> _By the end of Phase 5, you should have wireless and mobile assessment templates ready for professional use._
 
 ---
 
@@ -190,8 +203,6 @@
 
 - [ ] **Physical Security:** Secure AP placement to prevent **physical tampering, rogue AP installation**; use **tamper-evident seals**.
 
----
-
 <a id="toc-part-22-mobile-platform-pentesting"></a>
 ## Part 22: Mobile Platform Pentesting
 
@@ -335,5 +346,36 @@
 
 > [!IMPORTANT]
 > **Move-On Gate (Part 22):** Complete a full mobile app assessment (static + dynamic + network + storage) and produce a professional report following OWASP MSTG methodology.
+
+---
+
+### 🏆 Phase 5 Capstone Project
+
+**Conduct a Wireless Security Audit and Mobile App Assessment**
+
+- [ ] **Wireless audit:** Assess your own lab AP — capture handshakes, test evil twin, evaluate encryption settings
+- [ ] **Mobile assessment:** Perform static + dynamic + network analysis on a vulnerable app (DIVA or InsecureBankv2)
+- [ ] **Document both assessments** as professional reports
+
+**Deliverables:**
+- [ ] Wireless security audit report (methodology, findings, risk ratings, remediation)
+- [ ] Mobile application security assessment report following OWASP MSTG
+- [ ] All capture files, scripts, and evidence committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Both reports must follow professional assessment methodologies and contain reproducible findings with evidence.
+
+---
+
+### 🧭 Phase 5 Reflection & Competency Check
+
+- [ ] **Reflection:** Which constraints made wireless or mobile testing harder: hardware, tooling, OS versions, or evidence capture?
+- [ ] **Reflection:** What did your reports communicate well, and what would a client still ask you to clarify?
+- [ ] **Competency:** Can you safely capture, analyze, and explain wireless evidence from your own lab?
+- [ ] **Competency:** Can you perform static, dynamic, network, and local-storage analysis on a test mobile app?
+- [ ] **Competency:** Can you separate exploitable findings from platform behavior and false positives?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when your wireless and mobile reports contain reproducible evidence, clear risk ratings, and practical remediation guidance.
 
 ---

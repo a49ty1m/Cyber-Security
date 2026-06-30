@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 4–6 months
+> - **⏱️ Time Commitment (Full-Time):** 3–4 months
+> - **⏱️ Time Commitment (Part-Time):** 4–7 months
 > - **🎯 Primary Focus:** Detection engineering, SOC & SIEM fundamentals, IDS/IPS/honeypots, threat hunting, incident response basics, forensic fundamentals, and OSINT & threat intelligence. Understand what defenders see before you specialize further.
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 3 Documentation Requirements
+> Every detection and investigation you perform must be documented. Required artifacts:
+> - **Detection rule documentation** — Sigma rules, YARA signatures, and Suricata rules with rationale
+> - **PCAP analysis notes** — annotated packet captures explaining what you found and why it matters
+> - **SIEM dashboard screenshots** — saved views showing alert correlation and investigation workflows
+> - **IR timeline documentation** — structured incident timelines (who, what, when, where, how)
+> - **Git commits** — all rules, queries, and analysis notes committed to your repository
+>
+> _By the end of Phase 3, you should have a detection rule library and investigation playbook in your repository._
 
 ---
 
@@ -539,4 +552,35 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
-<a id="toc-part-16-adversary-emulation--purple-teaming"></a>
+### 🏆 Phase 3 Capstone Project
+
+**Deploy a SIEM, Investigate Simulated Attacks, and Build a Detection Library**
+
+- [ ] **Deploy a SIEM** (Splunk Free, ELK, or Wazuh) in your lab and ingest logs from your Phase 1 lab environment
+- [ ] **Write 5 custom detection rules** (Sigma format) covering different MITRE ATT&CK tactics
+- [ ] **Simulate 3 attacks** using Atomic Red Team and investigate each using only your SIEM
+- [ ] **Build an investigation timeline** for each simulated incident
+
+**Deliverables:**
+- [ ] Detection coverage matrix mapping your 5 rules to MITRE ATT&CK techniques
+- [ ] 3 investigation reports (timeline, evidence, root cause, recommendations)
+- [ ] SIEM configuration guide (reproducible deployment steps)
+- [ ] All Sigma rules and queries committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your SIEM must be operational, your detection rules must fire on the simulated attacks, and your investigation reports must follow a structured IR format.
+
+---
+
+### 🧭 Phase 3 Reflection & Competency Check
+
+- [ ] **Reflection:** Which detections were noisy, missing, or too fragile?
+- [ ] **Reflection:** What evidence changed your initial incident hypothesis?
+- [ ] **Competency:** Can you ingest logs, write rules, test them, and tune false positives?
+- [ ] **Competency:** Can you build an incident timeline from multiple data sources?
+- [ ] **Competency:** Can you explain detection gaps in terms of telemetry, logic, and attacker behavior?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when you can investigate simulated attacks from evidence, improve detections, and write analyst notes that another defender can act on.
+
+---

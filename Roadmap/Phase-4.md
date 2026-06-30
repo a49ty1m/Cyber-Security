@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 4–6 months
+> - **⏱️ Time Commitment (Full-Time):** 3–4 months
+> - **⏱️ Time Commitment (Part-Time):** 4–7 months
 > - **🎯 Primary Focus:** Web application hacking, web server exploitation, API security (OWASP API Top 10), and professional bug bounty methodology.
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 4 Documentation Requirements
+> Every vulnerability you discover must be documented to professional reporting standards. Required artifacts:
+> - **Bug reports** in standard format (title, severity, description, steps to reproduce, impact, remediation)
+> - **Burp request/response pairs** — saved HTTP interactions proving each vulnerability
+> - **PortSwigger lab solutions** — writeups for each completed lab explaining the vulnerability class
+> - **PoC screenshots and videos** — visual evidence for every finding
+> - **Git commits** — all reports and evidence committed to your repository
+>
+> _By the end of Phase 4, you should have a library of vulnerability reports ready for your portfolio._
 
 ---
 
@@ -421,6 +434,39 @@
 - [ ] **Community Engagement:** Participate in **CTFs, conferences, Twitter/Discord security communities** for networking.
 
 - [ ] **Continuous Learning:** Stay updated on **latest vulnerabilities, techniques, tools** through blogs, research papers, trainings.
+
+---
+
+### 🏆 Phase 4 Capstone Project
+
+**Find and Document 5 Web Vulnerabilities Across Multiple Targets**
+
+- [ ] **Identify 5 distinct vulnerability types** across 2+ targets (PortSwigger labs, DVWA, Juice Shop, or bug bounty programs)
+- [ ] **Write a professional report** for each finding with CVSS scoring
+- [ ] **Create PoC demonstrations** (non-destructive) for each vulnerability
+- [ ] **Propose remediation** for each finding with code-level fixes where applicable
+
+**Deliverables:**
+- [ ] 5 vulnerability reports following responsible disclosure format
+- [ ] PoC evidence (Burp exports, screenshots, curl commands)
+- [ ] Remediation guide with before/after code examples
+- [ ] All reports committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your 5 reports must each contain reproducible steps, accurate CVSS scores, and actionable remediation guidance.
+
+---
+
+### 🧭 Phase 4 Reflection & Competency Check
+
+- [ ] **Reflection:** Which vulnerability class was easiest to find but hardest to explain clearly?
+- [ ] **Reflection:** Where did your first proof of concept need restraint to stay non-destructive?
+- [ ] **Competency:** Can you map web and API findings to root cause, impact, and remediation?
+- [ ] **Competency:** Can you reproduce each finding from a clean browser/session using only your report?
+- [ ] **Competency:** Can you write reports that developers can fix without asking for missing steps?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when your web findings are reproducible, responsibly scoped, accurately scored, and paired with concrete fixes.
 
 ---
 

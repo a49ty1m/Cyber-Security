@@ -9,9 +9,35 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–4 months
-> - **⏱️ Time Commitment (Part-Time):** 6–8 months
+> - **⏱️ Time Commitment (Full-Time):** 4–6 months
+> - **⏱️ Time Commitment (Part-Time):** 6–10 months
 > - **🎯 Primary Focus:** Master the TCP/IP stack, OSI model, DNS, HTTP/HTTPS, Linux CLI and administration, Windows administration and Event Viewer, Bash/PowerShell, Python/JavaScript, virtualization, cloud basics (AWS/Azure), Docker/Kubernetes, authentication, sessions, cookies, JSON APIs, CORS, and the cryptographic primitives underpinning all of security.
+---
+
+> [!NOTE]
+> ### 📝 Phase 1 Documentation Requirements
+> Every topic you complete in this phase must be documented and committed to your private Git repository. Required artifacts:
+> - **Markdown lab notes** for every lab completed (structured: objective → steps → output → lessons learned)
+> - **Network diagrams** (draw.io/Excalidraw) of your home lab topology
+> - **Screenshots** of completed labs, tool output, and configuration changes
+> - **Shell command logs** — save terminal history for key sessions
+> - **Git commits** — commit after every lab session with descriptive messages
+>
+> _This documentation becomes the foundation of your Phase 10 portfolio. Start building it now, not later._
+
+---
+
+> [!IMPORTANT]
+> ### 🧱 Phase 1 Pacing Checkpoints
+> Phase 1 is intentionally broad. Treat it as six smaller milestones instead of one giant block:
+> 1. **Lab setup complete:** Hypervisor installed, baseline VMs created, Git documentation repository active.
+> 2. **Computer fundamentals complete:** Hardware, OS internals, memory, data representation, and basic scripting understood.
+> 3. **Linux administration complete:** Users, permissions, services, networking, logs, storage, and hardening practiced.
+> 4. **Windows administration complete:** Users, NTFS permissions, Event Viewer, PowerShell, registry, and AD basics practiced.
+> 5. **Networking complete:** OSI/TCP-IP, subnetting, routing, DNS, DHCP, HTTP/S, packet capture, and troubleshooting demonstrated.
+> 6. **Cryptography complete:** Hashing, symmetric/asymmetric crypto, TLS, PKI, certificates, password storage, and common failure modes demonstrated.
+>
+> Do not wait for the final capstone to feel progress. Commit evidence at each checkpoint.
 
 ---
 
@@ -1703,6 +1729,41 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Post-Quantum Awareness:** Document NIST PQC primitives such as ML-KEM and ML-DSA, hybrid deployment, and crypto-agility migration risk.
 > [!IMPORTANT]
 > **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke.
+
+---
+
+### 🏆 Phase 1 Capstone Project
+
+**Build a Small Enterprise Lab and Document the Full Architecture**
+
+Using your virtualization platform, build a lab environment containing:
+- [ ] **1 Windows Server** (Domain Controller with Active Directory)
+- [ ] **1 Linux Server** (web server or DNS server)
+- [ ] **1 Windows Workstation** (domain-joined)
+- [ ] **1 Kali Linux** attack machine
+- [ ] **1 pfSense/OPNsense firewall** segmenting the network
+
+**Deliverables:**
+- [ ] Network topology diagram (draw.io/Excalidraw) showing all VMs, IPs, subnets, and firewall rules
+- [ ] Build guide documenting every installation and configuration step (reproducible by someone else)
+- [ ] Security baseline report: what services are running, what ports are open, what logging is enabled
+- [ ] All documentation committed to your private Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your lab must be fully operational, documented, and reproducible. A peer should be able to rebuild it from your guide alone.
+
+---
+
+### 🧭 Phase 1 Reflection & Competency Check
+
+- [ ] **Reflection:** What foundational concept felt weakest: OS internals, Linux, Windows, networking, programming, or cryptography?
+- [ ] **Reflection:** Which lab failure taught you the most, and how did you debug it?
+- [ ] **Competency:** Can you rebuild the lab from documentation without relying on memory?
+- [ ] **Competency:** Can you explain the network path, authentication flow, and logging sources in your lab?
+- [ ] **Competency:** Can you troubleshoot a broken service using logs, packet captures, and command-line tools?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move to Phase 2 only when you can operate your lab independently, explain each major component, and produce professional notes for every configuration decision.
 
 ---
 

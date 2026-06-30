@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 4–6 months
+> - **⏱️ Time Commitment (Full-Time):** 5–7 months
 > - **⏱️ Time Commitment (Part-Time):** 8–12 months
-> - **🎯 Primary Focus:** Footprinting, scanning, enumeration, system hacking, malware design, sniffing/spoofing, social engineering, denial-of-service, session hijacking, and password cracking. The complete offensive lifecycle from recon to impact.
+> - **🎯 Primary Focus:** The complete offensive lifecycle from recon to impact. Split into two sub-phases: **Phase 2A** (Offensive Fundamentals — recon, scanning, enumeration, credential attacks, system hacking) and **Phase 2B** (Advanced Offensive Operations — malware, sniffing/spoofing, social engineering, denial-of-service, session hijacking).
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 2 Documentation Requirements
+> Every attack you execute must be documented. Required artifacts:
+> - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
+> - **Tool output** — Nmap scans, Burp captures, Metasploit session logs saved to files
+> - **Attack chain diagrams** showing the kill chain for each compromise
+> - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
+> - **Git commits** — commit after every lab session with descriptive messages
+>
+> _By the end of Phase 2, you should have 10+ documented attack chains in your repository._
 
 ---
 
@@ -41,6 +54,11 @@
   - [Stage 4: Database & Application Enumeration](#stage-4-database-application-enumeration)
   - [Stage 5: Attack Surface Consolidation & Enumeration OpSec](#stage-5-attack-surface-consolidation-enumeration-opsec)
   - [Lab Progression](#lab-progression)
+- [Part 31: Password Cracking & Hash Analysis](#part-31-password-cracking-hash-analysis)
+  - [Stage 1: Hash Identification & Acquisition](#stage-1-hash-identification-acquisition)
+  - [Stage 2: Cracking Methodology & Tools](#stage-2-cracking-methodology-tools)
+  - [Stage 3: Protocol-Specific Cracking](#stage-3-protocol-specific-cracking)
+  - [Stage 4: Wordlist & Intelligence Curation](#stage-4-wordlist-intelligence-curation)
 - [Part 7: System Hacking & Initial Compromise](#part-7-system-hacking-initial-compromise)
   - [Stage 1: The Breach (Initial Access & Exploitation)](#stage-1-the-breach-initial-access-exploitation)
   - [Stage 2: The Ascension (Privilege Escalation)](#stage-2-the-ascension-privilege-escalation)
@@ -82,11 +100,12 @@
   - [Stage 3: Execution & Impersonation](#stage-3-execution-impersonation)
   - [Stage 4: Defense & Mitigation (The Shield)](#stage-4-defense-mitigation-the-shield)
   - [Lab Progression](#lab-progression)
-- [Part 31: Password Cracking & Hash Analysis](#part-31-password-cracking-hash-analysis)
-  - [Stage 1: Hash Identification & Acquisition](#stage-1-hash-identification-acquisition)
-  - [Stage 2: Cracking Methodology & Tools](#stage-2-cracking-methodology-tools)
-  - [Stage 3: Protocol-Specific Cracking](#stage-3-protocol-specific-cracking)
-  - [Stage 4: Wordlist & Intelligence Curation](#stage-4-wordlist-intelligence-curation)
+
+---
+
+## 🔹 Phase 2A: Offensive Fundamentals
+
+> _Parts 4–7 + 31 — Learn to find, probe, crack, and compromise targets. This is the core recon-to-shell pipeline._
 
 ---
 
@@ -483,6 +502,76 @@
 
 ---
 
+## Part 31: Password Cracking & Hash Analysis
+
+### **Stage 1: Hash Identification & Acquisition**
+
+> [!TIP]
+> **Goal:** Identify what you have before cracking.
+
+- [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
+
+- [ ] **Hash Acquisition:** Obtain hashes from **SAM/NTDS.dit (Windows), /etc/shadow (Linux), database dumps, LSASS memory, pcap files, web app source**.
+
+- [ ] **Common Hash Types:** Master identifying and handling **NTLM, NTLMv1/v2, NetNTLM, MD5, SHA-1, SHA-256, bcrypt, Argon2, PBKDF2, WPA2-PMKID, Kerberos (5/17/18/23)**.
+
+---
+
+### **Stage 2: Cracking Methodology & Tools**
+
+> [!TIP]
+> **Goal:** Apply the right technique to each hash type.
+
+- [ ] **Hashcat Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
+
+- [ ] **John the Ripper:** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
+
+- [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
+
+- [ ] **Rule-Based Attacks:** Apply **Hashcat rules (best64.rule, OneRuleToRuleThemAll, d3ad0ne)** to mangle wordlists — capitalize, add numbers, leet-speak substitutions — to crack complex passwords efficiently.
+
+- [ ] **Mask Attacks:** Use **Hashcat mask syntax** (`?u?l?l?l?l?d?d?s`) to brute-force **known password patterns** (e.g., company naming conventions, seasonal passwords like `Summer2024!`).
+
+- [ ] **Hybrid Attacks:** Combine **wordlist + mask** (`-a 6` / `-a 7`) to crack passwords like `rockyou_words + 2024!` or `!2024 + rockyou_words`.
+
+- [ ] **Rainbow Tables:** Understand **precomputed hash-to-plaintext lookup tables** and why **salting defeats them**; use **RainbowCrack** for legacy unsalted MD5/SHA1.
+
+---
+
+### **Stage 3: Protocol-Specific Cracking**
+
+> [!TIP]
+> **Goal:** Crack hashes captured from real network protocols.
+
+- [ ] **NTLM / NetNTLMv2:** Capture with **Responder, ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
+
+- [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
+
+- [ ] **WPA2 Handshakes:** Crack **4-way handshake (-m 22000)** and **PMKID (-m 22001)** from wireless captures with GPU-accelerated hashcat.
+
+- [ ] **SSH Private Keys:** Use **ssh2john** to extract crackable hash from passphrase-protected keys; crack with JtR.
+
+- [ ] **Office / PDF / ZIP:** Extract hashes with **office2john, pdf2john, zip2john**; crack with JtR or hashcat for document password recovery.
+
+---
+
+### **Stage 4: Wordlist & Intelligence Curation**
+
+> [!TIP]
+> **Goal:** Build targeted wordlists that outperform generic lists.
+
+- [ ] **OSINT-Driven Wordlists:** Use **CeWL** to spider target websites and extract **company-specific vocabulary** for highly targeted password lists.
+
+- [ ] **Custom Rule Writing:** Write **Hashcat/JtR rules** encoding target's known password policy — minimum length, required chars, common suffix patterns.
+
+- [ ] **Credential Stuffing Lists:** Use **breach corpora (Collection #1, Dehashed)** to build target-specific lists from previously leaked passwords for the same user base.
+
+- [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
+
+> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[Part 23: Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)** (Kerberoasting, AS-REP Roasting), **[Part 21: Wireless Pentesting](Phase-5.md#part-21-wireless-pentesting)** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
+
+---
+
 <a id="toc-part-7-system-hacking--initial-compromise"></a>
 ## Part 7: System Hacking & Initial Compromise
 
@@ -789,6 +878,15 @@
 > **Move-On Gate:** Submit 3 full lab attack reports using the Part 39 structure.
 
 <a id="toc-part-8-malware--weaponization"></a>
+
+---
+
+## 🔹 Phase 2B: Advanced Offensive Operations
+
+> _Parts 8–12 — Master weaponization, deception, disruption, and session manipulation. These build on the access gained in Phase 2A._
+
+---
+
 ## Part 8: Malware & Weaponization
 
 > **Safety Gate:** Malware work is restricted to isolated local labs with snapshots, host-only networking, no shared clipboard, no mounted host folders, and no third-party targets. Before running any sample or payload, define expected behavior, logging sources, rollback steps, and containment checks.
@@ -1279,75 +1377,39 @@
 ---
 
 
+---
 
+### 🏆 Phase 2 Capstone Project
 
-## Part 31: Password Cracking & Hash Analysis
+**Complete a Full Penetration Test on a Deliberately Vulnerable Lab**
 
-### **Stage 1: Hash Identification & Acquisition**
+Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or your own Phase 1 lab):
+- [ ] **Perform full recon** (passive + active footprinting, scanning, enumeration)
+- [ ] **Achieve initial access** on at least 2 machines using different vectors
+- [ ] **Escalate privileges** to root/SYSTEM on each machine
+- [ ] **Demonstrate lateral movement** between at least 2 systems
+- [ ] **Document the full kill chain** from recon to impact
 
-> [!TIP]
-> **Goal:** Identify what you have before cracking.
+**Deliverables:**
+- [ ] Professional penetration test report using PTES template (executive summary, methodology, findings, remediation)
+- [ ] Attack chain diagram showing the complete path from initial access to domain compromise
+- [ ] All evidence (screenshots, tool output, scripts) organized in your Git repository
 
-- [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
-
-- [ ] **Hash Acquisition:** Obtain hashes from **SAM/NTDS.dit (Windows), /etc/shadow (Linux), database dumps, LSASS memory, pcap files, web app source**.
-
-- [ ] **Common Hash Types:** Master identifying and handling **NTLM, NTLMv1/v2, NetNTLM, MD5, SHA-1, SHA-256, bcrypt, Argon2, PBKDF2, WPA2-PMKID, Kerberos (5/17/18/23)**.
+> [!IMPORTANT]
+> **Capstone Gate:** Your report must be structured professionally enough to present to a client. A reader should understand every step without needing to ask questions.
 
 ---
 
-### **Stage 2: Cracking Methodology & Tools**
+### 🧭 Phase 2 Reflection & Competency Check
 
-> [!TIP]
-> **Goal:** Apply the right technique to each hash type.
+- [ ] **Reflection:** Which stage of the attack chain required the most iteration: recon, enumeration, exploitation, privilege escalation, or lateral movement?
+- [ ] **Reflection:** What would a defender have seen at each major step?
+- [ ] **Competency:** Can you perform recon and enumeration without jumping prematurely to exploitation?
+- [ ] **Competency:** Can you prove every finding with evidence and explain business impact without exaggeration?
+- [ ] **Competency:** Can you produce a complete attack chain diagram and client-ready report from raw notes?
 
-- [ ] **Hashcat Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
-
-- [ ] **John the Ripper:** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
-
-- [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
-
-- [ ] **Rule-Based Attacks:** Apply **Hashcat rules (best64.rule, OneRuleToRuleThemAll, d3ad0ne)** to mangle wordlists — capitalize, add numbers, leet-speak substitutions — to crack complex passwords efficiently.
-
-- [ ] **Mask Attacks:** Use **Hashcat mask syntax** (`?u?l?l?l?l?d?d?s`) to brute-force **known password patterns** (e.g., company naming conventions, seasonal passwords like `Summer2024!`).
-
-- [ ] **Hybrid Attacks:** Combine **wordlist + mask** (`-a 6` / `-a 7`) to crack passwords like `rockyou_words + 2024!` or `!2024 + rockyou_words`.
-
-- [ ] **Rainbow Tables:** Understand **precomputed hash-to-plaintext lookup tables** and why **salting defeats them**; use **RainbowCrack** for legacy unsalted MD5/SHA1.
-
----
-
-### **Stage 3: Protocol-Specific Cracking**
-
-> [!TIP]
-> **Goal:** Crack hashes captured from real network protocols.
-
-- [ ] **NTLM / NetNTLMv2:** Capture with **Responder, ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
-
-- [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
-
-- [ ] **WPA2 Handshakes:** Crack **4-way handshake (-m 22000)** and **PMKID (-m 22001)** from wireless captures with GPU-accelerated hashcat.
-
-- [ ] **SSH Private Keys:** Use **ssh2john** to extract crackable hash from passphrase-protected keys; crack with JtR.
-
-- [ ] **Office / PDF / ZIP:** Extract hashes with **office2john, pdf2john, zip2john**; crack with JtR or hashcat for document password recovery.
-
----
-
-### **Stage 4: Wordlist & Intelligence Curation**
-
-> [!TIP]
-> **Goal:** Build targeted wordlists that outperform generic lists.
-
-- [ ] **OSINT-Driven Wordlists:** Use **CeWL** to spider target websites and extract **company-specific vocabulary** for highly targeted password lists.
-
-- [ ] **Custom Rule Writing:** Write **Hashcat/JtR rules** encoding target's known password policy — minimum length, required chars, common suffix patterns.
-
-- [ ] **Credential Stuffing Lists:** Use **breach corpora (Collection #1, Dehashed)** to build target-specific lists from previously leaked passwords for the same user base.
-
-- [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
-
-> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[Part 23: Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)** (Kerberoasting, AS-REP Roasting), **[Part 21: Wireless Pentesting](Phase-5.md#part-21-wireless-pentesting)** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when you can complete an authorized lab penetration test end-to-end, document it professionally, and explain both attacker actions and defender visibility.
 
 ---
 

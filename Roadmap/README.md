@@ -13,17 +13,20 @@
 
 | Phase | Module / Link                              | Core Topics & Focus                                                | Est. Pacing (FT / PT) |
 | :---: | :----------------------------------------- | :----------------------------------------------------------------- | :-------------------: |
-|  🏗️  | **[Phase 1: Foundation](Phase-1.md)**      | Hardware, OS, Linux & Windows Admin, Networking, Cryptography      |      3–4m / 6–8m      |
-|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**    | Recon, Scanning, Initial Access, Malware, Social Eng., Cracking    |     4–6m / 8–12m      |
-|  🛡️  | **[Phase 3: Defense Core](Phase-3.md)**    | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT               |      2–3m / 4–6m      |
-|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**   | Web Hacking, API Security, Bug Bounty Methodology                  |      2–3m / 4–6m      |
-|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)** | RF, WiFi, Bluetooth/BLE, NFC/RFID, Android/iOS pentesting          |      1–2m / 2–4m      |
-|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**  | AD & Entra ID, Cloud Sec (AWS/Azure), Kubernetes, ICS/SCADA        |      3–4m / 6–8m      |
-|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**    | DFIR, Malware RE, Exploit Dev (Heap/Kernel), Offensive Dev         |     3–5m / 6–10m      |
-|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)** | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture    |      1–2m / 2–4m      |
-|  🧠   | **[Phase 9: AI Security](Phase-9.md)**     | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits |      2–3m / 4–6m      |
-|  🎯   | **[Phase 10: Career Ops](Phase-10.md)**    | Pentest Methodologies, Red Team Operations, Portfolios             |      1–2m / 2–4m      |
-|  📊   | **Total Roadmap**                          | **26–40 Months (Full-Time) / 52–80 Months (Part-Time)**            |    **~2–3.5 Years**   |
+|  🏗️  | **[Phase 1: Foundation](Phase-1.md)**      | Hardware, OS, Linux & Windows Admin, Networking, Cryptography      |     4–6m / 6–10m      |
+|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**    | Recon, Scanning, Initial Access, Malware, Social Eng., Cracking    |     5–7m / 8–12m      |
+|  🛡️  | **[Phase 3: Defense Core](Phase-3.md)**    | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT               |      3–4m / 4–7m      |
+|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**   | Web Hacking, API Security, Bug Bounty Methodology                  |      3–4m / 4–7m      |
+|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)** | RF, WiFi, Bluetooth/BLE, NFC/RFID, Android/iOS pentesting          |      2–3m / 3–5m      |
+|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**  | AD & Entra ID, Cloud Sec (AWS/Azure), Kubernetes, ICS/SCADA        |     4–6m / 6–10m      |
+|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**    | DFIR, Malware RE, Exploit Dev (Heap/Kernel), Offensive Dev         |     4–7m / 8–12m      |
+|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)** | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture    |      2–3m / 3–5m      |
+|  🧠   | **[Phase 9: AI Security](Phase-9.md)**     | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits |      3–4m / 4–7m      |
+|  🎯   | **[Phase 10: Career Ops](Phase-10.md)**    | Pentest Methodologies, Red Team Operations, Portfolios             |      2–3m / 3–5m      |
+|  📊   | **Total Roadmap**                          | **30–48 Months (Full-Time) / 36–60 Months (Part-Time)**            |    **~2.5–5 Years**   |
+
+> [!NOTE]
+> **Timeline Reality Check:** The pacing assumes consistent lab work, documentation, and capstone completion. Optional specializations can add months beyond the core estimate.
 
 ---
 
@@ -43,6 +46,14 @@ You do not need to follow the roadmap in a strict linear fashion if you have a s
 *For engineers securing LLM applications, agentic systems, and cloud-native AI setups.*
 1. **[Phase 1](Phase-1.md)** (Fundamentals) ➔ **[Phase 2](Phase-2.md)** (Offensive Basics) ➔ **[Phase 4](Phase-4.md)** (API Security) ➔ **[Phase 8](Phase-8.md)** (Supply Chain & DevSecOps) ➔ **[Phase 9](Phase-9.md)** (AI & LLM Red Teaming)
 
+### 🧩 Optional Specializations
+These tracks are powerful, but they are not required for the core roadmap. Add them after the relevant prerequisites are complete and only if they support your career direction.
+
+- **Hardware & Embedded Security:** [Part 30](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization)
+- **Physical Penetration Testing:** [Part 32](Phase-7.md#part-32-physical-penetration-testing-optional-specialization)
+- **Telecom Security:** [Part 33](Phase-7.md#part-33-voip-telecommunications-security-optional-specialization)
+- **Blockchain & Web3 Security:** [Part 34](Phase-7.md#part-34-blockchain-web3-security-optional-specialization)
+
 ---
 
 ## 📖 How to Use This Roadmap
@@ -50,7 +61,32 @@ You do not need to follow the roadmap in a strict linear fashion if you have a s
 1. **Clone and Track:** Keep this repository open in a Markdown-compatible workspace (such as [Obsidian](https://obsidian.md/)).
 2. **Interactive Checklists:** Every phase file has interactive checkbox inputs (`- [ ]`). Check them off as you read, practice, and master each topic.
 3. **Do Not Bypass Gates:** Each section has a **Move-On Gate** (highlighted in `[!IMPORTANT]` blocks). Do not proceed to subsequent parts until you can perform the gate tasks confidently without documentation.
-4. **Build a Proof of Work:** As you pass the gates, document your work in a private Git repository to build your portfolio (as outlined in Phase 10).
+4. **Use Reflection Checkpoints:** At the end of each phase, answer the reflection prompts and complete the competency checklist before moving on.
+5. **Build a Proof of Work:** As you pass the gates, document your work in a private Git repository to build your portfolio (as outlined in Phase 10).
+
+---
+
+## 📝 Continuous Documentation Protocol
+
+> [!IMPORTANT]
+> **Portfolio building starts in Phase 1, not Phase 10.**
+
+Every phase in this roadmap includes a **Documentation Requirements** block listing the specific artifacts you must produce and commit. This is not optional — it is what transforms self-study into a professional portfolio.
+
+**Set up from Day 1:**
+1. **Create a private Git repository** (e.g., `cybersecurity-journey`) and commit after every lab session
+2. **Use structured markdown** for all notes (objective → steps → output → lessons learned)
+3. **Save tool output** — Nmap scans, Burp captures, PCAP files, SIEM queries, detection rules
+4. **Create diagrams** for every architecture and attack chain (draw.io, Excalidraw, or Mermaid)
+5. **Screenshot everything** — lab setups, tool output, successful exploitation, before/after hardening
+
+**By Phase 10, your repository should contain:**
+- 50+ structured lab notes across all phases
+- 10+ network/architecture diagrams
+- 5+ detection rules (Sigma/YARA/Suricata)
+- 3+ professional reports (pentest, wireless, mobile, AI)
+- 9 capstone project deliverables
+- A curated selection ready for public portfolio publication
 
 ---
 
@@ -157,11 +193,13 @@ Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional 
 - [ ] [Part 27: Digital Forensics](Phase-7.md#part-27-digital-forensics) — Prep → Analysis → Network → Reporting
 - [ ] [Part 28: Reverse Engineering & Malware Analysis](Phase-7.md#part-28-reverse-engineering-malware-analysis) — Static → Dynamic → Debugging → Anti-RE → Automation
 - [ ] [Part 29: Modern Exploitation](Phase-7.md#part-29-modern-exploitation) — Memory Safety → Sandbox Escape → Mitigation Bypass
+- [ ] [Part 42: Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) — Shellcode, C2 Implants, Process Injection, AMSI/ETW Bypass
+
+**🧩 Optional Specializations:**
 - [ ] [Part 30: Hardware Hacking & Embedded Systems](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization) — Optional specialization: Firmware, JTAG, UART, Side-Channel, IoT
 - [ ] [Part 32: Physical Penetration Testing](Phase-7.md#part-32-physical-penetration-testing-optional-specialization) — Optional specialization: Lock Bypass, HID Attacks, Facility Assessment, Reporting
 - [ ] [Part 33: VoIP & Telecommunications Security](Phase-7.md#part-33-voip-telecommunications-security-optional-specialization) — Optional specialization: SS7, SIP/RTP, VoIP Exploitation, 5G
 - [ ] [Part 34: Blockchain & Web3 Security](Phase-7.md#part-34-blockchain-web3-security-optional-specialization) — Optional specialization: Smart Contracts, DeFi Attacks, Wallet Security
-- [ ] [Part 42: Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) — Shellcode, C2 Implants, Process Injection, AMSI/ETW Bypass
 
 **📋 Phase 8 — Governance, Supply Chain, DevSecOps & Architecture:**
 - [ ] [Part 35: Governance, Risk & Compliance](Phase-8.md#part-35-governance-risk-compliance-grc) — Frameworks, Regulations, Audit, Scope

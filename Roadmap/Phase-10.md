@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 1–2 months
-> - **⏱️ Time Commitment (Part-Time):** 2–4 months
+> - **⏱️ Time Commitment (Full-Time):** 2–3 months
+> - **⏱️ Time Commitment (Part-Time):** 3–5 months
 > - **🎯 Primary Focus:** Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing), red team operations & tradecraft, and building an unfakeable proof-of-work portfolio.
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 10 Documentation Requirements
+> This is the final assembly phase. Required artifacts:
+> - **Professional pentest reports** — 3 reports with multi-audience executive summaries
+> - **Red team operation documentation** — C2 setup, campaign timeline, operator notes
+> - **Portfolio README** — curated GitHub profile with project descriptions and links
+> - **Blog posts** — 5+ published technical writeups
+> - **Git commits** — final portfolio curation and publication
+>
+> _Phase 10 is where all prior documentation is polished, curated, and published._
 
 ---
 
@@ -138,73 +151,50 @@
 
 ---
 
-
 <a id="toc-part-40-red-team-operations--tradecraft"></a>
 ## Part 40: Red Team Operations & Tradecraft
 
-> **Safety Gate:** Red team infrastructure, phishing, payload delivery, credential access, lateral movement, and evasion require explicit written authorization and a defined ROE. In production, undocumented operator action becomes incident noise, client risk, and legal evidence against you.
+> **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator.
 
-### Strategy & Core Operations
+### **Strategy & Core Operations**
 
-**Planning, ROE, and Safety:**
+> [!TIP]
+> **Goal:** Plan and execute adversary-simulation campaigns that test detection and response capabilities, not just technical defenses.
 
-- [ ] Define **objectives, success criteria, scope, and exclusions**; align with **Rules of Engagement** and legal guardrails.
+- [ ] **Red Team vs Pentest vs Vuln Assessment:** Understand the fundamental differences — pentests find vulnerabilities with broad scope; red teams test **specific objectives** (e.g., "can an attacker reach the CEO's inbox?") with stealth as a constraint; vulnerability assessments are breadth-first, red teams are depth-first.
 
-- [ ] Establish **comms plan, abort criteria, and blowout procedures**; document all operator actions for auditability.
+- [ ] **Campaign Planning & Objectives:** Define **clear objectives** aligned with business risk — data exfiltration, domain compromise, physical access to server room, insider threat simulation. Write a **red team campaign plan** with rules of engagement, communication protocols, deconfliction procedures, and abort criteria.
 
-**Infrastructure & C2:**
+- [ ] **C2 Framework Mastery:** Deploy and operate at least 2 C2 frameworks — **Sliver** (open-source, modern), **Mythic** (modular, multi-platform), Cobalt Strike (industry standard, commercial), or **Havoc**. Understand **listener types, payload generation, staging vs stageless, sleep/jitter tuning, and kill dates**.
 
-- [ ] Build **redirectors/frontends** (Nginx/Apache/Cloud/CDN) to shield C2 and rotate domains/certs.
+- [ ] **Infrastructure Setup:** Build **resilient attack infrastructure** — redirectors (Apache mod_rewrite, Nginx reverse proxy, cloud functions), domain categorization for reputation, HTTPS certificates (Let's Encrypt), CDN fronting, and infrastructure teardown procedures. Separate **short-haul (interactive) and long-haul (persistent) C2 channels**.
 
-- [ ] Operate multiple **C2 profiles** (HTTP(S)/DNS/SMB/MTLS) with **jitter, sleep, and OPSEC** tuning.
+- [ ] **Initial Access Tradecraft:** Master **phishing (spearphishing with pretexting, HTML smuggling, macro-free Office exploitation)**, **external service exploitation**, and **supply chain vectors**. Build payloads that survive email gateways, sandboxes, and EDR.
 
-- [ ] Harden **VPS/cloud instances** with minimal services, **egress controls**, and per-op segregation.
+- [ ] **OPSEC Discipline:** Maintain **operational security** throughout campaigns — avoid detection by **blending with normal traffic patterns, using legitimate tools (LOLBins), timestomping, log manipulation, and process injection into trusted processes**. Monitor your own indicators: if a defender could fingerprint your C2 beacon pattern, you've failed.
 
-- [ ] Use modern **modular C2** (Sliver, Havoc, Mythic, Brute Ratel C4) with **sleep obfuscation/call-stack spoofing** where supported.
+- [ ] **Persistence Mechanisms:** Implement **multiple persistence layers** — registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, golden/silver tickets, and **out-of-band persistence** (cloud-based implants, trusted application abuse). Test persistence across reboots and credential rotations.
 
-- [ ] **Cloud-Native C2:** Tunnel through **Microsoft Graph/SharePoint, Slack/Teams webhooks, other trusted APIs** to blend with business traffic.
+- [ ] **Lateral Movement & Pivoting:** Traverse networks using **Pass-the-Hash, Pass-the-Ticket, overpass-the-hash, DCOM, WMI, WinRM, SSH tunneling, SOCKS proxies**. Document every pivot and maintain network maps during operations.
 
-- [ ] **IaC for Red Teams:** Provision disposable infra via **Terraform/Ansible** (C2, redirectors, TLS, DNS, storage) for rapid tear-down/rotation.
+- [ ] **Data Exfiltration:** Practice **covert exfiltration** — DNS tunneling, HTTPS over legitimate SaaS (Slack, Teams, Google Drive), steganography, scheduled low-and-slow transfers. Measure data rates and detection thresholds.
 
-**Initial Access & Payload Delivery:**
+- [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
 
-- [ ] Craft **phishing/pretexting** with **HTML smuggling, ISO/LNK/Shortcut** loaders, and **macro/OneNote** lures.
+- [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
 
-- [ ] Harden payloads with **AMSI evasion, ETW patching, obfuscation**, and staged vs. stageless choices.
+### **Lab Progression**
 
-**Privilege Escalation & Credential Access:**
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in your lab | C2 deployment guide with listener/payload configuration |
+| 2 | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite) | Infrastructure diagram + setup documentation |
+| 3 | Execute a full red team campaign against your AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
 
-- [ ] **Windows:** Exploit **UAC bypass, service misconfigs, token impersonation, vulnerable drivers**, and **LSASS/DPAPI/SAM** extraction.
+> [!IMPORTANT]
+> **Move-On Gate:** You can plan a red team campaign, deploy C2 infrastructure with redirectors, execute a full attack lifecycle with OPSEC discipline, and produce a campaign report that analyzes detection gaps.
 
-- [ ] **Linux:** Abuse **sudo/suid/cap_setuid files, misconfigured services, kernel LPE**, and harvest **ssh keys/agent sockets**.
-
-- [ ] Practice **pass-the-hash, pass-the-ticket, Kerberoasting/AS-REP roast**, and **vault/credential manager** theft.
-
-**Lateral Movement & Persistence:**
-
-- [ ] Move via **SMB/WinRM/WMI/RDP**, **SSH agent hijack**, and **PsExec/Impacket** equivalents.
-
-- [ ] Persist with **services, scheduled tasks, WMI event consumers, startup scripts, cron/systemd timers, SSH authorized_keys**.
-
-**Living Off the Land & Evasion:**
-
-- [ ] Use **LOLBAS/GTFOBins** to blend in; prefer **native binaries** over custom tools.
-
-- [ ] Evade **EDR/IDS** with **sideloading, DLL hijack, LOL drivers, memory-only beacons, timestomping, and log tampering**.
-
-- [ ] Tune noise: minimize **parent/child process anomalies**, limit **PowerShell logs (ScriptBlock/Module)**, and watch **Sysmon** events.
-
-**Logging, Monitoring, and Cleanup:**
-
-- [ ] Track footprints in **Windows Event Logs, Sysmon, ETW, Prefetch, AmCache, SRUM**; on Linux in **auth.log, auditd, bash history, journalctl**.
-
-- [ ] Plan **cleanup and restoration** per ROE; document **IOCs, timelines, and access paths** for reporting.
-
-**Automation & Scripting Discipline:**
-
-- [ ] Maintain fluency in **Bash, PowerShell, Python**; script **collection, parsing, and lateral movement** tasks.
-
-- [ ] Template **checklists/playbooks** for repeatable ops; version control tooling and payloads.
+---
 
 <a id="toc-part-41-proof-of-work--career-portfolio"></a>
 ## Part 41: Proof of Work & Career Portfolio
@@ -360,5 +350,40 @@
 
 > [!IMPORTANT]
 > **Move-On Gate (Part 41):** Produce one pentest report with three executive summaries (CISO, engineering lead, compliance officer) for the same set of findings, and have a live portfolio with working tools, published writeups, and at least one industry-recognized certification.
+
+---
+
+### 🏆 Phase 10 Capstone Project
+
+**Compile Your Complete Portfolio and Present Your Professional Identity**
+
+- [ ] **Curate your GitHub portfolio** — 2–5 security tools/projects with professional READMEs, architecture diagrams, and demo recordings
+- [ ] **Publish 5+ technical blog posts** — each linked to a project or lab from a previous phase
+- [ ] **Select 3 capstone highlights** from Phases 1–9 as your strongest portfolio pieces
+- [ ] **Build a unified professional presence** — GitHub + blog + LinkedIn + bug bounty profiles tell one coherent story
+- [ ] **Write 3 executive summaries** for your best pentest report (CISO, engineering lead, compliance officer versions)
+
+**Deliverables:**
+- [ ] Live GitHub portfolio with pinned projects
+- [ ] Published blog/Medium with 5+ posts
+- [ ] Professional resume quantifying impact
+- [ ] 3 capstone pieces polished to presentation quality
+- [ ] All documentation committed and organized in your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** A hiring manager should be able to review your GitHub, blog, and resume and understand your capabilities without a single conversation. Your portfolio must tell a coherent story of progressive skill development.
+
+---
+
+### 🧭 Phase 10 Reflection & Competency Check
+
+- [ ] **Reflection:** What story does your portfolio tell about your strongest security direction?
+- [ ] **Reflection:** Which older artifacts should remain private, be rewritten, or be removed because they no longer represent your current standard?
+- [ ] **Competency:** Can a reviewer understand your skills from your public work without extra explanation?
+- [ ] **Competency:** Can you present the same technical project to a recruiter, engineer, manager, and security lead?
+- [ ] **Competency:** Can you maintain a realistic learning plan for the next 6 months after completing the roadmap?
+
+> [!IMPORTANT]
+> **Roadmap Completion Gate:** You are done when your portfolio is coherent, current, ethically publishable, and aligned with the roles you are applying for.
 
 ---

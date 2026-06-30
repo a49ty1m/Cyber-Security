@@ -9,19 +9,25 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–4 months
-> - **⏱️ Time Commitment (Part-Time):** 6–8 months
+> - **⏱️ Time Commitment (Full-Time):** 4–6 months
+> - **⏱️ Time Commitment (Part-Time):** 6–10 months
 > - **🎯 Primary Focus:** Active Directory & Entra ID (on-prem + hybrid cloud identity), cloud computing attacks (AWS/Azure/GCP), container & Kubernetes security, OT/ICS/SCADA industrial systems, and adversary emulation & purple teaming.
 
 ---
 
-### 🗂️ Table of Contents
-- [Part 16: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming)
-  - [Stage 1: MITRE ATT&CK Framework Mastery](#stage-1-mitre-attck-framework-mastery)
-  - [Stage 2: APT & Threat Actor Emulation](#stage-2-apt-threat-actor-emulation)
-  - [Stage 3: Purple Team Exercises](#stage-3-purple-team-exercises)
-  - [Stage 4: Metrics & Reporting](#stage-4-metrics-reporting)
-  - [Lab Progression](#lab-progression)
+> [!NOTE]
+> ### 📝 Phase 6 Documentation Requirements
+> Enterprise infrastructure work must be thoroughly documented. Required artifacts:
+> - **BloodHound exports** — attack path graphs with annotated findings
+> - **Cloud attack evidence** — CloudTrail logs, IAM policy analysis, exploitation screenshots
+> - **Terraform/CloudFormation configs** — infrastructure-as-code for lab environments committed to Git
+> - **Purple team ATT&CK heatmap** — technique coverage matrix showing detection gaps
+> - **Git commits** — all configs, exports, and reports committed
+>
+> _By the end of Phase 6, you should have enterprise attack documentation rivaling junior consultant deliverables._
+
+---
+
 - [Part 23: Active Directory & Entra ID](#part-23-active-directory-entra-id)
   - [Stage 1: Discovery & Enumeration](#stage-1-discovery-enumeration)
   - [Stage 2: Credential & Auth Attacks](#stage-2-credential-auth-attacks)
@@ -49,99 +55,14 @@
   - [Stage 3: Safety System Attacks](#stage-3-safety-system-attacks)
   - [Stage 4: OT Network Segmentation & Defense](#stage-4-ot-network-segmentation-defense)
   - [Lab Progression](#lab-progression)
+- [Part 16: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming) _(Phase 6 Capstone)_
+  - [Stage 1: MITRE ATT&CK Framework Mastery](#stage-1-mitre-attck-framework-mastery)
+  - [Stage 2: APT & Threat Actor Emulation](#stage-2-apt-threat-actor-emulation)
+  - [Stage 3: Purple Team Exercises](#stage-3-purple-team-exercises)
+  - [Stage 4: Metrics & Reporting](#stage-4-metrics-reporting)
+  - [Lab Progression](#lab-progression)
 
 ---
-
-## Part 16: Adversary Emulation & Purple Teaming
-
-> [!WARNING]
-> **Prerequisites:** This Part requires both offensive (Phase 2) AND defensive (Phase 3) maturity plus enterprise infrastructure knowledge (Phase 6). Complete Phases 2–6 before attempting this content. It is placed in Phase 6 because purple teaming is the culmination of offense-defense integration at enterprise scale.
-
-### **Stage 1: MITRE ATT&CK Framework Mastery**
-
-> [!TIP]
-> **Goal:** Understand the universal language of adversary behavior.
-
-- [ ] **Tactic Familiarity:** Master all **14 tactics** (Initial Access → Impact) and their relationships in the attack lifecycle.
-
-- [ ] **Technique Deep-Dive:** Study **100+ core techniques** with focus on **prevalence, detection difficulty, impact** ratings.
-
-- [ ] **Sub-Technique Granularity:** Understand **sub-technique variations** for precise emulation (e.g., T1059.001 PowerShell vs T1059.003 CMD).
-
-- [ ] **Data Source Mapping:** Link techniques to **detection data sources** (process creation, network traffic, registry modifications).
-
-- [ ] **Mitigation Strategies:** Review **MITRE mitigations** for each technique to understand defensive controls.
-
----
-
-### **Stage 2: APT & Threat Actor Emulation**
-
-> [!TIP]
-> **Goal:** Replicate real-world adversary campaigns.
-
-- [ ] **APT Profiling:** Study **APT groups** (APT28, APT29, Lazarus, FIN7) including **TTPs, tools, targeting, infrastructure**.
-
-- [ ] **Campaign Recreation:** Emulate **documented campaigns** step-by-step using **MITRE ATT&CK Navigator** for technique mapping.
-
-- [ ] **Tool Replication:** Use **adversary tools** (Mimikatz, Cobalt Strike, Empire, custom malware) to match TTP fidelity.
-
-- [ ] **Infrastructure Mimicry:** Build **attack infrastructure** (domains, IPs, C2) that mimics **APT patterns and behaviors**.
-
-- [ ] **Operational Tempo:** Match **adversary dwell time, persistence patterns, exfil timing** for realistic simulation.
-
-- [ ] **Adversary Emulation Plans:** Execute **MITRE ATT&CK Adversary Emulation Plans** for groups like **APT29, Scattered Spider** to test realistic kill chains.
-
----
-
-### **Stage 3: Purple Team Exercises**
-
-> [!TIP]
-> **Goal:** Collaborative offense-defense improvement.
-
-- [ ] **Joint Planning:** Define **objectives, scope, techniques, success criteria** with both red and blue teams.
-
-- [ ] **Live Detection Tuning:** Execute **attacks in controlled environment** while defenders **tune detection rules in real-time**.
-
-- [ ] **Gap Analysis:** Identify **detection blind spots, control failures, response deficiencies** through collaborative testing.
-
-- [ ] **Playbook Development:** Create **detection playbooks** with **queries, alerts, response procedures** for each emulated technique.
-
-- [ ] **Iterative Improvement:** Run **multiple rounds** of testing with **incremental detection improvements** to measure progress.
-
----
-
-### **Stage 4: Metrics & Reporting**
-
-> [!TIP]
-> **Goal:** Quantify security posture improvement.
-
-- [ ] **Detection Coverage:** Calculate **% of ATT&CK techniques** with detection coverage across the matrix.
-
-- [ ] **MTTD/MTTR:** Measure **Mean Time to Detect** and **Mean Time to Respond** for each technique tested.
-
-- [ ] **False Positive Rate:** Track **alert accuracy** and **tuning effectiveness** over multiple exercises.
-
-- [ ] **Control Effectiveness:** Rate **preventative, detective, responsive** controls against each technique (None/Partial/Full).
-
-- [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
-
-### **Lab Progression**
-
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Map a single APT group's TTPs to MITRE ATT&CK Navigator | ATT&CK heatmap export |
-| 2 | Execute Atomic Red Team tests for 5 techniques in a lab | Detection results per technique |
-| 3 | Run a full APT emulation plan (e.g., APT29) in lab | Emulation report with detection gaps |
-| 4 | Build detection rules for each gap identified | Updated detection coverage matrix |
-| 5 | Conduct a full purple team exercise with metrics | MTTD/MTTR report + improvement recommendations |
-
-> [!IMPORTANT]
-> **Move-On Gate:** You can execute adversary emulation plans, measure detection coverage, calculate MTTD/MTTR, and produce actionable purple team reports demonstrating security posture improvement.
-
----
-
-<a id="toc-part-17-web-application-hacking"></a>
-
 
 ## Part 23: Active Directory & Entra ID
 
@@ -515,4 +436,125 @@
 
 ---
 
-<a id="toc-part-27-digital-forensics"></a>
+## Part 16: Adversary Emulation & Purple Teaming _(Phase 6 Capstone)_
+
+> [!WARNING]
+> **Prerequisites:** This Part requires both offensive (Phase 2) AND defensive (Phase 3) maturity plus enterprise infrastructure knowledge from the Parts above (AD, Cloud, Containers, OT). Complete all prior Phase 6 content before attempting this. Purple teaming is the culmination of offense-defense integration at enterprise scale.
+
+### **Stage 1: MITRE ATT&CK Framework Mastery**
+
+> [!TIP]
+> **Goal:** Understand the universal language of adversary behavior.
+
+- [ ] **Tactic Familiarity:** Master all **14 tactics** (Initial Access → Impact) and their relationships in the attack lifecycle.
+
+- [ ] **Technique Deep-Dive:** Study **100+ core techniques** with focus on **prevalence, detection difficulty, impact** ratings.
+
+- [ ] **Sub-Technique Granularity:** Understand **sub-technique variations** for precise emulation (e.g., T1059.001 PowerShell vs T1059.003 CMD).
+
+- [ ] **Data Source Mapping:** Link techniques to **detection data sources** (process creation, network traffic, registry modifications).
+
+- [ ] **Mitigation Strategies:** Review **MITRE mitigations** for each technique to understand defensive controls.
+
+---
+
+### **Stage 2: APT & Threat Actor Emulation**
+
+> [!TIP]
+> **Goal:** Replicate real-world adversary campaigns.
+
+- [ ] **APT Profiling:** Study **APT groups** (APT28, APT29, Lazarus, FIN7) including **TTPs, tools, targeting, infrastructure**.
+
+- [ ] **Campaign Recreation:** Emulate **documented campaigns** step-by-step using **MITRE ATT&CK Navigator** for technique mapping.
+
+- [ ] **Tool Replication:** Use **adversary tools** (Mimikatz, Cobalt Strike, Empire, custom malware) to match TTP fidelity.
+
+- [ ] **Infrastructure Mimicry:** Build **attack infrastructure** (domains, IPs, C2) that mimics **APT patterns and behaviors**.
+
+- [ ] **Operational Tempo:** Match **adversary dwell time, persistence patterns, exfil timing** for realistic simulation.
+
+- [ ] **Adversary Emulation Plans:** Execute **MITRE ATT&CK Adversary Emulation Plans** for groups like **APT29, Scattered Spider** to test realistic kill chains.
+
+---
+
+### **Stage 3: Purple Team Exercises**
+
+> [!TIP]
+> **Goal:** Collaborative offense-defense improvement.
+
+- [ ] **Joint Planning:** Define **objectives, scope, techniques, success criteria** with both red and blue teams.
+
+- [ ] **Live Detection Tuning:** Execute **attacks in controlled environment** while defenders **tune detection rules in real-time**.
+
+- [ ] **Gap Analysis:** Identify **detection blind spots, control failures, response deficiencies** through collaborative testing.
+
+- [ ] **Playbook Development:** Create **detection playbooks** with **queries, alerts, response procedures** for each emulated technique.
+
+- [ ] **Iterative Improvement:** Run **multiple rounds** of testing with **incremental detection improvements** to measure progress.
+
+---
+
+### **Stage 4: Metrics & Reporting**
+
+> [!TIP]
+> **Goal:** Quantify security posture improvement.
+
+- [ ] **Detection Coverage:** Calculate **% of ATT&CK techniques** with detection coverage across the matrix.
+
+- [ ] **MTTD/MTTR:** Measure **Mean Time to Detect** and **Mean Time to Respond** for each technique tested.
+
+- [ ] **False Positive Rate:** Track **alert accuracy** and **tuning effectiveness** over multiple exercises.
+
+- [ ] **Control Effectiveness:** Rate **preventative, detective, responsive** controls against each technique (None/Partial/Full).
+
+- [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
+
+### **Lab Progression**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Map a single APT group's TTPs to MITRE ATT&CK Navigator | ATT&CK heatmap export |
+| 2 | Execute Atomic Red Team tests for 5 techniques in a lab | Detection results per technique |
+| 3 | Run a full APT emulation plan (e.g., APT29) in lab | Emulation report with detection gaps |
+| 4 | Build detection rules for each gap identified | Updated detection coverage matrix |
+| 5 | Conduct a full purple team exercise with metrics | MTTD/MTTR report + improvement recommendations |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can execute adversary emulation plans, measure detection coverage, calculate MTTD/MTTR, and produce actionable purple team reports demonstrating security posture improvement.
+
+---
+
+### 🏆 Phase 6 Capstone Project
+
+**Build an AD Forest, Attack It End-to-End, Secure It, Then Validate with Purple Teaming**
+
+- [ ] **Build a 2-domain AD forest** (parent + child) with realistic GPOs, service accounts, and certificate services
+- [ ] **Attack the entire environment** — enumerate with BloodHound, Kerberoast, escalate to Domain Admin, move laterally
+- [ ] **Secure the environment** — implement tiered admin model, LAPS, disable NTLM where possible, harden ADCS
+- [ ] **Validate with purple teaming** — map the attack path to MITRE ATT&CK, tune detections, and measure MTTD/MTTR
+- [ ] **Verify defenses** — re-run attacks and confirm they are mitigated or detected
+
+**Deliverables:**
+- [ ] AD attack-path report with BloodHound graphs showing the complete compromise chain
+- [ ] Hardening guide documenting every security control implemented
+- [ ] ATT&CK heatmap and detection coverage matrix for the emulated techniques
+- [ ] Before/after comparison showing which attacks were mitigated or detected
+- [ ] All documentation committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your report must show a complete attack chain, a complete remediation path, and purple-team validation. The before/after comparison must demonstrate measurable security improvement.
+
+---
+
+### 🧭 Phase 6 Reflection & Competency Check
+
+- [ ] **Reflection:** Which enterprise surface created the most risk in your lab: identity, cloud, containers, OT/ICS, or detection gaps?
+- [ ] **Reflection:** What changed after remediation, and how did you measure the improvement?
+- [ ] **Competency:** Can you attack and harden AD/Entra ID paths with clear evidence?
+- [ ] **Competency:** Can you explain cloud, container, and network misconfigurations in terms of blast radius?
+- [ ] **Competency:** Can you run a purple team exercise that maps techniques to telemetry, detections, and remediation?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when you can demonstrate a full enterprise attack path, document remediation, and prove measurable detection or control improvement.
+
+---

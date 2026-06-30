@@ -9,9 +9,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 4–6 months
+> - **⏱️ Time Commitment (Full-Time):** 3–4 months
+> - **⏱️ Time Commitment (Part-Time):** 4–7 months
 > - **🎯 Primary Focus:** Layer AI system knowledge on top of your mastered traditional track. Understand tokens, context windows, MCP, embeddings, temperature, fine-tuning, OWASP LLM Top 10, RAG poisoning, supply chain attacks, shadow AI prevention, and defensive AI operations.
+
+---
+
+> [!NOTE]
+> ### 📝 Phase 9 Documentation Requirements
+> AI security research must be documented with reproducible methodology. Required artifacts:
+> - **Prompt injection payloads** — categorized library of tested payloads with success/failure notes
+> - **RAG attack documentation** — poisoning methodology, injected documents, impact evidence
+> - **AI tool README + architecture diagrams** — for every tool you build
+> - **Research writeups** — methodology, findings, and defensive recommendations
+> - **Git commits** — all payloads, tools, and research committed
+>
+> _By the end of Phase 9, your repository should contain an AI security toolkit and published research._
 
 ---
 
@@ -354,5 +367,38 @@
 
 > [!IMPORTANT]
 > **Move-On Gate (Part 38):** Execute prompt injection attacks across multiple models, demonstrate RAG poisoning in a lab, and publish an AI security tool to GitHub with documentation.
+
+---
+
+### 🏆 Phase 9 Capstone Project
+
+**Red-Team an LLM Application and Produce a Professional AI Security Assessment**
+
+- [ ] **Set up a local RAG application** (LangChain/LlamaIndex + local model + vector DB)
+- [ ] **Execute a structured AI red team engagement** covering OWASP LLM Top 10 categories
+- [ ] **Document attack chains** including prompt injection, RAG poisoning, and agent manipulation
+- [ ] **Propose defensive controls** for each finding
+
+**Deliverables:**
+- [ ] Professional AI security assessment report (executive summary, methodology, findings, remediation)
+- [ ] Categorized payload library (prompt injections, jailbreaks, RAG poisoning vectors)
+- [ ] At least 1 AI security tool published to GitHub with README and documentation
+- [ ] All research committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your assessment report must cover at least 5 OWASP LLM Top 10 categories with working proof-of-concept attacks and actionable defensive recommendations.
+
+---
+
+### 🧭 Phase 9 Reflection & Competency Check
+
+- [ ] **Reflection:** Which AI risk depended most on traditional security fundamentals rather than model behavior?
+- [ ] **Reflection:** Which experiments failed, and what did those failures reveal about methodology?
+- [ ] **Competency:** Can you test prompt injection, RAG poisoning, and agent/tool abuse with repeatable methodology?
+- [ ] **Competency:** Can you distinguish model limitations, application design flaws, and infrastructure weaknesses?
+- [ ] **Competency:** Can you recommend defenses that are testable, observable, and realistic for engineering teams?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when your AI security assessment is reproducible, evidence-backed, and grounded in both AI-specific and traditional security controls.
 
 ---

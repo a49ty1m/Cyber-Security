@@ -9,13 +9,28 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–5 months
-> - **⏱️ Time Commitment (Part-Time):** 6–10 months
+> - **⏱️ Time Commitment (Full-Time):** 4–7 months
+> - **⏱️ Time Commitment (Part-Time):** 8–12 months
 > - **🎯 Primary Focus:** Digital forensics & incident response, reverse engineering & malware analysis, modern exploitation (heap/kernel/browser), hardware hacking & embedded systems, offensive development (shellcode, C2, process injection, AMSI/ETW bypass), physical pentesting, VoIP/SS7/5G telecom, and blockchain/Web3 smart contract auditing.
 
 ---
 
+> [!NOTE]
+> ### 📝 Phase 7 Documentation Requirements
+> Advanced specialization work must produce portfolio-quality artifacts. Required artifacts:
+> - **Forensic reports** — Volatility/Autopsy analysis with timeline reconstruction
+> - **IDA/Ghidra annotations** — reverse engineering notes with function labels and comments
+> - **Exploit code** — well-commented PoC code with ethical usage disclaimers
+> - **Malware IOC lists** — hashes, C2 domains, YARA signatures for analyzed samples
+> - **Git commits** — all analysis, code, and reports committed
+>
+> _By the end of Phase 7, your repository should contain at least 2 deep-dive technical analyses._
+
+---
+
 ### 🗂️ Table of Contents
+
+**Core Advanced Modules**
 - [Part 27: Digital Forensics](#part-27-digital-forensics)
   - [Stage 1: Preparation & First Response](#stage-1-preparation-first-response)
   - [Stage 2: Evidence Analysis (The Deep Dive)](#stage-2-evidence-analysis-the-deep-dive)
@@ -39,6 +54,14 @@
   - [Stage 4: Exploit Delivery & OPSEC](#stage-4-exploit-delivery-opsec)
   - [Stage 5: Post-Exploitation Hardening & Safety](#stage-5-post-exploitation-hardening-safety)
   - [Lab Progression](#lab-progression)
+- [Part 42: Offensive Development & Tooling](#part-42-offensive-development-tooling)
+  - [Stage 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
+  - [Stage 2: Windows Offensive Development](#stage-2-windows-offensive-development)
+  - [Stage 3: Linux Offensive Development](#stage-3-linux-offensive-development)
+  - [Stage 4: C2 & Implant Development](#stage-4-c2-implant-development)
+  - [Lab Progression](#lab-progression)
+
+**Optional Specialization Modules**
 - [Part 30: Hardware Hacking & Embedded Systems [OPTIONAL SPECIALIZATION]](#part-30-hardware-hacking-embedded-systems-optional-specialization)
   - [Stage 1: Hardware Reconnaissance](#stage-1-hardware-reconnaissance)
   - [Stage 2: Firmware Analysis](#stage-2-firmware-analysis)
@@ -68,12 +91,11 @@
   - [Stage 4: Web3 Infrastructure Attacks](#stage-4-web3-infrastructure-attacks)
   - [Stage 5: Defense & Secure Development](#stage-5-defense-secure-development)
   - [Lab Progression](#lab-progression)
-- [Part 42: Offensive Development & Tooling](#part-42-offensive-development-tooling)
-  - [Stage 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
-  - [Stage 2: Windows Offensive Development](#stage-2-windows-offensive-development)
-  - [Stage 3: Linux Offensive Development](#stage-3-linux-offensive-development)
-  - [Stage 4: C2 & Implant Development](#stage-4-c2-implant-development)
-  - [Lab Progression](#lab-progression)
+
+---
+
+> [!NOTE]
+> **Core vs Optional:** Complete Parts 27, 28, 29, and 42 for the core advanced-security path. Treat Parts 30, 32, 33, and 34 as specialization branches that add depth only when they match your career goal.
 
 ---
 
@@ -888,6 +910,47 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can write working exploits, develop custom shellcode, build basic C2 implants, modify existing offensive tools to evade detection, and bypass AMSI/ETW in a controlled lab environment.
+
+---
+
+### 🏆 Phase 7 Capstone Project
+
+**Perform Malware Analysis on a Real-World Sample OR Write an Exploit for a Known CVE**
+
+Choose one track:
+
+**Track A — Malware Analysis:**
+- [ ] Obtain a real-world malware sample from MalwareBazaar or VirusTotal
+- [ ] Perform static analysis (PE headers, strings, imports, YARA matching)
+- [ ] Perform dynamic analysis (sandbox execution, API monitoring, network traffic)
+- [ ] Reverse engineer key functions in IDA/Ghidra
+- [ ] Produce a malware analysis report with IOCs (hashes, C2s, YARA rules)
+
+**Track B — Exploit Development:**
+- [ ] Select a known CVE with a public advisory (1-day exploit)
+- [ ] Analyze the vulnerability root cause (buffer overflow, use-after-free, etc.)
+- [ ] Develop a working proof-of-concept exploit in a controlled lab
+- [ ] Document the exploitation process and mitigation strategies
+
+**Deliverables:**
+- [ ] Professional malware report with IOCs OR exploit writeup with PoC code
+- [ ] All analysis artifacts committed to your Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** Your deliverable must be technical enough to submit to a threat intel team (Track A) or a security research publication (Track B).
+
+---
+
+### 🧭 Phase 7 Reflection & Competency Check
+
+- [ ] **Reflection:** Which advanced domain deserves continued depth, and which optional domains should you intentionally skip for now?
+- [ ] **Reflection:** Where did you rely on tooling without fully understanding the underlying artifact, binary, or exploit primitive?
+- [ ] **Competency:** Can you produce either a defensible malware analysis report or a working exploit writeup with controlled proof?
+- [ ] **Competency:** Can you explain limitations, assumptions, and safety boundaries for your research?
+- [ ] **Competency:** Can another technical reviewer reproduce your analysis from your notes and artifacts?
+
+> [!IMPORTANT]
+> **Phase Completion Gate:** Move on only when your advanced work is deep, reproducible, ethically scoped, and polished enough for expert review.
 
 ---
 
