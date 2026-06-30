@@ -43,7 +43,7 @@
 ### **Stage 1: AI Fundamentals for Security Practitioners**
 
 > [!TIP]
-> **Goal:** : Understand the raw mechanics of AI/ML models to attack and defend them effectively.
+> **Goal:** Understand the raw mechanics of AI/ML models to attack and defend them effectively.
 
 - [ ] **Transformer Architecture:** Study the **Transformer model** (attention heads, tokenization, embeddings, positional encoding) — understand how LLMs generate text at a mechanistic level to identify exploitable behavior.
 
@@ -68,7 +68,7 @@
 ### **Stage 2: Attack Surface & Frameworks**
 
 > [!TIP]
-> **Goal:** : Map the AI/LLM attack surface using structured threat models.
+> **Goal:** Map the AI/LLM attack surface using structured threat models.
 
 - [ ] **OWASP LLM Top 10 (2025):** Prioritize **LLM01 Prompt Injection**, **LLM02 Sensitive Information Disclosure**, and **LLM10 Unbounded Consumption (denial-of-wallet)**; build test cases for each.
 
@@ -81,7 +81,7 @@
 ### **Stage 3: Adversarial Techniques (LLM01/LLM06)**
 
 > [!TIP]
-> **Goal:** : Break safety controls and force unintended actions.
+> **Goal:** Break safety controls and force unintended actions.
 
 - [ ] **Jailbreaking:** Use **role-play prompts (e.g., DAN), multi-turn "crescendo" manipulation**, and **character/encoding obfuscation** to bypass safety layers.
 
@@ -94,7 +94,7 @@
 ### **Stage 4: RAG & Data Supply Chain Attacks**
 
 > [!TIP]
-> **Goal:** : Poison or subvert the knowledge base feeding the model.
+> **Goal:** Poison or subvert the knowledge base feeding the model.
 
 - [ ] **RAG Poisoning:** Inject **malicious documents or vectors** into **vector DBs/indices** to induce **hallucinations or payload delivery**.
 
@@ -107,7 +107,7 @@
 ### **Stage 5: Language Model Specific Attacks**
 
 > [!TIP]
-> **Goal:** : Exploit LLM architecture and fine-tuning vulnerabilities.
+> **Goal:** Exploit LLM architecture and fine-tuning vulnerabilities.
 
 - [ ] **Prompt Injection (LLM01):** Master **direct, indirect, multi-turn, and encoding-based injections** to override safety guardrails.
 
@@ -124,7 +124,7 @@
 ### **Stage 6: Multi-Model & Agent Attacks**
 
 > [!TIP]
-> **Goal:** : Exploit weaknesses in agentic and multi-model systems.
+> **Goal:** Exploit weaknesses in agentic and multi-model systems.
 
 - [ ] **Agent Jailbreaking:** Trick **agents with tool access** to call **disallowed APIs or perform escalated actions**.
 
@@ -141,7 +141,7 @@
 ### **Stage 7: Adversarial Examples & ML Robustness**
 
 > [!TIP]
-> **Goal:** : Craft inputs that cause model misclassification or unexpected behavior.
+> **Goal:** Craft inputs that cause model misclassification or unexpected behavior.
 
 - [ ] **Adversarial Patch Generation:** Create **minimal perturbations** (pixel-level or token-level) to flip model predictions (e.g., misclassify objects, bypass spam filters).
 
@@ -158,7 +158,7 @@
 ### **Stage 8: Model Extraction & Inversion**
 
 > [!TIP]
-> **Goal:** : Steal or reverse-engineer the model's behavior and weights.
+> **Goal:** Steal or reverse-engineer the model's behavior and weights.
 
 - [ ] **Model Extraction via API:** Use **probing queries, decision boundary mapping** to reverse-engineer **model architecture, layer sizes**.
 
@@ -173,7 +173,7 @@
 ### **Stage 9: Dataset Poisoning & Backdoors**
 
 > [!TIP]
-> **Goal:** : Corrupt training pipelines to install persistent behavior changes.
+> **Goal:** Corrupt training pipelines to install persistent behavior changes.
 
 - [ ] **Label Flipping:** Inject **mislabeled examples** during training to degrade model accuracy on target classes.
 
@@ -190,7 +190,7 @@
 ### **Stage 10: Privacy Attacks & PII Leakage**
 
 > [!TIP]
-> **Goal:** : Extract private information embedded in models.
+> **Goal:** Extract private information embedded in models.
 
 - [ ] **Membership Inference:** Determine if **specific records were used in training** via prediction confidence analysis.
 
@@ -207,7 +207,7 @@
 ### **Stage 11: AI-Augmented Red Team Workflow**
 
 > [!TIP]
-> **Goal:** : Force-multiply your existing red team toolkit with AI-native tooling.
+> **Goal:** Force-multiply your existing red team toolkit with AI-native tooling.
 
 - [ ] **Burp Suite AI Plugins:** Install and operate AI-powered Burp extensions — use **AI-assisted scanning, request analysis, and vulnerability explanation** plugins to accelerate web app assessments.
 
@@ -226,7 +226,7 @@
 ### **Stage 12: Agentic AI & Autonomous Attack Infrastructure**
 
 > [!TIP]
-> **Goal:** : Build autonomous agents that execute security tasks end-to-end.
+> **Goal:** Build autonomous agents that execute security tasks end-to-end.
 
 - [ ] **LangChain for Security Automation:** Build **LangChain-based agents** in Python that chain tools (Nmap, Shodan API, CVE search, Burp) with LLM reasoning to automate multi-step recon and enumeration workflows.
 
@@ -245,7 +245,7 @@
 ### **Stage 13: Tooling & Evaluation**
 
 > [!TIP]
-> **Goal:** : Automate and measure AI red team coverage.
+> **Goal:** Automate and measure AI red team coverage.
 
 - [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**Metasploit**) for orchestration.
 
@@ -258,7 +258,7 @@
 ### **Stage 14: Defense & Responsible AI**
 
 > [!TIP]
-> **Goal:** : Harden AI systems against attacks and ensure ethical deployment.
+> **Goal:** Harden AI systems against attacks and ensure ethical deployment.
 
 - [ ] **Input Validation & Sanitization:** Filter **prompt injections, adversarial patterns, malicious encodings**.
 
@@ -279,7 +279,7 @@
 ### **Stage 15: Shadow AI & Organizational AI Risk**
 
 > [!TIP]
-> **Goal:** : Understand and prevent unauthorized AI usage that creates organizational exposure.
+> **Goal:** Understand and prevent unauthorized AI usage that creates organizational exposure.
 
 - [ ] **Shadow AI Identification:** Detect **unauthorized use of public LLMs (ChatGPT, Gemini, Claude)** by employees pasting **source code, customer data, internal documents, API keys** into external AI services — creating **data leakage vectors** invisible to traditional DLP.
 
@@ -296,7 +296,7 @@
 ### **Stage 16: Defensive AI Operations**
 
 > [!TIP]
-> **Goal:** : Deploy AI-powered defensive capabilities and detect AI-generated threats.
+> **Goal:** Deploy AI-powered defensive capabilities and detect AI-generated threats.
 
 - [ ] **Deepfake Detection:** Understand and deploy tools for detecting **AI-generated images, video, and audio** — study **artifact analysis (compression patterns, frequency domain), temporal inconsistency detection, and provenance verification (C2PA/Content Credentials)**.
 
@@ -315,7 +315,7 @@
 ### **Stage 17: AI Security Projects & Portfolio**
 
 > [!TIP]
-> **Goal:** : Prove production capability through real, complex, integrated AI-security projects.
+> **Goal:** Prove production capability through real, complex, integrated AI-security projects.
 
 - [ ] **AI-Driven Fuzzer (C/C++):** Build a **machine learning-guided fuzzer** in C/C++ that uses coverage feedback and learned mutation strategies to discover vulnerabilities faster than traditional dumb fuzzing.
 
@@ -332,7 +332,7 @@
 ### **Stage 18: AI Security Career Targeting**
 
 > [!TIP]
-> **Goal:** : Position yourself specifically for AI-native security roles.
+> **Goal:** Position yourself specifically for AI-native security roles.
 
 - [ ] **AI Security Role Identification:** Target roles explicitly requiring **AI security skills** — LLM Red Teamer, AI Safety Engineer, ML Security Researcher, Prompt Security Engineer — at AI labs, security consultancies, and enterprise AI teams.
 
@@ -344,4 +344,15 @@
 
 ---
 
-<a id="toc-part-39-penetration-testing-methodologies--report-writing"></a>
+### **Lab Progression (Part 38: AI Security)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Complete Gandalf AI CTF and HackAPrompt challenges (first 10 levels each) | Challenge solutions with exploit methodology documented |
+| 2 | Build a RAG poisoning PoC against a local LangChain/LlamaIndex application | RAG attack report with injection payloads and impact analysis |
+| 3 | Build an AI-driven fuzzer or automated payload obfuscator and publish to GitHub | Working tool with README, architecture diagram, and demo |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 38):** Execute prompt injection attacks across multiple models, demonstrate RAG poisoning in a lab, and publish an AI security tool to GitHub with documentation.
+
+---

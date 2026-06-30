@@ -11,19 +11,19 @@
 
 ## 🧭 Modular Roadmap Dashboard
 
-| Phase | Module / Link | Core Topics & Focus | Est. Pacing (FT / PT) |
-| :---: | :--- | :--- | :---: |
-| 🏗️ | **[Phase 1: Foundation](Phase-1.md)** | Hardware, OS, Linux & Windows Admin, Networking, Cryptography | 3–4m / 6–8m |
-| ⚔️ | **[Phase 2: Offense Core](Phase-2.md)** | Recon, Scanning, Initial Access, Malware, Social Eng., Cracking | 4–6m / 8–12m |
-| 🛡️ | **[Phase 3: Defense Core](Phase-3.md)** | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT | 2–3m / 4–6m |
-| 🌐 | **[Phase 4: Web & App Sec](Phase-4.md)** | Web Hacking, API Security, Bug Bounty Methodology | 2–3m / 4–6m |
-| 📡 | **[Phase 5: Wireless/Mobile](Phase-5.md)** | RF, WiFi, Bluetooth/BLE, NFC/RFID, Android/iOS pentesting | 1–2m / 2–4m |
-| ☁️ | **[Phase 6: Infrastructure](Phase-6.md)** | AD & Entra ID, Cloud Sec (AWS/Azure), Kubernetes, ICS/SCADA | 3–4m / 6–8m |
-| 🔬 | **[Phase 7: Advanced Sec](Phase-7.md)** | DFIR, Malware RE, Exploit Dev (Heap/Kernel), Offensive Dev | 3–5m / 6–10m |
-| 📋 | **[Phase 8: DevSecOps & GRC](Phase-8.md)** | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture | 1–2m / 2–4m |
-| 🧠 | **[Phase 9: AI Security](Phase-9.md)** | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits | 2–3m / 4–6m |
-| 🎯 | **[Phase 10: Career Ops](Phase-10.md)** | Pentest Methodologies, Red Team Operations, Portfolios | 1–2m / 2–4m |
-| 📊 | **Total Roadmap** | **26–40 Months (Full-Time) / 52–80 Months (Part-Time)** | **~3 Years** |
+| Phase | Module / Link                              | Core Topics & Focus                                                | Est. Pacing (FT / PT) |
+| :---: | :----------------------------------------- | :----------------------------------------------------------------- | :-------------------: |
+|  🏗️  | **[Phase 1: Foundation](Phase-1.md)**      | Hardware, OS, Linux & Windows Admin, Networking, Cryptography      |      3–4m / 6–8m      |
+|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**    | Recon, Scanning, Initial Access, Malware, Social Eng., Cracking    |     4–6m / 8–12m      |
+|  🛡️  | **[Phase 3: Defense Core](Phase-3.md)**    | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT               |      2–3m / 4–6m      |
+|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**   | Web Hacking, API Security, Bug Bounty Methodology                  |      2–3m / 4–6m      |
+|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)** | RF, WiFi, Bluetooth/BLE, NFC/RFID, Android/iOS pentesting          |      1–2m / 2–4m      |
+|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**  | AD & Entra ID, Cloud Sec (AWS/Azure), Kubernetes, ICS/SCADA        |      3–4m / 6–8m      |
+|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**    | DFIR, Malware RE, Exploit Dev (Heap/Kernel), Offensive Dev         |     3–5m / 6–10m      |
+|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)** | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture    |      1–2m / 2–4m      |
+|  🧠   | **[Phase 9: AI Security](Phase-9.md)**     | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits |      2–3m / 4–6m      |
+|  🎯   | **[Phase 10: Career Ops](Phase-10.md)**    | Pentest Methodologies, Red Team Operations, Portfolios             |      1–2m / 2–4m      |
+|  📊   | **Total Roadmap**                          | **26–40 Months (Full-Time) / 52–80 Months (Part-Time)**            |    **~2–3.5 Years**   |
 
 ---
 

@@ -82,7 +82,7 @@
 ### **Stage 1: Preparation & First Response**
 
 > [!TIP]
-> **Goal:** : Secure the scene without corrupting evidence.
+> **Goal:** Secure the scene without corrupting evidence.
 
 - [ ] **Incident Identification:** Trigger the `Incident Response Process` upon `Identification` of a breach.
 
@@ -95,7 +95,7 @@
 ### **Stage 2: Evidence Analysis (The Deep Dive)**
 
 > [!TIP]
-> **Goal:** : Find the needle in the haystack.
+> **Goal:** Find the needle in the haystack.
 
 - [ ] **Disk Analysis:** Load the evidence into `autopsy` to recover deleted files, analyze web history, and search for keywords.
 
@@ -108,7 +108,7 @@
 ### **Stage 3: Memory Forensics**
 
 > [!TIP]
-> **Goal:** : Extract evidence from volatile memory — the richest source of attacker artifacts.
+> **Goal:** Extract evidence from volatile memory — the richest source of attacker artifacts.
 
 - [ ] **Memory Acquisition:** Capture live RAM using **WinPMEM, DumpIt, LiME (Linux Memory Extractor)** before system shutdown. Understand **hibernation files (hiberfil.sys)** and **crash dumps** as alternative memory sources.
 
@@ -129,7 +129,7 @@
 ### **Stage 4: Network Forensics**
 
 > [!TIP]
-> **Goal:** : Trace the attacker's path through network evidence.
+> **Goal:** Trace the attacker's path through network evidence.
 
 - [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **Wireshark** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
 
@@ -144,7 +144,7 @@
 ### **Stage 5: Cloud & Mobile Forensics**
 
 > [!TIP]
-> **Goal:** : Collect and analyze evidence from cloud and mobile sources.
+> **Goal:** Collect and analyze evidence from cloud and mobile sources.
 
 - [ ] **Cloud Log Forensics:** Analyze **AWS CloudTrail, Azure Activity Log, GCP Audit Logs** for **unauthorized access, privilege escalation, resource creation, data exfiltration, and API abuse**. Understand **log retention policies and gaps**.
 
@@ -161,7 +161,7 @@
 ### **Stage 6: Advanced Analysis & Reporting**
 
 > [!TIP]
-> **Goal:** : Understand the "How" and tell the story.
+> **Goal:** Understand the "How" and tell the story.
 
 - [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs. 📌 _Full reverse engineering methodology is covered in Part 28._
 
@@ -176,7 +176,7 @@
 ### **Stage 7: Legal & Reporting**
 
 > [!TIP]
-> **Goal:** : Present findings professionally and maintain legal admissibility.
+> **Goal:** Present findings professionally and maintain legal admissibility.
 
 - [ ] **Chain of Custody:** Maintain strict **evidence handling, hash verification (SHA-256), transfer documentation** for legal admissibility. Understand **Daubert/Frye standards** for expert testimony.
 
@@ -209,7 +209,7 @@
 ### **Stage 1: Static Analysis Foundations**
 
 > [!TIP]
-> **Goal:** : Analyze binaries without executing them.
+> **Goal:** Analyze binaries without executing them.
 
 - [ ] **File Identification:** Use **file, exiftool, DIE (Detect It Easy)** to identify **file type, architecture, compiler, packer** before loading into a disassembler.
 
@@ -230,7 +230,7 @@
 ### **Stage 2: Dynamic Analysis & Debugging**
 
 > [!TIP]
-> **Goal:** : Observe malware behavior during live execution.
+> **Goal:** Observe malware behavior during live execution.
 
 - [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **Procmon, Process Hacker, Regshot, Wireshark, FakeNet-NG**.
 
@@ -249,7 +249,7 @@
 ### **Stage 3: Anti-Reverse Engineering & Evasion Techniques**
 
 > [!TIP]
-> **Goal:** : Understand and defeat techniques malware uses to resist analysis.
+> **Goal:** Understand and defeat techniques malware uses to resist analysis.
 
 - [ ] **Anti-Debugging:** Detect and bypass **IsDebuggerPresent, NtQueryInformationProcess, timing checks (RDTSC), int 2D/int 3, TLS callbacks** used to detect debuggers.
 
@@ -266,7 +266,7 @@
 ### **Stage 4: Malware Classification & Threat Intelligence**
 
 > [!TIP]
-> **Goal:** : Categorize malware and extract actionable intelligence.
+> **Goal:** Categorize malware and extract actionable intelligence.
 
 - [ ] **Malware Taxonomy:** Classify samples as **RAT, ransomware, worm, rootkit, bootkit, stealer, loader, dropper, wiper, cryptominer, botnet agent** based on behavior.
 
@@ -283,7 +283,7 @@
 ### **Stage 5: Advanced RE & Automation**
 
 > [!TIP]
-> **Goal:** : Scale analysis with scripting and handle complex targets.
+> **Goal:** Scale analysis with scripting and handle complex targets.
 
 - [ ] **Ghidra Scripting:** Write **Ghidra scripts (Java/Python)** to automate **function renaming, string decryption, pattern searching, cross-reference analysis**.
 
@@ -302,7 +302,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Build reverse-engineering muscle memory in a safe malware-analysis environment.
+> **Goal:** Build reverse-engineering muscle memory in a safe malware-analysis environment.
 
 - [ ] **Lab Setup:** Deploy FLARE VM and REMnux in isolated VMs with snapshots and no shared folders.
 - [ ] **Static Analysis Lab:** Analyze 5 benign or training binaries with strings, PE/ELF headers, imports, sections, and entropy.
@@ -320,7 +320,7 @@
 ### **Stage 1: Recon, Triage & Tooling**
 
 > [!TIP]
-> **Goal:** : Prepare targets and environments for exploit development.
+> **Goal:** Prepare targets and environments for exploit development.
 
 - [ ] **Binary Recon:** Identify **arch, compiler, protections (ASLR, DEP/NX, PIE, RELRO, Stack Canaries, CFG, CET/PAC/BTI)**.
 
@@ -333,7 +333,7 @@
 ### **Stage 2: Memory Exploitation (Userland)**
 
 > [!TIP]
-> **Goal:** : Exploit memory-safety bugs under modern mitigations.
+> **Goal:** Exploit memory-safety bugs under modern mitigations.
 
 - [ ] **Buffer Overflows:** Master how data can overwrite adjacent memory to hijack the **EIP/RIP (Instruction Pointer)**; understand **stack vs heap overflows**.
 
@@ -352,7 +352,7 @@
 ### **Stage 3: Advanced Targets**
 
 > [!TIP]
-> **Goal:** : Move beyond basic binaries to complex environments.
+> **Goal:** Move beyond basic binaries to complex environments.
 
 - [ ] **Kernel Exploitation:** Leverage **UAF/race/logic bugs**, bypass **SMEP/SMAP/KASLR/KPTRR**, and use **token stealing/privilege escalation** primitives.
 
@@ -367,7 +367,7 @@
 ### **Stage 4: Exploit Delivery & OPSEC**
 
 > [!TIP]
-> **Goal:** : Deliver and operate exploits stealthily.
+> **Goal:** Deliver and operate exploits stealthily.
 
 - [ ] **Stagers & Payloads:** Build **stageless/staged** payloads with **in-memory loaders, reflective DLL/ELF**, and **syscall/indirect syscall** execution.
 
@@ -382,7 +382,7 @@
 ### **Stage 5: Post-Exploitation Hardening & Safety**
 
 > [!TIP]
-> **Goal:** : Maintain control while minimizing detection and impact.
+> **Goal:** Maintain control while minimizing detection and impact.
 
 - [ ] **Cleanup & Rollback:** Remove **artifacts, logs, crash dumps**, restore configs; support **idempotent rollback**.
 
@@ -395,7 +395,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Approach exploitation with prerequisites, safety controls, and repeatable labs.
+> **Goal:** Approach exploitation with prerequisites, safety controls, and repeatable labs.
 
 - [ ] **Assembly Gate:** Complete x86/x64 basics: registers, stack frames, calling conventions, `call`, `ret`, jumps, and memory layout.
 - [ ] **pwn.college / ROP Emporium Lab:** Complete beginner shellcode, stack overflow, and ROP exercises before touching harder targets.
@@ -410,7 +410,7 @@
 ### **Stage 1: Hardware Reconnaissance**
 
 > [!TIP]
-> **Goal:** : Identify attack surface on physical devices.
+> **Goal:** Identify attack surface on physical devices.
 
 - [ ] **Chip Identification:** Identify **MCU/SoC models** by reading chip markings; research **datasheets, known vulnerabilities**.
 
@@ -427,7 +427,7 @@
 ### **Stage 2: Firmware Analysis**
 
 > [!TIP]
-> **Goal:** : Reverse engineer and find vulnerabilities in firmware.
+> **Goal:** Reverse engineer and find vulnerabilities in firmware.
 
 - [ ] **Binary Extraction:** Use **binwalk** to extract **filesystems, compressed data, encryption keys** from firmware images.
 
@@ -444,7 +444,7 @@
 ### **Stage 3: Runtime Exploitation**
 
 > [!TIP]
-> **Goal:** : Execute code on live embedded systems.
+> **Goal:** Execute code on live embedded systems.
 
 - [ ] **UART Shell Access:** Connect to **UART** to gain **root shell, bootloader access, kernel logs**.
 
@@ -463,7 +463,7 @@
 ### **Stage 4: Side-Channel & Physical Attacks**
 
 > [!TIP]
-> **Goal:** : Extract secrets through non-traditional attack vectors.
+> **Goal:** Extract secrets through non-traditional attack vectors.
 
 - [ ] **Power Analysis:** Use **ChipWhisperer** for **simple/differential power analysis (SPA/DPA)** to extract encryption keys.
 
@@ -480,7 +480,7 @@
 ### **Stage 5: IoT & Embedded Defense**
 
 > [!TIP]
-> **Goal:** : Secure embedded systems against attacks.
+> **Goal:** Secure embedded systems against attacks.
 
 - [ ] **Secure Boot:** Implement **cryptographic boot chain verification** to prevent unauthorized firmware.
 
@@ -499,7 +499,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Gain hands-on experience with hardware and embedded system attacks.
+> **Goal:** Gain hands-on experience with hardware and embedded system attacks.
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -522,7 +522,7 @@
 ### **Stage 1: Pre-Engagement & Reconnaissance**
 
 > [!TIP]
-> **Goal:** : Plan the physical assessment within legal scope.
+> **Goal:** Plan the physical assessment within legal scope.
 
 - [ ] **Scope Definition:** Confirm **written authorization, target facilities, allowed hours, assumed identity (e.g., contractor, vendor)**, and **emergency abort contact** before any physical operation.
 
@@ -537,7 +537,7 @@
 ### **Stage 2: Entry & Access Control Bypass**
 
 > [!TIP]
-> **Goal:** : Defeat physical barriers to gain facility access.
+> **Goal:** Defeat physical barriers to gain facility access.
 
 - [ ] **Tailgating / Piggybacking:** Follow authorized personnel through secured doors using **timing, props (heavy boxes, hands full), social confidence**; test anti-tailgate detection systems.
 
@@ -556,7 +556,7 @@
 ### **Stage 3: HID & USB Payload Attacks**
 
 > [!TIP]
-> **Goal:** : Deploy physical implants and hardware attack tools.
+> **Goal:** Deploy physical implants and hardware attack tools.
 
 - [ ] **USB HID Attacks (Rubber Ducky / Bash Bunny):** Craft **DuckyScript payloads** to execute **reverse shells, credential theft, backdoor installation** within seconds when plugged into an unlocked machine.
 
@@ -573,7 +573,7 @@
 ### **Stage 4: On-Site Operations & Data Collection**
 
 > [!TIP]
-> **Goal:** : Achieve objectives once inside.
+> **Goal:** Achieve objectives once inside.
 
 - [ ] **Workstation Access:** Target **unlocked machines, password-protected screens (bypass with HID)**, install **implants, keyloggers, screen capture tools**.
 
@@ -588,7 +588,7 @@
 ### **Stage 5: Reporting Physical Findings**
 
 > [!TIP]
-> **Goal:** : Document and communicate physical security gaps professionally.
+> **Goal:** Document and communicate physical security gaps professionally.
 
 - [ ] **Evidence Collection:** Capture **covert photos/video (within ROE), cloned badge data, dropped USB recovery, access logs** as proof-of-concept evidence.
 
@@ -601,7 +601,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Gain hands-on experience with physical security assessment techniques.
+> **Goal:** Gain hands-on experience with physical security assessment techniques.
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -620,7 +620,7 @@
 ### **Stage 1: VoIP Protocol Fundamentals**
 
 > [!TIP]
-> **Goal:** : Understand how VoIP systems communicate.
+> **Goal:** Understand how VoIP systems communicate.
 
 - [ ] **SIP (Session Initiation Protocol):** Master **SIP message structure (INVITE, ACK, BYE, REGISTER, OPTIONS)**, **dialog establishment**, **authentication (Digest Auth)**, and **common ports (UDP/TCP 5060, TLS 5061)**.
 
@@ -635,7 +635,7 @@
 ### **Stage 2: VoIP Reconnaissance & Enumeration**
 
 > [!TIP]
-> **Goal:** : Discover and map VoIP infrastructure.
+> **Goal:** Discover and map VoIP infrastructure.
 
 - [ ] **SIP Scanning:** Use **svmap (SIPVicious), nmap SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
 
@@ -650,7 +650,7 @@
 ### **Stage 3: VoIP Attacks**
 
 > [!TIP]
-> **Goal:** : Exploit weaknesses in VoIP deployments.
+> **Goal:** Exploit weaknesses in VoIP deployments.
 
 - [ ] **SIP Brute Force:** Use **svcrack (SIPVicious)** to brute-force **SIP extension passwords**; test default credentials (1234, extension number as password).
 
@@ -669,7 +669,7 @@
 ### **Stage 4: SS7 & Telecom Signaling Attacks**
 
 > [!TIP]
-> **Goal:** : Understand mobile network signaling vulnerabilities.
+> **Goal:** Understand mobile network signaling vulnerabilities.
 
 - [ ] **SS7 Architecture:** Understand **Signaling System 7 (SS7)** — the global telephone signaling protocol connecting **mobile network operators, MSCs, HLRs, VLRs**.
 
@@ -686,7 +686,7 @@
 ### **Stage 5: 5G Security**
 
 > [!TIP]
-> **Goal:** : Understand the 5G threat landscape.
+> **Goal:** Understand the 5G threat landscape.
 
 - [ ] **5G Architecture:** Understand **5G SA (Standalone) vs NSA (Non-Standalone)**, **gNB (base station), AMF, SMF, UPF** core network functions, and **network slicing**.
 
@@ -699,7 +699,7 @@
 ### **Stage 6: Defense & Hardening**
 
 > [!TIP]
-> **Goal:** : Secure VoIP and telecom infrastructure.
+> **Goal:** Secure VoIP and telecom infrastructure.
 
 - [ ] **SRTP Enforcement:** Mandate **SRTP** for all media streams and **TLS (SIP over TLS/SIPS)** for signaling; disable unencrypted SIP on all production systems.
 
@@ -712,7 +712,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Gain hands-on experience with VoIP and telecommunications attacks.
+> **Goal:** Gain hands-on experience with VoIP and telecommunications attacks.
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -731,7 +731,7 @@
 ### **Stage 1: Blockchain Fundamentals for Security**
 
 > [!TIP]
-> **Goal:** : Understand how blockchain and smart contracts work before attacking them.
+> **Goal:** Understand how blockchain and smart contracts work before attacking them.
 
 - [ ] **Blockchain Mechanics:** Master **distributed ledger, consensus mechanisms (PoW, PoS, PoA)**, **immutability, transaction finality, mempool**, and **public/private key cryptography** in blockchain context.
 
@@ -746,7 +746,7 @@
 ### **Stage 2: Smart Contract Vulnerabilities**
 
 > [!TIP]
-> **Goal:** : Identify and exploit common Solidity security flaws.
+> **Goal:** Identify and exploit common Solidity security flaws.
 
 - [ ] **Reentrancy Attacks:** Exploit **recursive external calls before state updates** (The DAO hack pattern); understand `checks-effects-interactions` as the fix; test with **Hardhat/Foundry**.
 
@@ -767,7 +767,7 @@
 ### **Stage 3: Smart Contract Auditing Methodology**
 
 > [!TIP]
-> **Goal:** : Systematically audit contracts for vulnerabilities.
+> **Goal:** Systematically audit contracts for vulnerabilities.
 
 - [ ] **Static Analysis Tools:** Use **Slither, MythX, Aderyn, Semgrep Solidity rules** to automatically detect common vulnerability patterns.
 
@@ -784,7 +784,7 @@
 ### **Stage 4: Web3 Infrastructure Attacks**
 
 > [!TIP]
-> **Goal:** : Attack the broader Web3 ecosystem beyond smart contracts.
+> **Goal:** Attack the broader Web3 ecosystem beyond smart contracts.
 
 - [ ] **Wallet Drainer Attacks:** Understand **malicious `approve()` / `permit()` signatures** that give attackers unlimited token spending rights; study **phishing sites** targeting Web3 users.
 
@@ -801,7 +801,7 @@
 ### **Stage 5: Defense & Secure Development**
 
 > [!TIP]
-> **Goal:** : Build secure smart contracts and Web3 applications.
+> **Goal:** Build secure smart contracts and Web3 applications.
 
 - [ ] **Security Patterns:** Implement **checks-effects-interactions, pull-over-push payments, rate limiting, circuit breakers (pause mechanisms)** in contract design.
 
@@ -816,7 +816,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Gain hands-on experience with smart contract auditing and Web3 attacks.
+> **Goal:** Gain hands-on experience with smart contract auditing and Web3 attacks.
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

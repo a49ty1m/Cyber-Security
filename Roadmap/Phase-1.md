@@ -72,7 +72,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Professional Development & Enablers**
 
 - [ ] **Lab Progression Map (Packet Tracer → GNS3/EVE-NG → Wireshark validation)**
-  - **Goal:** : Move from simple networking practice to realistic, packet-level practice without guessing.
+  - **Goal:** Move from simple networking practice to realistic, packet-level practice without guessing.
   - Stage A — Packet Tracer (learning topology + basic configs)
     - Build networks quickly (routers/switches/firewalls).
     - Learn addressing, routing, VLANs, ACLs, NAT basics.
@@ -97,7 +97,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - Result: You stop relying on “it seems to work” and start learning from evidence.
 
 - [ ] **Virtualization Breadth (Type-1 + Type-2)**
-  - **Goal:** : Avoid being locked into one platform. Labs should migrate.
+  - **Goal:** Avoid being locked into one platform. Labs should migrate.
   - Type-1 hypervisors (closer to the hardware)
     - ESXi, Proxmox
     - Usually better performance and easier “lab appliance” patterns.
@@ -110,7 +110,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - Result: If one platform breaks, your lab doesn’t die with it.
 
 - [ ] **Cloud Assets Core (VPC/VNET + Security controls + IAM + Load Balancing)**
-  - **Goal:** : Learn cloud networking the way defenders and attackers reason about it.
+  - **Goal:** Learn cloud networking the way defenders and attackers reason about it.
   - > ⚠️ **Note:** This section introduces cloud concepts early. If VPC/VNET, security groups, and IAM feel abstract, revisit this section after completing Part 2 (Networking Fundamentals). Full cloud security is covered in Part 24 (Phase 6).
   - Core components to practice
     - VPC/VNET
@@ -131,7 +131,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
   - Why it matters: Cloud security incidents often happen because of misconfigured networking and overly permissive IAM.
 
 - [ ] **Automation Muscle (idempotent scripts for repeated lab tasks)**
-  - **Goal:** : Your time should go to learning—not clicking the same steps.
+  - **Goal:** Your time should go to learning—not clicking the same steps.
   - Automate things like:
     - Subnet discovery
       - detect existing CIDRs
@@ -149,7 +149,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - Retest after Wireshark capture without manual cleanup.
 
 - [ ] **Monitoring & Evasion (baseline: NetFlow/SNMP/pcap; label what defenders see)**
-  - **Goal:** : Become fluent in “visibility.” What logging exists, what it misses, and why.
+  - **Goal:** Become fluent in “visibility.” What logging exists, what it misses, and why.
   - Baseline data sources
     - NetFlow
       - high-level “who talked to whom”
@@ -174,7 +174,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - This builds real-world operational awareness.
 
 - [ ] **Certifications (CompTIA Network+ / Cisco / AWS Advanced Networking)**
-  - **Goal:** : Use structured certification objectives to avoid missing basics.
+  - **Goal:** Use structured certification objectives to avoid missing basics.
   - Network+ (entry)
     - fundamentals: routing concepts
     - subnetting
@@ -189,7 +189,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
   - This isn’t “to collect badges”—it’s to ensure you learn networking in a complete sequence.
 
 - [ ] **Ethics & ROE (Rules of Engagement + audit trails)**
-  - **Goal:** : Make your practice safe and accountable.
+  - **Goal:** Make your practice safe and accountable.
   - Explicit ROE:
     - what systems are allowed
     - what test types are allowed
@@ -203,7 +203,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
   - Why it belongs in lab setup: Without ROE, even “harmless” testing habits can become unsafe.
 
 - [ ] **Automation Scaling (mass config / port scans with Python)**
-  - **Goal:** : Prepare for high-volume tasks you’ll face in real workflows.
+  - **Goal:** Prepare for high-volume tasks you’ll face in real workflows.
   - What to scale:
     - Mass config deployment across many lab nodes
     - Port scan sweeps to baseline services
@@ -214,7 +214,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - Store scan results as structured output (JSON/CSV) so you can diff runs.
 
 - [ ] **Monitoring Deep Dives (SNMP/NetFlow to visualize exfil patterns)**
-  - **Goal:** : Practice detection at the “pattern” level, not just “did the packets work?”
+  - **Goal:** Practice detection at the “pattern” level, not just “did the packets work?”
   - Advanced lab idea:
     - Create a scenario resembling data movement.
     - Simulate “exfil-like” flows:
@@ -237,7 +237,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Home Lab Hardware Requirements**
 
 > [!TIP]
-> **Goal:** : Avoid wasting money on inadequate hardware or overspending before you know your specialization.
+> **Goal:** Avoid wasting money on inadequate hardware or overspending before you know your specialization.
 
 - [ ] **Minimum Specs:** **32GB RAM** (16GB absolute minimum for running 2–3 VMs simultaneously), **quad-core CPU with VT-x/AMD-V** (Intel VT or AMD-V required for nested virtualization), **500GB+ SSD**. Without hardware virtualization support, nested VMs (VMs inside VMs) will not work.
 
@@ -254,7 +254,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Academic & Career Alignment**
 
 > [!TIP]
-> **Goal:** : Maximize your formal education and align academic work with offensive security career requirements.
+> **Goal:** Maximize your formal education and align academic work with offensive security career requirements.
 
 - [ ] **Degree Baseline**
   - A formal undergraduate degree (**B-Tech in CS, IT, or related field**) fulfills baseline **HR screening requirements** for entry-level security roles and many certifications.
@@ -285,14 +285,14 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - academic security research
     - CVE disclosures
     - conference talks (BSides, DefCon villages)
-  - **Goal:** : differentiate from other graduates.
+  - **Goal:** differentiate from other graduates.
 
 ---
 
 ### **Certification Alignment Map**
 
 > [!TIP]
-> **Goal:** : Know which certifications to pursue at each phase for industry credibility.
+> **Goal:** Know which certifications to pursue at each phase for industry credibility.
 
 | Phase Completed | Recommended Certifications | Notes |
 |---|---|---|
@@ -312,7 +312,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Training Platforms & Lab Environments**
 
 > [!TIP]
-> **Goal:** : Build practical muscle memory through structured, hands-on hacking exercises.
+> **Goal:** Build practical muscle memory through structured, hands-on hacking exercises.
 
 - [ ] **TryHackMe (Beginner → Intermediate)**
   - Complete **learning paths** for guided, progressive skill building:
@@ -365,7 +365,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - NahamCon CTF
     - HTB CTF
     - Google CTF
-  - **Goal:** : develop speed, creativity, and multi-domain problem solving under pressure.
+  - **Goal:** develop speed, creativity, and multi-domain problem solving under pressure.
 
 - [ ] **Active Directory Labs**
   - Build dedicated AD lab environments (DC + workstations) in **VirtualBox/VMware**, or use **GOAD (Game of Active Directory)** to practice:
@@ -387,7 +387,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - SQL injection, XSS, CSRF, SSRF, XXE
     - JWT attacks, OAuth flaws, WebSocket attacks
     - **Web LLM Attacks** — dedicated labs for attacking LLM-integrated web applications
-  - **Goal:** : Earn the **Burp Suite Certified Practitioner (BSCP)** certification.
+  - **Goal:** Earn the **Burp Suite Certified Practitioner (BSCP)** certification.
 
 - [ ] **OWASP AI Security Resources**
   - Study the **OWASP LLM Top 10 (2025)** and the **OWASP AI Security Project**
@@ -407,7 +407,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Foundation Proof Gate**
 
 > [!TIP]
-> **Goal:** : Prove readiness before touching serious offensive material.
+> **Goal:** Prove readiness before touching serious offensive material.
 
 - [ ] **Linux Administration Proof**
   - Create users/groups, set file permissions/ACLs, configure `sudo`, manage services with `systemctl`, inspect logs with `journalctl`, configure networking, and document all commands.
@@ -444,7 +444,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 1: Hardware, CPU & Pre-Boot Environment**
 
 > [!TIP]
-> **Goal:** : Master the machine before the Operating System initializes.
+> **Goal:** Master the machine before the Operating System initializes.
 
 - [ ] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
 
@@ -465,7 +465,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 2: Operating System Internals**
 
 > [!TIP]
-> **Goal:** : Understand the resource manager and its internal logic.
+> **Goal:** Understand the resource manager and its internal logic.
 
 - [ ] **Privilege Levels:** Master the **"Ring" architecture**; specifically the separation between **Ring 0** (Kernel) and **Ring 3** (User).
 
@@ -486,7 +486,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 3: Memory Management**
 
 > [!TIP]
-> **Goal:** : Understand how memory is organized and managed.
+> **Goal:** Understand how memory is organized and managed.
 
 - [ ] **Virtual Memory:** Learn how the OS maps physical RAM to virtual addresses to provide process isolation.
 
@@ -503,7 +503,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 4: Data Representation & Logic**
 
 > [!TIP]
-> **Goal:** : Master binary representation and Boolean logic fundamentals.
+> **Goal:** Master binary representation and Boolean logic fundamentals.
 
 - [ ] **Number Systems:** Be able to convert between **Binary, Decimal, and Hexadecimal** mentally.
 
@@ -516,7 +516,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 5: Wireless & Physical Connections**
 
 > [!TIP]
-> **Goal:** : Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Part 21 (Wireless Pentesting, Phase 5).
+> **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Part 21 (Wireless Pentesting, Phase 5).
 
 **WiFi Fundamentals:**
 
@@ -555,7 +555,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 6: Mobile Platform Awareness**
 
 > [!TIP]
-> **Goal:** : Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Part 22 (Phase 5).
+> **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Part 22 (Phase 5).
 
 - [ ] **Android vs iOS Architecture:** Understand at a high level that **Android** (APK format, Linux kernel, sandboxing, SELinux) and **iOS** (IPA format, Mach-O binaries, Secure Enclave, code signing) have fundamentally different security models.
 
@@ -569,7 +569,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ### **Stage 7: Programming & Scripting Fundamentals**
 
 > [!TIP]
-> **Goal:** : Build the coding foundation required for security tooling. Core language skills are taught here; offensive development (shellcode, C2 implants, process injection, AMSI/ETW bypass) is covered in Part 42: Offensive Development & Tooling (Phase 7).
+> **Goal:** Build the coding foundation required for security tooling. Core language skills are taught here; offensive development (shellcode, C2 implants, process injection, AMSI/ETW bypass) is covered in Part 42: Offensive Development & Tooling (Phase 7).
 
 **Python (Automation & Scripting):**
 
@@ -1469,7 +1469,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### Lab Progression & Professional Development (2026 Red Team Focus)
 
 > [!TIP]
-> **Goal:** : Move from local simulation to cloud-native networks using a "hack to root" mindset.
+> **Goal:** Move from local simulation to cloud-native networks using a "hack to root" mindset.
 
 **Level 1: Foundations (Simulation)** — Tools: **Cisco Packet Tracer, IP Calculator**
 
@@ -1530,7 +1530,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### Automation & Programmability
 
 > [!TIP]
-> **Goal:** : Understand how automation transforms network operations and software-defined architectures.
+> **Goal:** Understand how automation transforms network operations and software-defined architectures.
 
 **Automation Impact on Network Management:**
 
@@ -1627,7 +1627,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### **Stage 1: Core Concepts & Algorithms**
 
 > [!TIP]
-> **Goal:** : Understand the mathematical tools available.
+> **Goal:** Understand the mathematical tools available.
 
 - [ ] **CIA Alignment:** Map your crypto goals to the **Understand CIA Triad** (Confidentiality = Encryption, Integrity = Hashing).
 
@@ -1640,7 +1640,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### **Stage 2: Secure Communication (Data in Transit)**
 
 > [!TIP]
-> **Goal:** : Secure the pipe between two points.
+> **Goal:** Secure the pipe between two points.
 
 - [ ] **Protocol Hardening:** Enforce **Secure Protocols** by disabling **SSL** (deprecated) and enforcing **TLS** 1.2/1.3.
 
@@ -1653,7 +1653,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### **Stage 3: Identity & Trust (PKI)**
 
 > [!TIP]
-> **Goal:** : Prove that you are who you say you are.
+> **Goal:** Prove that you are who you say you are.
 
 - [ ] **Infrastructure:** Deploy **PKI** to manage digital certificates, ensuring the validity of public keys.
 
@@ -1664,7 +1664,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### **Stage 4: Data at Rest & Password Security**
 
 > [!TIP]
-> **Goal:** : Secure stored data.
+> **Goal:** Secure stored data.
 
 - [ ] **Disk Encryption:** Deploy **BitLocker, LUKS, FileVault** for full-disk encryption.
 
@@ -1679,7 +1679,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### **Stage 5: Cryptographic Attacks & Weaknesses**
 
 > [!TIP]
-> **Goal:** : Understand how crypto fails.
+> **Goal:** Understand how crypto fails.
 
 - [ ] **Weak Algorithms:** Identify and avoid **MD5, SHA-1, DES, RC4** in production systems.
 
@@ -1694,7 +1694,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Turn crypto from vocabulary into observable behavior.
+> **Goal:** Turn crypto from vocabulary into observable behavior.
 
 - [ ] **Hashing Lab:** Generate hashes for files, modify bytes, and prove integrity failure with SHA-256.
 - [ ] **Password Storage Lab:** Compare unsalted hash, salted hash, bcrypt, and Argon2id behavior; document cracking cost differences.

@@ -50,7 +50,7 @@
 ### **Stage 1: Security Frameworks & Standards**
 
 > [!TIP]
-> **Goal:** : Understand the regulatory and standards landscape that defines what pentesters test against.
+> **Goal:** Understand the regulatory and standards landscape that defines what pentesters test against.
 
 - [ ] **NIST Cybersecurity Framework (CSF):** Master the **5 functions (Identify, Protect, Detect, Respond, Recover)** and how they map to security controls.
 
@@ -67,7 +67,7 @@
 ### **Stage 2: Industry Regulations & Legal Requirements**
 
 > [!TIP]
-> **Goal:** : Know the laws and regulations that dictate security requirements across industries.
+> **Goal:** Know the laws and regulations that dictate security requirements across industries.
 
 - [ ] **PCI-DSS (Payment Card Industry):** Understand the **12 requirements** for protecting cardholder data; know **scope reduction (network segmentation), SAQ types**, and how pentesters validate Requirement 11.3.
 
@@ -88,7 +88,7 @@
 ### **Stage 3: Risk Management & Assessment**
 
 > [!TIP]
-> **Goal:** : Quantify and communicate risk so findings drive action.
+> **Goal:** Quantify and communicate risk so findings drive action.
 
 - [ ] **Risk Equation:** Master **Risk = Threat × Vulnerability × Impact** and use it to **prioritize findings** over raw CVSS scores.
 
@@ -105,7 +105,7 @@
 ### **Stage 4: Audit, Scope & Compliance Testing**
 
 > [!TIP]
-> **Goal:** : Execute engagements that satisfy compliance requirements.
+> **Goal:** Execute engagements that satisfy compliance requirements.
 
 - [ ] **Scoping for Compliance:** Define pentest scope to cover **specific compliance requirements** (e.g., PCI-DSS Req 11.3 requires internal/external pentest + segmentation testing).
 
@@ -124,7 +124,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Make GRC practical by producing audit-ready artifacts.
+> **Goal:** Make GRC practical by producing audit-ready artifacts.
 
 - [ ] **Risk Register Lab:** Build a risk register for your home lab or a sample SaaS system with likelihood, impact, owner, treatment, and due date.
 - [ ] **Policy Lab:** Write one access-control policy and one incident-response policy with scope, roles, exceptions, and review cadence.
@@ -140,7 +140,7 @@
 ### **Stage 1: Understanding the Attack Surface**
 
 > [!TIP]
-> **Goal:** : Map how software and hardware dependencies become attack vectors.
+> **Goal:** Map how software and hardware dependencies become attack vectors.
 
 - [ ] **Supply Chain Threat Model:** Understand the **three attack vectors**: compromised **source code** (SolarWinds), compromised **build/distribution** (XZ Utils backdoor), and compromised **dependencies** (event-stream npm).
 
@@ -153,7 +153,7 @@
 ### **Stage 2: Dependency & Package Attacks**
 
 > [!TIP]
-> **Goal:** : Exploit weaknesses in open-source package ecosystems.
+> **Goal:** Exploit weaknesses in open-source package ecosystems.
 
 - [ ] **Dependency Confusion:** Register **public packages with the same name** as internal private packages; force targets to download your malicious version when their registry falls back to public PyPI/npm.
 
@@ -170,7 +170,7 @@
 ### **Stage 3: Build System & CI/CD Attacks**
 
 > [!TIP]
-> **Goal:** : Compromise the pipeline that produces software.
+> **Goal:** Compromise the pipeline that produces software.
 
 - [ ] **Pipeline Poisoning:** Inject **malicious steps into CI/CD workflows** (GitHub Actions, Jenkins, GitLab CI) to **steal secrets, alter artifacts, plant backdoors** in compiled output.
 
@@ -187,7 +187,7 @@
 ### **Stage 4: Open-Source & Third-Party Risk**
 
 > [!TIP]
-> **Goal:** : Assess and test third-party component security.
+> **Goal:** Assess and test third-party component security.
 
 - [ ] **OSS Vulnerability Scanning:** Use **Trivy, Grype, Snyk, OWASP Dependency-Check** to scan project dependencies for **known CVEs** and **license violations**.
 
@@ -202,7 +202,7 @@
 ### **Stage 5: Defense & Verification**
 
 > [!TIP]
-> **Goal:** : Know how to validate supply chain integrity.
+> **Goal:** Know how to validate supply chain integrity.
 
 - [ ] **Sigstore / Cosign:** Verify **container image and artifact signatures** to ensure provenance; understand **keyless signing with OIDC identity**.
 
@@ -220,7 +220,7 @@
 ### **Stage 1: Security in the Development Lifecycle**
 
 > [!TIP]
-> **Goal:** : Understand where security integrates across the SDLC.
+> **Goal:** Understand where security integrates across the SDLC.
 
 - [ ] **SDLC Security Gates:** Map **security activities to SDLC phases** — threat modeling (design), SAST (code), SCA (build), DAST (test), pentest (pre-release), monitoring (production).
 
@@ -235,7 +235,7 @@
 ### **Stage 2: Static Analysis (SAST)**
 
 > [!TIP]
-> **Goal:** : Find vulnerabilities in source code without executing it.
+> **Goal:** Find vulnerabilities in source code without executing it.
 
 - [ ] **SAST Tools:** Use **Semgrep, SonarQube, Checkmarx, Bandit (Python), Brakeman (Rails), SpotBugs (Java)** to scan source code for **injection flaws, insecure crypto, hardcoded secrets**.
 
@@ -250,7 +250,7 @@
 ### **Stage 3: Dynamic Analysis (DAST & IAST)**
 
 > [!TIP]
-> **Goal:** : Test running applications for security flaws.
+> **Goal:** Test running applications for security flaws.
 
 - [ ] **DAST Tools:** Use **OWASP ZAP, Burp Suite Pro (automated scan), Nikto** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
 
@@ -265,7 +265,7 @@
 ### **Stage 4: Software Composition Analysis (SCA)**
 
 > [!TIP]
-> **Goal:** : Find vulnerabilities in third-party dependencies.
+> **Goal:** Find vulnerabilities in third-party dependencies.
 
 - [ ] **SCA Tools:** Use **Snyk, Dependabot, OWASP Dependency-Check, Black Duck** to continuously scan **package manifests** for **CVEs, outdated versions, license violations**.
 
@@ -278,7 +278,7 @@
 ### **Stage 5: Secrets Detection & Pipeline Security**
 
 > [!TIP]
-> **Goal:** : Prevent credential leakage through code and pipelines.
+> **Goal:** Prevent credential leakage through code and pipelines.
 
 - [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection strings**.
 
@@ -293,7 +293,7 @@
 ### **Secure Coding & Pipeline Lab Progression**
 
 > [!TIP]
-> **Goal:** : Prove you can prevent vulnerabilities, not only scan for them.
+> **Goal:** Prove you can prevent vulnerabilities, not only scan for them.
 
 - [ ] **Secure Coding Fix Lab:** Take a small vulnerable app and fix SQL injection, XSS, command injection, path traversal, insecure deserialization, weak auth, and insecure direct object reference patterns.
 - [ ] **Code Review Lab:** Review one intentionally vulnerable repository and produce findings with file/line references, exploitability notes, and safe remediation.

@@ -60,7 +60,7 @@
 ### **Stage 1: MITRE ATT&CK Framework Mastery**
 
 > [!TIP]
-> **Goal:** : Understand the universal language of adversary behavior.
+> **Goal:** Understand the universal language of adversary behavior.
 
 - [ ] **Tactic Familiarity:** Master all **14 tactics** (Initial Access → Impact) and their relationships in the attack lifecycle.
 
@@ -77,7 +77,7 @@
 ### **Stage 2: APT & Threat Actor Emulation**
 
 > [!TIP]
-> **Goal:** : Replicate real-world adversary campaigns.
+> **Goal:** Replicate real-world adversary campaigns.
 
 - [ ] **APT Profiling:** Study **APT groups** (APT28, APT29, Lazarus, FIN7) including **TTPs, tools, targeting, infrastructure**.
 
@@ -96,7 +96,7 @@
 ### **Stage 3: Purple Team Exercises**
 
 > [!TIP]
-> **Goal:** : Collaborative offense-defense improvement.
+> **Goal:** Collaborative offense-defense improvement.
 
 - [ ] **Joint Planning:** Define **objectives, scope, techniques, success criteria** with both red and blue teams.
 
@@ -113,7 +113,7 @@
 ### **Stage 4: Metrics & Reporting**
 
 > [!TIP]
-> **Goal:** : Quantify security posture improvement.
+> **Goal:** Quantify security posture improvement.
 
 - [ ] **Detection Coverage:** Calculate **% of ATT&CK techniques** with detection coverage across the matrix.
 
@@ -148,7 +148,7 @@
 ### **Stage 1: Discovery & Enumeration**
 
 > [!TIP]
-> **Goal:** : Map identity surfaces across on-prem AD and Entra ID (Azure AD).
+> **Goal:** Map identity surfaces across on-prem AD and Entra ID (Azure AD).
 
 - [ ] **Domain Recon:** Enumerate **domains/forests, trusts, sites, subnets, FSMO roles**; collect **OU/Group/ACL** data.
 
@@ -163,7 +163,7 @@
 ### **Stage 2: Credential & Auth Attacks**
 
 > [!TIP]
-> **Goal:** : Steal or replay credentials to gain higher privilege.
+> **Goal:** Steal or replay credentials to gain higher privilege.
 
 - [ ] **Kerberoast / AS-REP Roast:** Extract **TGS/AS-REP** tickets for offline cracking; prioritize **high-priv SPNs**.
 
@@ -178,7 +178,7 @@
 ### **Stage 3: Delegation, ACL, and ADCS Abuse**
 
 > [!TIP]
-> **Goal:** : Abuse trust relationships and misconfigurations for escalation.
+> **Goal:** Abuse trust relationships and misconfigurations for escalation.
 
 - [ ] **Delegation Abuse:** Exploit **Unconstrained, Constrained (service/alt service), and Resource-Based Constrained Delegation (RBCD)** for impersonation.
 
@@ -193,7 +193,7 @@
 ### **Stage 4: Lateral Movement & Persistence**
 
 > [!TIP]
-> **Goal:** : Move horizontally and maintain footholds.
+> **Goal:** Move horizontally and maintain footholds.
 
 - [ ] **Lateral Paths:** Use **WinRM/SMB/RDP/WMI/PowerShell Remoting**, **admin shares**, and **task/svc installs** guided by **BloodHound** paths.
 
@@ -208,7 +208,7 @@
 ### **Stage 5: Entra ID (Azure AD) & Hybrid Attacks**
 
 > [!TIP]
-> **Goal:** : Exploit cloud identity to pivot and persist.
+> **Goal:** Exploit cloud identity to pivot and persist.
 
 - [ ] **Consent & OAuth Abuse:** Steal or register **malicious multi-tenant apps**, abuse **illicit consent grants**, and persist via **refresh tokens**.
 
@@ -223,7 +223,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Build and attack identity infrastructure with evidence and rollback.
+> **Goal:** Build and attack identity infrastructure with evidence and rollback.
 
 - [ ] **AD Lab Build:** Deploy a domain controller, at least one workstation, DNS, domain users/groups, and basic GPOs.
 - [ ] **Vulnerable AD Lab:** Use GOAD, DetectionLab, PurpleCloud, or a self-built intentionally weak domain to practice safely.
@@ -239,7 +239,7 @@
 ### **Stage 1: Architecture & Governance**
 
 > [!TIP]
-> **Goal:** : Define the battlefield and the rules of engagement.
+> **Goal:** Define the battlefield and the rules of engagement.
 
 - [ ] **Model Selection:** Select the correct `Cloud Models` (`Public`, `Private`, `Hybrid`) based on data sensitivity.
 
@@ -252,7 +252,7 @@
 ### **Stage 2: Storage & Data Security**
 
 > [!TIP]
-> **Goal:** : Lock down the data assets.
+> **Goal:** Lock down the data assets.
 
 - [ ] **Object Storage Security:** Audit `S3` buckets and `Common Cloud Storage` (Drive, Box) for public access and enforce encryption.
 
@@ -263,7 +263,7 @@
 ### **Stage 3: Modern Infrastructure & Deployment**
 
 > [!TIP]
-> **Goal:** : Secure the compute and the pipeline.
+> **Goal:** Secure the compute and the pipeline.
 
 - [ ] **Code-Defined Security:** Use `Infrastructure as Code` (IaC) to template firewalls and permissions, preventing human configuration errors.
 
@@ -276,7 +276,7 @@
 ### **Stage 4: Automation & Scripting**
 
 > [!TIP]
-> **Goal:** : Automate defense and auditing.
+> **Goal:** Automate defense and auditing.
 
 - [ ] **Cloud Automation:** Use **Python (Boto3), Terraform, CloudFormation** to audit security groups and IAM roles automatically.
 
@@ -289,7 +289,7 @@
 ### **Stage 5: Cloud-Specific Attack Vectors**
 
 > [!TIP]
-> **Goal:** : Understand unique cloud threats.
+> **Goal:** Understand unique cloud threats.
 
 - [ ] **IAM Exploitation:** Abuse **overprivileged roles, AssumeRole chains, resource-based policies** for privilege escalation.
 
@@ -308,7 +308,7 @@
 ### **Stage 6: IAM & PAM Attack Surface**
 
 > [!TIP]
-> **Goal:** : Master identity-based attack techniques in cloud and enterprise environments.
+> **Goal:** Master identity-based attack techniques in cloud and enterprise environments.
 
 - [ ] **IAM Policy Analysis:** Enumerate and analyze **IAM policies** using **Pacu, enumerate-iam, ScoutSuite, Prowler** to find **overprivileged roles, wildcard permissions (*)**, and privilege escalation paths across **AWS/Azure/GCP**.
 
@@ -330,7 +330,7 @@
 ### **Stage 1: Container Fundamentals & Attacks**
 
 > [!TIP]
-> **Goal:** : Understand containerization and its security implications.
+> **Goal:** Understand containerization and its security implications.
 
 - [ ] **Container Anatomy:** Master **namespaces, cgroups, capabilities, seccomp, AppArmor/SELinux** as isolation mechanisms.
 
@@ -347,7 +347,7 @@
 ### **Stage 2: Kubernetes Security**
 
 > [!TIP]
-> **Goal:** : Attack and defend container orchestration platforms.
+> **Goal:** Attack and defend container orchestration platforms.
 
 - [ ] **K8s Architecture:** Understand **control plane (API server, etcd, scheduler)** vs **data plane (kubelet, kube-proxy)** components.
 
@@ -366,7 +366,7 @@
 ### **Stage 3: Container Runtime Security**
 
 > [!TIP]
-> **Goal:** : Detect and prevent malicious container activity.
+> **Goal:** Detect and prevent malicious container activity.
 
 - [ ] **Runtime Monitoring:** Deploy **Falco, Sysdig, Aqua** to detect **suspicious syscalls, process execution, network connections**.
 
@@ -383,7 +383,7 @@
 ### **Stage 4: Secrets & Configuration Management**
 
 > [!TIP]
-> **Goal:** : Secure sensitive data in containerized environments.
+> **Goal:** Secure sensitive data in containerized environments.
 
 - [ ] **Secret Stores:** Use **HashiCorp Vault, AWS Secrets Manager, Azure Key Vault** instead of K8s native secrets.
 
@@ -400,7 +400,7 @@
 ### **Stage 5: CI/CD & Workflow Automation Attacks**
 
 > [!TIP]
-> **Goal:** : Compromise the software supply chain and automation tier.
+> **Goal:** Compromise the software supply chain and automation tier.
 
 - [ ] **Pipeline Poisoning:** Inject malicious steps into **GitHub Actions/Jenkins** to alter builds, steal artifacts, or plant backdoors.
 
@@ -417,7 +417,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Practice container and Kubernetes security with real clusters, not diagrams.
+> **Goal:** Practice container and Kubernetes security with real clusters, not diagrams.
 
 - [ ] **Container Escape Awareness Lab:** Run a deliberately misconfigured container and document which Linux primitives made it unsafe: capabilities, mounts, namespaces, cgroups, seccomp, AppArmor/SELinux.
 - [ ] **KubernetesGoat / k8s-ctf Lab:** Complete at least 5 Kubernetes attack scenarios and map each to a control failure.
@@ -432,7 +432,7 @@
 ### **Stage 1: Industrial Protocol Fundamentals**
 
 > [!TIP]
-> **Goal:** : Understand operational technology communication.
+> **Goal:** Understand operational technology communication.
 
 - [ ] **Modbus TCP/RTU:** Master **function codes (read coils, write registers)**, perform **unauthenticated reads/writes** to PLCs.
 
@@ -449,7 +449,7 @@
 ### **Stage 2: PLC & HMI Exploitation**
 
 > [!TIP]
-> **Goal:** : Compromise industrial controllers and interfaces.
+> **Goal:** Compromise industrial controllers and interfaces.
 
 - [ ] **PLC Enumeration:** Use **Nmap NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
 
@@ -466,7 +466,7 @@
 ### **Stage 3: Safety System Attacks**
 
 > [!TIP]
-> **Goal:** : Understand attacks on critical safety instrumented systems.
+> **Goal:** Understand attacks on critical safety instrumented systems.
 
 - [ ] **Safety PLC:** Identify **safety-rated PLCs** and understand **fail-safe vs fail-operational** modes.
 
@@ -483,7 +483,7 @@
 ### **Stage 4: OT Network Segmentation & Defense**
 
 > [!TIP]
-> **Goal:** : Implement defense-in-depth for industrial environments.
+> **Goal:** Implement defense-in-depth for industrial environments.
 
 - [ ] **Purdue Model:** Apply **ISA-95/Purdue Enterprise Reference Architecture** for **zone-based segmentation**.
 
@@ -502,7 +502,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Gain hands-on experience with industrial control system attacks and defenses.
+> **Goal:** Gain hands-on experience with industrial control system attacks and defenses.
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

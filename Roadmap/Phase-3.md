@@ -103,7 +103,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ### **Stage 5: EDR/XDR/MDR Basics**
 
 > [!TIP]
-> **Goal:** : Understand modern endpoint and extended detection capabilities.
+> **Goal:** Understand modern endpoint and extended detection capabilities.
 
 - [ ] **EDR Architecture:** Understand **agent-based detection (process, file, registry, network), telemetry collection, cloud backend, response orchestration**.
 
@@ -120,7 +120,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ### **Stage 6: SOC & SIEM Fundamentals**
 
 > [!TIP]
-> **Goal:** : Understand Security Operations Center workflow and SIEM correlation.
+> **Goal:** Understand Security Operations Center workflow and SIEM correlation.
 
 - [ ] **SIEM Basics:** Understand **log aggregation, parsing, normalization, correlation, enrichment** using tools like **Splunk, ELK, ArcSight, QRadar**.
 
@@ -139,7 +139,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ### **Stage 7: Threat Hunting Methodology**
 
 > [!TIP]
-> **Goal:** : Learn proactive threat hunting to find advanced threats.
+> **Goal:** Learn proactive threat hunting to find advanced threats.
 
 - [ ] **Hunting Hypotheses:** Formulate hypotheses based on **MITRE ATT&CK, threat reports, prior compromises** (e.g., "Are scheduled tasks being abused?").
 
@@ -156,7 +156,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ### **Stage 8: Incident Response Basics**
 
 > [!TIP]
-> **Goal:** : Understand the incident response lifecycle.
+> **Goal:** Understand the incident response lifecycle.
 
 - [ ] **Detection & Analysis:** Receive **alert/complaint → triage → determine if real incident → declare incident**.
 
@@ -175,7 +175,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ### **Stage 9: Forensic Fundamentals**
 
 > [!TIP]
-> **Goal:** : Collect and analyze evidence of compromise.
+> **Goal:** Collect and analyze evidence of compromise.
 
 - [ ] **Live Response:** Collect **running processes, network connections, logged-in users, active services** before shutdown (loses volatile data).
 
@@ -192,7 +192,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ### **Stage 10: Blue Team Evasion Counter-Measures**
 
 > [!TIP]
-> **Goal:** : Know how defenders detect and counter red team techniques.
+> **Goal:** Know how defenders detect and counter red team techniques.
 
 - [ ] **Process Whitelisting:** Defenders use **AppLocker, Device Guard** to allow only **approved executables**; evade via **living-off-the-land** or **trusted paths**.
 
@@ -224,7 +224,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 11: Security Orchestration, Automation & Response (SOAR)**
 
 > [!TIP]
-> **Goal:** : Automate SOC workflows and incident response actions.
+> **Goal:** Automate SOC workflows and incident response actions.
 
 - [ ] **SOAR Architecture:** Understand how **SOAR platforms (Splunk SOAR, Cortex XSOAR, Tines, Shuffle)** integrate with **SIEM, EDR, ticketing, email, firewall APIs** to automate response.
 
@@ -241,7 +241,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 12: Data Loss Prevention (DLP) Fundamentals**
 
 > [!TIP]
-> **Goal:** : Understand DLP as a defensive control, not just something to bypass.
+> **Goal:** Understand DLP as a defensive control, not just something to bypass.
 
 - [ ] **DLP Architecture:** Understand **endpoint DLP** (agent-based monitoring of file operations, clipboard, USB), **network DLP** (inline/tap inspection of traffic), and **cloud DLP** (CASB integration, SaaS monitoring).
 
@@ -258,7 +258,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 13: Vulnerability Management Program**
 
 > [!TIP]
-> **Goal:** : Understand the full lifecycle of finding, prioritizing, and remediating vulnerabilities at scale.
+> **Goal:** Understand the full lifecycle of finding, prioritizing, and remediating vulnerabilities at scale.
 
 - [ ] **Scanner Deployment:** Deploy and configure **Nessus, Qualys, Rapid7 InsightVM, or OpenVAS** for authenticated and unauthenticated scanning across infrastructure.
 
@@ -277,7 +277,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 14: Insider Threat Detection**
 
 > [!TIP]
-> **Goal:** : Detect and investigate threats originating from within the organization.
+> **Goal:** Detect and investigate threats originating from within the organization.
 
 - [ ] **Insider Threat Types:** Understand **malicious insiders** (disgruntled employees, espionage), **negligent insiders** (accidental data exposure), and **compromised insiders** (credential theft, social engineering victims).
 
@@ -294,7 +294,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Lab Progression (Parts 13A + 13B Combined)**
 
 > [!TIP]
-> **Goal:** : Build working detection and security operations capabilities, not just vocabulary.
+> **Goal:** Build working detection and security operations capabilities, not just vocabulary.
 
 - [ ] **SIEM Build:** Deploy Wazuh, Security Onion, Splunk Free, or ELK in a lab and ingest Windows Event Logs, Sysmon, Linux auth logs, and firewall/DNS logs.
 - [ ] **Query Lab:** Write 10 searches across SPL/KQL/Elastic-style syntax for process creation, suspicious PowerShell, failed logons, DNS anomalies, and lateral movement.
@@ -310,7 +310,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 1: Foundational Strategy & Networking**
 
 > [!TIP]
-> **Goal:** : Establish the theoretical base and network understanding.
+> **Goal:** Establish the theoretical base and network understanding.
 
 - [ ] **Defense in Depth:** Adopt the `Understand Concept of Defense in Depth` philosophy, using multiple layers of security controls.
 
@@ -323,7 +323,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 2: Deploying Firewalls (The Shield)**
 
 > [!TIP]
-> **Goal:** : Implement access control and segmentation.
+> **Goal:** Implement access control and segmentation.
 
 - [ ] **Perimeter Defense:** Deploy a `Firewall & Nextgen Firewall` at the network edge, configuring `ACLs` for ingress and egress filtering.
 
@@ -336,7 +336,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 3: Implementing IDS/IPS (The Watchers)**
 
 > [!TIP]
-> **Goal:** : Detect and stop malicious traffic that bypasses firewalls.
+> **Goal:** Detect and stop malicious traffic that bypasses firewalls.
 
 - [ ] **Strategic Deployment:** Place `NIDS` sensors at critical network choke points to monitor east-west and north-south traffic.
 
@@ -351,7 +351,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 4: Utilizing Deception (The Traps)**
 
 > [!TIP]
-> **Goal:** : Gather threat intelligence and waste attacker time.
+> **Goal:** Gather threat intelligence and waste attacker time.
 
 - [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers.
 
@@ -364,7 +364,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 5: Operations & Continuous Improvement**
 
 > [!TIP]
-> **Goal:** : Integrate into daily security operations.
+> **Goal:** Integrate into daily security operations.
 
 - [ ] **Incident Response Integration:** Utilize these tools during **Incident Response Process** for rapid **threat identification and containment** of affected systems.
 
@@ -381,7 +381,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 6: Email Security Architecture**
 
 > [!TIP]
-> **Goal:** : Secure the #1 initial access vector — email infrastructure.
+> **Goal:** Secure the #1 initial access vector — email infrastructure.
 
 - [ ] **Email Authentication (SPF/DKIM/DMARC):** Configure **SPF records** (authorized senders), **DKIM signing** (message integrity), and **DMARC policies** (alignment enforcement with p=reject). Validate with **dmarcian, MXToolbox, Google Postmaster**.
 
@@ -415,7 +415,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 7: DNS Security Operations**
 
 > [!TIP]
-> **Goal:** : Detect and prevent DNS-based attacks and data exfiltration.
+> **Goal:** Detect and prevent DNS-based attacks and data exfiltration.
 
 - [ ] **DNSSEC:** Understand **DNSSEC signing, validation chain, DS/DNSKEY records**, and deployment challenges. Know how DNSSEC prevents **cache poisoning** but does not encrypt queries.
 
@@ -437,7 +437,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 1: Passive Reconnaissance & Data Collection**
 
 > [!TIP]
-> **Goal:** : Gather intelligence without touching target infrastructure.
+> **Goal:** Gather intelligence without touching target infrastructure.
 
 - [ ] **Search Engine Intelligence:** Master **Google/Bing/Yandex dorks** for exposed data; use **Shodan/Censys/Zoomeye** for internet-wide scanning.
 
@@ -456,7 +456,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 2: Threat Intelligence Analysis**
 
 > [!TIP]
-> **Goal:** : Convert raw data into actionable intelligence.
+> **Goal:** Convert raw data into actionable intelligence.
 
 - [ ] **IOC Collection:** Aggregate **file hashes, domains, IPs, email patterns** from **threat feeds, MISP, AlienVault OTX**.
 
@@ -473,7 +473,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 3: OSINT Automation & Tooling**
 
 > [!TIP]
-> **Goal:** : Scale reconnaissance with automation.
+> **Goal:** Scale reconnaissance with automation.
 
 - [ ] **Reconnaissance Frameworks:** Master **Recon-ng, theHarvester, SpiderFoot, Maltego** for automated data collection.
 
@@ -490,7 +490,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 4: Threat Intelligence Dissemination**
 
 > [!TIP]
-> **Goal:** : Communicate intelligence effectively to stakeholders.
+> **Goal:** Communicate intelligence effectively to stakeholders.
 
 - [ ] **Intelligence Reports:** Create **tactical (IOCs), operational (TTPs), strategic (trends)** reports for different audiences.
 

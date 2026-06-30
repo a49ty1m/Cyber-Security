@@ -51,7 +51,7 @@
 ### **Stage 1: Reconnaissance & Mapping**
 
 > [!TIP]
-> **Goal:** : Understand the target application's structure and technologies.
+> **Goal:** Understand the target application's structure and technologies.
 
 - [ ] **OSINT & Discovery:** Perform **Reconnaissance** using **Google Dorks, Shodan, Certificate Transparency** to find subdomains, exposed admin panels, and developer info.
 
@@ -68,7 +68,7 @@
 ### **Stage 2: Vulnerability Analysis & Probing**
 
 > [!TIP]
-> **Goal:** : Find potential entry points and weaknesses.
+> **Goal:** Find potential entry points and weaknesses.
 
 - [ ] **Input Validation Testing:** Test every input field for **SQL Injection, NoSQL Injection, Command Injection, LDAP Injection**.
 
@@ -85,7 +85,7 @@
 ### **Stage 3: Exploitation (The OWASP Top 10)**
 
 > [!TIP]
-> **Goal:** : Prove the vulnerability and gain access.
+> **Goal:** Prove the vulnerability and gain access.
 
 - [ ] **Injection Attacks:** Execute **SQL injection** for data extraction; **command injection** for RCE; **LDAP/XPath** injection.
 
@@ -106,7 +106,7 @@
 ### **Stage 4: Post-Exploitation & Persistence**
 
 > [!TIP]
-> **Goal:** : Maintain access and pivot deeper.
+> **Goal:** Maintain access and pivot deeper.
 
 - [ ] **Web Shell Management:** Deploy **persistent web shells** (PHP, ASPX, JSP) in writable directories.
 
@@ -121,7 +121,7 @@
 ### **Stage 5: Defense & Mitigation (The Shield)**
 
 > [!TIP]
-> **Goal:** : Prevent and detect these attacks.
+> **Goal:** Prevent and detect these attacks.
 
 - [ ] **WAF Deployment:** Implement **Web Application Firewall** (ModSecurity, CloudFlare WAF, AWS WAF) with custom rules.
 
@@ -156,7 +156,7 @@
 ### **Stage 1: Target Acquisition & Reconnaissance**
 
 > [!TIP]
-> **Goal:** : Identify the target server and gather intelligence.
+> **Goal:** Identify the target server and gather intelligence.
 
 - [ ] **OSINT Gathering:** Conduct **Reconnaissance** using **WHOIS, DNS enumeration, Certificate Transparency** to identify IP ranges and domain information.
 
@@ -169,7 +169,7 @@
 ### **Stage 2: Scanning & Service Enumeration**
 
 > [!TIP]
-> **Goal:** : Map out the server's attack surface.
+> **Goal:** Map out the server's attack surface.
 
 - [ ] **Port Scanning:** Use `nmap -sS -sV -sC -p-` to discover **all open ports** and identify services (Apache, Nginx, IIS, Tomcat, SSH, FTP, DB).
 
@@ -186,7 +186,7 @@
 ### **Stage 3: Vulnerability Assessment & Exploitation**
 
 > [!TIP]
-> **Goal:** : Find and exploit flaws to gain initial access.
+> **Goal:** Find and exploit flaws to gain initial access.
 
 - [ ] **Patch Audit:** Check for **outdated software versions** against CVE databases; test for **known exploits** (Apache Struts, IIS 6.0, etc.).
 
@@ -205,7 +205,7 @@
 ### **Stage 4: Post-Exploitation & Persistence**
 
 > [!TIP]
-> **Goal:** : Escalate privileges and maintain control.
+> **Goal:** Escalate privileges and maintain control.
 
 - [ ] **Privilege Escalation:** After gaining low-privilege shell, use **kernel exploits, SUID binaries, sudo misconfigs, service misconfigurations** for root/SYSTEM.
 
@@ -240,7 +240,7 @@
 ### **Stage 1: API Reconnaissance & Mapping**
 
 > [!TIP]
-> **Goal:** : Discover and map API attack surface.
+> **Goal:** Discover and map API attack surface.
 
 - [ ] **API Discovery:** Find undocumented endpoints via **JS file analysis, Wayback Machine, Google Dorks (`site:target.com api`), Shodan**, and **Burp Suite passive crawling**.
 
@@ -255,7 +255,7 @@
 ### **Stage 2: OWASP API Security Top 10**
 
 > [!TIP]
-> **Goal:** : Methodically test each API-specific vulnerability class.
+> **Goal:** Methodically test each API-specific vulnerability class.
 
 - [ ] **API1 — Broken Object Level Authorization (BOLA/IDOR):** Substitute **object IDs** (user, order, account) in requests to access **other users' resources** without authorization check.
 
@@ -282,7 +282,7 @@
 ### **Stage 3: Protocol-Specific API Attacks**
 
 > [!TIP]
-> **Goal:** : Attack REST, GraphQL, gRPC, and SOAP distinctly.
+> **Goal:** Attack REST, GraphQL, gRPC, and SOAP distinctly.
 
 - [ ] **REST API Testing:** Chain **BOLA + privilege escalation**, test **HTTP verb tampering**, exploit **mass assignment** via undocumented writable fields.
 
@@ -297,7 +297,7 @@
 ### **Stage 4: API Authentication & Token Attacks**
 
 > [!TIP]
-> **Goal:** : Break API authentication mechanisms.
+> **Goal:** Break API authentication mechanisms.
 
 - [ ] **JWT Attacks:** Test **`alg:none` bypass, RS256→HS256 confusion, weak secret brute-force (hashcat mode 16500), kid injection, jku/x5u header injection** to forge arbitrary tokens.
 
@@ -312,7 +312,7 @@
 ### **Stage 5: Defense & Hardening**
 
 > [!TIP]
-> **Goal:** : Know what defenders implement so you can test it properly.
+> **Goal:** Know what defenders implement so you can test it properly.
 
 - [ ] **API Gateway Controls:** Understand **rate limiting, quota enforcement, request validation, JWT verification, IP allowlisting** at the gateway layer.
 
@@ -343,7 +343,7 @@
 ### **Stage 1: Preparation & Scoping**
 
 > [!TIP]
-> **Goal:** : Stay legal and define the target.
+> **Goal:** Stay legal and define the target.
 
 - [ ] **Legal Check:** Read and sign the `Penetration Testing Rules of Engagement` or the Bug Bounty Policy (Safe Harbor).
 
@@ -356,7 +356,7 @@
 ### **Stage 2: Reconnaissance (The Wide Net)**
 
 > [!TIP]
-> **Goal:** : Find what others missed.
+> **Goal:** Find what others missed.
 
 - [ ] **Subdomain Enumeration:** Use **OSINT** tools to find `dev`, `stage`, or `test` subdomains.
 
@@ -369,7 +369,7 @@
 ### **Stage 3: Vulnerability Assessment (The Deep Dive)**
 
 > [!TIP]
-> **Goal:** : Find the flaw.
+> **Goal:** Find the flaw.
 
 - [ ] **Input Fuzzing:** Test all input fields for `SQL Injection`, `XSS`, and `Buffer Overflow`.
 
@@ -382,7 +382,7 @@
 ### **Stage 4: Exploitation & Validation**
 
 > [!TIP]
-> **Goal:** : Prove the risk without breaking the system.
+> **Goal:** Prove the risk without breaking the system.
 
 - [ ] **PoC Development:** Create a non-destructive Proof of Concept. (e.g., `alert(1)` for XSS, `whoami` for RCE).
 
@@ -395,7 +395,7 @@
 ### **Stage 5: Reporting & Triage**
 
 > [!TIP]
-> **Goal:** : Get paid and drive remediation.
+> **Goal:** Get paid and drive remediation.
 
 - [ ] **Impact Assessment:** Clearly explain **business risk** (data breach, financial loss, compliance violation) to management.
 
@@ -410,7 +410,7 @@
 ### **Stage 6: Professional Development**
 
 > [!TIP]
-> **Goal:** : Build skills and reputation.
+> **Goal:** Build skills and reputation.
 
 - [ ] **Platform Selection:** Focus on **HackerOne, Bugcrowd, Synack, Intigriti** platforms with active programs.
 

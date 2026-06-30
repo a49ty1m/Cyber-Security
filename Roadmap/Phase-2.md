@@ -95,7 +95,7 @@
 ### **Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
 
 > [!TIP]
-> **Goal:** : Maximum data acquisition with zero target interaction.
+> **Goal:** Maximum data acquisition with zero target interaction.
 
 - [ ] **Organizational Hierarchy:** Profile the **Audience** (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link.
 
@@ -120,7 +120,7 @@
 ### **Stage 2: Semi-Passive Infrastructure Mapping**
 
 > [!TIP]
-> **Goal:** : Querying third-party aggregators to see what the world already knows about them.
+> **Goal:** Querying third-party aggregators to see what the world already knows about them.
 
 - [ ] **External Intel Scouring:** Query **VirusTotal, urlscan, any.run, Joe Sandbox, and urlvoid** for existing malware samples or documented domain behavior.
 
@@ -139,7 +139,7 @@
 ### **Stage 3: Active Footprinting & Network Interrogation**
 
 > [!TIP]
-> **Goal:** : Direct contact to map the live network fabric. Risk of detection is now ACTIVE.
+> **Goal:** Direct contact to map the live network fabric. Risk of detection is now ACTIVE.
 
 - [ ] **Live Host Discovery:** Use **ping, arp, and hping** to identify which internal or external assets are actually breathing.
 
@@ -160,7 +160,7 @@
 ### **Stage 4: Advanced Fingerprinting & Logic Analysis**
 
 > [!TIP]
-> **Goal:** : Understand the defensive "brain" of the target.
+> **Goal:** Understand the defensive "brain" of the target.
 
 - [ ] **Traffic Analysis:** If vantage is gained, use **Wireshark** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
 
@@ -175,7 +175,7 @@
 ### **Stage 5: IPv6 & Protocol Enumeration**
 
 > [!TIP]
-> **Goal:** : Discover targets using newer protocols and dual-stack networks.
+> **Goal:** Discover targets using newer protocols and dual-stack networks.
 
 - [ ] **IPv6 Reconnaissance:** Identify **IPv6 addresses** via **Shodan, Censys, IPv6 address enumeration tools** even when IPv4 is locked down.
 
@@ -196,7 +196,7 @@
 ### **Stage 6: Dark Web & Breach Intelligence**
 
 > [!TIP]
-> **Goal:** : Uncover intelligence from dark web and historical breaches.
+> **Goal:** Uncover intelligence from dark web and historical breaches.
 
 - [ ] **Dark Web Searches:** Use **Tor, I2P**, or dedicated **dark web search engines** to find **leaked corporate data, stolen creds, threat reports**.
 
@@ -213,7 +213,7 @@
 ### **Stage 7: Satellite & Geospatial Intelligence**
 
 > [!TIP]
-> **Goal:** : Use geospatial data to understand physical assets and infrastructure.
+> **Goal:** Use geospatial data to understand physical assets and infrastructure.
 
 - [ ] **Satellite Imagery:** Use **Google Earth Pro, Sentinel Hub, USGS** to visualize **data center locations, server rooms, facility security**.
 
@@ -228,7 +228,7 @@
 ### **Stage 8: Strategy & Attack Mapping**
 
 > [!TIP]
-> **Goal:** : Convert raw data into an execution plan.
+> **Goal:** Convert raw data into an execution plan.
 
 - [ ] **Security Architecture Classification:** Determine if they are utilizing **Zero Trust** or standard **MFA & 2FA**.
 
@@ -259,7 +259,7 @@
 ### **Stage 1: Host Discovery & Network Topology (The "Roll Call")**
 
 > [!TIP]
-> **Goal:** : Identify live assets without wasting time on dead IPs or triggering ICMP alarms.
+> **Goal:** Identify live assets without wasting time on dead IPs or triggering ICMP alarms.
 
 - [ ] **ARP Discovery:** Use `arp-scan` or `nmap -PR` for local segment discovery to bypass host firewalls that drop ICMP.
 
@@ -276,7 +276,7 @@
 ### **Stage 2: Port, Service & Protocol Enumeration (The "Door Check")**
 
 > [!TIP]
-> **Goal:** : Determine exactly what applications are running and how they communicate.
+> **Goal:** Determine exactly what applications are running and how they communicate.
 
 - [ ] **Stealth SYN Scanning:** Use `nmap -sS` to identify open ports without completing the three-way **Handshake**, minimizing your footprint in application logs.
 
@@ -297,7 +297,7 @@
 ### **Stage 3: Defense & Configuration Assessment (The "Armor Check")**
 
 > [!TIP]
-> **Goal:** : Identify security controls that will attempt to block or alert on your presence.
+> **Goal:** Identify security controls that will attempt to block or alert on your presence.
 
 - [ ] **Firewall & ACL Enumeration:** Detect the presence of a **Firewall & Nextgen Firewall** or **Host Based Firewalls** by analyzing filtered ports and **ACL** (Access Control List) behavior.
 
@@ -312,7 +312,7 @@
 ### **Stage 4: Vulnerability Association & Attack Mapping**
 
 > [!TIP]
-> **Goal:** : Convert raw scan data into actionable exploitation vectors.
+> **Goal:** Convert raw scan data into actionable exploitation vectors.
 
 - [ ] **Scripted Vulnerability Probing:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for known **Zero Day** or common exploits in identified versions.
 
@@ -329,7 +329,7 @@
 ### **Stage 5: Stealth & Evasion Techniques**
 
 > [!TIP]
-> **Goal:** : Scan without detection by firewalls, IDS, and EDR.
+> **Goal:** Scan without detection by firewalls, IDS, and EDR.
 
 - [ ] **Fragmentation & Decoys:** Use `nmap -f` (fragment packets) or `-D` (decoy IPs) to evade **NIDS/NIPS signature detection**.
 
@@ -350,7 +350,7 @@
 ### **Stage 6: Advanced Scanning Techniques**
 
 > [!TIP]
-> **Goal:** : Optimize scanning efficiency and discover hidden services.
+> **Goal:** Optimize scanning efficiency and discover hidden services.
 
 - [ ] **Parallel & Distributed Scanning:** Use **masscan** for rapid scanning of large ranges; distribute scans across **multiple IPs/proxies** to avoid threshold detection.
 
@@ -388,7 +388,7 @@
 ### **Stage 1: Service Enumeration & Banner Grabbing**
 
 > [!TIP]
-> **Goal:** : Extract version, configuration, and identity information from each discovered service.
+> **Goal:** Extract version, configuration, and identity information from each discovered service.
 
 - [ ] **Banner Grabbing:** Use **Netcat, Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
 
@@ -407,7 +407,7 @@
 ### **Stage 2: Directory & Identity Enumeration**
 
 > [!TIP]
-> **Goal:** : Map users, groups, and organizational structure from directory services.
+> **Goal:** Map users, groups, and organizational structure from directory services.
 
 - [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
 
@@ -424,7 +424,7 @@
 ### **Stage 3: DNS & Infrastructure Enumeration**
 
 > [!TIP]
-> **Goal:** : Extract naming, network, and infrastructure intelligence from DNS.
+> **Goal:** Extract naming, network, and infrastructure intelligence from DNS.
 
 - [ ] **DNS Zone Transfer:** Attempt **AXFR/IXFR** transfers to extract **full DNS records** and internal hostnames.
 
@@ -439,7 +439,7 @@
 ### **Stage 4: Database & Application Enumeration**
 
 > [!TIP]
-> **Goal:** : Extract schemas, credentials, and data from discovered database and application services.
+> **Goal:** Extract schemas, credentials, and data from discovered database and application services.
 
 - [ ] **Database Discovery:** Identify **MySQL, MSSQL, PostgreSQL, Oracle, MongoDB, Redis, Elasticsearch** on standard/non-standard ports.
 
@@ -456,7 +456,7 @@
 ### **Stage 5: Attack Surface Consolidation & Enumeration OpSec**
 
 > [!TIP]
-> **Goal:** : Consolidate findings into an attack plan while maintaining stealth.
+> **Goal:** Consolidate findings into an attack plan while maintaining stealth.
 
 - [ ] **Attack Surface Map:** Combine all enumeration results into a **structured target profile** — users, credentials, shares, services, misconfigurations, and potential exploitation vectors.
 
@@ -489,7 +489,7 @@
 ### **Stage 1: The Breach (Initial Access & Exploitation)**
 
 > [!TIP]
-> **Goal:** : Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold.
+> **Goal:** Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold.
 
 **Application & Web Exploitation:**
 
@@ -554,7 +554,7 @@
 ### **Stage 2: The Ascension (Privilege Escalation)**
 
 > [!TIP]
-> **Goal:** : Move from low-level foothold to administrative control by exploiting system logic.
+> **Goal:** Move from low-level foothold to administrative control by exploiting system logic.
 
 **Windows Privilege Escalation:**
 
@@ -635,7 +635,7 @@
 ### **Stage 3: The Stronghold (Persistence & Lateral Movement)**
 
 > [!TIP]
-> **Goal:** : Establish permanent presence and move horizontally across network.
+> **Goal:** Establish permanent presence and move horizontally across network.
 
 **Credential Harvesting & Token Abuse:**
 
@@ -680,7 +680,7 @@
 ### **Stage 4: The Shadow (Defense Evasion & Anti-Forensics)**
 
 > [!TIP]
-> **Goal:** : Blind the Blue Team and minimize evidence of compromise.
+> **Goal:** Blind the Blue Team and minimize evidence of compromise.
 
 **Log Manipulation & Cleanup:**
 
@@ -719,7 +719,7 @@
 ### **Stage 5: Data Exfiltration & Impact**
 
 > [!TIP]
-> **Goal:** : Extract sensitive data and demonstrate business impact.
+> **Goal:** Extract sensitive data and demonstrate business impact.
 
 **Data Exfiltration Channels:**
 
@@ -746,7 +746,7 @@
 ### **Stage 6: The Professional (Governance & Reporting)**
 
 > [!TIP]
-> **Goal:** : Execute within legal/ethical boundaries and deliver findings professionally.
+> **Goal:** Execute within legal/ethical boundaries and deliver findings professionally.
 
 **Rules of Engagement & Compliance:**
 
@@ -779,7 +779,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Practice compromise only in controlled environments and produce professional evidence.
+> **Goal:** Practice compromise only in controlled environments and produce professional evidence.
 
 - [ ] **Beginner Host Labs:** Complete at least 5 intentionally vulnerable Linux/Windows machines; document initial access, privilege escalation, evidence, and remediation.
 - [ ] **Credential Handling Lab:** Capture and crack lab-only hashes, then document storage, chain of custody, and cleanup. Use the Password Cracking Gate before attempting this.
@@ -796,7 +796,7 @@
 ### **Stage 1: The Design & Logic (Architecture)**
 
 > [!TIP]
-> **Goal:** : Design the malware's purpose using core security principles.
+> **Goal:** Design the malware's purpose using core security principles.
 
 - [ ] **Target the CIA Triad:** Define if your payload destroys **Integrity** (Wipers/Data modification) or denies **Availability** (Ransomware/DDoS).
 
@@ -815,7 +815,7 @@
 ### **Stage 2: The Payload & Mechanism (Weaponization)**
 
 > [!TIP]
-> **Goal:** : Execute code on the target system.
+> **Goal:** Execute code on the target system.
 
 - [ ] **Memory Exploitation:** Leverage **Buffer Overflow** or **Memory Leak** vulnerabilities to inject shellcode into legitimate processes, bypassing file scanning.
 
@@ -832,7 +832,7 @@
 ### **Stage 3: Evasion & Defense Bypassing (Invisibility)**
 
 > [!TIP]
-> **Goal:** : Blind the defensive stack.
+> **Goal:** Blind the defensive stack.
 
 - [ ] **Defeat Static Analysis:** Apply **Obfuscation** (packing, encoding) to change the file hash and bypass traditional **Antivirus** signatures.
 
@@ -849,7 +849,7 @@
 ### **Stage 4: Persistence & Escalation (Entrenchment)**
 
 > [!TIP]
-> **Goal:** : Survive reboots and gain total control.
+> **Goal:** Survive reboots and gain total control.
 
 - [ ] **Privilege Escalation:** Exploit **Operating System Hardening** gaps or **Kernel** vulnerabilities (Zero Day) to escalate from User to **SYSTEM/Root**. _(See Part 7, Phase 2 for canonical privilege escalation methodology.)_
 
@@ -864,7 +864,7 @@
 ### **Stage 5: Counter-Forensics & Professionalism (The Cleanup)**
 
 > [!TIP]
-> **Goal:** : Hide the tracks and adhere to engagement rules.
+> **Goal:** Hide the tracks and adhere to engagement rules.
 
 - [ ] **Anti-Forensics:** Use secure deletion to scrub **RAM artifacts** and **Packet Captures** to frustrate the **Basics of Forensics** investigation.
 
@@ -879,7 +879,7 @@
 ### **Stage 6: Document & Cloud Weaponization**
 
 > [!TIP]
-> **Goal:** : Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This content was previously misplaced in Part 1 (Fundamentals) — it requires knowledge from Parts 4–7 and Part 10 (Social Engineering) first.
+> **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This content was previously misplaced in Part 1 (Fundamentals) — it requires knowledge from Parts 4–7 and Part 10 (Social Engineering) first.
 
 > **Prerequisite:** Complete Part 7 (System Hacking), Part 9 (Sniffing & Spoofing), and Part 10 (Social Engineering) before this phase.
 
@@ -933,7 +933,7 @@
 ### **Stage 1: The Environment & Fundamentals (The Setup)**
 
 > [!TIP]
-> **Goal:** : Understand the battlefield. You cannot spoof what you cannot map.
+> **Goal:** Understand the battlefield. You cannot spoof what you cannot map.
 
 - [ ] **Protocol Hierarchy & Trust:** Differentiate between **MAC Addresses** (Layer 2 - Local Trust) and **IP Addresses** (Layer 3 - Routing). Spoofing relies on exploiting the trust mismatch between these layers.
 
@@ -950,7 +950,7 @@
 ### **Stage 2: Sniffing & Passive Reconnaissance (The Ear)**
 
 > [!TIP]
-> **Goal:** : Capture data without alerting the target. "Listen before act."
+> **Goal:** Capture data without alerting the target. "Listen before act."
 
 - [ ] **Passive Packet Capture:** Use **tcpdump/Wireshark** to capture broadcast/multicast traffic (ARP, DHCP, mDNS) to identify active hosts, gateways, and services without sending directed traffic.
 
@@ -965,7 +965,7 @@
 ### **Stage 3: Spoofing & Active Deception (The Lie)**
 
 > [!TIP]
-> **Goal:** : Inject false information into the network to redirect or manipulate traffic.
+> **Goal:** Inject false information into the network to redirect or manipulate traffic.
 
 - [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, bettercap**.
 
@@ -984,7 +984,7 @@
 ### **Stage 4: Man-in-the-Middle & Exploitation (The Kill)**
 
 > [!TIP]
-> **Goal:** : Intercept, modify, and relay traffic to extract or manipulate data.
+> **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
 
 - [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, Burp Suite** to intercept and modify traffic in real-time.
 
@@ -1034,7 +1034,7 @@
 ### **Stage 1: Intelligence & Reconnaissance (The Setup)**
 
 > [!TIP]
-> **Goal:** : Know the target better than they know themselves.
+> **Goal:** Know the target better than they know themselves.
 
 - [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
 
@@ -1049,7 +1049,7 @@
 ### **Stage 2: The Digital Assault (Remote Vectors)**
 
 > [!TIP]
-> **Goal:** : Compromise the target from a distance via electronic channels.
+> **Goal:** Compromise the target from a distance via electronic channels.
 
 - [ ] **Mass Campaign:** Launch **broad phishing campaigns** with generic lures (password resets, package delivery) for large-scale **credential harvesting**.
 
@@ -1068,7 +1068,7 @@
 ### **Stage 3: The Human Element (Direct Interaction)**
 
 > [!TIP]
-> **Goal:** : Use psychology and social manipulation to bypass logic.
+> **Goal:** Use psychology and social manipulation to bypass logic.
 
 - [ ] **Voice Pretexting:** Call as **IT support, HR, vendor, auditor, law enforcement** using social engineering pretexts; use **authority, urgency, fear** to bypass critical thinking.
 
@@ -1081,7 +1081,7 @@
 ### **Stage 4: The Physical Breach (Boots on the Ground)**
 
 > [!TIP]
-> **Goal:** : Gain physical access to networks and facilities.
+> **Goal:** Gain physical access to networks and facilities.
 
 - [ ] **Tailgating:** Follow **authorized employees** into secure zones using badges/access cards; use **coffee cup hold, uniform/vendor persona** to bypass visual checks.
 
@@ -1096,7 +1096,7 @@
 ### **Stage 5: Defense & Awareness (The Shield)**
 
 > [!TIP]
-> **Goal:** : Prevent the human hack through training and controls.
+> **Goal:** Prevent the human hack through training and controls.
 
 - [ ] **Authentication:** Enforce **MFA/2FA** (TOTP, hardware keys, push notifications) so password compromise alone doesn't grant access; watch for **MFA fatigue attacks**.
 
@@ -1111,7 +1111,7 @@
 ### **Lab Progression**
 
 > [!TIP]
-> **Goal:** : Learn social engineering defensively and ethically.
+> **Goal:** Learn social engineering defensively and ethically.
 
 - [ ] **Email Authentication Lab:** Configure and validate SPF, DKIM, and DMARC on a test domain or lab mail stack.
 - [ ] **Header Forensics Lab:** Analyze benign/phishing email headers and identify sender path, SPF/DKIM/DMARC result, and suspicious infrastructure.
@@ -1128,7 +1128,7 @@
 ### **Stage 1: Objective & Strategy (The Planning)**
 
 > [!TIP]
-> **Goal:** : Understand DoS/DDoS scope and firepower requirements.
+> **Goal:** Understand DoS/DDoS scope and firepower requirements.
 
 - [ ] **Denial of Service (DoS):** Single attacker sends **crafted traffic** to overwhelm a target's **CPU, bandwidth, or connections**; from one IP; **relatively easy detection**.
 
@@ -1141,7 +1141,7 @@
 ### **Stage 2: The Arsenal (Attack Methods)**
 
 > [!TIP]
-> **Goal:** : Select the right DoS technique for target vulnerabilities.
+> **Goal:** Select the right DoS technique for target vulnerabilities.
 
 - [ ] **Volumetric Attacks:** Consume **bandwidth** using **SYN floods, UDP floods, ICMP floods** to saturate network pipes; use **DNS amplification, NTP reflection** to multiply traffic (1 request → 1000× response).
 
@@ -1156,7 +1156,7 @@
 ### **Stage 3: Infrastructure & Execution (The Assault)**
 
 > [!TIP]
-> **Goal:** : Deploy and sustain the attack at scale.
+> **Goal:** Deploy and sustain the attack at scale.
 
 - [ ] **Botnet Assembly:** Recruit **thousands of infected IoT/servers** or use **existing botnet services** (DDoS-as-a-Service, rent botnet time); establish **C&C control** via IRC/DNS/Peer-to-Peer.
 
@@ -1171,7 +1171,7 @@
 ### **Stage 4: Defense & Mitigation (The Shield)**
 
 > [!TIP]
-> **Goal:** : Detect, absorb, and neutralize DoS attacks.
+> **Goal:** Detect, absorb, and neutralize DoS attacks.
 
 - [ ] **Edge Defense:** Deploy **Cloudflare, Akamai, AWS Shield Standard** to absorb DDoS at **ISP/CDN level** before traffic reaches origin; filter **malformed packets, spoofed IPs** at network edge.
 
@@ -1204,7 +1204,7 @@
 ### **Stage 1: Reconnaissance & Vulnerability Analysis**
 
 > [!TIP]
-> **Goal:** : Find a target and identify its weaknesses.
+> **Goal:** Find a target and identify its weaknesses.
 
 - [ ] **Target Identification:** Use **Reconnaissance** and **OSINT** to identify target web applications.
 
@@ -1219,7 +1219,7 @@
 ### **Stage 2: Stealing the Session ID (The Attack Vectors)**
 
 > [!TIP]
-> **Goal:** : Execute the attack to acquire the victim's session token.
+> **Goal:** Execute the attack to acquire the victim's session token.
 
 - [ ] **Network Sniffing:** If HTTP is in use, launch **packet capture** with **Wireshark** on the local network or from a **Rogue Access Point** to intercept session cookies.
 
@@ -1236,7 +1236,7 @@
 ### **Stage 3: Execution & Impersonation**
 
 > [!TIP]
-> **Goal:** : Use the stolen token to access the user's account.
+> **Goal:** Use the stolen token to access the user's account.
 
 - [ ] **Token Injection & Hijack:** Inject the stolen session ID into your browser cookies to achieve **impersonation** of the victim, bypassing **authentication** completely.
 
@@ -1249,7 +1249,7 @@
 ### **Stage 4: Defense & Mitigation (The Shield)**
 
 > [!TIP]
-> **Goal:** : Prevent the attack from succeeding.
+> **Goal:** Prevent the attack from succeeding.
 
 - [ ] **Enforce Encryption:** Mandate **TLS 1.2+** for all web traffic; implement **HSTS** to prevent SSL stripping.
 
@@ -1274,12 +1274,11 @@
 > [!IMPORTANT]
 > **Move-On Gate:** You can identify weak session management, perform session hijacking via multiple vectors (fixation, XSS, sniffing), and implement secure session handling with proper cookie attributes, regeneration, and MFA.
 
-> [!NOTE]
-> **Cross-Reference:** Web application session attacks (JWT hijacking, OAuth token theft, API session management, cookie-based CSRF) are covered in depth in **Part 17: Web Application Hacking** and **Part 19: API Security** (Phase 4). The techniques in this Part focus on network-layer session attacks; web-layer attacks require Phase 4 knowledge.
+> 📌 **Cross-Reference:** Web application session attacks (JWT hijacking, OAuth token theft, API session management, cookie-based CSRF) are covered in depth in **[Part 17: Web Application Hacking](Phase-4.md#part-17-web-application-hacking)** and **[Part 19: API Security](Phase-4.md#part-19-api-security)** (Phase 4). The techniques in this Part focus on network-layer session attacks; web-layer attacks require Phase 4 knowledge.
 
 ---
 
-<a id="toc-part-13-detection--mitigation-blue-team-perspective"></a>
+
 
 
 ## Part 31: Password Cracking & Hash Analysis
@@ -1287,7 +1286,7 @@
 ### **Stage 1: Hash Identification & Acquisition**
 
 > [!TIP]
-> **Goal:** : Identify what you have before cracking.
+> **Goal:** Identify what you have before cracking.
 
 - [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
 
@@ -1300,7 +1299,7 @@
 ### **Stage 2: Cracking Methodology & Tools**
 
 > [!TIP]
-> **Goal:** : Apply the right technique to each hash type.
+> **Goal:** Apply the right technique to each hash type.
 
 - [ ] **Hashcat Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
 
@@ -1321,7 +1320,7 @@
 ### **Stage 3: Protocol-Specific Cracking**
 
 > [!TIP]
-> **Goal:** : Crack hashes captured from real network protocols.
+> **Goal:** Crack hashes captured from real network protocols.
 
 - [ ] **NTLM / NetNTLMv2:** Capture with **Responder, ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
 
@@ -1338,7 +1337,7 @@
 ### **Stage 4: Wordlist & Intelligence Curation**
 
 > [!TIP]
-> **Goal:** : Build targeted wordlists that outperform generic lists.
+> **Goal:** Build targeted wordlists that outperform generic lists.
 
 - [ ] **OSINT-Driven Wordlists:** Use **CeWL** to spider target websites and extract **company-specific vocabulary** for highly targeted password lists.
 
@@ -1348,8 +1347,7 @@
 
 - [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
 
-> [!NOTE]
-> **Cross-Reference:** Password cracking skills are directly applied in **Part 23: Active Directory & Entra ID** (Kerberoasting, AS-REP Roasting), **Part 21: Wireless Pentesting** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
+> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[Part 23: Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)** (Kerberoasting, AS-REP Roasting), **[Part 21: Wireless Pentesting](Phase-5.md#part-21-wireless-pentesting)** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
 
 ---
 

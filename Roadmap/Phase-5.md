@@ -44,7 +44,7 @@
 ### **Stage 1: RF Reconnaissance & Setup**
 
 > [!TIP]
-> **Goal:** : Map the airspace and identify targets.
+> **Goal:** Map the airspace and identify targets.
 
 - [ ] **Monitor Mode:** Configure hardware to capture raw 802.11 frames.
 
@@ -57,7 +57,7 @@
 ### **Stage 2: Access Point Assault (The Breaching of Keys)**
 
 > [!TIP]
-> **Goal:** : Obtain the credentials to join the network.
+> **Goal:** Obtain the credentials to join the network.
 
 - [ ] **Handshake Capture:** Execute a **Deauth Attack** against a connected client to force a reconnection and capture the 4-way handshake.
 
@@ -70,7 +70,7 @@
 ### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)**
 
 > [!TIP]
-> **Goal:** : Steal individual user identities or hijack connections.
+> **Goal:** Steal individual user identities or hijack connections.
 
 - [ ] **Evil Twin Deployment:** Launch an **Evil Twin** attack to impersonate the target SSID. Use a captive portal to harvest credentials.
 
@@ -87,7 +87,7 @@
 ### **Stage 4: Bluetooth & BLE Attacks**
 
 > [!TIP]
-> **Goal:** : Compromise Bluetooth connections and devices.
+> **Goal:** Compromise Bluetooth connections and devices.
 
 - [ ] **BLE Fundamentals:** Understand **Bluetooth Low Energy** (BLE) **GATT/GAP, advertising, pairing mechanisms, security modes**.
 
@@ -106,7 +106,7 @@
 ### **Stage 5: Zigbee, Z-Wave & IoT Attacks**
 
 > [!TIP]
-> **Goal:** : Compromise smart home and industrial IoT networks.
+> **Goal:** Compromise smart home and industrial IoT networks.
 
 - [ ] **Zigbee Basics:** Understand **Zigbee mesh networking, 802.15.4 radio, AES-128 encryption, default keys**.
 
@@ -125,7 +125,7 @@
 ### **Stage 6: NFC & RFID Attacks**
 
 > [!TIP]
-> **Goal:** : Compromise Near-Field Communication and passive identification systems.
+> **Goal:** Compromise Near-Field Communication and passive identification systems.
 
 - [ ] **NFC Basics:** Understand **ISO14443-A/B, Mifare protocols, Type 1-4 tags, Android NFC API**.
 
@@ -144,7 +144,7 @@
 ### **Stage 7: GPS & Satellite Spoofing**
 
 > [!TIP]
-> **Goal:** : Manipulate location services and navigation.
+> **Goal:** Manipulate location services and navigation.
 
 - [ ] **GPS Basics:** Understand **GPS signal structure, GNSS systems (GPS/GLONASS/Galileo), pseudoranges, civilian vs military**.
 
@@ -161,7 +161,7 @@
 ### **Stage 8: SDR & Spectrum Analysis**
 
 > [!TIP]
-> **Goal:** : Understand software-defined radio and RF reconnaissance.
+> **Goal:** Understand software-defined radio and RF reconnaissance.
 
 - [ ] **SDR Fundamentals:** Know tools like **USRP, HackRF, BladeRF** and frameworks like **GNU Radio, CubicSDR**.
 
@@ -178,7 +178,7 @@
 ### **Stage 9: Defense & Hardening (The Shield)**
 
 > [!TIP]
-> **Goal:** : Secure the airwaves.
+> **Goal:** Secure the airwaves.
 
 - [ ] **Protocol Hardening:** Migrate all APs to **WPA3 (SAE)** to mitigate handshake cracking; disable **WPS** immediately.
 
@@ -198,7 +198,7 @@
 ### **Stage 0: Mobile Architecture Foundations**
 
 > [!TIP]
-> **Goal:** : Understand Android and iOS architecture and security models before attempting exploitation. If you completed the awareness-level coverage in Part 1 Stage 6, this stage provides the full depth.
+> **Goal:** Understand Android and iOS architecture and security models before attempting exploitation. If you completed the awareness-level coverage in Part 1 Stage 6, this stage provides the full depth.
 
 **Android Architecture:**
 
@@ -233,7 +233,7 @@
 ### **Stage 1: Lab Setup & Reconnaissance**
 
 > [!TIP]
-> **Goal:** : Prepare the environment and understand the target.
+> **Goal:** Prepare the environment and understand the target.
 
 - [ ] **Environment Prep:** Configure a Rooted (Android) or Jailbroken (iOS) device to bypass **Operating System Hardening**.
 
@@ -246,7 +246,7 @@
 ### **Stage 2: Static Analysis (Code Review)**
 
 > [!TIP]
-> **Goal:** : Find hardcoded secrets and configuration flaws.
+> **Goal:** Find hardcoded secrets and configuration flaws.
 
 - [ ] **Manifest/Plist Audit:** Check for exported components or insecure permissions that violate **Zero Trust** principles.
 
@@ -259,7 +259,7 @@
 ### **Stage 3: Dynamic Analysis (Runtime Manipulation)**
 
 > [!TIP]
-> **Goal:** : Bypass client-side controls.
+> **Goal:** Bypass client-side controls.
 
 - [ ] **Security Control Bypass:** Use Frida to bypass Root Detection and SSL Pinning (breaking the **SSL vs TLS** trust chain).
 
@@ -272,7 +272,7 @@
 ### **Stage 4: Network & API Attacks**
 
 > [!TIP]
-> **Goal:** : Compromise the backend server.
+> **Goal:** Compromise the backend server.
 
 - [ ] **Traffic Interception:** Proxy traffic to analyze **Secure vs Unsecure Protocols** and payload structures.
 
@@ -285,7 +285,7 @@
 ### **Stage 5: Local Data Storage & Defense**
 
 > [!TIP]
-> **Goal:** : Assess data at rest security.
+> **Goal:** Assess data at rest security.
 
 - [ ] **Insecure Storage Check:** Inspect local files (**SQLite, SharedPreferences, Plist, Keychain**) for unencrypted **PII, credentials, API keys**.
 
@@ -298,7 +298,7 @@
 ### **Stage 6: Defense & Secure Development**
 
 > [!TIP]
-> **Goal:** : Build security into mobile apps.
+> **Goal:** Build security into mobile apps.
 
 - [ ] **Secure Storage:** Use **Android Keystore, iOS Keychain** for sensitive data; encrypt local databases.
 
@@ -312,4 +312,28 @@
 
 ---
 
-<a id="toc-part-23-active-directory--entra-id"></a>
+### **Lab Progression (Part 21: Wireless Pentesting)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Capture a WPA2 4-way handshake from your own AP using Aircrack-ng and crack it with a wordlist | Handshake capture file + successful crack report |
+| 2 | Execute an evil twin attack with Bettercap/hostapd-mana and capture credentials in your lab | MITM attack walkthrough with evidence screenshots |
+| 3 | Perform BLE enumeration and GATT service analysis of an IoT device using Bettercap or GATTacker | BLE security audit report with service map |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 21):** Crack a WPA2 handshake, execute an evil twin attack, and enumerate BLE services — all in your own lab with your own equipment.
+
+---
+
+### **Lab Progression (Part 22: Mobile Pentesting)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Perform static analysis of DIVA or InsecureBankv2 using MobSF and document all findings | Mobile app static analysis report |
+| 2 | Use Frida/Objection to bypass root detection and SSL pinning on a test app, then intercept API traffic | Dynamic analysis walkthrough with method hooks and traffic captures |
+| 3 | Complete a full mobile pentest (static + dynamic + network + local storage) on a vulnerable app | Professional mobile assessment report following OWASP MSTG |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 22):** Complete a full mobile app assessment (static + dynamic + network + storage) and produce a professional report following OWASP MSTG methodology.
+
+---
