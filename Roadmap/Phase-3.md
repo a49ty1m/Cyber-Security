@@ -53,14 +53,14 @@
   - [Stage 4: Utilizing Deception (The Traps)](#stage-4-utilizing-deception-the-traps)
   - [Stage 5: Operations & Continuous Improvement](#stage-5-operations-continuous-improvement)
   - [Stage 6: Email Security Architecture](#stage-6-email-security-architecture)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 14: IDS, Firewalls, and Honeypots)](#lab-progression-part-14-ids-firewalls-and-honeypots)
   - [Stage 7: DNS Security Operations](#stage-7-dns-security-operations)
 - [Part 15: OSINT & Threat Intelligence](#part-15-osint-threat-intelligence)
   - [Stage 1: Passive Reconnaissance & Data Collection](#stage-1-passive-reconnaissance-data-collection)
   - [Stage 2: Threat Intelligence Analysis](#stage-2-threat-intelligence-analysis)
   - [Stage 3: OSINT Automation & Tooling](#stage-3-osint-automation-tooling)
   - [Stage 4: Threat Intelligence Dissemination](#stage-4-threat-intelligence-dissemination)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 15: OSINT & Threat Intelligence)](#lab-progression-part-15-osint-threat-intelligence)
   - [GRC Fundamentals Sidebar (Early Supplement for Defensive Careers)](#grc-fundamentals-sidebar-early-supplement-for-defensive-careers)
 
 ---
@@ -410,7 +410,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 14: IDS, Firewalls, and Honeypots)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -517,7 +517,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 15: OSINT & Threat Intelligence)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -548,7 +548,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 - [ ] **Compliance Awareness:** Understand at a high level what **PCI-DSS, HIPAA, GDPR, SOC 2** require — enough to explain why specific controls exist and what auditors look for.
 
-> 📌 _Full GRC depth (audit mechanics, vendor risk, continuous compliance, regulatory testing) is covered in [Part 35: GRC](file:///home/smilo/Desktop/MY_Folder/Cyber-Security/Roadmap.md#toc-part-35-governance-risk--compliance-grc) (Phase 8)._
+> 📌 _Full GRC depth (audit mechanics, vendor risk, continuous compliance, regulatory testing) is covered in [Part 35: GRC](Phase-8.md#part-35-governance-risk-compliance-grc) (Phase 8)._
 
 ---
 

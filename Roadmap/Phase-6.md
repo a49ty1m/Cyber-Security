@@ -35,7 +35,7 @@
   - [Stage 3: Delegation, ACL, and ADCS Abuse](#stage-3-delegation-acl-and-adcs-abuse)
   - [Stage 4: Lateral Movement & Persistence](#stage-4-lateral-movement-persistence)
   - [Stage 5: Entra ID (Azure AD) & Hybrid Attacks](#stage-5-entra-id-azure-ad-hybrid-attacks)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 23: Active Directory & Entra ID)](#lab-progression-part-23-active-directory-entra-id)
 - [Part 24: Cloud Computing](#part-24-cloud-computing)
   - [Stage 1: Architecture & Governance](#stage-1-architecture-governance)
   - [Stage 2: Storage & Data Security](#stage-2-storage-data-security)
@@ -49,19 +49,19 @@
   - [Stage 3: Container Runtime Security](#stage-3-container-runtime-security)
   - [Stage 4: Secrets & Configuration Management](#stage-4-secrets-configuration-management)
   - [Stage 5: CI/CD & Workflow Automation Attacks](#stage-5-cicd-workflow-automation-attacks)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 25: Container & Orchestration Security)](#lab-progression-part-25-container-orchestration-security)
 - [Part 26: OT/ICS/SCADA Security](#part-26-oticsscada-security)
   - [Stage 1: Industrial Protocol Fundamentals](#stage-1-industrial-protocol-fundamentals)
   - [Stage 2: PLC & HMI Exploitation](#stage-2-plc-hmi-exploitation)
   - [Stage 3: Safety System Attacks](#stage-3-safety-system-attacks)
   - [Stage 4: OT Network Segmentation & Defense](#stage-4-ot-network-segmentation-defense)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 26: OT/ICS/SCADA Security)](#lab-progression-part-26-oticscada-security)
 - [Part 16: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming) _(Phase 6 Capstone)_
   - [Stage 1: MITRE ATT&CK Framework Mastery](#stage-1-mitre-attck-framework-mastery)
   - [Stage 2: APT & Threat Actor Emulation](#stage-2-apt-threat-actor-emulation)
   - [Stage 3: Purple Team Exercises](#stage-3-purple-team-exercises)
   - [Stage 4: Metrics & Reporting](#stage-4-metrics-reporting)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 16: Adversary Emulation & Purple Teaming)](#lab-progression-part-16-adversary-emulation-purple-teaming)
 
 ---
 
@@ -142,7 +142,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 23: Active Directory & Entra ID)**
 
 > [!TIP]
 > **Goal:** Build and attack identity infrastructure with evidence and rollback.
@@ -336,7 +336,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 25: Container & Orchestration Security)**
 
 > [!TIP]
 > **Goal:** Practice container and Kubernetes security with real clusters, not diagrams.
@@ -421,7 +421,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 26: OT/ICS/SCADA Security)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with industrial control system attacks and defenses.
@@ -511,7 +511,7 @@
 
 - [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
 
-### **Lab Progression**
+### **Lab Progression (Part 16: Adversary Emulation & Purple Teaming)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

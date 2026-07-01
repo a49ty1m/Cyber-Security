@@ -39,27 +39,27 @@
   - [Stage 5: Cloud & Mobile Forensics](#stage-5-cloud-mobile-forensics)
   - [Stage 6: Advanced Analysis & Reporting](#stage-6-advanced-analysis-reporting)
   - [Stage 7: Legal & Reporting](#stage-7-legal-reporting)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 27: Digital Forensics)](#lab-progression-part-27-digital-forensics)
 - [Part 28: Reverse Engineering & Malware Analysis](#part-28-reverse-engineering-malware-analysis)
   - [Stage 1: Static Analysis Foundations](#stage-1-static-analysis-foundations)
   - [Stage 2: Dynamic Analysis & Debugging](#stage-2-dynamic-analysis-debugging)
   - [Stage 3: Anti-Reverse Engineering & Evasion Techniques](#stage-3-anti-reverse-engineering-evasion-techniques)
   - [Stage 4: Malware Classification & Threat Intelligence](#stage-4-malware-classification-threat-intelligence)
   - [Stage 5: Advanced RE & Automation](#stage-5-advanced-re-automation)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 28: Reverse Engineering & Malware Analysis)](#lab-progression-part-28-reverse-engineering-malware-analysis)
 - [Part 29: Modern Exploitation](#part-29-modern-exploitation)
   - [Stage 1: Recon, Triage & Tooling](#stage-1-recon-triage-tooling)
   - [Stage 2: Memory Exploitation (Userland)](#stage-2-memory-exploitation-userland)
   - [Stage 3: Advanced Targets](#stage-3-advanced-targets)
   - [Stage 4: Exploit Delivery & OPSEC](#stage-4-exploit-delivery-opsec)
   - [Stage 5: Post-Exploitation Hardening & Safety](#stage-5-post-exploitation-hardening-safety)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 29: Modern Exploitation)](#lab-progression-part-29-modern-exploitation)
 - [Part 42: Offensive Development & Tooling](#part-42-offensive-development-tooling)
   - [Stage 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
   - [Stage 2: Windows Offensive Development](#stage-2-windows-offensive-development)
   - [Stage 3: Linux Offensive Development](#stage-3-linux-offensive-development)
   - [Stage 4: C2 & Implant Development](#stage-4-c2-implant-development)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 42: Offensive Development & Tooling)](#lab-progression-part-42-offensive-development-tooling)
 
 **Optional Specialization Modules**
 - [Part 30: Hardware Hacking & Embedded Systems [OPTIONAL SPECIALIZATION]](#part-30-hardware-hacking-embedded-systems-optional-specialization)
@@ -68,14 +68,14 @@
   - [Stage 3: Runtime Exploitation](#stage-3-runtime-exploitation)
   - [Stage 4: Side-Channel & Physical Attacks](#stage-4-side-channel-physical-attacks)
   - [Stage 5: IoT & Embedded Defense](#stage-5-iot-embedded-defense)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 30: Hardware Hacking & Embedded Systems)](#lab-progression-part-30-hardware-hacking-embedded-systems)
 - [Part 32: Physical Penetration Testing [OPTIONAL SPECIALIZATION]](#part-32-physical-penetration-testing-optional-specialization)
   - [Stage 1: Pre-Engagement & Reconnaissance](#stage-1-pre-engagement-reconnaissance)
   - [Stage 2: Entry & Access Control Bypass](#stage-2-entry-access-control-bypass)
   - [Stage 3: HID & USB Payload Attacks](#stage-3-hid-usb-payload-attacks)
   - [Stage 4: On-Site Operations & Data Collection](#stage-4-on-site-operations-data-collection)
   - [Stage 5: Reporting Physical Findings](#stage-5-reporting-physical-findings)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 32: Physical Penetration Testing)](#lab-progression-part-32-physical-penetration-testing)
 - [Part 33: VoIP & Telecommunications Security [OPTIONAL SPECIALIZATION]](#part-33-voip-telecommunications-security-optional-specialization)
   - [Stage 1: VoIP Protocol Fundamentals](#stage-1-voip-protocol-fundamentals)
   - [Stage 2: VoIP Reconnaissance & Enumeration](#stage-2-voip-reconnaissance-enumeration)
@@ -83,14 +83,14 @@
   - [Stage 4: SS7 & Telecom Signaling Attacks](#stage-4-ss7-telecom-signaling-attacks)
   - [Stage 5: 5G Security](#stage-5-5g-security)
   - [Stage 6: Defense & Hardening](#stage-6-defense-hardening)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 33: VoIP & Telecommunications Security)](#lab-progression-part-33-voip-telecommunications-security)
 - [Part 34: Blockchain & Web3 Security [OPTIONAL SPECIALIZATION]](#part-34-blockchain-web3-security-optional-specialization)
   - [Stage 1: Blockchain Fundamentals for Security](#stage-1-blockchain-fundamentals-for-security)
   - [Stage 2: Smart Contract Vulnerabilities](#stage-2-smart-contract-vulnerabilities)
   - [Stage 3: Smart Contract Auditing Methodology](#stage-3-smart-contract-auditing-methodology)
   - [Stage 4: Web3 Infrastructure Attacks](#stage-4-web3-infrastructure-attacks)
   - [Stage 5: Defense & Secure Development](#stage-5-defense-secure-development)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 34: Blockchain & Web3 Security)](#lab-progression-part-34-blockchain-web3-security)
 
 ---
 
@@ -210,7 +210,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 27: Digital Forensics)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -321,7 +321,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 28: Reverse Engineering & Malware Analysis)**
 
 > [!TIP]
 > **Goal:** Build reverse-engineering muscle memory in a safe malware-analysis environment.
@@ -414,7 +414,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 29: Modern Exploitation)**
 
 > [!TIP]
 > **Goal:** Approach exploitation with prerequisites, safety controls, and repeatable labs.
@@ -518,7 +518,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 30: Hardware Hacking & Embedded Systems)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with hardware and embedded system attacks.
@@ -620,7 +620,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 32: Physical Penetration Testing)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with physical security assessment techniques.
@@ -731,7 +731,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 33: VoIP & Telecommunications Security)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with VoIP and telecommunications attacks.
@@ -835,7 +835,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 34: Blockchain & Web3 Security)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with smart contract auditing and Web3 attacks.
@@ -898,7 +898,7 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 
 - [ ] **Evasion Integration:** Combine **sleep obfuscation, call stack spoofing, indirect syscalls, and API unhooking** into implant design.
 
-### **Lab Progression**
+### **Lab Progression (Part 42: Offensive Development & Tooling)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

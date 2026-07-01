@@ -30,15 +30,15 @@
 
 ### 🗂️ Table of Contents
 - [Part 4: Footprinting and Reconnaissance](#part-4-footprinting-and-reconnaissance)
-  - [Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)](#stage-1-the-ghost-phase-passive-osint-human-profiling)
-  - [Stage 2: Semi-Passive Infrastructure Mapping](#stage-2-semi-passive-infrastructure-mapping)
-  - [Stage 3: Active Footprinting & Network Interrogation](#stage-3-active-footprinting-network-interrogation)
-  - [Stage 4: Advanced Fingerprinting & Logic Analysis](#stage-4-advanced-fingerprinting-logic-analysis)
-  - [Stage 5: IPv6 & Protocol Enumeration](#stage-5-ipv6-protocol-enumeration)
-  - [Stage 6: Dark Web & Breach Intelligence](#stage-6-dark-web-breach-intelligence)
-  - [Stage 7: Satellite & Geospatial Intelligence](#stage-7-satellite-geospatial-intelligence)
-  - [Stage 8: Strategy & Attack Mapping](#stage-8-strategy-attack-mapping)
-  - [Lab Progression](#lab-progression)
+  - [Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)](#part-4-stage-1-ghost-phase)
+  - [Stage 2: Semi-Passive Infrastructure Mapping](#part-4-stage-2-semi-passive-infrastructure-mapping)
+  - [Stage 3: Active Footprinting & Network Interrogation](#part-4-stage-3-active-footprinting-network-interrogation)
+  - [Stage 4: Advanced Fingerprinting & Logic Analysis](#part-4-stage-4-advanced-fingerprinting-logic-analysis)
+  - [Stage 5: IPv6 & Protocol Enumeration](#part-4-stage-5-ipv6-protocol-enumeration)
+  - [Stage 6: Dark Web & Breach Intelligence](#part-4-stage-6-dark-web-breach-intelligence)
+  - [Stage 7: Satellite & Geospatial Intelligence](#part-4-stage-7-satellite-geospatial-intelligence)
+  - [Stage 8: Strategy & Attack Mapping](#part-4-stage-8-strategy-attack-mapping)
+  - [Lab Progression (Part 4: Footprinting and Reconnaissance)](#part-4-lab-progression)
 - [Part 5: Scanning](#part-5-scanning)
   - [Stage 1: Host Discovery & Network Topology (The "Roll Call")](#stage-1-host-discovery-network-topology-the-roll-call)
   - [Stage 2: Port, Service & Protocol Enumeration (The "Door Check")](#stage-2-port-service-protocol-enumeration-the-door-check)
@@ -46,14 +46,14 @@
   - [Stage 4: Vulnerability Association & Attack Mapping](#stage-4-vulnerability-association-attack-mapping)
   - [Stage 5: Stealth & Evasion Techniques](#stage-5-stealth-evasion-techniques)
   - [Stage 6: Advanced Scanning Techniques](#stage-6-advanced-scanning-techniques)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 5: Scanning)](#lab-progression-part-5-scanning)
 - [Part 6: Enumeration](#part-6-enumeration)
   - [Stage 1: Service Enumeration & Banner Grabbing](#stage-1-service-enumeration-banner-grabbing)
   - [Stage 2: Directory & Identity Enumeration](#stage-2-directory-identity-enumeration)
   - [Stage 3: DNS & Infrastructure Enumeration](#stage-3-dns-infrastructure-enumeration)
   - [Stage 4: Database & Application Enumeration](#stage-4-database-application-enumeration)
   - [Stage 5: Attack Surface Consolidation & Enumeration OpSec](#stage-5-attack-surface-consolidation-enumeration-opsec)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 6: Enumeration)](#lab-progression-part-6-enumeration)
 - [Part 31: Password Cracking & Hash Analysis](#part-31-password-cracking-hash-analysis)
   - [Stage 1: Hash Identification & Acquisition](#stage-1-hash-identification-acquisition)
   - [Stage 2: Cracking Methodology & Tools](#stage-2-cracking-methodology-tools)
@@ -66,7 +66,7 @@
   - [Stage 4: The Shadow (Defense Evasion & Anti-Forensics)](#stage-4-the-shadow-defense-evasion-anti-forensics)
   - [Stage 5: Data Exfiltration & Impact](#stage-5-data-exfiltration-impact)
   - [Stage 6: The Professional (Governance & Reporting)](#stage-6-the-professional-governance-reporting)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 7: System Hacking & Initial Compromise)](#lab-progression-part-7-system-hacking-initial-compromise)
 - [Part 8: Malware & Weaponization](#part-8-malware-weaponization)
   - [Stage 1: The Design & Logic (Architecture)](#stage-1-the-design-logic-architecture)
   - [Stage 2: The Payload & Mechanism (Weaponization)](#stage-2-the-payload-mechanism-weaponization)
@@ -80,26 +80,26 @@
   - [Stage 3: Spoofing & Active Deception (The Lie)](#stage-3-spoofing-active-deception-the-lie)
   - [Stage 4: Man-in-the-Middle & Exploitation (The Kill)](#stage-4-man-in-the-middle-exploitation-the-kill)
   - [Stage 5: Defenses & Mitigation (The Shield)](#stage-5-defenses-mitigation-the-shield)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 9: Sniffing & Spoofing)](#lab-progression-part-9-sniffing-spoofing)
 - [Part 10: Social Engineering](#part-10-social-engineering)
   - [Stage 1: Intelligence & Reconnaissance (The Setup)](#stage-1-intelligence-reconnaissance-the-setup)
   - [Stage 2: The Digital Assault (Remote Vectors)](#stage-2-the-digital-assault-remote-vectors)
   - [Stage 3: The Human Element (Direct Interaction)](#stage-3-the-human-element-direct-interaction)
   - [Stage 4: The Physical Breach (Boots on the Ground)](#stage-4-the-physical-breach-boots-on-the-ground)
   - [Stage 5: Defense & Awareness (The Shield)](#stage-5-defense-awareness-the-shield)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 10: Social Engineering)](#lab-progression-part-10-social-engineering)
 - [Part 11: Denial of Service](#part-11-denial-of-service)
   - [Stage 1: Objective & Strategy (The Planning)](#stage-1-objective-strategy-the-planning)
   - [Stage 2: The Arsenal (Attack Methods)](#stage-2-the-arsenal-attack-methods)
   - [Stage 3: Infrastructure & Execution (The Assault)](#stage-3-infrastructure-execution-the-assault)
   - [Stage 4: Defense & Mitigation (The Shield)](#stage-4-defense-mitigation-the-shield)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 11: Denial of Service)](#lab-progression-part-11-denial-of-service)
 - [Part 12: Session Hijacking](#part-12-session-hijacking)
   - [Stage 1: Reconnaissance & Vulnerability Analysis](#stage-1-reconnaissance-vulnerability-analysis)
   - [Stage 2: Stealing the Session ID (The Attack Vectors)](#stage-2-stealing-the-session-id-the-attack-vectors)
   - [Stage 3: Execution & Impersonation](#stage-3-execution-impersonation)
   - [Stage 4: Defense & Mitigation (The Shield)](#stage-4-defense-mitigation-the-shield)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 12: Session Hijacking)](#lab-progression-part-12-session-hijacking)
 
 ---
 
@@ -111,6 +111,7 @@
 
 ## Part 4: Footprinting and Reconnaissance
 
+<a id="part-4-stage-1-ghost-phase"></a>
 ### **Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
 
 > [!TIP]
@@ -136,6 +137,7 @@
 
 ---
 
+<a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
 ### **Stage 2: Semi-Passive Infrastructure Mapping**
 
 > [!TIP]
@@ -155,6 +157,7 @@
 
 ---
 
+<a id="part-4-stage-3-active-footprinting-network-interrogation"></a>
 ### **Stage 3: Active Footprinting & Network Interrogation**
 
 > [!TIP]
@@ -176,6 +179,7 @@
 
 ---
 
+<a id="part-4-stage-4-advanced-fingerprinting-logic-analysis"></a>
 ### **Stage 4: Advanced Fingerprinting & Logic Analysis**
 
 > [!TIP]
@@ -191,6 +195,7 @@
 
 ---
 
+<a id="part-4-stage-5-ipv6-protocol-enumeration"></a>
 ### **Stage 5: IPv6 & Protocol Enumeration**
 
 > [!TIP]
@@ -212,6 +217,7 @@
 
 ---
 
+<a id="part-4-stage-6-dark-web-breach-intelligence"></a>
 ### **Stage 6: Dark Web & Breach Intelligence**
 
 > [!TIP]
@@ -229,6 +235,7 @@
 
 ---
 
+<a id="part-4-stage-7-satellite-geospatial-intelligence"></a>
 ### **Stage 7: Satellite & Geospatial Intelligence**
 
 > [!TIP]
@@ -244,6 +251,7 @@
 
 ---
 
+<a id="part-4-stage-8-strategy-attack-mapping"></a>
 ### **Stage 8: Strategy & Attack Mapping**
 
 > [!TIP]
@@ -257,7 +265,8 @@
 
 ---
 
-### **Lab Progression**
+<a id="part-4-lab-progression"></a>
+### **Lab Progression (Part 4: Footprinting and Reconnaissance)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -383,7 +392,7 @@
 
 - [ ] **Proxychains & Proxy Pivoting:** Route scans through **VPNs, proxies, compromised hosts** to obscure source IP and bypass **geographic restrictions**.
 
-### **Lab Progression**
+### **Lab Progression (Part 5: Scanning)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -487,7 +496,7 @@
 
 - [ ] **Documentation:** Record all findings with **timestamps, source IPs, and tool commands** used — this feeds directly into **reporting and evidence collection**.
 
-### **Lab Progression**
+### **Lab Progression (Part 6: Enumeration)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -865,7 +874,7 @@
 
 - [ ] **Metrics & KPIs:** Highlight **MTTD (Mean Time to Detect), MTTC (Mean Time to Contain), detection gaps**.
 
-### **Lab Progression**
+### **Lab Progression (Part 7: System Hacking & Initial Compromise)**
 
 > [!TIP]
 > **Goal:** Practice compromise only in controlled environments and produce professional evidence.
@@ -1109,7 +1118,7 @@
 
 - [ ] **User Awareness:** Train users to verify **SSL certificates**, recognize **phishing login pages**, and use **password managers** to avoid clipboard paste attacks.
 
-### **Lab Progression**
+### **Lab Progression (Part 9: Sniffing & Spoofing)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -1206,7 +1215,7 @@
 
 - [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
 
-### **Lab Progression**
+### **Lab Progression (Part 10: Social Engineering)**
 
 > [!TIP]
 > **Goal:** Learn social engineering defensively and ethically.
@@ -1281,7 +1290,7 @@
 
 - [ ] **ISP/Carrier Coordination:** Work with **ISP's DDoS mitigation services** to scrub traffic upstream; establish **BGP blackholing** to discard attack traffic at border; maintain **redundant ISPs/circuits**.
 
-### **Lab Progression**
+### **Lab Progression (Part 11: Denial of Service)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -1359,7 +1368,7 @@
 
 - [ ] **Network Monitoring:** Use **IDS/IPS** to detect **MITM patterns, ARP spoofing, SSL stripping attempts**. _(See Part 9 for canonical spoofing coverage.)_
 
-### **Lab Progression**
+### **Lab Progression (Part 12: Session Hijacking)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

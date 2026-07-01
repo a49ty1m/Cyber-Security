@@ -58,20 +58,20 @@
   - [Stage 6: Mobile Platform Awareness](#stage-6-mobile-platform-awareness)
   - [Stage 7: Programming & Scripting Fundamentals](#stage-7-programming-scripting-fundamentals)
 - [Part 1B: Linux Administration](#part-1b-linux-administration)
-  - [Stage 1: User & Access Management](#stage-1-user-access-management)
-  - [Stage 2: Service & Process Management](#stage-2-service-process-management)
-  - [Stage 3: Networking](#stage-3-networking)
-  - [Stage 4: Log Analysis & Monitoring](#stage-4-log-analysis-monitoring)
-  - [Stage 5: Storage & Filesystem](#stage-5-storage-filesystem)
-  - [Stage 6: Security Hardening](#stage-6-security-hardening)
-  - [Lab Progression](#lab-progression)
+  - [Stage 1: User & Access Management (Linux)](#stage-1-user-access-management-linux)
+  - [Stage 2: Service & Process Management (Linux)](#stage-2-service-process-management-linux)
+  - [Stage 3: Networking (Linux)](#stage-3-networking-linux)
+  - [Stage 4: Log Analysis & Monitoring (Linux)](#stage-4-log-analysis-monitoring-linux)
+  - [Stage 5: Storage & Filesystem (Linux)](#stage-5-storage-filesystem-linux)
+  - [Stage 6: Security Hardening (Linux)](#stage-6-security-hardening-linux)
+  - [Lab Progression (Linux)](#lab-progression-linux)
 - [Part 1C: Windows Administration](#part-1c-windows-administration)
-  - [Stage 1: User & Access Management](#stage-1-user-access-management)
-  - [Stage 2: System Management](#stage-2-system-management)
-  - [Stage 3: Event Viewer & Auditing](#stage-3-event-viewer-auditing)
-  - [Stage 4: PowerShell Administration](#stage-4-powershell-administration)
+  - [Stage 1: User & Access Management (Windows)](#stage-1-user-access-management-windows)
+  - [Stage 2: System Management (Windows)](#stage-2-system-management-windows)
+  - [Stage 3: Event Viewer & Auditing (Windows)](#stage-3-event-viewer-auditing-windows)
+  - [Stage 4: PowerShell Administration (Windows)](#stage-4-powershell-administration-windows)
   - [Stage 5: Active Directory Concepts (Prerequisite for Part 23)](#stage-5-active-directory-concepts-prerequisite-for-part-23)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Windows)](#lab-progression-windows)
   - [macOS Security Awareness (Supplemental)](#macos-security-awareness-supplemental)
 - [Part 2: Networking Fundamentals](#part-2-networking-fundamentals)
   - [Layer 1: Physical (The Hardware Surface)](#layer-1-physical-the-hardware-surface)
@@ -87,7 +87,7 @@
   - [Stage 3: Identity & Trust (PKI)](#stage-3-identity-trust-pki)
   - [Stage 4: Data at Rest & Password Security](#stage-4-data-at-rest-password-security)
   - [Stage 5: Cryptographic Attacks & Weaknesses](#stage-5-cryptographic-attacks-weaknesses)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Cryptography)](#lab-progression-cryptography)
 
 ---
 
@@ -588,7 +588,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
 
 > [!NOTE]
-> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[Part 22: Mobile Platform Pentesting](file:///home/smilo/Desktop/MY_Folder/Cyber-Security/Roadmap.md#toc-part-22-mobile-platform-pentesting)** (Phase 5). Do not attempt until you have completed Phases 2–4.
+> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[Part 22: Mobile Platform Pentesting](Phase-5.md#part-22-mobile-platform-pentesting)** (Phase 5). Do not attempt until you have completed Phases 2–4.
 
 ---
 
@@ -650,7 +650,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Phase._
 
-### Stage 1: User & Access Management
+### Stage 1: User & Access Management (Linux)
 
 - [ ] **User Accounts:** Create, modify, and delete users with **useradd/usermod/userdel**. Understand **/etc/passwd**, **/etc/shadow**, and **/etc/group** file structures.
 
@@ -664,7 +664,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **ACLs:** Configure **POSIX ACLs** with **getfacl/setfacl** for fine-grained access control beyond standard permissions.
 
-### Stage 2: Service & Process Management
+### Stage 2: Service & Process Management (Linux)
 
 - [ ] **systemd:** Manage services with **systemctl** (start, stop, enable, disable, status, mask). Understand **unit files**, **targets**, and **dependencies**.
 
@@ -676,7 +676,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Boot Process:** Understand **GRUB2 → systemd → target** boot sequence, **runlevels/targets**, and **single-user mode** for recovery.
 
-### Stage 3: Networking
+### Stage 3: Networking (Linux)
 
 - [ ] **Network Configuration:** Configure interfaces with **ip addr, ip link, ip route**. Understand **DHCP vs. static**, **/etc/netplan/**, **/etc/network/interfaces**, and **NetworkManager (nmcli)**.
 
@@ -688,7 +688,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **SSH Hardening:** Configure **/etc/ssh/sshd_config** — disable root login, enforce key-based auth, change default port, configure **fail2ban**, and understand **SSH tunneling (local, remote, dynamic)**.
 
-### Stage 4: Log Analysis & Monitoring
+### Stage 4: Log Analysis & Monitoring (Linux)
 
 - [ ] **journalctl:** Query systemd journal logs — filter by **unit, priority, time range, boot**. Understand **persistent vs. volatile** journaling.
 
@@ -700,7 +700,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Monitoring Tools:** Use **uptime, free, df, du, iostat, vmstat** for system health monitoring. Understand when to investigate further.
 
-### Stage 5: Storage & Filesystem
+### Stage 5: Storage & Filesystem (Linux)
 
 - [ ] **Disk Management:** Use **fdisk, parted, lsblk, blkid** to manage partitions. Understand **MBR vs. GPT**.
 
@@ -710,7 +710,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Disk Encryption:** Encrypt partitions with **LUKS (cryptsetup)**. Understand **dm-crypt**, key slots, and unlock-at-boot configuration.
 
-### Stage 6: Security Hardening
+### Stage 6: Security Hardening (Linux)
 
 - [ ] **SELinux:** Understand **enforcing, permissive, disabled** modes. Use **getenforce, setenforce, sestatus**. Read **audit.log** denials and create custom policies with **audit2allow**.
 
@@ -720,7 +720,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Kernel Hardening:** Understand **sysctl** parameters (**net.ipv4.ip_forward**, **kernel.randomize_va_space**, **fs.protected_hardlinks**) and how to persist them.
 
-### Lab Progression
+### Lab Progression (Linux)
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -742,7 +742,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Part 23), cloud (Part 24), and defensive (Phase 3) modules._
 
-### Stage 1: User & Access Management
+### Stage 1: User & Access Management (Windows)
 
 - [ ] **Local Users & Groups:** Create and manage local accounts with **lusrmgr.msc** and **net user/net localgroup** commands. Understand **built-in accounts (Administrator, Guest, SYSTEM)**.
 
@@ -754,7 +754,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Local Security Policy:** Configure **password policy, account lockout policy, user rights assignments** via **secpol.msc** and **gpedit.msc**.
 
-### Stage 2: System Management
+### Stage 2: System Management (Windows)
 
 - [ ] **Windows Services:** Manage services with **services.msc** and **sc.exe/Get-Service**. Understand **service accounts (LocalSystem, LocalService, NetworkService)**, startup types, and recovery options.
 
@@ -766,7 +766,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Windows Update:** Understand **WSUS, Windows Update for Business**, and **patch management** concepts. Know how to check update history and roll back problematic updates.
 
-### Stage 3: Event Viewer & Auditing
+### Stage 3: Event Viewer & Auditing (Windows)
 
 - [ ] **Event Log Structure:** Navigate **Application, System, Security, Setup** logs in **Event Viewer (eventvwr.msc)**. Understand **Event IDs, sources, levels (Information, Warning, Error, Critical)**.
 
@@ -787,7 +787,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **PowerShell Logging:** Enable **Script Block Logging (Event ID 4104)**, **Module Logging**, and **Transcription Logging**. Understand why these are critical for detecting fileless attacks.
 
-### Stage 4: PowerShell Administration
+### Stage 4: PowerShell Administration (Windows)
 
 - [ ] **Core Cmdlets:** Master **Get-Process, Get-Service, Get-EventLog, Get-WinEvent, Get-ChildItem, Get-Content, Set-Item, New-Item, Remove-Item, Test-NetConnection**.
 
@@ -809,7 +809,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **DHCP in AD:** Understand **DHCP server authorization**, **scopes, reservations, options**, and how DHCP integrates with DNS.
 
-### Lab Progression
+### Lab Progression (Windows)
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -1717,7 +1717,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Cryptanalysis:** Understand basics of **frequency analysis, known-plaintext attacks, chosen-plaintext attacks**.
 
-### **Lab Progression**
+### **Lab Progression (Cryptography)**
 
 > [!TIP]
 > **Goal:** Turn crypto from vocabulary into observable behavior.

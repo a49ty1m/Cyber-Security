@@ -35,20 +35,20 @@
   - [Stage 3: Exploitation (The OWASP Top 10)](#stage-3-exploitation-the-owasp-top-10)
   - [Stage 4: Post-Exploitation & Persistence](#stage-4-post-exploitation-persistence)
   - [Stage 5: Defense & Mitigation (The Shield)](#stage-5-defense-mitigation-the-shield)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 17: Web Application Hacking)](#lab-progression-part-17-web-application-hacking)
 - [Part 18: Web Server Hacking](#part-18-web-server-hacking)
   - [Stage 1: Target Acquisition & Reconnaissance](#stage-1-target-acquisition-reconnaissance)
   - [Stage 2: Scanning & Service Enumeration](#stage-2-scanning-service-enumeration)
   - [Stage 3: Vulnerability Assessment & Exploitation](#stage-3-vulnerability-assessment-exploitation)
   - [Stage 4: Post-Exploitation & Persistence](#stage-4-post-exploitation-persistence)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 18: Web Server Hacking)](#lab-progression-part-18-web-server-hacking)
 - [Part 19: API Security](#part-19-api-security)
   - [Stage 1: API Reconnaissance & Mapping](#stage-1-api-reconnaissance-mapping)
   - [Stage 2: OWASP API Security Top 10](#stage-2-owasp-api-security-top-10)
   - [Stage 3: Protocol-Specific API Attacks](#stage-3-protocol-specific-api-attacks)
   - [Stage 4: API Authentication & Token Attacks](#stage-4-api-authentication-token-attacks)
   - [Stage 5: Defense & Hardening](#stage-5-defense-hardening)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 19: API Security)](#lab-progression-part-19-api-security)
 - [Part 20: Bug Bounty and Penetration Testing](#part-20-bug-bounty-and-penetration-testing)
   - [Stage 1: Preparation & Scoping](#stage-1-preparation-scoping)
   - [Stage 2: Reconnaissance (The Wide Net)](#stage-2-reconnaissance-the-wide-net)
@@ -148,7 +148,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 17: Web Application Hacking)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -232,7 +232,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 18: Web Server Hacking)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -335,7 +335,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 19: API Security)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

@@ -183,7 +183,7 @@
 
 - [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
 
-### **Lab Progression**
+### **Lab Progression (Part 40: Red Team Operations & Tradecraft)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|

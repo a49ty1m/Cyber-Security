@@ -34,7 +34,7 @@
   - [Stage 2: Industry Regulations & Legal Requirements](#stage-2-industry-regulations-legal-requirements)
   - [Stage 3: Risk Management & Assessment](#stage-3-risk-management-assessment)
   - [Stage 4: Audit, Scope & Compliance Testing](#stage-4-audit-scope-compliance-testing)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 35: Governance, Risk & Compliance)](#lab-progression-part-35-governance-risk-compliance)
 - [Part 36: Supply Chain Security](#part-36-supply-chain-security)
   - [Stage 1: Understanding the Attack Surface](#stage-1-understanding-the-attack-surface)
   - [Stage 2: Dependency & Package Attacks](#stage-2-dependency-package-attacks)
@@ -54,7 +54,7 @@
   - [Stage 3: Network Security Architecture](#stage-3-network-security-architecture)
   - [Stage 4: Data Security Architecture](#stage-4-data-security-architecture)
   - [Stage 5: Disaster Recovery & Business Continuity](#stage-5-disaster-recovery-business-continuity)
-  - [Lab Progression](#lab-progression)
+  - [Lab Progression (Part 43: Security Architecture & Engineering)](#lab-progression-part-43-security-architecture-engineering)
 
 ---
 
@@ -134,7 +134,7 @@
 
 ---
 
-### **Lab Progression**
+### **Lab Progression (Part 35: Governance, Risk & Compliance)**
 
 > [!TIP]
 > **Goal:** Make GRC practical by producing audit-ready artifacts.
@@ -375,7 +375,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **DR Testing:** Plan and execute **tabletop exercises, simulation tests, and full failover tests** on a regular schedule.
 
-### **Lab Progression**
+### **Lab Progression (Part 43: Security Architecture & Engineering)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
