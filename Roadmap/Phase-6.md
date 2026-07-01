@@ -65,8 +65,10 @@
 
 ---
 
+<a id="part-23-active-directory-entra-id"></a>
 ## Part 23: Active Directory & Entra ID
 
+<a id="stage-1-discovery-enumeration"></a>
 ### **Stage 1: Discovery & Enumeration**
 
 > [!TIP]
@@ -82,6 +84,7 @@
 
 ---
 
+<a id="stage-2-credential-auth-attacks"></a>
 ### **Stage 2: Credential & Auth Attacks**
 
 > [!TIP]
@@ -97,6 +100,7 @@
 
 ---
 
+<a id="stage-3-delegation-acl-and-adcs-abuse"></a>
 ### **Stage 3: Delegation, ACL, and ADCS Abuse**
 
 > [!TIP]
@@ -112,6 +116,7 @@
 
 ---
 
+<a id="stage-4-lateral-movement-persistence"></a>
 ### **Stage 4: Lateral Movement & Persistence**
 
 > [!TIP]
@@ -127,6 +132,7 @@
 
 ---
 
+<a id="stage-5-entra-id-azure-ad-hybrid-attacks"></a>
 ### **Stage 5: Entra ID (Azure AD) & Hybrid Attacks**
 
 > [!TIP]
@@ -142,6 +148,7 @@
 
 ---
 
+<a id="lab-progression-part-23-active-directory-entra-id"></a>
 ### **Lab Progression (Part 23: Active Directory & Entra ID)**
 
 > [!TIP]
@@ -156,8 +163,10 @@
 > **Move-On Gate:** Produce an AD/Entra attack-path report with screenshots, graph evidence, event IDs, and hardening steps.
 
 <a id="toc-part-24-cloud-computing"></a>
+<a id="part-24-cloud-computing"></a>
 ## Part 24: Cloud Computing
 
+<a id="stage-1-architecture-governance"></a>
 ### **Stage 1: Architecture & Governance**
 
 > [!TIP]
@@ -171,6 +180,7 @@
 
 ---
 
+<a id="stage-2-storage-data-security"></a>
 ### **Stage 2: Storage & Data Security**
 
 > [!TIP]
@@ -182,6 +192,7 @@
 
 ---
 
+<a id="stage-3-modern-infrastructure-deployment"></a>
 ### **Stage 3: Modern Infrastructure & Deployment**
 
 > [!TIP]
@@ -195,6 +206,7 @@
 
 ---
 
+<a id="stage-4-automation-scripting"></a>
 ### **Stage 4: Automation & Scripting**
 
 > [!TIP]
@@ -208,6 +220,7 @@
 
 ---
 
+<a id="stage-5-cloud-specific-attack-vectors"></a>
 ### **Stage 5: Cloud-Specific Attack Vectors**
 
 > [!TIP]
@@ -227,6 +240,7 @@
 
 ---
 
+<a id="stage-6-iam-pam-attack-surface"></a>
 ### **Stage 6: IAM & PAM Attack Surface**
 
 > [!TIP]
@@ -247,8 +261,10 @@
 ---
 
 <a id="toc-part-25-container--orchestration-security"></a>
+<a id="part-25-container-orchestration-security"></a>
 ## Part 25: Container & Orchestration Security
 
+<a id="stage-1-container-fundamentals-attacks"></a>
 ### **Stage 1: Container Fundamentals & Attacks**
 
 > [!TIP]
@@ -266,6 +282,7 @@
 
 ---
 
+<a id="stage-2-kubernetes-security"></a>
 ### **Stage 2: Kubernetes Security**
 
 > [!TIP]
@@ -285,6 +302,7 @@
 
 ---
 
+<a id="stage-3-container-runtime-security"></a>
 ### **Stage 3: Container Runtime Security**
 
 > [!TIP]
@@ -302,6 +320,7 @@
 
 ---
 
+<a id="stage-4-secrets-configuration-management"></a>
 ### **Stage 4: Secrets & Configuration Management**
 
 > [!TIP]
@@ -319,6 +338,7 @@
 
 ---
 
+<a id="stage-5-cicd-workflow-automation-attacks"></a>
 ### **Stage 5: CI/CD & Workflow Automation Attacks**
 
 > [!TIP]
@@ -336,6 +356,7 @@
 
 ---
 
+<a id="lab-progression-part-25-container-orchestration-security"></a>
 ### **Lab Progression (Part 25: Container & Orchestration Security)**
 
 > [!TIP]
@@ -349,8 +370,10 @@
 > **Move-On Gate:** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes.
 
 <a id="toc-part-26-oticsscada-security"></a>
+<a id="part-26-oticsscada-security"></a>
 ## Part 26: OT/ICS/SCADA Security
 
+<a id="stage-1-industrial-protocol-fundamentals"></a>
 ### **Stage 1: Industrial Protocol Fundamentals**
 
 > [!TIP]
@@ -368,6 +391,7 @@
 
 ---
 
+<a id="stage-2-plc-hmi-exploitation"></a>
 ### **Stage 2: PLC & HMI Exploitation**
 
 > [!TIP]
@@ -385,6 +409,7 @@
 
 ---
 
+<a id="stage-3-safety-system-attacks"></a>
 ### **Stage 3: Safety System Attacks**
 
 > [!TIP]
@@ -402,6 +427,7 @@
 
 ---
 
+<a id="stage-4-ot-network-segmentation-defense"></a>
 ### **Stage 4: OT Network Segmentation & Defense**
 
 > [!TIP]
@@ -421,6 +447,7 @@
 
 ---
 
+<a id="lab-progression-part-26-oticscada-security"></a>
 ### **Lab Progression (Part 26: OT/ICS/SCADA Security)**
 
 > [!TIP]
@@ -443,6 +470,7 @@
 > [!WARNING]
 > **Prerequisites:** This Part requires both offensive (Phase 2) AND defensive (Phase 3) maturity plus enterprise infrastructure knowledge from the Parts above (AD, Cloud, Containers, OT). Complete all prior Phase 6 content before attempting this. Purple teaming is the culmination of offense-defense integration at enterprise scale.
 
+<a id="stage-1-mitre-attck-framework-mastery"></a>
 ### **Stage 1: MITRE ATT&CK Framework Mastery**
 
 > [!TIP]
@@ -460,6 +488,7 @@
 
 ---
 
+<a id="stage-2-apt-threat-actor-emulation"></a>
 ### **Stage 2: APT & Threat Actor Emulation**
 
 > [!TIP]
@@ -479,6 +508,7 @@
 
 ---
 
+<a id="stage-3-purple-team-exercises"></a>
 ### **Stage 3: Purple Team Exercises**
 
 > [!TIP]
@@ -496,6 +526,7 @@
 
 ---
 
+<a id="stage-4-metrics-reporting"></a>
 ### **Stage 4: Metrics & Reporting**
 
 > [!TIP]
@@ -511,6 +542,7 @@
 
 - [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
 
+<a id="lab-progression-part-16-adversary-emulation-purple-teaming"></a>
 ### **Lab Progression (Part 16: Adversary Emulation & Purple Teaming)**
 
 | Level | Task | Deliverable |

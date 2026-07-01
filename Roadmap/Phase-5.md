@@ -50,10 +50,12 @@
 
 ---
 
+<a id="part-21-wireless-pentesting"></a>
 ## Part 21: Wireless Pentesting
 
 > **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use your own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
+<a id="stage-1-rf-reconnaissance-setup"></a>
 ### **Stage 1: RF Reconnaissance & Setup**
 
 > [!TIP]
@@ -67,6 +69,7 @@
 
 ---
 
+<a id="stage-2-access-point-assault-the-breaching-of-keys"></a>
 ### **Stage 2: Access Point Assault (The Breaching of Keys)**
 
 > [!TIP]
@@ -80,6 +83,7 @@
 
 ---
 
+<a id="stage-3-enterprise-client-attacks-the-man-in-the-middle"></a>
 ### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)**
 
 > [!TIP]
@@ -97,6 +101,7 @@
 
 ---
 
+<a id="stage-4-bluetooth-ble-attacks"></a>
 ### **Stage 4: Bluetooth & BLE Attacks**
 
 > [!TIP]
@@ -116,6 +121,7 @@
 
 ---
 
+<a id="stage-5-zigbee-z-wave-iot-attacks"></a>
 ### **Stage 5: Zigbee, Z-Wave & IoT Attacks**
 
 > [!TIP]
@@ -135,6 +141,7 @@
 
 ---
 
+<a id="stage-6-nfc-rfid-attacks"></a>
 ### **Stage 6: NFC & RFID Attacks**
 
 > [!TIP]
@@ -154,6 +161,7 @@
 
 ---
 
+<a id="stage-7-gps-satellite-spoofing"></a>
 ### **Stage 7: GPS & Satellite Spoofing**
 
 > [!TIP]
@@ -171,6 +179,7 @@
 
 ---
 
+<a id="stage-8-sdr-spectrum-analysis"></a>
 ### **Stage 8: SDR & Spectrum Analysis**
 
 > [!TIP]
@@ -188,6 +197,7 @@
 
 ---
 
+<a id="stage-9-defense-hardening-the-shield"></a>
 ### **Stage 9: Defense & Hardening (The Shield)**
 
 > [!TIP]
@@ -206,8 +216,10 @@
 ---
 
 <a id="toc-part-22-mobile-platform-pentesting"></a>
+<a id="part-22-mobile-platform-pentesting"></a>
 ## Part 22: Mobile Platform Pentesting
 
+<a id="stage-0-mobile-architecture-foundations"></a>
 ### **Stage 0: Mobile Architecture Foundations**
 
 > [!TIP]
@@ -243,6 +255,7 @@
 
 ---
 
+<a id="stage-1-lab-setup-reconnaissance"></a>
 ### **Stage 1: Lab Setup & Reconnaissance**
 
 > [!TIP]
@@ -256,6 +269,7 @@
 
 ---
 
+<a id="stage-2-static-analysis-code-review"></a>
 ### **Stage 2: Static Analysis (Code Review)**
 
 > [!TIP]
@@ -269,6 +283,7 @@
 
 ---
 
+<a id="stage-3-dynamic-analysis-runtime-manipulation"></a>
 ### **Stage 3: Dynamic Analysis (Runtime Manipulation)**
 
 > [!TIP]
@@ -282,6 +297,7 @@
 
 ---
 
+<a id="stage-4-network-api-attacks"></a>
 ### **Stage 4: Network & API Attacks**
 
 > [!TIP]
@@ -295,6 +311,7 @@
 
 ---
 
+<a id="stage-5-local-data-storage-defense"></a>
 ### **Stage 5: Local Data Storage & Defense**
 
 > [!TIP]
@@ -308,6 +325,7 @@
 
 ---
 
+<a id="stage-6-defense-secure-development"></a>
 ### **Stage 6: Defense & Secure Development**
 
 > [!TIP]

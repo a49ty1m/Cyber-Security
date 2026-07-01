@@ -91,10 +91,12 @@
 
 ---
 
+<a id="career-foundation-lab-setup"></a>
 ## Career Foundation & Lab Setup
 
 _Before starting the technical curriculum, establish your academic foundation, lab environment, and practice platforms._
 
+<a id="professional-development-enablers"></a>
 ### **Professional Development & Enablers**
 
 - [ ] **Lab Progression Map (Packet Tracer → GNS3/EVE-NG → Wireshark validation)**
@@ -260,6 +262,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="home-lab-hardware-requirements"></a>
 ### **Home Lab Hardware Requirements**
 
 > [!TIP]
@@ -277,6 +280,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="academic-career-alignment"></a>
 ### **Academic & Career Alignment**
 
 > [!TIP]
@@ -315,6 +319,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="certification-alignment-map"></a>
 ### **Certification Alignment Map**
 
 > [!TIP]
@@ -335,6 +340,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="training-platforms-lab-environments"></a>
 ### **Training Platforms & Lab Environments**
 
 > [!TIP]
@@ -430,6 +436,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="foundation-proof-gate"></a>
 ### **Foundation Proof Gate**
 
 > [!TIP]
@@ -465,8 +472,10 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="toc-part-1-fundamentals"></a>
+<a id="part-1-fundamentals"></a>
 ## Part 1: Fundamentals
 
+<a id="stage-1-hardware-cpu-pre-boot-environment"></a>
 ### **Stage 1: Hardware, CPU & Pre-Boot Environment**
 
 > [!TIP]
@@ -488,6 +497,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="stage-2-operating-system-internals"></a>
 ### **Stage 2: Operating System Internals**
 
 > [!TIP]
@@ -509,6 +519,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="stage-3-memory-management"></a>
 ### **Stage 3: Memory Management**
 
 > [!TIP]
@@ -526,6 +537,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="stage-4-data-representation-logic"></a>
 ### **Stage 4: Data Representation & Logic**
 
 > [!TIP]
@@ -539,6 +551,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="stage-5-wireless-physical-connections"></a>
 ### **Stage 5: Wireless & Physical Connections**
 
 > [!TIP]
@@ -578,6 +591,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="stage-6-mobile-platform-awareness"></a>
 ### **Stage 6: Mobile Platform Awareness**
 
 > [!TIP]
@@ -592,6 +606,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
+<a id="stage-7-programming-scripting-fundamentals"></a>
 ### **Stage 7: Programming & Scripting Fundamentals**
 
 > [!TIP]
@@ -646,10 +661,12 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 
 <a id="toc-part-1b-linux-administration"></a>
+<a id="part-1b-linux-administration"></a>
 ## Part 1B: Linux Administration
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Phase._
 
+<a id="stage-1-user-access-management-linux"></a>
 ### Stage 1: User & Access Management (Linux)
 
 - [ ] **User Accounts:** Create, modify, and delete users with **useradd/usermod/userdel**. Understand **/etc/passwd**, **/etc/shadow**, and **/etc/group** file structures.
@@ -664,6 +681,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **ACLs:** Configure **POSIX ACLs** with **getfacl/setfacl** for fine-grained access control beyond standard permissions.
 
+<a id="stage-2-service-process-management-linux"></a>
 ### Stage 2: Service & Process Management (Linux)
 
 - [ ] **systemd:** Manage services with **systemctl** (start, stop, enable, disable, status, mask). Understand **unit files**, **targets**, and **dependencies**.
@@ -676,6 +694,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Boot Process:** Understand **GRUB2 → systemd → target** boot sequence, **runlevels/targets**, and **single-user mode** for recovery.
 
+<a id="stage-3-networking-linux"></a>
 ### Stage 3: Networking (Linux)
 
 - [ ] **Network Configuration:** Configure interfaces with **ip addr, ip link, ip route**. Understand **DHCP vs. static**, **/etc/netplan/**, **/etc/network/interfaces**, and **NetworkManager (nmcli)**.
@@ -688,6 +707,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **SSH Hardening:** Configure **/etc/ssh/sshd_config** — disable root login, enforce key-based auth, change default port, configure **fail2ban**, and understand **SSH tunneling (local, remote, dynamic)**.
 
+<a id="stage-4-log-analysis-monitoring-linux"></a>
 ### Stage 4: Log Analysis & Monitoring (Linux)
 
 - [ ] **journalctl:** Query systemd journal logs — filter by **unit, priority, time range, boot**. Understand **persistent vs. volatile** journaling.
@@ -700,6 +720,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Monitoring Tools:** Use **uptime, free, df, du, iostat, vmstat** for system health monitoring. Understand when to investigate further.
 
+<a id="stage-5-storage-filesystem-linux"></a>
 ### Stage 5: Storage & Filesystem (Linux)
 
 - [ ] **Disk Management:** Use **fdisk, parted, lsblk, blkid** to manage partitions. Understand **MBR vs. GPT**.
@@ -710,6 +731,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Disk Encryption:** Encrypt partitions with **LUKS (cryptsetup)**. Understand **dm-crypt**, key slots, and unlock-at-boot configuration.
 
+<a id="stage-6-security-hardening-linux"></a>
 ### Stage 6: Security Hardening (Linux)
 
 - [ ] **SELinux:** Understand **enforcing, permissive, disabled** modes. Use **getenforce, setenforce, sestatus**. Read **audit.log** denials and create custom policies with **audit2allow**.
@@ -720,6 +742,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Kernel Hardening:** Understand **sysctl** parameters (**net.ipv4.ip_forward**, **kernel.randomize_va_space**, **fs.protected_hardlinks**) and how to persist them.
 
+<a id="lab-progression-linux"></a>
 ### Lab Progression (Linux)
 
 | Level | Task | Deliverable |
@@ -738,10 +761,12 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="toc-part-1c-windows-administration"></a>
+<a id="part-1c-windows-administration"></a>
 ## Part 1C: Windows Administration
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Part 23), cloud (Part 24), and defensive (Phase 3) modules._
 
+<a id="stage-1-user-access-management-windows"></a>
 ### Stage 1: User & Access Management (Windows)
 
 - [ ] **Local Users & Groups:** Create and manage local accounts with **lusrmgr.msc** and **net user/net localgroup** commands. Understand **built-in accounts (Administrator, Guest, SYSTEM)**.
@@ -754,6 +779,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Local Security Policy:** Configure **password policy, account lockout policy, user rights assignments** via **secpol.msc** and **gpedit.msc**.
 
+<a id="stage-2-system-management-windows"></a>
 ### Stage 2: System Management (Windows)
 
 - [ ] **Windows Services:** Manage services with **services.msc** and **sc.exe/Get-Service**. Understand **service accounts (LocalSystem, LocalService, NetworkService)**, startup types, and recovery options.
@@ -766,6 +792,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Windows Update:** Understand **WSUS, Windows Update for Business**, and **patch management** concepts. Know how to check update history and roll back problematic updates.
 
+<a id="stage-3-event-viewer-auditing-windows"></a>
 ### Stage 3: Event Viewer & Auditing (Windows)
 
 - [ ] **Event Log Structure:** Navigate **Application, System, Security, Setup** logs in **Event Viewer (eventvwr.msc)**. Understand **Event IDs, sources, levels (Information, Warning, Error, Critical)**.
@@ -787,6 +814,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **PowerShell Logging:** Enable **Script Block Logging (Event ID 4104)**, **Module Logging**, and **Transcription Logging**. Understand why these are critical for detecting fileless attacks.
 
+<a id="stage-4-powershell-administration-windows"></a>
 ### Stage 4: PowerShell Administration (Windows)
 
 - [ ] **Core Cmdlets:** Master **Get-Process, Get-Service, Get-EventLog, Get-WinEvent, Get-ChildItem, Get-Content, Set-Item, New-Item, Remove-Item, Test-NetConnection**.
@@ -799,6 +827,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Active Directory Basics:** Use **RSAT tools** and **Active Directory PowerShell module** (Get-ADUser, Get-ADGroup, Get-ADComputer). Understand **OU structure, GPO basics, DNS integration with AD**.
 
+<a id="stage-5-active-directory-concepts-prerequisite-for-part-23"></a>
 ### Stage 5: Active Directory Concepts _(Prerequisite for Part 23)_
 
 - [ ] **AD Architecture:** Understand **domains, forests, trusts, OUs, sites**, and **replication**. Know the difference between a **domain controller** and a **member server**.
@@ -809,6 +838,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **DHCP in AD:** Understand **DHCP server authorization**, **scopes, reservations, options**, and how DHCP integrates with DNS.
 
+<a id="lab-progression-windows"></a>
 ### Lab Progression (Windows)
 
 | Level | Task | Deliverable |
@@ -826,6 +856,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="macos-security-awareness-supplemental"></a>
 ### **macOS Security Awareness** _(Supplemental)_
 
 > macOS endpoints are present in most enterprises, especially in development, design, and executive teams. This sidebar provides enough context to avoid a knowledge gap when encountering macOS in the field. Full macOS exploitation is an advanced specialization.
@@ -843,9 +874,11 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="toc-part-2-networking-fundamentals"></a>
+<a id="part-2-networking-fundamentals"></a>
 ## Part 2: Networking Fundamentals
 
 
+<a id="layer-1-physical-the-hardware-surface"></a>
 ### Layer 1: Physical (The Hardware Surface)
 
 **Transmission Media & Cabling:**
@@ -920,6 +953,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="layer-2-data-link-the-local-target"></a>
 ### Layer 2: Data Link (The Local Target)
 
 **MAC Addressing & Frame Structure:**
@@ -1050,6 +1084,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="layer-3-network-the-routing-logic"></a>
 ### Layer 3: Network (The Routing Logic)
 
 **IP Addressing & Subnetting:**
@@ -1150,6 +1185,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="layer-4-transport-the-reliability-layer"></a>
 ### Layer 4: Transport (The Reliability Layer)
 
 **TCP Protocol Mechanics:**
@@ -1226,6 +1262,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="layers-5-7-application-session-the-payload"></a>
 ### Layers 5-7: Application & Session (The Payload)
 
 **DNS Protocol & Exploitation:**
@@ -1492,6 +1529,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="lab-progression-professional-development-2026-red-team-focus"></a>
 ### Lab Progression & Professional Development (2026 Red Team Focus)
 
 > [!TIP]
@@ -1553,6 +1591,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="automation-programmability"></a>
 ### Automation & Programmability
 
 > [!TIP]
@@ -1648,8 +1687,10 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Scripting Use Cases:** Automate **config backups, bulk changes, compliance checks, inventory collection**.
 
 <a id="toc-part-3-cryptography"></a>
+<a id="part-3-cryptography"></a>
 ## Part 3: Cryptography
 
+<a id="stage-1-core-concepts-algorithms"></a>
 ### **Stage 1: Core Concepts & Algorithms**
 
 > [!TIP]
@@ -1663,6 +1704,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="stage-2-secure-communication-data-in-transit"></a>
 ### **Stage 2: Secure Communication (Data in Transit)**
 
 > [!TIP]
@@ -1676,6 +1718,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="stage-3-identity-trust-pki"></a>
 ### **Stage 3: Identity & Trust (PKI)**
 
 > [!TIP]
@@ -1687,6 +1730,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="stage-4-data-at-rest-password-security"></a>
 ### **Stage 4: Data at Rest & Password Security**
 
 > [!TIP]
@@ -1702,6 +1746,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="stage-5-cryptographic-attacks-weaknesses"></a>
 ### **Stage 5: Cryptographic Attacks & Weaknesses**
 
 > [!TIP]
@@ -1717,6 +1762,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Cryptanalysis:** Understand basics of **frequency analysis, known-plaintext attacks, chosen-plaintext attacks**.
 
+<a id="lab-progression-cryptography"></a>
 ### **Lab Progression (Cryptography)**
 
 > [!TIP]

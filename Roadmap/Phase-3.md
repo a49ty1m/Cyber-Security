@@ -65,10 +65,12 @@
 
 ---
 
+<a id="part-13a-detection-engineering-soc-operations"></a>
 ## Part 13A: Detection Engineering & SOC Operations
 
 _Understand defensive detection to know what to evade. This Part covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in Part 13B._
 
+<a id="stage-1-defensive-architecture"></a>
 ### **Stage 1: Defensive Architecture**
 
 - [ ] **Defense-In-Depth:** Layer **EDR, SIEM, CASB, firewall, WAF, IDS/IPS, DNS filtering** with **proper tuning** to reduce false positives and enable hunting.
@@ -79,6 +81,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-2-offensive-indicators-ttps"></a>
 ### **Stage 2: Offensive Indicators & TTPs**
 
 - [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, Metasploit, custom).
@@ -89,6 +92,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-3-evasion-detection-hardening"></a>
 ### **Stage 3: Evasion Detection & Hardening**
 
 - [ ] **Living-off-the-Land Detection:** Monitor **native binary execution** (PowerShell, WMI, certutil, mshta, bitsadmin) with **process whitelisting, memory pattern analysis, and behavioral indicators**.
@@ -101,6 +105,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-4-detection-engineering-response"></a>
 ### **Stage 4: Detection Engineering & Response**
 
 - [ ] **Detection Rules:** Write **Sigma, Snort/Suricata, Yara, osquery** rules targeting **adversary TTPs** from reconnaissance to exfiltration.
@@ -113,6 +118,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-5-edrxdrmdr-basics"></a>
 ### **Stage 5: EDR/XDR/MDR Basics**
 
 > [!TIP]
@@ -130,6 +136,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-6-soc-siem-fundamentals"></a>
 ### **Stage 6: SOC & SIEM Fundamentals**
 
 > [!TIP]
@@ -149,6 +156,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-7-threat-hunting-methodology"></a>
 ### **Stage 7: Threat Hunting Methodology**
 
 > [!TIP]
@@ -166,6 +174,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-8-incident-response-basics"></a>
 ### **Stage 8: Incident Response Basics**
 
 > [!TIP]
@@ -185,6 +194,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-9-forensic-fundamentals"></a>
 ### **Stage 9: Forensic Fundamentals**
 
 > [!TIP]
@@ -202,6 +212,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
+<a id="stage-10-blue-team-evasion-counter-measures"></a>
 ### **Stage 10: Blue Team Evasion Counter-Measures**
 
 > [!TIP]
@@ -230,10 +241,12 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="toc-part-13b-security-operations-expansion"></a>
+<a id="part-13b-security-operations-expansion"></a>
 ## Part 13B: Security Operations Expansion
 
 _Continuation of Part 13A. These stages cover operational security tools and programs that build on the detection engineering foundation. Complete Part 13A before starting this section._
 
+<a id="stage-11-security-orchestration-automation-response-soar"></a>
 ### **Stage 11: Security Orchestration, Automation & Response (SOAR)**
 
 > [!TIP]
@@ -251,6 +264,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-12-data-loss-prevention-dlp-fundamentals"></a>
 ### **Stage 12: Data Loss Prevention (DLP) Fundamentals**
 
 > [!TIP]
@@ -268,6 +282,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-13-vulnerability-management-program"></a>
 ### **Stage 13: Vulnerability Management Program**
 
 > [!TIP]
@@ -287,6 +302,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-14-insider-threat-detection"></a>
 ### **Stage 14: Insider Threat Detection**
 
 > [!TIP]
@@ -304,6 +320,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="lab-progression-parts-13a-13b-combined"></a>
 ### **Lab Progression (Parts 13A + 13B Combined)**
 
 > [!TIP]
@@ -318,8 +335,10 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 **Move-On Gate (Part 13B):** You can deploy SIEM/SOAR, write detection rules, perform threat hunting, execute incident response workflows, configure DLP policies, and produce a detection coverage matrix mapped to MITRE ATT&CK tactics.
 
 <a id="toc-part-14-ids-firewalls-and-honeypots"></a>
+<a id="part-14-ids-firewalls-and-honeypots"></a>
 ## Part 14: IDS, Firewalls, and Honeypots
 
+<a id="stage-1-foundational-strategy-networking"></a>
 ### **Stage 1: Foundational Strategy & Networking**
 
 > [!TIP]
@@ -333,6 +352,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-2-deploying-firewalls-the-shield"></a>
 ### **Stage 2: Deploying Firewalls (The Shield)**
 
 > [!TIP]
@@ -346,6 +366,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-3-implementing-idsips-the-watchers"></a>
 ### **Stage 3: Implementing IDS/IPS (The Watchers)**
 
 > [!TIP]
@@ -361,6 +382,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-4-utilizing-deception-the-traps"></a>
 ### **Stage 4: Utilizing Deception (The Traps)**
 
 > [!TIP]
@@ -374,6 +396,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-5-operations-continuous-improvement"></a>
 ### **Stage 5: Operations & Continuous Improvement**
 
 > [!TIP]
@@ -391,6 +414,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-6-email-security-architecture"></a>
 ### **Stage 6: Email Security Architecture**
 
 > [!TIP]
@@ -410,6 +434,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="lab-progression-part-14-ids-firewalls-and-honeypots"></a>
 ### **Lab Progression (Part 14: IDS, Firewalls, and Honeypots)**
 
 | Level | Task | Deliverable |
@@ -425,6 +450,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-7-dns-security-operations"></a>
 ### **Stage 7: DNS Security Operations**
 
 > [!TIP]
@@ -445,8 +471,10 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="toc-part-15-osint--threat-intelligence"></a>
+<a id="part-15-osint-threat-intelligence"></a>
 ## Part 15: OSINT & Threat Intelligence
 
+<a id="stage-1-passive-reconnaissance-data-collection"></a>
 ### **Stage 1: Passive Reconnaissance & Data Collection**
 
 > [!TIP]
@@ -466,6 +494,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-2-threat-intelligence-analysis"></a>
 ### **Stage 2: Threat Intelligence Analysis**
 
 > [!TIP]
@@ -483,6 +512,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-3-osint-automation-tooling"></a>
 ### **Stage 3: OSINT Automation & Tooling**
 
 > [!TIP]
@@ -500,6 +530,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-4-threat-intelligence-dissemination"></a>
 ### **Stage 4: Threat Intelligence Dissemination**
 
 > [!TIP]
@@ -517,6 +548,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="lab-progression-part-15-osint-threat-intelligence"></a>
 ### **Lab Progression (Part 15: OSINT & Threat Intelligence)**
 
 | Level | Task | Deliverable |
@@ -532,6 +564,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="grc-fundamentals-sidebar-early-supplement-for-defensive-careers"></a>
 ### **GRC Fundamentals Sidebar** _(Early Supplement for Defensive Careers)_
 
 > **Why Here:** SOC analysts, detection engineers, and blue team professionals need basic framework and compliance context much earlier than Phase 8. Complete this sidebar before moving to Phase 4 if you are pursuing a defensive career track. Full GRC depth is covered in Part 35 (Phase 8).

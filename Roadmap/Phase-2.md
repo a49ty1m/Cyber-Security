@@ -109,6 +109,7 @@
 
 ---
 
+<a id="part-4-footprinting-and-reconnaissance"></a>
 ## Part 4: Footprinting and Reconnaissance
 
 <a id="part-4-stage-1-ghost-phase"></a>
@@ -282,8 +283,10 @@
 ---
 
 <a id="toc-part-5-scanning"></a>
+<a id="part-5-scanning"></a>
 ## Part 5: Scanning
 
+<a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
 ### **Stage 1: Host Discovery & Network Topology (The "Roll Call")**
 
 > [!TIP]
@@ -301,6 +304,7 @@
 
 ---
 
+<a id="stage-2-port-service-protocol-enumeration-the-door-check"></a>
 ### **Stage 2: Port, Service & Protocol Enumeration (The "Door Check")**
 
 > [!TIP]
@@ -322,6 +326,7 @@
 
 ---
 
+<a id="stage-3-defense-configuration-assessment-the-armor-check"></a>
 ### **Stage 3: Defense & Configuration Assessment (The "Armor Check")**
 
 > [!TIP]
@@ -337,6 +342,7 @@
 
 ---
 
+<a id="stage-4-vulnerability-association-attack-mapping"></a>
 ### **Stage 4: Vulnerability Association & Attack Mapping**
 
 > [!TIP]
@@ -354,6 +360,7 @@
 
 ---
 
+<a id="stage-5-stealth-evasion-techniques"></a>
 ### **Stage 5: Stealth & Evasion Techniques**
 
 > [!TIP]
@@ -375,6 +382,7 @@
 
 ---
 
+<a id="stage-6-advanced-scanning-techniques"></a>
 ### **Stage 6: Advanced Scanning Techniques**
 
 > [!TIP]
@@ -392,6 +400,7 @@
 
 - [ ] **Proxychains & Proxy Pivoting:** Route scans through **VPNs, proxies, compromised hosts** to obscure source IP and bypass **geographic restrictions**.
 
+<a id="lab-progression-part-5-scanning"></a>
 ### **Lab Progression (Part 5: Scanning)**
 
 | Level | Task | Deliverable |
@@ -408,11 +417,13 @@
 ---
 
 <a id="toc-part-6-enumeration"></a>
+<a id="part-6-enumeration"></a>
 ## Part 6: Enumeration
 
 > [!NOTE]
 > **Note:** Part 5 (Scanning) covers host discovery, port scanning, and defense identification. Part 6 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If you haven't completed Part 5, do so first.
 
+<a id="stage-1-service-enumeration-banner-grabbing"></a>
 ### **Stage 1: Service Enumeration & Banner Grabbing**
 
 > [!TIP]
@@ -432,6 +443,7 @@
 
 ---
 
+<a id="stage-2-directory-identity-enumeration"></a>
 ### **Stage 2: Directory & Identity Enumeration**
 
 > [!TIP]
@@ -449,6 +461,7 @@
 
 ---
 
+<a id="stage-3-dns-infrastructure-enumeration"></a>
 ### **Stage 3: DNS & Infrastructure Enumeration**
 
 > [!TIP]
@@ -464,6 +477,7 @@
 
 ---
 
+<a id="stage-4-database-application-enumeration"></a>
 ### **Stage 4: Database & Application Enumeration**
 
 > [!TIP]
@@ -481,6 +495,7 @@
 
 ---
 
+<a id="stage-5-attack-surface-consolidation-enumeration-opsec"></a>
 ### **Stage 5: Attack Surface Consolidation & Enumeration OpSec**
 
 > [!TIP]
@@ -496,6 +511,7 @@
 
 - [ ] **Documentation:** Record all findings with **timestamps, source IPs, and tool commands** used — this feeds directly into **reporting and evidence collection**.
 
+<a id="lab-progression-part-6-enumeration"></a>
 ### **Lab Progression (Part 6: Enumeration)**
 
 | Level | Task | Deliverable |
@@ -511,8 +527,10 @@
 
 ---
 
+<a id="part-31-password-cracking-hash-analysis"></a>
 ## Part 31: Password Cracking & Hash Analysis
 
+<a id="stage-1-hash-identification-acquisition"></a>
 ### **Stage 1: Hash Identification & Acquisition**
 
 > [!TIP]
@@ -526,6 +544,7 @@
 
 ---
 
+<a id="stage-2-cracking-methodology-tools"></a>
 ### **Stage 2: Cracking Methodology & Tools**
 
 > [!TIP]
@@ -547,6 +566,7 @@
 
 ---
 
+<a id="stage-3-protocol-specific-cracking"></a>
 ### **Stage 3: Protocol-Specific Cracking**
 
 > [!TIP]
@@ -564,6 +584,7 @@
 
 ---
 
+<a id="stage-4-wordlist-intelligence-curation"></a>
 ### **Stage 4: Wordlist & Intelligence Curation**
 
 > [!TIP]
@@ -582,8 +603,10 @@
 ---
 
 <a id="toc-part-7-system-hacking--initial-compromise"></a>
+<a id="part-7-system-hacking-initial-compromise"></a>
 ## Part 7: System Hacking & Initial Compromise
 
+<a id="stage-1-the-breach-initial-access-exploitation"></a>
 ### **Stage 1: The Breach (Initial Access & Exploitation)**
 
 > [!TIP]
@@ -649,6 +672,7 @@
 
 ---
 
+<a id="stage-2-the-ascension-privilege-escalation"></a>
 ### **Stage 2: The Ascension (Privilege Escalation)**
 
 > [!TIP]
@@ -730,6 +754,7 @@
 
 ---
 
+<a id="stage-3-the-stronghold-persistence-lateral-movement"></a>
 ### **Stage 3: The Stronghold (Persistence & Lateral Movement)**
 
 > [!TIP]
@@ -775,6 +800,7 @@
 
 ---
 
+<a id="stage-4-the-shadow-defense-evasion-anti-forensics"></a>
 ### **Stage 4: The Shadow (Defense Evasion & Anti-Forensics)**
 
 > [!TIP]
@@ -814,6 +840,7 @@
 
 ---
 
+<a id="stage-5-data-exfiltration-impact"></a>
 ### **Stage 5: Data Exfiltration & Impact**
 
 > [!TIP]
@@ -841,6 +868,7 @@
 
 ---
 
+<a id="stage-6-the-professional-governance-reporting"></a>
 ### **Stage 6: The Professional (Governance & Reporting)**
 
 > [!TIP]
@@ -874,6 +902,7 @@
 
 - [ ] **Metrics & KPIs:** Highlight **MTTD (Mean Time to Detect), MTTC (Mean Time to Contain), detection gaps**.
 
+<a id="lab-progression-part-7-system-hacking-initial-compromise"></a>
 ### **Lab Progression (Part 7: System Hacking & Initial Compromise)**
 
 > [!TIP]
@@ -896,10 +925,12 @@
 
 ---
 
+<a id="part-8-malware-weaponization"></a>
 ## Part 8: Malware & Weaponization
 
 > **Safety Gate:** Malware work is restricted to isolated local labs with snapshots, host-only networking, no shared clipboard, no mounted host folders, and no third-party targets. Before running any sample or payload, define expected behavior, logging sources, rollback steps, and containment checks.
 
+<a id="stage-1-the-design-logic-architecture"></a>
 ### **Stage 1: The Design & Logic (Architecture)**
 
 > [!TIP]
@@ -919,6 +950,7 @@
 
 ---
 
+<a id="stage-2-the-payload-mechanism-weaponization"></a>
 ### **Stage 2: The Payload & Mechanism (Weaponization)**
 
 > [!TIP]
@@ -936,6 +968,7 @@
 
 ---
 
+<a id="stage-3-evasion-defense-bypassing-invisibility"></a>
 ### **Stage 3: Evasion & Defense Bypassing (Invisibility)**
 
 > [!TIP]
@@ -953,6 +986,7 @@
 
 ---
 
+<a id="stage-4-persistence-escalation-entrenchment"></a>
 ### **Stage 4: Persistence & Escalation (Entrenchment)**
 
 > [!TIP]
@@ -968,6 +1002,7 @@
 
 ---
 
+<a id="stage-5-counter-forensics-professionalism-the-cleanup"></a>
 ### **Stage 5: Counter-Forensics & Professionalism (The Cleanup)**
 
 > [!TIP]
@@ -983,6 +1018,7 @@
 
 ---
 
+<a id="stage-6-document-cloud-weaponization"></a>
 ### **Stage 6: Document & Cloud Weaponization**
 
 > [!TIP]
@@ -1035,8 +1071,10 @@
 ---
 
 <a id="toc-part-9-sniffing--spoofing"></a>
+<a id="part-9-sniffing-spoofing"></a>
 ## Part 9: Sniffing & Spoofing
 
+<a id="stage-1-the-environment-fundamentals-the-setup"></a>
 ### **Stage 1: The Environment & Fundamentals (The Setup)**
 
 > [!TIP]
@@ -1054,6 +1092,7 @@
 
 ---
 
+<a id="stage-2-sniffing-passive-reconnaissance-the-ear"></a>
 ### **Stage 2: Sniffing & Passive Reconnaissance (The Ear)**
 
 > [!TIP]
@@ -1069,6 +1108,7 @@
 
 ---
 
+<a id="stage-3-spoofing-active-deception-the-lie"></a>
 ### **Stage 3: Spoofing & Active Deception (The Lie)**
 
 > [!TIP]
@@ -1088,6 +1128,7 @@
 
 ---
 
+<a id="stage-4-man-in-the-middle-exploitation-the-kill"></a>
 ### **Stage 4: Man-in-the-Middle & Exploitation (The Kill)**
 
 > [!TIP]
@@ -1107,6 +1148,7 @@
 
 ---
 
+<a id="stage-5-defenses-mitigation-the-shield"></a>
 ### **Stage 5: Defenses & Mitigation (The Shield)**
 - [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
 
@@ -1118,6 +1160,7 @@
 
 - [ ] **User Awareness:** Train users to verify **SSL certificates**, recognize **phishing login pages**, and use **password managers** to avoid clipboard paste attacks.
 
+<a id="lab-progression-part-9-sniffing-spoofing"></a>
 ### **Lab Progression (Part 9: Sniffing & Spoofing)**
 
 | Level | Task | Deliverable |
@@ -1134,10 +1177,12 @@
 ---
 
 <a id="toc-part-10-social-engineering"></a>
+<a id="part-10-social-engineering"></a>
 ## Part 10: Social Engineering
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
 
+<a id="stage-1-intelligence-reconnaissance-the-setup"></a>
 ### **Stage 1: Intelligence & Reconnaissance (The Setup)**
 
 > [!TIP]
@@ -1153,6 +1198,7 @@
 
 ---
 
+<a id="stage-2-the-digital-assault-remote-vectors"></a>
 ### **Stage 2: The Digital Assault (Remote Vectors)**
 
 > [!TIP]
@@ -1172,6 +1218,7 @@
 
 ---
 
+<a id="stage-3-the-human-element-direct-interaction"></a>
 ### **Stage 3: The Human Element (Direct Interaction)**
 
 > [!TIP]
@@ -1185,6 +1232,7 @@
 
 ---
 
+<a id="stage-4-the-physical-breach-boots-on-the-ground"></a>
 ### **Stage 4: The Physical Breach (Boots on the Ground)**
 
 > [!TIP]
@@ -1200,6 +1248,7 @@
 
 ---
 
+<a id="stage-5-defense-awareness-the-shield"></a>
 ### **Stage 5: Defense & Awareness (The Shield)**
 
 > [!TIP]
@@ -1215,6 +1264,7 @@
 
 - [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
 
+<a id="lab-progression-part-10-social-engineering"></a>
 ### **Lab Progression (Part 10: Social Engineering)**
 
 > [!TIP]
@@ -1228,10 +1278,12 @@
 > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
 
 <a id="toc-part-11-denial-of-service"></a>
+<a id="part-11-denial-of-service"></a>
 ## Part 11: Denial of Service
 
 > **Safety Gate:** DoS testing is local-lab-only unless a written contract explicitly authorizes it. Never run DoS tools against public IPs, SaaS platforms, school networks, ISP infrastructure, or bug bounty targets unless the scope explicitly permits availability testing.
 
+<a id="stage-1-objective-strategy-the-planning"></a>
 ### **Stage 1: Objective & Strategy (The Planning)**
 
 > [!TIP]
@@ -1245,6 +1297,7 @@
 
 ---
 
+<a id="stage-2-the-arsenal-attack-methods"></a>
 ### **Stage 2: The Arsenal (Attack Methods)**
 
 > [!TIP]
@@ -1260,6 +1313,7 @@
 
 ---
 
+<a id="stage-3-infrastructure-execution-the-assault"></a>
 ### **Stage 3: Infrastructure & Execution (The Assault)**
 
 > [!TIP]
@@ -1275,6 +1329,7 @@
 
 ---
 
+<a id="stage-4-defense-mitigation-the-shield"></a>
 ### **Stage 4: Defense & Mitigation (The Shield)**
 
 > [!TIP]
@@ -1290,6 +1345,7 @@
 
 - [ ] **ISP/Carrier Coordination:** Work with **ISP's DDoS mitigation services** to scrub traffic upstream; establish **BGP blackholing** to discard attack traffic at border; maintain **redundant ISPs/circuits**.
 
+<a id="lab-progression-part-11-denial-of-service"></a>
 ### **Lab Progression (Part 11: Denial of Service)**
 
 | Level | Task | Deliverable |
@@ -1306,8 +1362,10 @@
 ---
 
 <a id="toc-part-12-session-hijacking"></a>
+<a id="part-12-session-hijacking"></a>
 ## Part 12: Session Hijacking
 
+<a id="stage-1-reconnaissance-vulnerability-analysis"></a>
 ### **Stage 1: Reconnaissance & Vulnerability Analysis**
 
 > [!TIP]
@@ -1323,6 +1381,7 @@
 
 ---
 
+<a id="stage-2-stealing-the-session-id-the-attack-vectors"></a>
 ### **Stage 2: Stealing the Session ID (The Attack Vectors)**
 
 > [!TIP]
@@ -1340,6 +1399,7 @@
 
 ---
 
+<a id="stage-3-execution-impersonation"></a>
 ### **Stage 3: Execution & Impersonation**
 
 > [!TIP]
@@ -1353,6 +1413,7 @@
 
 ---
 
+<a id="stage-4-defense-mitigation-the-shield"></a>
 ### **Stage 4: Defense & Mitigation (The Shield)**
 
 > [!TIP]
@@ -1368,6 +1429,7 @@
 
 - [ ] **Network Monitoring:** Use **IDS/IPS** to detect **MITM patterns, ARP spoofing, SSL stripping attempts**. _(See Part 9 for canonical spoofing coverage.)_
 
+<a id="lab-progression-part-12-session-hijacking"></a>
 ### **Lab Progression (Part 12: Session Hijacking)**
 
 | Level | Task | Deliverable |

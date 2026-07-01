@@ -99,8 +99,10 @@
 
 ---
 
+<a id="part-27-digital-forensics"></a>
 ## Part 27: Digital Forensics
 
+<a id="stage-1-preparation-first-response"></a>
 ### **Stage 1: Preparation & First Response**
 
 > [!TIP]
@@ -114,6 +116,7 @@
 
 ---
 
+<a id="stage-2-evidence-analysis-the-deep-dive"></a>
 ### **Stage 2: Evidence Analysis (The Deep Dive)**
 
 > [!TIP]
@@ -127,6 +130,7 @@
 
 ---
 
+<a id="stage-3-memory-forensics"></a>
 ### **Stage 3: Memory Forensics**
 
 > [!TIP]
@@ -148,6 +152,7 @@
 
 ---
 
+<a id="stage-4-network-forensics"></a>
 ### **Stage 4: Network Forensics**
 
 > [!TIP]
@@ -163,6 +168,7 @@
 
 ---
 
+<a id="stage-5-cloud-mobile-forensics"></a>
 ### **Stage 5: Cloud & Mobile Forensics**
 
 > [!TIP]
@@ -180,6 +186,7 @@
 
 ---
 
+<a id="stage-6-advanced-analysis-reporting"></a>
 ### **Stage 6: Advanced Analysis & Reporting**
 
 > [!TIP]
@@ -195,6 +202,7 @@
 
 ---
 
+<a id="stage-7-legal-reporting"></a>
 ### **Stage 7: Legal & Reporting**
 
 > [!TIP]
@@ -210,6 +218,7 @@
 
 ---
 
+<a id="lab-progression-part-27-digital-forensics"></a>
 ### **Lab Progression (Part 27: Digital Forensics)**
 
 | Level | Task | Deliverable |
@@ -226,8 +235,10 @@
 ---
 
 <a id="toc-part-28-reverse-engineering--malware-analysis"></a>
+<a id="part-28-reverse-engineering-malware-analysis"></a>
 ## Part 28: Reverse Engineering & Malware Analysis
 
+<a id="stage-1-static-analysis-foundations"></a>
 ### **Stage 1: Static Analysis Foundations**
 
 > [!TIP]
@@ -249,6 +260,7 @@
 
 ---
 
+<a id="stage-2-dynamic-analysis-debugging"></a>
 ### **Stage 2: Dynamic Analysis & Debugging**
 
 > [!TIP]
@@ -268,6 +280,7 @@
 
 ---
 
+<a id="stage-3-anti-reverse-engineering-evasion-techniques"></a>
 ### **Stage 3: Anti-Reverse Engineering & Evasion Techniques**
 
 > [!TIP]
@@ -285,6 +298,7 @@
 
 ---
 
+<a id="stage-4-malware-classification-threat-intelligence"></a>
 ### **Stage 4: Malware Classification & Threat Intelligence**
 
 > [!TIP]
@@ -302,6 +316,7 @@
 
 ---
 
+<a id="stage-5-advanced-re-automation"></a>
 ### **Stage 5: Advanced RE & Automation**
 
 > [!TIP]
@@ -321,6 +336,7 @@
 
 ---
 
+<a id="lab-progression-part-28-reverse-engineering-malware-analysis"></a>
 ### **Lab Progression (Part 28: Reverse Engineering & Malware Analysis)**
 
 > [!TIP]
@@ -335,10 +351,12 @@
 > **Move-On Gate:** Produce one malware-analysis-style report with IOCs, behavior summary, ATT&CK mapping, and detection logic.
 
 <a id="toc-part-29-modern-exploitation"></a>
+<a id="part-29-modern-exploitation"></a>
 ## Part 29: Modern Exploitation
 
 > **Prerequisite Gate:** Complete Part 1 Stages 3–4 (Memory Management, Data Representation), Part 1 Stage 7 (C fundamentals), and Part 42 (Offensive Development — exploit writing, shellcode, assembly) before starting this Part. Modern exploitation builds directly on these foundations.
 
+<a id="stage-1-recon-triage-tooling"></a>
 ### **Stage 1: Recon, Triage & Tooling**
 
 > [!TIP]
@@ -352,6 +370,7 @@
 
 ---
 
+<a id="stage-2-memory-exploitation-userland"></a>
 ### **Stage 2: Memory Exploitation (Userland)**
 
 > [!TIP]
@@ -371,6 +390,7 @@
 
 ---
 
+<a id="stage-3-advanced-targets"></a>
 ### **Stage 3: Advanced Targets**
 
 > [!TIP]
@@ -386,6 +406,7 @@
 
 ---
 
+<a id="stage-4-exploit-delivery-opsec"></a>
 ### **Stage 4: Exploit Delivery & OPSEC**
 
 > [!TIP]
@@ -401,6 +422,7 @@
 
 ---
 
+<a id="stage-5-post-exploitation-hardening-safety"></a>
 ### **Stage 5: Post-Exploitation Hardening & Safety**
 
 > [!TIP]
@@ -414,6 +436,7 @@
 
 ---
 
+<a id="lab-progression-part-29-modern-exploitation"></a>
 ### **Lab Progression (Part 29: Modern Exploitation)**
 
 > [!TIP]
@@ -429,6 +452,7 @@
 <a id="toc-part-30-hardware-hacking--embedded-systems"></a>
 ## Part 30: Hardware Hacking & Embedded Systems [OPTIONAL SPECIALIZATION]
 
+<a id="stage-1-hardware-reconnaissance"></a>
 ### **Stage 1: Hardware Reconnaissance**
 
 > [!TIP]
@@ -446,6 +470,7 @@
 
 ---
 
+<a id="stage-2-firmware-analysis"></a>
 ### **Stage 2: Firmware Analysis**
 
 > [!TIP]
@@ -463,6 +488,7 @@
 
 ---
 
+<a id="stage-3-runtime-exploitation"></a>
 ### **Stage 3: Runtime Exploitation**
 
 > [!TIP]
@@ -482,6 +508,7 @@
 
 ---
 
+<a id="stage-4-side-channel-physical-attacks"></a>
 ### **Stage 4: Side-Channel & Physical Attacks**
 
 > [!TIP]
@@ -499,6 +526,7 @@
 
 ---
 
+<a id="stage-5-iot-embedded-defense"></a>
 ### **Stage 5: IoT & Embedded Defense**
 
 > [!TIP]
@@ -518,6 +546,7 @@
 
 ---
 
+<a id="lab-progression-part-30-hardware-hacking-embedded-systems"></a>
 ### **Lab Progression (Part 30: Hardware Hacking & Embedded Systems)**
 
 > [!TIP]
@@ -541,6 +570,7 @@
 
 > **Safety Gate:** Physical testing requires written authorization, named locations, dates/times, emergency contacts, stop conditions, and a get-out-of-jail letter. Do not practice bypasses on real facilities, campuses, offices, hotels, apartments, or transit systems.
 
+<a id="stage-1-pre-engagement-reconnaissance"></a>
 ### **Stage 1: Pre-Engagement & Reconnaissance**
 
 > [!TIP]
@@ -556,6 +586,7 @@
 
 ---
 
+<a id="stage-2-entry-access-control-bypass"></a>
 ### **Stage 2: Entry & Access Control Bypass**
 
 > [!TIP]
@@ -575,6 +606,7 @@
 
 ---
 
+<a id="stage-3-hid-usb-payload-attacks"></a>
 ### **Stage 3: HID & USB Payload Attacks**
 
 > [!TIP]
@@ -592,6 +624,7 @@
 
 ---
 
+<a id="stage-4-on-site-operations-data-collection"></a>
 ### **Stage 4: On-Site Operations & Data Collection**
 
 > [!TIP]
@@ -607,6 +640,7 @@
 
 ---
 
+<a id="stage-5-reporting-physical-findings"></a>
 ### **Stage 5: Reporting Physical Findings**
 
 > [!TIP]
@@ -620,6 +654,7 @@
 
 ---
 
+<a id="lab-progression-part-32-physical-penetration-testing"></a>
 ### **Lab Progression (Part 32: Physical Penetration Testing)**
 
 > [!TIP]
@@ -639,6 +674,7 @@
 <a id="toc-part-33-voip--telecommunications-security"></a>
 ## Part 33: VoIP & Telecommunications Security [OPTIONAL SPECIALIZATION]
 
+<a id="stage-1-voip-protocol-fundamentals"></a>
 ### **Stage 1: VoIP Protocol Fundamentals**
 
 > [!TIP]
@@ -654,6 +690,7 @@
 
 ---
 
+<a id="stage-2-voip-reconnaissance-enumeration"></a>
 ### **Stage 2: VoIP Reconnaissance & Enumeration**
 
 > [!TIP]
@@ -669,6 +706,7 @@
 
 ---
 
+<a id="stage-3-voip-attacks"></a>
 ### **Stage 3: VoIP Attacks**
 
 > [!TIP]
@@ -688,6 +726,7 @@
 
 ---
 
+<a id="stage-4-ss7-telecom-signaling-attacks"></a>
 ### **Stage 4: SS7 & Telecom Signaling Attacks**
 
 > [!TIP]
@@ -705,6 +744,7 @@
 
 ---
 
+<a id="stage-5-5g-security"></a>
 ### **Stage 5: 5G Security**
 
 > [!TIP]
@@ -718,6 +758,7 @@
 
 ---
 
+<a id="stage-6-defense-hardening"></a>
 ### **Stage 6: Defense & Hardening**
 
 > [!TIP]
@@ -731,6 +772,7 @@
 
 ---
 
+<a id="lab-progression-part-33-voip-telecommunications-security"></a>
 ### **Lab Progression (Part 33: VoIP & Telecommunications Security)**
 
 > [!TIP]
@@ -750,6 +792,7 @@
 <a id="toc-part-34-blockchain--web3-security"></a>
 ## Part 34: Blockchain & Web3 Security [OPTIONAL SPECIALIZATION]
 
+<a id="stage-1-blockchain-fundamentals-for-security"></a>
 ### **Stage 1: Blockchain Fundamentals for Security**
 
 > [!TIP]
@@ -765,6 +808,7 @@
 
 ---
 
+<a id="stage-2-smart-contract-vulnerabilities"></a>
 ### **Stage 2: Smart Contract Vulnerabilities**
 
 > [!TIP]
@@ -786,6 +830,7 @@
 
 ---
 
+<a id="stage-3-smart-contract-auditing-methodology"></a>
 ### **Stage 3: Smart Contract Auditing Methodology**
 
 > [!TIP]
@@ -803,6 +848,7 @@
 
 ---
 
+<a id="stage-4-web3-infrastructure-attacks"></a>
 ### **Stage 4: Web3 Infrastructure Attacks**
 
 > [!TIP]
@@ -820,6 +866,7 @@
 
 ---
 
+<a id="stage-5-defense-secure-development"></a>
 ### **Stage 5: Defense & Secure Development**
 
 > [!TIP]
@@ -835,6 +882,7 @@
 
 ---
 
+<a id="lab-progression-part-34-blockchain-web3-security"></a>
 ### **Lab Progression (Part 34: Blockchain & Web3 Security)**
 
 > [!TIP]
@@ -852,10 +900,12 @@
 ---
 
 <a id="toc-part-42-offensive-development--tooling"></a>
+<a id="part-42-offensive-development-tooling"></a>
 ## Part 42: Offensive Development & Tooling
 
 _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Fundamentals), Part 7 (System Hacking), Part 8 (Malware & Weaponization) | This module contains the offensive programming content that was previously in Part 1 Stage 7 (Fundamentals). It requires solid system hacking knowledge before attempting._
 
+<a id="stage-1-exploit-development-foundation"></a>
 ### **Stage 1: Exploit Development Foundation**
 
 - [ ] **Exploit Prototyping:** Use Python with **pwntools, impacket** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
@@ -870,6 +920,7 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 
 - [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
 
+<a id="stage-2-windows-offensive-development"></a>
 ### **Stage 2: Windows Offensive Development**
 
 - [ ] **Win32 API Exploitation:** Use **CreateProcess, VirtualAlloc, WriteProcessMemory, CreateRemoteThread** for **process injection, DLL loading, and token manipulation**.
@@ -882,12 +933,14 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 
 - [ ] **Offensive PowerShell:** Master **download cradles, constrained language mode escape, script block logging evasion**, and **AMSI bypass in PowerShell**.
 
+<a id="stage-3-linux-offensive-development"></a>
 ### **Stage 3: Linux Offensive Development**
 
 - [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
 
 - [ ] **ELF Binary Manipulation:** Understand **ELF format, GOT/PLT, dynamic linking** for binary patching and implant injection.
 
+<a id="stage-4-c2-implant-development"></a>
 ### **Stage 4: C2 & Implant Development**
 
 - [ ] **C2 Architecture:** Design **client-server implant architecture** with **modular payloads, encrypted channels, and sleep obfuscation**.
@@ -898,6 +951,7 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 
 - [ ] **Evasion Integration:** Combine **sleep obfuscation, call stack spoofing, indirect syscalls, and API unhooking** into implant design.
 
+<a id="lab-progression-part-42-offensive-development-tooling"></a>
 ### **Lab Progression (Part 42: Offensive Development & Tooling)**
 
 | Level | Task | Deliverable |

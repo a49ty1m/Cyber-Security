@@ -59,8 +59,10 @@
 
 ---
 
+<a id="part-17-web-application-hacking"></a>
 ## Part 17: Web Application Hacking
 
+<a id="stage-1-reconnaissance-mapping"></a>
 ### **Stage 1: Reconnaissance & Mapping**
 
 > [!TIP]
@@ -78,6 +80,7 @@
 
 ---
 
+<a id="stage-2-vulnerability-analysis-probing"></a>
 ### **Stage 2: Vulnerability Analysis & Probing**
 
 > [!TIP]
@@ -95,6 +98,7 @@
 
 ---
 
+<a id="stage-3-exploitation-the-owasp-top-10"></a>
 ### **Stage 3: Exploitation (The OWASP Top 10)**
 
 > [!TIP]
@@ -116,6 +120,7 @@
 
 ---
 
+<a id="stage-4-post-exploitation-persistence"></a>
 ### **Stage 4: Post-Exploitation & Persistence**
 
 > [!TIP]
@@ -131,6 +136,7 @@
 
 ---
 
+<a id="stage-5-defense-mitigation-the-shield"></a>
 ### **Stage 5: Defense & Mitigation (The Shield)**
 
 > [!TIP]
@@ -148,6 +154,7 @@
 
 ---
 
+<a id="lab-progression-part-17-web-application-hacking"></a>
 ### **Lab Progression (Part 17: Web Application Hacking)**
 
 | Level | Task | Deliverable |
@@ -164,8 +171,10 @@
 ---
 
 <a id="toc-part-18-web-server-hacking"></a>
+<a id="part-18-web-server-hacking"></a>
 ## Part 18: Web Server Hacking
 
+<a id="stage-1-target-acquisition-reconnaissance"></a>
 ### **Stage 1: Target Acquisition & Reconnaissance**
 
 > [!TIP]
@@ -179,6 +188,7 @@
 
 ---
 
+<a id="stage-2-scanning-service-enumeration"></a>
 ### **Stage 2: Scanning & Service Enumeration**
 
 > [!TIP]
@@ -196,6 +206,7 @@
 
 ---
 
+<a id="stage-3-vulnerability-assessment-exploitation"></a>
 ### **Stage 3: Vulnerability Assessment & Exploitation**
 
 > [!TIP]
@@ -215,6 +226,7 @@
 
 ---
 
+<a id="stage-4-post-exploitation-persistence"></a>
 ### **Stage 4: Post-Exploitation & Persistence**
 
 > [!TIP]
@@ -232,6 +244,7 @@
 
 ---
 
+<a id="lab-progression-part-18-web-server-hacking"></a>
 ### **Lab Progression (Part 18: Web Server Hacking)**
 
 | Level | Task | Deliverable |
@@ -248,8 +261,10 @@
 ---
 
 <a id="toc-part-19-api-security"></a>
+<a id="part-19-api-security"></a>
 ## Part 19: API Security
 
+<a id="stage-1-api-reconnaissance-mapping"></a>
 ### **Stage 1: API Reconnaissance & Mapping**
 
 > [!TIP]
@@ -265,6 +280,7 @@
 
 ---
 
+<a id="stage-2-owasp-api-security-top-10"></a>
 ### **Stage 2: OWASP API Security Top 10**
 
 > [!TIP]
@@ -292,6 +308,7 @@
 
 ---
 
+<a id="stage-3-protocol-specific-api-attacks"></a>
 ### **Stage 3: Protocol-Specific API Attacks**
 
 > [!TIP]
@@ -307,6 +324,7 @@
 
 ---
 
+<a id="stage-4-api-authentication-token-attacks"></a>
 ### **Stage 4: API Authentication & Token Attacks**
 
 > [!TIP]
@@ -322,6 +340,7 @@
 
 ---
 
+<a id="stage-5-defense-hardening"></a>
 ### **Stage 5: Defense & Hardening**
 
 > [!TIP]
@@ -335,6 +354,7 @@
 
 ---
 
+<a id="lab-progression-part-19-api-security"></a>
 ### **Lab Progression (Part 19: API Security)**
 
 | Level | Task | Deliverable |
@@ -351,8 +371,10 @@
 ---
 
 <a id="toc-part-20-bug-bounty-and-penetration-testing"></a>
+<a id="part-20-bug-bounty-and-penetration-testing"></a>
 ## Part 20: Bug Bounty and Penetration Testing
 
+<a id="stage-1-preparation-scoping"></a>
 ### **Stage 1: Preparation & Scoping**
 
 > [!TIP]
@@ -366,6 +388,7 @@
 
 ---
 
+<a id="stage-2-reconnaissance-the-wide-net"></a>
 ### **Stage 2: Reconnaissance (The Wide Net)**
 
 > [!TIP]
@@ -379,6 +402,7 @@
 
 ---
 
+<a id="stage-3-vulnerability-assessment-the-deep-dive"></a>
 ### **Stage 3: Vulnerability Assessment (The Deep Dive)**
 
 > [!TIP]
@@ -392,6 +416,7 @@
 
 ---
 
+<a id="stage-4-exploitation-validation"></a>
 ### **Stage 4: Exploitation & Validation**
 
 > [!TIP]
@@ -405,6 +430,7 @@
 
 ---
 
+<a id="stage-5-reporting-triage"></a>
 ### **Stage 5: Reporting & Triage**
 
 > [!TIP]
@@ -420,6 +446,7 @@
 
 ---
 
+<a id="stage-6-professional-development"></a>
 ### **Stage 6: Professional Development**
 
 > [!TIP]

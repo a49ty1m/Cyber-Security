@@ -51,8 +51,10 @@
 
 ---
 
+<a id="part-38-ai-llm-red-teaming"></a>
 ## Part 38: AI & LLM Red Teaming
 
+<a id="stage-1-ai-fundamentals-for-security-practitioners"></a>
 ### **Stage 1: AI Fundamentals for Security Practitioners**
 
 > [!TIP]
@@ -78,6 +80,7 @@
 
 ---
 
+<a id="stage-2-attack-surface-frameworks"></a>
 ### **Stage 2: Attack Surface & Frameworks**
 
 > [!TIP]
@@ -91,6 +94,7 @@
 
 ---
 
+<a id="stage-3-adversarial-techniques-llm01llm06"></a>
 ### **Stage 3: Adversarial Techniques (LLM01/LLM06)**
 
 > [!TIP]
@@ -104,6 +108,7 @@
 
 ---
 
+<a id="stage-4-rag-data-supply-chain-attacks"></a>
 ### **Stage 4: RAG & Data Supply Chain Attacks**
 
 > [!TIP]
@@ -117,6 +122,7 @@
 
 ---
 
+<a id="stage-5-language-model-specific-attacks"></a>
 ### **Stage 5: Language Model Specific Attacks**
 
 > [!TIP]
@@ -134,6 +140,7 @@
 
 ---
 
+<a id="stage-6-multi-model-agent-attacks"></a>
 ### **Stage 6: Multi-Model & Agent Attacks**
 
 > [!TIP]
@@ -151,6 +158,7 @@
 
 ---
 
+<a id="stage-7-adversarial-examples-ml-robustness"></a>
 ### **Stage 7: Adversarial Examples & ML Robustness**
 
 > [!TIP]
@@ -168,6 +176,7 @@
 
 ---
 
+<a id="stage-8-model-extraction-inversion"></a>
 ### **Stage 8: Model Extraction & Inversion**
 
 > [!TIP]
@@ -183,6 +192,7 @@
 
 ---
 
+<a id="stage-9-dataset-poisoning-backdoors"></a>
 ### **Stage 9: Dataset Poisoning & Backdoors**
 
 > [!TIP]
@@ -200,6 +210,7 @@
 
 ---
 
+<a id="stage-10-privacy-attacks-pii-leakage"></a>
 ### **Stage 10: Privacy Attacks & PII Leakage**
 
 > [!TIP]
@@ -217,6 +228,7 @@
 
 ---
 
+<a id="stage-11-ai-augmented-red-team-workflow"></a>
 ### **Stage 11: AI-Augmented Red Team Workflow**
 
 > [!TIP]
@@ -236,6 +248,7 @@
 
 ---
 
+<a id="stage-12-agentic-ai-autonomous-attack-infrastructure"></a>
 ### **Stage 12: Agentic AI & Autonomous Attack Infrastructure**
 
 > [!TIP]
@@ -255,6 +268,7 @@
 
 ---
 
+<a id="stage-13-tooling-evaluation"></a>
 ### **Stage 13: Tooling & Evaluation**
 
 > [!TIP]
@@ -268,6 +282,7 @@
 
 ---
 
+<a id="stage-14-defense-responsible-ai"></a>
 ### **Stage 14: Defense & Responsible AI**
 
 > [!TIP]
@@ -289,6 +304,7 @@
 
 ---
 
+<a id="stage-15-shadow-ai-organizational-ai-risk"></a>
 ### **Stage 15: Shadow AI & Organizational AI Risk**
 
 > [!TIP]
@@ -306,6 +322,7 @@
 
 ---
 
+<a id="stage-16-defensive-ai-operations"></a>
 ### **Stage 16: Defensive AI Operations**
 
 > [!TIP]
@@ -325,6 +342,7 @@
 
 ---
 
+<a id="stage-17-ai-security-projects-portfolio"></a>
 ### **Stage 17: AI Security Projects & Portfolio**
 
 > [!TIP]
@@ -342,6 +360,7 @@
 
 ---
 
+<a id="stage-18-ai-security-career-targeting"></a>
 ### **Stage 18: AI Security Career Targeting**
 
 > [!TIP]

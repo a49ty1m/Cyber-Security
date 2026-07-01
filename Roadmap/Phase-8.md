@@ -58,8 +58,10 @@
 
 ---
 
+<a id="part-35-governance-risk-compliance-grc"></a>
 ## Part 35: Governance, Risk & Compliance (GRC)
 
+<a id="stage-1-security-frameworks-standards"></a>
 ### **Stage 1: Security Frameworks & Standards**
 
 > [!TIP]
@@ -77,6 +79,7 @@
 
 ---
 
+<a id="stage-2-industry-regulations-legal-requirements"></a>
 ### **Stage 2: Industry Regulations & Legal Requirements**
 
 > [!TIP]
@@ -98,6 +101,7 @@
 
 ---
 
+<a id="stage-3-risk-management-assessment"></a>
 ### **Stage 3: Risk Management & Assessment**
 
 > [!TIP]
@@ -115,6 +119,7 @@
 
 ---
 
+<a id="stage-4-audit-scope-compliance-testing"></a>
 ### **Stage 4: Audit, Scope & Compliance Testing**
 
 > [!TIP]
@@ -134,6 +139,7 @@
 
 ---
 
+<a id="lab-progression-part-35-governance-risk-compliance"></a>
 ### **Lab Progression (Part 35: Governance, Risk & Compliance)**
 
 > [!TIP]
@@ -148,8 +154,10 @@
 > **Move-On Gate:** Produce an audit evidence pack with policy, risk register, control mapping, and remediation plan.
 
 <a id="toc-part-36-supply-chain-security"></a>
+<a id="part-36-supply-chain-security"></a>
 ## Part 36: Supply Chain Security
 
+<a id="stage-1-understanding-the-attack-surface"></a>
 ### **Stage 1: Understanding the Attack Surface**
 
 > [!TIP]
@@ -163,6 +171,7 @@
 
 ---
 
+<a id="stage-2-dependency-package-attacks"></a>
 ### **Stage 2: Dependency & Package Attacks**
 
 > [!TIP]
@@ -180,6 +189,7 @@
 
 ---
 
+<a id="stage-3-build-system-cicd-attacks"></a>
 ### **Stage 3: Build System & CI/CD Attacks**
 
 > [!TIP]
@@ -197,6 +207,7 @@
 
 ---
 
+<a id="stage-4-open-source-third-party-risk"></a>
 ### **Stage 4: Open-Source & Third-Party Risk**
 
 > [!TIP]
@@ -212,6 +223,7 @@
 
 ---
 
+<a id="stage-5-defense-verification"></a>
 ### **Stage 5: Defense & Verification**
 
 > [!TIP]
@@ -228,8 +240,10 @@
 ---
 
 <a id="toc-part-37-devsecops--secure-sdlc"></a>
+<a id="part-37-devsecops-secure-sdlc"></a>
 ## Part 37: DevSecOps & Secure SDLC
 
+<a id="stage-1-security-in-the-development-lifecycle"></a>
 ### **Stage 1: Security in the Development Lifecycle**
 
 > [!TIP]
@@ -245,6 +259,7 @@
 
 ---
 
+<a id="stage-2-static-analysis-sast"></a>
 ### **Stage 2: Static Analysis (SAST)**
 
 > [!TIP]
@@ -260,6 +275,7 @@
 
 ---
 
+<a id="stage-3-dynamic-analysis-dast-iast"></a>
 ### **Stage 3: Dynamic Analysis (DAST & IAST)**
 
 > [!TIP]
@@ -275,6 +291,7 @@
 
 ---
 
+<a id="stage-4-software-composition-analysis-sca"></a>
 ### **Stage 4: Software Composition Analysis (SCA)**
 
 > [!TIP]
@@ -288,6 +305,7 @@
 
 ---
 
+<a id="stage-5-secrets-detection-pipeline-security"></a>
 ### **Stage 5: Secrets Detection & Pipeline Security**
 
 > [!TIP]
@@ -303,6 +321,7 @@
 
 - [ ] **IaC Security:** Scan **Terraform, CloudFormation, Helm charts** with **Checkov, tfsec, kics** for **open security groups, public storage, missing encryption, IAM over-permission**.
 
+<a id="secure-coding-pipeline-lab-progression"></a>
 ### **Secure Coding & Pipeline Lab Progression**
 
 > [!TIP]
@@ -319,10 +338,12 @@
 ---
 
 <a id="toc-part-43-security-architecture--engineering"></a>
+<a id="part-43-security-architecture-engineering"></a>
 ## Part 43: Security Architecture & Engineering
 
 _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fills the identified gap in security architecture training. A security professional who can only break systems but not design secure ones is incomplete._
 
+<a id="stage-1-security-design-principles"></a>
 ### **Stage 1: Security Design Principles**
 
 - [ ] **Defense-in-Depth as Architecture:** Design layered defenses where no single control failure compromises the system. Map controls to **preventative, detective, corrective, and compensating** categories.
@@ -333,6 +354,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Security by Design:** Integrate security from **requirements through deployment**, not as a bolt-on. Understand **NIST Secure Software Development Framework (SSDF)** and **OWASP SAMM**.
 
+<a id="stage-2-zero-trust-architecture"></a>
 ### **Stage 2: Zero Trust Architecture**
 
 - [ ] **Zero Trust Principles:** Understand **"never trust, always verify"** across **identity, device, network, application, and data** pillars.
@@ -345,6 +367,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Continuous Verification:** Design systems that **re-authenticate and re-authorize** based on **context changes** (location, device health, behavior anomalies).
 
+<a id="stage-3-network-security-architecture"></a>
 ### **Stage 3: Network Security Architecture**
 
 - [ ] **Network Segmentation Design:** Design **DMZ, internal zones, management zones, database zones** with proper **firewall rules and ACLs** between them.
@@ -355,6 +378,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Secure Remote Access:** Design **VPN, ZTNA (Zero Trust Network Access), SASE** architectures for remote workforce security.
 
+<a id="stage-4-data-security-architecture"></a>
 ### **Stage 4: Data Security Architecture**
 
 - [ ] **Data Classification:** Implement **classification schemes** (Public, Internal, Confidential, Restricted) with **automated labeling** and **DLP policy enforcement**.
@@ -365,6 +389,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Privacy Engineering:** Implement **data anonymization, pseudonymization, tokenization** for GDPR/DPDP Act compliance. Understand **Privacy by Design** principles.
 
+<a id="stage-5-disaster-recovery-business-continuity"></a>
 ### **Stage 5: Disaster Recovery & Business Continuity**
 
 - [ ] **DR/BCP Fundamentals:** Understand **RPO (Recovery Point Objective)** and **RTO (Recovery Time Objective)** and how they drive architecture decisions.
@@ -375,6 +400,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **DR Testing:** Plan and execute **tabletop exercises, simulation tests, and full failover tests** on a regular schedule.
 
+<a id="lab-progression-part-43-security-architecture-engineering"></a>
 ### **Lab Progression (Part 43: Security Architecture & Engineering)**
 
 | Level | Task | Deliverable |

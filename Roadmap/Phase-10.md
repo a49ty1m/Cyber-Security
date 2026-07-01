@@ -46,10 +46,12 @@
 
 ---
 
+<a id="part-39-penetration-testing-methodologies-report-writing"></a>
 ## Part 39: Penetration Testing Methodologies & Report Writing
 
 > **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice.
 
+<a id="stage-1-industry-standard-engagement-frameworks"></a>
 ### **Stage 1: Industry-Standard Engagement Frameworks**
 
 > [!TIP]
@@ -69,6 +71,7 @@
 
 ---
 
+<a id="stage-2-scoping-legal-frameworks-engagement-management"></a>
 ### **Stage 2: Scoping, Legal Frameworks & Engagement Management**
 
 > [!TIP]
@@ -88,6 +91,7 @@
 
 ---
 
+<a id="stage-3-structured-threat-modeling"></a>
 ### **Stage 3: Structured Threat Modeling**
 
 > [!TIP]
@@ -107,6 +111,7 @@
 
 ---
 
+<a id="stage-4-vulnerability-scoring-risk-prioritization"></a>
 ### **Stage 4: Vulnerability Scoring & Risk Prioritization**
 
 > [!TIP]
@@ -126,6 +131,7 @@
 
 ---
 
+<a id="stage-5-professional-report-writing"></a>
 ### **Stage 5: Professional Report Writing**
 
 > [!TIP]
@@ -152,10 +158,12 @@
 ---
 
 <a id="toc-part-40-red-team-operations--tradecraft"></a>
+<a id="part-40-red-team-operations-tradecraft"></a>
 ## Part 40: Red Team Operations & Tradecraft
 
 > **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator.
 
+<a id="strategy-core-operations"></a>
 ### **Strategy & Core Operations**
 
 > [!TIP]
@@ -197,10 +205,12 @@
 ---
 
 <a id="toc-part-41-proof-of-work--career-portfolio"></a>
+<a id="part-41-proof-of-work-career-portfolio"></a>
 ## Part 41: Proof of Work & Career Portfolio
 
 > **Core Principle:** Theory without evidence is worthless. Every technical skill in this roadmap must be validated through _unfakeable_ proof of work — tools you've built, reports you've written, certifications you've earned, and bugs you've found. This section ties it all together.
 
+<a id="stage-1-certification-roadmap"></a>
 ### **Stage 1: Certification Roadmap**
 
 > [!TIP]
@@ -240,6 +250,7 @@
 
 ---
 
+<a id="stage-2-technical-portfolio-github-presence"></a>
 ### **Stage 2: Technical Portfolio & GitHub Presence**
 
 > [!TIP]
@@ -261,6 +272,7 @@
 
 ---
 
+<a id="stage-3-technical-writing-content"></a>
 ### **Stage 3: Technical Writing & Content**
 
 > [!TIP]
@@ -278,6 +290,7 @@
 
 ---
 
+<a id="stage-4-bug-bounties-community-engagement"></a>
 ### **Stage 4: Bug Bounties & Community Engagement**
 
 > [!TIP]
@@ -297,6 +310,7 @@
 
 ---
 
+<a id="stage-5-career-positioning-job-search-strategy"></a>
 ### **Stage 5: Career Positioning & Job Search Strategy**
 
 > [!TIP]
