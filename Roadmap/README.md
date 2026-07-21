@@ -13,9 +13,9 @@
 
 | Phase | Module / Link                              | Core Topics & Focus                                                | Est. Pacing (FT / PT) |
 | :---: | :----------------------------------------- | :----------------------------------------------------------------- | :-------------------: |
-|  🏗️  | **[Phase 1: Foundation](Phase-1.md)**      | Hardware, OS, Linux & Windows Admin, Networking, Cryptography      |     4–6m / 6–10m      |
+|  🏗️   | **[Phase 1: Foundation](Phase-1.md)**      | Hardware, OS, Linux & Windows Admin, Networking, Cryptography      |     4–6m / 6–10m      |
 |  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**    | Recon, Scanning, Initial Access, Malware, Social Eng., Cracking    |     5–7m / 8–12m      |
-|  🛡️  | **[Phase 3: Defense Core](Phase-3.md)**    | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT               |      3–4m / 4–7m      |
+|  🛡️   | **[Phase 3: Defense Core](Phase-3.md)**    | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT               |      3–4m / 4–7m      |
 |  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**   | Web Hacking, API Security, Bug Bounty Methodology                  |      3–4m / 4–7m      |
 |  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)** | RF, WiFi, Bluetooth/BLE, NFC/RFID, Android/iOS pentesting          |      2–3m / 3–5m      |
 |  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**  | AD & Entra ID, Cloud Sec (AWS/Azure), Kubernetes, ICS/SCADA        |     4–6m / 6–10m      |
@@ -23,7 +23,7 @@
 |  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)** | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture    |      2–3m / 3–5m      |
 |  🧠   | **[Phase 9: AI Security](Phase-9.md)**     | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits |      3–4m / 4–7m      |
 |  🎯   | **[Phase 10: Career Ops](Phase-10.md)**    | Pentest Methodologies, Red Team Operations, Portfolios             |      2–3m / 3–5m      |
-|  📊   | **Total Roadmap**                          | **30–48 Months (Full-Time) / 36–60 Months (Part-Time)**            |    **~2.5–5 Years**   |
+|  📊   | **Total Roadmap**                          | **30–48 Months (Full-Time) / 36–60 Months (Part-Time)**            |   **~2.5–5 Years**    |
 
 > [!NOTE]
 > **Timeline Reality Check:** The pacing assumes consistent lab work, documentation, and capstone completion. Optional specializations can add months beyond the core estimate.
@@ -35,18 +35,25 @@
 You do not need to follow the roadmap in a strict linear fashion if you have a specific career specialization in mind. Here are the recommended path configurations:
 
 ### 🔴 Red Team & Penetration Testing Track
-*For aspiring pentesting, red teaming, and offensive security research roles.*
+
+_For aspiring pentesting, red teaming, and offensive security research roles._
+
 1. **[Phase 1](Phase-1.md)** (Foundations) ➔ **[Phase 2](Phase-2.md)** (Offense Core) ➔ **[Phase 4](Phase-4.md)** (Web & API) ➔ **[Phase 5](Phase-5.md)** (Wireless & Mobile) ➔ **[Phase 6](Phase-6.md)** (Infrastructure) ➔ **[Phase 7](Phase-7.md)** (Advanced & Exploit Dev) ➔ **[Phase 10](Phase-10.md)** (Red Team Ops)
 
 ### 🔵 SOC, DFIR & Defensive Engineering Track
-*For security analysts, detection engineers, incident responders, and forensic examiners.*
+
+_For security analysts, detection engineers, incident responders, and forensic examiners._
+
 1. **[Phase 1](Phase-1.md)** (Foundations) ➔ **[Phase 3](Phase-3.md)** (Defense Core) ➔ **[Phase 6](Phase-6.md)** (Infrastructure Security) ➔ **[Phase 7](Phase-7.md)** (Digital Forensics & Malware RE) ➔ **[Phase 8](Phase-8.md)** (Security Architecture & GRC)
 
 ### 🤖 AI Red Teaming & Security Specialist Track
-*For engineers securing LLM applications, agentic systems, and cloud-native AI setups.*
+
+_For engineers securing LLM applications, agentic systems, and cloud-native AI setups._
+
 1. **[Phase 1](Phase-1.md)** (Fundamentals) ➔ **[Phase 2](Phase-2.md)** (Offensive Basics) ➔ **[Phase 4](Phase-4.md)** (API Security) ➔ **[Phase 8](Phase-8.md)** (Supply Chain & DevSecOps) ➔ **[Phase 9](Phase-9.md)** (AI & LLM Red Teaming)
 
 ### 🧩 Optional Specializations
+
 These tracks are powerful, but they are not required for the core roadmap. Add them after the relevant prerequisites are complete and only if they support your career direction.
 
 - **Hardware & Embedded Security:** [Part 30](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization)
@@ -74,6 +81,7 @@ These tracks are powerful, but they are not required for the core roadmap. Add t
 Every phase in this roadmap includes a **Documentation Requirements** block listing the specific artifacts you must produce and commit. This is not optional — it is what transforms self-study into a professional portfolio.
 
 **Set up from Day 1:**
+
 1. **Create a private Git repository** (e.g., `cybersecurity-journey`) and commit after every lab session
 2. **Use structured markdown** for all notes (objective → steps → output → lessons learned)
 3. **Save tool output** — Nmap scans, Burp captures, PCAP files, SIEM queries, detection rules
@@ -81,6 +89,7 @@ Every phase in this roadmap includes a **Documentation Requirements** block list
 5. **Screenshot everything** — lab setups, tool output, successful exploitation, before/after hardening
 
 **By Phase 10, your repository should contain:**
+
 - 50+ structured lab notes across all phases
 - 10+ network/architecture diagrams
 - 5+ detection rules (Sigma/YARA/Suricata)
@@ -94,15 +103,15 @@ Every phase in this roadmap includes a **Documentation Requirements** block list
 
 To successfully complete the hands-on labs across all modules:
 
-* **Minimum Specifications:**
+- **Minimum Specifications:**
   - 32GB RAM (to run 2-3 VMs concurrently)
   - Quad-core CPU with VT-x/AMD-V nested virtualization support
   - 500GB Solid State Drive (SSD)
-* **Recommended Specifications:**
+- **Recommended Specifications:**
   - 64GB RAM (needed for active Directory domain and container security labs)
   - 8-core CPU
   - 1TB NVMe SSD
-* **RF & Wireless Testing:**
+- **RF & Wireless Testing:**
   - External USB WiFi adapter supporting monitor mode and packet injection (e.g. Alfa AWUS036ACH or chipsets like RTL8812AU).
 
 ---
@@ -110,43 +119,192 @@ To successfully complete the hands-on labs across all modules:
 ## 🗺️ Detailed Phase Descriptions
 
 ### [Phase 1: The Unshakeable Foundation](Phase-1.md)
+
 Master the TCP/IP stack, OSI model, DNS, HTTP/HTTPS, Linux CLI and administration, Windows administration and Event Viewer, Bash/PowerShell, Python/JavaScript, virtualization, cloud basics (AWS/Azure), Docker/Kubernetes, authentication, sessions, cookies, JSON APIs, CORS, and the cryptographic primitives underpinning all of security.
 
 ### [Phase 2: Offensive Core](Phase-2.md)
+
 Footprinting, scanning, enumeration, system hacking, malware design, sniffing/spoofing, social engineering, denial-of-service, session hijacking, and password cracking. The complete offensive lifecycle from recon to impact.
 
 ### [Phase 3: Defense & Detection](Phase-3.md)
+
 Detection engineering, SOC & SIEM fundamentals, IDS/IPS/honeypots, threat hunting, incident response basics, forensic fundamentals, and OSINT & threat intelligence. Understand what defenders see before you specialize further.
 
 ### [Phase 4: Web & Application Security](Phase-4.md)
+
 Web application hacking, web server exploitation, API security (OWASP API Top 10), and professional bug bounty methodology.
 
 ### [Phase 5: Wireless & Mobile](Phase-5.md)
+
 WiFi pentesting (WPA3, evil twin, PMKID), Bluetooth/BLE/Zigbee/NFC/RFID/GPS attacks, SDR spectrum analysis, and Android/iOS dynamic+static analysis.
 
 ### [Phase 6: Infrastructure & Identity](Phase-6.md)
+
 Active Directory & Entra ID (on-prem + hybrid cloud identity), cloud computing attacks (AWS/Azure/GCP), container & Kubernetes security, OT/ICS/SCADA industrial systems, and adversary emulation & purple teaming.
 
 ### [Phase 7: Advanced Specializations](Phase-7.md)
+
 Digital forensics & incident response, reverse engineering & malware analysis, modern exploitation (heap/kernel/browser), hardware hacking & embedded systems, offensive development (shellcode, C2, process injection, AMSI/ETW bypass), physical pentesting, VoIP/SS7/5G telecom, and blockchain/Web3 smart contract auditing.
 
 ### [Phase 8: Governance, Supply Chain, DevSecOps & Architecture](Phase-8.md)
+
 GRC frameworks (NIST, ISO 27001, PCI-DSS, DPDP Act), supply chain security (SBOM, SLSA, dependency confusion), DevSecOps integration (SAST/DAST/SCA, secrets scanning, IaC security), and security architecture & engineering (Zero Trust, defense-in-depth design, segmentation, reference architectures).
 
 ### [Phase 9: AI Security](Phase-9.md)
+
 Layer AI system knowledge on top of your mastered traditional track. Understand tokens, context windows, MCP, embeddings, temperature, fine-tuning, OWASP LLM Top 10, RAG poisoning, supply chain attacks, shadow AI prevention, and defensive AI operations.
 
 ### [Phase 10: Operations & Career](Phase-10.md)
+
 Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing), red team operations & tradecraft, and building an unfakeable proof-of-work portfolio.
 
 ---
 
+---
+
+## 🛠️ AI Prompt for Checklist Items
+
+# INPUT
+
+Cybersecurity Roadmap Category: <Insert category here>
+
+Checklist Item: <Insert checklist item here>
+
+Example:
+
+Cybersecurity Roadmap Category:
+Reconnaissance → Organizational Intelligence Gathering
+
+Checklist Item:
+"Organizational Hierarchy: Profile the Audience (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link."
+
+---
+
+You are an expert cybersecurity instructor, penetration tester, red team operator, blue team analyst, and mentor.
+
+Analyze and explain the provided checklist item in extreme depth.
+
+Treat the checklist item as a professional learning objective rather than a short concept definition.
+
+Your goal is to convert the checklist item into a complete learning module.
+
+For the provided checklist item, explain:
+
+# 1. Purpose and Importance
+
+- Why does this checklist item exist?
+- Why is it important during an assessment?
+- What problem does it solve?
+- Which phase of a penetration test does it belong to?
+
+# 2. Context and Usage
+
+- During which engagement types is this used?
+- Red Team
+- External Pentest
+- Internal Pentest
+- Social Engineering Assessment
+- Physical Security Assessment
+
+# 3. Core Concepts
+
+Explain all terminology contained in the checklist item.
+
+For example:
+
+- Stakeholders
+- HR
+- Legal
+- Management
+- Decision makers
+- Gatekeepers
+- Privileged users
+- Attack surface
+- Weakest link
+
+# 4. Real-World Example
+
+Provide realistic examples from an enterprise environment.
+
+Example:
+
+- A company with 500 employees.
+- CEO, HR department, Legal team, IT department, Finance department.
+- Explain who attackers would target first and why.
+
+# 5. Offensive Perspective
+
+Explain:
+
+- Why attackers care about this information.
+- What information they seek.
+- How they gather it.
+- Indicators of high-value targets.
+
+# 6. Defensive Perspective
+
+Explain:
+
+- How organizations defend against this.
+- Security awareness measures.
+- Technical controls.
+- Policies.
+
+# 7. Practical Methodology
+
+Explain step-by-step:
+
+1. What information to collect.
+2. Where to collect it.
+3. How to organize it.
+4. How to analyze it.
+5. How to identify risks.
+
+# 8. Tools and Sources
+
+Explain:
+
+- LinkedIn analysis
+- Company websites
+- Job postings
+- Public documents
+- Press releases
+- OSINT tools
+
+# 9. Common Mistakes
+
+- Beginner mistakes.
+- Incorrect assumptions.
+- Ethical boundaries.
+
+# 10. Lab Application
+
+Explain how this concept can be practiced in:
+
+- Red team simulations
+- OSINT exercises
+- Corporate scenarios
+
+# 11. Key Takeaways
+
+Summarize:
+
+- What matters most.
+- What professionals focus on.
+- Warning signs and opportunities.
+
+The explanation must transform the checklist item into practical knowledge that can be used during real assessments.
+
+Replace `<INSERT_CHECKLIST_POINT>` with the exact text of the checklist bullet you want details for.
+
 ## ✅📋 Completion Tracker & Quick Navigation
 
 **🧭 Control Layer:**
+
 - [ ] [Execution Control Layer](#toc-execution-control-layer) — Proof standards, phase gates, role tracks, safety boundaries
 
 **🏗️ Phase 1 — Foundation:**
+
 - [ ] [Career Foundation & Lab Setup](Phase-1.md#career-foundation-lab-setup) — Lab Setup, Platforms, Academic Alignment
 - [ ] [Part 1: Fundamentals](Phase-1.md#part-1-fundamentals) — Hardware, OS, Memory, Data, Programming
 - [ ] [Part 1B: Linux Administration](Phase-1.md#part-1b-linux-administration) — Users, Permissions, Services, Networking, Logs, SELinux/AppArmor
@@ -155,6 +313,7 @@ Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional 
 - [ ] [Part 3: Cryptography](Phase-1.md#part-3-cryptography) — Concepts → Transit → Trust → Rest → Attacks
 
 **⚔️ Phase 2 — Offensive Core:**
+
 - [ ] [Part 4: Footprinting and Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance) — Passive → Active → Strategy
 - [ ] [Part 5: Scanning](Phase-2.md#part-5-scanning) — Host Discovery → Port Enumeration → Defense Assessment
 - [ ] [Part 6: Enumeration](Phase-2.md#part-6-enumeration) — Network Discovery → Service Profiling → Attack Mapping
@@ -167,22 +326,26 @@ Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional 
 - [ ] [Part 31: Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) — Methodology, Tools, Rules, Wordlists, Offline Cracking
 
 **🛡️ Phase 3 — Defense & Detection:**
+
 - [ ] [Part 13A: Detection Engineering & SOC Operations](Phase-3.md#part-13a-detection-engineering-soc-operations) — SIEM, Detection Rules, Threat Hunting, IR, Forensic Fundamentals
 - [ ] [Part 13B: Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion) — SOAR, DLP, Vulnerability Management, Insider Threat Detection
 - [ ] [Part 14: IDS, Firewalls, and Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots) — Strategy → Deployment → Deception → Operations
 - [ ] [Part 15: OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence) — Collection → Analysis → Automation → Dissemination
 
 **🌐 Phase 4 — Web & Application Security:**
+
 - [ ] [Part 17: Web Application Hacking](Phase-4.md#part-17-web-application-hacking) — Recon → Analysis → Exploit → Persist → Defend
 - [ ] [Part 18: Web Server Hacking](Phase-4.md#part-18-web-server-hacking) — Recon → Hardening → Exploit → Persist
 - [ ] [Part 19: API Security](Phase-4.md#part-19-api-security) — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks, Testing Methodology
 - [ ] [Part 20: Bug Bounty and Penetration Testing](Phase-4.md#part-20-bug-bounty-and-penetration-testing) — Scope → Recon → Exploit → Report
 
 **📡 Phase 5 — Wireless & Mobile:**
+
 - [ ] [Part 21: Wireless Pentesting](Phase-5.md#part-21-wireless-pentesting) — Recon → Breach → MITM → BLE/Zigbee/NFC/GPS/SDR → Defense
 - [ ] [Part 22: Mobile Platform Pentesting](Phase-5.md#part-22-mobile-platform-pentesting) — Static → Dynamic → Network → Defense
 
 **☁️ Phase 6 — Infrastructure, Identity & Purple Teaming:**
+
 - [ ] [Part 23: Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id) — On-Prem AD → ADCS → Entra ID/OAuth
 - [ ] [Part 24: Cloud Computing](Phase-6.md#part-24-cloud-computing) — Architecture → Storage → Deployment → Automation → Attacks
 - [ ] [Part 25: Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security) — Docker, Kubernetes, Secrets Management
@@ -190,27 +353,32 @@ Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional 
 - [ ] [Part 16: Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming) — MITRE ATT&CK, APT Simulation, Metrics
 
 **🔬 Phase 7 — Advanced Specializations:**
+
 - [ ] [Part 27: Digital Forensics](Phase-7.md#part-27-digital-forensics) — Prep → Analysis → Network → Reporting
 - [ ] [Part 28: Reverse Engineering & Malware Analysis](Phase-7.md#part-28-reverse-engineering-malware-analysis) — Static → Dynamic → Debugging → Anti-RE → Automation
 - [ ] [Part 29: Modern Exploitation](Phase-7.md#part-29-modern-exploitation) — Memory Safety → Sandbox Escape → Mitigation Bypass
 - [ ] [Part 42: Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) — Shellcode, C2 Implants, Process Injection, AMSI/ETW Bypass
 
 **🧩 Optional Specializations:**
+
 - [ ] [Part 30: Hardware Hacking & Embedded Systems](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization) — Optional specialization: Firmware, JTAG, UART, Side-Channel, IoT
 - [ ] [Part 32: Physical Penetration Testing](Phase-7.md#part-32-physical-penetration-testing-optional-specialization) — Optional specialization: Lock Bypass, HID Attacks, Facility Assessment, Reporting
 - [ ] [Part 33: VoIP & Telecommunications Security](Phase-7.md#part-33-voip-telecommunications-security-optional-specialization) — Optional specialization: SS7, SIP/RTP, VoIP Exploitation, 5G
 - [ ] [Part 34: Blockchain & Web3 Security](Phase-7.md#part-34-blockchain-web3-security-optional-specialization) — Optional specialization: Smart Contracts, DeFi Attacks, Wallet Security
 
 **📋 Phase 8 — Governance, Supply Chain, DevSecOps & Architecture:**
+
 - [ ] [Part 35: Governance, Risk & Compliance](Phase-8.md#part-35-governance-risk-compliance-grc) — Frameworks, Regulations, Audit, Scope
 - [ ] [Part 36: Supply Chain Security](Phase-8.md#part-36-supply-chain-security) — Dependency Attacks, SBOM, Build Integrity, OSS Risk
 - [ ] [Part 37: DevSecOps & Secure SDLC](Phase-8.md#part-37-devsecops-secure-sdlc) — SAST/DAST/SCA, Secrets Scanning, Pipeline Security
 - [ ] [Part 43: Security Architecture & Engineering](Phase-8.md#part-43-security-architecture-engineering) — Zero Trust, Defense-in-Depth Design, Segmentation, Reference Architectures
 
 **🧠 Phase 9 — AI Security:**
+
 - [ ] [Part 38: AI & LLM Red Teaming](Phase-9.md#part-38-ai-llm-red-teaming) — AI Fundamentals → Adversarial Attacks → Agentic AI → Defensive AI → Workflow Integration → Projects → Career
 
 **🎯 Phase 10 — Operations & Career:**
+
 - [ ] [Part 39: Penetration Testing Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) — PTES, OWASP WSTG, NIST 800-115, Threat Modeling, CVSS, Report Writing
 - [ ] [Part 40: Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — Infrastructure, Discipline, Operations
 - [ ] [Part 41: Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) — Tools, GitHub, Writing, Bug Bounties, Certifications

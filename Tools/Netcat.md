@@ -14,8 +14,13 @@
 
 ## 🧭 Navigation
 
-- 📋 [Master Roadmap](../Roadmap/README.md)
-- 🗺️ [Nmap Guide](Nmap.md)
+> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+
+| Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
+|:-----------------|:-------------|:-------------------|:--------------|
+| [🗺️ Nmap](Nmap.md) | [💀 Metasploit](Metasploit_Framework.md) | [🐉 LinPEAS](LinPEAS.md) | [🕷️ Burp Suite](Burp_Suite.md) |
+| **🔌 Netcat** (you are here) | [🐍 Impacket](Impacket.md) | [🩸 BloodHound](BloodHound.md) | [🦈 Wireshark](Wireshark.md) |
+| | [🔓 Hydra](Hydra.md) | [🔥 Hashcat](Hashcat.md) | |
 
 ---
 

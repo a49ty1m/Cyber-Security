@@ -9,9 +9,15 @@
 
 ## 🧭 Navigation
 
-- 🏠 [Lab Main Info](../INFO.md)
-- 🐧 [Metasploitable 2 Tasks](../Metasploitable_2/TASK_LIST.md)
-- 📋 [Master Roadmap](../../Roadmap/README.md)
+> [🏠 Home](../../README.md) · [📋 Roadmap](../../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Metasploitable_2/TASK_LIST.md) · [🏰 OverTheWire](../OverTheWire/README.md)
+
+**Related Tools:**
+[🕷️ Burp Suite](../../Tools/Burp_Suite.md) ·
+[🗺️ Nmap](../../Tools/Nmap.md) ·
+[🦈 Wireshark](../../Tools/Wireshark.md) ·
+[🔓 Hydra](../../Tools/Hydra.md) ·
+[🔥 Hashcat](../../Tools/Hashcat.md) ·
+[🔌 Netcat](../../Tools/Netcat.md)
 
 ---
 

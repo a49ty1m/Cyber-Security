@@ -1,129 +1,197 @@
-# Cyber-Security Portfolio 🛡️
+<p align="center">
+  <h1 align="center">🛡️ Cyber-Security Lab & Learning Portfolio</h1>
+  <p align="center">
+    <strong>A structured, hands-on cybersecurity training repository</strong><br>
+    From absolute beginner to penetration testing practitioner
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Files-83-blue" alt="Files">
+    <img src="https://img.shields.io/badge/Tasks-509-green" alt="Tasks">
+    <img src="https://img.shields.io/badge/Tools-10-orange" alt="Tools">
+    <img src="https://img.shields.io/badge/Labs-3-red" alt="Labs">
+    <img src="https://img.shields.io/badge/Status-Active-brightgreen" alt="Status">
+  </p>
 
-**Student Name:** Aditya Mishra  
-**Timeline:** Oct 2025 – Ongoing  
-**Goal:** Hands-on cybersecurity learning and portfolio development
-
----
-
-## 🚀 About This Repo
-This repository is a **hands-on portfolio of my cybersecurity journey**, focused on building practical skills through labs, mini-projects, and scripts. The goal is **skill development, experimentation, and documentation** rather than job-readiness.
-
-**Platforms:** OverTheWire, TryHackMe, DVWA, Juice Shop  
-**Focus Areas:** Linux, Networking, Web Hacking, Python & Bash scripting  
-**Tools Used:** nmap, netcat, Burp Suite CE, Metasploit, Gobuster, Python & more
-
----
-
-## 📌 Skills Acquired
-
-### Linux & Command Line
-- File navigation, permissions, process management
-- Bash scripting & automation
-- SSH, file transfers, system administration basics
-
-### Networking Fundamentals
-- TCP/IP stack, OSI model, common protocols
-- Port scanning with nmap, network reconnaissance
-- Packet analysis basics
-
-### Security Concepts
-- Footprinting & Reconnaissance techniques
-- Scanning & Enumeration methodologies
-- System hacking fundamentals
-- Web application security basics
-
-### Tools & Platforms
-- **Scanning:** nmap, netcat, gobuster
-- **Web Testing:** Burp Suite CE, DVWA, Juice Shop
-- **Frameworks:** Metasploit basics
-- **Documentation:** Markdown, Git/GitHub
 
 ---
 
-## 📝 Projects / Labs
+**Author:** Aditya Mishra
+**Started:** October 2025
+**Philosophy:** Learn by doing. Document everything. Master the methodology, not just the commands.
 
-| Project / Lab | Platform | Description | Status |
-|---------------|----------|-------------|--------|
-| **Bandit Levels 0–33** | OverTheWire | Linux command-line challenges, password retrieval | ✅ In Progress |
-| **Linux Fundamentals** | Self-Study | Command-line, bash scripting, file permissions | ✅ In Progress |
-| **Networking Basics** | Self-Study | TCP/IP, protocols, port scanning with nmap | ✅ In Progress |
-| **Footprinting & Recon** | CEH Module | Information gathering, OSINT techniques | ✅ In Progress |
-| **Scanning & Enumeration** | CEH Module | Network scanning, service enumeration | ✅ In Progress |
-| **System Hacking** | CEH Module | Exploitation techniques, privilege escalation | ✅ In Progress |
-| **DVWA Labs** | DVWA | Web vulnerabilities (XSS, SQLi, etc.) | 📋 Planned |
-| **TryHackMe Rooms** | TryHackMe | Hands-on security challenges | 📋 Planned |
-| **Automation Scripts** | Custom | Bash/Python scripts for recon & automation | 📋 Planned |
-| **Capstone Project** | Combined | Final project integrating all skills | 📋 Planned |
+> *"The goal is not to memorize tools — it's to understand systems deeply enough to break them and, more importantly, to fix them."*
 
 ---
 
-## ✅ Future Goals
+## 🚀 What Is This Repository?
 
-### Short-term (1-3 months)
-- ✅ Complete all OverTheWire Bandit levels (0-33)
-- 🎯 Finish CEH modules: Footprinting, Scanning, Enumeration, System Hacking
-- 🎯 Complete TryHackMe beginner Linux and networking rooms
-- 🎯 Start DVWA web application security challenges
+This is a **complete offensive security training system** built around real vulnerable lab environments. It's not a collection of notes — it's a structured curriculum with **509 hands-on tasks** organized into progressive phases, covering everything from your first `nmap` scan to Active Directory domain compromise.
 
-### Medium-term (3-6 months)
-- 🎯 Build automation scripts for reconnaissance and scanning tasks
-- 🎯 Complete comprehensive web application hacking writeups
-- 🎯 Explore Metasploit framework for penetration testing
-- 🎯 Participate in CTF competitions for practical experience
+### What's Inside
 
-### Long-term (6+ months)
-- 🎯 Complete capstone project integrating Linux, Networking, and Web Hacking
-- 🎯 Maintain polished portfolio with consistent documentation
-- 🎯 Contribute to cybersecurity community through writeups and tools
-- 🎯 Consider certification paths (CEH, OSCP, etc.)
+| Category | Content | Scale |
+|:---------|:--------|:------|
+| 🛠️ **Tool Mastery Guides** | 10 tools, each with 8 progressive phases | ~400 tasks |
+| 🧪 **Lab Curricula** | Metasploitable 2 + OWASP BWA structured task lists | ~110 tasks |
+| 📋 **10-Phase Roadmap** | Beginner → Advanced learning path | 10 phases |
+| 📚 **Knowledge Base** | Linux, Networking, Reconnaissance, Scanning, Exploitation | 6 areas |
+| 🏰 **CTF Writeups** | OverTheWire Bandit Levels 0–33 | 36 writeups |
+
+---
+
+## 🧭 Quick Navigation
+
+### 📋 Roadmap
+| | |
+|:---|:---|
+| 📋 [**Master Roadmap**](Roadmap/README.md) | 10-phase learning path from fundamentals to advanced pentesting |
+
+### 🧪 Lab Environments
+| Lab | Focus | Guide |
+|:----|:------|:------|
+| 🐧 **Metasploitable 2** | Network exploitation, service attacks, post-exploitation | [Task List](Lab/Metasploitable_2/TASK_LIST.md) |
+| 🌐 **OWASP Broken WebApps** | OWASP Top 10, web app security, Burp Suite methodology | [Task List](Lab/OWASP_Broken_WebApps/TASK_LIST.md) |
+| 🏰 **OverTheWire Bandit** | Linux CLI, SSH, file permissions, scripting | [Levels 0–33](Lab/OverTheWire/Bandit/README.md) |
+
+### 🛠️ Tool Mastery Guides
+
+Every guide follows the same 8-phase structure: **Fundamentals → Core Features → Intermediate → Advanced → Integration → Labs → Methodology → Mastery Challenges**. Each task includes objectives, skills learned, practical exercises, expected output, and common mistakes.
+
+| | Tool | Category | Tasks | Guide |
+|:---:|:-----|:---------|:-----:|:------|
+| 🗺️ | **Nmap** | Scanning & Discovery | 47 | [Open](Tools/Nmap.md) |
+| 🔌 | **Netcat** | Networking Swiss Army Knife | 38 | [Open](Tools/Netcat.md) |
+| 🦈 | **Wireshark** | Traffic Analysis & Forensics | 43 | [Open](Tools/Wireshark.md) |
+| 🕷️ | **Burp Suite** | Web Application Testing | 43 | [Open](Tools/Burp_Suite.md) |
+| 💀 | **Metasploit** | Exploitation Framework | 44 | [Open](Tools/Metasploit_Framework.md) |
+| 🔓 | **Hydra** | Online Brute-Forcing | 37 | [Open](Tools/Hydra.md) |
+| 🔥 | **Hashcat** | Offline Password Cracking | 38 | [Open](Tools/Hashcat.md) |
+| 🐉 | **LinPEAS** | Linux Privilege Escalation | 39 | [Open](Tools/LinPEAS.md) |
+| 🐍 | **Impacket** | Windows/AD Exploitation | 38 | [Open](Tools/Impacket.md) |
+| 🩸 | **BloodHound** | AD Attack Path Analysis | 40 | [Open](Tools/BloodHound.md) |
+
+### 📚 Knowledge Base
+| Area | Content |
+|:-----|:--------|
+| 🐧 Linux | [Linux Basics](01.Linux/linux-basics.md) · [Bash Scripting](01.Linux/Bash.md) · [Deep Knowledge](01.Linux/Linux_Knowledge.md) |
+| 🌐 Networking | [Networking Fundamentals](02.Networking/README.md) · [Extra Notes](02.Networking/EXTRA.md) |
+| 🔍 Reconnaissance | [Footprinting & OSINT](03.Learnings/01.Footprinting-and-Reconnaissance/) |
+| 📡 Scanning | [Network Scanning](03.Learnings/02.Scanning/) |
+| 📋 Enumeration | [Service Enumeration](03.Learnings/03.Enumeration/) |
+| 💣 Exploitation | [System Hacking](04.Exploits/01.System-Hacking/) |
+
+---
+
+## 🎯 Learning Path Overview
+
+The recommended order for working through this repository:
+
+```
+Phase 1: Linux Fundamentals
+    └── OverTheWire Bandit (Levels 0-33)
+    └── 01.Linux/ notes
+
+Phase 2: Networking
+    └── 02.Networking/ notes
+    └── Nmap tool guide
+    └── Netcat tool guide
+    └── Wireshark tool guide
+
+Phase 3: Reconnaissance & Scanning
+    └── 03.Learnings/ (Footprinting, Scanning, Enumeration)
+    └── Metasploitable 2 Lab (Levels 0-3)
+
+Phase 4: Web Application Security
+    └── Burp Suite tool guide
+    └── OWASP BWA Lab (all levels)
+
+Phase 5: Exploitation
+    └── Metasploit tool guide
+    └── Hydra tool guide
+    └── Metasploitable 2 Lab (Levels 4-8)
+
+Phase 6: Post-Exploitation
+    └── LinPEAS tool guide
+    └── Hashcat tool guide
+    └── Metasploitable 2 Lab (Levels 9-13)
+
+Phase 7: Active Directory
+    └── Impacket tool guide
+    └── BloodHound tool guide
+```
+
+---
+
+## 📌 Skills Covered
+
+| Domain | Skills |
+|:-------|:-------|
+| **Linux** | CLI navigation, file permissions, process management, Bash scripting, SSH, cron, systemd |
+| **Networking** | TCP/IP, OSI model, DNS, HTTP, ARP, routing, subnetting, packet analysis |
+| **Reconnaissance** | OSINT, footprinting, DNS enumeration, WHOIS, Google dorking, Shodan |
+| **Scanning** | Port scanning, service detection, OS fingerprinting, vulnerability scanning |
+| **Web Security** | OWASP Top 10 (SQLi, XSS, CSRF, IDOR, SSRF, XXE), authentication bypass, session management |
+| **Exploitation** | Metasploit, manual exploitation, payload generation, reverse/bind shells |
+| **Post-Exploitation** | Privilege escalation, credential harvesting, lateral movement, persistence, pivoting |
+| **Active Directory** | Kerberoasting, AS-REP Roasting, DCSync, pass-the-hash, NTLM relay, BloodHound analysis |
+| **Password Attacks** | Online brute-forcing (Hydra), offline cracking (Hashcat), wordlist generation, rule creation |
+| **Traffic Analysis** | Packet capture, protocol analysis, credential extraction, TLS inspection, forensics |
 
 ---
 
 ## 📂 Repository Structure
+
 ```
 Cyber-Security/
-├── 01.Linux/
-│   ├── Bash.md, Linux_Knowledge.md, linux-basics.md
-│   └── Markup/
 │
-├── 02.Networking/
-│   ├── README.md, EXTRA.md
-│   └── Notes-from-Youtube/
-│
-├── 03.Learnings/
-│   ├── 01.Footprinting-and-Reconnaissance/
-│   ├── 02.Scanning/
-│   ├── 03.Enumeration/
-│   └── Markup/
-│
-├── 04.Exploits/
+├── 01.Linux/                         # Linux fundamentals & Bash scripting
+├── 02.Networking/                    # TCP/IP, protocols, networking deep-dives
+├── 03.Learnings/                     # CEH-style modules
+│   ├── 01.Footprinting-and-Recon/    #   OSINT & information gathering
+│   ├── 02.Scanning/                  #   Network & vulnerability scanning
+│   └── 03.Enumeration/              #   Service & protocol enumeration
+├── 04.Exploits/                      # System hacking & exploitation notes
 │   └── 01.System-Hacking/
 │
-├── Lab/
-│   └── OverTheWire/Bandit/
+├── Lab/                              # Hands-on lab environments
+│   ├── Metasploitable_2/             #   🐧 Network exploitation (109 tasks)
+│   ├── OWASP_Broken_WebApps/         #   🌐 Web security (structured curriculum)
+│   └── OverTheWire/Bandit/           #   🏰 Linux CLI wargame (36 levels)
 │
-├── README.md, Roadmap.md, roadmap-cheatsheet.md
-└── .gitignore
+├── Roadmap/                          # 📋 10-phase master learning roadmap
+│   ├── README.md                     #   Roadmap overview
+│   └── Phase-1.md ... Phase-10.md    #   Individual phase details
+│
+├── Tools/                            # 🛠️ 10 tool mastery guides (407 tasks)
+│   ├── Nmap.md                       #   Port scanning & discovery
+│   ├── Netcat.md                     #   Network utility & shells
+│   ├── Wireshark.md                  #   Packet analysis & forensics
+│   ├── Burp_Suite.md                 #   Web application testing
+│   ├── Metasploit_Framework.md       #   Exploitation framework
+│   ├── Hydra.md                      #   Online password attacks
+│   ├── Hashcat.md                    #   Offline password cracking
+│   ├── LinPEAS.md                    #   Linux privilege escalation
+│   ├── Impacket.md                   #   Windows/AD exploitation
+│   └── BloodHound.md                 #   AD attack path analysis
+│
+└── README.md                         # ← You are here
 ```
 
 ---
 
 ## 📅 Learning Approach
 
+**Methodology:**
+1. 📖 **Study** — Learn concepts through structured materials
+2. 🧪 **Practice** — Apply in isolated lab environments (Metasploitable 2, OWASP BWA)
+3. 📝 **Document** — Write up every technique, command, and lesson learned
+4. 🔁 **Iterate** — Revisit topics with deeper understanding after hands-on experience
+5. 🎯 **Master** — Complete mastery challenges and competency self-assessments
+
 **Weekly Schedule:**
 - **Mon/Wed (3 hrs):** Labs + Course modules  
-- **Tue/Thu/Fri/Sat (5 hrs):** Labs + Course + Book reading + Mini-projects  
-- **Sun:** Coding practice / Additional course work / Portfolio updates  
-
-**Methodology:**
-1. 📚 Learn concepts through course materials and books
-2. 🛠️ Apply knowledge in hands-on labs (OverTheWire, TryHackMe)
-3. 📝 Document process, commands, and lessons learned
-4. 🔄 Review and refine understanding through practice
-5. 🚀 Build mini-projects to consolidate skills
-
-> "Learning by doing and documenting is the fastest path to cybersecurity mastery."
+- **Tue/Thu/Fri/Sat (5 hrs):** Labs + Course + Book reading + Tool practice  
+- **Sun:** Portfolio updates, review, and coding practice  
 
 ---
 
@@ -131,6 +199,15 @@ Cyber-Security/
 
 **Course:** [Bitten Tech Solutions](https://www.bittentechsolutions.com/) — Linux, Networking, Ethical Hacking (CEH)  
 **Books:** Cybersecurity fundamentals, Networking essentials, Linux administration  
-**Platforms:** [OverTheWire](https://overthewire.org/), [TryHackMe](https://tryhackme.com/), [DVWA](https://github.com/digininja/DVWA), [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
+**Platforms:** [OverTheWire](https://overthewire.org/) · [TryHackMe](https://tryhackme.com/) · [HackTheBox](https://hackthebox.com/) · [DVWA](https://github.com/digininja/DVWA) · [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)  
+**References:** [GTFOBins](https://gtfobins.github.io/) · [HackTricks](https://book.hacktricks.xyz/) · [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) · [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
 
 ---
+
+> ⚠️ **Disclaimer:** All tools, techniques, and exercises in this repository are for **authorized educational use only** in isolated lab environments. Never use these skills against systems you do not own or have explicit written permission to test. Unauthorized access to computer systems is illegal.
+
+---
+
+<p align="center">
+  <em>Built with curiosity, persistence, and a lot of broken VMs.</em>
+</p>

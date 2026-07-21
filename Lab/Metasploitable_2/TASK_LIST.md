@@ -9,9 +9,16 @@
 
 ## 🧭 Navigation
 
-- 🏠 [Lab Main Info](../INFO.md)
-- 🌐 [OWASP Broken WebApps Tasks](../OWASP_Broken_WebApps/TASK_LIST.md)
-- 📋 [Master Roadmap](../../Roadmap/README.md)
+> [🏠 Home](../../README.md) · [📋 Roadmap](../../Roadmap/README.md) · [🌐 OWASP BWA Lab](../OWASP_Broken_WebApps/TASK_LIST.md) · [🏰 OverTheWire](../OverTheWire/README.md)
+
+**Related Tools:**
+[🗺️ Nmap](../../Tools/Nmap.md) ·
+[🔌 Netcat](../../Tools/Netcat.md) ·
+[💀 Metasploit](../../Tools/Metasploit_Framework.md) ·
+[🦈 Wireshark](../../Tools/Wireshark.md) ·
+[🔓 Hydra](../../Tools/Hydra.md) ·
+[🔥 Hashcat](../../Tools/Hashcat.md) ·
+[🐉 LinPEAS](../../Tools/LinPEAS.md)
 
 ---
 
