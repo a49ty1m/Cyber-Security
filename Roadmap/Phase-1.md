@@ -3,20 +3,26 @@
 ---
 
 ### 🧭 Navigation
+
 🏠 [Master Roadmap](README.md) | [Phase 2](Phase-2.md) ➔
 
 ---
 
 > [!NOTE]
 > **Phase Overview**
+>
 > - **⏱️ Time Commitment (Full-Time):** 4–6 months
 > - **⏱️ Time Commitment (Part-Time):** 6–10 months
 > - **🎯 Primary Focus:** Master the TCP/IP stack, OSI model, DNS, HTTP/HTTPS, Linux CLI and administration, Windows administration and Event Viewer, Bash/PowerShell, Python/JavaScript, virtualization, cloud basics (AWS/Azure), Docker/Kubernetes, authentication, sessions, cookies, JSON APIs, CORS, and the cryptographic primitives underpinning all of security.
+
 ---
 
 > [!NOTE]
+>
 > ### 📝 Phase 1 Documentation Requirements
+>
 > Every topic you complete in this phase must be documented and committed to your private Git repository. Required artifacts:
+>
 > - **Markdown lab notes** for every lab completed (structured: objective → steps → output → lessons learned)
 > - **Network diagrams** (draw.io/Excalidraw) of your home lab topology
 > - **Screenshots** of completed labs, tool output, and configuration changes
@@ -28,8 +34,11 @@
 ---
 
 > [!IMPORTANT]
+>
 > ### 🧱 Phase 1 Pacing Checkpoints
+>
 > Phase 1 is intentionally broad. Treat it as six smaller milestones instead of one giant block:
+>
 > 1. **Lab setup complete:** Hypervisor installed, baseline VMs created, Git documentation repository active.
 > 2. **Computer fundamentals complete:** Hardware, OS internals, memory, data representation, and basic scripting understood.
 > 3. **Linux administration complete:** Users, permissions, services, networking, logs, storage, and hardening practiced.
@@ -42,6 +51,7 @@
 ---
 
 ### 🗂️ Table of Contents
+
 - [Career Foundation & Lab Setup](#career-foundation-lab-setup)
   - [Professional Development & Enablers](#professional-development-enablers)
   - [Home Lab Hardware Requirements](#home-lab-hardware-requirements)
@@ -92,11 +102,13 @@
 ---
 
 <a id="career-foundation-lab-setup"></a>
+
 ## Career Foundation & Lab Setup
 
 _Before starting the technical curriculum, establish your academic foundation, lab environment, and practice platforms._
 
 <a id="professional-development-enablers"></a>
+
 ### **Professional Development & Enablers**
 
 - [ ] **Lab Progression Map (Packet Tracer → GNS3/EVE-NG → Wireshark validation)**
@@ -263,6 +275,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="home-lab-hardware-requirements"></a>
+
 ### **Home Lab Hardware Requirements**
 
 > [!TIP]
@@ -281,6 +294,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="academic-career-alignment"></a>
+
 ### **Academic & Career Alignment**
 
 > [!TIP]
@@ -320,27 +334,29 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="certification-alignment-map"></a>
+
 ### **Certification Alignment Map**
 
 > [!TIP]
 > **Goal:** Know which certifications to pursue at each phase for industry credibility.
 
-| Phase Completed | Recommended Certifications | Notes |
-|---|---|---|
-| Phase 1 | **CompTIA A+, Network+, Security+** | Foundation validation; Security+ meets DoD 8570 baseline |
-| Phase 2 | **eJPT (INE), CompTIA PenTest+** | Entry offensive validation |
-| Phase 3 | **CySA+ (CompTIA), BTL1 (Security Blue Team)** | Blue team validation |
-| Phases 1–4 | **eWPT (INE), BSCP (PortSwigger)** | Web security specialization |
-| Phases 1–6 | **OSCP (OffSec), PNPT (TCM), CRTP (Altered Security)** | Mid-level offensive; OSCP is the gold standard |
-| Phases 1–7 | **GCFE, GCFA (GIAC Forensics), eCRE (INE)** | DFIR / RE specialization |
-| Phases 1–8 | **OSEP (OffSec), CRTO (Zero-Point), CISSP** | Senior offensive / architecture validation |
-| Full Roadmap | **OSCE3, GXPN, SANS GSE** | Expert-level; pursue only 1–2 |
+| Phase Completed | Recommended Certifications                             | Notes                                                    |
+| --------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| Phase 1         | **CompTIA A+, Network+, Security+**                    | Foundation validation; Security+ meets DoD 8570 baseline |
+| Phase 2         | **eJPT (INE), CompTIA PenTest+**                       | Entry offensive validation                               |
+| Phase 3         | **CySA+ (CompTIA), BTL1 (Security Blue Team)**         | Blue team validation                                     |
+| Phases 1–4      | **eWPT (INE), BSCP (PortSwigger)**                     | Web security specialization                              |
+| Phases 1–6      | **OSCP (OffSec), PNPT (TCM), CRTP (Altered Security)** | Mid-level offensive; OSCP is the gold standard           |
+| Phases 1–7      | **GCFE, GCFA (GIAC Forensics), eCRE (INE)**            | DFIR / RE specialization                                 |
+| Phases 1–8      | **OSEP (OffSec), CRTO (Zero-Point), CISSP**            | Senior offensive / architecture validation               |
+| Full Roadmap    | **OSCE3, GXPN, SANS GSE**                              | Expert-level; pursue only 1–2                            |
 
 > ⚠️ **Certifications validate skills; they do not replace them.** Do not pursue certifications until you can pass them based on roadmap skills alone. Never cert-chase before building real capability.
 
 ---
 
 <a id="training-platforms-lab-environments"></a>
+
 ### **Training Platforms & Lab Environments**
 
 > [!TIP]
@@ -437,6 +453,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="foundation-proof-gate"></a>
+
 ### **Foundation Proof Gate**
 
 > [!TIP]
@@ -473,9 +490,11 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="toc-part-1-fundamentals"></a>
 <a id="part-1-fundamentals"></a>
+
 ## Part 1: Fundamentals
 
 <a id="stage-1-hardware-cpu-pre-boot-environment"></a>
+
 ### **Stage 1: Hardware, CPU & Pre-Boot Environment**
 
 > [!TIP]
@@ -498,6 +517,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="stage-2-operating-system-internals"></a>
+
 ### **Stage 2: Operating System Internals**
 
 > [!TIP]
@@ -520,6 +540,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="stage-3-memory-management"></a>
+
 ### **Stage 3: Memory Management**
 
 > [!TIP]
@@ -538,6 +559,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="stage-4-data-representation-logic"></a>
+
 ### **Stage 4: Data Representation & Logic**
 
 > [!TIP]
@@ -552,6 +574,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="stage-5-wireless-physical-connections"></a>
+
 ### **Stage 5: Wireless & Physical Connections**
 
 > [!TIP]
@@ -592,6 +615,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="stage-6-mobile-platform-awareness"></a>
+
 ### **Stage 6: Mobile Platform Awareness**
 
 > [!TIP]
@@ -607,66 +631,200 @@ _Before starting the technical curriculum, establish your academic foundation, l
 ---
 
 <a id="stage-7-programming-scripting-fundamentals"></a>
+
 ### **Stage 7: Programming & Scripting Fundamentals**
 
 > [!TIP]
-> **Goal:** Build the coding foundation required for security tooling. Core language skills are taught here; offensive development (shellcode, C2 implants, process injection, AMSI/ETW bypass) is covered in Part 42: Offensive Development & Tooling (Phase 7).
+> **Goal:** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage focuses on programming fundamentals, scripting, and secure coding—not offensive malware or exploit development, which are covered later in the roadmap.
 
-**Python (Automation & Scripting):**
+---
 
-- [ ] **Core Language:** Master **data types, control flow, functions, OOP, file I/O, exception handling**, and **virtual environments (venv/pip)**.
+#### **Python (Automation, Networking & Security Scripting)**
 
-- [ ] **Security Libraries:** Learn **socket, requests, scapy, paramiko, beautifulsoup** for network interaction and scraping.
+- [ ] **Core Language Fundamentals:** Master variables, data types, operators, strings, collections (lists, tuples, dictionaries, sets), control flow, loops, functions, modules, packages, decorators, generators, context managers, object-oriented programming, file handling, exception handling, virtual environments (venv), pip, and project structure.
 
-- [ ] **Automation Use Cases:** Script **port scanners, brute-forcers, web scrapers, log parsers**, and **API interaction tools**.
+- [ ] **Networking Programming:** Learn socket programming (TCP/UDP), HTTP communication, REST APIs, DNS interaction, SSL/TLS basics, and concurrent networking using threading, multiprocessing, and asyncio.
 
-**JavaScript & Node.js (Web & API Security):**
+- [ ] **Security Libraries:** Gain practical experience with requests, socket, scapy, paramiko, BeautifulSoup, Selenium, dnspython, pyshark, cryptography, pwntools (later), and relevant parsing libraries.
 
-- [ ] **Core Language:** Master **ES6+ syntax, async/await, Promises, closures, prototypal inheritance, DOM manipulation**, and **event-driven architecture**.
+- [ ] **Automation Projects:** Build custom:
+  - [ ] Port scanners
+  - [ ] Banner grabbers
+  - [ ] Directory brute forcers
+  - [ ] Web crawlers
+  - [ ] Log analyzers
+  - [ ] IOC extractors
+  - [ ] API automation tools
+  - [ ] Report generators
+  - [ ] Vulnerability checkers
+  - [ ] Packet parsers
 
-- [ ] **Node.js Runtime:** Understand **npm ecosystem, module system (CommonJS/ESM), Express.js**, and **server-side JavaScript** for building and auditing web applications.
+- [ ] **Secure Coding Practices:** Learn input validation, error handling, logging, configuration management, secrets handling, dependency management, and code documentation.
 
-- [ ] **Web Security Context:** Learn **DOM-based XSS, prototype pollution, client-side injection, postMessage abuse**, and **WebSocket security** — JavaScript is the language of the web attack surface.
+- [ ] **Code Quality:** Understand debugging, profiling, testing (pytest), linting, formatting, and version control using Git.
 
-- [ ] **AI Interface Relevance:** Understand that modern AI model interfaces (**ChatGPT, Gemini, Claude**) are delivered via **JavaScript web applications** — fluency is essential for auditing these frontends.
+- [ ] **Learning Outcome:** Be capable of writing professional automation scripts and custom security tools without relying entirely on third-party utilities.
 
-**C (System-Level Understanding):**
+---
 
-- [ ] **Core Language:** Master **pointers, memory allocation (malloc/free), structs, arrays, strings, bitwise operations**, and **compilation (gcc/clang)**.
+#### **JavaScript & Node.js (Web, Browser & API Security)**
 
-- [ ] **System Programming:** Understand **syscalls, file descriptors, process creation (fork/exec), signal handling**, and **shared memory/IPC**.
+- [ ] **Core JavaScript:** Master variables, scopes, closures, prototypes, asynchronous programming, callbacks, Promises, async/await, ES6+ syntax, modules, classes, event loop, memory model, DOM manipulation, BOM, and browser APIs.
 
-- [ ] **Memory Understanding:** Understand **stack frame layout, buffer boundaries, heap allocation** at the C level — this forms the foundation for exploit development studied later in Part 29 (Modern Exploitation) and Part 42 (Offensive Development).
+- [ ] **Node.js Fundamentals:** Learn npm, package management, Express.js, middleware, routing, filesystem APIs, child processes, streams, environment variables, authentication, session management, JWT handling, and server-side JavaScript.
 
-**C++ (Awareness Level):**
+- [ ] **Browser Internals:** Understand cookies, localStorage, sessionStorage, IndexedDB, CORS, CSP, Same-Origin Policy, postMessage, Service Workers, WebSockets, Fetch API, and browser rendering.
 
-- [ ] **Core Language:** Understand **classes, templates, STL containers, smart pointers, RAII**, and how C++ extends C.
+- [ ] **Security Context:** Study:
+  - [ ] DOM XSS
+  - [ ] Prototype Pollution
+  - [ ] Client-side Injection
+  - [ ] Open Redirects
+  - [ ] CSRF
+  - [ ] CORS Misconfiguration
+  - [ ] postMessage abuse
+  - [ ] Clickjacking
+  - [ ] JWT misuse
+  - [ ] WebSocket security
 
-- [ ] **Reverse Engineering Context:** Learn to read **C++ compiled binaries** (vtables, name mangling, exception handling) during **static analysis with Ghidra/IDA** — studied in depth in Part 28.
+- [ ] **Modern Framework Awareness:** Learn how React, Angular, Vue, and Next.js influence modern attack surfaces without becoming a frontend developer.
 
-**Bash & PowerShell (Operational Scripting):**
+- [ ] **AI Web Applications:** Understand how AI platforms such as ChatGPT, Claude, Gemini, and Copilot operate as JavaScript applications communicating with backend APIs.
 
-- [ ] **Bash Mastery:** Script **recon pipelines, log parsing, cron automation, SSH key management**, and **iptables/nftables rule generation** on Linux.
+- [ ] **Learning Outcome:** Confidently inspect, analyse, and test modern web applications and client-side logic during penetration testing.
 
-- [ ] **PowerShell Mastery:** Script **AD enumeration, WMI queries, registry operations, service management**, and **remote execution (Invoke-Command, Enter-PSSession)**.
+---
 
-- [ ] **Cross-Platform Scripting:** Use **Python or Bash** for Linux targets and **PowerShell or C#** for Windows targets; maintain fluency in both ecosystems.
+#### **C (Operating Systems & Memory Fundamentals)**
+
+- [ ] **Language Fundamentals:** Master variables, pointers, pointer arithmetic, arrays, strings, structs, unions, enums, dynamic memory allocation, recursion, bitwise operations, preprocessing, compilation, linking, and debugging.
+
+- [ ] **Memory Management:** Understand:
+  - [ ] Stack
+  - [ ] Heap
+  - [ ] Data Segment
+  - [ ] BSS
+  - [ ] Memory Alignment
+  - [ ] Stack Frames
+  - [ ] Calling Conventions
+  - [ ] Memory Layout
+  - [ ] Buffer Boundaries
+
+- [ ] **System Programming:** Learn file descriptors, processes, threads, signals, pipes, sockets, shared memory, IPC, fork(), exec(), system calls, permissions, and Linux APIs.
+
+- [ ] **Compiler Fundamentals:** Understand GCC, Clang, Makefiles, object files, linking, symbols, and debugging using GDB.
+
+- [ ] **Secure Coding:** Learn integer overflows, buffer overflows, format string vulnerabilities, use-after-free, double free, race conditions, and safe memory management practices.
+
+- [ ] **Learning Outcome:** Develop a deep understanding of how operating systems execute programs and how memory corruption vulnerabilities occur.
+
+---
+
+#### **C++ (Reverse Engineering & Software Analysis)**
+
+- [ ] **Core Language:** Understand classes, inheritance, polymorphism, templates, STL, smart pointers, RAII, namespaces, constructors, destructors, exception handling, and object lifecycles.
+
+- [ ] **Binary Analysis Context:** Learn:
+  - [ ] VTables
+  - [ ] RTTI
+  - [ ] Name Mangling
+  - [ ] Virtual Functions
+  - [ ] Constructors
+  - [ ] Destructors
+  - [ ] Template Expansion
+
+- [ ] **Reverse Engineering:** Learn how C++ applications appear inside Ghidra, IDA Pro, Binary Ninja, and other disassemblers.
+
+- [ ] **Learning Outcome:** Read, analyse, and understand C++ binaries during malware analysis and reverse engineering engagements.
+
+---
+
+#### **Bash (Linux Automation & Operations)**
+
+- [ ] **Shell Fundamentals:** Master variables, loops, conditionals, functions, pipes, redirection, command substitution, environment variables, aliases, permissions, and process management.
+
+- [ ] **Automation:** Build scripts for:
+  - [ ] Enumeration
+  - [ ] Reconnaissance
+  - [ ] Log analysis
+  - [ ] File processing
+  - [ ] Backup automation
+  - [ ] Monitoring
+  - [ ] Cron jobs
+  - [ ] SSH automation
+  - [ ] Firewall management
+
+- [ ] **Command-Line Utilities:** Gain proficiency with grep, awk, sed, cut, sort, uniq, xargs, find, jq, curl, wget, tar, ssh, rsync, and systemctl.
+
+- [ ] **Learning Outcome:** Automate repetitive Linux administration and penetration testing tasks efficiently.
+
+---
+
+#### **PowerShell (Windows Automation & Enterprise Administration)**
+
+- [ ] **Language Fundamentals:** Master variables, pipelines, cmdlets, functions, modules, objects, remoting, scripting, and execution policies.
+
+- [ ] **Windows Administration:** Automate:
+  - [ ] Active Directory enumeration
+  - [ ] Registry operations
+  - [ ] Service management
+  - [ ] Event log collection
+  - [ ] WMI queries
+  - [ ] CIM
+  - [ ] Scheduled Tasks
+  - [ ] Remote administration
+  - [ ] File management
+
+- [ ] **Enterprise Scripting:** Learn WinRM, PowerShell Remoting, Invoke-Command, Enter-PSSession, CIM sessions, and automation against Windows environments.
+
+- [ ] **Learning Outcome:** Confidently automate Windows administration, enterprise enumeration, and incident response workflows.
+
+---
+
+#### **Cross-Platform Development**
+
+- [ ] Choose the appropriate language for each task:
+  - [ ] Python → Automation, APIs, cross-platform tooling
+  - [ ] Bash → Linux administration and automation
+  - [ ] PowerShell → Windows administration and Active Directory
+  - [ ] C → Low-level programming and exploit foundations
+  - [ ] C++ → Reverse engineering and malware analysis
+  - [ ] JavaScript → Web application and browser security
+
+- [ ] Learn to combine multiple languages into complete security workflows rather than treating each language in isolation.
+
+---
+
+## **Stage Completion Criteria**
+
+Before moving to the next stage, you should be able to:
+
+- [ ] Write custom automation tools from scratch.
+- [ ] Read and modify existing security scripts.
+- [ ] Debug programs in multiple languages.
+- [ ] Interact directly with networks and operating systems using code.
+- [ ] Build complete command-line utilities.
+- [ ] Parse logs, APIs, packets, and structured data automatically.
+- [ ] Select the most appropriate programming language for a given security task.
+- [ ] Understand how programming knowledge supports penetration testing, malware analysis, reverse engineering, digital forensics, and detection engineering.
 
 > **📌 Cross-Reference:** Offensive programming is covered in dedicated Parts:
+>
 > - **Part 42: Offensive Development & Tooling** (Phase 7) — Exploit prototyping with pwntools, custom C2 implant logic, buffer overflow exploits, shellcode writing, Win32 API process injection, DLL loading, token manipulation, .NET offensive tooling (P/Invoke, D/Invoke, SharpHound, Rubeus), AMSI/ETW bypass, in-memory execution, offensive PowerShell (download cradles, constrained language mode escape).
 > - **Part 29: Modern Exploitation** (Phase 7) — Advanced memory exploitation, kernel exploits, browser exploitation.
 > - **Part 8: Malware & Weaponization** (Phase 2) — Document weaponization (VBA macros, DDE template abuse, OneNote/PDF weaponization), email client abuse, OAuth consent phishing, cloud persistence, data exfiltration, and covert channels.
 
 ---
 
-
 <a id="toc-part-1b-linux-administration"></a>
 <a id="part-1b-linux-administration"></a>
+
 ## Part 1B: Linux Administration
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Phase._
 
 <a id="stage-1-user-access-management-linux"></a>
+
 ### Stage 1: User & Access Management (Linux)
 
 - [ ] **User Accounts:** Create, modify, and delete users with **useradd/usermod/userdel**. Understand **/etc/passwd**, **/etc/shadow**, and **/etc/group** file structures.
@@ -682,6 +840,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **ACLs:** Configure **POSIX ACLs** with **getfacl/setfacl** for fine-grained access control beyond standard permissions.
 
 <a id="stage-2-service-process-management-linux"></a>
+
 ### Stage 2: Service & Process Management (Linux)
 
 - [ ] **systemd:** Manage services with **systemctl** (start, stop, enable, disable, status, mask). Understand **unit files**, **targets**, and **dependencies**.
@@ -695,6 +854,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Boot Process:** Understand **GRUB2 → systemd → target** boot sequence, **runlevels/targets**, and **single-user mode** for recovery.
 
 <a id="stage-3-networking-linux"></a>
+
 ### Stage 3: Networking (Linux)
 
 - [ ] **Network Configuration:** Configure interfaces with **ip addr, ip link, ip route**. Understand **DHCP vs. static**, **/etc/netplan/**, **/etc/network/interfaces**, and **NetworkManager (nmcli)**.
@@ -708,6 +868,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **SSH Hardening:** Configure **/etc/ssh/sshd_config** — disable root login, enforce key-based auth, change default port, configure **fail2ban**, and understand **SSH tunneling (local, remote, dynamic)**.
 
 <a id="stage-4-log-analysis-monitoring-linux"></a>
+
 ### Stage 4: Log Analysis & Monitoring (Linux)
 
 - [ ] **journalctl:** Query systemd journal logs — filter by **unit, priority, time range, boot**. Understand **persistent vs. volatile** journaling.
@@ -721,6 +882,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Monitoring Tools:** Use **uptime, free, df, du, iostat, vmstat** for system health monitoring. Understand when to investigate further.
 
 <a id="stage-5-storage-filesystem-linux"></a>
+
 ### Stage 5: Storage & Filesystem (Linux)
 
 - [ ] **Disk Management:** Use **fdisk, parted, lsblk, blkid** to manage partitions. Understand **MBR vs. GPT**.
@@ -732,6 +894,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Disk Encryption:** Encrypt partitions with **LUKS (cryptsetup)**. Understand **dm-crypt**, key slots, and unlock-at-boot configuration.
 
 <a id="stage-6-security-hardening-linux"></a>
+
 ### Stage 6: Security Hardening (Linux)
 
 - [ ] **SELinux:** Understand **enforcing, permissive, disabled** modes. Use **getenforce, setenforce, sestatus**. Read **audit.log** denials and create custom policies with **audit2allow**.
@@ -743,17 +906,18 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Kernel Hardening:** Understand **sysctl** parameters (**net.ipv4.ip_forward**, **kernel.randomize_va_space**, **fs.protected_hardlinks**) and how to persist them.
 
 <a id="lab-progression-linux"></a>
+
 ### Lab Progression (Linux)
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Set up a fresh Ubuntu/Debian VM from ISO | Working VM with SSH access |
-| 2 | Create 5 users with different group memberships and sudo rules | Screenshot of /etc/sudoers and group files |
-| 3 | Configure SSH key-only auth + fail2ban | SSH hardening checklist document |
-| 4 | Set up iptables/nftables firewall rules allowing only SSH, HTTP, HTTPS | Firewall ruleset export |
-| 5 | Analyze auth.log to identify failed login patterns | 1-page log analysis report |
-| 6 | Set up LVM, create/extend logical volumes | Screenshot of lvm commands and df output |
-| 7 | Enable SELinux/AppArmor, troubleshoot a denied operation | Audit log analysis + policy fix document |
+| Level | Task                                                                   | Deliverable                                |
+| ----- | ---------------------------------------------------------------------- | ------------------------------------------ |
+| 1     | Set up a fresh Ubuntu/Debian VM from ISO                               | Working VM with SSH access                 |
+| 2     | Create 5 users with different group memberships and sudo rules         | Screenshot of /etc/sudoers and group files |
+| 3     | Configure SSH key-only auth + fail2ban                                 | SSH hardening checklist document           |
+| 4     | Set up iptables/nftables firewall rules allowing only SSH, HTTP, HTTPS | Firewall ruleset export                    |
+| 5     | Analyze auth.log to identify failed login patterns                     | 1-page log analysis report                 |
+| 6     | Set up LVM, create/extend logical volumes                              | Screenshot of lvm commands and df output   |
+| 7     | Enable SELinux/AppArmor, troubleshoot a denied operation               | Audit log analysis + policy fix document   |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can create users, manage services, configure networking, read logs, and harden a Linux system from scratch without referring to documentation for basic commands.
@@ -762,11 +926,13 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="toc-part-1c-windows-administration"></a>
 <a id="part-1c-windows-administration"></a>
+
 ## Part 1C: Windows Administration
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Part 23), cloud (Part 24), and defensive (Phase 3) modules._
 
 <a id="stage-1-user-access-management-windows"></a>
+
 ### Stage 1: User & Access Management (Windows)
 
 - [ ] **Local Users & Groups:** Create and manage local accounts with **lusrmgr.msc** and **net user/net localgroup** commands. Understand **built-in accounts (Administrator, Guest, SYSTEM)**.
@@ -780,6 +946,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Local Security Policy:** Configure **password policy, account lockout policy, user rights assignments** via **secpol.msc** and **gpedit.msc**.
 
 <a id="stage-2-system-management-windows"></a>
+
 ### Stage 2: System Management (Windows)
 
 - [ ] **Windows Services:** Manage services with **services.msc** and **sc.exe/Get-Service**. Understand **service accounts (LocalSystem, LocalService, NetworkService)**, startup types, and recovery options.
@@ -793,6 +960,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Windows Update:** Understand **WSUS, Windows Update for Business**, and **patch management** concepts. Know how to check update history and roll back problematic updates.
 
 <a id="stage-3-event-viewer-auditing-windows"></a>
+
 ### Stage 3: Event Viewer & Auditing (Windows)
 
 - [ ] **Event Log Structure:** Navigate **Application, System, Security, Setup** logs in **Event Viewer (eventvwr.msc)**. Understand **Event IDs, sources, levels (Information, Warning, Error, Critical)**.
@@ -815,6 +983,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **PowerShell Logging:** Enable **Script Block Logging (Event ID 4104)**, **Module Logging**, and **Transcription Logging**. Understand why these are critical for detecting fileless attacks.
 
 <a id="stage-4-powershell-administration-windows"></a>
+
 ### Stage 4: PowerShell Administration (Windows)
 
 - [ ] **Core Cmdlets:** Master **Get-Process, Get-Service, Get-EventLog, Get-WinEvent, Get-ChildItem, Get-Content, Set-Item, New-Item, Remove-Item, Test-NetConnection**.
@@ -828,28 +997,30 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Active Directory Basics:** Use **RSAT tools** and **Active Directory PowerShell module** (Get-ADUser, Get-ADGroup, Get-ADComputer). Understand **OU structure, GPO basics, DNS integration with AD**.
 
 <a id="stage-5-active-directory-concepts-prerequisite-for-part-23"></a>
+
 ### Stage 5: Active Directory Concepts _(Prerequisite for Part 23)_
 
 - [ ] **AD Architecture:** Understand **domains, forests, trusts, OUs, sites**, and **replication**. Know the difference between a **domain controller** and a **member server**.
 
 - [ ] **Group Policy Basics:** Create and link **GPOs**. Understand **computer vs. user configuration**, **gpupdate /force**, **rsop.msc**, and **GPO inheritance/blocking**.
 
-- [ ] **DNS in AD:** Understand why **AD-integrated DNS** is critical. Know **SRV records (_ldap._tcp)**, **forward/reverse lookup zones**, and **dynamic DNS registration**.
+- [ ] **DNS in AD:** Understand why **AD-integrated DNS** is critical. Know **SRV records (\_ldap.\_tcp)**, **forward/reverse lookup zones**, and **dynamic DNS registration**.
 
 - [ ] **DHCP in AD:** Understand **DHCP server authorization**, **scopes, reservations, options**, and how DHCP integrates with DNS.
 
 <a id="lab-progression-windows"></a>
+
 ### Lab Progression (Windows)
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Install Windows Server 2022 in VM | Working VM with RDP access |
-| 2 | Create local users, configure NTFS permissions on shared folder | Permission matrix document |
-| 3 | Promote to Domain Controller, create OU structure with 10+ users | AD topology screenshot |
-| 4 | Configure Group Policy (password policy, software restriction) | GPO summary document |
-| 5 | Enable Advanced Audit Policy + Sysmon, generate logon events | Event log analysis (identify 4624, 4625, 4688 events) |
-| 6 | Configure Windows Firewall rules via PowerShell | Exported firewall ruleset |
-| 7 | Write PowerShell script to audit AD: list all admins, find stale accounts, export report | Working .ps1 script + CSV output |
+| Level | Task                                                                                     | Deliverable                                           |
+| ----- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 1     | Install Windows Server 2022 in VM                                                        | Working VM with RDP access                            |
+| 2     | Create local users, configure NTFS permissions on shared folder                          | Permission matrix document                            |
+| 3     | Promote to Domain Controller, create OU structure with 10+ users                         | AD topology screenshot                                |
+| 4     | Configure Group Policy (password policy, software restriction)                           | GPO summary document                                  |
+| 5     | Enable Advanced Audit Policy + Sysmon, generate logon events                             | Event log analysis (identify 4624, 4625, 4688 events) |
+| 6     | Configure Windows Firewall rules via PowerShell                                          | Exported firewall ruleset                             |
+| 7     | Write PowerShell script to audit AD: list all admins, find stale accounts, export report | Working .ps1 script + CSV output                      |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can set up a Windows domain from scratch, create users/groups/GPOs, read Event Viewer logs to identify suspicious activity, and write basic PowerShell automation scripts without referring to documentation for core tasks.
@@ -857,6 +1028,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="macos-security-awareness-supplemental"></a>
+
 ### **macOS Security Awareness** _(Supplemental)_
 
 > macOS endpoints are present in most enterprises, especially in development, design, and executive teams. This sidebar provides enough context to avoid a knowledge gap when encountering macOS in the field. Full macOS exploitation is an advanced specialization.
@@ -875,10 +1047,11 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="toc-part-2-networking-fundamentals"></a>
 <a id="part-2-networking-fundamentals"></a>
+
 ## Part 2: Networking Fundamentals
 
-
 <a id="layer-1-physical-the-hardware-surface"></a>
+
 ### Layer 1: Physical (The Hardware Surface)
 
 **Transmission Media & Cabling:**
@@ -954,6 +1127,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="layer-2-data-link-the-local-target"></a>
+
 ### Layer 2: Data Link (The Local Target)
 
 **MAC Addressing & Frame Structure:**
@@ -1085,6 +1259,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="layer-3-network-the-routing-logic"></a>
+
 ### Layer 3: Network (The Routing Logic)
 
 **IP Addressing & Subnetting:**
@@ -1186,6 +1361,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="layer-4-transport-the-reliability-layer"></a>
+
 ### Layer 4: Transport (The Reliability Layer)
 
 **TCP Protocol Mechanics:**
@@ -1263,6 +1439,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="layers-5-7-application-session-the-payload"></a>
+
 ### Layers 5-7: Application & Session (The Payload)
 
 **DNS Protocol & Exploitation:**
@@ -1530,6 +1707,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="lab-progression-professional-development-2026-red-team-focus"></a>
+
 ### Lab Progression & Professional Development (2026 Red Team Focus)
 
 > [!TIP]
@@ -1592,6 +1770,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="automation-programmability"></a>
+
 ### Automation & Programmability
 
 > [!TIP]
@@ -1688,9 +1867,11 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="toc-part-3-cryptography"></a>
 <a id="part-3-cryptography"></a>
+
 ## Part 3: Cryptography
 
 <a id="stage-1-core-concepts-algorithms"></a>
+
 ### **Stage 1: Core Concepts & Algorithms**
 
 > [!TIP]
@@ -1705,6 +1886,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="stage-2-secure-communication-data-in-transit"></a>
+
 ### **Stage 2: Secure Communication (Data in Transit)**
 
 > [!TIP]
@@ -1719,6 +1901,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="stage-3-identity-trust-pki"></a>
+
 ### **Stage 3: Identity & Trust (PKI)**
 
 > [!TIP]
@@ -1731,6 +1914,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="stage-4-data-at-rest-password-security"></a>
+
 ### **Stage 4: Data at Rest & Password Security**
 
 > [!TIP]
@@ -1747,6 +1931,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ---
 
 <a id="stage-5-cryptographic-attacks-weaknesses"></a>
+
 ### **Stage 5: Cryptographic Attacks & Weaknesses**
 
 > [!TIP]
@@ -1763,6 +1948,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Cryptanalysis:** Understand basics of **frequency analysis, known-plaintext attacks, chosen-plaintext attacks**.
 
 <a id="lab-progression-cryptography"></a>
+
 ### **Lab Progression (Cryptography)**
 
 > [!TIP]
@@ -1773,8 +1959,8 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **TLS Handshake Lab:** Capture TLS 1.3 in Wireshark and identify ClientHello, ServerHello, certificate chain, cipher suite, and key exchange.
 - [ ] **Certificate Lab:** Create a local CA, issue a server certificate, trust it in a lab client, then break trust by expiration/name mismatch.
 - [ ] **Post-Quantum Awareness:** Document NIST PQC primitives such as ML-KEM and ML-DSA, hybrid deployment, and crypto-agility migration risk.
-> [!IMPORTANT]
-> **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke.
+  > [!IMPORTANT]
+  > **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke.
 
 ---
 
@@ -1783,6 +1969,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 **Build a Small Enterprise Lab and Document the Full Architecture**
 
 Using your virtualization platform, build a lab environment containing:
+
 - [ ] **1 Windows Server** (Domain Controller with Active Directory)
 - [ ] **1 Linux Server** (web server or DNS server)
 - [ ] **1 Windows Workstation** (domain-joined)
@@ -1790,6 +1977,7 @@ Using your virtualization platform, build a lab environment containing:
 - [ ] **1 pfSense/OPNsense firewall** segmenting the network
 
 **Deliverables:**
+
 - [ ] Network topology diagram (draw.io/Excalidraw) showing all VMs, IPs, subnets, and firewall rules
 - [ ] Build guide documenting every installation and configuration step (reproducible by someone else)
 - [ ] Security baseline report: what services are running, what ports are open, what logging is enabled

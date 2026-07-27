@@ -1,0 +1,9 @@
+Key takeaways for a cybersecurity student
+VSS = Point-in-time snapshots of a Windows volume.
+It allows backups of files that are currently in use.
+It relies on three components: Requester → Writer → Provider.
+It uses Copy-on-Write, making snapshots space-efficient.
+It underpins System Restore, Previous Versions, and many backup solutions.
+Forensics teams use VSS to recover deleted or older versions of files.
+Ransomware frequently deletes VSS snapshots to prevent recovery.
+Penetration testers and attackers may use VSS to obtain consistent copies of locked system files such as NTDS.dit and registry hives.
