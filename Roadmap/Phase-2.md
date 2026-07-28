@@ -971,10 +971,14 @@
 <a id="stage-3-evasion-defense-bypassing-invisibility"></a>
 ### **Stage 3: Evasion & Defense Bypassing (Invisibility)**
 
+> [!WARNING]
+> **Prerequisite Context Required:** This stage teaches AMSI bypass, EDR hook removal, ETW manipulation, and memory-based evasion. These techniques only make sense if you understand what AMSI, EDR, and ETW actually ARE — how they collect telemetry, what they detect, and what a behavioral detection engine sees at runtime. That knowledge is in **Phase 3 (Part 13A: Stages 3–5)** — EDR/XDR fundamentals, script block logging, behavioral detection, and evasion counter-measures from the defender's perspective. If you haven't completed Phase 3 yet, read those stages before attempting the evasion techniques below. Evasion without understanding the detection model is guesswork.
+
 > [!TIP]
 > **Goal:** Blind the defensive stack.
 
 - [ ] **Defeat Static Analysis:** Apply **Obfuscation** (packing, encoding) to change the file hash and bypass traditional **Antivirus** signatures.
+
 
 - [ ] **Sandbox Detection:** Code the malware to detect **Sandboxing** environments (e.g., checking for specific drivers, lack of mouse movement) and go dormant to generate a **False Negative**.
 
@@ -1182,6 +1186,82 @@
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
 
+<a id="stage-0-the-psychology-of-social-engineering"></a>
+### **Stage 0: The Psychology of Social Engineering (The Foundation)**
+
+> [!IMPORTANT]
+> **Read this before any other Stage in Part 10.** Social engineering is not a collection of clever tricks — it is applied psychology. Every phishing email, vishing call, and pretexting scenario works because it exploits specific, documented cognitive patterns. Understanding these patterns is what separates an operator who succeeds from one who improvises and fails. Defenders must also understand them to design effective awareness training.
+
+> [!TIP]
+> **Goal:** Understand the psychological machinery that makes humans predictable under social engineering pressure.
+
+**Cialdini's 6 Principles of Influence (The SE Attacker's Toolkit)**
+
+Robert Cialdini's research on influence identified six universal principles that attackers weaponize. Know each one, recognize it in real-world phishing/pretexting scenarios, and understand both the offensive use and the defensive countermeasure:
+
+- [ ] **1. Reciprocity:** People feel obligated to return favors. Attackers exploit this by sending small gifts, providing helpful information, or doing something "nice" before making a request. Example: Attacker sends a "free" IT tool or helps with a minor problem, then requests access credentials as a natural follow-up.
+  - _Defensive awareness:_ Question why an unsolicited party is offering help. Favors from unknown parties are often hooks.
+
+- [ ] **2. Commitment & Consistency:** Once a person commits to something (even trivially), they are psychologically compelled to behave consistently with that commitment. Attackers use small initial requests ("Could you confirm your department?") to build toward larger ones. Example: Foot-in-the-door technique — escalating from harmless questions to credential requests.
+  - _Defensive awareness:_ Recognizing that you've agreed to small requests from someone does not obligate you to agree to larger, unusual ones.
+
+- [ ] **3. Social Proof:** People look at what others are doing to determine correct behavior, especially in uncertain situations. Attackers fabricate social proof: "Everyone on your team has already verified their account" or "The CISO approved this procedure." Example: Mass-phishing emails claiming widespread adoption of a fake security update.
+  - _Defensive awareness:_ Verify claims of "everyone is doing it" through independent channels — not through links or numbers provided by the requester.
+
+- [ ] **4. Authority:** People comply with perceived authority figures — especially in professional environments. Attackers impersonate executives (CEO fraud/BEC), IT helpdesk, auditors, law enforcement, or regulators. Example: "This is John from IT Security. We detected suspicious activity on your account. I need your current password to verify." 
+  - _Defensive awareness:_ Real authority figures with legitimate needs never require your password. Verify identity through a known, independent channel before complying.
+
+- [ ] **5. Liking:** People are more likely to comply with requests from people they like or who are similar to them. Attackers build rapport, mirror body language, reference shared interests, claim mutual connections, use flattery. Example: LinkedIn profile mining to find shared connections and mention them in a phishing email to build perceived familiarity.
+  - _Defensive awareness:_ Likeability is not trust. A pleasant, familiar-seeming contact can be a well-prepared attacker.
+
+- [ ] **6. Scarcity:** Perceived scarcity creates urgency that bypasses rational decision-making. "This offer expires in 10 minutes," "Your account will be suspended in 24 hours," "Only you can fix this." Urgency is the primary switch that disables critical thinking. Example: Phishing emails with countdown timers or imminent threat messaging.
+  - _Defensive awareness:_ Real systems with legitimate urgency allow time for verification. Artificial urgency is a psychological weapon — slow down when you feel rushed.
+
+---
+
+**Cognitive Biases Exploited in Social Engineering**
+
+- [ ] **Urgency Bias (System 1 Thinking):** Under time pressure, humans switch from deliberate analytical thinking (System 2) to fast, pattern-matching intuition (System 1). Attackers manufacture urgency to prevent System 2 thinking. Countermeasure: Organizations should establish policies that require verification delays for unusual requests regardless of stated urgency.
+
+- [ ] **Authority Bias:** The tendency to trust and obey authority figures. Manifests as compliance with requests from anyone displaying authority markers (uniform, title, confident tone). Particularly effective via email where visual deception is easy.
+
+- [ ] **Familiarity/Exposure Effect:** Mere repeated exposure to a name, brand, or scenario increases trust in it. Attackers send "drip" campaigns — multiple low-pressure contacts before the actual attack — to build familiarity before the high-pressure request.
+
+- [ ] **In-Group Bias:** People are more cooperative with members of their perceived in-group. Attackers research corporate culture, use internal jargon, name-drop colleagues, and reference recent company events to establish perceived membership. LinkedIn, Glassdoor, job postings, and conference agendas are primary intelligence sources for this.
+
+- [ ] **Fear of Negative Consequence:** The threat of something bad happening (job loss, account suspension, legal action, IT lockout) overrides rational verification behavior. Attackers combine authority + scarcity + threat in "warning emails" from fake IT/HR/legal.
+
+---
+
+**Pretext Construction Methodology**
+
+- [ ] **Pretext Definition:** A pretext is a fabricated scenario, identity, and backstory that the attacker uses to justify the unusual request they are making. A strong pretext is internally consistent, draws on real intelligence about the target, and anticipates objections.
+
+- [ ] **Pretext Construction Framework:** A professional pretext must answer five questions before deployment:
+  1. **Who am I?** (role, organization, relationship to target)
+  2. **Why am I contacting this person?** (plausible reason grounded in reality)
+  3. **What am I asking for?** (specific, reasonable-sounding request)
+  4. **Why now?** (urgency rationale that doesn't trigger suspicion)
+  5. **What objections might arise, and what is my answer?** (anticipate resistance)
+
+- [ ] **Pretext Intelligence Requirements:** A pretext draws from real OSINT:
+  - Employee names, titles, reporting structure (LinkedIn, company website)
+  - Recent company events, announcements, projects (press releases, social media)
+  - Technology stack used (job postings reveal software in use)
+  - Corporate language, acronyms, cultural references (Glassdoor, LinkedIn posts)
+  - Physical location details (office address, badge vendor, building layout)
+
+- [ ] **Persona Maintenance:** Once deployed, a pretext must be maintained consistently. Common operator failure: deviating from the stated identity under pressure or failing to answer follow-up questions consistently. A strong pretext is rehearsed, not improvised. Practice the pretext scenario out loud before deployment.
+
+- [ ] **Pretext Failure Modes:** Know what causes pretexts to collapse:
+  - Using insider jargon incorrectly (calls out external nature)
+  - Unable to answer natural follow-up questions
+  - Requesting information that the stated role wouldn't need
+  - Inconsistency between email domain, phone number, and stated identity
+  - Targets who independently verify through official channels (the defense)
+
+---
+
 <a id="stage-1-intelligence-reconnaissance-the-setup"></a>
 ### **Stage 1: Intelligence & Reconnaissance (The Setup)**
 
@@ -1189,6 +1269,7 @@
 > **Goal:** Know the target better than they know themselves.
 
 - [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
+
 
 - [ ] **Physical Recon:** Perform **dumpster diving** to recover **org charts, vendor invoices, sticky notes** with passwords; observe **badge access patterns, delivery procedures**.
 

@@ -567,21 +567,122 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 <a id="grc-fundamentals-sidebar-early-supplement-for-defensive-careers"></a>
 ### **GRC Fundamentals Sidebar** _(Early Supplement for Defensive Careers)_
 
-> **Why Here:** SOC analysts, detection engineers, and blue team professionals need basic framework and compliance context much earlier than Phase 8. Complete this sidebar before moving to Phase 4 if you are pursuing a defensive career track. Full GRC depth is covered in Part 35 (Phase 8).
+> **Why Here:** SOC analysts, detection engineers, and blue team professionals encounter governance and compliance obligations on Day 1 of employment — not after years of technical specialization. You need to understand what constitutes a reportable incident, what frameworks drive your employer's security program, and how risk language works before you respond to your first real alert. Full GRC depth (audit mechanics, risk quantification, regulatory testing, vendor risk) is in Part 35 (Phase 8). This sidebar gives you the operational minimum.
 
-- [ ] **NIST Cybersecurity Framework (CSF):** Understand the **5 core functions** — **Identify, Protect, Detect, Respond, Recover** — and how they map to SOC operations and alert prioritization.
+---
 
-- [ ] **CIS Controls (v8) Awareness:** Know the **18 Critical Security Controls** and **Implementation Groups (IG1–IG3)** as a prioritized, actionable defense checklist.
+**Stage G1: NIST Cybersecurity Framework (CSF) — Operational Context**
 
-- [ ] **MITRE ATT&CK as Compliance:** Use **ATT&CK technique coverage mapping** to demonstrate and measure detection maturity — this is how modern SOCs prove value.
+- [ ] **The 5 CSF Functions:** Memorize and internalize the **Identify → Protect → Detect → Respond → Recover** cycle. Understand that every SOC alert and every defensive tool maps to one or more of these functions:
+  - **Identify (ID):** Asset inventory, risk assessment, supply chain risk — know what you have before you can protect it
+  - **Protect (PR):** Access control, awareness training, data security, maintenance, protective technology
+  - **Detect (DE):** Continuous monitoring, anomaly detection, detection processes — this is where SIEM and EDR live
+  - **Respond (RS):** Response planning, communications, analysis, mitigation, improvements — your IR playbooks
+  - **Recover (RC):** Recovery planning, improvements, communications — restoring operations after an incident
 
-- [ ] **Risk Equation Basics:** Understand **Risk = Threat × Vulnerability × Impact** and use it to prioritize alerts and findings over raw CVSS scores.
+- [ ] **CSF as a Communication Tool:** When your CISO says "we need to improve our Detect posture," they mean improving SIEM coverage, detection rules, and threat hunting. CSF is the language your leadership uses to talk about security investment. Understand it so you can contribute meaningfully to those conversations.
 
-- [ ] **Incident Response Frameworks:** Know the **NIST SP 800-61** IR lifecycle (Preparation → Detection → Containment → Eradication → Recovery → Lessons Learned) and how it structures SOC playbooks.
+- [ ] **NIST CSF 2.0 (Govern Function):** NIST CSF 2.0 added a 6th function — **Govern (GV)** — covering organizational context, risk strategy, roles, policies, and supply chain risk. This function sits above all others and drives how the other 5 are implemented.
 
-- [ ] **Compliance Awareness:** Understand at a high level what **PCI-DSS, HIPAA, GDPR, SOC 2** require — enough to explain why specific controls exist and what auditors look for.
+---
 
-> 📌 _Full GRC depth (audit mechanics, vendor risk, continuous compliance, regulatory testing) is covered in [Part 35: GRC](Phase-8.md#part-35-governance-risk-compliance-grc) (Phase 8)._
+**Stage G2: Regulatory Obligations — What Defenders Must Know**
+
+> [!WARNING]
+> Failing to meet mandatory breach notification timelines can result in regulatory fines, personal liability for CISOs, and public disclosure. Know these timelines before you respond to your first incident.
+
+- [ ] **GDPR (General Data Protection Regulation — EU):**
+  - Applies to any organization processing data of EU residents, regardless of where the org is based
+  - **72-hour notification requirement:** Personal data breaches must be reported to the relevant Data Protection Authority within 72 hours of becoming aware — not 72 hours after investigation completion
+  - Individual notification required if the breach is "likely to result in a high risk to the rights and freedoms" of affected individuals
+  - Maximum fine: €20M or 4% of global annual turnover (whichever is higher)
+
+- [ ] **HIPAA (Health Insurance Portability and Accountability Act — US Healthcare):**
+  - Applies to **Covered Entities** (healthcare providers, health plans, clearinghouses) and **Business Associates** (vendors handling PHI)
+  - **Protected Health Information (PHI):** Any individually identifiable health information — 18 categories of identifiers
+  - **Breach Notification Rule:** Affected individuals must be notified within 60 days of discovery; HHS notification required within 60 days; if >500 individuals affected, media notification required in the affected state; if 500+ individuals, HHS must be notified immediately
+  - Minimum Necessary Standard: Access to PHI must be limited to what is necessary for the job function
+
+- [ ] **PCI-DSS (Payment Card Industry Data Security Standard):**
+  - Applies to any entity that stores, processes, or transmits cardholder data
+  - 12 requirements organized around: network security, access control, vulnerability management, monitoring, information security policy
+  - **Penetration testing requirement:** PCI-DSS mandates annual penetration testing (network and application) and testing after significant infrastructure changes — this is why pentesting exists as a compliance service
+  - Incident response: Must have a tested IR plan; must notify card brands and acquiring bank immediately upon breach suspicion
+
+- [ ] **Incident Notification Decision Tree:** When responding to a potential breach, apply this sequence:
+  1. Is personal data (PII, PHI, payment card data) involved? → Yes → determine scope
+  2. What jurisdiction applies? → EU residents = GDPR, US healthcare = HIPAA, payment cards = PCI-DSS
+  3. What is the notification timeline for this jurisdiction?
+  4. Has the timeline started? (Clock usually starts at "awareness" or "discovery" — not at confirmed impact)
+  5. Who is the notification contact? (DPA, HHS, card brands, legal counsel, PR team)
+
+---
+
+**Stage G3: Risk Terminology — The Language of Security Decisions**
+
+- [ ] **Core Risk Equation:** `Risk = Threat × Vulnerability × Impact`
+  - **Threat:** A potential cause of harm (e.g., ransomware operators, insider threat, nation-state actors)
+  - **Vulnerability:** A weakness that can be exploited (e.g., unpatched CVE, misconfigured S3 bucket, weak password policy)
+  - **Impact:** The consequence if exploitation succeeds (e.g., data breach, system unavailability, financial loss, reputational damage)
+  - **Likelihood:** How probable is the threat-vulnerability combination being realized? (1–5 scale or qualitative: Low/Medium/High/Critical)
+
+- [ ] **Risk vs. Vulnerability:** A vulnerability without a plausible threat or material impact is **low risk**. A critical vulnerability on an internet-exposed system with known active exploitation is **critical risk**. CVSS scores measure vulnerability severity — not organizational risk. Always translate CVSS to risk by considering your environment.
+
+- [ ] **Risk Acceptance vs. Risk Treatment:** Four options for handling identified risk:
+  - **Mitigate:** Implement a control to reduce the likelihood or impact
+  - **Transfer:** Shift the risk to a third party (cyber insurance, SLA contractual clauses)
+  - **Accept:** Formally acknowledge the risk and decide not to act (requires executive sign-off and documentation)
+  - **Avoid:** Eliminate the risk by stopping the activity that creates it
+
+- [ ] **Risk Register Basics:** Organizations maintain a risk register — a documented list of identified risks with owner, likelihood, impact, treatment decision, and review date. As a SOC analyst, you may be asked to add or update risk register entries based on threat intelligence or incident findings.
+
+---
+
+**Stage G4: Incident Classification Framework**
+
+- [ ] **Severity Classification:** Most organizations use a tiered severity system for incidents. Know a typical framework:
+
+  | Severity | Definition | Examples | Response Time |
+  |----------|-----------|---------|---------------|
+  | **Critical (P1)** | Active breach, ransomware, data exfiltration in progress | Confirmed ransomware, APT intrusion, insider data theft | Immediate (< 1 hour) |
+  | **High (P2)** | Likely breach or imminent risk | Malware confirmed on critical system, privileged account compromise | < 4 hours |
+  | **Medium (P3)** | Potential incident requiring investigation | Suspicious login patterns, anomalous data movement, policy violation | < 24 hours |
+  | **Low (P4)** | Security event unlikely to cause significant harm | Failed login attempts, policy violation without data risk | < 72 hours |
+
+- [ ] **Incident Categories (CISA Model):** Know the standard incident categories used in government and enterprise:
+  - **Category 1 — Unauthorized Access:** User accessing systems/data they shouldn't
+  - **Category 2 — Denial of Service:** Deliberate disruption of availability
+  - **Category 3 — Malicious Code:** Virus, worm, ransomware, rootkit
+  - **Category 4 — Improper Usage:** Violation of acceptable use policy
+  - **Category 5 — Scans/Probes/Attempted Access:** Reconnaissance, port scanning, brute force
+
+- [ ] **False Positive vs. True Positive:** A **true positive** is a real attack correctly flagged by a detection rule. A **false positive** is a legitimate activity incorrectly flagged as malicious. A **false negative** is a real attack that was not detected. Tuning the ratio of true positives to false positives is the core daily work of a detection engineer.
+
+---
+
+**Stage G5: Compliance Framework Awareness (By Industry)**
+
+- [ ] **Framework by Industry Quick Reference:**
+
+  | Industry | Primary Framework | Regulator |
+  |----------|------------------|-----------|
+  | US Healthcare | HIPAA | HHS Office for Civil Rights |
+  | Payment Processing | PCI-DSS | PCI Security Standards Council |
+  | EU Data Processing | GDPR | National Data Protection Authorities |
+  | US Federal Agencies | NIST SP 800-53, FedRAMP | NIST, OMB, CISA |
+  | Financial Services (US) | SOX (IT controls), GLBA, FFIEC | SEC, FDIC, OCC |
+  | US Defense Supply Chain | CMMC (Cybersecurity Maturity Model Certification) | DoD |
+  | Indian Data Processing | DPDP Act 2023 | Data Protection Board of India |
+
+- [ ] **What Auditors Look For (Basics):** Compliance audits typically check for: documented policies, evidence that controls are operating, access control logs, vulnerability scan results, patch management records, incident response plan existence (and evidence of testing), and security awareness training completion records. Your SIEM and incident documentation are primary audit evidence sources.
+
+- [ ] **SOC 2 Type I vs. Type II:** SOC 2 is an auditing standard for service organizations. **Type I** evaluates whether controls are designed correctly at a point in time. **Type II** evaluates whether controls operated effectively over a period (usually 6–12 months). Customers ask for SOC 2 Type II reports to verify vendor security posture.
+
+---
+
+> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [Part 35: GRC](Phase-8.md#part-35-governance-risk-compliance-grc) (Phase 8). This sidebar gives you the minimum needed to function effectively in a defensive role from Day 1._
+
+
 
 ---
 

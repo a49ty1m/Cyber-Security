@@ -1,4 +1,7 @@
-# Phase 10: Operations & Career
+# Phase 10: AI Security
+
+> [!IMPORTANT]
+> **Prerequisites:** This phase requires completion of Phase 9 (Red Team Operations & Tradecraft). AI Red Teaming stages reference C2 frameworks, attack infrastructure, OPSEC discipline, and operational workflows built in Phase 9. Do not attempt Phase 10 without Phase 9 complete.
 
 ---
 
@@ -9,22 +12,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 3–5 months
-> - **🎯 Primary Focus:** Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing), red team operations & tradecraft, and building an unfakeable proof-of-work portfolio.
+> - **⏱️ Time Commitment (Full-Time):** 3–4 months
+> - **⏱️ Time Commitment (Part-Time):** 4–7 months
+> - **🎯 Primary Focus:** Layer AI system knowledge on top of your mastered traditional security and red team track. Understand tokens, context windows, MCP, embeddings, temperature, fine-tuning, OWASP LLM Top 10, RAG poisoning, supply chain attacks, shadow AI prevention, and defensive AI operations.
 
 ---
 
 > [!NOTE]
 > ### 📝 Phase 10 Documentation Requirements
-> This is the final assembly phase. Required artifacts:
-> - **Professional pentest reports** — 3 reports with multi-audience executive summaries
-> - **Red team operation documentation** — C2 setup, campaign timeline, operator notes
-> - **Portfolio README** — curated GitHub profile with project descriptions and links
-> - **Blog posts** — 5+ published technical writeups
-> - **Git commits** — final portfolio curation and publication
+> AI security research must be documented with reproducible methodology. Required artifacts:
+> - **Prompt injection payloads** — categorized library of tested payloads with success/failure notes
+> - **RAG attack documentation** — poisoning methodology, injected documents, impact evidence
+> - **AI tool README + architecture diagrams** — for every tool you build
+> - **Research writeups** — methodology, findings, and defensive recommendations
+> - **Git commits** — all payloads, tools, and research committed
 >
-> _Phase 10 is where all prior documentation is polished, curated, and published._
+> _By the end of Phase 10, your repository should contain an AI security toolkit and published research. This builds on your Phase 9 red team portfolio._
 
 ---
 

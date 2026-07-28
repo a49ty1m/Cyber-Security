@@ -1,4 +1,7 @@
-# Phase 9: AI Security
+# Phase 9: Operations & Career
+
+> [!IMPORTANT]
+> **Sequencing Advisory:** This phase (Phase 9) covers Red Team Operations & Tradecraft and Career Portfolio — previously labeled Phase 10. It has been moved here because **Phase 10 (AI Security)** requires C2 framework knowledge, OPSEC tradecraft, and red team operational maturity that can only be built by completing this phase first. Complete Phase 9 before attempting Phase 10.
 
 ---
 
@@ -9,22 +12,22 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–4 months
-> - **⏱️ Time Commitment (Part-Time):** 4–7 months
-> - **🎯 Primary Focus:** Layer AI system knowledge on top of your mastered traditional track. Understand tokens, context windows, MCP, embeddings, temperature, fine-tuning, OWASP LLM Top 10, RAG poisoning, supply chain attacks, shadow AI prevention, and defensive AI operations.
+> - **⏱️ Time Commitment (Full-Time):** 2–3 months
+> - **⏱️ Time Commitment (Part-Time):** 3–5 months
+> - **🎯 Primary Focus:** Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing), red team operations & tradecraft, and building an unfakeable proof-of-work portfolio.
 
 ---
 
 > [!NOTE]
 > ### 📝 Phase 9 Documentation Requirements
-> AI security research must be documented with reproducible methodology. Required artifacts:
-> - **Prompt injection payloads** — categorized library of tested payloads with success/failure notes
-> - **RAG attack documentation** — poisoning methodology, injected documents, impact evidence
-> - **AI tool README + architecture diagrams** — for every tool you build
-> - **Research writeups** — methodology, findings, and defensive recommendations
-> - **Git commits** — all payloads, tools, and research committed
+> This is the final assembly phase. Required artifacts:
+> - **Professional pentest reports** — 3 reports with multi-audience executive summaries
+> - **Red team operation documentation** — C2 setup, campaign timeline, operator notes
+> - **Portfolio README** — curated GitHub profile with project descriptions and links
+> - **Blog posts** — 5+ published technical writeups
+> - **Git commits** — final portfolio curation and publication
 >
-> _By the end of Phase 9, your repository should contain an AI security toolkit and published research._
+> _Phase 9 is where all prior documentation is polished, curated, and published. Phase 10 (AI Security) builds on top of this operational foundation._
 
 ---
 

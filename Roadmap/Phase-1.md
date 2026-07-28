@@ -98,6 +98,13 @@
   - [Stage 4: Data at Rest & Password Security](#stage-4-data-at-rest-password-security)
   - [Stage 5: Cryptographic Attacks & Weaknesses](#stage-5-cryptographic-attacks-weaknesses)
   - [Lab Progression (Cryptography)](#lab-progression-cryptography)
+- [Part 4: Web Technology Fundamentals](#part-4-web-technology-fundamentals)
+  - [Stage 1: HTTP — The Protocol of the Web](#stage-1-http-the-protocol-of-the-web)
+  - [Stage 2: Cookies, Sessions & Tokens](#stage-2-cookies-sessions-tokens)
+  - [Stage 3: Same-Origin Policy, CORS & Web Security Headers](#stage-3-same-origin-policy-cors-web-security-headers)
+  - [Stage 4: Web Authentication Patterns](#stage-4-web-authentication-patterns)
+  - [Stage 5: REST APIs, JSON & Modern Web Architecture](#stage-5-rest-apis-json-modern-web-architecture)
+  - [Lab Progression (Web Technology Fundamentals)](#lab-progression-web-technology-fundamentals)
 
 ---
 
@@ -2002,3 +2009,207 @@ Using your virtualization platform, build a lab environment containing:
 ---
 
 <a id="toc-part-4-footprinting-and-reconnaissance"></a>
+
+<a id="part-4-web-technology-fundamentals"></a>
+
+## Part 4: Web Technology Fundamentals
+
+> [!IMPORTANT]
+> **Why This Exists Here:** Phase 2 teaches session hijacking (Part 12), sniffing HTTP credentials (Part 9), and social engineering via web-based pretexting (Part 10) — all before Phase 4 introduces web applications. You cannot understand session hijacking without first understanding what a session IS. This Part bridges that gap. Complete it before proceeding to Phase 2.
+
+_Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the "what is being attacked" context that makes Phase 2 make sense._
+
+<a id="stage-1-http-the-protocol-of-the-web"></a>
+### **Stage 1: HTTP — The Protocol of the Web**
+
+> [!TIP]
+> **Goal:** Understand every component of an HTTP request and response before you attempt to intercept or manipulate one.
+
+- [ ] **HTTP Request Anatomy:** Understand the structure of an HTTP request — **request line (method, URI, HTTP version)**, **headers (Host, User-Agent, Content-Type, Authorization, Cookie)**, and **body** (for POST/PUT). Know that HTTP is a **stateless, text-based, application-layer protocol** running over TCP (port 80) or TLS (port 443).
+
+- [ ] **HTTP Methods:** Know the semantic purpose and security implications of each method:
+  - **GET** — retrieves data; parameters visible in URL; should have no side effects
+  - **POST** — submits data; body-encoded; creates resources or triggers actions
+  - **PUT / PATCH / DELETE** — update/modify/remove resources; require proper authorization controls
+  - **OPTIONS** — reveals allowed methods (CORS pre-flight); reveals server capabilities
+  - **HEAD** — identical to GET but returns only headers (useful for reconnaissance)
+
+- [ ] **HTTP Status Codes:** Learn the security-relevant status codes:
+  - `200 OK`, `201 Created`, `204 No Content` — success states
+  - `301/302 Redirect` — redirect chains (relevant to open redirect attacks)
+  - `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found` — access control indicators
+  - `500 Internal Server Error` — error disclosure (stack traces, paths, tech stack)
+
+- [ ] **HTTPS and TLS:** Understand that HTTPS = HTTP over TLS. Know that TLS provides **confidentiality (encryption), integrity (MAC), and authentication (certificates)**. Understand that HTTPS does NOT prevent XSS, SQLi, CSRF, or business logic flaws — it only protects data in transit.
+
+- [ ] **HTTP Headers as Attack Surface:** Understand security-relevant headers:
+  - **Host header injection** — attacker-controlled host header can redirect password reset links
+  - **X-Forwarded-For** — used for IP tracking; easily spoofed
+  - **Referer** — leaks navigation history; can expose sensitive URLs
+  - **Content-Type** — server trust in declared MIME type leads to content sniffing attacks
+
+- [ ] **HTTP/2 and HTTP/3 Awareness:** Know that HTTP/2 uses multiplexed binary frames over TCP, and HTTP/3 uses QUIC (UDP-based). Understand that these changes affect how tools intercept traffic and that older exploitation techniques may behave differently.
+
+---
+
+<a id="stage-2-cookies-sessions-tokens"></a>
+### **Stage 2: Cookies, Sessions & Tokens**
+
+> [!TIP]
+> **Goal:** Understand how web applications maintain state — because this is exactly what session hijacking attacks target.
+
+- [ ] **The Statelessness Problem:** Understand that HTTP is inherently stateless — each request is independent. Web applications use cookies, sessions, or tokens to "remember" authenticated users across requests.
+
+- [ ] **Cookies:**
+  - A cookie is a **key-value pair** set by the server via the `Set-Cookie` header, stored in the browser, and automatically sent back in every subsequent request via the `Cookie` header
+  - **Cookie Attributes** (critical for security):
+    - `Secure` — cookie only transmitted over HTTPS; prevents cleartext interception
+    - `HttpOnly` — cookie not accessible from JavaScript; prevents XSS-based theft
+    - `SameSite=Strict/Lax/None` — controls cross-site sending; prevents CSRF
+    - `Domain` and `Path` — scoping controls for which requests the cookie accompanies
+    - `Expires/Max-Age` — persistence duration
+
+- [ ] **Session Management:** Understand the server-side session model:
+  1. User authenticates; server creates a **session record** (stored in memory, database, or Redis)
+  2. Server sends a **session ID cookie** (random, unpredictable value) to the browser
+  3. Browser sends session ID with every request; server looks up the session record
+  4. **Attacker goal:** steal or predict the session ID to impersonate the user (session hijacking)
+
+- [ ] **Session ID Security Requirements:** A secure session ID must be:
+  - **Cryptographically random** — not predictable from sequence numbers or timestamps
+  - **Sufficiently long** — at least 128 bits of entropy
+  - **Transmitted only over HTTPS** (Secure flag)
+  - **Inaccessible to JavaScript** (HttpOnly flag)
+  - **Invalidated on logout** — server must destroy the session record
+
+- [ ] **JSON Web Tokens (JWTs):** Understand the stateless alternative to sessions:
+  - JWT = **Header.Payload.Signature** (Base64url-encoded, dot-separated)
+  - The **payload** contains **claims** (user ID, roles, expiry time) — readable by anyone
+  - The **signature** proves the token was issued by the server (using HMAC-SHA256 or RSA)
+  - **Security flaws:** `alg: none` attack (server accepts unsigned tokens), weak secret keys, missing expiry validation, sensitive data in payload (readable in cleartext)
+
+- [ ] **Token Storage Trade-offs:** Understand where tokens/sessions can be stored and the implications:
+  - `localStorage` / `sessionStorage` — accessible to JavaScript → vulnerable to XSS
+  - `HttpOnly cookies` — not accessible to JavaScript → XSS-safe, but CSRF risk
+  - **Best practice:** HttpOnly + SameSite cookies for session storage
+
+---
+
+<a id="stage-3-same-origin-policy-cors-web-security-headers"></a>
+### **Stage 3: Same-Origin Policy, CORS & Web Security Headers**
+
+> [!TIP]
+> **Goal:** Understand the browser's core security boundary — and why attackers work so hard to bypass it.
+
+- [ ] **Same-Origin Policy (SOP):** The SOP is the browser's foundational security boundary. It prevents JavaScript from one origin reading responses from a different origin. An **origin** is defined as: `scheme + hostname + port` (e.g., `https://example.com:443`). Any difference = different origin.
+  - SOP **allows** cross-origin *requests* to be sent (e.g., forms, image loads)
+  - SOP **blocks** JavaScript from *reading* cross-origin responses
+  - **Impact:** Without SOP, a malicious site could read your banking portal's response using your session cookie
+
+- [ ] **Cross-Origin Resource Sharing (CORS):** CORS is a server-side mechanism that **relaxes SOP** for specific trusted origins. Understand:
+  - `Access-Control-Allow-Origin: https://trusted.com` — explicitly permits a specific origin
+  - `Access-Control-Allow-Origin: *` — permits any origin (dangerous with credentials)
+  - `Access-Control-Allow-Credentials: true` — must NOT be combined with wildcard origin
+  - **Pre-flight requests** — browser sends `OPTIONS` first for non-simple requests to check CORS policy
+  - **Misconfiguration:** Reflecting the `Origin` header without validation, or trusting `null` origin
+
+- [ ] **Security Response Headers:** Know what each header does and how its absence creates vulnerabilities:
+
+  | Header | Purpose | Missing = Risk |
+  |--------|---------|----------------|
+  | `Content-Security-Policy (CSP)` | Restricts which scripts can execute | XSS attacks succeed |
+  | `X-Frame-Options: DENY` | Prevents iframe embedding | Clickjacking attacks |
+  | `Strict-Transport-Security (HSTS)` | Forces HTTPS | SSL stripping MITM |
+  | `X-Content-Type-Options: nosniff` | Prevents MIME sniffing | Content injection |
+  | `Referrer-Policy` | Controls Referer header leakage | URL parameter leakage |
+  | `Permissions-Policy` | Restricts browser API access | Fingerprinting, camera abuse |
+
+- [ ] **CSP Deep-Dive:** Content Security Policy is the most powerful XSS defense available. Know:
+  - `default-src 'self'` — only load resources from same origin
+  - `script-src 'nonce-xyz'` — only execute scripts with a specific nonce value
+  - `unsafe-inline` and `unsafe-eval` — dangerous directives that weaken CSP significantly
+  - CSP bypass techniques: JSONP callbacks, open redirects, trusted CDN abuse
+
+---
+
+<a id="stage-4-web-authentication-patterns"></a>
+### **Stage 4: Web Authentication Patterns**
+
+> [!TIP]
+> **Goal:** Know how web applications prove identity — attackers break authentication by understanding exactly how these mechanisms work.
+
+- [ ] **HTTP Basic Authentication:** Username:password encoded in Base64, sent in `Authorization: Basic` header. No encryption by default — completely insecure without HTTPS. Server validates against stored credentials.
+
+- [ ] **Form-Based Authentication (Username + Password):** The dominant web pattern:
+  1. User submits credentials via HTML form (POST request)
+  2. Server validates credentials against database (bcrypt/scrypt/Argon2 hash comparison)
+  3. Server creates session, sets session cookie
+  4. All subsequent requests authenticated via session cookie
+  - Attack vectors: password spraying, credential stuffing, SQL injection in login form, session fixation, timing attacks on hash comparison
+
+- [ ] **Multi-Factor Authentication (MFA):** Know the three factor categories — something you **know** (password), something you **have** (TOTP app, SMS, hardware key), something you **are** (biometrics). Know that SMS-based MFA is vulnerable to SIM swapping. Understand TOTP (Time-based One-Time Password) — HMAC of shared secret + timestamp truncated to 6 digits.
+
+- [ ] **OAuth 2.0 Flow Awareness (Foundational):** Understand the core OAuth 2.0 authorization code flow conceptually:
+  1. Application redirects user to authorization server with `client_id`, `scope`, `redirect_uri`, `state`
+  2. User authenticates and consents
+  3. Authorization server redirects back to app with `code` and `state`
+  4. App exchanges `code` for `access_token` (server-to-server call with `client_secret`)
+  5. App uses `access_token` to access resource server APIs
+  - **Security parameters:** `state` prevents CSRF; `PKCE` prevents code interception in mobile apps
+
+- [ ] **API Keys & Bearer Tokens:** Used in API authentication. Sent in `Authorization: Bearer <token>` header or as URL parameters. Key risks: hardcoded in source code, committed to Git repositories, logged in access logs, transmitted in URL (logged by proxies).
+
+- [ ] **Password Storage (Server Side):** Understand why plaintext and MD5/SHA1 passwords are dangerous. Know that **salted, iterative hashing** (bcrypt, scrypt, Argon2id) is required. Understand what `salt` prevents (rainbow table attacks) and why work factor matters (brute force cost).
+
+---
+
+<a id="stage-5-rest-apis-json-modern-web-architecture"></a>
+### **Stage 5: REST APIs, JSON & Modern Web Architecture**
+
+> [!TIP]
+> **Goal:** Understand the modern web architecture that most applications are built on — critical for Phase 2 enumeration and Phase 4 API security.
+
+- [ ] **REST API Principles:** Representational State Transfer uses standard HTTP methods to perform CRUD operations on resources. Resources are identified by URLs. REST APIs are stateless — each request must contain full authentication context. Understand:
+  - `GET /api/users/42` — retrieve user 42
+  - `POST /api/users` — create a new user
+  - `PUT /api/users/42` — replace user 42 entirely
+  - `PATCH /api/users/42` — update specific fields of user 42
+  - `DELETE /api/users/42` — delete user 42
+
+- [ ] **JSON Structure:** JSON (JavaScript Object Notation) is the dominant data format for APIs. Know:
+  - Objects: `{"key": "value", "number": 42, "bool": true}`
+  - Arrays: `["item1", "item2", {"nested": "object"}]`
+  - Null values, nesting, and data types (string, number, boolean, null, array, object)
+  - Security relevance: JSON injection, prototype pollution, type confusion attacks
+
+- [ ] **API Versioning & Endpoints:** APIs use versioning (`/api/v1/`, `/api/v2/`) — older versions may have weaker controls. Understand that endpoint enumeration (discovering hidden API paths) is a core Phase 2 recon technique.
+
+- [ ] **Content Negotiation:** APIs declare content types via `Content-Type` and `Accept` headers. A server may respond differently to `application/json` vs `text/html` requests — useful for recon and for bypassing input validation that only applies to web form submissions.
+
+- [ ] **Modern Web Architecture Patterns:**
+  - **Single Page Applications (SPAs):** React/Vue/Angular apps that handle routing client-side. Authentication uses tokens (JWTs) stored in localStorage or cookies.
+  - **Microservices:** Applications split into small services communicating via internal APIs — internal APIs may have weaker authentication than external-facing ones
+  - **API Gateways:** Proxy all external API traffic — rate limiting, authentication, and input validation applied here. Bypass = directly targeting internal service endpoints
+
+- [ ] **Proxy Tools Awareness:** Understand that tools like **Burp Suite** and **OWASP ZAP** act as HTTP proxies sitting between your browser and the web server, capturing and allowing modification of every request and response. This is the primary tool for Phase 4 web security work.
+
+---
+
+<a id="lab-progression-web-technology-fundamentals"></a>
+### **Lab Progression (Part 4: Web Technology Fundamentals)**
+
+> [!TIP]
+> **Goal:** Build practical web layer familiarity before any offensive work begins.
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Install Burp Suite Community; configure browser proxy; capture 10 different HTTP requests from real websites and annotate each request/response with method, headers, status code, and body | Annotated HTTP capture log in Markdown |
+| 2 | Using Burp Repeater, manually modify a cookie value and observe the server response; replay a GET request as a POST and document the difference | Lab notes with screenshots showing request modification |
+| 3 | Set up OWASP Juice Shop (Docker); use browser DevTools to inspect session cookies; identify HttpOnly/Secure/SameSite flags on each cookie; document what each flag's absence allows | Cookie security analysis report |
+| 4 | Write a Python script using the `requests` library that: logs into Juice Shop, captures the session cookie, and makes an authenticated API call to retrieve a resource | Working Python script committed to Git |
+| 5 | Using Burp, capture a JWT from Juice Shop; decode the payload (base64); document what claims it contains; attempt the `alg: none` bypass and document whether it succeeds | JWT analysis notes with decoded payload and bypass attempt |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 4):** You can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Phase 2 when you can explain WHY session hijacking works at the protocol level.
+
+---
