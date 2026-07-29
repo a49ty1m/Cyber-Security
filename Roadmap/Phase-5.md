@@ -9,8 +9,8 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 3–5 months
+> - **⏱️ Time Commitment (Full-Time):** 3–5 months
+> - **⏱️ Time Commitment (Part-Time):** 5–8 months
 > - **🎯 Primary Focus:** WiFi pentesting (WPA3, evil twin, PMKID), Bluetooth/BLE/Zigbee/NFC/RFID/GPS attacks, SDR spectrum analysis, and Android/iOS dynamic+static analysis.
 
 ---
@@ -36,8 +36,8 @@
   - [Stage 4: Bluetooth & BLE Attacks](#stage-4-bluetooth-ble-attacks)
   - [Stage 5: Zigbee, Z-Wave & IoT Attacks](#stage-5-zigbee-z-wave-iot-attacks)
   - [Stage 6: NFC & RFID Attacks](#stage-6-nfc-rfid-attacks)
-  - [Stage 7: GPS & Satellite Spoofing](#stage-7-gps-satellite-spoofing)
-  - [Stage 8: SDR & Spectrum Analysis](#stage-8-sdr-spectrum-analysis)
+  - [Stage 7: GPS & Satellite Spoofing \[OPTIONAL SPECIALIZATION\]](#stage-7-gps-satellite-spoofing)
+  - [Stage 8: SDR & Spectrum Analysis \[OPTIONAL SPECIALIZATION\]](#stage-8-sdr-spectrum-analysis)
   - [Stage 9: Defense & Hardening (The Shield)](#stage-9-defense-hardening-the-shield)
 - [Part 22: Mobile Platform Pentesting](#part-22-mobile-platform-pentesting)
   - [Stage 0: Mobile Architecture Foundations](#stage-0-mobile-architecture-foundations)
@@ -52,6 +52,25 @@
 
 <a id="part-21-wireless-pentesting"></a>
 ## Part 21: Wireless Pentesting
+
+> [!IMPORTANT]
+> **Hardware Acquisition Checklist — Purchase Before Starting Phase 5**
+>
+> Phase 5 requires physical hardware for wireless and mobile labs. A student with no hardware can read the content but cannot execute any technique. Budget and acquire the following before starting:
+>
+> | Hardware | Required For | Why Needed | Approx. Cost |
+> |---|---|---|---|
+> | **Alfa AWUS036ACH** (802.11ac) | WiFi monitor mode + packet injection | Most built-in laptop adapters cannot enter monitor mode or inject packets | $35–50 |
+> | **Alfa AWUS036ACHM** (802.11ax/WiFi 6) | WPA3 testing | WPA3 testing requires WiFi 6 capable adapter | $50–70 |
+> | **Proxmark3 Easy or RDV4** | RFID/NFC labs (Stage 6) | Read/write/clone RFID/NFC cards | $80–200 |
+> | **Flipper Zero** (optional) | Sub-GHz, IR, RFID/NFC, BadUSB | Versatile multi-protocol tool; optional but highly useful | $170 |
+> | **HackRF One** (optional, Stage 8) | SDR analysis — OPTIONAL specialization | Required only if pursuing Stage 8 (marked optional) | $300 |
+> | **Android test device (rooted)** | Mobile dynamic analysis (Part 22) | Rooted device needed for Frida, Objection, Burp cert install | $50–150 (used) |
+> | **Wireless AP (WPA3-capable)** | WPA3 evil twin testing | Must support WPA3-SAE for Stage 2 | $50–100 |
+>
+> **Mobile Lab Setup Time:** First-time setup of a rooted Android device, Frida installation, Burp certificate pinning, and objection deployment typically takes **1–3 weeks**. Budget this into your Phase 5 timeline.
+>
+> **Budget Estimate:** Minimum functional kit (Alfa adapter + test Android device) ≈ $85–200. Full kit with Proxmark3 + Flipper Zero ≈ $350–500.
 
 > **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use your own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
@@ -162,7 +181,11 @@
 ---
 
 <a id="stage-7-gps-satellite-spoofing"></a>
-### **Stage 7: GPS & Satellite Spoofing**
+
+### **Stage 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]**
+
+> [!NOTE]
+> **Optional Specialization:** GPS spoofing and satellite security require expensive specialized hardware (USRP B200/B210 starts at $800+), operate in legally restricted frequency bands (GPS jamming is a federal felony in the US), and serve a very narrow career path (drone security research, maritime/aviation security testing, critical infrastructure GPS dependency analysis). If this aligns with your career goal, complete this stage fully. If not, read for awareness and proceed to Stage 9 (Defense) or Part 22 (Mobile). **Do not let this stage block your progress.**
 
 > [!TIP]
 > **Goal:** Manipulate location services and navigation.
@@ -180,7 +203,11 @@
 ---
 
 <a id="stage-8-sdr-spectrum-analysis"></a>
-### **Stage 8: SDR & Spectrum Analysis**
+
+### **Stage 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]**
+
+> [!NOTE]
+> **Optional Specialization:** Software-Defined Radio analysis requires hardware (HackRF One ~$300, USRP ~$800+) and strong RF/signal processing background. It is primarily used in RF security research, telecom security, and critical infrastructure assessments. For general pentesting and red teaming careers, SDR is awareness-level knowledge. If you are targeting RF security or telecom roles, complete this stage in full. Otherwise, read for awareness and proceed.
 
 > [!TIP]
 > **Goal:** Understand software-defined radio and RF reconnaissance.

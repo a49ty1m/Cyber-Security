@@ -11,22 +11,33 @@
 
 ## 🧭 Modular Roadmap Dashboard
 
-| Phase | Module / Link                              | Core Topics & Focus                                                | Est. Pacing (FT / PT) |
-| :---: | :----------------------------------------- | :----------------------------------------------------------------- | :-------------------: |
-|  🏗️   | **[Phase 1: Foundation](Phase-1.md)**      | Hardware, OS, Linux & Windows Admin, Networking, Cryptography      |     4–6m / 6–10m      |
-|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**    | Recon, Scanning, Initial Access, Malware, Social Eng., Cracking    |     5–7m / 8–12m      |
-|  🛡️   | **[Phase 3: Defense Core](Phase-3.md)**    | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT               |      3–4m / 4–7m      |
-|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**   | Web Hacking, API Security, Bug Bounty Methodology                  |      3–4m / 4–7m      |
-|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)** | RF, WiFi, Bluetooth/BLE, NFC/RFID, Android/iOS pentesting          |      2–3m / 3–5m      |
-|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**  | AD & Entra ID, Cloud Sec (AWS/Azure), Kubernetes, ICS/SCADA        |     4–6m / 6–10m      |
-|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**    | DFIR, Malware RE, Exploit Dev (Heap/Kernel), Offensive Dev         |     4–7m / 8–12m      |
-|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)** | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture    |      2–3m / 3–5m      |
-|  🧠   | **[Phase 9: AI Security](Phase-9.md)**     | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits |      3–4m / 4–7m      |
-|  🎯   | **[Phase 10: Career Ops](Phase-10.md)**    | Pentest Methodologies, Red Team Operations, Portfolios             |      2–3m / 3–5m      |
-|  📊   | **Total Roadmap**                          | **30–48 Months (Full-Time) / 36–60 Months (Part-Time)**            |   **~2.5–5 Years**    |
+| Phase | Module / Link                                    | Core Topics & Focus                                                  | Est. Pacing (FT / PT) |
+| :---: | :----------------------------------------------- | :------------------------------------------------------------------- | :-------------------: |
+|  🏗️   | **[Phase 1: Foundation](Phase-1.md)**            | Hardware, OS, Linux & Windows Admin, Networking, Crypto, Auth Primer |     4–6m / 6–10m      |
+|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**          | Recon, Scanning, Initial Access, Linux Privesc, Malware, Cracking    |     5–7m / 8–12m      |
+|  🛡️   | **[Phase 3: Defense Core](Phase-3.md)**          | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT                 |     4–6m / 6–10m      |
+|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**         | Web Hacking, API Security, Bug Bounty Methodology                    |      3–4m / 4–7m      |
+|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)**       | RF, WiFi, BLE/NFC/RFID, Android/iOS (+optional GPS/SDR)              |      3–5m / 5–8m      |
+|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**        | AD & Entra ID, Cloud (AWS/Azure/GCP), Kubernetes, ICS/SCADA (opt.)   |     6–9m / 10–14m     |
+|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**          | Offensive Dev (required first), DFIR, Malware RE, Exploit Dev        |    8–14m / 12–18m     |
+|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)**       | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture      |      4–6m / 6–9m      |
+|  🧠   | **[Phase 9: AI Security](Phase-9.md)**           | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits   |      3–5m / 5–8m      |
+|  🎯   | **[Phase 10: Operations & Career](Phase-10.md)** | Pentest Methodologies, Red Team Operations, Portfolio & Career       |      2–4m / 4–6m      |
+|  📊   | **Total Roadmap**                                | **41–65 Months Full-Time / 64–100 Months Part-Time**                 |   **~3.5–8 Years**    |
+
+> [!WARNING]
+> **Realistic Timeline:** The original 30–48 month estimate was aspirational. With real lab work, documentation, capstone completion, and the corrected time for Phases 3, 6, 7, and 8, expect **41–65 months full-time** (3.5–5.5 years). Part-time learners should realistically plan **5–8 years**. Optional specializations (GPS/SDR, OT/ICS, VoIP, Web3) add months beyond the core estimate and are not included in the above totals.
 
 > [!NOTE]
 > **Timeline Reality Check:** The pacing assumes consistent lab work, documentation, and capstone completion. Optional specializations can add months beyond the core estimate.
+
+> [!TIP]
+> **Learning Rhythm & Momentum:** Long roadmaps fail without a practice cadence. Follow this rhythm to maintain momentum:
+>
+> - **Daily (30 min):** Work through one platform challenge — [TryHackMe](https://tryhackme.com), [PicoCTF](https://picoctf.org), or [OverTheWire](https://overthewire.org) in early phases.
+> - **Weekly:** Complete 1 HTB/THM box and write it up. No writeup = the learning didn't happen.
+> - **Monthly:** Review your previous month's Git commits and notes. Identify what you still cannot do without looking it up — those are your gaps.
+> - **If you haven't committed to Git in 2 weeks:** You're drifting. Restart with a small lab (not a big concept). Momentum beats intensity.
 
 ---
 
@@ -152,150 +163,19 @@ GRC frameworks (NIST, ISO 27001, PCI-DSS, DPDP Act), supply chain security (SBOM
 
 ### [Phase 9: AI Security](Phase-9.md)
 
-Layer AI system knowledge on top of your mastered traditional track. Understand tokens, context windows, MCP, embeddings, temperature, fine-tuning, OWASP LLM Top 10, RAG poisoning, supply chain attacks, shadow AI prevention, and defensive AI operations.
+Layer AI system knowledge on top of mastered traditional security skills. Cover transformer architecture, context windows, temperature/sampling, RAG pipelines, OWASP LLM Top 10, prompt injection, RAG poisoning, adversarial ML, model extraction, dataset backdoors, agentic AI attacks, shadow AI prevention, and defensive AI operations. Build and publish AI security tools and research.
 
 ### [Phase 10: Operations & Career](Phase-10.md)
 
-Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing), red team operations & tradecraft, and building an unfakeable proof-of-work portfolio.
+Master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing and legal frameworks), red team operations & tradecraft (C2 infrastructure, OPSEC discipline, campaign planning, deconfliction), and build an unfakeable proof-of-work portfolio with certifications, GitHub projects, technical writing, and bug bounty validation.
 
 ---
 
----
+## 🛠️ AI Study Assistant
 
-## 🛠️ AI Prompt for Checklist Items
+> **Expand any checklist item into a complete learning module.** See [PROMPT_TEMPLATE.md](PROMPT_TEMPLATE.md) for the full AI prompt — paste it into ChatGPT, Claude, or Gemini with any roadmap bullet point and receive a structured 11-section breakdown covering purpose, offensive perspective, defensive perspective, tools, lab application, and key takeaways.
 
-# INPUT
 
-Cybersecurity Roadmap Category: <Insert category here>
-
-Checklist Item: <Insert checklist item here>
-
-Example:
-
-Cybersecurity Roadmap Category:
-Reconnaissance → Organizational Intelligence Gathering
-
-Checklist Item:
-"Organizational Hierarchy: Profile the Audience (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link."
-
----
-
-You are an expert cybersecurity instructor, penetration tester, red team operator, blue team analyst, and mentor.
-
-Analyze and explain the provided checklist item in extreme depth.
-
-Treat the checklist item as a professional learning objective rather than a short concept definition.
-
-Your goal is to convert the checklist item into a complete learning module.
-
-For the provided checklist item, explain:
-
-# 1. Purpose and Importance
-
-- Why does this checklist item exist?
-- Why is it important during an assessment?
-- What problem does it solve?
-- Which phase of a penetration test does it belong to?
-
-# 2. Context and Usage
-
-- During which engagement types is this used?
-- Red Team
-- External Pentest
-- Internal Pentest
-- Social Engineering Assessment
-- Physical Security Assessment
-
-# 3. Core Concepts
-
-Explain all terminology contained in the checklist item.
-
-For example:
-
-- Stakeholders
-- HR
-- Legal
-- Management
-- Decision makers
-- Gatekeepers
-- Privileged users
-- Attack surface
-- Weakest link
-
-# 4. Real-World Example
-
-Provide realistic examples from an enterprise environment.
-
-Example:
-
-- A company with 500 employees.
-- CEO, HR department, Legal team, IT department, Finance department.
-- Explain who attackers would target first and why.
-
-# 5. Offensive Perspective
-
-Explain:
-
-- Why attackers care about this information.
-- What information they seek.
-- How they gather it.
-- Indicators of high-value targets.
-
-# 6. Defensive Perspective
-
-Explain:
-
-- How organizations defend against this.
-- Security awareness measures.
-- Technical controls.
-- Policies.
-
-# 7. Practical Methodology
-
-Explain step-by-step:
-
-1. What information to collect.
-2. Where to collect it.
-3. How to organize it.
-4. How to analyze it.
-5. How to identify risks.
-
-# 8. Tools and Sources
-
-Explain:
-
-- LinkedIn analysis
-- Company websites
-- Job postings
-- Public documents
-- Press releases
-- OSINT tools
-
-# 9. Common Mistakes
-
-- Beginner mistakes.
-- Incorrect assumptions.
-- Ethical boundaries.
-
-# 10. Lab Application
-
-Explain how this concept can be practiced in:
-
-- Red team simulations
-- OSINT exercises
-- Corporate scenarios
-
-# 11. Key Takeaways
-
-Summarize:
-
-- What matters most.
-- What professionals focus on.
-- Warning signs and opportunities.
-
-The explanation must transform the checklist item into practical knowledge that can be used during real assessments.
-
-Replace `<INSERT_CHECKLIST_POINT>` with the exact text of the checklist bullet you want details for.
 
 ## ✅📋 Completion Tracker & Quick Navigation
 
@@ -311,6 +191,8 @@ Replace `<INSERT_CHECKLIST_POINT>` with the exact text of the checklist bullet y
 - [ ] [Part 1C: Windows Administration](Phase-1.md#part-1c-windows-administration) — Users, NTFS, Registry, Event Viewer, PowerShell, AD Basics
 - [ ] [Part 2: Networking Fundamentals](Phase-1.md#part-2-networking-fundamentals) — Layers 1–7, Protocols, Tools
 - [ ] [Part 3: Cryptography](Phase-1.md#part-3-cryptography) — Concepts → Transit → Trust → Rest → Attacks
+- [ ] [Part 3B: Authentication Standards Primer](Phase-1.md#part-3b-authentication-standards-primer) — Sessions, JWT, OAuth 2.0, OIDC, MFA Weaknesses
+- [ ] [Part 3C: Web Technology Fundamentals](Phase-1.md#part-3c-web-technology-fundamentals) — HTTP, Cookies, SOP/CORS, REST APIs, Web Auth Patterns
 
 **⚔️ Phase 2 — Offensive Core:**
 
@@ -318,7 +200,7 @@ Replace `<INSERT_CHECKLIST_POINT>` with the exact text of the checklist bullet y
 - [ ] [Part 5: Scanning](Phase-2.md#part-5-scanning) — Host Discovery → Port Enumeration → Defense Assessment
 - [ ] [Part 6: Enumeration](Phase-2.md#part-6-enumeration) — Network Discovery → Service Profiling → Attack Mapping
 - [ ] [Part 7: System Hacking & Initial Compromise](Phase-2.md#part-7-system-hacking-initial-compromise) — Breach → Escalation → Persistence → Evasion → Exfil → Reporting
-- [ ] [Part 8: Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) — Design → Weaponization → Evasion → Persistence → Anti-Forensics
+- [ ] [Part 8: Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) — Malware Taxonomy → Tool-Based Weaponization (msfvenom) → Evasion Concepts _(full malware engineering in Part 42, Phase 7)_
 - [ ] [Part 9: Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) — Protocols → Sniffing → Spoofing → MITM → Defenses
 - [ ] [Part 10: Social Engineering](Phase-2.md#part-10-social-engineering) — Recon → Digital → Human → Physical → Defense
 - [ ] [Part 11: Denial of Service](Phase-2.md#part-11-denial-of-service) — Planning → Methods → Execution → Mitigation
@@ -371,6 +253,7 @@ Replace `<INSERT_CHECKLIST_POINT>` with the exact text of the checklist bullet y
 - [ ] [Part 35: Governance, Risk & Compliance](Phase-8.md#part-35-governance-risk-compliance-grc) — Frameworks, Regulations, Audit, Scope
 - [ ] [Part 36: Supply Chain Security](Phase-8.md#part-36-supply-chain-security) — Dependency Attacks, SBOM, Build Integrity, OSS Risk
 - [ ] [Part 37: DevSecOps & Secure SDLC](Phase-8.md#part-37-devsecops-secure-sdlc) — SAST/DAST/SCA, Secrets Scanning, Pipeline Security
+- [ ] [Part 37B: Secure Code Review Methodology](Phase-8.md#part-37b-secure-code-review-methodology) — Code Review Workflow, Language-Specific Vulnerability Patterns, Semgrep Rule Writing
 - [ ] [Part 43: Security Architecture & Engineering](Phase-8.md#part-43-security-architecture-engineering) — Zero Trust, Defense-in-Depth Design, Segmentation, Reference Architectures
 
 **🧠 Phase 9 — AI Security:**
@@ -379,8 +262,8 @@ Replace `<INSERT_CHECKLIST_POINT>` with the exact text of the checklist bullet y
 
 **🎯 Phase 10 — Operations & Career:**
 
-- [ ] [Part 39: Penetration Testing Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) — PTES, OWASP WSTG, NIST 800-115, Threat Modeling, CVSS, Report Writing
-- [ ] [Part 40: Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — Infrastructure, Discipline, Operations
-- [ ] [Part 41: Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) — Tools, GitHub, Writing, Bug Bounties, Certifications
+- [ ] [Part 40: Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — C2 Infrastructure, OPSEC Discipline, Campaign Planning, Deconfliction *(Plan & Execute First)*
+- [ ] [Part 39: Penetration Testing Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) — PTES, OWASP WSTG, NIST 800-115, Threat Modeling, CVSS, Report Writing *(Document What You Did)*
+- [ ] [Part 41: Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) — Certifications, GitHub, Writing, Bug Bounties, Interview Prep
 
 ---

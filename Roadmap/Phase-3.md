@@ -9,8 +9,8 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–4 months
-> - **⏱️ Time Commitment (Part-Time):** 4–7 months
+> - **⏱️ Time Commitment (Full-Time):** 4–6 months
+> - **⏱️ Time Commitment (Part-Time):** 6–10 months
 > - **🎯 Primary Focus:** Detection engineering, SOC & SIEM fundamentals, IDS/IPS/honeypots, threat hunting, incident response basics, forensic fundamentals, and OSINT & threat intelligence. Understand what defenders see before you specialize further.
 
 ---
@@ -18,13 +18,17 @@
 > [!NOTE]
 > ### 📝 Phase 3 Documentation Requirements
 > Every detection and investigation you perform must be documented. Required artifacts:
-> - **Detection rule documentation** — Sigma rules, YARA signatures, and Suricata rules with rationale
+> - **Detection rule documentation** — Sigma rules, YARA signatures, and Suricata rules with rationale and test evidence
+> - **Sigma rule library (APT-derived)** — at least 3 Sigma rules written from a real APT report's TTPs, tested against lab activity, with SIEM alert screenshots proving they fire
 > - **PCAP analysis notes** — annotated packet captures explaining what you found and why it matters
 > - **SIEM dashboard screenshots** — saved views showing alert correlation and investigation workflows
 > - **IR timeline documentation** — structured incident timelines (who, what, when, where, how)
-> - **Git commits** — all rules, queries, and analysis notes committed to your repository
+> - **IR Playbook document** — a complete, structured ransomware response playbook covering detection → isolation → evidence preservation → eradication → recovery → post-incident report
+> - **Threat intelligence report** — a structured TI report on one APT group: TTPs, IOCs, STIX format, and operational recommendations
+> - **Git commits** — all rules, queries, playbooks, and analysis notes committed to your repository
 >
-> _By the end of Phase 3, you should have a detection rule library and investigation playbook in your repository._
+> _By the end of Phase 3, you should have a detection rule library, a working IR playbook, an APT-derived Sigma rule set, and an investigation artifact collection in your repository._
+
 
 ---
 
@@ -53,13 +57,14 @@
   - [Stage 4: Utilizing Deception (The Traps)](#stage-4-utilizing-deception-the-traps)
   - [Stage 5: Operations & Continuous Improvement](#stage-5-operations-continuous-improvement)
   - [Stage 6: Email Security Architecture](#stage-6-email-security-architecture)
-  - [Lab Progression (Part 14: IDS, Firewalls, and Honeypots)](#lab-progression-part-14-ids-firewalls-and-honeypots)
   - [Stage 7: DNS Security Operations](#stage-7-dns-security-operations)
+  - [Lab Progression (Part 14: IDS, Firewalls, and Honeypots)](#lab-progression-part-14-ids-firewalls-and-honeypots)
 - [Part 15: OSINT & Threat Intelligence](#part-15-osint-threat-intelligence)
   - [Stage 1: Passive Reconnaissance & Data Collection](#stage-1-passive-reconnaissance-data-collection)
   - [Stage 2: Threat Intelligence Analysis](#stage-2-threat-intelligence-analysis)
   - [Stage 3: OSINT Automation & Tooling](#stage-3-osint-automation-tooling)
   - [Stage 4: Threat Intelligence Dissemination](#stage-4-threat-intelligence-dissemination)
+  - [Stage 4B: Threat Intel Operationalization](#stage-4b-threat-intel-operationalization)
   - [Lab Progression (Part 15: OSINT & Threat Intelligence)](#lab-progression-part-15-osint-threat-intelligence)
   - [GRC Fundamentals Sidebar (Early Supplement for Defensive Careers)](#grc-fundamentals-sidebar-early-supplement-for-defensive-careers)
 
@@ -116,6 +121,13 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **Threat Intelligence Integration:** Consume **OSINT feeds, MISP, AlienVault OTX, commercial threat intel** to enrich **IP/domain/file lookups** in SIEM.
 
+> [!IMPORTANT]
+> **Stage Gate — Stages 1–4 (Detection Engineering):** Before proceeding to Stage 5, you must demonstrate:
+> - [ ] Written at least 1 working Sigma rule that fires on a specific MITRE ATT&CK technique in a live SIEM
+> - [ ] Identified 3 LOLBin execution patterns (e.g., certutil download, mshta execution, bitsadmin transfer) and named the event log source for each
+> - [ ] Documented what anti-forensics evidence looks like in a Windows Event Log (e.g., event 1102 log cleared, event 4719 audit policy changed)
+> - [ ] Explained the difference between signature-based detection and behavioral detection with a concrete example of a technique each approach would and would not catch
+
 ---
 
 <a id="stage-5-edrxdrmdr-basics"></a>
@@ -154,6 +166,13 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **SIEM Query Language Fluency:** Compare **SPL (Splunk)**, **KQL (Microsoft Sentinel/Defender)**, and **Lucene/EQL (Elastic/OpenSearch)** syntax for the same detection logic — write the same alert (e.g., "failed logins > 10 in 5 minutes from same source") in all three languages. Maintain a personal cheat sheet mapping equivalent operators across platforms.
 
+> [!IMPORTANT]
+> **Stage Gate — Stage 6 (SOC/SIEM):** Before proceeding to Stage 7 (Threat Hunting), you must demonstrate:
+> - [ ] Deployed a working SIEM (Splunk Free, Wazuh, ELK, or Security Onion) ingesting logs from at least 3 sources (e.g., Windows Event, Sysmon, Linux auth, DNS)
+> - [ ] Written the same alert rule in at least 2 SIEM query languages (SPL, KQL, or Lucene)
+> - [ ] Investigated a real alert end-to-end: triage → validate → document → close — without walkthrough assistance
+> - [ ] Can name the 5 most important Windows Event IDs for detecting initial access and lateral movement and explain what each one captures
+
 ---
 
 <a id="stage-7-threat-hunting-methodology"></a>
@@ -191,6 +210,12 @@ _Understand defensive detection to know what to evade. This Part covers core det
 - [ ] **Lessons Learned:** **Timeline analysis, root cause, detection gaps, improve controls** to prevent recurrence.
 
 - [ ] **Forensic Preservation:** During response, **preserve evidence** (memory dumps, disk images, logs) for **investigation and legal proceedings**.
+
+> [!IMPORTANT]
+> **Stage Gate — Stage 8 (Incident Response):** Before proceeding to Stage 9 (Forensics), you must demonstrate:
+> - [ ] Produced a structured incident timeline for a simulated incident containing: first indicator, initial compromise, lateral movement, data access/impact, and containment actions — with timestamps and evidence sources for each entry
+> - [ ] Written a containment playbook for at least 1 attack scenario (ransomware or credential theft) covering: isolation steps, evidence preservation order, communication contacts, and rollback criteria
+> - [ ] Explained the distinction between containment and eradication — and why premature eradication destroys forensic evidence
 
 ---
 
@@ -237,6 +262,13 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 **Move-On Gate (Part 13A):** Produce a detection coverage matrix mapped to MITRE ATT&CK tactics covering Stages 1–10.
+
+> [!IMPORTANT]
+> **Stage Gate — Stage 10 (Blue Team Counter-Measures):** Before proceeding to Part 13B, you must demonstrate all of:
+> - [ ] Identified 3 MITRE ATT&CK techniques that your current lab SIEM would NOT detect and explained why (telemetry gap, logic gap, or tuning issue)
+> - [ ] Written 1 detection rule that specifically targets a living-off-the-land technique (PowerShell, certutil, wmic, mshta, or bitsadmin)
+> - [ ] Explained how an attacker using only signed Windows binaries would evade your current detection setup — and proposed a countermeasure
+> - [ ] Produced a MITRE ATT&CK Navigator layer showing which techniques your lab rules cover (green) and which are uncovered (red)
 
 ---
 
@@ -331,8 +363,26 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 - [ ] **Detection Rule Lab:** Write 5 Sigma/YARA/Suricata/Zeek/osquery rules and test them against lab activity.
 - [ ] **Incident Timeline Lab:** Reconstruct 2 incidents from logs and produce analyst notes with evidence and containment actions.
 - [ ] **SOAR Playbook Lab:** Build one automated phishing triage playbook (extract IOCs → check reputation → quarantine) using Shuffle, Tines, or n8n.
+- [ ] **IR Playbook Execution Lab:** Build and run a complete Incident Response playbook for a **ransomware scenario** in your home lab: (1) detect the ransomware beacon via SIEM alert; (2) isolate the infected VM from the network segment; (3) preserve a forensic memory dump and disk image before remediation; (4) identify the initial access vector from logs; (5) eradicate the payload and restore from a clean snapshot; (6) write a post-incident report with a timeline, root cause, and control improvement recommendations. Use a scenario from **[Blue Team Labs Online](https://blueteamlabs.online)**, **[LetsDefend](https://letsdefend.io)**, or **[CyberDefenders](https://cyberdefenders.org)** as your scenario source if you don't want to stage your own.
 
-**Move-On Gate (Part 13B):** You can deploy SIEM/SOAR, write detection rules, perform threat hunting, execute incident response workflows, configure DLP policies, and produce a detection coverage matrix mapped to MITRE ATT&CK tactics.
+**Platform Guide for Phase 3:**
+
+| Platform | Best For | Cost |
+|----------|----------|------|
+| [Blue Team Labs Online](https://blueteamlabs.online) | DFIR investigations, SOC analyst challenges, log analysis, malware triage | Free + Pro |
+| [LetsDefend](https://letsdefend.io) | SOC analyst workflows, alert triage, phishing analysis, incident handling | Free + Pro |
+| [CyberDefenders](https://cyberdefenders.org) | Blue team CTF challenges, PCAP analysis, forensics, threat hunting | Free + Pro |
+| [Hack The Box Sherlocks](https://hackthebox.com) | DFIR forensics investigations in realistic enterprise scenarios | Free + VIP |
+| [Splunk Free / Security Onion / Wazuh](https://wazuh.com) | Self-hosted SIEM/EDR lab environments for detection engineering practice | Free (self-hosted) |
+
+
+
+> [!IMPORTANT]
+> **Stage Gate — Part 13B Completion (Stages 11–14):** Before proceeding to Part 14 (IDS, Firewalls, Honeypots), you must demonstrate all of:
+> - [ ] **SOAR:** Built at least 1 automated playbook in Shuffle, Tines, or n8n that executes a real response action (IP reputation check, email quarantine, or ticket creation) when triggered by a SIEM alert
+> - [ ] **DLP:** Created a DLP policy in a lab environment (or documented one for a simulated scenario) with at least 3 detection rules targeting different data types (PII, source code, credentials) with appropriate response actions
+> - [ ] **Vulnerability Management:** Run an authenticated Nessus/OpenVAS scan against a lab VM and produced a prioritized remediation report using EPSS or CISA KEV to justify priority order — not just raw CVSS scores
+> - [ ] **Insider Threat:** Written a UEBA detection hypothesis for at least 1 insider threat scenario (bulk download before resignation, after-hours access to sensitive files) and named the data sources required to execute it
 
 <a id="toc-part-14-ids-firewalls-and-honeypots"></a>
 <a id="part-14-ids-firewalls-and-honeypots"></a>
@@ -434,22 +484,6 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
-<a id="lab-progression-part-14-ids-firewalls-and-honeypots"></a>
-### **Lab Progression (Part 14: IDS, Firewalls, and Honeypots)**
-
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Deploy Snort/Suricata IDS in a lab and write 5 custom rules | IDS ruleset + test results |
-| 2 | Configure pfSense/iptables firewall with zone-based policies | Firewall architecture diagram + ruleset |
-| 3 | Deploy a honeypot (Cowrie, T-Pot, or HoneyD) and analyze attacker behavior | Honeypot analysis report (24-48 hours of data) |
-| 4 | Test IDS evasion techniques and tune rules to detect them | Evasion vs. detection comparison report |
-| 5 | Build a complete perimeter defense lab (firewall + IDS + honeypot) | Integrated defense architecture document |
-
-> [!IMPORTANT]
-> **Move-On Gate:** You can deploy and configure IDS/IPS, write custom detection rules, deploy honeypots for deception, and tune detection to minimize false positives while catching evasion attempts.
-
----
-
 <a id="stage-7-dns-security-operations"></a>
 ### **Stage 7: DNS Security Operations**
 
@@ -469,6 +503,20 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 - [ ] **Passive DNS Monitoring:** Deploy **passive DNS collection (passivedns, Farsight DNSDB)** to maintain historical resolution records for **threat hunting, domain reputation tracking, and incident response**.
 
 ---
+
+<a id="lab-progression-part-14-ids-firewalls-and-honeypots"></a>
+### **Lab Progression (Part 14: IDS, Firewalls, and Honeypots)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Deploy Snort/Suricata IDS in a lab and write 5 custom rules | IDS ruleset + test results |
+| 2 | Configure pfSense/iptables firewall with zone-based policies | Firewall architecture diagram + ruleset |
+| 3 | Deploy a honeypot (Cowrie, T-Pot, or HoneyD) and analyze attacker behavior | Honeypot analysis report (24-48 hours of data) |
+| 4 | Test IDS evasion techniques and tune rules to detect them | Evasion vs. detection comparison report |
+| 5 | Build a complete perimeter defense lab (firewall + IDS + honeypot) | Integrated defense architecture document |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can deploy and configure IDS/IPS, write custom detection rules, deploy honeypots for deception, and tune detection to minimize false positives while catching evasion attempts.
 
 <a id="toc-part-15-osint--threat-intelligence"></a>
 <a id="part-15-osint-threat-intelligence"></a>
@@ -548,6 +596,27 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
+<a id="stage-4b-threat-intel-operationalization"></a>
+### **Stage 4B: Threat Intel Operationalization**
+
+> [!TIP]
+> **Goal:** Close the gap between *collecting* threat intelligence and *acting on it*. A threat report with IOCs and TTPs has zero value if it sits in a PDF. This stage converts intel into SIEM rules, hunting queries, and detection coverage.
+
+- [ ] **IOC → SIEM Pipeline:** Take a published threat report (e.g., [CISA advisories](https://www.cisa.gov/alerts-advisories), [Mandiant APT reports](https://www.mandiant.com/resources/reports), [Sekoia.io blog](https://blog.sekoia.io)) and extract IOCs (IPs, domains, hashes, registry keys, mutexes). Import them into your SIEM/MISP as custom indicators. Write SIEM queries that alert on these IOCs in real-time. Verify the alert fires against test traffic before marking the IOC as operational.
+
+- [ ] **TTP → Detection Rules:** Take a published APT campaign report (e.g., Lazarus Group, Sandworm, APT41). Map 5 TTPs from the report to MITRE ATT&CK technique IDs. For each TTP, write a Sigma rule targeting the log source that would catch the behavior (e.g., T1059.001 PowerShell → process creation log with `powershell.exe -EncodedCommand`). Test each rule in your SIEM by executing the matching behavior in a controlled lab VM. Commit all rules to your Git repository.
+
+- [ ] **Threat Hunting from Intel:** Select one APT report and build a hunting hypothesis: "If this threat actor operated in our environment, what evidence would exist in which log sources?" Build a hunting query for each hypothesis in your SIEM query language (SPL/KQL/EQL). Run the query against your lab data and document: query logic, expected output, actual output, and whether the hunt was productive.
+
+- [ ] **MISP → SIEM Integration:** Configure MISP to automatically push new indicators to your SIEM (via MISP feeds or MISP Warninglists export → SIEM lookup table). Validate that a new IOC added to MISP generates an alert in your SIEM within 15 minutes. This is the core of an automated threat intel pipeline.
+
+- [ ] **Intel-Driven Rule Review:** After writing 10 detection rules over the course of Phase 3, re-review each rule against a new threat report. Ask: "Would this rule catch the TTP described in this report?" If not — update the rule. Detection rule maintenance is as important as rule creation.
+
+> [!IMPORTANT]
+> **Operationalization Gate:** You are ready to proceed when you can take a raw APT report, extract structured IOCs, write Sigma rules for 3+ TTPs, import IOCs into your SIEM, verify alerts fire, and run a threat hunt query with documented results. If you can only collect intel but not act on it, you are not yet a threat intelligence practitioner.
+
+---
+
 <a id="lab-progression-part-15-osint-threat-intelligence"></a>
 ### **Lab Progression (Part 15: OSINT & Threat Intelligence)**
 
@@ -558,9 +627,11 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 | 3 | Set up automated threat intelligence feeds (MISP or OpenCTI) | Working TI platform with 3+ feeds |
 | 4 | Produce a threat intelligence report on a specific APT group | Structured TI report (TTPs, IOCs, recommendations) |
 | 5 | Create STIX-formatted IOCs and share via TAXII server in lab | Working STIX/TAXII demo |
+| 6 | Take one APT report → extract IOCs → write 3 Sigma rules → verify they fire in SIEM | Sigma rule set + SIEM alert screenshots |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences.
+> **Move-On Gate (Part 15):** You can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences. **You must also complete Stage 4B operationalization:** take a raw APT report, extract structured IOCs, import them into your SIEM, write Sigma rules for at least 3 TTPs, verify the alerts fire in your lab, and execute a documented threat hunt query with recorded results. A practitioner who can collect intel but not act on it has not completed this part.
+
 
 ---
 

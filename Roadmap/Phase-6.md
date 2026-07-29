@@ -9,8 +9,8 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 4–6 months
-> - **⏱️ Time Commitment (Part-Time):** 6–10 months
+> - **⏱️ Time Commitment (Full-Time):** 6–9 months
+> - **⏱️ Time Commitment (Part-Time):** 10–14 months
 > - **🎯 Primary Focus:** Active Directory & Entra ID (on-prem + hybrid cloud identity), cloud computing attacks (AWS/Azure/GCP), container & Kubernetes security, OT/ICS/SCADA industrial systems, and adversary emulation & purple teaming.
 
 ---
@@ -50,7 +50,7 @@
   - [Stage 4: Secrets & Configuration Management](#stage-4-secrets-configuration-management)
   - [Stage 5: CI/CD & Workflow Automation Attacks](#stage-5-cicd-workflow-automation-attacks)
   - [Lab Progression (Part 25: Container & Orchestration Security)](#lab-progression-part-25-container-orchestration-security)
-- [Part 26: OT/ICS/SCADA Security](#part-26-oticsscada-security)
+- [Part 26: OT/ICS/SCADA Security \[OPTIONAL SPECIALIZATION\]](#part-26-oticsscada-security)
   - [Stage 1: Industrial Protocol Fundamentals](#stage-1-industrial-protocol-fundamentals)
   - [Stage 2: PLC & HMI Exploitation](#stage-2-plc-hmi-exploitation)
   - [Stage 3: Safety System Attacks](#stage-3-safety-system-attacks)
@@ -166,11 +166,41 @@
 <a id="part-24-cloud-computing"></a>
 ## Part 24: Cloud Computing
 
+> [!IMPORTANT]
+> **Cloud Lab Setup Requirements — Read Before Starting**
+>
+> Cloud attack techniques CANNOT be practiced without a real cloud account. Unlike Phase 2 Linux labs (which run locally), cloud labs require live infrastructure. Before starting this part:
+>
+> **Account Setup:**
+> - [ ] Create a dedicated **AWS Free Tier account** (separate from any personal/work account) at aws.amazon.com/free — Free Tier covers most EC2, S3, IAM labs for 12 months
+> - [ ] Create a dedicated **Azure Free Account** (separate from any personal/work account) — $200 credit for 30 days + 12 months of free services
+> - [ ] (Optional) Create a **GCP Free Account** — $300 credit for 90 days
+>
+> **Cost Controls (Mandatory — Set Before Any Lab Work):**
+> - [ ] **AWS Billing Alert:** Go to CloudWatch → Alarms → Billing → create alert at $5/month threshold; also enable Cost Explorer
+> - [ ] **Azure Budget Alert:** Go to Cost Management → Budgets → set $5/month alert
+> - [ ] Never leave EC2 instances, RDS databases, or NAT Gateways running when not actively using them
+> - [ ] Use `aws ec2 stop-instances` or the console to stop (not just terminate) instances to avoid data loss; terminate when done with the lab
+>
+> **Intentionally-Vulnerable Cloud Lab Environments:**
+>
+> | Platform | Provider | What It Teaches | Setup |
+> |---|---|---|---|
+> | **CloudGoat** | Rhino Security Labs | AWS IAM privilege escalation, SSRF, Lambda exploitation, S3 misconfigs | `pip install cloudgoat` then `cloudgoat config` |
+> | **AzureGoat** | INE Security | Azure IAM, SSRF, storage attacks, Kubernetes in Azure | GitHub: ine-labs/AzureGoat |
+> | **GCPGoat** | INE Security | GCP service account abuse, Cloud Run, storage | GitHub: ine-labs/GCPGoat |
+> | **flaws.cloud** | Scott Piper (AWS) | S3 misconfiguration CTF walkthrough | flaws.cloud |
+> | **flaws2.cloud** | Scott Piper (AWS) | IAM escalation CTF (attacker + defender paths) | flaws2.cloud |
+>
+> > [!WARNING]
+> > **Never practice cloud attack techniques against accounts you do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
+
 <a id="stage-1-architecture-governance"></a>
 ### **Stage 1: Architecture & Governance**
 
+
 > [!TIP]
-> **Goal:** Define the battlefield and the rules of engagement.
+> **Goal:** Define the battlefield and the rules of engagement — understand the cloud responsibility model, IAM structure, and baseline security posture tools before touching any attack techniques.
 
 - [ ] **Model Selection:** Select the correct `Cloud Models` (`Public`, `Private`, `Hybrid`) based on data sensitivity.
 
@@ -178,17 +208,31 @@
 
 - [ ] **Environment Setup:** Initialize the tenant in a `Common Cloud Environment` (`AWS`, `GCP`, or `Azure`) with a secure root account setup.
 
+- [ ] **IAM Architecture Review:** Understand the **IAM hierarchy** for your target cloud — AWS (root → organizations → accounts → users/roles/policies), Azure (Entra tenant → subscriptions → resource groups → resources), GCP (org → folders → projects → service accounts). Know which identity types are exploitable at each level.
+
+- [ ] **Security Posture Baseline:** Run **ScoutSuite** (`scout aws --report-dir ./report`) or **Prowler** (`prowler aws`) to generate a baseline cloud security posture assessment across IAM, S3, networking, logging, and encryption. Read the full output — these tools reveal the attack surface before you start.
+
+- [ ] **Resource Tagging & Environment Hygiene:** Understand how **resource tagging** (Owner, Environment, CostCenter) enables defenders to identify unauthorized resources. From an attacker's perspective: resources without standard tags are likely shadow IT or misconfigurations worth targeting.
+
 ---
 
 <a id="stage-2-storage-data-security"></a>
 ### **Stage 2: Storage & Data Security**
 
 > [!TIP]
-> **Goal:** Lock down the data assets.
+> **Goal:** Enumerate, audit, and exploit cloud storage misconfigurations — the most common source of cloud data breaches.
 
 - [ ] **Object Storage Security:** Audit `S3` buckets and `Common Cloud Storage` (Drive, Box) for public access and enforce encryption.
 
 - [ ] **Access Control:** Implement strict IAM policies ensuring only authorized identities can access storage blobs.
+
+- [ ] **S3 Bucket Enumeration:** Use `aws s3api list-buckets` to enumerate all buckets in-scope. For each bucket, run `aws s3api get-bucket-acl`, `get-bucket-policy`, `get-bucket-cors`, and `get-public-access-block` to map the full exposure surface. Use **cloudbrute** for unauthenticated bucket discovery against organization name variants.
+
+- [ ] **ACL & Policy Audit:** Identify buckets with `AllUsers` (public) or `AuthenticatedUsers` (any AWS account) grants in their ACL. Identify bucket policies with `"Principal": "*"` without a restrictive condition. Both patterns create read/write exposure without authentication.
+
+- [ ] **CORS Misconfiguration:** Retrieve CORS config with `aws s3api get-bucket-cors`. Permissive CORS (`AllowedOrigin: *` + `AllowCredentials: true` patterns) enables cross-origin data theft from authenticated browser sessions. Test with a crafted request from an attacker origin.
+
+- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection strings, and private certificates that developers have uploaded and forgotten.
 
 ---
 
@@ -196,7 +240,7 @@
 ### **Stage 3: Modern Infrastructure & Deployment**
 
 > [!TIP]
-> **Goal:** Secure the compute and the pipeline.
+> **Goal:** Audit and attack the compute layer and the deployment pipeline — misconfigurations here grant persistent, privileged access.
 
 - [ ] **Code-Defined Security:** Use `Infrastructure as Code` (IaC) to template firewalls and permissions, preventing human configuration errors.
 
@@ -204,19 +248,34 @@
 
 - [ ] **Pipeline Security:** Audit the `general flow of deploying in the cloud` to ensure secrets (API keys) are not hardcoded in the deployment scripts.
 
+- [ ] **IaC Security Scanning:** Run **checkov** (`checkov -d ./terraform/`) against Terraform/CloudFormation/CDK templates to identify misconfigurations before deployment — open security groups, unencrypted storage, overly permissive IAM roles. Also run **tfsec** (Terraform-specific) and **cfn-nag** (CloudFormation-specific) for complementary coverage.
+
+- [ ] **Terraform State File Exposure:** Terraform state files (`terraform.tfstate`) contain plaintext resource metadata including IAM role ARNs, IP addresses, and sometimes credentials. Check for state files stored in public S3 buckets, unencrypted S3 with broad access, or committed to Git repositories. This is one of the highest-value targets in a cloud engagement.
+
+- [ ] **CDK & Serverless Security Patterns:** Audit AWS CDK constructs and serverless framework configurations (`serverless.yml`) for: Lambda functions with `*` in IAM policies, environment variables containing plaintext secrets, API Gateway endpoints without authentication, and functions with `VpcConfig` that bypass security group controls.
+
 ---
 
 <a id="stage-4-automation-scripting"></a>
 ### **Stage 4: Automation & Scripting**
 
 > [!TIP]
-> **Goal:** Automate defense and auditing.
+> **Goal:** Use automation to enumerate, audit, and monitor cloud environments — understand what defenders see so you know what to avoid generating.
 
 - [ ] **Cloud Automation:** Use **Python (Boto3), Terraform, CloudFormation** to audit security groups and IAM roles automatically.
 
 - [ ] **Admin Scripting:** Master **Bash, PowerShell, AWS CLI, Azure CLI** to manage instances and automate operations.
 
 - [ ] **CI/CD Security:** Integrate **security scanning** (SAST, DAST, dependency checks) into deployment pipelines.
+
+- [ ] **CloudTrail Log Analysis:** Query **CloudTrail** (`aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin`) to identify unauthorized API calls, credential use from unusual IPs, role assumption chains, and resource creation events. Understand log retention gaps — events older than 90 days require S3 log archive access.
+
+- [ ] **AWS CLI Enumeration Commands:** Build a systematic enumeration checklist: `aws iam list-users`, `aws iam list-roles`, `aws iam get-account-authorization-details` (dumps all policies, users, roles in one call), `aws ec2 describe-instances`, `aws s3api list-buckets`, `aws lambda list-functions`. For Azure: `az account list`, `az role assignment list --all`, `az vm list`. Run these as the first step after any credential compromise.
+
+- [ ] **Cross-Account Audit Automation:** Use **Prowler's multi-account mode** or write Boto3 scripts using `sts:AssumeRole` to enumerate security posture across all accounts in an AWS Organization from a single auditor role. Understand how cross-account role trust policies create lateral movement paths.
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 24: Cloud Computing):** You are ready to continue when you can: (1) run ScoutSuite or Prowler against a lab AWS account and interpret the findings report; (2) enumerate all S3 buckets, their ACLs, bucket policies, and CORS configurations using the AWS CLI; (3) use trufflehog to scan an S3 bucket for secrets; (4) run checkov against a Terraform template and explain each HIGH finding; (5) query CloudTrail to identify at least one suspicious API event in a lab environment. If you cannot do all five without looking up the commands, revisit Stages 2–4 before proceeding.
 
 ---
 
@@ -371,7 +430,11 @@
 
 <a id="toc-part-26-oticsscada-security"></a>
 <a id="part-26-oticsscada-security"></a>
-## Part 26: OT/ICS/SCADA Security
+
+## Part 26: OT/ICS/SCADA Security [OPTIONAL SPECIALIZATION]
+
+> [!NOTE]
+> **Optional Specialization:** OT/ICS/SCADA security is a distinct career track targeting industrial control systems in energy, utilities, manufacturing, and critical infrastructure. If your career goal is ICS pentesting, SCADA security engineering, or critical infrastructure defense, complete this Part in full. If your goal is general offensive security, cloud, or enterprise AD — treat this Part as awareness-level reading and return to it when specializing. Do not let OT/ICS block your progress into Phase 7.
 
 <a id="stage-1-industrial-protocol-fundamentals"></a>
 ### **Stage 1: Industrial Protocol Fundamentals**
@@ -466,6 +529,10 @@
 
 <a id="part-16-adversary-emulation-purple-teaming"></a>
 ## Part 16: Adversary Emulation & Purple Teaming _(Phase 6 Capstone)_
+
+> [!NOTE]
+> **Navigational Note — Why Part 16 Is Here:** Part 16 is the **Phase 6 Capstone** — it synthesizes all content from Parts 23–26 (Active Directory, Cloud, Containers, OT) into a unified adversary emulation exercise. It is numbered 16 because it was originally placed sequentially after Phase 3's Part 15 (OSINT & Threat Intelligence) in the roadmap's initial design. It belongs contextually in Phase 6 as the synthesis capstone of Parts 23–26. When you see cross-references to "Part 16" elsewhere in the roadmap, they refer to this section in Phase 6.
+
 
 > [!WARNING]
 > **Prerequisites:** This Part requires both offensive (Phase 2) AND defensive (Phase 3) maturity plus enterprise infrastructure knowledge from the Parts above (AD, Cloud, Containers, OT). Complete all prior Phase 6 content before attempting this. Purple teaming is the culmination of offense-defense integration at enterprise scale.

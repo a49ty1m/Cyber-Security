@@ -9,8 +9,8 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 3–5 months
+> - **⏱️ Time Commitment (Full-Time):** 4–6 months
+> - **⏱️ Time Commitment (Part-Time):** 6–9 months
 > - **🎯 Primary Focus:** GRC frameworks (NIST, ISO 27001, PCI-DSS, DPDP Act), supply chain security (SBOM, SLSA, dependency confusion), DevSecOps integration (SAST/DAST/SCA, secrets scanning, IaC security), and security architecture & engineering (Zero Trust, defense-in-depth design, segmentation, reference architectures).
 
 ---
@@ -48,6 +48,11 @@
   - [Stage 4: Software Composition Analysis (SCA)](#stage-4-software-composition-analysis-sca)
   - [Stage 5: Secrets Detection & Pipeline Security](#stage-5-secrets-detection-pipeline-security)
   - [Secure Coding & Pipeline Lab Progression](#secure-coding-pipeline-lab-progression)
+- [Part 37B: Secure Code Review Methodology](#part-37b-secure-code-review-methodology)
+  - [Stage 1: Code Review Workflow & Entry Point Mapping](#stage-1-code-review-workflow)
+  - [Stage 2: Language-Specific Vulnerability Patterns](#stage-2-language-specific-patterns)
+  - [Stage 3: Semgrep & Custom Rule Writing](#stage-3-semgrep-custom-rules)
+  - [Lab Progression (Part 37B)](#lab-progression-part-37b)
 - [Part 43: Security Architecture & Engineering](#part-43-security-architecture-engineering)
   - [Stage 1: Security Design Principles](#stage-1-security-design-principles)
   - [Stage 2: Zero Trust Architecture](#stage-2-zero-trust-architecture)
@@ -337,11 +342,161 @@
 
 ---
 
+<a id="part-37b-secure-code-review-methodology"></a>
+## Part 37B: Secure Code Review Methodology
+
+> **Why This Exists:** Automated SAST tools (Part 37) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. You cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
+
+<a id="stage-1-code-review-workflow"></a>
+### **Stage 1: Code Review Workflow & Entry Point Mapping**
+
+> [!TIP]
+> **Goal:** Develop a repeatable, systematic workflow for reviewing any codebase — regardless of language or framework.
+
+- [ ] **Step 1 — Orient:** Understand the technology stack, framework, and architecture before reading code. Identify: language(s), framework (Django, Spring, Rails, Express, Laravel), ORM, template engine, authentication library, and serialization format. Each has known vulnerability classes.
+
+- [ ] **Step 2 — Map Entry Points:** Find all places where **user-controlled input** enters the application:
+  - HTTP parameters: `request.GET['id']`, `req.body`, `$_POST['user']`, `@RequestParam`
+  - HTTP headers: `request.headers['X-Forwarded-For']`, `Cookie`, `Referer`, `User-Agent` (some apps use these)
+  - File uploads: multipart form data, file path parameters
+  - WebSocket messages, GraphQL inputs, gRPC parameters
+  - Environment variables and config files (for injection into commands/queries)
+  - **Rule:** Any variable that originates from user input is a **source**. Track it until it reaches a **sink**.
+
+- [ ] **Step 3 — Identify Dangerous Sinks:** Find where data is *used* in dangerous ways:
+  - **SQL Sinks:** `cursor.execute()`, `query()`, `findOne()`, raw string SQL construction
+  - **Command Sinks:** `os.system()`, `subprocess.run(shell=True)`, `Runtime.exec()`, `exec()`, `popen()`
+  - **Template Sinks:** `render_template_string()`, `Jinja2.from_string()`, `Template(user_input)`
+  - **HTML Sinks:** `innerHTML =`, `document.write()`, `.html()` in jQuery, `dangerouslySetInnerHTML` in React
+  - **Deserialization Sinks:** `pickle.loads()`, `yaml.load()`, `ObjectInputStream.readObject()`, `unserialize()`
+  - **File Sinks:** `open(user_input)`, `fopen()`, `readFile()`, `sendFile()` — path traversal territory
+  - **Redirect Sinks:** `redirect(user_input)`, `res.redirect()` — open redirect territory
+
+- [ ] **Step 4 — Trace Source to Sink:** For each dangerous sink, trace backward to find if user input can reach it without sufficient sanitization or parameterization. This is **taint analysis** — the core technique of both manual review and SAST.
+
+- [ ] **Step 5 — Check Sanitization Quality:** Identify what sanitization exists between source and sink:
+  - **Parameterized queries:** `cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))` — correct; cannot inject
+  - **String concatenation:** `cursor.execute("SELECT * FROM users WHERE id = " + user_id)` — vulnerable
+  - **Regex allowlists:** `re.match(r'^[0-9]+$', user_id)` — allowlisting is strong if correctly anchored
+  - **Regex denylists:** Blacklisting specific characters — almost always bypassable
+  - **Output encoding:** `html.escape()`, `{{ variable }}` in most template engines — prevents XSS if applied correctly
+
+- [ ] **Step 6 — Check Authentication & Authorization:** For every sensitive action (read sensitive data, modify data, admin function), verify:
+  - Is the user authenticated? (Session/JWT check before action)
+  - Is the user authorized? (Does the code check the user's permission for the *specific* resource they're accessing, not just any resource?)
+  - Look for missing `@login_required`, missing ownership checks, and horizontal privilege escalation (user A accessing user B's data)
+
+---
+
+<a id="stage-2-language-specific-patterns"></a>
+### **Stage 2: Language-Specific Vulnerability Patterns**
+
+> [!TIP]
+> **Goal:** Know which dangerous functions and patterns appear in each major language/framework so you can grep for them efficiently.
+
+**PHP:**
+- [ ] `include($user_input)` / `require($user_input)` — **Local/Remote File Inclusion** (LFI/RFI); any user-controlled path is dangerous
+- [ ] `eval($user_input)` / `assert($user_input)` — **Code Injection**; rarely legitimate
+- [ ] `extract($_POST)` / `extract($_GET)` — **Variable Injection**; overwrites any variable in scope with attacker-controlled values
+- [ ] `unserialize($user_input)` — **PHP Object Injection**; can trigger `__wakeup()`/`__destruct()` magic methods → RCE
+- [ ] `preg_replace('/pattern/e', $replacement, $input)` — **Code Execution via deprecated /e modifier** (PHP < 7.0)
+- [ ] `$_SERVER['PHP_SELF']` used in form action — **XSS via URL manipulation**
+- [ ] Grep targets: `eval(`, `system(`, `exec(`, `passthru(`, `shell_exec(`, `include(`, `require(`, `unserialize(`, `extract(`
+
+**Python:**
+- [ ] `pickle.loads(user_data)` — **Arbitrary code execution** via `__reduce__` method; any deserialization of untrusted pickle data is critical
+- [ ] `yaml.load(user_data)` (without `Loader=yaml.SafeLoader`) — **Code execution** via YAML tags; always use `yaml.safe_load()`
+- [ ] `subprocess.run(user_input, shell=True)` / `os.system(user_input)` — **Command injection**; `shell=True` makes input injection trivial
+- [ ] `eval(user_input)` / `exec(user_input)` — **Code injection**; almost never legitimate with user input
+- [ ] `render_template_string(user_input)` in Flask / `Template(user_input).render()` in Jinja2 — **Server-Side Template Injection (SSTI)**
+- [ ] `open(user_input)` with path from request — **Path traversal** if not normalized with `os.path.realpath()`
+- [ ] Grep targets: `pickle.loads`, `yaml.load(`, `eval(`, `exec(`, `shell=True`, `render_template_string(`, `Template(`
+
+**Java:**
+- [ ] `ObjectInputStream.readObject()` — **Java deserialization** — one of the highest-impact patterns; exploitable with gadget chains (ysoserial)
+- [ ] `Runtime.getRuntime().exec(userInput)` — **Command injection** if user input is not tokenized
+- [ ] `String query = "SELECT * FROM users WHERE id = '" + id + "'"` — **SQL injection** via string concatenation; must use `PreparedStatement`
+- [ ] XXE (XML External Entity): `DocumentBuilderFactory` without `setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)` — if parsing user XML, XXE can read local files or SSRF
+- [ ] `new File(userInput).getCanonicalPath()` without verifying it starts with the intended base path — **Path traversal**
+- [ ] JNDI injection (`${jndi:ldap://...}`) — Log4Shell pattern; search for `log.info(userInput)` combined with Log4j usage
+- [ ] Grep targets: `readObject()`, `Runtime.exec(`, `Statement.execute(`, `DocumentBuilderFactory`, `getRuntime().exec(`
+
+**JavaScript / Node.js:**
+- [ ] `eval(userInput)` / `new Function(userInput)()` — **Code injection**
+- [ ] Prototype pollution: `obj[userKey] = userValue` where `userKey` can be `__proto__` — can modify Object.prototype and affect all objects in the process
+- [ ] `innerHTML = userInput` / `document.write(userInput)` — **DOM XSS**; use `textContent` instead
+- [ ] `child_process.exec(userInput)` / `child_process.execSync(userInput)` — **Command injection**; use `execFile` with argument arrays
+- [ ] `require(userInput)` — **Path traversal to arbitrary module loading** if user controls the module path
+- [ ] `res.redirect(req.query.next)` without allowlist validation — **Open redirect**
+- [ ] Grep targets: `eval(`, `innerHTML`, `document.write(`, `child_process.exec(`, `__proto__`, `prototype[`, `dangerouslySetInnerHTML`
+
+---
+
+<a id="stage-3-semgrep-custom-rules"></a>
+### **Stage 3: Semgrep & Custom Rule Writing**
+
+> [!NOTE]
+> **Part 37 vs Part 37B — Same Tool, Different Purpose:** Part 37 Stage 2 used Semgrep as a **CI/CD pipeline tool** — running pre-built rulesets automatically on every commit to catch regressions at scale. This stage teaches **Semgrep rule writing for manual code auditing** — a fundamentally different skill. Here you write custom rules targeting your specific codebase, tune for zero false positives, and use taint tracking to trace sources to sinks. If you ran `semgrep --config=auto` in Part 37 and thought you were done: you weren't. Rule authorship is the skill that separates automated scanning from genuine code review.
+
+> [!TIP]
+> **Goal:** Automate pattern matching for language-specific vulnerability patterns using Semgrep rules — the industry standard for lightweight, accurate code auditing.
+
+- [ ] **Semgrep Basics:** Install with `pip install semgrep`. Run a scan: `semgrep --config=auto path/to/code`. Understand rule structure:
+  ```yaml
+  rules:
+    - id: python-yaml-unsafe-load
+      pattern: yaml.load(...)
+      message: Use yaml.safe_load() to prevent code execution
+      languages: [python]
+      severity: ERROR
+  ```
+
+- [ ] **Pattern Matching Syntax:** Learn Semgrep's metavariables (`$X`, `$...ARGS`), ellipsis operators (`...`), and pattern-not for allowlisting:
+  ```yaml
+  pattern: $OBJ.execute($QUERY)
+  pattern-not: $OBJ.execute($QUERY, $PARAMS)
+  ```
+  This matches `.execute(query)` (vulnerable concatenation) but not `.execute(query, params)` (parameterized — safe).
+
+- [ ] **Taint Tracking:** Use `mode: taint` in Semgrep to trace sources to sinks automatically:
+  ```yaml
+  mode: taint
+  pattern-sources:
+    - pattern: request.args.get(...)
+  pattern-sinks:
+    - pattern: cursor.execute(...)
+  ```
+
+- [ ] **Run Existing Rulesets:** `semgrep --config=p/owasp-top-ten` — runs OWASP Top 10 patterns. `semgrep --config=p/python` — language-specific rules. Review all findings critically — Semgrep has false positives.
+
+- [ ] **Triage False Positives:** Mark known safe patterns with `# nosemgrep: rule-id` inline comment. Document the rationale. Semgrep suppressions are audit evidence that the finding was reviewed.
+
+---
+
+<a id="lab-progression-part-37b"></a>
+### **Lab Progression (Part 37B: Secure Code Review)**
+
+| Level | Task | Deliverable |
+|---|---|---|
+| 1 | Clone DVWA or WebGoat; identify 5 vulnerable functions by reading source code only (no exploitation) | Vulnerability list with file/line references and CWE IDs |
+| 2 | Run `semgrep --config=auto` against a small Python/PHP project; triage all findings (true positive, false positive, needs-context) | Triaged findings report with rationale for each decision |
+| 3 | Write 3 custom Semgrep rules targeting patterns not covered by default rulesets in your target language | 3 working Semgrep `.yaml` rule files with test cases |
+| 4 | Review one GitHub open-source project (~5k–20k lines); produce a findings report with file:line references, exploitability rating, and remediation code | Professional code review report |
+| 5 | Attempt code review challenge on HackTheBox or PortSwigger Academy (source code review labs) | Lab completion + write-up |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 37B):** Given an unfamiliar 500-line Python or PHP file with 3 planted vulnerabilities, you can identify all 3 within 30 minutes using a structured source-to-sink methodology without running the application. You can write a Semgrep rule that correctly identifies the vulnerability class and produces zero false positives on a safe variant.
+
+---
+
 <a id="toc-part-43-security-architecture--engineering"></a>
 <a id="part-43-security-architecture-engineering"></a>
 ## Part 43: Security Architecture & Engineering
 
+> **Numbering Note:** Part 43 is numbered non-sequentially. It belongs here in Phase 8 because security architecture and engineering requires GRC context (Part 35), supply chain awareness (Part 36), and DevSecOps experience (Parts 37/37B) as prerequisites. It does not follow Part 42 in the learning sequence — Part 42 is in Phase 7 (Offensive Development & Tooling).
+
 _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fills the identified gap in security architecture training. A security professional who can only break systems but not design secure ones is incomplete._
+
 
 <a id="stage-1-security-design-principles"></a>
 ### **Stage 1: Security Design Principles**

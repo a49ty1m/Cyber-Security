@@ -81,6 +81,7 @@
   - [Stage 3: Event Viewer & Auditing (Windows)](#stage-3-event-viewer-auditing-windows)
   - [Stage 4: PowerShell Administration (Windows)](#stage-4-powershell-administration-windows)
   - [Stage 5: Active Directory Concepts (Prerequisite for Part 23)](#stage-5-active-directory-concepts-prerequisite-for-part-23)
+  - [Stage 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Part 23)](#stage-6-windows-identity-kerberos-foundations)
   - [Lab Progression (Windows)](#lab-progression-windows)
   - [macOS Security Awareness (Supplemental)](#macos-security-awareness-supplemental)
 - [Part 2: Networking Fundamentals](#part-2-networking-fundamentals)
@@ -91,6 +92,7 @@
   - [Layers 5-7: Application & Session (The Payload)](#layers-5-7-application-session-the-payload)
   - [Lab Progression & Professional Development (2026 Red Team Focus)](#lab-progression-professional-development-2026-red-team-focus)
   - [Automation & Programmability](#automation-programmability)
+  - [PCAP Analysis — Systematic Methodology](#part-2-stage-pcap-analysis)
 - [Part 3: Cryptography](#part-3-cryptography)
   - [Stage 1: Core Concepts & Algorithms](#stage-1-core-concepts-algorithms)
   - [Stage 2: Secure Communication (Data in Transit)](#stage-2-secure-communication-data-in-transit)
@@ -98,7 +100,15 @@
   - [Stage 4: Data at Rest & Password Security](#stage-4-data-at-rest-password-security)
   - [Stage 5: Cryptographic Attacks & Weaknesses](#stage-5-cryptographic-attacks-weaknesses)
   - [Lab Progression (Cryptography)](#lab-progression-cryptography)
-- [Part 4: Web Technology Fundamentals](#part-4-web-technology-fundamentals)
+- [Part 3B: Authentication Standards Primer](#part-3b-authentication-standards-primer)
+  - [Stage 1: Session-Based Authentication](#auth-primer-stage-1-session-based-auth)
+  - [Stage 2: Token-Based Authentication & JWT](#auth-primer-stage-2-token-based-auth)
+  - [Stage 3: OAuth 2.0 — Delegated Authorization](#auth-primer-stage-3-oauth2)
+  - [Stage 4: OpenID Connect (OIDC)](#auth-primer-stage-4-oidc)
+  - [Stage 5: API Authentication Patterns](#auth-primer-stage-5-api-auth-patterns)
+  - [Stage 6: MFA Types & Weaknesses](#auth-primer-stage-6-mfa-types)
+  - [Lab Progression (Authentication Standards)](#auth-primer-lab-progression)
+- [Part 3C: Web Technology Fundamentals](#part-3c-web-technology-fundamentals)
   - [Stage 1: HTTP — The Protocol of the Web](#stage-1-http-the-protocol-of-the-web)
   - [Stage 2: Cookies, Sessions & Tokens](#stage-2-cookies-sessions-tokens)
   - [Stage 3: Same-Origin Policy, CORS & Web Security Headers](#stage-3-same-origin-policy-cors-web-security-headers)
@@ -120,11 +130,11 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 - [ ] **Lab Progression Map (Packet Tracer → GNS3/EVE-NG → Wireshark validation)**
   - **Goal:** Move from simple networking practice to realistic, packet-level practice without guessing.
-  - Stage A — Packet Tracer (learning topology + basic configs)
+  - [ ] Stage A — Packet Tracer (learning topology + basic configs)
     - Build networks quickly (routers/switches/firewalls).
     - Learn addressing, routing, VLANs, ACLs, NAT basics.
     - Focus: “Does my design work?”
-  - Stage B — GNS3/EVE-NG (real OS images + realistic behavior)
+  - [ ] Stage B — GNS3/EVE-NG (real OS images + realistic behavior)
     - Same idea, but with actual services and Linux-based networking stacks.
     - Use real images (where possible) to practice:
       - routing protocols (OSPF/BGP basics)
@@ -132,7 +142,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
       - DNS/DHCP
       - VPNs (IPsec/OpenVPN)
       - segmentation, multi-tier routing
-  - Stage C — Validate everything with Wireshark (packet truth)
+  - [ ] Stage C — Validate everything with Wireshark (packet truth)
     - After each change/config push:
       - Capture traffic (pcap) at the interface where you expect behavior to occur.
       - Confirm:
@@ -145,13 +155,13 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 - [ ] **Virtualization Breadth (Type-1 + Type-2)**
   - **Goal:** Avoid being locked into one platform. Labs should migrate.
-  - Type-1 hypervisors (closer to the hardware)
+  - [ ] Type-1 hypervisors (closer to the hardware)
     - ESXi, Proxmox
     - Usually better performance and easier “lab appliance” patterns.
-  - Type-2 hypervisors (runs on top of an OS)
+  - [ ] Type-2 hypervisors (runs on top of an OS)
     - VMware Workstation, VirtualBox
     - Great for quick VMs, testing, and local dev.
-  - Practice habit:
+  - [ ] Practice habit:
     - Make at least one “template VM” that can be moved (or recreated quickly) between platforms.
     - Use consistent disk images / cloud-init / documented steps.
     - Result: If one platform breaks, your lab doesn’t die with it.
@@ -652,7 +662,33 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 - [ ] **Networking Programming:** Learn socket programming (TCP/UDP), HTTP communication, REST APIs, DNS interaction, SSL/TLS basics, and concurrent networking using threading, multiprocessing, and asyncio.
 
-- [ ] **Security Libraries:** Gain practical experience with requests, socket, scapy, paramiko, BeautifulSoup, Selenium, dnspython, pyshark, cryptography, pwntools (later), and relevant parsing libraries.
+- [ ] **Security Libraries (Python):** Master the following Python libraries in the given order:
+
+  **🌐 HTTP & Web Automation**
+  - [ ] **requests** – HTTP requests, REST APIs, sessions, authentication
+  - [ ] **BeautifulSoup (bs4)** – HTML parsing and web scraping
+  - [ ] **Selenium** – Browser automation and dynamic web application testing
+
+  **🌍 Networking & Reconnaissance**
+  - [ ] **socket** – TCP/UDP networking, client-server communication
+  - [ ] **dnspython** – DNS enumeration and record analysis
+  - [ ] **scapy** – Packet crafting, sniffing, and network protocol analysis
+  - [ ] **pyshark** – Packet capture (PCAP) analysis using Wireshark/TShark
+
+  **🔐 Cryptography & Secure Communications**
+  - [ ] **cryptography** – Encryption, hashing, digital signatures, certificates
+  - [ ] **paramiko** – SSH automation, remote command execution, SFTP
+
+  **📂 Parsing & Data Processing**
+  - [ ] **re** – Regular expressions for pattern matching
+  - [ ] **json** – JSON parsing and manipulation
+  - [ ] **xml.etree.ElementTree / lxml** – XML parsing
+  - [ ] **csv** – CSV file processing
+  - [ ] **PyYAML** – YAML parsing and configuration handling
+  - [ ] **urllib.parse** – URL parsing and encoding/decoding
+
+  **💥 Exploit Development (Advanced)**
+  - [ ] **pwntools** _(learn later)_ – Binary exploitation, CTFs, exploit development, ROP, shellcode
 
 - [ ] **Automation Projects:** Build custom:
   - [ ] Port scanners
@@ -676,14 +712,60 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 #### **JavaScript & Node.js (Web, Browser & API Security)**
 
-- [ ] **Core JavaScript:** Master variables, scopes, closures, prototypes, asynchronous programming, callbacks, Promises, async/await, ES6+ syntax, modules, classes, event loop, memory model, DOM manipulation, BOM, and browser APIs.
+- [ ] **Core JavaScript:** Master variables, data types, operators, scope, hoisting, closures, prototypes, prototype chain, objects, arrays, functions, asynchronous programming, callbacks, Promises, async/await, ES6+ features, modules, classes, the event loop, memory model, DOM manipulation, BOM, and browser APIs.
 
-- [ ] **Node.js Fundamentals:** Learn npm, package management, Express.js, middleware, routing, filesystem APIs, child processes, streams, environment variables, authentication, session management, JWT handling, and server-side JavaScript.
+- [ ] **Node.js Fundamentals:** Learn npm, package management, Express.js, middleware, routing, filesystem APIs, child processes, streams, buffers, environment variables, authentication, session management, JWT handling, server-side JavaScript, and REST API development.
 
-- [ ] **Browser Internals:** Understand cookies, localStorage, sessionStorage, IndexedDB, CORS, CSP, Same-Origin Policy, postMessage, Service Workers, WebSockets, Fetch API, and browser rendering.
+- [ ] **Browser Internals:** Understand:
+  - [ ] Cookies (attributes: HttpOnly, Secure, SameSite)
+  - [ ] localStorage
+  - [ ] sessionStorage
+  - [ ] IndexedDB
+  - [ ] Cache Storage API
+  - [ ] Service Workers
+  - [ ] Fetch API
+  - [ ] XMLHttpRequest (XHR)
+  - [ ] WebSockets
+  - [ ] Server-Sent Events (SSE)
+  - [ ] Cross-Origin Resource Sharing (CORS)
+  - [ ] Content Security Policy (CSP)
+  - [ ] Same-Origin Policy (SOP)
+  - [ ] postMessage API
+  - [ ] Browser rendering pipeline
+  - [ ] DevTools for debugging and network analysis
+
+- [ ] **JavaScript Security APIs & Libraries:** Gain practical experience with:
+
+  **🌐 HTTP & API Communication**
+  - [ ] **fetch** – Modern HTTP requests
+  - [ ] **axios** – API requests and interceptors
+  - [ ] **WebSocket API** – Real-time communication
+  - [ ] **EventSource (SSE)** – Server-Sent Events
+
+  **🧩 DOM Manipulation**
+  - [ ] **DOM API** – querySelector, events, element manipulation
+  - [ ] **DOMParser** – HTML/XML parsing
+  - [ ] **MutationObserver** – Detecting DOM changes
+
+  **🔍 Parsing & Data Handling**
+  - [ ] **JSON** – Serialization and parsing
+  - [ ] **URL & URLSearchParams** – URL parsing and manipulation
+  - [ ] **FormData** – Multipart form handling
+  - [ ] **TextEncoder / TextDecoder** – Encoding and decoding
+
+  **🔐 Security & Cryptography**
+  - [ ] **Web Crypto API** – Hashing, encryption, key generation
+  - [ ] **jsonwebtoken** – JWT creation and verification
+  - [ ] **crypto (Node.js)** – Server-side cryptography
+
+  **⚙️ Automation & Testing**
+  - [ ] **Puppeteer** – Chrome automation
+  - [ ] **Playwright** – Cross-browser automation
+  - [ ] **jsdom** – DOM emulation for testing
 
 - [ ] **Security Context:** Study:
   - [ ] DOM XSS
+  - [ ] Reflected, Stored & DOM-based XSS
   - [ ] Prototype Pollution
   - [ ] Client-side Injection
   - [ ] Open Redirects
@@ -693,98 +775,452 @@ _Before starting the technical curriculum, establish your academic foundation, l
   - [ ] Clickjacking
   - [ ] JWT misuse
   - [ ] WebSocket security
+  - [ ] CSP bypasses
+  - [ ] Cookie security
+  - [ ] LocalStorage & SessionStorage abuse
+  - [ ] Service Worker abuse
+  - [ ] Client-side request smuggling (awareness)
 
-- [ ] **Modern Framework Awareness:** Learn how React, Angular, Vue, and Next.js influence modern attack surfaces without becoming a frontend developer.
+- [ ] **Automation Projects:** Build custom:
+  - [ ] Web crawlers
+  - [ ] API fuzzers
+  - [ ] Endpoint enumerators
+  - [ ] JavaScript endpoint extractors
+  - [ ] Secret/API key finders
+  - [ ] Link and route discovery tools
+  - [ ] JWT analyzers
+  - [ ] CORS testing tools
+  - [ ] CSP analyzers
+  - [ ] Browser automation scripts
 
-- [ ] **AI Web Applications:** Understand how AI platforms such as ChatGPT, Claude, Gemini, and Copilot operate as JavaScript applications communicating with backend APIs.
+- [ ] **Modern Framework Awareness:** Learn how React, Angular, Vue, Svelte, Next.js, Nuxt.js, and Electron influence modern attack surfaces without becoming a frontend developer.
 
-- [ ] **Learning Outcome:** Confidently inspect, analyse, and test modern web applications and client-side logic during penetration testing.
+- [ ] **AI Web Applications:** Understand how AI platforms such as ChatGPT, Claude, Gemini, Microsoft Copilot, and similar LLM applications operate as JavaScript frontends communicating with backend APIs, including streaming responses, authentication flows, and browser-based security considerations.
+
+- [ ] **Code Quality:** Learn debugging with Chrome DevTools, Node.js Inspector, ESLint, Prettier, testing (Jest/Vitest), dependency auditing (npm audit), package security, and version control using Git.
+
+- [ ] **Learning Outcome:** Confidently inspect, analyse, automate, and test modern JavaScript applications, SPAs, APIs, browser behaviour, and client-side security during professional web application penetration testing.
 
 ---
 
 #### **C (Operating Systems & Memory Fundamentals)**
 
-- [ ] **Language Fundamentals:** Master variables, pointers, pointer arithmetic, arrays, strings, structs, unions, enums, dynamic memory allocation, recursion, bitwise operations, preprocessing, compilation, linking, and debugging.
+- [ ] **Language Fundamentals:** Master variables, data types, operators, pointers, pointer arithmetic, arrays, strings, structs, unions, enums, typedefs, functions, recursion, bitwise operations, macros, preprocessing, header files, static vs dynamic variables, dynamic memory allocation, compilation, linking, and debugging.
 
 - [ ] **Memory Management:** Understand:
   - [ ] Stack
   - [ ] Heap
-  - [ ] Data Segment
-  - [ ] BSS
+  - [ ] Text Segment (.text)
+  - [ ] Data Segment (.data)
+  - [ ] BSS (.bss)
   - [ ] Memory Alignment
+  - [ ] Padding
   - [ ] Stack Frames
-  - [ ] Calling Conventions
-  - [ ] Memory Layout
+  - [ ] Calling Conventions (cdecl, stdcall, fastcall, System V ABI)
+  - [ ] Process Memory Layout
   - [ ] Buffer Boundaries
+  - [ ] Memory Allocation (malloc, calloc, realloc, free)
 
-- [ ] **System Programming:** Learn file descriptors, processes, threads, signals, pipes, sockets, shared memory, IPC, fork(), exec(), system calls, permissions, and Linux APIs.
+- [ ] **System Programming:** Learn:
+  - [ ] File descriptors
+  - [ ] Processes
+  - [ ] Threads (POSIX Threads)
+  - [ ] Signals
+  - [ ] Pipes
+  - [ ] Named Pipes (FIFO)
+  - [ ] TCP/UDP Sockets
+  - [ ] Shared Memory
+  - [ ] Semaphores
+  - [ ] Message Queues
+  - [ ] IPC mechanisms
+  - [ ] fork()
+  - [ ] exec() family
+  - [ ] wait()/waitpid()
+  - [ ] system() and execve()
+  - [ ] Linux system calls
+  - [ ] File permissions
+  - [ ] Linux APIs (unistd, fcntl, syscalls)
 
-- [ ] **Compiler Fundamentals:** Understand GCC, Clang, Makefiles, object files, linking, symbols, and debugging using GDB.
+- [ ] **Compiler & Binary Fundamentals:** Understand:
+  - [ ] GCC
+  - [ ] Clang
+  - [ ] Makefiles
+  - [ ] Static vs Dynamic Linking
+  - [ ] Object Files (.o)
+  - [ ] ELF Binary Format
+  - [ ] Symbols
+  - [ ] Libraries (.a / .so)
+  - [ ] Compiler Optimisations
+  - [ ] Debugging with GDB
+  - [ ] objdump
+  - [ ] readelf
+  - [ ] nm
+  - [ ] strings
+  - [ ] ldd
 
-- [ ] **Secure Coding:** Learn integer overflows, buffer overflows, format string vulnerabilities, use-after-free, double free, race conditions, and safe memory management practices.
+- [ ] **Memory Exploitation Fundamentals:** Learn:
+  - [ ] Buffer Overflows (Stack & Heap)
+  - [ ] Integer Overflows
+  - [ ] Format String Vulnerabilities
+  - [ ] Use-After-Free (UAF)
+  - [ ] Double Free
+  - [ ] Heap Corruption
+  - [ ] Null Pointer Dereference
+  - [ ] Race Conditions
+  - [ ] TOCTOU (Time-of-Check to Time-of-Use)
+  - [ ] Off-by-One Errors
+  - [ ] Stack Canaries
+  - [ ] DEP / NX
+  - [ ] ASLR
+  - [ ] PIE
+  - [ ] RELRO
+  - [ ] Safe Memory Management Practices
 
-- [ ] **Learning Outcome:** Develop a deep understanding of how operating systems execute programs and how memory corruption vulnerabilities occur.
+- [ ] **Essential Tools:** Gain practical experience with:
+  - [ ] GDB
+  - [ ] GEF or pwndbg
+  - [ ] Valgrind
+  - [ ] AddressSanitizer (ASan)
+  - [ ] objdump
+  - [ ] readelf
+  - [ ] strings
+  - [ ] nm
+  - [ ] ltrace
+  - [ ] strace
+  - [ ] checksec
+
+- [ ] **Automation & Mini Projects:** Build:
+  - [ ] TCP client/server
+  - [ ] Simple shell
+  - [ ] Mini HTTP server
+  - [ ] File parser
+  - [ ] Process monitor
+  - [ ] Memory allocator (mini malloc)
+  - [ ] ELF parser
+  - [ ] Simple debugger
+  - [ ] Binary file analyser
+
+- [ ] **Learning Outcome:** Develop a deep understanding of C programming, Linux internals, process execution, memory management, binary structure, and how memory corruption vulnerabilities occur—forming the foundation for reverse engineering, exploit development, binary exploitation, and operating system security.
 
 ---
 
 #### **C++ (Reverse Engineering & Software Analysis)**
 
-- [ ] **Core Language:** Understand classes, inheritance, polymorphism, templates, STL, smart pointers, RAII, namespaces, constructors, destructors, exception handling, and object lifecycles.
+- [ ] **Core Language:** Master classes, objects, inheritance, polymorphism, encapsulation, abstraction, constructors, destructors, namespaces, templates, the Standard Template Library (STL), operator overloading, exception handling, smart pointers, RAII, move semantics, object lifecycles, and modern C++ (C++11/14/17) features.
 
-- [ ] **Binary Analysis Context:** Learn:
-  - [ ] VTables
-  - [ ] RTTI
-  - [ ] Name Mangling
-  - [ ] Virtual Functions
+- [ ] **Object-Oriented Internals:** Understand:
+  - [ ] Classes & Objects
   - [ ] Constructors
   - [ ] Destructors
+  - [ ] Inheritance
+  - [ ] Multiple Inheritance
+  - [ ] Virtual Functions
+  - [ ] Pure Virtual Functions
+  - [ ] VTables
+  - [ ] VPointers (vptr)
+  - [ ] Runtime Type Information (RTTI)
+  - [ ] Dynamic Casting
+  - [ ] Object Memory Layout
+  - [ ] Name Mangling
   - [ ] Template Expansion
+  - [ ] Inline Functions
 
-- [ ] **Reverse Engineering:** Learn how C++ applications appear inside Ghidra, IDA Pro, Binary Ninja, and other disassemblers.
+- [ ] **Compiler & Binary Fundamentals:** Learn:
+  - [ ] C++ Compilation Process
+  - [ ] Name Demangling
+  - [ ] Symbol Tables
+  - [ ] Static vs Dynamic Linking
+  - [ ] ELF (Linux)
+  - [ ] PE (Windows)
+  - [ ] Shared Libraries (.so / DLL)
+  - [ ] Import & Export Tables
+  - [ ] Exception Handling Internals
+  - [ ] Debug Symbols
 
-- [ ] **Learning Outcome:** Read, analyse, and understand C++ binaries during malware analysis and reverse engineering engagements.
+- [ ] **Reverse Engineering:** Learn how C++ applications appear inside:
+  - [ ] Ghidra
+  - [ ] IDA Pro
+  - [ ] Binary Ninja
+  - [ ] Radare2 / Cutter
+  - [ ] x64dbg
+  - [ ] WinDbg
+  - [ ] GDB
+
+- [ ] **Reverse Engineering Concepts:** Study:
+  - [ ] Function Identification
+  - [ ] Class Reconstruction
+  - [ ] VTable Recovery
+  - [ ] RTTI Analysis
+  - [ ] Object Reconstruction
+  - [ ] Constructor & Destructor Identification
+  - [ ] Virtual Function Resolution
+  - [ ] Control Flow Graphs (CFG)
+  - [ ] Cross References (XREFs)
+  - [ ] Strings Analysis
+  - [ ] Import/Export Analysis
+  - [ ] Symbol Recovery
+  - [ ] Manual Decompilation
+
+- [ ] **Malware Analysis Context:** Understand how C++ is commonly used in:
+  - [ ] Malware loaders
+  - [ ] Packers
+  - [ ] Ransomware
+  - [ ] Trojans
+  - [ ] Remote Access Trojans (RATs)
+  - [ ] Command & Control (C2) clients
+  - [ ] Windows API-heavy applications
+
+- [ ] **Essential Libraries & APIs:** Gain familiarity with:
+  - [ ] Standard Template Library (STL)
+  - [ ] Windows API (Win32)
+  - [ ] C Runtime Library (CRT)
+  - [ ] Boost _(awareness)_
+  - [ ] COM Basics _(awareness)_
+
+- [ ] **Practical Projects:**
+  - [ ] PE parser
+  - [ ] ELF parser
+  - [ ] Mini disassembler
+  - [ ] Binary string extractor
+  - [ ] Symbol demangler
+  - [ ] Windows API monitoring tool
+  - [ ] Simple DLL loader
+  - [ ] Basic binary patcher
+
+- [ ] **Learning Outcome:** Read, analyse, reconstruct, and understand modern C++ binaries by recognising compiler-generated patterns, object-oriented structures, Windows/Linux APIs, and binary internals during malware analysis, reverse engineering, exploit research, and advanced penetration testing.
 
 ---
 
 #### **Bash (Linux Automation & Operations)**
 
-- [ ] **Shell Fundamentals:** Master variables, loops, conditionals, functions, pipes, redirection, command substitution, environment variables, aliases, permissions, and process management.
+- [ ] **Shell Fundamentals:** Master variables, data types, quoting, command substitution, arithmetic operations, loops, conditionals, functions, arrays, pipes, redirection, file descriptors, environment variables, aliases, shell expansion, permissions, process management, exit codes, and shell scripting best practices.
 
-- [ ] **Automation:** Build scripts for:
-  - [ ] Enumeration
-  - [ ] Reconnaissance
+- [ ] **Linux Command-Line Mastery:** Gain proficiency with:
+
+  **📂 File & Text Processing**
+  - [ ] grep
+  - [ ] awk
+  - [ ] sed
+  - [ ] cut
+  - [ ] tr
+  - [ ] sort
+  - [ ] uniq
+  - [ ] xargs
+  - [ ] tee
+  - [ ] split
+  - [ ] paste
+  - [ ] wc
+  - [ ] strings
+  - [ ] file
+
+  **📁 Filesystem Operations**
+  - [ ] find
+  - [ ] locate
+  - [ ] ls
+  - [ ] stat
+  - [ ] chmod
+  - [ ] chown
+  - [ ] ln
+  - [ ] tar
+  - [ ] gzip
+  - [ ] zip
+  - [ ] rsync
+
+  **🌐 Networking**
+  - [ ] curl
+  - [ ] wget
+  - [ ] ssh
+  - [ ] scp
+  - [ ] nc (netcat)
+  - [ ] socat
+  - [ ] dig
+  - [ ] host
+  - [ ] nslookup
+  - [ ] ping
+  - [ ] traceroute
+  - [ ] ss
+  - [ ] netstat _(legacy awareness)_
+  - [ ] tcpdump
+
+  **⚙️ System Administration**
+  - [ ] ps
+  - [ ] top / htop
+  - [ ] kill
+  - [ ] systemctl
+  - [ ] service
+  - [ ] journalctl
+  - [ ] crontab
+  - [ ] env
+  - [ ] export
+  - [ ] history
+  - [ ] sudo
+
+  **📊 Data Processing**
+  - [ ] jq (JSON)
+  - [ ] yq (YAML)
+  - [ ] base64
+  - [ ] md5sum
+  - [ ] sha256sum
+
+- [ ] **Linux System Programming Basics:** Understand:
+  - [ ] Processes
+  - [ ] Background & foreground jobs
+  - [ ] Signals
+  - [ ] Environment variables
+  - [ ] Permissions & ownership
+  - [ ] File descriptors
+  - [ ] Pipes & named pipes
+  - [ ] Cron jobs
+  - [ ] System logging
+  - [ ] Package management
+  - [ ] Bash startup files (.bashrc, .profile)
+
+- [ ] **Automation Projects:** Build scripts for:
+  - [ ] Host enumeration
+  - [ ] Network reconnaissance
+  - [ ] Subdomain enumeration
   - [ ] Log analysis
   - [ ] File processing
   - [ ] Backup automation
-  - [ ] Monitoring
-  - [ ] Cron jobs
+  - [ ] System monitoring
+  - [ ] Cron job automation
   - [ ] SSH automation
   - [ ] Firewall management
+  - [ ] Service monitoring
+  - [ ] Package update automation
+  - [ ] IOC extraction
+  - [ ] Report generation
 
-- [ ] **Command-Line Utilities:** Gain proficiency with grep, awk, sed, cut, sort, uniq, xargs, find, jq, curl, wget, tar, ssh, rsync, and systemctl.
+- [ ] **Security & Pentesting Automation:** Learn to automate:
+  - [ ] Nmap scanning
+  - [ ] HTTP requests using curl
+  - [ ] DNS enumeration
+  - [ ] SSL/TLS certificate inspection
+  - [ ] Whois lookups
+  - [ ] Log parsing
+  - [ ] Directory brute-forcing workflows
+  - [ ] Batch vulnerability scanning
+  - [ ] Parsing reconnaissance results
+  - [ ] Linux privilege enumeration
 
-- [ ] **Learning Outcome:** Automate repetitive Linux administration and penetration testing tasks efficiently.
+- [ ] **Debugging & Best Practices:** Learn:
+  - [ ] ShellCheck
+  - [ ] Bash debugging (`set -x`, `set -e`, `set -u`)
+  - [ ] Error handling
+  - [ ] Logging
+  - [ ] Input validation
+  - [ ] Portable shell scripting
+  - [ ] Modular script design
+  - [ ] Git for script version control
+
+- [ ] **Learning Outcome:** Automate Linux administration, reconnaissance, enumeration, log processing, system operations, and penetration testing workflows efficiently using professional, reusable, and maintainable Bash scripts.
 
 ---
 
 #### **PowerShell (Windows Automation & Enterprise Administration)**
 
-- [ ] **Language Fundamentals:** Master variables, pipelines, cmdlets, functions, modules, objects, remoting, scripting, and execution policies.
+- [ ] **Language Fundamentals:** Master variables, data types, objects, pipelines, cmdlets, aliases, functions, modules, providers, scripting, execution policies, remoting, error handling, classes, background jobs, and PowerShell best practices.
+
+- [ ] **PowerShell Core Concepts:** Understand:
+  - [ ] Objects vs Text
+  - [ ] Pipeline Processing
+  - [ ] Get-Member
+  - [ ] Select-Object
+  - [ ] Where-Object
+  - [ ] ForEach-Object
+  - [ ] Sort-Object
+  - [ ] Group-Object
+  - [ ] Measure-Object
+  - [ ] Out-File
+  - [ ] Export-Csv
+  - [ ] ConvertTo-Json / ConvertFrom-Json
+  - [ ] XML Processing
 
 - [ ] **Windows Administration:** Automate:
   - [ ] Active Directory enumeration
+  - [ ] User & Group management
   - [ ] Registry operations
   - [ ] Service management
+  - [ ] Process management
   - [ ] Event log collection
   - [ ] WMI queries
   - [ ] CIM
   - [ ] Scheduled Tasks
-  - [ ] Remote administration
-  - [ ] File management
+  - [ ] Windows Services
+  - [ ] File & Directory management
+  - [ ] SMB share management
+  - [ ] Firewall configuration
+  - [ ] Windows Defender management
+  - [ ] Certificate management
 
-- [ ] **Enterprise Scripting:** Learn WinRM, PowerShell Remoting, Invoke-Command, Enter-PSSession, CIM sessions, and automation against Windows environments.
+- [ ] **Enterprise Automation:** Learn:
+  - [ ] WinRM
+  - [ ] PowerShell Remoting
+  - [ ] Invoke-Command
+  - [ ] Enter-PSSession
+  - [ ] New-PSSession
+  - [ ] CIM Sessions
+  - [ ] Remote Event Log collection
+  - [ ] Group Policy automation _(awareness)_
+  - [ ] Desired State Configuration (DSC) _(awareness)_
 
-- [ ] **Learning Outcome:** Confidently automate Windows administration, enterprise enumeration, and incident response workflows.
+- [ ] **Active Directory Automation:** Learn:
+  - [ ] ActiveDirectory PowerShell Module
+  - [ ] User enumeration
+  - [ ] Group enumeration
+  - [ ] Computer enumeration
+  - [ ] OU management
+  - [ ] GPO enumeration
+  - [ ] ACL inspection
+  - [ ] Trust enumeration
+  - [ ] Domain information gathering
+
+- [ ] **Essential Modules & APIs:** Gain practical experience with:
+  - [ ] Microsoft.PowerShell.Management
+  - [ ] Microsoft.PowerShell.Utility
+  - [ ] ActiveDirectory Module
+  - [ ] NetTCPIP
+  - [ ] ScheduledTasks
+  - [ ] CimCmdlets
+  - [ ] PSReadLine
+  - [ ] PowerShellGet
+
+- [ ] **Automation Projects:** Build:
+  - [ ] Active Directory inventory
+  - [ ] User audit reports
+  - [ ] Event log collector
+  - [ ] Service monitoring scripts
+  - [ ] Registry auditing tools
+  - [ ] Windows asset inventory
+  - [ ] Remote administration toolkit
+  - [ ] File integrity checker
+  - [ ] Windows health monitoring scripts
+  - [ ] Enterprise reporting dashboards
+
+- [ ] **Security & Defensive Automation:** Learn to automate:
+  - [ ] Windows system enumeration
+  - [ ] Active Directory auditing
+  - [ ] Windows Defender status checks
+  - [ ] Event log analysis
+  - [ ] IOC hunting
+  - [ ] Security baseline verification
+  - [ ] Windows update auditing
+  - [ ] Local administrator auditing
+  - [ ] Scheduled Task auditing
+  - [ ] Service permission auditing
+
+- [ ] **Debugging & Best Practices:** Learn:
+  - [ ] PowerShell ISE / VS Code
+  - [ ] PowerShell Debugger
+  - [ ] Error handling
+  - [ ] Logging
+  - [ ] Script signing
+  - [ ] Secure credential handling
+  - [ ] SecretManagement module _(awareness)_
+  - [ ] PSScriptAnalyzer
+  - [ ] Git for version control
+
+- [ ] **Learning Outcome:** Confidently automate Windows administration, Active Directory management, enterprise enumeration, system auditing, incident response, and security operations using professional, reusable, and maintainable PowerShell scripts.
 
 ---
 
@@ -1014,6 +1450,75 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **DNS in AD:** Understand why **AD-integrated DNS** is critical. Know **SRV records (\_ldap.\_tcp)**, **forward/reverse lookup zones**, and **dynamic DNS registration**.
 
 - [ ] **DHCP in AD:** Understand **DHCP server authorization**, **scopes, reservations, options**, and how DHCP integrates with DNS.
+
+> [!NOTE]
+> **Stage 5 → Stage 6 Transition:** Stage 5 gives you the conceptual map of Active Directory — the structure, objects, and administrative mechanisms. Stage 6 gives you the protocol mechanics — _why_ these structures exist and _how_ authentication flows through them. The overlap you may notice on account types and trust architecture is intentional: Stage 5 names them, Stage 6 explains how they are exploited. Both stages are required before Phase 6 Part 23 (Active Directory attacks). Do not skip Stage 6 even if Stage 5 felt complete.
+
+<a id="stage-6-windows-identity-kerberos-foundations"></a>
+
+### Stage 6: Windows Identity & Kerberos Protocol Foundations _(Critical Prerequisite for Part 23)_
+
+> [!NOTE]
+> **Prerequisite: Stage 5 Required.** This stage explains the authentication protocols and cryptographic mechanisms behind the Active Directory concepts introduced in Stage 5. Where Stage 5 told you that SPNs, service accounts, and delegation exist — Stage 6 explains _how they work at the protocol level_ and _why that makes them exploitable_. Read Stage 5 first, then return here.
+
+> [!IMPORTANT]
+> **Why This Exists Here:** Part 23 (Active Directory attacks in Phase 6) immediately begins with Kerberoasting, AS-REP Roasting, ADCS abuse, and ACL exploitation. These techniques are impossible to understand deeply without knowing the underlying Kerberos protocol, LDAP structure, and trust architecture. This stage provides that foundation **before** you reach Phase 6 — not during it. Do not skip this stage even if it feels abstract now; it will crystallize completely when you reach the AD attacks.
+
+- [ ] **Kerberos Authentication Flow:** Trace the full authentication lifecycle step-by-step:
+  - **AS-REQ:** Client sends authentication request to the KDC (Key Distribution Center) on the DC, encrypted with user's password hash
+  - **AS-REP:** KDC returns a **TGT (Ticket-Granting Ticket)** encrypted with the `krbtgt` account hash — this is what AS-REP Roasting steals
+  - **TGS-REQ:** Client presents TGT to request a service ticket for a specific service (identified by its **SPN**)
+  - **TGS-REP:** KDC returns a **TGS (Ticket-Granting Service)** ticket encrypted with the **service account's hash** — this is what Kerberoasting steals
+  - **AP-REQ:** Client presents TGS to the target service for authentication
+  - Understand why the `krbtgt` hash is the most valuable domain credential (Golden Ticket uses it)
+
+- [ ] **Service Principal Names (SPNs):** Understand how SPNs (e.g., `MSSQLSvc/sqlserver.corp.local:1433`) link a service to a user/computer account. Know that **any account with an SPN is Kerberoastable** — this is why monitoring SPNs is a security control.
+
+- [ ] **LDAP Directory Structure:** Understand the **Lightweight Directory Access Protocol** as the query language for Active Directory:
+  - **Distinguished Names (DNs):** `CN=John Smith,OU=Finance,DC=corp,DC=local` — how AD objects are addressed
+  - **Attributes:** `sAMAccountName`, `userPrincipalName`, `memberOf`, `servicePrincipalName`, `pwdLastSet`, `userAccountControl`
+  - **LDAP Filters:** `(&(objectClass=user)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))` — how BloodHound and tools like `ldapsearch` query the directory
+  - **Anonymous LDAP Bind:** Understand that misconfigured DCs allow unauthenticated LDAP enumeration — the root cause of many BloodHound discoveries
+
+- [ ] **Forest, Domain, and Trust Architecture:**
+  - **Domain:** Single namespace boundary (corp.local); has one or more Domain Controllers
+  - **Forest:** Collection of domains sharing a schema, config, and Global Catalog; the security boundary (not the domain)
+  - **Trust Types:** Parent-child (automatic, transitive), tree-root (automatic, transitive), external (manual, non-transitive), forest trust (manual, transitive with caveats), shortcut trust (manual optimization)
+  - **Trust Direction:** One-way vs bidirectional; understand that trust direction and access direction are opposite — if Domain A trusts Domain B, users **in B** can access resources **in A**
+  - **SID History:** How migrated accounts carry old SIDs and why this is an attack vector (SID History injection)
+
+- [ ] **Group Policy Processing Order (LSDOU):**
+  - **LSDOU:** Local → Site → Domain → Organizational Unit — later policies override earlier ones by default
+  - **Block Inheritance / Enforce:** How to break and restore the processing chain
+  - **Group Policy Filtering:** Security filtering (who the GPO applies to) vs WMI filtering (what systems it applies to)
+  - **gpresult /R and /H:** How to audit effective policy on a target system — critical for understanding privilege gaps
+
+- [ ] **Account Types and Privilege Tiers:**
+  - **Standard User Accounts:** Interactive logon, default domain users
+  - **Service Accounts:** Run services; often have excessive privileges; Kerberoastable if SPN is set
+  - **Managed Service Accounts (MSA/gMSA):** Auto-rotating passwords; not Kerberoastable (key defensive control)
+  - **Computer Accounts:** Machine identity in the domain; end with `$` (e.g., `WORKSTATION01$`); have passwords that auto-rotate every 30 days
+  - **Built-in Groups:** Domain Admins, Enterprise Admins, Schema Admins, Account Operators, Backup Operators — understand which grant what level of access
+  - **Protected Users Group:** Removes NTLM, DES, RC4 Kerberos, and credential caching — the strongest built-in hardening group
+
+- [ ] **Delegation Types:**
+  - **Unconstrained Delegation:** Any service on a machine set with unconstrained delegation receives the user's TGT — extremely dangerous; classic target for the "Printer Bug" attack
+  - **Constrained Delegation:** Service can only impersonate to specific target SPNs; still abusable with S4U2Self/S4U2Proxy techniques
+  - **Resource-Based Constrained Delegation (RBCD):** Defined on the resource, not the caller; abusable when you have `WriteProperty` on a computer object
+
+- [ ] **Access Control Lists (ACLs) in Active Directory:**
+  - **DACLs:** Discretionary Access Control Lists — who can do what to an AD object
+  - **Dangerous ACE types:** `GenericAll`, `GenericWrite`, `WriteOwner`, `WriteDACL`, `AllExtendedRights`, `ForceChangePassword`, `Self-Membership`
+  - Understand that these ACEs — not just group membership — define the attack paths BloodHound discovers
+  - Practice reading an AD object's Security tab and correlating it to BloodHound edges
+
+- [ ] **Active Directory Certificate Services (ADCS) — Awareness:**
+  - Understand that ADCS is the PKI infrastructure for issuing certificates to users, machines, and services
+  - Know that certificates can be used for authentication (PKINIT) and that misconfigured certificate templates are the root cause of ESC1–ESC8 vulnerabilities
+  - You do not need to exploit these now — you need to know they exist so the Part 23 coverage makes sense
+
+> [!TIP]
+> **Lab Exercise:** Build a Windows Server 2022 Domain Controller lab (if not already done from Stage 3–5 labs). Run `ldapsearch -x -H ldap://DC_IP -b "DC=corp,DC=local"` from a Linux host. Run `klist` on a domain-joined Windows machine after logon to see your TGT. Run `setspn -T corp.local -Q */*` to list all SPNs. These three commands will make everything above concrete.
 
 <a id="lab-progression-windows"></a>
 
@@ -1872,6 +2377,107 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Scripting Use Cases:** Automate **config backups, bulk changes, compliance checks, inventory collection**.
 
+---
+
+<a id="part-2-stage-pcap-analysis"></a>
+
+### PCAP Analysis — Systematic Methodology
+
+> [!IMPORTANT]
+> **Why This Exists Here:** PCAP analysis is referenced as a prerequisite or required skill in Phase 2 (Part 9 Sniffing/Spoofing), Phase 3 (network forensics), Phase 5 (wireless attacks), and Phase 7 (DFIR network forensics) — but is never taught as a standalone systematic skill anywhere. This stage fills that gap. After completing this stage, you will be able to approach any PCAP file with a structured methodology rather than random scrolling.
+
+_Purpose: Develop a repeatable, professional workflow for capturing, filtering, dissecting, and documenting network evidence from PCAP files. This is one of the most high-leverage skills in both offensive (recon, credential capture, MITM validation) and defensive (incident response, network forensics) security._
+
+**Wireshark Fundamentals:**
+
+- [ ] **Display Filter Syntax (BPF vs Wireshark):** Understand that Wireshark uses its own display filter language separate from BPF (Berkeley Packet Filter) capture filters. Key display filters:
+  - `ip.addr == 192.168.1.1` — filter by IP
+  - `tcp.port == 443` — filter by port
+  - `http.request.method == "POST"` — filter by HTTP method
+  - `dns.qry.name contains "evil"` — substring match in DNS query
+  - `!(arp or dns or icmp)` — exclude noisy broadcast traffic
+  - `tcp.flags.syn == 1 && tcp.flags.ack == 0` — show only SYN packets (new connections)
+  - `frame.time_delta > 3` — show frames with >3 second gap (detect timeouts/retransmits)
+  - `tls.handshake.type == 1` — show TLS ClientHello
+  - `smb2 || ntlmssp` — catch SMB/NTLM traffic
+  - `http.authheader || ftp.request.command == "PASS"` — catch cleartext credentials
+
+- [ ] **Capture Filters (tcpdump/tshark):** Use BPF syntax at capture time to reduce file size:
+  - `tcpdump -i eth0 -w capture.pcap` — capture all traffic
+  - `tcpdump -i eth0 port 80 or port 443 -w web.pcap` — web traffic only
+  - `tcpdump -i eth0 host 192.168.1.100 -w target.pcap` — single host
+  - `tcpdump -i eth0 not arp -w noarp.pcap` — exclude ARP noise
+
+- [ ] **Tshark (Command-Line Wireshark):** Use `tshark` for scripting and automation:
+  - `tshark -r file.pcap -T fields -e ip.src -e ip.dst -e tcp.dstport` — extract fields as CSV
+  - `tshark -r file.pcap -Y "http.request.method==POST" -T fields -e http.file_data` — extract POST bodies
+  - `tshark -r file.pcap -z conv,tcp` — conversation statistics (who talked to whom)
+  - `tshark -r file.pcap -z io,phs` — protocol hierarchy statistics
+
+**Protocol Dissection:**
+
+- [ ] **TCP State Machine Analysis:** Understand every TCP flag combination and what it means in a capture:
+  - `SYN` — connection initiation
+  - `SYN-ACK` — server accepting connection
+  - `ACK` — acknowledgment
+  - `FIN` — graceful termination
+  - `RST` — abrupt rejection or termination
+  - `PSH` — push data immediately to application layer
+  - Know that a port is **open** if SYN receives SYN-ACK; **closed** if SYN receives RST; **filtered** if SYN gets no response (dropped by firewall)
+
+- [ ] **HTTP Analysis:** Use `File → Export Objects → HTTP` in Wireshark to extract transferred files. Inspect request/response headers. Look for: cleartext passwords in POST bodies, session cookies in Cookie/Set-Cookie headers, redirect chains, and 401/403 responses indicating authorization gates.
+
+- [ ] **DNS Analysis:** Follow DNS queries end-to-end — request to response. Identify: non-standard DNS servers (potential DNS hijack), high-volume DNS queries (potential data exfiltration via DNS), NX-domain responses (C2 DGA detection), and unusual record types (TXT records used for exfil).
+
+- [ ] **TLS/HTTPS Analysis:** A TLS-encrypted session cannot be decrypted without keys — but the handshake is visible. From the handshake, extract:
+  - **SNI (Server Name Indication)** — hostname the client is connecting to (visible in ClientHello even for HTTPS)
+  - **Certificate Subject/SAN** — who the server claims to be
+  - **Cipher suite negotiated** — check for weak ciphers (RC4, DES, TLS 1.0/1.1)
+  - **JA3 fingerprint** — client TLS fingerprint for client identification
+  - **JA3S fingerprint** — server TLS fingerprint for server/malware identification
+  - Filter: `tls.handshake.type == 1` for all ClientHellos; `ssl.handshake.certificate` for certificate chain
+
+- [ ] **SMB/NTLM Analysis:** `smb2.cmd == 0x0003` (SMB Tree Connect), `ntlmssp` (NTLM auth), `smb2.filename` (files accessed). Capture and extract NetNTLMv2 challenge-response for offline cracking using `smb2` filter and `Responder`.
+
+- [ ] **ARP Analysis:** `arp.opcode == 2` (ARP replies) — look for multiple replies to the same request (ARP spoofing indicator), gratuitous ARP (IP claiming), or ARP requests for gateway from unexpected sources.
+
+**PCAP Workflow for Security Analysis:**
+
+- [ ] **Step 1 — Protocol Hierarchy Statistics:** First view is always `Statistics → Protocol Hierarchy` — understand what protocols are present and in what proportion. Unexpected protocols (IRC, BitTorrent, non-standard ports) are the first anomaly signal.
+
+- [ ] **Step 2 — Conversation Map:** `Statistics → Conversations` (TCP tab) — identify the top talkers and most active connections by byte volume and duration. Beaconing C2 traffic will often appear as many small connections at regular intervals.
+
+- [ ] **Step 3 — Export Credentials:** For cleartext protocols (HTTP POST with `password`, FTP PASS, SMTP AUTH, LDAP bind), use `tshark` field extraction or Wireshark's search to pull credential material.
+
+- [ ] **Step 4 — File Extraction:** `File → Export Objects` — extract HTTP/FTP/SMB objects (executables, scripts, documents) transferred in the capture for further analysis.
+
+- [ ] **Step 5 — Timeline Reconstruction:** Sort by time; identify the first connection, first DNS query, first executable download, first outbound beacon. Build a timeline connecting cause and effect.
+
+- [ ] **Step 6 — IOC Documentation:** For every anomaly found, document: timestamp, source IP:port, destination IP:port, protocol, finding summary, and recommendation. This is your network forensics artifact.
+
+**PCAP Lab Progression:**
+
+> [!NOTE]
+> Complete all 10 PCAP exercises below. These become the 10 named `.pcap` deliverables required for the **Networking Packet Proof** gate earlier in this phase.
+
+| #   | Capture Scenario                               | Primary Filter              | Deliverable                                    |
+| --- | ---------------------------------------------- | --------------------------- | ---------------------------------------------- |
+| 1   | ARP request/reply cycle                        | `arp`                       | Annotated ARP exchange explanation             |
+| 2   | DNS query + response (A record and NXDOMAIN)   | `dns`                       | Annotated DNS exchange + negative response     |
+| 3   | TCP 3-way handshake + FIN/RST                  | `tcp.flags`                 | TCP state diagram with timestamps              |
+| 4   | TLS handshake (ClientHello → Finished)         | `tls.handshake`             | SNI, cipher suite, certificate chain extracted |
+| 5   | HTTP GET request + 200 response with body      | `http`                      | HTTP header analysis + object export           |
+| 6   | HTTP POST with form data (credentials visible) | `http.request.method==POST` | Credential extraction writeup                  |
+| 7   | ICMP ping sweep + traceroute                   | `icmp`                      | Network path reconstruction                    |
+| 8   | DHCP DORA (Discover/Offer/Request/Acknowledge) | `bootp`                     | DORA sequence diagram                          |
+| 9   | NAT in action (pre/post translation addresses) | `ip.addr`                   | Before/after NAT IP comparison                 |
+| 10  | Firewall drop (no response to SYN)             | `tcp.flags.syn==1`          | Open vs filtered vs closed port evidence       |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can open any unknown PCAP file and within 5 minutes identify: the top protocols present, the most active conversations, whether cleartext credentials are visible, and whether any anomalous patterns exist. You can write a 1-page network event summary from a PCAP without assistance.
+
+---
+
 <a id="toc-part-3-cryptography"></a>
 <a id="part-3-cryptography"></a>
 
@@ -1971,6 +2577,209 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 ---
 
+<a id="toc-part-3b-authentication-standards-primer"></a>
+<a id="part-3b-authentication-standards-primer"></a>
+
+## Part 3B: Authentication Standards Primer
+
+> [!IMPORTANT]
+> **Why This Exists Here:** Parts 8, 12, 19, and 23 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before you hit the attack techniques. Deep exploitation and protocol abuse are covered in Part 19 (API Security, Phase 4) and Part 23 (Entra ID, Phase 6). This Part is concepts only.
+
+_Purpose: Understand how modern applications establish and maintain identity. Understand what tokens ARE, how they are issued, and how they are validated — before you learn to forge or steal them._
+
+<a id="auth-primer-stage-1-session-based-auth"></a>
+
+### **Stage 1: Session-Based Authentication**
+
+> [!TIP]
+> **Goal:** Understand the original web identity model — the one most legacy applications still use.
+
+- [ ] **How Sessions Work:** Understand the full lifecycle: user submits credentials → server validates → server creates session record in database or memory → server sets a `Set-Cookie: session_id=...` response header → browser stores and resends cookie on every subsequent request → server looks up session_id to identify user.
+
+- [ ] **Session ID Properties:** Know that secure session IDs must be **cryptographically random (≥128 bits), opaque (no encoded data), short-lived, invalidated on logout and privilege change**, and transmitted only over TLS.
+
+- [ ] **Cookie Security Attributes:** Master all five:
+  - `HttpOnly` — prevents JavaScript access (mitigates XSS theft)
+  - `Secure` — transmits only over HTTPS
+  - `SameSite=Strict/Lax/None` — controls cross-site sending (mitigates CSRF)
+  - `Domain` and `Path` — scoping controls
+  - `Expires` / `Max-Age` — persistence vs session cookie
+
+- [ ] **Session Fixation vs Session Hijacking:** Understand the difference:
+  - **Fixation:** Attacker sets the session ID before authentication; victim authenticates and server doesn't rotate the session ID
+  - **Hijacking:** Attacker steals an existing valid session ID post-authentication (via XSS, network interception, etc.)
+
+- [ ] **Common Weaknesses:** Sequential/predictable IDs, server-side session stores without TTL, session not invalidated on logout, session not rotated on privilege change, session transmitted over HTTP.
+
+---
+
+<a id="auth-primer-stage-2-token-based-auth"></a>
+
+### **Stage 2: Token-Based Authentication & JWT**
+
+> [!TIP]
+> **Goal:** Understand stateless authentication tokens — how they are structured, signed, validated, and abused.
+
+- [ ] **Why Tokens:** Understand the architectural motivation — stateless APIs cannot use server-side session stores; the client must carry all identity information in a signed token.
+
+- [ ] **JWT Structure:** Understand the three parts of a JSON Web Token (`Header.Payload.Signature`):
+  - **Header:** `{"alg": "RS256", "typ": "JWT"}` — declares the signing algorithm
+  - **Payload:** Claims — `{"sub": "user123", "iss": "https://auth.example.com", "exp": 1729000000, "roles": ["admin"]}` — user identity + permissions
+  - **Signature:** Cryptographic proof that the header and payload were not modified after issuance
+  - All three parts are **Base64Url-encoded** (not encrypted by default — the payload is readable by anyone)
+
+- [ ] **JWT Validation:** Understand what a correct recipient must verify:
+  1. Signature is valid using the expected key
+  2. Algorithm matches expected (`alg` header cannot be trusted at face value)
+  3. Issuer (`iss`) matches expected
+  4. Audience (`aud`) includes the current service
+  5. Token is not expired (`exp`)
+  6. Token is not used before `nbf` (not-before)
+
+- [ ] **JWT Signing Algorithms:** Know the difference:
+  - **HS256/HS512 (HMAC):** Symmetric — same secret used to sign and verify; both parties share the secret
+  - **RS256/RS512 (RSA) / ES256 (ECDSA):** Asymmetric — private key signs, public key verifies; parties only share the public key
+
+- [ ] **JWT Common Weaknesses (Awareness):** Know these exist — exploitation is in Part 19:
+  - `alg: none` attack — token with no signature accepted if library doesn't enforce algorithm
+  - RS256→HS256 confusion — attacker signs with the public key (treated as HMAC secret)
+  - Weak secret brute-forcing — HMAC secrets guessable offline
+  - Missing audience/issuer validation — token accepted by unintended service
+
+- [ ] **Opaque Tokens vs JWTs:** Understand that many systems use **opaque tokens** (random strings that reference a server-side record) rather than self-contained JWTs. Know that introspection is required to validate opaque tokens. Know the trade-offs: JWTs are stateless and fast but cannot be revoked without a denylist; opaque tokens require a round-trip but can be instantly invalidated.
+
+---
+
+<a id="auth-primer-stage-3-oauth2"></a>
+
+### **Stage 3: OAuth 2.0 — Delegated Authorization**
+
+> [!TIP]
+> **Goal:** Understand what OAuth is, what problem it solves, and how the authorization code flow works — before you attack it in Phase 4.
+
+- [ ] **OAuth 2.0 Purpose:** Understand that OAuth 2.0 is an **authorization delegation framework** — it allows a user to grant an application (the client) access to a resource (e.g., their Google Drive) without sharing their password. The user delegates a limited set of permissions (scopes).
+
+- [ ] **Roles:** Know the four OAuth actors:
+  - **Resource Owner:** The user who owns the data and can grant permission
+  - **Client:** The application requesting access (e.g., a third-party app)
+  - **Authorization Server (AS):** Issues tokens after verifying the user's consent (e.g., Google Identity, Azure AD, Okta)
+  - **Resource Server:** Holds the protected resource (e.g., Google Drive API); validates access tokens
+
+- [ ] **Authorization Code Flow (Primary Flow):** Trace each step:
+  1. Client redirects user to AS with `response_type=code`, `client_id`, `redirect_uri`, `scope`, `state` (CSRF protection)
+  2. User authenticates at the AS and grants consent
+  3. AS redirects user back to `redirect_uri` with an authorization `code`
+  4. Client exchanges code for tokens via a **back-channel server-to-server POST** to the AS `/token` endpoint, including `client_secret`
+  5. AS responds with `access_token`, optionally `refresh_token`, and optionally `id_token` (if OIDC)
+  6. Client uses `access_token` (Bearer header) to call the Resource Server
+
+- [ ] **PKCE Extension (Proof Key for Code Exchange):** Understand that PKCE replaces `client_secret` for public clients (mobile apps, SPAs) that cannot securely store secrets. A `code_verifier` is generated; its hash (`code_challenge`) is sent with the initial request; the verifier is sent at exchange time. This prevents authorization code interception attacks.
+
+- [ ] **Common OAuth Flows (Awareness):**
+  - **Client Credentials:** Machine-to-machine authentication; no user involvement; client authenticates with its own ID and secret
+  - **Device Code:** For devices without a browser (Smart TVs, CLI tools); user authorizes on a secondary device — this flow is abused in Device Code phishing
+  - **Implicit Flow (Deprecated):** Access token returned directly in URL fragment; do not use; tokens exposed in browser history and referrer headers
+
+- [ ] **OAuth Scopes:** Understand that scopes limit what the access token can do (e.g., `read:email`, `offline_access`, `openid`). Understand that `offline_access` grants a refresh token (persistent access). Know that consent screens show scopes — and that users routinely ignore them.
+
+- [ ] **State Parameter:** Understand that the `state` parameter is an anti-CSRF mechanism — the client generates it, the AS reflects it back, and the client verifies it matches before accepting the code. Missing or predictable `state` is exploitable.
+
+---
+
+<a id="auth-primer-stage-4-oidc"></a>
+
+### **Stage 4: OpenID Connect (OIDC) — Federated Identity**
+
+> [!TIP]
+> **Goal:** Understand how OIDC extends OAuth 2.0 to provide authentication (identity), not just authorization.
+
+- [ ] **OIDC vs OAuth 2.0:** Understand the critical distinction:
+  - **OAuth 2.0** answers: _"Can this application access this resource on your behalf?"_ — it is about authorization
+  - **OIDC** answers: _"Who is this user?"_ — it adds an authentication layer on top of OAuth 2.0
+  - OIDC adds the `openid` scope, the **ID Token** (a JWT containing user identity claims), and the `/userinfo` endpoint
+
+- [ ] **ID Token Claims:** Know the standard OIDC claims in the ID token:
+  - `sub` — subject identifier (user's unique ID at the IdP)
+  - `iss` — issuer (the Identity Provider's URL)
+  - `aud` — audience (the client_id of the requesting application)
+  - `exp` — expiration time
+  - `iat` — issued at time
+  - `nonce` — replay attack protection (client-generated, validated by client after receiving token)
+
+- [ ] **Identity Provider (IdP) Discovery:** Understand the `/.well-known/openid-configuration` endpoint — a JSON document advertising all AS endpoints, supported algorithms, and public keys (JWKS URI). This is the first target in an OIDC reconnaissance.
+
+- [ ] **Single Sign-On (SSO) Model:** Understand that OIDC enables SSO — a user authenticates once at the IdP (e.g., Azure AD, Google, Okta) and can access multiple applications (relying parties) without re-entering credentials. Understand how session management at the IdP level works (IdP session vs application session).
+
+- [ ] **SAML vs OIDC:** Know that SAML (Security Assertion Markup Language) is the older XML-based SSO standard used in enterprise environments (Okta, ADFS). OIDC is the modern JSON/REST equivalent. Both are SSO protocols. Both are abused in different ways (SAML Response forgery vs JWT attacks).
+
+---
+
+<a id="auth-primer-stage-5-api-auth-patterns"></a>
+
+### **Stage 5: API Authentication Patterns**
+
+> [!TIP]
+> **Goal:** Identify how different API authentication mechanisms work and where each fails.
+
+- [ ] **API Keys:** Random strings passed in headers (`X-API-Key: ...`) or query parameters. Understand that API keys are **not user-authenticated** — they authenticate the application, not the person. Understand risks: keys embedded in client-side JS, mobile app binaries, or public Git repositories.
+
+- [ ] **Basic Authentication:** Base64-encoded `username:password` in the `Authorization: Basic ...` header. Understand that Base64 is not encryption — the credentials are trivially decoded. Only safe over TLS. Legacy — avoid in modern APIs.
+
+- [ ] **Bearer Tokens:** Tokens (JWTs or opaque) passed in `Authorization: Bearer <token>`. The server trusts whoever holds the token — no additional proof of identity required. Understand the implication: a stolen Bearer token is as good as the user's credentials for its lifetime.
+
+- [ ] **mTLS (Mutual TLS):** Client presents a certificate alongside the standard TLS handshake. The server validates the client certificate. Used in service-to-service APIs where both parties must prove identity. High-security, complex to operate.
+
+- [ ] **Service Account Keys vs OIDC Workload Identity:** Understand that cloud service accounts can authenticate via static key files (risky — key can be stolen from disk, memory, or source) or via workload identity federation (ephemeral tokens, no long-lived secrets). Understand why static service account keys are a critical finding in cloud security assessments.
+
+---
+
+<a id="auth-primer-stage-6-mfa-types"></a>
+
+### **Stage 6: Multi-Factor Authentication (MFA) Types & Weaknesses**
+
+> [!TIP]
+> **Goal:** Understand MFA mechanisms and their security properties before encountering MFA bypass attacks.
+
+- [ ] **MFA Factors:** Understand the three categories:
+  - **Something you know:** Password, PIN, security question
+  - **Something you have:** TOTP app (Authenticator), hardware key (YubiKey, FIDO2), SMS OTP, email OTP
+  - **Something you are:** Biometrics (fingerprint, FaceID, iris scan)
+
+- [ ] **TOTP (Time-Based One-Time Password):** Understand RFC 6238 — a shared secret + current 30-second time window is hashed (HMAC-SHA1) to generate a 6-digit code. Know that TOTP codes are **phishable** — an attacker can relay them in real time (AiTM attack). Know that TOTP is defeated by phishing proxies like Evilginx2/Modlishka.
+
+- [ ] **FIDO2 / WebAuthn / Passkeys:** Understand that hardware keys and passkeys are **phishing-resistant** — they cryptographically bind the credential to the origin domain. An attacker who proxies the user to a fake domain cannot steal the FIDO2 assertion because the origin check fails. Understand why FIDO2/Passkeys are the only form of MFA that defeats AiTM phishing.
+
+- [ ] **SMS OTP Weaknesses:** Understand that SMS is the weakest MFA:
+  - SIM swapping — attacker social-engineers carrier into porting number
+  - SS7 interception — telecom-level attack redirecting SMS
+  - OTP phishing — user is tricked into reading the code to an attacker
+  - Malware — SMS stealer apps on Android
+
+- [ ] **MFA Fatigue (Push Bombing):** Understand that push-based MFA (Authenticator app showing Approve/Deny) is defeated by repeatedly sending push notifications until the user approves to stop the alerts. Mitigated by number matching (app asks user to match number from screen to push notification).
+
+> [!NOTE]
+> **Cross-Reference:** MFA bypass attacks (Evilginx2, push bombing, device code phishing) are covered in **Part 7 Stage 1** (System Hacking), **Part 8 Stage 6** (Cloud Weaponization), and **Part 23** (Entra ID MFA conditional access bypass). The mechanism explains above make those attack descriptions immediately actionable.
+
+<a id="auth-primer-lab-progression"></a>
+
+### **Lab Progression (Part 3B: Authentication Standards)**
+
+| Level | Task                                                                                                                                                | Deliverable                                     |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 1     | Decode a JWT from any login response using jwt.io — identify all claims and algorithm                                                               | Annotated JWT breakdown document                |
+| 2     | Set up a local OAuth 2.0 lab using Keycloak — complete the Authorization Code flow and capture every HTTP exchange                                  | HTTP exchange log with step-by-step annotations |
+| 3     | Configure a TOTP-enabled account; extract the TOTP secret; simulate OTP theft in a lab MFA relay scenario                                           | Lab notes documenting the attack surface        |
+| 4     | Generate and examine an ID token — verify issuer, audience, expiry, and signature using the JWKS URI                                                | Validation script + analysis notes              |
+| 5     | Build a local Flask API secured with JWT — intentionally break it three ways (alg:none, expired token accepted, weak HMAC secret) and document each | Broken API code + analysis report               |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can explain the difference between a session cookie, an opaque access token, and a JWT. You can trace the OAuth 2.0 Authorization Code flow step-by-step. You can decode a JWT and identify what is and is not protected. You can explain why FIDO2 defeats phishing but TOTP does not.
+
+> [!TIP]
+> **Next Step — Theory to Practice:** Part 3B is the concepts layer. **Part 4 Stage 2** is where you apply these concepts live: intercepting session cookies in Burp Suite, analyzing JWT security attributes, and testing cookie flags against OWASP Juice Shop. Complete Part 3B first, then Part 4 will feel like applying knowledge you already have rather than learning new material.
+
+---
+
 ### 🏆 Phase 1 Capstone Project
 
 **Build a Small Enterprise Lab and Document the Full Architecture**
@@ -2010,16 +2819,20 @@ Using your virtualization platform, build a lab environment containing:
 
 <a id="toc-part-4-footprinting-and-reconnaissance"></a>
 
-<a id="part-4-web-technology-fundamentals"></a>
+<a id="part-3c-web-technology-fundamentals"></a>
 
-## Part 4: Web Technology Fundamentals
+## Part 3C: Web Technology Fundamentals
 
 > [!IMPORTANT]
 > **Why This Exists Here:** Phase 2 teaches session hijacking (Part 12), sniffing HTTP credentials (Part 9), and social engineering via web-based pretexting (Part 10) — all before Phase 4 introduces web applications. You cannot understand session hijacking without first understanding what a session IS. This Part bridges that gap. Complete it before proceeding to Phase 2.
 
+> [!NOTE]
+> **Prerequisite: Part 3B Required for Stage 2.** Part 4 Stage 2 (Cookies, Sessions & Tokens) applies the concepts taught in Part 3B (Authentication Standards Primer). If you skipped Part 3B, return to it before starting Stage 2 — the cookie security attributes, session fixation mechanics, and JWT structure will make no sense without that foundation. Part 3B is theory; Part 4 Stage 2 is the hands-on application of that theory in Burp Suite against live targets.
+
 _Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the "what is being attacked" context that makes Phase 2 make sense._
 
 <a id="stage-1-http-the-protocol-of-the-web"></a>
+
 ### **Stage 1: HTTP — The Protocol of the Web**
 
 > [!TIP]
@@ -2053,6 +2866,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 ---
 
 <a id="stage-2-cookies-sessions-tokens"></a>
+
 ### **Stage 2: Cookies, Sessions & Tokens**
 
 > [!TIP]
@@ -2096,14 +2910,15 @@ _Understand the web from the ground up — how browsers communicate with servers
 ---
 
 <a id="stage-3-same-origin-policy-cors-web-security-headers"></a>
+
 ### **Stage 3: Same-Origin Policy, CORS & Web Security Headers**
 
 > [!TIP]
 > **Goal:** Understand the browser's core security boundary — and why attackers work so hard to bypass it.
 
 - [ ] **Same-Origin Policy (SOP):** The SOP is the browser's foundational security boundary. It prevents JavaScript from one origin reading responses from a different origin. An **origin** is defined as: `scheme + hostname + port` (e.g., `https://example.com:443`). Any difference = different origin.
-  - SOP **allows** cross-origin *requests* to be sent (e.g., forms, image loads)
-  - SOP **blocks** JavaScript from *reading* cross-origin responses
+  - SOP **allows** cross-origin _requests_ to be sent (e.g., forms, image loads)
+  - SOP **blocks** JavaScript from _reading_ cross-origin responses
   - **Impact:** Without SOP, a malicious site could read your banking portal's response using your session cookie
 
 - [ ] **Cross-Origin Resource Sharing (CORS):** CORS is a server-side mechanism that **relaxes SOP** for specific trusted origins. Understand:
@@ -2115,14 +2930,14 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 - [ ] **Security Response Headers:** Know what each header does and how its absence creates vulnerabilities:
 
-  | Header | Purpose | Missing = Risk |
-  |--------|---------|----------------|
-  | `Content-Security-Policy (CSP)` | Restricts which scripts can execute | XSS attacks succeed |
-  | `X-Frame-Options: DENY` | Prevents iframe embedding | Clickjacking attacks |
-  | `Strict-Transport-Security (HSTS)` | Forces HTTPS | SSL stripping MITM |
-  | `X-Content-Type-Options: nosniff` | Prevents MIME sniffing | Content injection |
-  | `Referrer-Policy` | Controls Referer header leakage | URL parameter leakage |
-  | `Permissions-Policy` | Restricts browser API access | Fingerprinting, camera abuse |
+  | Header                             | Purpose                             | Missing = Risk               |
+  | ---------------------------------- | ----------------------------------- | ---------------------------- |
+  | `Content-Security-Policy (CSP)`    | Restricts which scripts can execute | XSS attacks succeed          |
+  | `X-Frame-Options: DENY`            | Prevents iframe embedding           | Clickjacking attacks         |
+  | `Strict-Transport-Security (HSTS)` | Forces HTTPS                        | SSL stripping MITM           |
+  | `X-Content-Type-Options: nosniff`  | Prevents MIME sniffing              | Content injection            |
+  | `Referrer-Policy`                  | Controls Referer header leakage     | URL parameter leakage        |
+  | `Permissions-Policy`               | Restricts browser API access        | Fingerprinting, camera abuse |
 
 - [ ] **CSP Deep-Dive:** Content Security Policy is the most powerful XSS defense available. Know:
   - `default-src 'self'` — only load resources from same origin
@@ -2133,6 +2948,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 ---
 
 <a id="stage-4-web-authentication-patterns"></a>
+
 ### **Stage 4: Web Authentication Patterns**
 
 > [!TIP]
@@ -2164,6 +2980,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 ---
 
 <a id="stage-5-rest-apis-json-modern-web-architecture"></a>
+
 ### **Stage 5: REST APIs, JSON & Modern Web Architecture**
 
 > [!TIP]
@@ -2196,20 +3013,21 @@ _Understand the web from the ground up — how browsers communicate with servers
 ---
 
 <a id="lab-progression-web-technology-fundamentals"></a>
-### **Lab Progression (Part 4: Web Technology Fundamentals)**
+
+### **Lab Progression (Part 3C: Web Technology Fundamentals)**
 
 > [!TIP]
 > **Goal:** Build practical web layer familiarity before any offensive work begins.
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Install Burp Suite Community; configure browser proxy; capture 10 different HTTP requests from real websites and annotate each request/response with method, headers, status code, and body | Annotated HTTP capture log in Markdown |
-| 2 | Using Burp Repeater, manually modify a cookie value and observe the server response; replay a GET request as a POST and document the difference | Lab notes with screenshots showing request modification |
-| 3 | Set up OWASP Juice Shop (Docker); use browser DevTools to inspect session cookies; identify HttpOnly/Secure/SameSite flags on each cookie; document what each flag's absence allows | Cookie security analysis report |
-| 4 | Write a Python script using the `requests` library that: logs into Juice Shop, captures the session cookie, and makes an authenticated API call to retrieve a resource | Working Python script committed to Git |
-| 5 | Using Burp, capture a JWT from Juice Shop; decode the payload (base64); document what claims it contains; attempt the `alg: none` bypass and document whether it succeeds | JWT analysis notes with decoded payload and bypass attempt |
+| Level | Task                                                                                                                                                                                        | Deliverable                                                |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 1     | Install Burp Suite Community; configure browser proxy; capture 10 different HTTP requests from real websites and annotate each request/response with method, headers, status code, and body | Annotated HTTP capture log in Markdown                     |
+| 2     | Using Burp Repeater, manually modify a cookie value and observe the server response; replay a GET request as a POST and document the difference                                             | Lab notes with screenshots showing request modification    |
+| 3     | Set up OWASP Juice Shop (Docker); use browser DevTools to inspect session cookies; identify HttpOnly/Secure/SameSite flags on each cookie; document what each flag's absence allows         | Cookie security analysis report                            |
+| 4     | Write a Python script using the `requests` library that: logs into Juice Shop, captures the session cookie, and makes an authenticated API call to retrieve a resource                      | Working Python script committed to Git                     |
+| 5     | Using Burp, capture a JWT from Juice Shop; decode the payload (base64); document what claims it contains; attempt the `alg: none` bypass and document whether it succeeds                   | JWT analysis notes with decoded payload and bypass attempt |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 4):** You can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Phase 2 when you can explain WHY session hijacking works at the protocol level.
+> **Move-On Gate (Part 3C):** You can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Phase 2 when you can explain WHY session hijacking works at the protocol level.
 
 ---

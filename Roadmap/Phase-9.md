@@ -1,7 +1,7 @@
-# Phase 9: Operations & Career
+# Phase 9: AI Security
 
 > [!IMPORTANT]
-> **Sequencing Advisory:** This phase (Phase 9) covers Red Team Operations & Tradecraft and Career Portfolio — previously labeled Phase 10. It has been moved here because **Phase 10 (AI Security)** requires C2 framework knowledge, OPSEC tradecraft, and red team operational maturity that can only be built by completing this phase first. Complete Phase 9 before attempting Phase 10.
+> **Sequencing Advisory:** This phase (Phase 9) covers AI & LLM Red Teaming — the full offensive and defensive AI security domain. It requires completion of Phases 1–8 (traditional security foundations, offensive core, web security, infrastructure, and advanced specializations) before attempting. Phase 10 (Operations & Career) builds on the portfolio of work produced across all prior phases. Complete Phase 9 before attempting Phase 10.
 
 ---
 
@@ -12,30 +12,34 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 2–3 months
-> - **⏱️ Time Commitment (Part-Time):** 3–5 months
-> - **🎯 Primary Focus:** Penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing), red team operations & tradecraft, and building an unfakeable proof-of-work portfolio.
+> - **⏱️ Time Commitment (Full-Time):** 3–5 months
+> - **⏱️ Time Commitment (Part-Time):** 5–8 months
+> - **🎯 Primary Focus:** Layer AI system knowledge on top of mastered traditional security skills. Cover transformer architecture, context windows, temperature/sampling, RAG pipelines, OWASP LLM Top 10, prompt injection, RAG poisoning, adversarial ML, model extraction, dataset backdoors, shadow AI prevention, and defensive AI operations. Build and publish AI security tools and research.
 
 ---
 
 > [!NOTE]
 > ### 📝 Phase 9 Documentation Requirements
-> This is the final assembly phase. Required artifacts:
-> - **Professional pentest reports** — 3 reports with multi-audience executive summaries
-> - **Red team operation documentation** — C2 setup, campaign timeline, operator notes
-> - **Portfolio README** — curated GitHub profile with project descriptions and links
-> - **Blog posts** — 5+ published technical writeups
-> - **Git commits** — final portfolio curation and publication
+> AI security research must be documented with reproducible methodology. Required artifacts:
+> - **Prompt injection payload library** — categorized library of tested payloads with success/failure notes
+> - **RAG attack documentation** — poisoning methodology, injected documents, impact evidence
+> - **AI tool README + architecture diagrams** — for every tool you build
+> - **Research writeups** — methodology, findings, and defensive recommendations
+> - **Git commits** — all payloads, tools, and research committed
 >
-> _Phase 9 is where all prior documentation is polished, curated, and published. Phase 10 (AI Security) builds on top of this operational foundation._
+> _By the end of Phase 9, your repository should contain an AI security toolkit and published research. This builds on your traditional security portfolio from Phases 1–8 and feeds directly into the Phase 10 career portfolio._
 
 ---
 
 ### 🗂️ Table of Contents
 - [Part 38: AI & LLM Red Teaming](#part-38-ai-llm-red-teaming)
+
+  **Cluster 1: Foundations (Stages 1–3)** — *Complete before Cluster 2*
   - [Stage 1: AI Fundamentals for Security Practitioners](#stage-1-ai-fundamentals-for-security-practitioners)
   - [Stage 2: Attack Surface & Frameworks](#stage-2-attack-surface-frameworks)
   - [Stage 3: Adversarial Techniques (LLM01/LLM06)](#stage-3-adversarial-techniques-llm01llm06)
+
+  **Cluster 2: Advanced LLM Attacks (Stages 4–10)** — *Requires Cluster 1 gate + Python ML prerequisite*
   - [Stage 4: RAG & Data Supply Chain Attacks](#stage-4-rag-data-supply-chain-attacks)
   - [Stage 5: Language Model Specific Attacks](#stage-5-language-model-specific-attacks)
   - [Stage 6: Multi-Model & Agent Attacks](#stage-6-multi-model-agent-attacks)
@@ -43,6 +47,8 @@
   - [Stage 8: Model Extraction & Inversion](#stage-8-model-extraction-inversion)
   - [Stage 9: Dataset Poisoning & Backdoors](#stage-9-dataset-poisoning-backdoors)
   - [Stage 10: Privacy Attacks & PII Leakage](#stage-10-privacy-attacks-pii-leakage)
+
+  **Cluster 3: Operational & Defensive AI (Stages 11–18)** — *Requires Cluster 2 gate*
   - [Stage 11: AI-Augmented Red Team Workflow](#stage-11-ai-augmented-red-team-workflow)
   - [Stage 12: Agentic AI & Autonomous Attack Infrastructure](#stage-12-agentic-ai-autonomous-attack-infrastructure)
   - [Stage 13: Tooling & Evaluation](#stage-13-tooling-evaluation)
@@ -110,6 +116,20 @@
 - [ ] **Prompt Injection:** Deliver **in-band and out-of-band injections** via user input, files, and linked resources to override system prompts.
 
 ---
+
+> [!IMPORTANT]
+> **Cluster 1 Move-On Gate (Stages 1–3: Foundations):** Before proceeding to Cluster 2, verify:
+> - [ ] You can explain the Transformer architecture at a mechanistic level — attention heads, tokenization, context windows, and how temperature affects exploitability
+> - [ ] You can execute 3 distinct prompt injection techniques (direct, indirect, multi-turn) against a live API and explain exactly why each one works at the prompt-processing level
+> - [ ] You have tested at least 2 OWASP LLM Top 10 categories (LLM01 Prompt Injection, LLM02 Sensitive Info Disclosure) against a lab model (local Ollama, OpenAI API, or sandbox LLM)
+> - [ ] You have built at least 1 Python script using an LLM API (OpenAI/Anthropic/Gemini) for a security task (payload generation, recon summarization, or report drafting)
+
+> [!IMPORTANT]
+> **Cluster 2 Python ML Prerequisite Check:** Stages 7–10 (Adversarial Examples, Model Extraction, Dataset Poisoning, Privacy Attacks) require practical Python ML skills. Before starting Stage 7:
+> - [ ] You are comfortable with `numpy` array manipulation, `pandas` DataFrames, and `matplotlib` for data visualization
+> - [ ] You understand what a neural network forward pass does (input → weights → activation → output) and what a loss function measures
+> - [ ] You can run a pre-trained `scikit-learn` or `PyTorch` model and inspect its predictions
+> - [ ] If you cannot meet these prerequisites: complete fast.ai Part 1 (Practical Deep Learning for Coders) or Andrew Ng's Machine Learning Specialization (Coursera) before Stage 7 — do not skip this
 
 <a id="stage-4-rag-data-supply-chain-attacks"></a>
 ### **Stage 4: RAG & Data Supply Chain Attacks**
@@ -231,6 +251,14 @@
 
 ---
 
+> [!IMPORTANT]
+> **Cluster 2 Move-On Gate (Stages 4–10: Advanced LLM Attacks):** Before proceeding to Cluster 3, verify:
+> - [ ] You have poisoned a local RAG system (e.g., LangChain + Chroma/FAISS) with a malicious document and demonstrated that the injected content appears in model responses triggered by specific queries
+> - [ ] You have used CleverHans, Foolbox, or ART to generate at least 1 adversarial example that causes model misclassification — and you can explain why the perturbation works
+> - [ ] You understand the difference between model extraction (reconstructing behavior via API queries) and model inversion (reconstructing training data) and can name the tools used for each
+> - [ ] You have written a membership inference experiment: given a trained model and a set of examples, you can estimate which examples were in the training set using confidence scores
+> - [ ] You can explain how label flipping and backdoor attacks differ in mechanism, detectability, and defense
+
 <a id="stage-11-ai-augmented-red-team-workflow"></a>
 ### **Stage 11: AI-Augmented Red Team Workflow**
 
@@ -345,8 +373,16 @@
 
 ---
 
+> [!IMPORTANT]
+> **Cluster 3 Move-On Gate (Stages 11–16: Operational & Defensive AI):** Before proceeding to the portfolio/career stages (17–18), verify:
+> - [ ] You have used an AI tool (PentestGPT, AutoRecon + LLM, Burp AI plugin) to complete a real security task that would have taken you significantly longer manually — and you can explain exactly where the AI helped and where it failed
+> - [ ] You have built a working agentic pipeline (LangChain, CrewAI, or MCP-based) that executes at least 2 tool calls in sequence to complete a security research task autonomously
+> - [ ] You have deployed at least 1 defensive AI detection: a deepfake detection check, ML-enhanced log anomaly model, or AI phishing classifier — and you can measure its false positive rate against benign data
+> - [ ] You can explain 3 forensic artifacts that an LLM-powered attack campaign would leave behind (API call logs, embedding store queries, model version history) and describe how you would collect them during a DFIR engagement
+
 <a id="stage-17-ai-security-projects-portfolio"></a>
 ### **Stage 17: AI Security Projects & Portfolio**
+
 
 > [!TIP]
 > **Goal:** Prove production capability through real, complex, integrated AI-security projects.

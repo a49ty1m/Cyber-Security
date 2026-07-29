@@ -9,9 +9,9 @@
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 4–7 months
-> - **⏱️ Time Commitment (Part-Time):** 8–12 months
-> - **🎯 Primary Focus:** Digital forensics & incident response, reverse engineering & malware analysis, modern exploitation (heap/kernel/browser), hardware hacking & embedded systems, offensive development (shellcode, C2, process injection, AMSI/ETW bypass), physical pentesting, VoIP/SS7/5G telecom, and blockchain/Web3 smart contract auditing.
+> - **⏱️ Time Commitment (Full-Time):** 8–14 months (core: 6–10 months + optional specializations: 2–4 months each)
+> - **⏱️ Time Commitment (Part-Time):** 12–18 months
+> - **🎯 Primary Focus:** Offensive development & exploit primitives (shellcode, C2, AMSI/ETW bypass) — then digital forensics & incident response, reverse engineering & malware analysis, and modern exploitation (heap/kernel/browser). Plus optional specializations: hardware hacking, physical pentesting, VoIP/SS7/5G, and blockchain/Web3.
 
 ---
 
@@ -30,12 +30,25 @@
 
 ### 🗂️ Table of Contents
 
-**Core Advanced Modules**
+**Core Advanced Modules — Complete in This Order**
+
+> [!IMPORTANT]
+> **Required Sequence:** Complete Part 42 (Offensive Development) FIRST. Part 29 (Modern Exploitation) explicitly requires Part 42 as a prerequisite. Attempting Part 29 before Part 42 will leave critical gaps in shellcode writing, assembly, and exploit construction that cannot be filled by reading alone.
+
+- [Part 42: Offensive Development & Tooling](#part-42-offensive-development-tooling) *(Start here — required before Part 29)*
+  - [Stage 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
+  - [Stage 2: Windows Offensive Development](#stage-2-windows-offensive-development)
+  - [Stage 3: Linux Offensive Development](#stage-3-linux-offensive-development)
+  - [Stage 4: C2 & Implant Development](#stage-4-c2-implant-development)
+  - [Lab Progression (Part 42: Offensive Development & Tooling)](#lab-progression-part-42-offensive-development-tooling)
+
+  > **Numbering Note:** Part 42 is numbered non-sequentially. It lives here in Phase 7 because it is a Phase 7 prerequisite, not because it chronologically follows Part 41. Full malware engineering and custom C2 implant development belong after Part 28 (Malware Analysis) — see Part 8 (Phase 2) scope note.
+
 - [Part 27: Digital Forensics](#part-27-digital-forensics)
   - [Stage 1: Preparation & First Response](#stage-1-preparation-first-response)
   - [Stage 2: Evidence Analysis (The Deep Dive)](#stage-2-evidence-analysis-the-deep-dive)
-  - [Stage 3: Memory Forensics](#stage-3-memory-forensics)
-  - [Stage 4: Network Forensics](#stage-4-network-forensics)
+  - [Stage 3: Memory Forensics](#stage-3-memory-forensics) *(Intermediate Gate)*
+  - [Stage 4: Network Forensics](#stage-4-network-forensics) *(Intermediate Gate)*
   - [Stage 5: Cloud & Mobile Forensics](#stage-5-cloud-mobile-forensics)
   - [Stage 6: Advanced Analysis & Reporting](#stage-6-advanced-analysis-reporting)
   - [Stage 7: Legal & Reporting](#stage-7-legal-reporting)
@@ -47,19 +60,13 @@
   - [Stage 4: Malware Classification & Threat Intelligence](#stage-4-malware-classification-threat-intelligence)
   - [Stage 5: Advanced RE & Automation](#stage-5-advanced-re-automation)
   - [Lab Progression (Part 28: Reverse Engineering & Malware Analysis)](#lab-progression-part-28-reverse-engineering-malware-analysis)
-- [Part 29: Modern Exploitation](#part-29-modern-exploitation)
+- [Part 29: Modern Exploitation](#part-29-modern-exploitation) *(Requires Part 42 complete)*
   - [Stage 1: Recon, Triage & Tooling](#stage-1-recon-triage-tooling)
   - [Stage 2: Memory Exploitation (Userland)](#stage-2-memory-exploitation-userland)
   - [Stage 3: Advanced Targets](#stage-3-advanced-targets)
   - [Stage 4: Exploit Delivery & OPSEC](#stage-4-exploit-delivery-opsec)
   - [Stage 5: Post-Exploitation Hardening & Safety](#stage-5-post-exploitation-hardening-safety)
   - [Lab Progression (Part 29: Modern Exploitation)](#lab-progression-part-29-modern-exploitation)
-- [Part 42: Offensive Development & Tooling](#part-42-offensive-development-tooling)
-  - [Stage 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
-  - [Stage 2: Windows Offensive Development](#stage-2-windows-offensive-development)
-  - [Stage 3: Linux Offensive Development](#stage-3-linux-offensive-development)
-  - [Stage 4: C2 & Implant Development](#stage-4-c2-implant-development)
-  - [Lab Progression (Part 42: Offensive Development & Tooling)](#lab-progression-part-42-offensive-development-tooling)
 
 **Optional Specialization Modules**
 - [Part 30: Hardware Hacking & Embedded Systems [OPTIONAL SPECIALIZATION]](#part-30-hardware-hacking-embedded-systems-optional-specialization)
@@ -95,7 +102,7 @@
 ---
 
 > [!NOTE]
-> **Core vs Optional:** Complete Parts 27, 28, 29, and 42 for the core advanced-security path. Treat Parts 30, 32, 33, and 34 as specialization branches that add depth only when they match your career goal.
+> **Core vs Optional:** Complete Parts 42, 27, 28, and 29 (in that order) for the core advanced-security path. Part 42 is a hard prerequisite for Part 29. Treat Parts 30, 32, 33, and 34 as specialization branches — add them only when they align with your target career role. Each optional module adds 2–4 months of realistic lab time.
 
 ---
 
@@ -150,6 +157,11 @@
 
 - [ ] **Memory Timeline:** Extract **process creation times, loaded module timestamps, command history (consoles plugin)**, and **clipboard contents** to reconstruct attacker actions in volatile memory.
 
+- [ ] **Named Practice Targets:** Begin with the **[MemLabs](https://github.com/stuxnet999/MemLabs)** challenge series (github.com/stuxnet999/MemLabs) using Volatility 3. Complete Labs 1–3 before moving to CyberDefenders memory forensics challenges. MemLabs images have known solutions publicly available — attempt the analysis independently first, then compare your approach to the published writeup to identify gaps in your methodology.
+
+> [!IMPORTANT]
+> **Intermediate Gate — Memory Forensics:** Before proceeding to Stage 4 (Network Forensics), you must be able to: (1) acquire a memory image from a live or offline system using WinPMEM/LiME; (2) load it into Volatility 3 with the correct symbol table; (3) identify at least one suspicious process using pslist/pstree/malfind; (4) extract network connections and at least one credential artifact. If you cannot do these four things without referencing a tutorial step-by-step, repeat Stage 3 before continuing.
+
 ---
 
 <a id="stage-4-network-forensics"></a>
@@ -165,6 +177,9 @@
 - [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent strings, encrypted traffic to non-standard ports.
 
 - [ ] **TLS Forensics:** Analyze **JA3/JA4 fingerprints, certificate details, SNI values** to identify **malicious encrypted traffic** without decryption.
+
+> [!IMPORTANT]
+> **Intermediate Gate — Network Forensics:** Before proceeding to Stage 5 (Cloud & Mobile Forensics), you must be able to: (1) open a PCAP in Wireshark and apply protocol and string filters to isolate specific traffic; (2) identify at least one C2 beaconing pattern by regularity of interval connections; (3) reconstruct a file transfer or credential from a cleartext protocol capture; (4) identify DNS tunneling indicators from query patterns. Run Lab Level 4 (PCAP analysis for C2 and exfiltration) before moving on.
 
 ---
 
@@ -277,6 +292,9 @@
 - [ ] **Memory Forensics During Execution:** Dump **process memory** with **Volatility, procdump** to find **decrypted payloads, injected code, unpacked stages** that only exist in RAM.
 
 - [ ] **Network Traffic Analysis:** Capture **C2 communications, DNS queries, HTTP beacons, exfiltration attempts** using **Wireshark, mitmproxy, INetSim** during detonation.
+
+> [!IMPORTANT]
+> **Intermediate Gate — Dynamic Analysis:** Before proceeding to Stage 3 (Anti-Reverse Engineering & Evasion Techniques), you must demonstrate debugger capability: (1) set a breakpoint on a specific function in x64dbg or GDB and inspect register state at that point; (2) step through a loop and observe how a variable changes; (3) patch a conditional jump (`JZ`/`JNZ`) in a toy binary to force the alternate branch; (4) dump a decrypted string from memory that is not visible in static analysis. Stage 3 (anti-debugging, anti-VM, unpacking) requires this foundation — students who skip to Stage 3 without debugger proficiency will not be able to bypass anti-analysis techniques they haven't learned to interact with.
 
 ---
 
@@ -903,7 +921,10 @@
 <a id="part-42-offensive-development-tooling"></a>
 ## Part 42: Offensive Development & Tooling
 
+> **Numbering Note:** Part 42 is numbered non-sequentially. It lives here in Phase 7 because it is a Phase 7 prerequisite (required before Part 29 Modern Exploitation). Full malware engineering and custom C2 implant development belong after Part 28 (Malware Analysis) — see the scope restriction note in Part 8 (Phase 2).
+
 _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Fundamentals), Part 7 (System Hacking), Part 8 (Malware & Weaponization) | This module contains the offensive programming content that was previously in Part 1 Stage 7 (Fundamentals). It requires solid system hacking knowledge before attempting._
+
 
 <a id="stage-1-exploit-development-foundation"></a>
 ### **Stage 1: Exploit Development Foundation**

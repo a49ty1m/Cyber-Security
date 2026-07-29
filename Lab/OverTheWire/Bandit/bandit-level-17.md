@@ -18,6 +18,7 @@ walkthrough
 
 bandit17@bandit:~$ diff passwords.old passwords.new
 42c42
-< pGozC8kOHLkBMOaL0ICPvLV1IjQ5F1VA
+
+> pGozC8kOHLkBMOaL0ICPvLV1IjQ5F1VA
 ---
 > x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO

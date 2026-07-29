@@ -1,60 +1,161 @@
-# Phase 10: AI Security
+]\# Phase 10: Operations & Career
 
 > [!IMPORTANT]
-> **Prerequisites:** This phase requires completion of Phase 9 (Red Team Operations & Tradecraft). AI Red Teaming stages reference C2 frameworks, attack infrastructure, OPSEC discipline, and operational workflows built in Phase 9. Do not attempt Phase 10 without Phase 9 complete.
+> **Prerequisites:** This phase requires completion of Phase 9 (AI Security). It assumes you have built a complete technical portfolio across Phases 1–9 covering traditional security, offensive operations, defensive engineering, infrastructure, advanced specializations, GRC, and AI red teaming. Phase 10 is where you assemble, polish, and publish that body of work while mastering the operational disciplines (pentest methodologies, red team tradecraft) needed to practice professionally.
 
 ---
 
 ### 🧭 Navigation
+
 ◀ [Phase 9](Phase-9.md) | 🏠 [Master Roadmap](README.md)
 
 ---
 
 > [!NOTE]
 > **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–4 months
-> - **⏱️ Time Commitment (Part-Time):** 4–7 months
-> - **🎯 Primary Focus:** Layer AI system knowledge on top of your mastered traditional security and red team track. Understand tokens, context windows, MCP, embeddings, temperature, fine-tuning, OWASP LLM Top 10, RAG poisoning, supply chain attacks, shadow AI prevention, and defensive AI operations.
+>
+> - **⏱️ Time Commitment (Full-Time):** 2–4 months
+> - **⏱️ Time Commitment (Part-Time):** 4–6 months
+> - **🎯 Primary Focus:** Master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing and legal frameworks), red team operations & tradecraft (C2 infrastructure, OPSEC discipline, campaign planning, and deconfliction), and build an unfakeable, publication-ready proof-of-work portfolio.
 
 ---
 
 > [!NOTE]
-> ### 📝 Phase 10 Documentation Requirements
-> AI security research must be documented with reproducible methodology. Required artifacts:
-> - **Prompt injection payloads** — categorized library of tested payloads with success/failure notes
-> - **RAG attack documentation** — poisoning methodology, injected documents, impact evidence
-> - **AI tool README + architecture diagrams** — for every tool you build
-> - **Research writeups** — methodology, findings, and defensive recommendations
-> - **Git commits** — all payloads, tools, and research committed
 >
-> _By the end of Phase 10, your repository should contain an AI security toolkit and published research. This builds on your Phase 9 red team portfolio._
+> ### 📝 Phase 10 Documentation Requirements
+>
+> This is the final assembly phase. Assemble, polish, and publish the portfolio built across Phases 1–9. Required artifacts:
+>
+> - **Professional pentest reports** — 3 reports with multi-audience executive summaries (CISO, engineering lead, compliance officer)
+> - **Red team operation documentation** — C2 deployment, campaign timeline, operator notes, detection gap analysis
+> - **Portfolio README** — curated GitHub profile with pinned projects, descriptions, and cross-linked writeups
+> - **Published blog posts** — 5+ technical writeups linked to projects
+> - **Git commits** — final portfolio curation, versioning, and publication
+>
+> _By the end of Phase 10, a hiring manager should be able to review your GitHub, blog, and resume and understand your capabilities without a single conversation. Your portfolio must tell a coherent story of progressive skill development across all 10 phases._
 
 ---
 
 ### 🗂️ Table of Contents
-- [Part 39: Penetration Testing Methodologies & Report Writing](#part-39-penetration-testing-methodologies-report-writing)
+
+- [Part 40: Red Team Operations & Tradecraft](#part-40-red-team-operations-tradecraft) _(Plan & Execute First)_
+  - [Stage 1: Campaign Planning & Infrastructure](#stage-1-campaign-planning-infrastructure)
+  - [Stage 2: Initial Access & Payload Delivery](#stage-2-initial-access-payload-delivery)
+  - [Stage 3: OPSEC, Persistence & Lateral Movement](#stage-3-opsec-persistence-lateral-movement)
+  - [Stage 4: Data Exfiltration & Impact](#stage-4-data-exfiltration-impact)
+  - [Stage 5: Deconfliction, Reporting & Wrap-Up](#stage-5-deconfliction-reporting-wrap-up)
+- [Part 39: Penetration Testing Methodologies & Report Writing](#part-39-penetration-testing-methodologies-report-writing) _(Document What You Did)_
   - [Stage 1: Industry-Standard Engagement Frameworks](#stage-1-industry-standard-engagement-frameworks)
   - [Stage 2: Scoping, Legal Frameworks & Engagement Management](#stage-2-scoping-legal-frameworks-engagement-management)
   - [Stage 3: Structured Threat Modeling](#stage-3-structured-threat-modeling)
   - [Stage 4: Vulnerability Scoring & Risk Prioritization](#stage-4-vulnerability-scoring-risk-prioritization)
   - [Stage 5: Professional Report Writing](#stage-5-professional-report-writing)
-- [Part 40: Red Team Operations & Tradecraft](#part-40-red-team-operations-tradecraft)
-  - [Strategy & Core Operations](#strategy-core-operations)
 - [Part 41: Proof of Work & Career Portfolio](#part-41-proof-of-work-career-portfolio)
   - [Stage 1: Certification Roadmap](#stage-1-certification-roadmap)
   - [Stage 2: Technical Portfolio & GitHub Presence](#stage-2-technical-portfolio-github-presence)
   - [Stage 3: Technical Writing & Content](#stage-3-technical-writing-content)
   - [Stage 4: Bug Bounties & Community Engagement](#stage-4-bug-bounties-community-engagement)
   - [Stage 5: Career Positioning & Job Search Strategy](#stage-5-career-positioning-job-search-strategy)
+  - [Stage 5B: Technical Interview Preparation](#stage-5b-technical-interview-preparation)
+
+<a id="toc-part-40-red-team-operations--tradecraft"></a>
+<a id="part-40-red-team-operations-tradecraft"></a>
+
+## Part 40: Red Team Operations & Tradecraft
+
+> **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator.
+
+> [!NOTE]
+> **Sequence Note:** Part 40 precedes Part 39 intentionally. You build and run the operation first (Part 40), then learn to document and report it formally (Part 39). A practitioner who has planned and executed a campaign before studying report structure writes far more credible, specific reports than one who studied report templates in the abstract.
+
+<a id="strategy-core-operations"></a>
+<a id="stage-1-campaign-planning-infrastructure"></a>
+
+### **Stage 1: Campaign Planning & Infrastructure**
+
+> [!TIP]
+> **Goal:** Define the operation's objectives, rules of engagement, and build the technical infrastructure before any offensive action begins.
+
+- [ ] **Red Team vs Pentest vs Vuln Assessment:** Understand the fundamental differences — pentests find vulnerabilities with broad scope; red teams test **specific objectives** (e.g., "can an attacker reach the CEO's inbox?") with stealth as a constraint; vulnerability assessments are breadth-first, red teams are depth-first.
+
+- [ ] **Campaign Planning & Objectives:** Define **clear objectives** aligned with business risk — data exfiltration, domain compromise, physical access to server room, insider threat simulation. Write a **red team campaign plan** with rules of engagement, communication protocols, deconfliction procedures, and abort criteria.
+
+- [ ] **C2 Framework Mastery:** Deploy and operate at least 2 C2 frameworks — **Sliver** (open-source, modern), **Mythic** (modular, multi-platform), Cobalt Strike (industry standard, commercial), or **Havoc**. Understand **listener types, payload generation, staging vs stageless, sleep/jitter tuning, and kill dates**.
+
+- [ ] **Infrastructure Setup:** Build **resilient attack infrastructure** — redirectors (Apache mod_rewrite, Nginx reverse proxy, cloud functions), domain categorization for reputation, HTTPS certificates (Let's Encrypt), CDN fronting, and infrastructure teardown procedures. Separate **short-haul (interactive) and long-haul (persistent) C2 channels**.
 
 ---
 
+<a id="stage-2-initial-access-payload-delivery"></a>
+
+### **Stage 2: Initial Access & Payload Delivery**
+
+> [!TIP]
+> **Goal:** Gain a foothold using tradecraft that survives email gateways, sandboxes, and EDR — and leaves minimal forensic trace.
+
+- [ ] **Initial Access Tradecraft:** Master **phishing (spearphishing with pretexting, HTML smuggling, macro-free Office exploitation)**, **external service exploitation**, and **supply chain vectors**. Build payloads that survive email gateways, sandboxes, and EDR.
+
+---
+
+<a id="stage-3-opsec-persistence-lateral-movement"></a>
+
+### **Stage 3: OPSEC, Persistence & Lateral Movement**
+
+> [!TIP]
+> **Goal:** Maintain stealth while expanding access — blend with normal traffic, establish redundant persistence, and move laterally without triggering detection.
+
+- [ ] **OPSEC Discipline:** Maintain **operational security** throughout campaigns — avoid detection by **blending with normal traffic patterns, using legitimate tools (LOLBins), timestomping, log manipulation, and process injection into trusted processes**. Monitor your own indicators: if a defender could fingerprint your C2 beacon pattern, you've failed.
+
+- [ ] **Persistence Mechanisms:** Implement **multiple persistence layers** — registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, golden/silver tickets, and **out-of-band persistence** (cloud-based implants, trusted application abuse). Test persistence across reboots and credential rotations.
+
+- [ ] **Lateral Movement & Pivoting:** Traverse networks using **Pass-the-Hash, Pass-the-Ticket, overpass-the-hash, DCOM, WMI, WinRM, SSH tunneling, SOCKS proxies**. Document every pivot and maintain network maps during operations.
+
+---
+
+<a id="stage-4-data-exfiltration-impact"></a>
+
+### **Stage 4: Data Exfiltration & Impact**
+
+> [!TIP]
+> **Goal:** Reach the campaign objective — exfiltrate data or demonstrate impact — without triggering DLP or anomaly-based detection.
+
+- [ ] **Data Exfiltration:** Practice **covert exfiltration** — DNS tunneling, HTTPS over legitimate SaaS (Slack, Teams, Google Drive), steganography, scheduled low-and-slow transfers. Measure data rates and detection thresholds.
+
+---
+
+<a id="stage-5-deconfliction-reporting-wrap-up"></a>
+
+### **Stage 5: Deconfliction, Reporting & Wrap-Up**
+
+> [!TIP]
+> **Goal:** Close the operation safely, hand off findings, and produce a campaign report that improves the client's detection capability.
+
+- [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
+
+- [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
+
+### **Lab Progression (Part 40: Red Team Operations & Tradecraft)**
+
+| Level | Task                                                                                                                       | Deliverable                                                            |
+| ----- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 1     | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in your lab                                         | C2 deployment guide with listener/payload configuration                |
+| 2     | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite)                                                | Infrastructure diagram + setup documentation                           |
+| 3     | Execute a full red team campaign against your AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 40):** You can plan a red team campaign, deploy C2 infrastructure with redirectors, execute a full attack lifecycle with OPSEC discipline, and produce a campaign report that analyzes detection gaps. Only then does Part 39's report-writing framework have something real to structure and communicate.
+
+---
+
+<a id="toc-part-39-penetration-testing-methodologies--report-writing"></a>
 <a id="part-39-penetration-testing-methodologies-report-writing"></a>
+
 ## Part 39: Penetration Testing Methodologies & Report Writing
 
-> **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice.
+> **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. It follows Part 40 because report quality is dramatically higher when you've already run a real campaign — you know what evidence you collected, what decisions you made, and what the timeline actually looked like.
 
 <a id="stage-1-industry-standard-engagement-frameworks"></a>
+
 ### **Stage 1: Industry-Standard Engagement Frameworks**
 
 > [!TIP]
@@ -75,6 +176,7 @@
 ---
 
 <a id="stage-2-scoping-legal-frameworks-engagement-management"></a>
+
 ### **Stage 2: Scoping, Legal Frameworks & Engagement Management**
 
 > [!TIP]
@@ -95,14 +197,15 @@
 ---
 
 <a id="stage-3-structured-threat-modeling"></a>
+
 ### **Stage 3: Structured Threat Modeling**
 
 > [!TIP]
 > **Goal:** Apply structured threat identification before testing begins — not after.
 
-- [ ] **STRIDE Threat Model:** Decompose target system components into **processes, data stores, data flows, and external entities**; apply Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege to each element; generate a ranked threat list that scopes the test.
+- [ ] **STRIDE Threat Model:** Decompose target system components into **processes, data stores, data flows, and external entities**; apply Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege to each element; generate a ranked threat list that scopes the test. _(See also: Part 43 Stage 1 — STRIDE applied to architecture design rather than test scoping.)_
 
-- [ ] **PASTA (Process for Attack Simulation and Threat Analysis):** Apply the **7-stage business-centric model** — define objectives → technical scope → application decomposition → threat analysis → vulnerability analysis → attack enumeration → risk/impact analysis; produces a business-risk-aligned test plan.
+- [ ] **PASTA (Process for Attack Simulation and Threat Analysis):** Apply the **7-stage business-centric model** — define objectives → technical scope → application decomposition → threat analysis → vulnerability analysis → attack enumeration → risk/impact analysis; produces a business-risk-aligned test plan. _(See also: Part 35 Stage 3 — PASTA applied in GRC risk management context.)_
 
 - [ ] **Attack Trees:** Build **hierarchical attack tree diagrams** rooted at the attack goal with sub-goals as branches; use AND/OR nodes to model alternative paths; identify which branches are highest probability × highest impact for prioritized testing.
 
@@ -115,6 +218,7 @@
 ---
 
 <a id="stage-4-vulnerability-scoring-risk-prioritization"></a>
+
 ### **Stage 4: Vulnerability Scoring & Risk Prioritization**
 
 > [!TIP]
@@ -135,6 +239,7 @@
 ---
 
 <a id="stage-5-professional-report-writing"></a>
+
 ### **Stage 5: Professional Report Writing**
 
 > [!TIP]
@@ -158,62 +263,28 @@
 
 - [ ] **Report Versioning & Delivery:** Maintain **draft → client review → final** versioning; deliver reports in **password-protected PDF** with restricted printing/copying; PGP-encrypt email attachments; define report retention and destruction policy in the SoW.
 
----
+### **Lab Progression (Part 39: Penetration Testing Methodologies & Report Writing)**
 
-<a id="toc-part-40-red-team-operations--tradecraft"></a>
-<a id="part-40-red-team-operations-tradecraft"></a>
-## Part 40: Red Team Operations & Tradecraft
-
-> **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator.
-
-<a id="strategy-core-operations"></a>
-### **Strategy & Core Operations**
-
-> [!TIP]
-> **Goal:** Plan and execute adversary-simulation campaigns that test detection and response capabilities, not just technical defenses.
-
-- [ ] **Red Team vs Pentest vs Vuln Assessment:** Understand the fundamental differences — pentests find vulnerabilities with broad scope; red teams test **specific objectives** (e.g., "can an attacker reach the CEO's inbox?") with stealth as a constraint; vulnerability assessments are breadth-first, red teams are depth-first.
-
-- [ ] **Campaign Planning & Objectives:** Define **clear objectives** aligned with business risk — data exfiltration, domain compromise, physical access to server room, insider threat simulation. Write a **red team campaign plan** with rules of engagement, communication protocols, deconfliction procedures, and abort criteria.
-
-- [ ] **C2 Framework Mastery:** Deploy and operate at least 2 C2 frameworks — **Sliver** (open-source, modern), **Mythic** (modular, multi-platform), Cobalt Strike (industry standard, commercial), or **Havoc**. Understand **listener types, payload generation, staging vs stageless, sleep/jitter tuning, and kill dates**.
-
-- [ ] **Infrastructure Setup:** Build **resilient attack infrastructure** — redirectors (Apache mod_rewrite, Nginx reverse proxy, cloud functions), domain categorization for reputation, HTTPS certificates (Let's Encrypt), CDN fronting, and infrastructure teardown procedures. Separate **short-haul (interactive) and long-haul (persistent) C2 channels**.
-
-- [ ] **Initial Access Tradecraft:** Master **phishing (spearphishing with pretexting, HTML smuggling, macro-free Office exploitation)**, **external service exploitation**, and **supply chain vectors**. Build payloads that survive email gateways, sandboxes, and EDR.
-
-- [ ] **OPSEC Discipline:** Maintain **operational security** throughout campaigns — avoid detection by **blending with normal traffic patterns, using legitimate tools (LOLBins), timestomping, log manipulation, and process injection into trusted processes**. Monitor your own indicators: if a defender could fingerprint your C2 beacon pattern, you've failed.
-
-- [ ] **Persistence Mechanisms:** Implement **multiple persistence layers** — registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, golden/silver tickets, and **out-of-band persistence** (cloud-based implants, trusted application abuse). Test persistence across reboots and credential rotations.
-
-- [ ] **Lateral Movement & Pivoting:** Traverse networks using **Pass-the-Hash, Pass-the-Ticket, overpass-the-hash, DCOM, WMI, WinRM, SSH tunneling, SOCKS proxies**. Document every pivot and maintain network maps during operations.
-
-- [ ] **Data Exfiltration:** Practice **covert exfiltration** — DNS tunneling, HTTPS over legitimate SaaS (Slack, Teams, Google Drive), steganography, scheduled low-and-slow transfers. Measure data rates and detection thresholds.
-
-- [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
-
-- [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
-
-### **Lab Progression (Part 40: Red Team Operations & Tradecraft)**
-
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in your lab | C2 deployment guide with listener/payload configuration |
-| 2 | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite) | Infrastructure diagram + setup documentation |
-| 3 | Execute a full red team campaign against your AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
+| Level | Task                                                                                                                  | Deliverable                                                   |
+| ----- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| 1     | Draft an SoW and RoE document for a fictional engagement using a provided scenario                                    | Complete SoW + RoE document pair                              |
+| 2     | Apply STRIDE to a target application's DFD and produce a ranked threat list                                           | Threat model document with STRIDE matrix                      |
+| 3     | Write a full pentest report (executive summary + 3 findings with PoC + remediation roadmap) for your Part 40 campaign | Professional pentest report in PDF format, password-protected |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can plan a red team campaign, deploy C2 infrastructure with redirectors, execute a full attack lifecycle with OPSEC discipline, and produce a campaign report that analyzes detection gaps.
+> **Move-On Gate (Part 39):** You can select and apply the correct engagement methodology (PTES, NIST 800-115, WSTG), produce an SoW and RoE document, perform STRIDE threat modeling, calculate CVSS scores manually, and write a complete pentest report with executive summary, technical findings, and remediation roadmap. Your report must be written from your Part 40 campaign data — not a fictional scenario.
 
 ---
 
 <a id="toc-part-41-proof-of-work--career-portfolio"></a>
 <a id="part-41-proof-of-work-career-portfolio"></a>
+
 ## Part 41: Proof of Work & Career Portfolio
 
 > **Core Principle:** Theory without evidence is worthless. Every technical skill in this roadmap must be validated through _unfakeable_ proof of work — tools you've built, reports you've written, certifications you've earned, and bugs you've found. This section ties it all together.
 
 <a id="stage-1-certification-roadmap"></a>
+
 ### **Stage 1: Certification Roadmap**
 
 > [!TIP]
@@ -254,6 +325,7 @@
 ---
 
 <a id="stage-2-technical-portfolio-github-presence"></a>
+
 ### **Stage 2: Technical Portfolio & GitHub Presence**
 
 > [!TIP]
@@ -276,6 +348,7 @@
 ---
 
 <a id="stage-3-technical-writing-content"></a>
+
 ### **Stage 3: Technical Writing & Content**
 
 > [!TIP]
@@ -294,6 +367,7 @@
 ---
 
 <a id="stage-4-bug-bounties-community-engagement"></a>
+
 ### **Stage 4: Bug Bounties & Community Engagement**
 
 > [!TIP]
@@ -314,6 +388,7 @@
 ---
 
 <a id="stage-5-career-positioning-job-search-strategy"></a>
+
 ### **Stage 5: Career Positioning & Job Search Strategy**
 
 > [!TIP]
@@ -336,10 +411,37 @@
 
 ---
 
+<a id="stage-5b-technical-interview-preparation"></a>
+
+### **Stage 5B: Technical Interview Preparation**
+
+> [!TIP]
+> **Goal:** Convert technical competence into hired. Hiring managers are skilled at identifying candidates who know tools but cannot think under pressure. Stage 5B closes the gap between "I can do this in a lab" and "I can demonstrate this in 45 minutes with someone watching."
+
+- [ ] **Security System Design Questions:** Practice designing secure systems from scratch under time pressure. Common prompts: "Design a secure authentication system for 10 million users," "How would you architect a zero-trust access control system for a hybrid cloud environment?", "Design the logging and alerting infrastructure for a 500-person company." Practice on a whiteboard or draw.io. Structure your answer: **requirements → threat model → component design → data flow → control gaps → trade-offs**. Never jump to components before stating requirements.
+
+- [ ] **Live Hacking / CTF Demonstrations:** Some interviews include live exploitation challenges. Practice solving HTB/THM boxes verbally as you work — narrate your reasoning out loud. Interviewers are evaluating _how you think_, not just whether you solve it. Practice: "I notice port 8080 is open with a Tomcat banner. My first step is to check for the default manager credentials because default deployments are common in enterprise environments..."
+
+- [ ] **Behavioral Question Framing (STAR Method):** Prepare answers using **Situation → Task → Action → Result** for common security behavioral questions:
+  - _"Tell me about a critical vulnerability you found."_ → Describe the finding, what you had to figure out, the steps you took, the impact if exploited, and how it was remediated.
+  - _"Describe a time you disagreed with a security decision."_ → Frame as professional disagreement, evidence-based argument, outcome respected regardless of decision made.
+  - _"Tell me about a time you worked with a team under a tight incident deadline."_ → Show decision-making under pressure, communication to leadership, and what you learned.
+
+- [ ] **Technical Depth Calibration:** Know what you know deeply vs. broadly. In an interview, say "I've worked with X and understand it at depth level Y" rather than claiming expertise across everything. Interviewers who probe your claimed expertise and find a shallow answer will rank you below candidates who admitted the gap honestly. Integrity beats bluffing.
+
+- [ ] **Mock Interviews:** Conduct at minimum **2 full mock interviews** with a peer, mentor, or community member before applying. Use real job descriptions to set the scenario. Record yourself and review: Did you fill silence with confident reasoning or nervous filler? Did you structure answers or ramble? Did you ask clarifying questions or make assumptions?
+
+- [ ] **Platform Prep:**
+  - **Coding challenges:** LeetCode or HackerRank — solve 10–15 medium-level Python problems focused on string manipulation, data structures, and file parsing (common in security scripting tests).
+  - **System design prep:** "System Design Interview" by Alex Xu (Chapters 1, 5, 10) for the patterns; apply security overlays from your own knowledge.
+  - **Behavioral prep:** "The STAR Interview" by Misha Yurchenko for structure; adapt examples from your own pentest/CTF/bug bounty work.
+
+<a id="stage-6-soft-skills-professional-communication"></a>
 ### **Stage 6: Soft Skills & Professional Communication**
 
 > [!TIP]
 > **Goal:** Bridge the gap between technical skill and professional impact. These skills separate mid-level practitioners from senior leaders.
+
 
 - [ ] **Executive Summary Writing:** For every lab report and pentest deliverable, write a **1-page executive summary** that a non-technical CFO or CISO could understand. Practice: take your most technical finding and explain the **business impact, risk level, and recommended action** without using jargon.
 
@@ -359,11 +461,11 @@
 
 ### **Lab Progression (Part 41: Career Portfolio)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Write 3 pentest reports with executive summaries tailored for CISO, engineering lead, and compliance officer | Reports with 3 audience-specific executive summaries |
-| 2 | Build GitHub portfolio with 2–5 security tools and publish 5+ technical blog posts | Live GitHub + blog with cross-linked content |
-| 3 | Submit 5 valid bug bounty findings and present at a local meetup or BSides | Bug bounty acknowledgments + presentation slides/recording |
+| Level | Task                                                                                                         | Deliverable                                                |
+| ----- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| 1     | Write 3 pentest reports with executive summaries tailored for CISO, engineering lead, and compliance officer | Reports with 3 audience-specific executive summaries       |
+| 2     | Build GitHub portfolio with 2–5 security tools and publish 5+ technical blog posts                           | Live GitHub + blog with cross-linked content               |
+| 3     | Submit 5 valid bug bounty findings and present at a local meetup or BSides                                   | Bug bounty acknowledgments + presentation slides/recording |
 
 > [!IMPORTANT]
 > **Move-On Gate (Part 41):** Produce one pentest report with three executive summaries (CISO, engineering lead, compliance officer) for the same set of findings, and have a live portfolio with working tools, published writeups, and at least one industry-recognized certification.
@@ -381,6 +483,7 @@
 - [ ] **Write 3 executive summaries** for your best pentest report (CISO, engineering lead, compliance officer versions)
 
 **Deliverables:**
+
 - [ ] Live GitHub portfolio with pinned projects
 - [ ] Published blog/Medium with 5+ posts
 - [ ] Professional resume quantifying impact

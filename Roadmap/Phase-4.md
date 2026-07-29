@@ -164,6 +164,19 @@
 | 3 | Perform an authenticated web app assessment on WebGoat (all modules) | Structured vulnerability report |
 | 4 | Chain 3+ vulnerabilities for maximum impact on a single lab target (e.g., XSS→session theft→admin access→RCE) | Kill chain diagram + technical report |
 | 5 | Write a custom Burp Suite extension or automated scanner script | Working extension/script + README |
+| 6 | Complete 10 PentesterLab exercises (source-code-level web vulnerability analysis) | Exercise certificates + code review notes |
+| 7 | Solve 5 Root-Me web application challenges at intermediate difficulty | Challenge completion screenshots + methodology notes |
+
+**Platform Guide for Phase 4:**
+
+| Platform | Best For | Cost |
+|----------|----------|------|
+| [PortSwigger Web Security Academy](https://portswigger.net/web-security) | OWASP Top 10 labs, JWT attacks, SSRF, OAuth, deserialization — industry gold standard | Free |
+| [PentesterLab](https://pentesterlab.com) | Source-code-based vulnerability training, PHP/Ruby/Python code review, white-box web testing | Free + Pro |
+| [Root-Me](https://root-me.org) | 400+ realistic web challenges organized by category and difficulty — excellent for breadth coverage | Free |
+| [DVWA / OWASP Juice Shop / WebGoat](https://owasp.org) | Self-hosted intentionally vulnerable apps for manual exploitation practice | Free (self-hosted) |
+| [Hack The Box](https://hackthebox.com) | Web-focused machines + Pro Lab environments for realistic enterprise web app testing | Free + VIP |
+| [TryHackMe](https://tryhackme.com) | Guided web hacking learning paths — good for structured beginners before PortSwigger | Free + Premium |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can perform a complete web application assessment covering OWASP Top 10, chain vulnerabilities for maximum impact, use Burp Suite professionally, and produce a client-ready web app pentest report.
@@ -384,7 +397,13 @@
 
 - [ ] **Scope Validation:** Confirm IP ranges and domains. Ensure you are not attacking "Out of Scope" assets.
 
-- [ ] **Framework Selection:** Decide if you are testing against `NIST`, `ISO`, or `OWASP10` standards.
+- [ ] **Framework Selection:** Decide which **testing methodology** governs the engagement:
+  - **OWASP WSTG (Web Security Testing Guide)** — the methodology for *how to test* web applications; test cases are referenced by ID (e.g., WSTG-INPV-01 for SQL injection)
+  - **NIST SP 800-115** — federal/regulated-industry methodology
+  - **PTES** — comprehensive red team engagement framework
+
+  > [!WARNING]
+  > **Critical Distinction:** The **OWASP Top 10** is a *vulnerability classification list* used to categorize and report findings — it is NOT a testing methodology. Saying you "test against OWASP Top 10" is a common red flag in interviews and client engagements. You *test using OWASP WSTG* and *report findings mapped to OWASP Top 10 categories*. These are different documents serving different purposes.
 
 ---
 
@@ -408,7 +427,10 @@
 > [!TIP]
 > **Goal:** Find the flaw.
 
-- [ ] **Input Fuzzing:** Test all input fields for `SQL Injection`, `XSS`, and `Buffer Overflow`.
+- [ ] **Input Fuzzing:** Test all input fields for `SQL Injection` (WSTG-INPV-05), `Cross-Site Scripting` (WSTG-CLNT-01), `Command Injection` (WSTG-INPV-12), `Server-Side Template Injection` (WSTG-INPV-18), `HTTP Parameter Pollution`, and `Mass Assignment` vulnerabilities.
+
+  > [!NOTE]
+  > **Do NOT test for Buffer Overflow in web application input fields.** Web applications run on managed-memory, interpreted runtimes (PHP, Python, Ruby, Node.js, Java). Buffer overflows are memory-corruption vulnerabilities in compiled binary applications — testing a PHP login form for buffer overflows is technically incorrect and will waste time. Buffer overflows belong in Phase 7 (Binary Exploitation). In web app testing, focus on injection and logic flaws.
 
 - [ ] **Access Control:** Test for `IDOR` (Insecure Direct Object Reference) and verify `Authentication vs Authorization` logic.
 
@@ -487,6 +509,7 @@
 ### 🧭 Phase 4 Reflection & Competency Check
 
 - [ ] **Reflection:** Which vulnerability class was easiest to find but hardest to explain clearly?
+
 - [ ] **Reflection:** Where did your first proof of concept need restraint to stay non-destructive?
 - [ ] **Competency:** Can you map web and API findings to root cause, impact, and remediation?
 - [ ] **Competency:** Can you reproduce each finding from a clean browser/session using only your report?
