@@ -14,9 +14,9 @@
 > [!NOTE]
 > **Phase Overview**
 >
-> - **⏱️ Time Commitment (Full-Time):** 2–4 months
-> - **⏱️ Time Commitment (Part-Time):** 4–6 months
-> - **🎯 Primary Focus:** Master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing and legal frameworks), red team operations & tradecraft (C2 infrastructure, OPSEC discipline, campaign planning, and deconfliction), and build an unfakeable, publication-ready proof-of-work portfolio.
+> - **⏱️ Time Commitment (Full-Time):** 3–5 months
+> - **⏱️ Time Commitment (Part-Time):** 5–8 months
+> - **🎯 Primary Focus:** Build and execute red team operations & tradecraft (C2 infrastructure, OPSEC discipline, campaign planning, and deconfliction), master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, professional report writing and legal frameworks), and publish an unfakeable, publication-ready proof-of-work portfolio.
 
 ---
 

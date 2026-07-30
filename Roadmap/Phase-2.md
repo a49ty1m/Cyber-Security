@@ -1530,13 +1530,9 @@
 
 ---
 
+
 <a id="toc-part-10-social-engineering"></a>
-<a id="part-16-adversary-emulation-purple-teaming"></a>
 
-## Part 16: Adversary Emulation & Purple Teaming _(Phase 6 Capstone)_
-
-> [!NOTE]
-> **Navigational Note — Why Part 16 Is Here:** Part 16 is the **Phase 6 Capstone** — it synthesizes all content from Parts 23–26 (Active Directory, Cloud, Containers, OT) into a unified adversary emulation exercise. It is numbered 16 because it was originally placed sequentially after Phase 3's Part 15 (OSINT & Threat Intelligence) in the roadmap's initial design. It belongs contextually in Phase 6, not Phase 3. When you see cross-references to "Part 16" elsewhere in the roadmap, they refer to this section in Phase 6.
 
 ## Part 10: Social Engineering
 

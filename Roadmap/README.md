@@ -22,7 +22,7 @@
 |  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**          | Offensive Dev (required first), DFIR, Malware RE, Exploit Dev        |    8–14m / 12–18m     |
 |  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)**       | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture      |      4–6m / 6–9m      |
 |  🧠   | **[Phase 9: AI Security](Phase-9.md)**           | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits   |      3–5m / 5–8m      |
-|  🎯   | **[Phase 10: Operations & Career](Phase-10.md)** | Pentest Methodologies, Red Team Operations, Portfolio & Career       |      2–4m / 4–6m      |
+|  🎯   | **[Phase 10: Operations & Career](Phase-10.md)** | Red Team Operations, Pentest Methodologies & Report Writing, Portfolio & Career |      3–5m / 5–8m      |
 |  📊   | **Total Roadmap**                                | **41–65 Months Full-Time / 64–100 Months Part-Time**                 |   **~3.5–8 Years**    |
 
 > [!WARNING]
