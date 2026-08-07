@@ -57,6 +57,13 @@
   - [Stage 4: Bug Bounties & Community Engagement](#stage-4-bug-bounties-community-engagement)
   - [Stage 5: Career Positioning & Job Search Strategy](#stage-5-career-positioning-job-search-strategy)
   - [Stage 5B: Technical Interview Preparation](#stage-5b-technical-interview-preparation)
+- [🛠️ Tool Priority Reference](#tool-priority-reference)
+  - [Tier 1 — Core Pentest Essentials](#-tier-1--core-pentest-essentials)
+  - [Tier 2 — Important, Frequent Use](#-tier-2--important-frequent-use)
+  - [Tier 3 — Specialized / Situational](#-tier-3--specialized--situational)
+  - [Tier 4 — Niche / Concept-Focused](#-tier-4--niche--concept-focused)
+  - [Decision Tree](#-tool-selection-decision-tree)
+  - [Suggested Study Order](#️-suggested-study-order)
 
 <a id="toc-part-40-red-team-operations--tradecraft"></a>
 <a id="part-40-red-team-operations-tradecraft"></a>
@@ -507,3 +514,205 @@
 > **Roadmap Completion Gate:** You are done when your portfolio is coherent, current, ethically publishable, and aligned with the roles you are applying for.
 
 ---
+
+---
+
+<a id="tool-priority-reference"></a>
+
+## 🛠️ Tool Priority Reference
+
+> **How to Use This Section:** This is your master toolkit map — 38 tools, ordered by priority across 4 tiers. Tiers are about **frequency of use in real engagements**, not difficulty. A Tier 1 tool is on your screen in every lab and engagement. A Tier 4 tool is situational and domain-specific.
+>
+> Every tool has a dedicated mastery checklist in the `Tools/` directory. Study them in priority order. Don't go deep on Ghidra before you're fluent with Nmap.
+
+---
+
+### 🔴 Tier 1 — Core Pentest Essentials
+
+*14 tools. You will use these on nearly every lab, CTF, and engagement. OSCP requires most of them. Master all 14 before moving to Tier 2.*
+
+| # | Tool | Domain | Signature Use Case |
+|:-:|:-----|:-------|:-------------------|
+| 1 | [🗺️ Nmap](../Tools/Nmap.md) | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. |
+| 2 | [🔌 Netcat](../Tools/Netcat.md) | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. |
+| 3 | [🕷️ Burp Suite](../Tools/Burp_Suite.md) | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. |
+| 4 | [💀 Metasploit Framework](../Tools/Metasploit_Framework.md) | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. |
+| 5 | [💨 ffuf](../Tools/ffuf.md) | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. |
+| 6 | [🔍 Gobuster](../Tools/Gobuster.md) | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. |
+| 7 | [🐲 LinPEAS](../Tools/LinPEAS.md) | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment you get a Linux shell. |
+| 8 | [🪟 WinPEAS](../Tools/WinPEAS.md) | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment you get a Windows shell. |
+| 9 | [🔨 Hydra](../Tools/Hydra.md) | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. |
+| 10 | [#️⃣ Hashcat](../Tools/Hashcat.md) | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. |
+| 11 | [🔑 John the Ripper](../Tools/John_the_Ripper.md) | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. |
+| 12 | [💉 sqlmap](../Tools/sqlmap.md) | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. |
+| 13 | [📣 Responder](../Tools/Responder.md) | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. |
+| 14 | [📡 tcpdump](../Tools/tcpdump.md) | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. |
+
+> [!IMPORTANT]
+> **Gate:** Every one of these 14 tools must be muscle memory before starting Tier 2. Tools 1–8 appear on the OSCP exam. Tools 9–14 appear in virtually every AD and web lab.
+
+---
+
+### 🔶 Tier 2 — Important, Frequent Use
+
+*12 tools. Critical for Active Directory attacks, network analysis, red teaming, and web specialization. You will use these in most serious engagements — just not on every single target like Tier 1.*
+
+| # | Tool | Domain | Signature Use Case |
+|:-:|:-----|:-------|:-------------------|
+| 15 | [🐍 Impacket](../Tools/Impacket.md) | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. |
+| 16 | [🩸 BloodHound](../Tools/BloodHound.md) | Active Directory | AD attack path visualization. Shortest path to Domain Admin from your current position. |
+| 17 | [🕸️ NetExec (nxc)](../Tools/NetExec.md) | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. |
+| 18 | [🦈 Wireshark](../Tools/Wireshark.md) | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. |
+| 19 | [🌐 Nikto](../Tools/Nikto.md) | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. |
+| 20 | [🔴 wpscan](../Tools/wpscan.md) | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. |
+| 21 | [🌾 theHarvester](../Tools/theHarvester.md) | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. |
+| 22 | [🔭 Recon-ng](../Tools/Recon-ng.md) | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. |
+| 23 | [🔀 Ligolo-ng](../Tools/Ligolo-ng.md) | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. |
+| 24 | [🗡️ Sliver](../Tools/Sliver.md) | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. |
+| 25 | [🛡️ OWASP ZAP](../Tools/OWASP_ZAP.md) | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. |
+| 26 | [🐝 Bettercap](../Tools/Bettercap.md) | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. |
+
+> [!TIP]
+> **Tier 2 study path:** AD cluster first (Impacket → BloodHound → NetExec). Network (Wireshark → Bettercap). Web specialization (Nikto → wpscan → OWASP ZAP). Red team (Ligolo-ng → Sliver). OSINT (theHarvester → Recon-ng) runs in parallel.
+
+---
+
+### 🔷 Tier 3 — Specialized / Situational
+
+*12 tools. Essential within their specific domain, but not universally needed. Pick the sub-group that matches your track.*
+
+| # | Tool | Domain | When You Need It |
+|:-:|:-----|:-------|:-----------------|
+| 27 | [🐍 Scapy](../Tools/Scapy.md) | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. |
+| 28 | [🐉 Ghidra](../Tools/Ghidra.md) | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. |
+| 29 | [🔑 jwt_tool](../Tools/jwt-tool.md) | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. |
+| 30 | 📮 Postman | Web / API Testing | Manual REST API testing. Build, replay, and document API requests; manage auth flows. |
+| 31 | 🐙 Ettercap | Sniffing & Spoofing | Legacy MITM tool. Understand it for older environments; use Bettercap for modern labs. |
+| 32 | 🦶 SpiderFoot | OSINT | Automated OSINT with relationship graph. More automated than Recon-ng with less manual control. |
+| 33 | 🕵️ Maltego | OSINT | Visual intelligence mapping. Turns raw OSINT data into an interactive relationship graph. |
+| 34 | 🎣 GoPhish | Social Engineering | Phishing campaign framework — manages email sending, landing pages, and click/credential tracking. |
+| 35 | 🎭 Social-Engineer Toolkit (SET) | Social Engineering | Credential harvesting sites, malicious payload delivery, spear-phishing, phone phishing vectors. |
+| 36 | 🔬 x64dbg | Malware Analysis | Dynamic analysis on Windows — live debugging, API call tracing, memory breakpoints. |
+| 37 | 🖼️ PEStudio | Malware Analysis | Static PE triage — imports, strings, entropy, VirusTotal score. First tool opened on any sample. |
+
+> [!NOTE]
+> **Study Tier 3 by track:** Malware analyst → PEStudio → Ghidra → x64dbg. Web/API tester → jwt_tool → Postman. OSINT investigator → SpiderFoot → Maltego. Social engineer → GoPhish → SET. Scapy is cross-track.
+
+---
+
+### 🔹 Tier 4 — Niche / Concept-Focused
+
+*11 tools. Know what each does and when to call for it. Deep practice is optional unless DoS testing or low-level malware analysis is your specific role.*
+
+| # | Tool | Domain | What It Does |
+|:-:|:-----|:-------|:-------------|
+| 28 | 🏓 hping3 | DoS / Packet Crafting | TCP/IP packet generator — SYN floods, ping sweeps, firewall testing, custom traceroute. |
+| 29 | 🧬 Detect It Easy (DiE) | Malware Analysis | PE packer and compiler identification. First step before attempting to unpack a binary. |
+| 30 | 👁️ Procmon | Malware Analysis | Windows process activity monitor — real-time file, registry, and network event capture during execution. |
+| 31 | 🧵 strings | Malware Analysis | Extract all printable strings from a binary. Fastest first-pass indicator extraction before Ghidra. |
+| 32 | 🧼 SoapUI | API Testing | SOAP/WSDL web service testing. Use for legacy XML-based enterprise APIs. |
+| 33 | 🍪 Cookie-Editor | Session Hijacking | Browser extension for viewing, modifying, and importing session cookies during web testing. |
+| 34 | 🦥 Slowloris | DoS Testing | HTTP slow-connection DoS. Tests whether a server is vulnerable to partial-request socket exhaustion. |
+| 35 | 💛 GoldenEye | DoS Testing | HTTP Layer 7 DoS tool. Use for demonstrating DoS concepts in isolated lab environments. |
+| 36 | ⚖️ ApacheBench (ab) | Performance / DoS | HTTP benchmarking. Understand server throughput and concurrency before a load test. |
+| 37 | 🔧 wrk | Performance / DoS | Modern sustained HTTP load tester. More realistic than ApacheBench for high-concurrency scenarios. |
+| 38 | 📶 iperf3 | Network Performance | Raw TCP/UDP bandwidth measurement between two hosts. Validates lab network capacity. |
+
+> [!NOTE]
+> **Tier 4 is conceptual.** You should be able to explain what each tool does and run a basic test — that's it. You do not need to master these to be a working penetration tester.
+
+---
+
+### 📐 Tool Selection Decision Tree
+
+```
+WHAT DO YOU NEED TO DO?
+│
+├─ Discover hosts / open ports
+│   └─ Nmap (always first)
+│
+├─ Enumerate web content
+│   ├─ Fast fuzzing → ffuf
+│   └─ Simple run → Gobuster
+│
+├─ Test a web application
+│   ├─ Manual testing → Burp Suite
+│   ├─ Automated scan → OWASP ZAP
+│   ├─ Quick misconfiguration check → Nikto
+│   └─ WordPress target → wpscan
+│
+├─ Exploit a vulnerability
+│   ├─ Known CVE with a module → Metasploit
+│   ├─ SQL injection → sqlmap
+│   └─ JWT weakness → jwt_tool
+│
+├─ Crack a password / hash
+│   ├─ GPU available, large wordlist → Hashcat
+│   └─ Unknown format, quick detection → John the Ripper
+│
+├─ Brute-force a login
+│   └─ Hydra (SSH, FTP, RDP, HTTP, SMB, WinRM)
+│
+├─ Active Directory
+│   ├─ Enumerate / spray credentials → NetExec
+│   ├─ Visualize attack paths → BloodHound
+│   ├─ Hash dumping / PTH / relay → Impacket (secretsdump, ntlmrelayx)
+│   ├─ Kerberoasting / AS-REP → Impacket + NetExec
+│   └─ NTLM hash capture (passive) → Responder
+│
+├─ Pivot to an internal network
+│   ├─ Need full tool support (Nmap SYN, ICMP) → Ligolo-ng
+│   └─ SOCKS proxy is enough → SSH -D or Chisel
+│
+├─ Post-exploitation
+│   ├─ Linux → LinPEAS
+│   └─ Windows → WinPEAS
+│
+├─ Capture or analyze network traffic
+│   ├─ GUI, deep inspection → Wireshark
+│   └─ Headless / pivot host → tcpdump
+│
+├─ MITM attack on a LAN
+│   └─ Bettercap (ARP poison + sniff + DNS spoof)
+│
+├─ OSINT on a target
+│   ├─ Quick automated sweep → theHarvester
+│   └─ Structured investigation + reporting → Recon-ng
+│
+├─ Persistent red team access
+│   └─ Sliver (C2 beacons, mTLS, multi-operator)
+│
+├─ Analyze a malware sample
+│   ├─ First-pass static → PEStudio → strings
+│   └─ Deep reverse engineering → Ghidra (static) + x64dbg (dynamic)
+│
+├─ Phishing campaign
+│   └─ GoPhish (tracking + reporting) + SET (harvester pages)
+│
+└─ Build a custom network tool or packet
+    └─ Scapy
+```
+
+---
+
+### 🗓️ Suggested Study Order
+
+*Start from Block 1. Complete each block before moving to the next.*
+
+| Block | Weeks | Tools | Focus |
+|:-----:|:-----:|:------|:------|
+| 1 | 1–2 | Nmap · Netcat · tcpdump | Networking fundamentals — understand the infrastructure before attacking it |
+| 2 | 3–4 | Burp Suite · ffuf · Gobuster · Nikto | Web recon and manual testing baseline |
+| 3 | 5–6 | Hydra · Hashcat · John the Ripper · sqlmap | Credential attacks and web exploitation |
+| 4 | 7–8 | Metasploit · LinPEAS · WinPEAS | Exploitation and post-exploitation flow |
+| 5 | 9–10 | NetExec · Responder · Impacket · BloodHound | Full Active Directory attack chain |
+| 6 | 11–12 | Wireshark · Bettercap · Scapy | Network analysis and MITM attacks |
+| 7 | 13–14 | wpscan · OWASP ZAP · jwt_tool · Postman | Web and API specialization |
+| 8 | 15–16 | theHarvester · Recon-ng | OSINT and passive reconnaissance |
+| 9 | 17–18 | Ligolo-ng · Sliver | Pivoting and red team C2 |
+| 10 | 19–22 | GoPhish · SET · SpiderFoot · Maltego | Social engineering and advanced OSINT |
+| 11 | 23–26 | Ghidra · x64dbg · PEStudio · strings · DiE · Procmon | Malware analysis track (skip if not your focus) |
+| 12 | 27+ | Tier 4 tools as needed | Situational — study when a lab or role specifically requires them |
+
+---
+
