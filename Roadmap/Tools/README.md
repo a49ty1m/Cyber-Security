@@ -119,19 +119,4 @@
 
 ---
 
-## Planned Files (from TOOLS_AUDIT.md)
 
-These tools were added as part of the TOOLS_AUDIT.md recommendations. All planned files have now been created:
-
-| Tool | Status | File |
-|:-----|:------:|:-----|
-| Evil-WinRM | ✅ Created | [Evil-WinRM.md](Evil-WinRM.md) |
-| Kerbrute | ✅ Created | [Kerbrute.md](Kerbrute.md) |
-| Mimikatz | ✅ Created | [Mimikatz.md](Mimikatz.md) |
-| Amass | ✅ Created | [Amass.md](Amass.md) |
-| Rubeus | ✅ Created | [Rubeus.md](Rubeus.md) |
-| Nuclei | ✅ Created | [Nuclei.md](Nuclei.md) |
-| Aircrack-ng | ✅ Created | [Aircrack-ng.md](Aircrack-ng.md) |
-| Chisel | ✅ Created | [Chisel.md](Chisel.md) |
-
-> See [TOOLS_AUDIT.md](../TOOLS_AUDIT.md) for the full audit report.
