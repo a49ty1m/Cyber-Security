@@ -7,6 +7,8 @@
 > **When to use it:** API security testing on REST and GraphQL endpoints. Managing authentication tokens (Bearer, OAuth2, API keys) during long assessments. Organizing API endpoint collections from reconnaissance. Sending complex API requests that are difficult to craft in curl. Fuzzing API parameters before automating with ffuf.
 >
 > **What mastering Postman unlocks:** Efficient API attack surface exploration. Complex authentication flow handling. Organized API security testing. The foundation for every modern API pentest.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — API Security Testing)
 
 ---
 

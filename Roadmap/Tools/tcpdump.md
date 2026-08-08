@@ -9,6 +9,8 @@
 > **When to use Wireshark instead:** When you need full interactive protocol analysis. When you need to follow TCP streams visually. When working on a desktop with GUI access and large captures.
 >
 > **What mastering tcpdump unlocks:** Network traffic analysis capability in any environment. Evidence collection from servers. Protocol-level debugging. Foundation for understanding all network-based attacks and defenses.
+>
+> **Roadmap Phase:** Phase 2–7 (Scanning through DFIR — CLI packet capture used across all phases)
 
 ---
 

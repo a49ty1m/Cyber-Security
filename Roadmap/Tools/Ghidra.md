@@ -7,6 +7,8 @@
 > **When to use it:** Analyzing malware without running it (static analysis). Finding vulnerabilities in closed-source binaries. Reverse engineering firmware. CTF reverse engineering challenges. Understanding proprietary protocols from captured binaries.
 >
 > **What mastering Ghidra unlocks:** Static malware analysis. Vulnerability research in closed-source software. CTF reversing challenges. Understanding binary behavior without source code. The foundation of serious malware analysis and vulnerability research.
+>
+> **Roadmap Phase:** Phase 7 (Malware Analysis and Reverse Engineering)
 
 ---
 

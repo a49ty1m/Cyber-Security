@@ -9,6 +9,8 @@
 > **When to avoid it:** Noisy — generates authentication events on every target. Don't use without authorization. In extremely locked-down environments, the authentication flood may trigger lockout policies.
 >
 > **What mastering NetExec unlocks:** Rapid credential validation across entire networks. Mass lateral movement assessment. Domain enumeration without being on a domain-joined machine. Full post-exploitation automation. CME muscle memory maps 1:1 to nxc commands.
+>
+> **Roadmap Phase:** Phase 4–5 (Exploitation, AD Lateral Movement, and Post-Exploitation)
 
 ---
 

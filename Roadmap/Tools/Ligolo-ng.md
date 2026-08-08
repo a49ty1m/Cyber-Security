@@ -7,6 +7,8 @@
 > **When to use it:** After compromising a dual-homed machine that has access to an internal network segment you cannot reach directly. Multi-hop pivoting through multiple layers. Any scenario where you need to reach a network behind a compromised host.
 >
 > **What mastering Ligolo-ng unlocks:** Full network pivoting capability. The ability to attack internal networks through a beachhead. The core skill that separates basic pentesting from advanced red team operations.
+>
+> **Roadmap Phase:** Phase 5 (Pivoting and Tunneling)
 
 ---
 

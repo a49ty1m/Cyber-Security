@@ -9,6 +9,8 @@
 > **When to avoid it:** Without authorization — sqlmap sends thousands of requests and is highly detectable. When you want to understand the vulnerability deeply first — use manual injection to understand it before automating. In extremely noisy environments where you need stealth (sqlmap generates obvious patterns).
 >
 > **What mastering sqlmap unlocks:** Full automated SQL injection exploitation. Database enumeration and credential extraction. Understanding of all SQL injection techniques. Post-exploitation via SQLi (file read/write, OS command execution in some cases).
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — SQL Injection)
 
 ---
 

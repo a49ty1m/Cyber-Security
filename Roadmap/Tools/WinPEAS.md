@@ -9,6 +9,8 @@
 > **When to avoid it:** When stealth is critical — WinPEAS is noisy (many file and registry accesses, network calls). When AV/EDR is active — WinPEAS is well-known and flagged by many security products. In those cases, run individual manual checks or use obfuscated/modified versions.
 >
 > **What mastering WinPEAS unlocks:** Systematic Windows privilege escalation. Understanding of every Windows escalation category. The ability to understand the output and prioritize what actually leads to escalation vs. false alarms.
+>
+> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Windows Privilege Escalation)
 
 ---
 

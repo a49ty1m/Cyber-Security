@@ -7,6 +7,8 @@
 > **When to use it:** Comprehensive external OSINT for an engagement. Threat intelligence and attack surface management. When you need breadth over depth — SpiderFoot is wide but individual modules go less deep than dedicated tools. Brand and exposure monitoring.
 >
 > **When to use theHarvester or Recon-ng:** For specific, targeted queries. When you need module-level control and structured database output. SpiderFoot for comprehensive automated coverage; Recon-ng for controlled, structured pipelines.
+>
+> **Roadmap Phase:** Phase 1 (Reconnaissance — Automated OSINT Collection)
 
 ---
 

@@ -9,6 +9,8 @@
 > **When to avoid it:** Non-WordPress sites (it's WordPress-only). When the API token is needed for full vulnerability data and you don't have one (free tier is limited).
 >
 > **What mastering WPScan unlocks:** WordPress attack surface enumeration. Plugin/theme CVE identification. User enumeration for password attacks. Understanding of the WordPress security model and common attack patterns.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — CMS Security Testing)
 
 ---
 

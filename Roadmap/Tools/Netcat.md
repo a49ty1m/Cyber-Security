@@ -9,6 +9,8 @@
 > **When to avoid it:** When you need encryption (use Ncat with `--ssl` or `socat` instead). When you need persistent, reliable connections (use SSH). When you need protocol-specific features (use the proper client). When you need to scan many ports quickly (use Nmap).
 >
 > **What mastering Netcat unlocks:** Deep understanding of TCP/UDP at the socket level, ability to improvise network solutions in restricted environments, shell handling skills critical for every pentest, the confidence to interact with any network service manually.
+>
+> **Roadmap Phase:** Phase 2–5 (Scanning, Exploitation, Post-Exploitation, and Pivoting)
 
 ---
 

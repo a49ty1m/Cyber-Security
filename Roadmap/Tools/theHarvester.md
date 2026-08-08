@@ -9,6 +9,8 @@
 > **When to use other tools additionally:** Amass and Subfinder for more comprehensive subdomain enumeration. Hunter.io and LinkedIn for deeper email/employee research. Shodan for detailed IP/service intelligence.
 >
 > **What mastering theHarvester unlocks:** Systematic passive OSINT collection. Email address discovery for phishing campaigns. Subdomain enumeration without touching the target. Full pre-attack intelligence profile construction.
+>
+> **Roadmap Phase:** Phase 1 (Reconnaissance — Passive OSINT)
 
 ---
 

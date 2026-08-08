@@ -66,7 +66,8 @@
   - [Stage 4: Data Representation & Logic](#stage-4-data-representation-logic)
   - [Stage 5: Wireless & Physical Connections](#stage-5-wireless-physical-connections)
   - [Stage 6: Mobile Platform Awareness](#stage-6-mobile-platform-awareness)
-  - [Stage 7: Programming & Scripting Fundamentals](#stage-7-programming-scripting-fundamentals)
+  - [Stage 7A: Programming & Scripting Fundamentals (Python, Bash, PowerShell, JS)](#stage-7a-programming-scripting-fundamentals)
+  - [Stage 7B: C & C++ (Phase 7 — deferred)](#stage-7b-c-cpp-programming)
 - [Part 1B: Linux Administration](#part-1b-linux-administration)
   - [Stage 1: User & Access Management (Linux)](#stage-1-user-access-management-linux)
   - [Stage 2: Service & Process Management (Linux)](#stage-2-service-process-management-linux)
@@ -363,6 +364,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 | Phase 2         | **eJPT (INE), CompTIA PenTest+**                       | Entry offensive validation                               |
 | Phase 3         | **CySA+ (CompTIA), BTL1 (Security Blue Team)**         | Blue team validation                                     |
 | Phases 1–4      | **eWPT (INE), BSCP (PortSwigger)**                     | Web security specialization                              |
+| Phase 5         | **GMOB (GIAC Mobile Device Security), eWMPT (INE)**    | Mobile security specialization; pursue after Phase 5 completion |
 | Phases 1–6      | **OSCP (OffSec), PNPT (TCM), CRTP (Altered Security)** | Mid-level offensive; OSCP is the gold standard           |
 | Phases 1–7      | **GCFE, GCFA (GIAC Forensics), eCRE (INE)**            | DFIR / RE specialization                                 |
 | Phases 1–8      | **OSEP (OffSec), CRTO (Zero-Point), CISSP**            | Senior offensive / architecture validation               |
@@ -647,12 +649,14 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-<a id="stage-7-programming-scripting-fundamentals"></a>
+<a id="stage-7a-programming-scripting-fundamentals"></a>
 
-### **Stage 7: Programming & Scripting Fundamentals**
+### **Stage 7A: Programming & Scripting Fundamentals**
 
 > [!TIP]
-> **Goal:** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage focuses on programming fundamentals, scripting, and secure coding—not offensive malware or exploit development, which are covered later in the roadmap.
+> **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Phase 1. **C and C++ are deferred to Stage 7B in Phase 7**, where binary analysis context makes them immediately applicable.
+>
+> **Stage 7B (C & C++) lives in Phase 7 — before Parts 28 and 42.** Do not attempt C or C++ now. They require debugger experience and binary analysis context to learn meaningfully.
 
 ---
 
@@ -712,12 +716,15 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 #### **JavaScript & Node.js (Web, Browser & API Security)**
 
+> [!NOTE]
+> **JavaScript Scope in Phase 1:** The functional minimum for Phase 1 is: core language syntax, browser APIs, DOM basics, the fetch/axios communication layer, and the Security Context section (XSS, prototype pollution, CSRF, CORS misconfig). The Node.js/Express, Service Worker, SSE, and modern framework awareness content is intentionally brief and awareness-level — revisit it in Phase 4 with web application testing context where it becomes immediately applicable. Do not stall Phase 1 attempting to master React, Angular, or Express.js depth before moving forward.
+
 - [ ] **Core JavaScript:** Master variables, data types, operators, scope, hoisting, closures, prototypes, prototype chain, objects, arrays, functions, asynchronous programming, callbacks, Promises, async/await, ES6+ features, modules, classes, the event loop, memory model, DOM manipulation, BOM, and browser APIs.
 
 - [ ] **Node.js Fundamentals:** Learn npm, package management, Express.js, middleware, routing, filesystem APIs, child processes, streams, buffers, environment variables, authentication, session management, JWT handling, server-side JavaScript, and REST API development.
 
 - [ ] **Browser Internals:** Understand:
-  - [ ] Cookies (attributes: HttpOnly, Secure, SameSite)
+  - [ ] Cookies (attributes: `HttpOnly`, `Secure`, `SameSite`) — _security reasoning for each attribute is covered in full in **Part 3C Stage 2: Cookies, Sessions & Tokens**_
   - [ ] localStorage
   - [ ] sessionStorage
   - [ ] IndexedDB
@@ -727,7 +734,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
   - [ ] XMLHttpRequest (XHR)
   - [ ] WebSockets
   - [ ] Server-Sent Events (SSE)
-  - [ ] Cross-Origin Resource Sharing (CORS)
+  - [ ] Cross-Origin Resource Sharing (CORS) _(canonical full treatment in Part 3C Stage 3: Same-Origin Policy, CORS & Web Security Headers)_
   - [ ] Content Security Policy (CSP)
   - [ ] Same-Origin Policy (SOP)
   - [ ] postMessage API
@@ -1256,6 +1263,22 @@ Before moving to the next stage, you should be able to:
 > - **Part 42: Offensive Development & Tooling** (Phase 7) — Exploit prototyping with pwntools, custom C2 implant logic, buffer overflow exploits, shellcode writing, Win32 API process injection, DLL loading, token manipulation, .NET offensive tooling (P/Invoke, D/Invoke, SharpHound, Rubeus), AMSI/ETW bypass, in-memory execution, offensive PowerShell (download cradles, constrained language mode escape).
 > - **Part 29: Modern Exploitation** (Phase 7) — Advanced memory exploitation, kernel exploits, browser exploitation.
 > - **Part 8: Malware & Weaponization** (Phase 2) — Document weaponization (VBA macros, DDE template abuse, OneNote/PDF weaponization), email client abuse, OAuth consent phishing, cloud persistence, data exfiltration, and covert channels.
+
+---
+
+<a id="stage-7b-c-cpp-programming"></a>
+
+### **Stage 7B: C & C++ Programming** ← *Deferred to Phase 7*
+
+> [!IMPORTANT]
+> **Do not start Stage 7B now.** This stage is placed here as a structural marker only. C and C++ are the languages of OS internals, exploit primitives, shellcode, and reverse engineering targets — but they require meaningful context to learn effectively:
+> - You need to have seen a stack frame in a debugger before C memory layout makes sense.
+> - You need to have read disassembly before C++ vtables mean anything.
+> - You need to have written at least one exploit before custom shellcode has purpose.
+>
+> **Return here when you reach Phase 7, before starting Part 28 (Reverse Engineering) and Part 42 (Offensive Development).** At that point, C and C++ become immediately applicable rather than abstract theory.
+>
+> **Phase 7 location:** Phase-7.md — Stage 7B section before Part 42.
 
 ---
 
@@ -1814,6 +1837,14 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **BGP (Border Gateway Protocol):** Understand **AS numbers, path vectors, and route redistribution**.
 
+> [!NOTE]
+> **BGP Security Sidebar:** BGP is the routing protocol of the internet — every ISP, cloud provider, and large enterprise peers via BGP. Unlike internal routing protocols, BGP has no built-in authentication or route validation. Key security concepts:
+> - **BGP Hijacking:** An AS announces prefixes it does not own, attracting traffic that should route elsewhere. Historical examples: Pakistan Telecom (2008, YouTube blackhole), BGP hijacks targeting cryptocurrency exchanges (2018). State-level actors use BGP hijacking for traffic interception.
+> - **Route Leaks:** An AS accidentally re-advertises routes it should not, causing traffic rerouting. Leaks differ from hijacks in intent but have the same network impact.
+> - **RPKI (Resource Public Key Infrastructure):** The primary mitigation. Certificate authority binds IP prefixes to AS numbers via **Route Origin Authorizations (ROAs)**. BGP routers can validate ROAs and drop **RPKI-invalid** routes. Cloudflare, ARIN, and most large ISPs have adopted RPKI. Cloud providers deploying BGP peering are expected to understand RPKI. Check status: `https://stats.labs.apnic.net/rpki`.
+> - **Monitoring:** BGPStream (`bgpstream.caida.org`) and Cloudflare Radar provide real-time BGP anomaly detection. Security engineers at cloud-adjacent companies use these to detect supply-chain routing attacks against their infrastructure.
+> - **AS Path Manipulation:** Understanding AS path prepending, MED, and local preference is prerequisite for reasoning about which routes your organisation's traffic will take — relevant when assessing traffic interception risk for specific adversary threat models.
+
 - [ ] **EIGRP (Enhanced Interior Gateway Routing Protocol):** Master Cisco proprietary **DUAL algorithm** and metrics.
 
 - [ ] **RIP (Routing Information Protocol):** Understand legacy distance-vector protocol and 15-hop limit.
@@ -2130,7 +2161,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Status Codes:** Know **2xx (success), 3xx (redirect), 4xx (client), 5xx (server)**.
 
-- [ ] **Session Cookies:** Understand **HttpOnly, Secure, SameSite** flags and cookie theft.
+- [ ] **Session Cookies:** Understand `HttpOnly`, `Secure`, `SameSite` flags and cookie theft. _(Security attribute security reasoning is in **Part 3C Stage 2: Cookies, Sessions & Tokens** — the canonical treatment with exploitation context.)_
 
 - [ ] **HTTP/2 & HTTP/3:** Master **multiplexing, server push**, and new vulnerability surfaces.
 
@@ -2488,13 +2519,59 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### **Stage 1: Core Concepts & Algorithms**
 
 > [!TIP]
-> **Goal:** Understand the mathematical tools available.
+> **Goal:** Build a working mental model of every cryptographic primitive used in security — symmetric ciphers, asymmetric key operations, hash functions, MACs, and key derivation. Stage 5 teaches how these break. You need this stage first or Stage 5 will be memorisation without understanding.
 
-- [ ] **CIA Alignment:** Map your crypto goals to the **Understand CIA Triad** (Confidentiality = Encryption, Integrity = Hashing).
+- [ ] **CIA Alignment:** Map cryptographic tools to security goals: **Confidentiality** = encryption prevents unauthorised reading; **Integrity** = hashing/MAC detects modification; **Authenticity** = digital signatures prove origin; **Non-repudiation** = signed artefacts cannot be disowned. Not every algorithm provides all four — know which provides which.
 
-- [ ] **Asymmetric Mastery:** Define the roles of **Private vs Public Keys**: Public to Encrypt/Verify, Private to Decrypt/Sign.
+- [ ] **Symmetric Encryption — How It Works:**
+  - A **single shared key** encrypts and decrypts. Sender and receiver must both have the key; key distribution is the hard problem.
+  - **AES (Advanced Encryption Standard):** Block cipher operating on 128-bit blocks with 128/192/256-bit keys. The algorithm itself is secure — attacks target the *mode of operation*, not AES directly. Know this distinction.
+  - **Block Cipher Modes — This Is Where Security Lives or Dies:**
+    - **ECB (Electronic Codebook):** Each block encrypted independently with the same key. **Identical plaintext blocks → identical ciphertext blocks.** Leaks data structure. Never use for anything beyond a single block. The AES-ECB encrypted Tux image is the canonical demonstration.
+    - **CBC (Cipher Block Chaining):** Each plaintext block is XORed with the previous ciphertext block before encryption. Requires an **Initialization Vector (IV)** for the first block. IV must be **unpredictable** — a predictable IV enables chosen-plaintext attacks. Requires **padding** to fill the last block — padding validation is the source of padding oracle attacks (Stage 5).
+    - **CTR (Counter):** Turns the block cipher into a stream cipher. Encrypts a counter value, XORs the result with plaintext. **No padding needed.** Nonce + counter must never repeat with the same key — nonce reuse reveals XOR of plaintexts.
+    - **GCM (Galois/Counter Mode):** CTR mode + authentication tag (GHASH). Provides both confidentiality and integrity in one operation (AEAD — Authenticated Encryption with Associated Data). The authentication key is derived from the encryption key — **nonce reuse in GCM is catastrophic** (exposes authentication key, allows forgery).
+  - **ChaCha20-Poly1305:** Stream cipher (ChaCha20) + MAC (Poly1305). AEAD, like GCM. Preferred over AES-GCM on systems without hardware AES acceleration (mobile, IoT). Used in TLS 1.3.
 
-- [ ] **Integrity Checks:** Implement **Hashing** (SHA-256) to verify data integrity and detect **False Positives/Negatives** in file transfers.
+- [ ] **Asymmetric Encryption — Public/Private Key Pairs:**
+  - **Key pair properties:** Public key encrypts / verifies signatures; Private key decrypts / creates signatures. Public key can be distributed freely; private key never leaves the owner's control.
+  - **RSA:** Security relies on the difficulty of factoring the product of two large primes (n = p × q). Key operations: encryption uses public exponent e, decryption uses private exponent d. **Padding is mandatory** — unpadded RSA is deterministic and malleable:
+    - **PKCS#1 v1.5 padding** (legacy, still widespread): vulnerable to Bleichenbacher's attack (padding oracle — see Stage 5).
+    - **OAEP (Optimal Asymmetric Encryption Padding):** randomised, secure for encryption.
+    - **PSS (Probabilistic Signature Scheme):** randomised, secure for signatures.
+  - **ECC (Elliptic Curve Cryptography):** Security relies on the elliptic curve discrete logarithm problem — much harder than integer factorisation for equivalent key sizes. A 256-bit ECC key ≈ 3072-bit RSA in security level.
+    - **ECDSA (Elliptic Curve Digital Signature Algorithm):** Signatures. Used in TLS certificates. Requires a unique random nonce per signature — nonce reuse allows private key recovery (the PS3 hack).
+    - **ECDH / ECDHE (Elliptic Curve Diffie-Hellman):** Key exchange. Both parties compute the same shared secret without transmitting it. The **E** (Ephemeral) variant generates a new key pair per session — this is what provides **Perfect Forward Secrecy** in TLS 1.3.
+    - **Common curves:** P-256 (NIST, widely used), P-384, Curve25519 (modern, high-performance, used in Signal/WireGuard/TLS 1.3).
+
+- [ ] **Hash Functions — One-Way Transformation:**
+  - Input of any length → fixed-length digest. **Cannot be reversed.** Identical inputs always produce identical outputs (deterministic). A one-bit change in input produces a completely different output (avalanche effect).
+  - **SHA-2 family (SHA-256, SHA-384, SHA-512):** Based on Merkle-Damgård construction — processes input in blocks, chaining intermediate state. Widely used, currently secure for all purposes. SHA-256 produces a 32-byte digest.
+  - **SHA-3 / Keccak:** Sponge construction — fundamentally different from SHA-2. Immune to length extension attacks that affect Merkle-Damgård hashes. Not a replacement for SHA-2 in most contexts, but the approved alternative.
+  - **BLAKE3:** Modern, parallelisable, faster than SHA-2. Used in some password managers, version control systems, and new protocols.
+  - **Common misuses:** Using MD5 or SHA-1 for integrity checks (both are collision-broken). Using an unsalted SHA-256 to store passwords (fast = attackable with GPU rainbow tables).
+
+- [ ] **HMAC — Authenticated Hashing:**
+  - HMAC(key, message) = H(key ⊕ opad ∥ H(key ⊕ ipad ∥ message)). Proves the message was produced by someone with the key. Not vulnerable to length extension attacks (unlike raw H(secret ∥ message)). Used in JWT signatures (HS256), API authentication, TLS MAC in older versions.
+
+- [ ] **Key Derivation Functions (KDFs):**
+  - **PBKDF2:** Password-based KDF. Applies HMAC iteratively (e.g., 600,000× for SHA-256). Configurable iterations, but parallelisable — GPU cracking is feasible at low iteration counts.
+  - **bcrypt:** Memory-expensive by design. Uses the Blowfish key schedule. Work factor is a logarithmic cost parameter. Truncates passwords at 72 bytes — a known limitation.
+  - **scrypt:** Memory-hard (requires large RAM, not just CPU cycles). Harder to parallelise on ASICs/GPUs than bcrypt.
+  - **Argon2id:** Winner of the Password Hashing Competition (2015). Combines memory-hardness (Argon2i) and GPU resistance (Argon2d). Current OWASP recommendation for new systems. Parameters: memory cost (≥64 MB), time cost (iterations), parallelism.
+  - **HKDF (HMAC-based Key Derivation Function):** Not for passwords — for deriving multiple keys from a single shared secret (e.g., deriving TLS session keys from the ECDHE shared secret). RFC 5869.
+
+- [ ] **Cryptographic Randomness — CSPRNG vs PRNG:**
+  - A regular PRNG (e.g., `rand()`, `Math.random()`) is deterministic and seeded — an attacker who knows the seed can predict all outputs. **Never use for cryptographic material.**
+  - A CSPRNG (Cryptographically Secure PRNG) is seeded from hardware entropy (CPU timing jitter, device interrupts, `/dev/urandom`, `getrandom()` syscall). Outputs are computationally indistinguishable from random.
+  - **In practice:** Use `os.urandom()` in Python, `crypto.getRandomValues()` in JS, `SecureRandom` in Java. Avoid seeding with timestamps, process IDs, or predictable values.
+  - **IV/nonce generation:** Always generated with a CSPRNG. A predictable IV in CBC or a repeated nonce in GCM/CTR is a critical vulnerability (see Stage 5).
+
+- [ ] **Encoding vs Encryption vs Hashing — The Foundational Confusion:**
+  - **Encoding** (Base64, URL encoding, hex): Transforms data format for transmission/storage. **Reversible with no key.** Provides zero security. Seeing Base64 in a field does not mean it is encrypted.
+  - **Encryption:** Transforms data using a key. Reversible only with the correct key. Provides confidentiality.
+  - **Hashing:** One-way transformation. Not reversible. Provides integrity verification and password storage (with KDFs).
+  - Why this matters: developers frequently mistake Base64-encoded data for encrypted data, store Base64-encoded passwords thinking they are "hashed," or confuse a fast hash (SHA-256) with a password KDF (Argon2).
 
 ---
 
@@ -2503,13 +2580,61 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### **Stage 2: Secure Communication (Data in Transit)**
 
 > [!TIP]
-> **Goal:** Secure the pipe between two points.
+> **Goal:** Understand exactly how TLS secures a connection — every step of the handshake, every field in the cipher suite string, and why forward secrecy matters. This stage directly underpins your ability to analyse TLS captures (Part 2 PCAP lab), exploit TLS misconfigurations (Part 18), and understand downgrade attacks (Stage 5).
 
-- [ ] **Protocol Hardening:** Enforce **Secure Protocols** by disabling **SSL** (deprecated) and enforcing **TLS** 1.2/1.3.
+- [ ] **TLS 1.3 Handshake — Step by Step:**
+  TLS 1.3 reduced the handshake from 2 round-trips (TLS 1.2) to 1 round-trip. Know every message:
+  1. **ClientHello:** Client sends supported cipher suites, TLS version, random nonce, and — critically — one or more **KeyShare** entries (client's ECDHE public key for the preferred group, e.g., X25519). The client starts key negotiation immediately rather than waiting for the server to pick parameters.
+  2. **ServerHello:** Server selects the cipher suite and returns its own **KeyShare** (ECDHE public key). Both sides can now derive the **shared secret** using ECDH — the connection is encrypted from this point forward.
+  3. **{EncryptedExtensions}:** Server sends extensions (ALPN, server name) — now encrypted.
+  4. **{Certificate}:** Server's X.509 certificate — encrypted.
+  5. **{CertificateVerify}:** Server signs the handshake transcript with its private key — proves it owns the certificate.
+  6. **{Finished}:** HMAC over the entire handshake transcript — detects tampering.
+  7. **{Finished} (client):** Client verifies and responds. Handshake complete — application data flows.
+  - **Key insight:** In TLS 1.3, the server's certificate private key is only used for authentication (CertificateVerify), not for key exchange. The session key comes entirely from ECDHE. This is what provides **Perfect Forward Secrecy** — compromise of the server's private key does not decrypt past sessions.
 
-- [ ] **Secure Transfer:** Replace cleartext protocols with encrypted alternatives: **FTP vs SFTP** (SSH-based) or **IPSEC** for VPNs.
+- [ ] **Cipher Suite Anatomy — Read It Left to Right:**
+  A TLS 1.3 cipher suite like `TLS_AES_256_GCM_SHA384` means:
+  - `TLS` — protocol
+  - `AES_256_GCM` — AEAD algorithm for bulk encryption (AES-256 in GCM mode)
+  - `SHA384` — hash algorithm used in HKDF for key derivation
+  - TLS 1.3 removed the key exchange and authentication fields from the cipher suite name because ECDHE is mandatory and the cert algorithm is specified separately.
+  - A TLS 1.2 suite like `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` breaks into: key exchange (ECDHE), authentication (RSA certificate), bulk cipher (AES-128-GCM), MAC hash (SHA-256).
 
-- [ ] **Handshake Analysis:** Analyze the **Key Exchange** (Diffie-Hellman) within the **Understand Handshakes** process to ensure Forward Secrecy.
+- [ ] **Perfect Forward Secrecy (PFS):**
+  With static RSA key exchange (pre-TLS 1.3 option): the server's private key encrypts the session key directly. Capture traffic today, obtain the private key later → decrypt all past sessions.
+  With ECDHE: each session generates a **fresh ephemeral key pair**. The ECDHE private key is discarded after the handshake. No long-term key can decrypt past sessions. This is PFS. TLS 1.3 makes ECDHE mandatory — PFS is no longer optional.
+
+- [ ] **Protocol Version History & Deprecation:**
+  - **SSL 2.0 / SSL 3.0:** Broken (POODLE, DROWN). Must be disabled. Any server still advertising SSLv3 is a critical finding.
+  - **TLS 1.0 / TLS 1.1:** Deprecated (RFC 8996, 2021). Vulnerable to BEAST (TLS 1.0), POODLE-over-TLS. PCI-DSS requires disablement. Disable on all servers.
+  - **TLS 1.2:** Still acceptable, widely deployed, requires proper cipher suite configuration (disable RC4, export ciphers, NULL ciphers, anonymous DH).
+  - **TLS 1.3:** Current standard. Mandatory ECDHE, mandatory AEAD ciphers, removed renegotiation, removed compression (CRIME mitigation).
+
+- [ ] **Certificate Validation During the Handshake:**
+  When the client receives the server's certificate, it validates: (1) signature chain to a trusted root CA; (2) certificate not expired; (3) hostname matches Subject Alternative Name (SAN) or Common Name (CN); (4) certificate not revoked (OCSP check or CRL). **Any failure should abort the handshake.** TLS clients that skip validation (e.g., `verify=False` in Python requests) are vulnerable to MITM attacks.
+
+- [ ] **Mutual TLS (mTLS):**
+  Standard TLS authenticates only the server. mTLS requires the client to also present a certificate — the server verifies it against a trusted CA. Used in: microservice-to-microservice authentication, zero trust networks, client certificate authentication portals. Attack surface: stolen client certificates enable impersonation; CA compromise enables mTLS bypass.
+
+- [ ] **Secure Protocol Alternatives — Know When to Use Each:**
+  - **SFTP / SCP** (SSH-based file transfer) — replaces FTP (cleartext). SSH provides both authentication and encryption.
+  - **FTPS** (FTP over TLS) — not the same as SFTP. Uses TLS, but firewall-unfriendly (data channel on dynamic port). Prefer SFTP.
+  - **IPsec (IKEv2)** — network-layer encryption for VPNs. Operates below the application layer; encrypts all IP traffic between endpoints. Two modes: **Transport** (encrypts payload only) and **Tunnel** (encrypts entire IP packet — used in site-to-site VPNs).
+  - **WireGuard** — modern VPN protocol. Uses ChaCha20-Poly1305 + Curve25519. Simpler than IPsec, faster, and the codebase is orders of magnitude smaller (easier to audit).
+  - **SSH** — encrypts terminal sessions, file transfer, and port forwarding. The server's host key should be verified on first connection — a key fingerprint mismatch indicates a MITM or server change.
+
+- [ ] **DTLS (Datagram TLS):**
+  TLS runs over TCP. DTLS adapts TLS to run over UDP — used in WebRTC (video/audio), QUIC (underlying HTTP/3), VoIP. Key difference: DTLS must handle out-of-order and dropped datagrams. Attack surface: replay attacks (DTLS has a sliding window replay protection mechanism).
+
+- [ ] **Protocol Hardening Checklist (Practical):**
+  On any TLS-enabled service you control or assess:
+  - [ ] Disable SSLv2, SSLv3, TLS 1.0, TLS 1.1
+  - [ ] Disable weak ciphers: RC4, NULL, EXPORT, anonymous DH (ADH/AECDH), DES/3DES
+  - [ ] Enable only AEAD ciphers in TLS 1.2: AES-128-GCM, AES-256-GCM, ChaCha20-Poly1305
+  - [ ] Require TLS 1.3 where possible
+  - [ ] Set `HSTS` header (HTTP Strict Transport Security) with `max-age` ≥ 1 year
+  - [ ] Verify with: `testssl.sh`, `sslyze`, `nmap --script ssl-enum-ciphers`
 
 ---
 
@@ -2518,11 +2643,60 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### **Stage 3: Identity & Trust (PKI)**
 
 > [!TIP]
-> **Goal:** Prove that you are who you say you are.
+> **Goal:** Understand how the internet decides to trust a server's public key — and how that trust infrastructure is attacked. PKI underpins HTTPS, code signing, email encryption, VPN authentication, and Active Directory. Certificate-related misconfigurations appear in nearly every enterprise pentest (Part 23 ADCS attacks, Part 24 cloud IAM, Part 18 web server hacking).
 
-- [ ] **Infrastructure:** Deploy **PKI** to manage digital certificates, ensuring the validity of public keys.
+- [ ] **X.509 Certificate Anatomy — Read a Certificate Field by Field:**
+  A certificate is a signed data structure that binds a public key to an identity. Open any certificate in a browser or with `openssl x509 -text -noout -in cert.pem` and locate:
+  - **Subject:** Who the certificate identifies. Modern certs use **Subject Alternative Names (SANs)** for hostnames — the CN field is largely legacy but still parsed by some clients.
+  - **Issuer:** The CA that signed this certificate.
+  - **Validity (Not Before / Not After):** The certificate's lifetime. After `Not After`, the certificate is expired and must be replaced — expired certs cause outages and are a common pentest finding.
+  - **Public Key + Algorithm:** The subject's public key and algorithm (RSA-2048, EC P-256, etc.).
+  - **Key Usage / Extended Key Usage:** Constrains what the key can do. `Digital Signature` + `Key Encipherment` for TLS server auth; `Code Signing` for binaries; `Certificate Sign` for CA certs. A cert with `Certificate Sign` but without `CA:true` in Basic Constraints should be rejected as a CA — this is the basis of some ADCS escalation paths.
+  - **Subject Key Identifier (SKI) / Authority Key Identifier (AKI):** Used to chain certificates. AKI identifies which CA key signed this cert.
+  - **Basic Constraints — CA:true / pathLenConstraint:** Marks whether this cert can sign other certificates and how many intermediate CAs are permitted in the chain.
 
-- [ ] **Email Security:** Implement **S/MIME** to sign and encrypt corporate email, preventing **Phishing** and spoofing.
+- [ ] **Certificate Lifecycle — From CSR to Revocation:**
+  1. **Key generation:** Subject generates a key pair (private key never leaves the subject).
+  2. **CSR (Certificate Signing Request):** Subject creates a CSR containing their public key and requested attributes (CN, SANs, key usage). Signed with the private key to prove possession.
+  3. **CA validation:** The CA verifies the requestor controls the domain/identity (DV = domain validation via DNS/HTTP challenge; OV = organisation validation with manual checks; EV = extended validation).
+  4. **Issuance:** CA signs the certificate with its private key. The certificate is now trusted by anyone who trusts the CA.
+  5. **Deployment:** Certificate installed on the server alongside the private key.
+  6. **Renewal:** Before expiry, repeat from step 1 (or reuse the existing key pair with a new CSR). **Let's Encrypt automates this with ACME protocol (Certbot).**
+  7. **Revocation:** If the private key is compromised or the cert is mis-issued, the CA revokes it — publishing the serial number in a CRL or making it queryable via OCSP.
+
+- [ ] **CA Hierarchy — Root, Intermediate, and Leaf Certificates:**
+  - **Root CA:** Self-signed; embedded in OS/browser trust stores. Root CA private keys are kept **offline in HSMs** — compromise of a root CA is catastrophic (all certs it issued become untrustable). About 150 root CAs are trusted by default in modern browsers.
+  - **Intermediate CA:** Signed by the root CA. Issues end-entity (leaf) certificates. Used to isolate the root CA from daily issuance operations. Most TLS certs are issued by intermediates.
+  - **Leaf certificate:** The TLS certificate you install on your server. Trusted because: leaf is signed by intermediate → intermediate is signed by root → root is in the trust store.
+  - **Chain of trust:** A TLS server must present the full chain (leaf + intermediates) — the client should not need to fetch intermediates. A missing intermediate causes "incomplete chain" errors even if the leaf cert itself is valid.
+
+- [ ] **OCSP (Online Certificate Status Protocol) and CRL (Certificate Revocation List):**
+  - **CRL:** A file published by the CA containing a list of revoked serial numbers. Client downloads the CRL and checks the serial. Problems: CRLs can be large, are updated periodically (not real-time), and clients often fail open (accept the cert) if the CRL cannot be fetched.
+  - **OCSP:** Client queries the CA's OCSP responder with a specific serial number and receives a signed "good/revoked/unknown" response. Real-time, but leaks to the CA which sites users visit.
+  - **OCSP Stapling:** Server pre-fetches its own OCSP response, caches it, and includes ("staples") it in the TLS handshake. Client gets revocation status without contacting the CA directly. No privacy leak, no latency. Enable with `ssl_stapling on` (nginx) or `SSLUseStapling On` (Apache).
+  - **Revocation failure modes:** Most browsers **fail open** — if revocation checking fails (CRL unreachable, OCSP timeout), the cert is accepted. Hard-fail revocation (reject if check fails) is rarely deployed because it causes availability issues.
+
+- [ ] **Certificate Transparency (CT):**
+  - Every publicly-trusted TLS certificate must be logged to a **CT log** (an append-only, cryptographically verifiable log of all issued certs). Browsers enforce this.
+  - **Why it matters offensively:** CT logs are public — [crt.sh](https://crt.sh) and [censys.io](https://search.censys.io) allow you to enumerate all certificates ever issued for a domain, revealing subdomains, internal staging hostnames, and historical infrastructure. This is a primary recon tool in Part 4.
+  - **Why it matters defensively:** Your organisation can monitor CT logs for certificates issued for your domain by unauthorised CAs (mis-issuance detection). Tools: `certspotter`, Cloudflare's CT monitor.
+
+- [ ] **Certificate Pinning:**
+  - An application hardcodes the expected certificate (or its public key hash) instead of trusting the full CA chain. If the server presents a different certificate — even one signed by a trusted CA — the connection is rejected.
+  - **HTTP Public Key Pinning (HPKP):** Browser-level pinning via response header. Deprecated — too easy to permanently brick a site if pins are set incorrectly.
+  - **In-app pinning (mobile/desktop):** The app's code contains the expected certificate or SPKI hash. Hardened apps (banking, VPN clients) use this. Bypass techniques are in Part 22 (Frida, Objection, `ssl-kill-switch`).
+  - **Security implication:** Corporate SSL inspection proxies (Zscaler, Forcepoint) intercept HTTPS by replacing certificates with corporate CA-signed ones. Apps with cert pinning break under SSL inspection — this is a common enterprise compatibility issue.
+
+- [ ] **S/MIME and Email Encryption:**
+  - S/MIME signs and/or encrypts email using the sender's certificate. Signing proves authenticity (recipient validates signature against sender's public key cert); encryption uses the recipient's public key cert.
+  - Requires both parties to have certificates issued by mutually trusted CAs — historically a barrier to adoption. Enterprise deployments use an internal CA.
+  - **Security relevance:** Understanding S/MIME is prerequisite for understanding email-based attacks (Part 10): why DMARC prevents *domain spoofing* but not *content forgery*, and why digitally signed emails from a phishing actor with their own valid cert still pass S/MIME validation.
+
+- [ ] **PKI Attack Surface (Forward Reference):**
+  - **ADCS (Active Directory Certificate Services):** Microsoft's enterprise CA. Misconfigurations (ESC1–ESC8) allow attackers to request certificates for arbitrary users, including domain admins. Covered in depth in Part 23.
+  - **CA compromise:** If a CA's private key is stolen, all certs it issued can be forged. Notable historical example: DigiNotar (2011) — CA compromised, fraudulent Google certs issued, CA removed from all trust stores.
+  - **Mis-issued certificates:** CAs have issued certs for domains they shouldn't have (e.g., Symantec issuing google.com test certs). CT logs are the primary detection mechanism.
+  - **Wildcard certificate abuse:** A `*.domain.com` cert is valid for any single-level subdomain. If stolen or extracted from one server, it can impersonate any subdomain.
 
 ---
 
@@ -2541,6 +2715,12 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 - [ ] **Modern Hashing Profiles:** Standardize **Argon2id** (memory-hard) with tuned **memory (e.g., 64–256 MB), iterations, parallelism**, or **bcrypt** with current cost; prefer **password peppering** server-side and enforce **per-user salts**. Deprecate **MD5/SHA-1/SHA-256 for password storage** and legacy **PBKDF2-low-iteration** configs.
 
+- [ ] **LUKS (Linux Unified Key Setup) Internals:** LUKS provides full-disk encryption on Linux. Understand the LUKS2 header structure: PBKDF2 or Argon2 key derivation for key slot protection, up to 32 key slots (each can hold a different passphrase or key file), and the master key (volume key) encrypted inside each slot. Key rotation: add a new slot with the new passphrase → verify it unlocks the volume → remove the old slot — the encrypted data itself is never touched, only the key material. Detached LUKS headers increase security: store the header file separately from the encrypted volume; without the header, the ciphertext is indistinguishable from random bytes. `cryptsetup` is the primary tool: `cryptsetup luksOpen`, `luksAddKey`, `luksKillSlot`, `luksDump`.
+
+- [ ] **Envelope Encryption Pattern:** The production standard for cloud and enterprise key management. Architecture: a **Data Encryption Key (DEK)** encrypts the actual data; a **Key Encryption Key (KEK)** encrypts the DEK; the KEK is stored in a Hardware Security Module or KMS. The critical property: rotating the KEK requires re-encrypting only the small DEK, not re-encrypting terabytes of data. AWS S3 SSE-KMS, Azure Storage Service Encryption, and GCP CMEK all implement this pattern. Understand it before designing any data-at-rest system that must support key rotation or compliance requirements.
+
+- [ ] **Key Rotation Lifecycle:** Know what rotation actually means operationally. Automatic rotation (AWS KMS default: annual) creates a new **backing key version** — old versions remain for decryption, new data uses the new version. Full re-encryption rotation: generate new key → decrypt all data with old key → re-encrypt with new key → decommission old key. Know which your system uses and why the distinction matters for breach impact: if a key is compromised, automatic rotation protects future data but not already-encrypted data unless you run a full re-encryption.
+
 ---
 
 <a id="stage-5-cryptographic-attacks-weaknesses"></a>
@@ -2548,17 +2728,70 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### **Stage 5: Cryptographic Attacks & Weaknesses**
 
 > [!TIP]
-> **Goal:** Understand how crypto fails.
+> **Goal:** Understand how crypto fails at the mechanism level — not just which algorithms are "weak", but WHY they break and what an attacker can do with the break. These attack classes appear repeatedly across Phases 4–7.
 
-- [ ] **Weak Algorithms:** Identify and avoid **MD5, SHA-1, DES, RC4** in production systems.
+- [ ] **Weak Algorithms — What "Broken" Actually Means:**
+  - **MD5:** Collision attacks are practical (two different inputs with identical MD5 hash in seconds). SHA-1 collided in SHAttered (2017). Never use either for integrity or digital signatures.
+  - **DES:** 56-bit key — exhaustive search takes hours on modern hardware. Triple-DES (3DES) has meet-in-the-middle and SWEET32 vulnerabilities.
+  - **RC4:** Statistical keystream biases allow plaintext recovery after enough ciphertext collection. Broken in WEP, early TLS, TKIP.
 
-- [ ] **Implementation Flaws:** Understand **padding oracle, timing attacks, side-channel attacks** that break otherwise strong algorithms.
+- [ ] **Padding Oracle Attacks:** CBC mode requires padding to block boundaries. If a server leaks whether decryption produced valid padding (via error message or timing), an attacker can decrypt arbitrary ciphertext one byte at a time — no key material needed. Practical impact: **POODLE** (SSLv3), **BEAST** (TLS 1.0), ASP.NET `__VIEWSTATE` oracles.
 
-- [ ] **Key Management Failures:** Exploit **hardcoded keys, weak KDF, insecure storage** in applications.
+- [ ] **Length Extension Attacks:** Hash functions built on Merkle-Damgård (MD5, SHA-1, SHA-256) are vulnerable to `H(secret || message)` authentication schemes. An attacker knowing the hash and message length can extend the message and forge a valid hash without the secret. Not applicable to HMAC.
 
-- [ ] **Downgrade Attacks:** Force **SSL/TLS downgrade** to weaker ciphers or protocols.
+- [ ] **Timing Attacks:** Early-exit string comparison leaks secrets via response time differences. Defense: constant-time comparison (`hmac.compare_digest()`). Relevant to: API token validation, cookie comparison.
 
-- [ ] **Cryptanalysis:** Understand basics of **frequency analysis, known-plaintext attacks, chosen-plaintext attacks**.
+- [ ] **ECB Mode — Structural Leakage:** Identical plaintext blocks → identical ciphertext blocks. Leaks data structure. Classic: AES-ECB encrypted bitmap still shows the image outline. Enables block rearrangement attacks in cookies/sessions.
+
+- [ ] **IV/Nonce Reuse:** AES-GCM nonce reuse allows recovery of the authentication key and forgery of ciphertext. AES-CTR nonce reuse reveals XOR of plaintexts. CBC predictable IV enables chosen-plaintext attacks.
+
+- [ ] **Key Management Failures:**
+  - Hardcoded keys in source code (GitHub dorking for `AES_KEY`, `api_secret` with actual values)
+  - Weak KDF: deriving encryption keys from passwords with MD5 instead of PBKDF2/scrypt/Argon2
+  - Keys stored alongside encrypted data; no forward secrecy in symmetric key transport
+
+- [ ] **Downgrade Attacks:** TLS negotiation can be forced to weaker options:
+  - **POODLE:** Force TLS 1.0 fallback → SSL 3.0 padding oracle
+  - **DROWN:** Exploit SSLv2 on a server sharing RSA key with a TLS server → decrypt TLS traffic
+  - Defense: reject TLS < 1.2, disable RC4, enforce TLS 1.3 where possible
+
+- [ ] **CRIME / BREACH — Compression + Encryption Side Channel:** TLS that compresses HTTP headers before encrypting allows length-based plaintext extraction. CRIME disabled TLS-level compression. BREACH exploits HTTP gzip compression. Mitigation: disable response compression for pages containing secrets.
+
+- [ ] **Cryptanalysis Basics — Adversary Models:**
+  - **Ciphertext-only:** Attacker has only ciphertext. Statistical analysis.
+  - **Known-plaintext:** Attacker has plaintext/ciphertext pairs.
+  - **Chosen-plaintext (CPA):** Attacker chooses plaintext and observes ciphertext. Breaks ECB, CBC with predictable IV.
+  - **Chosen-ciphertext (CCA):** Attacker can decrypt chosen ciphertexts. Breaks unpadded RSA, padding oracles.
+
+---
+
+<a id="stage-6-post-quantum-cryptography"></a>
+
+### **Stage 6: Post-Quantum Cryptography (PQC)**
+
+> [!TIP]
+> **Goal:** Understand the quantum threat to current public-key cryptography and the NIST-standardised replacements being deployed in production now.
+
+- [ ] **Why Quantum Breaks Current Public-Key Crypto:** RSA, ECC, DH, and DSA rely on integer factoring and discrete logarithm hardness. **Shor's Algorithm** solves both in polynomial time on a sufficiently large quantum computer (CRQC). A CRQC would break all deployed public-key encryption and signatures. Symmetric algorithms (AES, SHA-256) are weakened but not broken — Grover's Algorithm halves effective key size, so AES-256 retains equivalent 128-bit security. Implication: AES-256 and SHA-384+ remain secure post-quantum; RSA/ECC/DH do not.
+
+- [ ] **"Harvest Now, Decrypt Later" (HNDL) Threat:** Adversaries collect encrypted TLS traffic today to decrypt later with a CRQC. Data with long sensitivity periods (classified communications, medical records, financial contracts) is already at risk. This is why PQC migration is urgent before a CRQC exists.
+
+- [ ] **NIST PQC Standards (August 2024):**
+  - **ML-KEM (FIPS 203)** — Replaces RSA/ECDH for key exchange. Also called Kyber. Based on Module LWE (Learning With Errors) lattice problem.
+  - **ML-DSA (FIPS 204)** — Replaces RSA/ECDSA for signatures. Also called Dilithium.
+  - **SLH-DSA (FIPS 205)** — Hash-based signature algorithm. Algorithm diversity complement to ML-DSA.
+
+- [ ] **Hybrid Deployment (Current Best Practice):** Combine classical (X25519) with PQC (ML-KEM) in a single TLS handshake (`X25519MLKEM768`). If either is broken, the session remains secure. Chrome and Firefox enabled hybrid PQC key exchange by default in 2024.
+
+- [ ] **Crypto-Agility:** Design systems so cryptographic algorithms can be swapped without re-engineering. Use libraries with algorithm abstraction (OpenSSL 3.x, BouncyCastle) rather than hardcoding algorithm identifiers.
+
+- [ ] **SIKE Broken Classically (2022):** SIKE — a NIST PQC finalist — was broken by a classical computer in 62 minutes in 2022. This illustrates that "post-quantum" does not mean "quantum-only threat" — novel constructions can be broken by classical cryptanalysis.
+
+- [ ] **Zero-Knowledge Proofs (ZKP) — Awareness:** A zero-knowledge proof allows one party (the prover) to convince another (the verifier) that a statement is true without revealing any information beyond the truth of the statement. Relevant to:
+  - **zk-SNARKs (Succinct Non-Interactive Argument of Knowledge):** Used in Zcash and Ethereum's zkEVM. Prover demonstrates knowledge of a secret satisfying a circuit without revealing the secret.
+  - **zk-STARKs:** Transparent (no trusted setup) alternative to SNARKs. Larger proofs but post-quantum secure.
+  - **ZKP-based authentication:** Prove knowledge of a password without sending the password — no secret transmitted, no hash to steal.
+  - **Security relevance:** ZKP systems introduce new attack surfaces (circuit under-constrained bugs, trusted setup compromise in pairing-based SNARKs). Full ZKP security is covered in Part 34 (Blockchain & Web3 Security). Awareness here is sufficient for Phase 1.
 
 <a id="lab-progression-cryptography"></a>
 
@@ -2567,13 +2800,16 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > [!TIP]
 > **Goal:** Turn crypto from vocabulary into observable behavior.
 
-- [ ] **Hashing Lab:** Generate hashes for files, modify bytes, and prove integrity failure with SHA-256.
-- [ ] **Password Storage Lab:** Compare unsalted hash, salted hash, bcrypt, and Argon2id behavior; document cracking cost differences.
-- [ ] **TLS Handshake Lab:** Capture TLS 1.3 in Wireshark and identify ClientHello, ServerHello, certificate chain, cipher suite, and key exchange.
-- [ ] **Certificate Lab:** Create a local CA, issue a server certificate, trust it in a lab client, then break trust by expiration/name mismatch.
-- [ ] **Post-Quantum Awareness:** Document NIST PQC primitives such as ML-KEM and ML-DSA, hybrid deployment, and crypto-agility migration risk.
-  > [!IMPORTANT]
-  > **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke.
+- [ ] **Symmetric Modes Lab:** Using Python's `cryptography` library, encrypt the same 48-byte plaintext with AES in ECB mode, then CBC mode (random IV), then GCM mode (random nonce). Compare ciphertext outputs. For ECB: encrypt an image (use a raw pixel bitmap) and observe structural leakage. For CBC: reuse the same IV for two encryptions and document what the first block reveals. For GCM: reuse the nonce twice and observe the authentication tag difference. Document exactly what fails and why.
+- [ ] **Hashing Lab:** Generate hashes for files, modify a single byte, and prove integrity failure with SHA-256. Compare hash output lengths for SHA-256, SHA-384, SHA-512, and BLAKE3.
+- [ ] **Password Storage Lab:** Compare unsalted SHA-256, salted SHA-256, bcrypt (cost=12), and Argon2id (m=65536, t=3) — measure cracking cost for each using `hashcat` against a known wordlist. Document why speed is the enemy of password security.
+- [ ] **TLS Handshake Lab:** Capture TLS 1.3 in Wireshark against a local HTTPS server. Identify: ClientHello (cipher suites offered, KeyShare groups), ServerHello (selected cipher, server KeyShare), Finished messages. Annotate the transition from cleartext to encrypted. Verify PFS by confirming no RSA key exchange occurred.
+- [ ] **PKI Chain Lab:** Using `openssl`, create a 3-tier PKI: (1) self-signed root CA, (2) intermediate CA signed by root, (3) leaf certificate signed by intermediate. Install the root CA in a local browser trust store. Serve the leaf cert with `openssl s_server`. Verify the chain validates successfully. Then: revoke the leaf cert (generate a CRL), serve the CRL, and confirm the browser rejects the revoked cert. Deliverable: annotated OpenSSL commands + chain diagram.
+- [ ] **Certificate Transparency Lab:** Use `crt.sh` to enumerate all certificates ever issued for a domain you own or a lab domain. Identify: subdomain patterns, issuing CAs, historical certificates that reveal old infrastructure. Document 3 subdomains found exclusively via CT logs that are not discoverable via DNS brute-force.
+- [ ] **Post-Quantum Awareness:** Document NIST PQC primitives (ML-KEM, ML-DSA, SLH-DSA), hybrid deployment model, and crypto-agility migration risk. Run `openssl s_client -connect` against a modern server and identify whether `X25519MLKEM768` appears in the KeyShare group list.
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke. You can read a TLS cipher suite string and explain each component. You can create a local CA, issue a signed certificate, and verify the chain. You can explain why AES-ECB is insecure without looking it up.
 
 ---
 
@@ -2598,12 +2834,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 - [ ] **Session ID Properties:** Know that secure session IDs must be **cryptographically random (≥128 bits), opaque (no encoded data), short-lived, invalidated on logout and privilege change**, and transmitted only over TLS.
 
-- [ ] **Cookie Security Attributes:** Master all five:
-  - `HttpOnly` — prevents JavaScript access (mitigates XSS theft)
-  - `Secure` — transmits only over HTTPS
-  - `SameSite=Strict/Lax/None` — controls cross-site sending (mitigates CSRF)
-  - `Domain` and `Path` — scoping controls
-  - `Expires` / `Max-Age` — persistence vs session cookie
+- [ ] **Cookie Security Attributes:** Know the five attributes by name — `HttpOnly`, `Secure`, `SameSite`, `Domain`/`Path`, `Expires`/`Max-Age`. The full security reasoning for each (what its absence allows an attacker to do and why) is in **Part 3C Stage 2: Cookies, Sessions & Tokens** — the canonical treatment. Review it there rather than here.
 
 - [ ] **Session Fixation vs Session Hijacking:** Understand the difference:
   - **Fixation:** Attacker sets the session ID before authentication; victim authenticates and server doesn't rotate the session ID
@@ -2831,6 +3062,14 @@ Using your virtualization platform, build a lab environment containing:
 
 _Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the "what is being attacked" context that makes Phase 2 make sense._
 
+> [!IMPORTANT]
+> **⚡ Pre-Flight Checklist — Complete BEFORE Stage 1:**
+> - [ ] Install **[Burp Suite Community Edition](https://portswigger.net/burp/communitydownload)** and configure your browser to proxy through `127.0.0.1:8080`. Intercept one HTTP request before reading any further.
+> - [ ] Install **Docker** (`sudo apt install docker.io`) and run OWASP Juice Shop: `docker run -d -p 3000:3000 bkimminich/juice-shop`. Verify you can access `http://localhost:3000`.
+> - [ ] Install the **Wappalyzer** browser extension (Firefox/Chrome) to fingerprint technology stacks on any site.
+>
+> These tools are not optional. Every lab in Part 3C requires Burp Suite. You are not learning concepts to describe them — you are learning to observe them in live traffic.
+
 <a id="stage-1-http-the-protocol-of-the-web"></a>
 
 ### **Stage 1: HTTP — The Protocol of the Web**
@@ -2965,17 +3204,11 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 - [ ] **Multi-Factor Authentication (MFA):** Know the three factor categories — something you **know** (password), something you **have** (TOTP app, SMS, hardware key), something you **are** (biometrics). Know that SMS-based MFA is vulnerable to SIM swapping. Understand TOTP (Time-based One-Time Password) — HMAC of shared secret + timestamp truncated to 6 digits.
 
-- [ ] **OAuth 2.0 Flow Awareness (Foundational):** Understand the core OAuth 2.0 authorization code flow conceptually:
-  1. Application redirects user to authorization server with `client_id`, `scope`, `redirect_uri`, `state`
-  2. User authenticates and consents
-  3. Authorization server redirects back to app with `code` and `state`
-  4. App exchanges `code` for `access_token` (server-to-server call with `client_secret`)
-  5. App uses `access_token` to access resource server APIs
-  - **Security parameters:** `state` prevents CSRF; `PKCE` prevents code interception in mobile apps
+- [ ] **OAuth 2.0 Flow Awareness (Foundational):** OAuth 2.0 Authorization Code Flow is covered in full depth in **Part 3B Stage 3: OAuth 2.0 — Delegated Authorization**. Review it before proceeding to Phase 4 API Security (Part 19) where it is exploited.
 
 - [ ] **API Keys & Bearer Tokens:** Used in API authentication. Sent in `Authorization: Bearer <token>` header or as URL parameters. Key risks: hardcoded in source code, committed to Git repositories, logged in access logs, transmitted in URL (logged by proxies).
 
-- [ ] **Password Storage (Server Side):** Understand why plaintext and MD5/SHA1 passwords are dangerous. Know that **salted, iterative hashing** (bcrypt, scrypt, Argon2id) is required. Understand what `salt` prevents (rainbow table attacks) and why work factor matters (brute force cost).
+- [ ] **Password Storage (Server Side):** bcrypt, scrypt, and Argon2id password hashing — including salt, work factor, and rainbow table resistance — are covered in full in **Part 3 Stage 4: Data at Rest & Password Security**. Review that section for the complete treatment.
 
 ---
 

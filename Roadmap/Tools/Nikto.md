@@ -9,6 +9,10 @@
 > **When to avoid it:** Nikto is very noisy — it generates thousands of requests in a short time. Don't use it on production systems without authorization. When stealth is required, Nikto is not the right tool. It doesn't replace Burp Suite for application-level testing.
 >
 > **What mastering Nikto unlocks:** Fast web server vulnerability fingerprinting. Security header analysis. Default file and credential discovery. The starting point before deeper manual web application testing.
+>
+> **Modern Alternative — Nuclei:** For professional and bug bounty work, [Nuclei](Nuclei.md) is now the preferred first-pass web vulnerability scanner. It uses community-maintained YAML templates (9,000+), has a dramatically lower false positive rate, and is faster than Nikto. Nikto remains useful for quick legacy checks and understanding historical web scanner methodology. Use Nuclei as your primary scanner; use Nikto when a course or lab specifically requires it.
+>
+> **Roadmap Phase:** Phase 2–3 (Scanning & Enumeration and Web Vulnerability Detection)
 
 ---
 

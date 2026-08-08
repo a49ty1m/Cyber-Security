@@ -9,6 +9,8 @@
 > **When to avoid it:** Simple CTFs (netcat reverse shell is enough). When a single command is needed. When the engagement scope doesn't permit C2 infrastructure.
 >
 > **What mastering Sliver unlocks:** Full C2 framework operation. Multi-session management. In-memory implant deployment. Advanced post-exploitation. Understanding of C2 infrastructure design — foundational for advanced red team and threat simulation.
+>
+> **Roadmap Phase:** Phase 5–6 (C2, Persistence, and Advanced Post-Exploitation)
 
 ---
 

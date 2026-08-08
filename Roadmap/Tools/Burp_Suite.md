@@ -9,6 +9,8 @@
 > **When to avoid it:** Network-level scanning (use Nmap). Binary exploitation (use GDB/Ghidra). Infrastructure testing without web components. Automated large-scale scanning of thousands of hosts (use Nuclei or custom scripts).
 >
 > **What mastering Burp Suite unlocks:** The ability to test any web application for security vulnerabilities. Web application pentesting (OSCP, OSWE, eWPT). Bug bounty hunting. Understanding of web security at the HTTP level. Career opportunities in application security.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks)
 
 ---
 

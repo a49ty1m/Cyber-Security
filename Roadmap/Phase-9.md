@@ -63,6 +63,21 @@
 <a id="part-38-ai-llm-red-teaming"></a>
 ## Part 38: AI & LLM Red Teaming
 
+> [!IMPORTANT]
+> **⛔ Phase 9 Entry Gate — Verify BOTH prerequisites before Stage 1**
+>
+> **Prerequisite 1 — Traditional Security (Required):**
+> - [ ] Phases 1–8 are complete (foundations, offensive core, web, infrastructure, advanced specializations, GRC, DevSecOps)
+> - [ ] You have completed at least one full attack chain in a lab environment (recon → initial access → privilege escalation → lateral movement)
+>
+> **Prerequisite 2 — Python ML (Required for Stages 7–10):**
+> - [ ] You are comfortable with `numpy` array manipulation, `pandas` DataFrames, and `matplotlib` visualization
+> - [ ] You understand what a neural network forward pass does (input → weights → activation → output) and what a loss function measures
+> - [ ] You can run a pre-trained `scikit-learn` or `PyTorch` model and inspect its predictions
+> - [ ] **If you cannot meet the ML prerequisites:** complete fast.ai Part 1 (Practical Deep Learning for Coders) or Andrew Ng's Machine Learning Specialization (Coursera) **before starting Stage 7** — not now, but before you reach it. Flag this gap so it does not surprise you mid-phase.
+
+---
+
 <a id="stage-1-ai-fundamentals-for-security-practitioners"></a>
 ### **Stage 1: AI Fundamentals for Security Practitioners**
 
@@ -124,12 +139,8 @@
 > - [ ] You have tested at least 2 OWASP LLM Top 10 categories (LLM01 Prompt Injection, LLM02 Sensitive Info Disclosure) against a lab model (local Ollama, OpenAI API, or sandbox LLM)
 > - [ ] You have built at least 1 Python script using an LLM API (OpenAI/Anthropic/Gemini) for a security task (payload generation, recon summarization, or report drafting)
 
-> [!IMPORTANT]
-> **Cluster 2 Python ML Prerequisite Check:** Stages 7–10 (Adversarial Examples, Model Extraction, Dataset Poisoning, Privacy Attacks) require practical Python ML skills. Before starting Stage 7:
-> - [ ] You are comfortable with `numpy` array manipulation, `pandas` DataFrames, and `matplotlib` for data visualization
-> - [ ] You understand what a neural network forward pass does (input → weights → activation → output) and what a loss function measures
-> - [ ] You can run a pre-trained `scikit-learn` or `PyTorch` model and inspect its predictions
-> - [ ] If you cannot meet these prerequisites: complete fast.ai Part 1 (Practical Deep Learning for Coders) or Andrew Ng's Machine Learning Specialization (Coursera) before Stage 7 — do not skip this
+> [!NOTE]
+> **Reminder — Python ML Prerequisite:** Stages 7–10 require the ML skills verified in the Phase Entry Gate above. If you skipped that check or flagged a gap, resolve it before starting Stage 7 — not now, but before you reach it.
 
 <a id="stage-4-rag-data-supply-chain-attacks"></a>
 ### **Stage 4: RAG & Data Supply Chain Attacks**
@@ -265,7 +276,7 @@
 > [!TIP]
 > **Goal:** Force-multiply your existing red team toolkit with AI-native tooling.
 
-- [ ] **Burp Suite AI Plugins:** Install and operate AI-powered Burp extensions — use **AI-assisted scanning, request analysis, and vulnerability explanation** plugins to accelerate web app assessments.
+- [ ] **[Burp Suite](../Tools/Burp_Suite.md) AI Plugins:** Install and operate AI-powered Burp extensions — use **AI-assisted scanning, request analysis, and vulnerability explanation** plugins to accelerate web app assessments.
 
 - [ ] **AutoRecon + LLM Analysis:** Run **AutoRecon** for automated multi-tool recon; pipe structured output into an **LLM (GPT/Claude/Gemini)** for intelligent prioritization, service context, and attack path recommendations.
 
@@ -305,7 +316,7 @@
 > [!TIP]
 > **Goal:** Automate and measure AI red team coverage.
 
-- [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**Metasploit**) for orchestration.
+- [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**[Metasploit](../Tools/Metasploit_Framework.md)**) for orchestration.
 
 - [ ] **Benchmarking:** Track **success rates** across **OWASP LLM Top 10** and **agent/tool abuse cases**; log **prompt, response, decision traces**.
 

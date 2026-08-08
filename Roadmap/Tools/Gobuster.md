@@ -7,6 +7,8 @@
 > **When to use ffuf instead:** When you need custom filtering (by size, words, regex). When fuzzing headers, POST bodies, or multiple positions. When you need auto-calibration for soft-404 handling.
 >
 > **What mastering Gobuster unlocks:** Fast web attack surface discovery. DNS subdomain enumeration without Amass/subfinder. Solid first-pass reconnaissance that feeds more targeted manual testing.
+>
+> **Roadmap Phase:** Phase 2–3 (Scanning & Enumeration and Web Discovery)
 
 ---
 

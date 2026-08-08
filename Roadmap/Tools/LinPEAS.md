@@ -9,6 +9,8 @@
 > **When to avoid it:** When stealth is critical (LinPEAS is noisy — reads many files, runs many commands). When the target has EDR/monitoring that detects enumeration scripts. On systems you don't have authorization to test. When you need Windows privesc (use WinPEAS instead).
 >
 > **What mastering LinPEAS unlocks:** Rapid privilege escalation enumeration. Deep understanding of Linux security misconfigurations. OSCP/PNPT readiness. Ability to manually verify and exploit every finding LinPEAS reports. Understanding of Linux internals from a security perspective.
+>
+> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Linux Privilege Escalation)
 
 ---
 

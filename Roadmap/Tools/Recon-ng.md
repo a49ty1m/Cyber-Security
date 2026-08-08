@@ -9,6 +9,8 @@
 > **When to use theHarvester instead:** Quick, single-run OSINT for a specific domain. When you don't need a database or complex module chaining.
 >
 > **What mastering Recon-ng unlocks:** Structured, professional OSINT operations. Module-based intelligence collection from 50+ data sources. Correlated database of all OSINT findings. Professional report generation. The mindset for conducting thorough, systematic reconnaissance.
+>
+> **Roadmap Phase:** Phase 1 (Reconnaissance — Modular OSINT Framework)
 
 ---
 

@@ -9,6 +9,8 @@
 > **When to avoid it:** Offline hash cracking (use Hashcat/John). When account lockout policies are active (you'll lock out legitimate users). Without authorization (brute-forcing is noisy and illegal without permission). When rate limiting makes online attacks impractical.
 >
 > **What mastering Hydra unlocks:** Ability to validate password strength across any protocol. Credential testing automation. Understanding of authentication attack methodology. OSCP/PNPT exam readiness for credential attacks.
+>
+> **Roadmap Phase:** Phase 3–4 (Service Attacks and Exploitation)
 
 ---
 

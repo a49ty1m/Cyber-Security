@@ -5,6 +5,8 @@
 > **When to use it:** Quickly measuring a web server's baseline throughput. Comparing performance before and after configuration changes. Understanding how concurrency affects server response time. Simple load tests for small servers or APIs. When you need HTTP benchmarking results without setting up wrk or JMeter.
 >
 > **Tier 4 Reminder:** ab is the simplest HTTP benchmarking tool — great for quick capacity checks. For serious load testing, use wrk. Understand what the output numbers mean.
+>
+> **Roadmap Phase:** Phase 10 (DoS Awareness and HTTP Load Testing)
 
 ---
 

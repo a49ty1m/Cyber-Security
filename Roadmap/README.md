@@ -1,4 +1,4 @@
-# 🛡️ Cybersecurity & AI Security: Master Roadmap
+w# 🛡️ Cybersecurity & AI Security: Master Roadmap
 
 > **Core Philosophy:** AI security is not a separate field — it is an expansion of traditional security domains. Master the systems, networks, and traditional security models first, then layer AI red teaming on top.
 
@@ -11,19 +11,19 @@
 
 ## 🧭 Modular Roadmap Dashboard
 
-| Phase | Module / Link                                    | Core Topics & Focus                                                  | Est. Pacing (FT / PT) |
-| :---: | :----------------------------------------------- | :------------------------------------------------------------------- | :-------------------: |
-|  🏗️   | **[Phase 1: Foundation](Phase-1.md)**            | Hardware, OS, Linux & Windows Admin, Networking, Crypto, Auth Primer |     4–6m / 6–10m      |
-|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**          | Recon, Scanning, Initial Access, Linux Privesc, Malware, Cracking    |     5–7m / 8–12m      |
-|  🛡️   | **[Phase 3: Defense Core](Phase-3.md)**          | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT                 |     4–6m / 6–10m      |
-|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**         | Web Hacking, API Security, Bug Bounty Methodology                    |      3–4m / 4–7m      |
-|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)**       | RF, WiFi, BLE/NFC/RFID, Android/iOS (+optional GPS/SDR)              |      3–5m / 5–8m      |
-|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**        | AD & Entra ID, Cloud (AWS/Azure/GCP), Kubernetes, ICS/SCADA (opt.)   |     6–9m / 10–14m     |
-|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**          | Offensive Dev (required first), DFIR, Malware RE, Exploit Dev        |    8–14m / 12–18m     |
-|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)**       | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture      |      4–6m / 6–9m      |
-|  🧠   | **[Phase 9: AI Security](Phase-9.md)**           | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits   |      3–5m / 5–8m      |
+| Phase | Module / Link                                    | Core Topics & Focus                                                             | Est. Pacing (FT / PT) |
+| :---: | :----------------------------------------------- | :------------------------------------------------------------------------------ | :-------------------: |
+|  🏗️   | **[Phase 1: Foundation](Phase-1.md)**            | Hardware, OS, Linux & Windows Admin, Networking, Crypto, Auth Primer            |     4–6m / 6–10m      |
+|  ⚔️   | **[Phase 2: Offense Core](Phase-2.md)**          | Recon, Scanning, Initial Access, Linux Privesc, Malware, Cracking               |     5–7m / 8–12m      |
+|  🛡️   | **[Phase 3: Defense Core](Phase-3.md)**          | Detection Eng., SIEM, SOC, Threat Hunting, IR, OSINT                            |     4–6m / 6–10m      |
+|  🌐   | **[Phase 4: Web & App Sec](Phase-4.md)**         | Web Hacking, API Security, Bug Bounty Methodology                               |      3–4m / 4–7m      |
+|  📡   | **[Phase 5: Wireless/Mobile](Phase-5.md)**       | RF, WiFi, BLE/NFC/RFID, Android/iOS (+optional GPS/SDR)                         |      3–5m / 5–8m      |
+|  ☁️   | **[Phase 6: Infrastructure](Phase-6.md)**        | AD & Entra ID, Cloud (AWS/Azure/GCP), Kubernetes, ICS/SCADA (opt.)              |     6–9m / 10–14m     |
+|  🔬   | **[Phase 7: Advanced Sec](Phase-7.md)**          | Offensive Dev (required first), DFIR, Malware RE, Exploit Dev                   |    8–14m / 12–18m     |
+|  📋   | **[Phase 8: DevSecOps & GRC](Phase-8.md)**       | SAST/DAST, Software Supply Chain, Threat Modeling, Architecture                 |      4–6m / 6–9m      |
+|  🧠   | **[Phase 9: AI Security](Phase-9.md)**           | LLM Red Teaming, Prompt Injection, RAG Poisoning, Agentic Exploits              |      3–5m / 5–8m      |
 |  🎯   | **[Phase 10: Operations & Career](Phase-10.md)** | Red Team Operations, Pentest Methodologies & Report Writing, Portfolio & Career |      3–5m / 5–8m      |
-|  📊   | **Total Roadmap**                                | **41–65 Months Full-Time / 64–100 Months Part-Time**                 |   **~3.5–8 Years**    |
+|  📊   | **Total Roadmap**                                | **41–65 Months Full-Time / 64–100 Months Part-Time**                            |   **~3.5–8 Years**    |
 
 > [!WARNING]
 > **Realistic Timeline:** The original 30–48 month estimate was aspirational. With real lab work, documentation, capstone completion, and the corrected time for Phases 3, 6, 7, and 8, expect **41–65 months full-time** (3.5–5.5 years). Part-time learners should realistically plan **5–8 years**. Optional specializations (GPS/SDR, OT/ICS, VoIP, Web3) add months beyond the core estimate and are not included in the above totals.
@@ -171,11 +171,68 @@ Master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, profes
 
 ---
 
+## 🗂️ Master Part Index
+
+> **Navigation aid:** Parts are numbered non-sequentially by design (Parts 31 and 42 live in Phase 2 and Phase 7 respectively; Part 16 lives in Phase 6). Use this table to jump directly to any Part without guessing which phase file it is in.
+
+|  Part  | Name                                                                                                                       | Phase File  | Notes                                                                |
+| :----: | :------------------------------------------------------------------------------------------------------------------------- | :---------- | :------------------------------------------------------------------- |
+|   1    | [Fundamentals](Phase-1.md#part-1-fundamentals)                                                                             | Phase 1     | Hardware, OS, Memory, Programming                                    |
+|   1B   | [Linux Administration](Phase-1.md#part-1b-linux-administration)                                                            | Phase 1     |                                                                      |
+|   1C   | [Windows Administration](Phase-1.md#part-1c-windows-administration)                                                        | Phase 1     |                                                                      |
+|   2    | [Networking](Phase-1.md#part-2-networking)                                                                                 | Phase 1     | TCP/IP, Protocols, Routing, VPNs                                     |
+|   3    | [Cryptography](Phase-1.md#part-3-cryptography)                                                                             | Phase 1     |                                                                      |
+|   3B   | [Authentication Standards Primer](Phase-1.md#part-3b-authentication-standards-primer)                                      | Phase 1     | Sessions, JWT, OAuth 2.0, OIDC, MFA                                  |
+|   3C   | [Web Technology Fundamentals](Phase-1.md#part-3c-web-technology-fundamentals)                                              | Phase 1     | HTTP, Cookies, SOP/CORS, REST APIs                                   |
+|   4    | [Footprinting & Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance)                                         | Phase 2     |                                                                      |
+|   5    | [Scanning](Phase-2.md#part-5-scanning)                                                                                     | Phase 2     |                                                                      |
+|   6    | [Enumeration](Phase-2.md#part-6-enumeration)                                                                               | Phase 2     |                                                                      |
+|   6B   | [Database Security](Phase-2.md#part-6b-database-security)                                                                  | Phase 2     | MySQL, MSSQL, MongoDB, Redis — NEW                                   |
+|   7    | [System Hacking & Initial Compromise](Phase-2.md#part-7-system-hacking-initial-compromise)                                 | Phase 2     |                                                                      |
+|   8    | [Malware & Weaponization](Phase-2.md#part-8-malware-weaponization)                                                         | Phase 2     | Full malware engineering → Part 42                                   |
+|   9    | [Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing)                                                                 | Phase 2     |                                                                      |
+|   10   | [Social Engineering](Phase-2.md#part-10-social-engineering)                                                                | Phase 2     |                                                                      |
+|   11   | [Denial of Service](Phase-2.md#part-11-denial-of-service)                                                                  | Phase 2     |                                                                      |
+|   12   | [Session Hijacking](Phase-2.md#part-12-session-hijacking)                                                                  | Phase 2     |                                                                      |
+|  13A   | [Detection Engineering & SOC Operations](Phase-3.md#part-13a-detection-engineering-soc-operations)                         | Phase 3     | SIEM, Detection Rules, Threat Hunting                                |
+|  13B   | [Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion)                                         | Phase 3     | SOAR, DLP, Vuln Management                                           |
+|   14   | [IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots)                                               | Phase 3     |                                                                      |
+|   15   | [OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence)                                                | Phase 3     |                                                                      |
+| **16** | **[Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming)**                          | **Phase 6** | **⚠️ Phase 6 capstone — NOT Phase 3**                                |
+|   17   | [Web Application Hacking](Phase-4.md#part-17-web-application-hacking)                                                      | Phase 4     |                                                                      |
+|   18   | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking)                                                                | Phase 4     |                                                                      |
+|   19   | [API Security](Phase-4.md#part-19-api-security)                                                                            | Phase 4     |                                                                      |
+|   20   | [Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology)                                                        | Phase 4     |                                                                      |
+|   21   | [Wireless Network Security](Phase-5.md#part-21-wireless-network-security)                                                  | Phase 5     |                                                                      |
+|   22   | [Mobile Security](Phase-5.md#part-22-mobile-security)                                                                      | Phase 5     |                                                                      |
+|   23   | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)                                                | Phase 6     |                                                                      |
+|   24   | [Cloud Computing Security](Phase-6.md#part-24-cloud-computing)                                                             | Phase 6     |                                                                      |
+|   25   | [Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security)                                  | Phase 6     | Docker, Kubernetes, Secrets Management, Hypervisor Security          |
+|   26   | [OT/ICS/SCADA Security (OPTIONAL)](Phase-6.md#part-26-oticsscada-security)                                                 | Phase 6     | Industrial Protocols, PLC, HMI, Safety Systems                       |
+|   27   | [Digital Forensics](Phase-7.md#part-27-digital-forensics)                                                                  | Phase 7     |                                                                      |
+|   28   | [Reverse Engineering & Malware Analysis](Phase-7.md#part-28-reverse-engineering-malware-analysis)                          | Phase 7     |                                                                      |
+|   29   | [Modern Exploitation](Phase-7.md#part-29-modern-exploitation)                                                              | Phase 7     | ⚠️ Requires Part 42 first                                            |
+|   30   | [Hardware Hacking (OPTIONAL)](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization)                | Phase 7     |                                                                      |
+| **31** | **[Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis)**                                | **Phase 2** | **⚠️ Lives in Phase 2, between Parts 6 and 7**                       |
+|   32   | [Physical Pentesting (OPTIONAL)](Phase-7.md#part-32-physical-penetration-testing-optional-specialization)                  | Phase 7     |                                                                      |
+|   33   | [VoIP/SS7/5G (OPTIONAL)](Phase-7.md#part-33-voip-telecommunications-security-optional-specialization)                      | Phase 7     |                                                                      |
+|   34   | [Blockchain/Web3 (OPTIONAL)](Phase-7.md#part-34-blockchain-web3-security-optional-specialization)                          | Phase 7     |                                                                      |
+|   35   | [Governance, Risk & Compliance](Phase-8.md#part-35-governance-risk-compliance-grc)                                         | Phase 8     | NIST, ISO 27001, PCI-DSS, DPDP, Privacy Engineering                  |
+|   36   | [Supply Chain Security](Phase-8.md#part-36-supply-chain-security)                                                          | Phase 8     | SBOM, SLSA, Dependency Confusion, Build Integrity                    |
+|   37   | [DevSecOps & Secure SDLC](Phase-8.md#part-37-devsecops-secure-sdlc)                                                        | Phase 8     | SAST/DAST/SCA, Secrets Scanning, Pipeline Security                   |
+|  37B   | [Secure Code Review Methodology](Phase-8.md#part-37b-secure-code-review-methodology)                                       | Phase 8     | Source-to-sink taint analysis, Semgrep rule writing                  |
+|   38   | [AI & LLM Red Teaming](Phase-9.md#part-38-ai-llm-red-teaming)                                                              | Phase 9     | Full Phase 9 content — prompt injection, RAG attacks, adversarial ML |
+|   39   | [Penetration Testing Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) | Phase 10    | PTES, OWASP WSTG, NIST 800-115, CVSS, Report Writing                 |
+|   40   | [Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft)                                     | Phase 10    | ⚠️ Complete BEFORE Part 39 in Phase 10                               |
+|   41   | [Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio)                                     | Phase 10    | Certifications, GitHub, Bug Bounties, Interview Prep                 |
+| **42** | **[Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling)**                                    | **Phase 7** | **⚠️ Complete BEFORE Part 29 in Phase 7**                            |
+|   43   | [Security Architecture & Engineering](Phase-8.md#part-43-security-architecture-engineering)                                | Phase 8     | Zero Trust, ZTNA/SASE, Defense-in-Depth, Reference Architectures     |
+
+---
+
 ## 🛠️ AI Study Assistant
 
 > **Expand any checklist item into a complete learning module.** See [PROMPT_TEMPLATE.md](PROMPT_TEMPLATE.md) for the full AI prompt — paste it into ChatGPT, Claude, or Gemini with any roadmap bullet point and receive a structured 11-section breakdown covering purpose, offensive perspective, defensive perspective, tools, lab application, and key takeaways.
-
-
 
 ## ✅📋 Completion Tracker & Quick Navigation
 
@@ -199,13 +256,13 @@ Master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, profes
 - [ ] [Part 4: Footprinting and Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance) — Passive → Active → Strategy
 - [ ] [Part 5: Scanning](Phase-2.md#part-5-scanning) — Host Discovery → Port Enumeration → Defense Assessment
 - [ ] [Part 6: Enumeration](Phase-2.md#part-6-enumeration) — Network Discovery → Service Profiling → Attack Mapping
+- [ ] [Part 31: Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) — Methodology, Tools, Rules, Wordlists, Offline Cracking _(prerequisite for Part 7)_
 - [ ] [Part 7: System Hacking & Initial Compromise](Phase-2.md#part-7-system-hacking-initial-compromise) — Breach → Escalation → Persistence → Evasion → Exfil → Reporting
 - [ ] [Part 8: Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) — Malware Taxonomy → Tool-Based Weaponization (msfvenom) → Evasion Concepts _(full malware engineering in Part 42, Phase 7)_
 - [ ] [Part 9: Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) — Protocols → Sniffing → Spoofing → MITM → Defenses
 - [ ] [Part 10: Social Engineering](Phase-2.md#part-10-social-engineering) — Recon → Digital → Human → Physical → Defense
 - [ ] [Part 11: Denial of Service](Phase-2.md#part-11-denial-of-service) — Planning → Methods → Execution → Mitigation
 - [ ] [Part 12: Session Hijacking](Phase-2.md#part-12-session-hijacking) — Steal → Hijack → Secure
-- [ ] [Part 31: Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) — Methodology, Tools, Rules, Wordlists, Offline Cracking
 
 **🛡️ Phase 3 — Defense & Detection:**
 
@@ -262,8 +319,8 @@ Master penetration testing methodologies (PTES, OWASP WSTG, NIST 800-115, profes
 
 **🎯 Phase 10 — Operations & Career:**
 
-- [ ] [Part 40: Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — C2 Infrastructure, OPSEC Discipline, Campaign Planning, Deconfliction *(Plan & Execute First)*
-- [ ] [Part 39: Penetration Testing Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) — PTES, OWASP WSTG, NIST 800-115, Threat Modeling, CVSS, Report Writing *(Document What You Did)*
+- [ ] [Part 40: Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — C2 Infrastructure, OPSEC Discipline, Campaign Planning, Deconfliction _(Plan & Execute First)_
+- [ ] [Part 39: Penetration Testing Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) — PTES, OWASP WSTG, NIST 800-115, Threat Modeling, CVSS, Report Writing _(Document What You Did)_
 - [ ] [Part 41: Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) — Certifications, GitHub, Writing, Bug Bounties, Interview Prep
 
 ---

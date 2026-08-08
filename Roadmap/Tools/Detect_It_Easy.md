@@ -5,6 +5,8 @@
 > **When to use it:** First step in any packed binary analysis — before attempting to unpack in x64dbg, know what packer you're dealing with. Identifying the compiler (helps narrow down the language and SDK). Understanding the protection layer. Prioritizing analysis effort: well-known packer → use existing unpackers. Custom packer → manual analysis required.
 >
 > **Tier 4 Reminder:** Understand the output, know the common packers/compilers, and be able to use DiE findings to guide your next steps.
+>
+> **Roadmap Phase:** Phase 7 (Malware Analysis — Initial Triage and Packer Identification)
 
 ---
 

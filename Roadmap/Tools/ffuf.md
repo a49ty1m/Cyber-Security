@@ -9,6 +9,8 @@
 > **When to avoid it:** When you need authenticated fuzzing with complex session management (Burp Intruder handles this better). When you need full crawler-based discovery (a spider explores links; ffuf only tests what's in the wordlist).
 >
 > **What mastering ffuf unlocks:** Complete web application attack surface discovery. Finding hidden admin panels, backup files, and legacy endpoints. API endpoint enumeration. Virtual host discovery for multi-tenant applications. Core skill for web pentesting and bug bounty.
+>
+> **ffuf vs feroxbuster:** [feroxbuster](https://github.com/epi052/feroxbuster) is a popular alternative written in Rust — it is faster than ffuf for recursive directory brute-force, handles auto-recursion natively, and has good output filtering. **ffuf** is more flexible for non-directory fuzzing (headers, POST body, query params, vhosts) and has a larger community of wordlist examples. For directory brute-force: either works. For anything beyond directories (parameter fuzzing, vhost, body fuzzing): ffuf is the standard choice. Learn ffuf first — then try feroxbuster for recursive directory work.
 
 ---
 

@@ -7,6 +7,8 @@
 > **When to use it:** Threat intelligence investigations. Understanding organized criminal infrastructure. Social engineering target profiling. Attribution research. Complex OSINT with many interconnected entities. Red team pre-engagement profiling.
 >
 > **When to use theHarvester/SpiderFoot:** For automated bulk collection. Maltego is better for interactive, analyst-driven investigation where visual relationships matter.
+>
+> **Roadmap Phase:** Phase 1 (Reconnaissance — Visual Link Analysis and OSINT Investigation)
 
 ---
 

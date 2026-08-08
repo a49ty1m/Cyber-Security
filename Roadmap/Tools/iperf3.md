@@ -5,6 +5,8 @@
 > **When to use it:** Verifying network bandwidth between lab machines. Testing if firewall rules or network segmentation affect throughput. Measuring WAN link capacity. Testing network performance between a C2 server and implant host (in authorized red team labs). Baselining network capacity before and after infrastructure changes. Troubleshooting network performance issues.
 >
 > **Tier 4 Reminder:** iperf3 is a network engineering tool more than a security tool. Know how to run basic tests and interpret the output. Most security professionals use it for lab setup verification, not active assessments.
+>
+> **Roadmap Phase:** Phase 10 (Network Stress Testing and Bandwidth Measurement)
 
 ---
 

@@ -9,6 +9,8 @@
 > **When to avoid it:** Non-Windows/non-AD environments. External assessments without internal access. When stealth is critical (data collection is detectable). When you only need simple enumeration (use CrackMapExec for quick checks).
 >
 > **What mastering BloodHound unlocks:** The ability to find attack paths that no amount of manual enumeration would reveal. OSCP/OSEP/CRTP exam readiness. Understanding of AD security at a deep level. Both offensive AND defensive AD analysis skills. Career differentiation — BloodHound proficiency is highly valued.
+>
+> **Roadmap Phase:** Phase 5 (Active Directory Post-Exploitation and Lateral Movement)
 
 ---
 

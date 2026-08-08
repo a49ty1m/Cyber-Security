@@ -9,6 +9,8 @@
 > **When to use other tools:** For standard scanning/capturing: Nmap/tcpdump are faster and simpler. Scapy shines when you need custom packets that no other tool can produce.
 >
 > **What mastering Scapy unlocks:** Deep understanding of network protocols at the packet level. Ability to build any custom network tool in Python. Protocol fuzzing and research. Building PoC exploit tools. The ultimate network programming foundation.
+>
+> **Roadmap Phase:** Phase 2–3 (Scanning, Enumeration, and Network Protocol Research)
 
 ---
 

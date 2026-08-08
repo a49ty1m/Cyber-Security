@@ -98,7 +98,7 @@
 
 - [ ] **Replay Attacks:** (For legacy/WEP) Use **Replay Attack** techniques to generate traffic and accelerate IV collection for cracking.
 
-- [ ] **Offline Cracking:** Run the captured handshake against wordlists using Hashcat/Aircrack-ng.
+- [ ] **Offline Cracking:** Run the captured handshake against wordlists using [Hashcat](../Tools/Hashcat.md)/Aircrack-ng.
 
 ---
 
@@ -290,7 +290,7 @@
 
 - [ ] **Environment Prep:** Configure a Rooted (Android) or Jailbroken (iOS) device to bypass **Operating System Hardening**.
 
-- [ ] **Binary Acquisition:** Extract the APK or IPA and perform **Basics of Reverse Engineering** using tools like `jadx` or `Ghidra`.
+- [ ] **Binary Acquisition:** Extract the APK or IPA and perform **Basics of Reverse Engineering** using tools like `jadx` or `[Ghidra](../Tools/Ghidra.md)`.
 
 - [ ] **Reconnaissance:** Map the app's attack surface (activities, services, URL schemes) and identify backend endpoints.
 
@@ -375,7 +375,7 @@
 | Level | Task | Deliverable |
 |-------|------|-------------|
 | 1 | Capture a WPA2 4-way handshake from your own AP using Aircrack-ng and crack it with a wordlist | Handshake capture file + successful crack report |
-| 2 | Execute an evil twin attack with Bettercap/hostapd-mana and capture credentials in your lab | MITM attack walkthrough with evidence screenshots |
+| 2 | Execute an evil twin attack with [Bettercap](../Tools/B[ettercap](../Tools/Ettercap.md).md)/hostapd-mana and capture credentials in your lab | MITM attack walkthrough with evidence screenshots |
 | 3 | Perform BLE enumeration and GATT service analysis of an IoT device using Bettercap or GATTacker | BLE security audit report with service map |
 
 > [!IMPORTANT]

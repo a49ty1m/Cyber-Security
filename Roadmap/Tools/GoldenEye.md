@@ -5,6 +5,8 @@
 > **When to use it:** Lab environments for stress testing web servers. Understanding HTTP-level DoS attack patterns for defensive configuration. DDoS resilience testing where the threat model includes HTTP flood attacks. Understanding the difference between connection-level (Slowloris) and request-level (GoldenEye) DoS.
 >
 > **Tier 4 Reminder:** This is a conceptual and lab tool. Real HTTP flood attacks at scale require botnets — not single-machine tools. Understand the mechanism and the defenses.
+>
+> **Roadmap Phase:** Phase 10 (DoS Awareness — HTTP Layer 7 Flood Testing)
 
 ---
 

@@ -5,6 +5,8 @@
 > **When to use it:** Quick credential harvesting page setup. Spear-phishing campaigns with payload delivery. When you need a credential harvester in minutes. Labs and CTFs requiring social engineering components.
 >
 > **SET vs. GoPhish:** SET = quick setup, single attacker box, command-line driven, Metasploit-integrated. GoPhish = full campaign management, web UI, tracking, reporting, multi-target. For real engagements: GoPhish for managed campaigns. SET for quick lab demonstrations or payload delivery.
+>
+> **Roadmap Phase:** Phase 6 (Social Engineering and Red Team Operations)
 
 ---
 

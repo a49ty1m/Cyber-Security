@@ -7,6 +7,8 @@
 > **When to use it:** Lab environments to test server resilience to slow-client DoS. Understanding defensive countermeasures (timeouts, mod_reqtimeout, nginx configuration). Security architecture testing where DoS resilience is in scope.
 >
 > **Tier 4 Reminder:** Understand the attack mechanism, how servers are affected, and what defenses work against it.
+>
+> **Roadmap Phase:** Phase 10 (DoS Awareness — Slow HTTP Attack Testing)
 
 ---
 

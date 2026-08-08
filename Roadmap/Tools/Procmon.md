@@ -5,6 +5,8 @@
 > **When to use it:** Dynamic malware analysis — what files does this malware create? What registry keys does it set for persistence? What DLLs does it load? Troubleshooting application behavior. Privilege escalation research (finding misconfigured file/registry paths a privileged process writes to). DLL hijacking discovery. Understanding installation behavior.
 >
 > **Tier 4 Reminder:** Know how to capture and filter Procmon output during malware analysis and troubleshooting. Depth of mastery is situational.
+>
+> **Roadmap Phase:** Phase 7 (Malware Analysis and Reverse Engineering — Dynamic Windows Behavior Monitoring)
 
 ---
 

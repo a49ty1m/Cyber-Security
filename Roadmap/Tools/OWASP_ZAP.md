@@ -9,6 +9,8 @@
 > **When to use Burp Suite instead:** When you need the most powerful, extensible, commercial-grade proxy and scanner with the richest extension ecosystem.
 >
 > **What mastering OWASP ZAP unlocks:** Free automated web application scanning. Complete OWASP Top 10 coverage. API security testing. CI/CD integration capability. The ability to perform professional web assessments without a commercial license.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — Automated Scanning)
 
 ---
 

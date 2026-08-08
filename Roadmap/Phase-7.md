@@ -1,5 +1,9 @@
 # Phase 7: Advanced Specializations
 
+> [!IMPORTANT]
+> **⚠️ MANDATORY SEQUENCE — READ BEFORE STARTING THIS PHASE**
+> Complete **Part 42 (Offensive Development & Tooling) BEFORE Part 29 (Modern Exploitation)**. This is a hard prerequisite, not a suggestion. Part 29 explicitly requires the shellcode writing, assembly, and exploit construction skills built in Part 42. Attempting Part 29 first leaves critical, unrecoverable gaps. The correct order is: **Part 42 → Part 27 → Part 28 → Part 29**.
+
 ---
 
 ### 🧭 Navigation
@@ -18,8 +22,8 @@
 > [!NOTE]
 > ### 📝 Phase 7 Documentation Requirements
 > Advanced specialization work must produce portfolio-quality artifacts. Required artifacts:
-> - **Forensic reports** — Volatility/Autopsy analysis with timeline reconstruction
-> - **IDA/Ghidra annotations** — reverse engineering notes with function labels and comments
+> - **Forensic reports** — [Volatility](../Tools/Volatility.md)/[Autopsy](../Tools/Autopsy.md) analysis with timeline reconstruction
+> - **IDA/[Ghidra](../Tools/Ghidra.md) annotations** — reverse engineering notes with function labels and comments
 > - **Exploit code** — well-commented PoC code with ethical usage disclaimers
 > - **Malware IOC lists** — hashes, C2 domains, YARA signatures for analyzed samples
 > - **Git commits** — all analysis, code, and reports committed
@@ -106,6 +110,71 @@
 
 ---
 
+<a id="stage-7b-c-cpp-programming"></a>
+
+## Stage 7B: C & C++ Programming
+
+> [!IMPORTANT]
+> **Start here — before Part 42 and Part 28.** This is the deferred half of Phase 1 Stage 7. C and C++ require debugger experience and binary analysis context to learn meaningfully. You now have that context. Complete this stage before starting Part 42 (Offensive Development) or Part 28 (Reverse Engineering). Return to Phase-1.md for the structural marker — this is the actual content.
+
+> [!TIP]
+> **Goal:** Build the C and C++ foundations required for shellcode writing, exploit development, Windows API exploitation, and reverse engineering of compiled binaries. These are not general-purpose programming languages at this stage — they are the substrate of offensive development and RE.
+
+### **C Language — Systems Programming & Exploit Foundations**
+
+- [ ] **Memory Model & Pointers:** Understand the difference between stack and heap allocation. Master pointer arithmetic, pointer-to-pointer, function pointers, void pointers. Know why `int *p = &x` vs `int *p = malloc(sizeof(int))` have different lifetime semantics.
+
+- [ ] **Memory Layout:** Understand the process address space: text segment (code), data segment (globals/statics), BSS (uninitialised globals), heap (grows up), stack (grows down). Know how local variables, function arguments, and return addresses are laid out on the stack. Draw this from memory — it is the foundation of all stack-based exploitation.
+
+- [ ] **Stack Frames:** Understand function prologue/epilogue (`push rbp; mov rbp, rsp` / `pop rbp; ret`). Know where the return address lives relative to local variables. Know why `gets()`, `strcpy()`, and `sprintf()` are dangerous by design. Understand buffer overflow mechanics at the C level before touching pwntools.
+
+- [ ] **C Standard Library (Security-Relevant Subset):**
+  - String functions: `strcpy/strncpy`, `sprintf/snprintf`, `gets/fgets`, `strlen`, `memcpy/memmove`, `memset`
+  - File I/O: `fopen`, `fread`, `fwrite`, `fclose`, `mmap`
+  - Process/system: `system()`, `execve()`, `fork()`, `exit()`, `signal()`
+  - Dynamic memory: `malloc`, `calloc`, `realloc`, `free` — and what happens when you double-free, use-after-free, or heap-overflow
+
+- [ ] **Compilation Pipeline:** Understand: C source → preprocessor → compiler → assembler → linker → ELF/PE binary. Know what `gcc -g -O0 -fno-stack-protector -no-pie` does and why those flags matter for exploit development. Understand debug symbols, DWARF format, and stripped vs unstripped binaries.
+
+- [ ] **Inline Assembly & `__asm__`:** Write basic inline assembly from C — read/write register values, invoke syscalls directly. Understand why this is the bridge between C and shellcode writing.
+
+- [ ] **Win32 API Basics (Windows C):**
+  - Process and thread creation: `CreateProcess`, `OpenProcess`, `CreateRemoteThread`
+  - Memory operations: `VirtualAlloc`, `VirtualProtect`, `WriteProcessMemory`, `ReadProcessMemory`
+  - Handle management: `OpenProcess`, `CloseHandle`, `DuplicateHandle`
+  - These are the primitives behind every Windows process injection technique.
+
+**Lab:** Write a C program that: allocates memory with `VirtualAlloc`, copies shellcode into it, calls `VirtualProtect` to make it executable, then executes it with a function pointer. This is the simplest process injection in its own process — understand every line.
+
+---
+
+### **C++ — Reverse Engineering Context**
+
+- [ ] **Object Model & Memory Layout:** Understand how C++ objects are laid out in memory: the this pointer, member variables at fixed offsets, vtable pointer at offset 0 for polymorphic objects. Know why `sizeof(MyClass)` may surprise you (padding, vtable pointer).
+
+- [ ] **Virtual Function Tables (vtables):** Understand that each polymorphic class has one vtable (a static array of function pointers). Each instance has a vtptr (hidden pointer to the vtable). Virtual dispatch = dereference vtptr → index into vtable → call function. Know what this looks like in disassembly: `mov rax, [rcx]; call [rax+0x18]`. This pattern appears constantly in RE of Windows binaries.
+
+- [ ] **RTTI (Run-Time Type Information):** Understand what `dynamic_cast` and `typeid` produce in compiled code — the `__RTTICompleteObjectLocator` structure preceding the vtable. Know how to read it in a disassembler.
+
+- [ ] **Smart Pointers & RAII:** Understand `unique_ptr`, `shared_ptr`, `weak_ptr`. In RE context, recognise `shared_ptr` patterns (reference count + control block layout) in compiled code.
+
+- [ ] **STL Internals (Recognise in RE):** Know the memory layout of `std::string` (SSO), `std::vector` (pointer + size + capacity), and `std::map` (red-black tree node structure). You will encounter these constantly when reversing C++ binaries.
+
+**Lab:** Compile a C++ class with a virtual function, disassemble it with objdump or Ghidra, locate the vtable, and manually trace the virtual dispatch mechanism. Then do the same with a class hierarchy (base + derived) and verify the vtptr is overwritten correctly.
+
+---
+
+### **Move-On Gate (Stage 7B)**
+
+> [!IMPORTANT]
+> You are ready to proceed to Part 42 (Offensive Development) when:
+> - [ ] You can write a C program that performs shellcode execution via `VirtualAlloc` + `VirtualProtect` + function pointer
+> - [ ] You can explain what happens at each instruction of a function call (stack frame construction, argument passing, return address, local variables)
+> - [ ] You can open a compiled C++ binary in Ghidra and locate the vtable of a polymorphic class
+> - [ ] You understand why `gets()` is exploitable and can draw the stack layout that makes a basic buffer overflow work
+
+---
+
 <a id="part-27-digital-forensics"></a>
 ## Part 27: Digital Forensics
 
@@ -119,7 +188,9 @@
 
 - [ ] **Volatile Collection:** Capture RAM immediately using `memdump` before the system is powered off or rebooted.
 
-- [ ] **Static Acquisition:** Create a forensic image of hard drives using `FTK Imager` or `dd`, ensuring a write-blocker is used.
+- [ ] **Linux Memory Acquisition (LiME):** For Linux systems, use **LiME (Linux Memory Extractor)** — a loadable kernel module. Build for the target kernel version: `make` against target kernel headers. Load: `sudo insmod lime.ko path=/tmp/memory.lime format=lime`. Volatility 3 accepts LiME format directly. Use `format=raw` for Volatility 2 compatibility. For capture without writing to the local filesystem: `path=tcp:4444` streams the memory image over the network.
+
+- [ ] **Static Acquisition:** Create a forensic image of hard drives using `[FTK Imager](../Tools/FTK_Imager.md)` or `dd`, ensuring a write-blocker is used.
 
 ---
 
@@ -170,11 +241,11 @@
 > [!TIP]
 > **Goal:** Trace the attacker's path through network evidence.
 
-- [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **Wireshark** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
+- [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **[Wireshark](../Tools/Wireshark.md)** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
 
 - [ ] **Flow Analysis:** When full packets are missing, use **NetFlow/sFlow/IPFIX logs** to identify **connections to malicious IPs, unusual traffic volumes, beaconing patterns (regular interval connections)**, and **data exfiltration spikes**.
 
-- [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent strings, encrypted traffic to non-standard ports.
+- [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent [strings](../Tools/strings.md), encrypted traffic to non-standard ports.
 
 - [ ] **TLS Forensics:** Analyze **JA3/JA4 fingerprints, certificate details, SNI values** to identify **malicious encrypted traffic** without decryption.
 
@@ -209,7 +280,7 @@
 
 - [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs. 📌 _Full reverse engineering methodology is covered in Part 28._
 
-- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **Plaso/log2timeline, Timeline Explorer**.
+- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **[Plaso](../Tools/Plaso.md)/log2timeline, Timeline Explorer**.
 
 - [ ] **Anti-Forensics Detection:** Look for signs of **timestomping, log clearing, secure deletion, encryption, steganography** indicating a sophisticated attacker who is actively hiding tracks.
 
@@ -225,7 +296,7 @@
 
 - [ ] **Chain of Custody:** Maintain strict **evidence handling, hash verification (SHA-256), transfer documentation** for legal admissibility. Understand **Daubert/Frye standards** for expert testimony.
 
-- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs, MITRE ATT&CK mapping** for technical teams and incident responders.
+- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs, MITRE ATT&CK mapping** for technical teams and incident [responder](../Tools/Responder.md)s.
 
 - [ ] **Executive Summary:** Translate technical findings into **business impact, risk assessment, regulatory implications** for management and board-level communication.
 
@@ -281,11 +352,11 @@
 > [!TIP]
 > **Goal:** Observe malware behavior during live execution.
 
-- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **Procmon, Process Hacker, Regshot, Wireshark, FakeNet-NG**.
+- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **[Procmon](../Tools/Procmon.md), Process Hacker, Regshot, Wireshark, FakeNet-NG**.
 
 - [ ] **Behavioral Indicators:** Document **file system changes, registry modifications, network connections, process creation, mutex creation, service installs** during execution.
 
-- [ ] **Debugger Proficiency:** Master **x64dbg/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
+- [ ] **Debugger Proficiency:** Master **[x64dbg](../Tools/x64dbg.md)/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
 
 - [ ] **API Hooking & Tracing:** Use **API Monitor, Frida, strace/ltrace** to intercept and log **system calls and library calls** at runtime.
 
@@ -504,6 +575,14 @@
 
 - [ ] **Crypto Analysis:** Extract **encryption keys, certificates, private keys** from firmware for decryption or impersonation.
 
+> [!NOTE]
+> **Supply Chain Hardware Implants — Awareness Sidebar:** Physical hardware supply chain attacks represent a distinct threat class from software supply chain. Security practitioners advising on infrastructure procurement, critical infrastructure protection, or high-security environments should understand this threat model:
+> - **BIOS/UEFI Implants:** Malicious firmware installed in the BIOS/UEFI before delivery or during maintenance can survive OS reinstallation, disk replacement, and most forensic investigation. Detection requires specialised firmware scanning tools (Binarly, Eclypsium) or manual ROM extraction.
+> - **BMC (Baseboard Management Controller) Compromise:** BMCs (iDRAC, iLO, IPMI) run independently of the host OS and provide out-of-band management. A compromised BMC has full control over the server regardless of host-level security controls. High-profile research: Bloomberg's 2018 reporting on alleged implanted microchips (denied by vendors but introduced the threat model to mainstream discourse); real BMC vulnerabilities (e.g., Supermicro iDRAC RCE CVEs) are well-documented.
+> - **Malicious NICs and PCIe Devices:** PCIe devices perform Direct Memory Access (DMA) — a compromised NIC firmware can read and write host memory directly, bypassing the OS security model entirely. IOMMU (Intel VT-d, AMD-Vi) is the primary mitigation; verify it is enabled in the BIOS.
+> - **NIST SP 800-161 (Supply Chain Risk Management):** The framework for managing hardware and software supply chain risk in federal and critical infrastructure contexts. Covers: supplier assurance, secure acquisition procedures, hardware bill of materials (HBOM), and tamper-evident packaging.
+> - **Practical Detection:** Firmware integrity measurement via TPM 2.0 Secure Boot, Eclypsium or Binarly firmware scanning, and hardware SBOM (H-SBOM) tracking are the current mitigations. This is not routine pentesting scope — it is architectural risk management for high-value targets.
+
 ---
 
 <a id="stage-3-runtime-exploitation"></a>
@@ -714,7 +793,7 @@
 > [!TIP]
 > **Goal:** Discover and map VoIP infrastructure.
 
-- [ ] **SIP Scanning:** Use **svmap (SIPVicious), nmap SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
+- [ ] **SIP Scanning:** Use **svmap (SIPVicious), [nmap](../Tools/Nmap.md) SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
 
 - [ ] **Extension Enumeration:** Use **svwar** to enumerate **valid SIP extensions** via REGISTER/OPTIONS probing; map **active users and voicemail accounts**.
 
@@ -929,7 +1008,7 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 <a id="stage-1-exploit-development-foundation"></a>
 ### **Stage 1: Exploit Development Foundation**
 
-- [ ] **Exploit Prototyping:** Use Python with **pwntools, impacket** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
+- [ ] **Exploit Prototyping:** Use Python with **pwntools, [impacket](../Tools/Impacket.md)** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
 
 - [ ] **Buffer Overflow Mastery:** Write **stack-based buffer overflow exploits**, understand **stack frame layout, return address overwrite, NOP sleds**, and **bad character identification**.
 

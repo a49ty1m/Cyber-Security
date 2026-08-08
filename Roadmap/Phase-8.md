@@ -104,6 +104,28 @@
 
 - [ ] **Computer Fraud & Abuse Act (CFAA):** Understand US federal law on **unauthorized access**; know how **scope of engagement** and **written authorization** protect pentesters legally.
 
+- [ ] **Privacy Engineering & LINDDUN:**
+
+  Privacy engineering applies threat modelling methodology to privacy risks — analogous to STRIDE for security threats. LINDDUN identifies seven privacy threat categories against data flows:
+
+  | Threat | Description | Example |
+  |--------|-------------|---------|
+  | **L**inkability | Link data items/actions across contexts | Correlating user sessions across services |
+  | **I**dentifiability | Identify individuals from supposedly anonymous data | Re-identifying users from "anonymised" datasets via quasi-identifiers |
+  | **N**on-repudiation | User cannot deny actions they took | Immutable audit logs expose user behaviour to third parties |
+  | **D**etectability | Detect existence of data or actions | Timing attacks revealing whether a username exists |
+  | **D**isclosure | Expose personal data to unauthorised parties | S3 bucket misconfiguration exposing PII |
+  | **U**nawareness | Users don't know what data is collected/processed | Dark patterns hiding data collection in ToS |
+  | **N**on-compliance | Processing data in violation of regulations | Missing GDPR consent mechanism or retention policy |
+
+  - [ ] **GDPR Article 25 — Privacy by Design:** Controllers must implement data protection by design and default. In practice: data minimisation (collect only what is necessary), purpose limitation (don't reuse data), pseudonymisation of personal data at rest, default-secure settings (maximum privacy by default, not maximum functionality).
+
+  - [ ] **Data Minimisation as a Security Control:** Systems that collect minimal data have a smaller breach impact. A breach of a pseudonymised dataset is lower severity than a breach of a plaintext PII store. Implement: field-level encryption for sensitive attributes, tokenisation for payment data, synthetic data for test environments.
+
+  - [ ] **Consent Management Architecture:** GDPR requires demonstrable, granular, revocable consent. Architecture implications: consent management platform (CMP) stores per-user per-purpose consent flags, consent is checked before each processing operation, consent withdrawal triggers downstream data deletion cascade. Understand how consent audit logs work and why they must be tamper-evident.
+
+  - [ ] **Privacy Impact Assessment (DPIA/PIA):** Required under GDPR Article 35 for high-risk processing. Process: (1) describe processing, (2) assess necessity and proportionality, (3) identify and assess risks using LINDDUN, (4) identify controls to mitigate risks, (5) consult DPA if residual risk is high. Security architects participate in DPIAs for new systems.
+
 ---
 
 <a id="stage-3-risk-management-assessment"></a>
@@ -260,6 +282,33 @@
 
 - [ ] **Threat Modeling:** Apply **STRIDE to application architecture** — identify **Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege** risks before coding.
 
+- [ ] **Threat Modeling Tool Lab (Threat Dragon / Microsoft Threat Modeling Tool):**
+
+  Threat modelling is only useful when done in a tool that produces reviewable, version-controlled artefacts. Description-only threat models in documents become stale within weeks.
+
+  **Hands-on exercise:** Take a simple 3-tier web application (frontend → API → database + third-party auth):
+
+  1. **Install [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/)** (Electron app or web version at `https://www.threatdragon.com/`). Alternatively use **[Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool)** (Windows).
+
+  2. **Construct the Data Flow Diagram (DFD):**
+     - Place: user browser, load balancer, API server, database, auth provider (OAuth IdP), admin dashboard
+     - Draw data flows between each component
+     - Assign **trust boundaries** — what crosses a trust level (internet → DMZ, DMZ → internal, internal → DB)
+     - Mark each flow as in-scope or out-of-scope
+
+  3. **Apply STRIDE to each element and flow:**
+     - For every trust boundary crossing: what Spoofing, Tampering, or Elevation threat exists?
+     - For every data store: what Information Disclosure or Tampering threat exists?
+     - For every process: what Denial of Service or Repudiation threat exists?
+
+  4. **Record the output:** Threat Dragon produces a threat list with per-threat severity, status (mitigated/not mitigated), and mitigation description. Export it as JSON and commit to Git.
+
+  5. **Map to controls:** For each identified threat, document: (1) existing control, (2) whether the control is sufficient, (3) recommended additional control if not.
+
+  - [ ] **Microsoft Threat Modeling Tool alternative:** SDL-based; generates threats automatically from DFD element types. Useful for Windows/Azure-centric architectures. Produces a `.tm7` file with threat list and mitigation suggestions.
+
+  - [ ] **Threat Modelling in CI/CD:** Understand that threat models should be updated when architecture changes. Link threat model review to pull request gates for architecture-impacting changes (new data flows, new trust boundaries, new external integrations).
+
 - [ ] **Secure Design Principles:** Master **least privilege, defense-in-depth, fail securely, complete mediation, open design, separation of privilege** as architectural requirements.
 
 ---
@@ -286,7 +335,7 @@
 > [!TIP]
 > **Goal:** Test running applications for security flaws.
 
-- [ ] **DAST Tools:** Use **OWASP ZAP, Burp Suite Pro (automated scan), Nikto** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
+- [ ] **DAST Tools:** Use **[OWASP ZAP](../Tools/OWASP_ZAP.md), [Burp Suite](../Tools/Burp_Suite.md) Pro (automated scan), [Nikto](../Tools/Nikto.md)** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
 
 - [ ] **IAST (Interactive Application Security Testing):** Understand how **IAST agents (Contrast Security, Seeker)** instrument running code to detect vulnerabilities from the inside during functional tests.
 
@@ -316,7 +365,7 @@
 > [!TIP]
 > **Goal:** Prevent credential leakage through code and pipelines.
 
-- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection strings**.
+- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection [strings](../Tools/strings.md)**.
 
 - [ ] **Pre-commit Hooks:** Install **pre-commit framework with detect-secrets or gitleaks** to block secret commits before they reach the remote repository.
 
@@ -522,6 +571,26 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Continuous Verification:** Design systems that **re-authenticate and re-authorize** based on **context changes** (location, device health, behavior anomalies).
 
+- [ ] **ZTNA / SASE Product Landscape:**
+
+  ZTNA (Zero Trust Network Access) replaces VPN with identity-aware, least-privilege application access. SASE (Secure Access Service Edge) bundles ZTNA, SWG, CASB, FWaaS, and SD-WAN into a cloud-delivered platform. As a security architect or pentester, you will encounter these in every large enterprise.
+
+  | Product | Vendor | Type | Architecture |
+  |---------|--------|------|-------------|
+  | **Zscaler Internet Access (ZIA)** | Zscaler | SWG + CASB + FWaaS | Cloud-delivered proxy; all user traffic tunnelled to Zscaler PoPs |
+  | **Zscaler Private Access (ZPA)** | Zscaler | ZTNA | App connector in datacenter; user never touches the network — only the app |
+  | **Palo Alto Prisma Access** | Palo Alto | SASE | NGFW policy + GlobalProtect + CASB in cloud |
+  | **Cloudflare Access** | Cloudflare | ZTNA | Identity-aware proxy; JWT-based per-request auth; integrates with Okta/Azure AD |
+  | **Microsoft Entra Private Access** | Microsoft | ZTNA | Replaces VPN for Azure-integrated environments; Conditional Access integration |
+
+  - [ ] **How ZTNA Replaces VPN:** Traditional VPN grants network access (wide blast radius on credential theft). ZTNA grants *application* access — the user's device never joins the corporate network. A compromised ZTNA session can access one app, not the entire network. Understand: connector-based ZTNA (Zscaler ZPA) vs. reverse-proxy ZTNA (Cloudflare Access).
+
+  - [ ] **Pentesting ZTNA Environments:** ZTNA changes the attack surface:
+    - Initial access via phishing still works — you get identity, not network
+    - Lateral movement is constrained — no network access means no ARP poisoning, no LLMNR poisoning
+    - Focus shifts to: OAuth token theft, SSO session hijacking, ZTNA connector compromise (connector is on the internal network — compromise it for internal access)
+    - Cloud CASB bypass: traffic to unapproved cloud apps via split tunnelling gaps
+
 <a id="stage-3-network-security-architecture"></a>
 ### **Stage 3: Network Security Architecture**
 
@@ -531,7 +600,28 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Cloud Security Architecture:** Design secure **VPC/VNet layouts, security groups, NACLs, private endpoints, transit gateways**, and **hub-spoke network topologies** for AWS/Azure/GCP.
 
-- [ ] **Secure Remote Access:** Design **VPN, ZTNA (Zero Trust Network Access), SASE** architectures for remote workforce security.
+- [ ] **Secure Remote Access:** Design **VPN, ZTNA (Zero Trust Network Access), SASE** architectures for remote workforce security. _(ZTNA product detail in Stage 2 above.)_
+
+- [ ] **CNAPP (Cloud-Native Application Protection Platform):**
+
+  CNAPP unifies CSPM, CWPP, CIEM, and IaC scanning into a single platform. Cloud security engineers are expected to understand this tooling category — it has replaced standalone CSPM/CWPP tools in most enterprise cloud security programmes.
+
+  | Component | What it covers | Standalone tool equivalent |
+  |-----------|---------------|---------------------------|
+  | **CSPM** (Cloud Security Posture Management) | Cloud configuration misconfigurations | Prowler, ScoutSuite |
+  | **CWPP** (Cloud Workload Protection) | VM/container/serverless runtime threats | Falco, Sysdig |
+  | **CIEM** (Cloud Infrastructure Entitlement Management) | Overpermissioned IAM roles, lateral movement paths | IAM Access Analyzer |
+  | **IaC Scanning** | Misconfigurations in Terraform, Bicep, CloudFormation | Checkov, tfsec |
+  | **CNAPP** | All of the above unified with a shared data model and attack path analysis | Wiz, Lacework, Orca Security |
+
+  **Representative CNAPP platforms:**
+  - **Wiz:** Agentless cloud scanning via read-only API access. Builds a security graph connecting cloud resources, identities, misconfigs, vulnerabilities, and network exposure. Attack path analysis shows: "this S3 bucket is publicly accessible AND contains credentials that grant admin access to RDS" — a compound finding no standalone tool sees.
+  - **Lacework:** Behaviour-based anomaly detection + CSPM. Strong on runtime anomaly detection using ML baseline of normal API call patterns.
+  - **Orca Security:** Agentless, reads cloud storage snapshots to scan workloads without deploying agents. Side-scanning avoids agent coverage gaps.
+
+  - [ ] **Architect's perspective:** Understand CNAPP as the cloud security data platform — it provides the unified visibility layer that SOC, DevSecOps, and cloud teams query. Know: what data each component contributes, how attack path analysis works, and what it cannot see (agentless tools miss in-memory threats; CWPP agents fill that gap).
+
+  - [ ] **Pentester's perspective:** CNAPP creates a centralised alert correlation target. Offensive actions that individually look benign (enumerate S3, assume role, access parameter store) may be stitched together by Wiz/Lacework into a high-confidence attack path alert. Understand CNAPP detection logic when planning cloud red team operations.
 
 <a id="stage-4-data-security-architecture"></a>
 ### **Stage 4: Data Security Architecture**

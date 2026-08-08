@@ -7,6 +7,8 @@
 > **When to use it:** Red team engagements with a social engineering component. Phishing awareness campaigns for organizations (authorized). Testing human susceptibility in security assessments. Building and testing email lures before a real engagement.
 >
 > **Legal / Ethics:** Only use on authorized targets. Phishing without authorization is a crime. GoPhish campaigns must be explicitly included in the engagement scope.
+>
+> **Roadmap Phase:** Phase 6 (Social Engineering and Phishing Simulation)
 
 ---
 

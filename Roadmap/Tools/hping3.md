@@ -5,6 +5,8 @@
 > **When to use it:** Testing firewall rules (can ICMP get through? What about TCP on port 443?). Generating DoS traffic in lab environments for defensive testing. Custom traceroutes when ICMP is blocked but TCP isn't. Verifying network filtering behavior. TCP/IP packet crafting when Scapy is overkill for a simple task.
 >
 > **Tier 4 Reminder:** Understand what it does and how to run basic tests. You do not need to master the full feature set.
+>
+> **Roadmap Phase:** Phase 10 (DoS Awareness and Network Stress Testing)
 
 ---
 

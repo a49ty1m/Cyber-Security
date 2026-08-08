@@ -70,11 +70,11 @@
 
 - [ ] **OSINT & Discovery:** Perform **Reconnaissance** using **Google Dorks, Shodan, Certificate Transparency** to find subdomains, exposed admin panels, and developer info.
 
-- [ ] **Service Enumeration:** Use `nmap -sV -sC` to identify web servers, versions, and common vulnerabilities.
+- [ ] **Service Enumeration:** Use `[nmap](../Tools/Nmap.md) -sV -sC` to identify web servers, versions, and common vulnerabilities.
 
 - [ ] **Technology Fingerprinting:** Use **Wappalyzer, BuiltWith, WhatWeb** to identify frameworks, CMS, WAF, CDN, and backend technologies.
 
-- [ ] **Content Discovery:** Run **Gobuster, ffuf, dirsearch** to find hidden directories, backup files, API endpoints, and admin panels.
+- [ ] **Content Discovery:** Run **[Gobuster](../Tools/Gobuster.md), [ffuf](../Tools/ffuf.md), dirsearch** to find hidden directories, backup files, API endpoints, and admin panels.
 
 - [ ] **Sitemap & Robots Analysis:** Parse **robots.txt, sitemap.xml, security.txt** for disallowed paths and contact info.
 
@@ -163,7 +163,7 @@
 | 2 | Exploit SQLi + XSS + SSRF on DVWA or OWASP Juice Shop | Attack chain documentation with request/response evidence |
 | 3 | Perform an authenticated web app assessment on WebGoat (all modules) | Structured vulnerability report |
 | 4 | Chain 3+ vulnerabilities for maximum impact on a single lab target (e.g., XSS→session theft→admin access→RCE) | Kill chain diagram + technical report |
-| 5 | Write a custom Burp Suite extension or automated scanner script | Working extension/script + README |
+| 5 | Write a custom [Burp Suite](../Tools/Burp_Suite.md) extension or automated scanner script | Working extension/script + README |
 | 6 | Complete 10 PentesterLab exercises (source-code-level web vulnerability analysis) | Exercise certificates + code review notes |
 | 7 | Solve 5 Root-Me web application challenges at intermediate difficulty | Challenge completion screenshots + methodology notes |
 
@@ -233,7 +233,7 @@
 
 - [ ] **Service Exploitation:** Look for **buffer overflow, format string, RCE** exploits for specific service versions (Apache mod_ssl, ProFTPd, vsftpd).
 
-- [ ] **Credential Attacks:** Launch **brute force, password spray, dictionary attacks** against **SSH, FTP, admin panels** with Hydra/Medusa.
+- [ ] **Credential Attacks:** Launch **brute force, password spray, dictionary attacks** against **SSH, FTP, admin panels** with [Hydra](../Tools/Hydra.md)/Medusa.
 
 - [ ] **Default Credentials:** Test **default admin passwords** for web servers (tomcat/tomcat, admin/admin) and management interfaces.
 
@@ -375,7 +375,7 @@
 | 1 | Complete crAPI (completely ridiculous API) lab — all OWASP API Top 10 challenges | Challenge completion documentation |
 | 2 | Test BOLA, broken auth, and mass assignment against vAPI or Juice Shop API | OWASP API assessment report |
 | 3 | Exploit JWT algorithm confusion (`alg:none`, RS256→HS256) and forge tokens in a lab API | JWT attack PoC + writeup |
-| 4 | Write automated API security tests using Postman collections or Burp macros | Test suite + results |
+| 4 | Write automated API security tests using [Postman](../Tools/Postman.md) collections or Burp macros | Test suite + results |
 | 5 | Audit a GraphQL API (introspection dump, batching abuse, nested query DoS, IDOR via node IDs) | GraphQL security assessment report |
 
 > [!IMPORTANT]

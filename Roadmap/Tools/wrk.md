@@ -5,6 +5,8 @@
 > **When to use it:** Serious HTTP/HTTPS performance benchmarking. Finding a server's maximum sustained throughput. Testing API performance under realistic load. Comparing server configurations. When ab runs out of capacity before the server does (very common with high-performance servers or APIs).
 >
 > **Tier 4 Reminder:** Know the command syntax, understand the output, and know when wrk is appropriate over ab.
+>
+> **Roadmap Phase:** Phase 10 (DoS Awareness and HTTP Performance Testing)
 
 ---
 

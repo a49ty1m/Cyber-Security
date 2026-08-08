@@ -18,7 +18,7 @@
 > [!NOTE]
 > ### 📝 Phase 6 Documentation Requirements
 > Enterprise infrastructure work must be thoroughly documented. Required artifacts:
-> - **BloodHound exports** — attack path graphs with annotated findings
+> - **[BloodHound](../Tools/BloodHound.md) exports** — attack path graphs with annotated findings
 > - **Cloud attack evidence** — CloudTrail logs, IAM policy analysis, exploitation screenshots
 > - **Terraform/CloudFormation configs** — infrastructure-as-code for lab environments committed to Git
 > - **Purple team ATT&CK heatmap** — technique coverage matrix showing detection gaps
@@ -50,18 +50,18 @@
   - [Stage 4: Secrets & Configuration Management](#stage-4-secrets-configuration-management)
   - [Stage 5: CI/CD & Workflow Automation Attacks](#stage-5-cicd-workflow-automation-attacks)
   - [Lab Progression (Part 25: Container & Orchestration Security)](#lab-progression-part-25-container-orchestration-security)
-- [Part 26: OT/ICS/SCADA Security \[OPTIONAL SPECIALIZATION\]](#part-26-oticsscada-security)
-  - [Stage 1: Industrial Protocol Fundamentals](#stage-1-industrial-protocol-fundamentals)
-  - [Stage 2: PLC & HMI Exploitation](#stage-2-plc-hmi-exploitation)
-  - [Stage 3: Safety System Attacks](#stage-3-safety-system-attacks)
-  - [Stage 4: OT Network Segmentation & Defense](#stage-4-ot-network-segmentation-defense)
-  - [Lab Progression (Part 26: OT/ICS/SCADA Security)](#lab-progression-part-26-oticscada-security)
-- [Part 16: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming) _(Phase 6 Capstone)_
+- [Part 16: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming) _(Phase 6 Capstone — complete Parts 23–25 first)_
   - [Stage 1: MITRE ATT&CK Framework Mastery](#stage-1-mitre-attck-framework-mastery)
   - [Stage 2: APT & Threat Actor Emulation](#stage-2-apt-threat-actor-emulation)
   - [Stage 3: Purple Team Exercises](#stage-3-purple-team-exercises)
   - [Stage 4: Metrics & Reporting](#stage-4-metrics-reporting)
   - [Lab Progression (Part 16: Adversary Emulation & Purple Teaming)](#lab-progression-part-16-adversary-emulation-purple-teaming)
+- [Part 26: OT/ICS/SCADA Security \[OPTIONAL SPECIALIZATION\]](#part-26-oticsscada-security) _(complete after Part 16 if targeting ICS career track)_
+  - [Stage 1: Industrial Protocol Fundamentals](#stage-1-industrial-protocol-fundamentals)
+  - [Stage 2: PLC & HMI Exploitation](#stage-2-plc-hmi-exploitation)
+  - [Stage 3: Safety System Attacks](#stage-3-safety-system-attacks)
+  - [Stage 4: OT Network Segmentation & Defense](#stage-4-ot-network-segmentation-defense)
+  - [Lab Progression (Part 26: OT/ICS/SCADA Security)](#lab-progression-part-26-oticscada-security)
 
 ---
 
@@ -126,7 +126,7 @@
 
 - [ ] **GPO Persistence:** Implant via **logon scripts, immediate scheduled tasks, startup items**; abuse **restricted groups** for re-add.
 
-- [ ] **DC Sync / DC Shadow:** Abuse **Replicating Directory Changes** to pull **NTDS.dit** or inject rogue DC changes.
+- [ ] **DC Sy[nc ](../Tools/Netcat.md)/ DC Shadow:** Abuse **Replicating Directory Changes** to pull **NTDS.dit** or inject rogue DC changes.
 
 - [ ] **Golden/Silver Tickets:** Forge **krbtgt/service hashes** for long-lived access; manage **ticket lifetime/renewal** OPSEC.
 
@@ -232,7 +232,7 @@
 
 - [ ] **CORS Misconfiguration:** Retrieve CORS config with `aws s3api get-bucket-cors`. Permissive CORS (`AllowedOrigin: *` + `AllowCredentials: true` patterns) enables cross-origin data theft from authenticated browser sessions. Test with a crafted request from an attacker origin.
 
-- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection strings, and private certificates that developers have uploaded and forgotten.
+- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection [strings](../Tools/strings.md), and private certificates that developers have uploaded and forgotten.
 
 ---
 
@@ -275,7 +275,8 @@
 - [ ] **Cross-Account Audit Automation:** Use **Prowler's multi-account mode** or write Boto3 scripts using `sts:AssumeRole` to enumerate security posture across all accounts in an AWS Organization from a single auditor role. Understand how cross-account role trust policies create lateral movement paths.
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 24: Cloud Computing):** You are ready to continue when you can: (1) run ScoutSuite or Prowler against a lab AWS account and interpret the findings report; (2) enumerate all S3 buckets, their ACLs, bucket policies, and CORS configurations using the AWS CLI; (3) use trufflehog to scan an S3 bucket for secrets; (4) run checkov against a Terraform template and explain each HIGH finding; (5) query CloudTrail to identify at least one suspicious API event in a lab environment. If you cannot do all five without looking up the commands, revisit Stages 2–4 before proceeding.
+> **⚠️ Stage 4 Intermediate Checkpoint (Part 24: Cloud Computing) — NOT the Part Exit Gate**
+> You must still complete **Stages 5 and 6** before leaving Part 24. This checkpoint verifies Stage 1–4 readiness only. You are ready to continue to Stage 5 when you can: (1) run ScoutSuite or Prowler against a lab AWS account and interpret the findings report; (2) enumerate all S3 buckets, their ACLs, bucket policies, and CORS configurations using the AWS CLI; (3) use trufflehog to scan an S3 bucket for secrets; (4) run checkov against a Terraform template and explain each HIGH finding; (5) query CloudTrail to identify at least one suspicious API event in a lab environment. If you cannot do all five without looking up the commands, revisit Stages 2–4 before proceeding. **Then continue to Stage 5 (Cloud Attack Vectors) and Stage 6 (IAM & PAM).**
 
 ---
 
@@ -316,6 +317,9 @@
 - [ ] **Privileged Access Management (PAM):** Understand **CyberArk, Delinea (Thycotic), BeyondTrust** vault architecture — **credential vaulting, session recording, just-in-time (JIT) access, credential rotation**. Know the attack surface: **vault admin compromise, session proxy hijacking, checkout abuse, emergency break-glass exploitation**.
 
 - [ ] **Identity Governance:** Understand **access reviews, entitlement management, separation of duties (SoD)**, and how **identity lifecycle gaps** (orphaned accounts, excessive standing privileges, stale service principals) create attack opportunities.
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 24: Cloud Computing):** You are ready to proceed to Part 25 when you can: (1) execute an IAM privilege escalation path in a CloudGoat lab from low-privilege user to admin using only misconfigured policies; (2) identify a Conditional Access bypass condition in a lab Azure tenant and explain why it exists; (3) explain the difference between a SAML token, an OAuth access token, and a Kerberos TGT — and what happens when each is stolen.
 
 ---
 
@@ -425,107 +429,43 @@
 - [ ] **KubernetesGoat / k8s-ctf Lab:** Complete at least 5 Kubernetes attack scenarios and map each to a control failure.
 - [ ] **Image Security Lab:** Build an image, scan it with Trivy/Grype, fix high-risk findings, and rebuild.
 - [ ] **Secrets Lab:** Demonstrate unsafe secret exposure, then fix it using Kubernetes secrets, external secret managers, or workload identity.
-> [!IMPORTANT]
-> **Move-On Gate:** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes.
-
-<a id="toc-part-26-oticsscada-security"></a>
-<a id="part-26-oticsscada-security"></a>
-
-## Part 26: OT/ICS/SCADA Security [OPTIONAL SPECIALIZATION]
-
-> [!NOTE]
-> **Optional Specialization:** OT/ICS/SCADA security is a distinct career track targeting industrial control systems in energy, utilities, manufacturing, and critical infrastructure. If your career goal is ICS pentesting, SCADA security engineering, or critical infrastructure defense, complete this Part in full. If your goal is general offensive security, cloud, or enterprise AD — treat this Part as awareness-level reading and return to it when specializing. Do not let OT/ICS block your progress into Phase 7.
-
-<a id="stage-1-industrial-protocol-fundamentals"></a>
-### **Stage 1: Industrial Protocol Fundamentals**
-
-> [!TIP]
-> **Goal:** Understand operational technology communication.
-
-- [ ] **Modbus TCP/RTU:** Master **function codes (read coils, write registers)**, perform **unauthenticated reads/writes** to PLCs.
-
-- [ ] **DNP3:** Understand **SCADA protocol** used in utilities; exploit **lack of authentication, replay attacks**.
-
-- [ ] **IEC 61850:** Learn **power substation protocol**; understand **GOOSE messages, MMS** for substation automation.
-
-- [ ] **BACnet:** Audit **building automation systems**; enumerate **devices, read/write points** without authentication.
-
-- [ ] **OPC UA:** Exploit **OPC servers** for **data exfiltration, authentication bypass, denial of service**.
 
 ---
 
-<a id="stage-2-plc-hmi-exploitation"></a>
-### **Stage 2: PLC & HMI Exploitation**
+<a id="stage-6-hypervisor-security"></a>
+
+### **Stage 6: Hypervisor Security**
 
 > [!TIP]
-> **Goal:** Compromise industrial controllers and interfaces.
+> **Goal:** Understand the attack surface one layer below containers — the hypervisor. Container escape gets defender attention; hypervisor-level attacks are less understood and harder to detect. Enterprise pentests against virtualised infrastructure encounter these regularly.
 
-- [ ] **PLC Enumeration:** Use **Nmap NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
+- [ ] **VMware ESXi Attack Surface:** ESXi is the dominant enterprise bare-metal hypervisor. Key attack vectors:
+  - **Unauthenticated ESXi Shell Access:** Legacy ESXi deployments may have SSH enabled with default or weak credentials (`root` / empty). `esxcli` and `vim-cmd` provide full VM management from the shell.
+  - **vCenter Server Vulnerabilities:** vCenter (the management plane) has had critical unauthenticated RCE CVEs (CVE-2021-21985, CVE-2021-22005). A compromised vCenter = control over all managed ESXi hosts and all VMs.
+  - **VMDK Credential Extraction:** Mount a VMDK file offline to extract credentials from Windows VMs: boot into recovery mode or use `7-zip` / `qemu-nbd` to mount and access the NTDS.dit/SAM + SYSTEM hive. This bypasses runtime protections entirely.
+  - **Snapshot Credential Theft:** VM snapshots freeze memory state. A snapshot of a running Windows DC contains LSASS memory — mountable offline for credential extraction without triggering EDR.
 
-- [ ] **Ladder Logic Analysis:** Reverse engineer **PLC programs** to understand **control logic, safety interlocks**.
+- [ ] **Proxmox Attack Surface:** Open-source hypervisor used in SMBs and test environments:
+  - Default API endpoint at `https://host:8006/api2/json` — enumerate with unauthenticated calls to identify version and nodes
+  - Proxmox VE < 7.x had CSRF and auth bypass vulnerabilities
+  - `pveum` and `qm` CLI allow full VM control from the Proxmox shell
 
-- [ ] **Firmware Manipulation:** Extract and modify **PLC firmware** to inject malicious logic or backdoors.
+- [ ] **VM Escape CVE Awareness:** True VM escapes (guest → hypervisor) are rare but high-value:
+  - **VENOM (CVE-2015-3456):** QEMU virtual floppy disk controller buffer overflow — allowed guest-to-host escape on QEMU/KVM and Xen
+  - **Escape via VMware Tools:** VMware Tools (running inside guest) has historically had privilege escalation and local escape vulnerabilities
+  - **Shared Clipboard / Drag-and-Drop:** VMware and VirtualBox guest isolation can be broken via clipboard injection or shared folder misconfigurations
 
-- [ ] **HMI Exploitation:** Exploit **HMI software vulnerabilities, default credentials, SQL injection** in SCADA interfaces.
+- [ ] **Nested Virtualisation Security:** Understand security implications of nested VMs (VM inside a VM): hypervisor isolation assumptions break down; snapshot-based lab environments using nested VMs may expose host credentials through nested VM memory.
 
-- [ ] **Engineering Workstation:** Target **engineering stations** with **phishing, malware** as gateway to OT network.
-
----
-
-<a id="stage-3-safety-system-attacks"></a>
-### **Stage 3: Safety System Attacks**
-
-> [!TIP]
-> **Goal:** Understand attacks on critical safety instrumented systems.
-
-- [ ] **Safety PLC:** Identify **safety-rated PLCs** and understand **fail-safe vs fail-operational** modes.
-
-- [ ] **Interlock Bypass:** Manipulate **logic to disable safety interlocks** causing unsafe operational states.
-
-- [ ] **Sensor Manipulation:** Spoof **sensor values** (temperature, pressure, level) to trigger incorrect responses.
-
-- [ ] **Emergency Shutdown (ESD):** Understand **ESD systems** and potential for **malicious activation/deactivation**.
-
-- [ ] **Physical Impact:** Assess **real-world consequences** of cyber attacks (equipment damage, safety incidents, environmental harm).
-
----
-
-<a id="stage-4-ot-network-segmentation-defense"></a>
-### **Stage 4: OT Network Segmentation & Defense**
-
-> [!TIP]
-> **Goal:** Implement defense-in-depth for industrial environments.
-
-- [ ] **Purdue Model:** Apply **ISA-95/Purdue Enterprise Reference Architecture** for **zone-based segmentation**.
-
-- [ ] **DMZ Architecture:** Deploy **data diodes, unidirectional gateways** to isolate OT from IT networks.
-
-- [ ] **Protocol Whitelisting:** Use **industrial firewalls** to whitelist **allowed protocols, function codes, device communications**.
-
-- [ ] **Anomaly Detection:** Deploy **OT-aware IDS (Claroty, Nozomi, Dragos)** to detect **protocol deviations, unauthorized commands**.
-
-- [ ] **Asset Inventory:** Maintain **passive discovery** of all OT assets using **network taps, SPAN ports**.
-
-- [ ] **Patch Management:** Implement **risk-based patching** with **change control, redundancy, rollback procedures**.
-
----
-
-<a id="lab-progression-part-26-oticscada-security"></a>
-### **Lab Progression (Part 26: OT/ICS/SCADA Security)**
-
-> [!TIP]
-> **Goal:** Gain hands-on experience with industrial control system attacks and defenses.
-
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with Wireshark | Protocol analysis report with annotated packet captures |
-| 2 | Attack an OpenPLC controller in lab (scan, enumerate, modify ladder logic) | PLC exploitation walkthrough with screenshots |
-| 3 | Design ICS network segmentation using Purdue Model zones and data diodes | ICS security architecture document with network diagram |
+- [ ] **Defensive Controls — Hypervisor Hardening:**
+  - Enable lockdown mode on ESXi (restricts shell and API access to vCenter only)
+  - Disable SSH on ESXi hosts in production; use vCenter for management
+  - Enforce vCenter RBAC — no shared `administrator@vsphere.local` accounts
+  - Network-segregate the management network (VMkernel port) from VM traffic
+  - Enable VM encryption (vSphere VM Encryption) for sensitive VMs to prevent offline VMDK extraction
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can enumerate OT protocols, explain the Purdue Model, and demonstrate safe ICS network segmentation.
-
----
+> **Move-On Gate:** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes. Additionally, document: (1) two ESXi attack vectors and their mitigations, (2) how VMDK credential extraction works and what prevents it.
 
 <a id="part-16-adversary-emulation-purple-teaming"></a>
 ## Part 16: Adversary Emulation & Purple Teaming _(Phase 6 Capstone)_
@@ -622,6 +562,105 @@
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can execute adversary emulation plans, measure detection coverage, calculate MTTD/MTTR, and produce actionable purple team reports demonstrating security posture improvement.
+
+---
+
+<a id="toc-part-26-oticsscada-security"></a>
+<a id="part-26-oticsscada-security"></a>
+
+## Part 26: OT/ICS/SCADA Security [OPTIONAL SPECIALIZATION]
+
+> [!NOTE]
+> **Optional Specialization:** OT/ICS/SCADA security is a distinct career track targeting industrial control systems in energy, utilities, manufacturing, and critical infrastructure. If your career goal is ICS pentesting, SCADA security engineering, or critical infrastructure defense, complete this Part in full. If your goal is general offensive security, cloud, or enterprise AD — treat this Part as awareness-level reading and return to it when specializing. Do not let OT/ICS block your progress into Phase 7.
+
+<a id="stage-1-industrial-protocol-fundamentals"></a>
+### **Stage 1: Industrial Protocol Fundamentals**
+
+> [!TIP]
+> **Goal:** Understand operational technology communication.
+
+- [ ] **Modbus TCP/RTU:** Master **function codes (read coils, write registers)**, perform **unauthenticated reads/writes** to PLCs.
+
+- [ ] **DNP3:** Understand **SCADA protocol** used in utilities; exploit **lack of authentication, replay attacks**.
+
+- [ ] **IEC 61850:** Learn **power substation protocol**; understand **GOOSE messages, MMS** for substation automation.
+
+- [ ] **BACnet:** Audit **building automation systems**; enumerate **devices, read/write points** without authentication.
+
+- [ ] **OPC UA:** Exploit **OPC servers** for **data exfiltration, authentication bypass, denial of service**.
+
+---
+
+<a id="stage-2-plc-hmi-exploitation"></a>
+### **Stage 2: PLC & HMI Exploitation**
+
+> [!TIP]
+> **Goal:** Compromise industrial controllers and interfaces.
+
+- [ ] **PLC Enumeration:** Use **[Nmap](../Tools/Nmap.md) NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
+
+- [ ] **Ladder Logic Analysis:** Reverse engineer **PLC programs** to understand **control logic, safety interlocks**.
+
+- [ ] **Firmware Manipulation:** Extract and modify **PLC firmware** to inject malicious logic or backdoors.
+
+- [ ] **HMI Exploitation:** Exploit **HMI software vulnerabilities, default credentials, SQL injection** in SCADA interfaces.
+
+- [ ] **Engineering Workstation:** Target **engineering stations** with **phishing, malware** as gateway to OT network.
+
+---
+
+<a id="stage-3-safety-system-attacks"></a>
+### **Stage 3: Safety System Attacks**
+
+> [!TIP]
+> **Goal:** Understand attacks on critical safety instrumented systems.
+
+- [ ] **Safety PLC:** Identify **safety-rated PLCs** and understand **fail-safe vs fail-operational** modes.
+
+- [ ] **Interlock Bypass:** Manipulate **logic to disable safety interlocks** causing unsafe operational states.
+
+- [ ] **Sensor Manipulation:** Spoof **sensor values** (temperature, pressure, level) to trigger incorrect responses.
+
+- [ ] **Emergency Shutdown (ESD):** Understand **ESD systems** and potential for **malicious activation/deactivation**.
+
+- [ ] **Physical Impact:** Assess **real-world consequences** of cyber attacks (equipment damage, safety incidents, environmental harm).
+
+---
+
+<a id="stage-4-ot-network-segmentation-defense"></a>
+### **Stage 4: OT Network Segmentation & Defense**
+
+> [!TIP]
+> **Goal:** Implement defense-in-depth for industrial environments.
+
+- [ ] **Purdue Model:** Apply **ISA-95/Purdue Enterprise Reference Architecture** for **zone-based segmentation**.
+
+- [ ] **DMZ Architecture:** Deploy **data diodes, unidirectional gateways** to isolate OT from IT networks.
+
+- [ ] **Protocol Whitelisting:** Use **industrial firewalls** to whitelist **allowed protocols, function codes, device communications**.
+
+- [ ] **Anomaly Detection:** Deploy **OT-aware IDS (Claroty, Nozomi, Dragos)** to detect **protocol deviations, unauthorized commands**.
+
+- [ ] **Asset Inventory:** Maintain **passive discovery** of all OT assets using **network taps, SPAN ports**.
+
+- [ ] **Patch Management:** Implement **risk-based patching** with **change control, redundancy, rollback procedures**.
+
+---
+
+<a id="lab-progression-part-26-oticscada-security"></a>
+### **Lab Progression (Part 26: OT/ICS/SCADA Security)**
+
+> [!TIP]
+> **Goal:** Gain hands-on experience with industrial control system attacks and defenses.
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with [Wireshark](../Tools/Wireshark.md) | Protocol analysis report with annotated packet captures |
+| 2 | Attack an OpenPLC controller in lab (scan, enumerate, modify ladder logic) | PLC exploitation walkthrough with screenshots |
+| 3 | Design ICS network segmentation using Purdue Model zones and data diodes | ICS security architecture document with network diagram |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can enumerate OT protocols, explain the Purdue Model, and demonstrate safe ICS network segmentation.
 
 ---
 

@@ -9,6 +9,8 @@
 > **When to avoid it:** Online authentication attacks (use Hydra). When you don't have hashes (you need the hash first). When the hash type uses extremely slow algorithms with high iterations (bcrypt with cost 14+ takes forever even with GPUs).
 >
 > **What mastering Hashcat unlocks:** Ability to crack passwords from any hash type. Post-exploitation credential recovery. Wi-Fi security auditing. Password policy validation. Understanding of cryptographic hash functions and their weaknesses.
+>
+> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Credential Recovery and Password Cracking)
 
 ---
 

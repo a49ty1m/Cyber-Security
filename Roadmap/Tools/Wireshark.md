@@ -9,6 +9,8 @@
 > **When to avoid it:** When you need to modify traffic in transit (use Burp Suite or mitmproxy). When you need real-time alerting (use an IDS like Snort/Suricata). When you need automated large-scale analysis (use Zeek/Bro). When capturing on production networks without authorization (same legal rules as any network tool).
 >
 > **What mastering Wireshark unlocks:** Deep protocol understanding that makes you a better attacker AND defender. The ability to prove findings with evidence. Network forensics skills. The ability to debug any network issue. Understanding of how every tool you use (Nmap, Metasploit, Burp) actually works on the wire.
+>
+> **Roadmap Phase:** Phase 2–7 (Scanning through DFIR — used across all phases)
 
 ---
 

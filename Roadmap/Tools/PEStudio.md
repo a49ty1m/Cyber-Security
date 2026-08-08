@@ -7,6 +7,8 @@
 > **When to use it:** Initial malware triage — the first 2 minutes of analysis. Comparing suspicious files quickly. Automated pipeline triage of many files. Understanding PE structure before deeper analysis.
 >
 > **Platform:** Windows only. Free. No installation required.
+>
+> **Roadmap Phase:** Phase 7 (Malware Analysis — Static PE Triage)
 
 ---
 

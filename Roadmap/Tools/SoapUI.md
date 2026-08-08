@@ -5,6 +5,8 @@
 > **When to use it:** Testing SOAP/WSDL APIs on enterprise targets. Understanding WSDL definitions and auto-generating test requests. Testing XML-specific vulnerabilities (XXE, XPATH injection, SOAP action spoofing). API security assessments against legacy enterprise systems. When an engagement scope includes SOA (Service-Oriented Architecture) targets.
 >
 > **Tier 4 Reminder:** Know what SOAP is, how to import a WSDL and send requests, and be aware of SOAP-specific vulnerabilities. Deep mastery is needed only if your role frequently encounters legacy enterprise web services.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — Legacy SOAP/WSDL Services)
 
 ---
 

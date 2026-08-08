@@ -9,6 +9,8 @@
 > **When to avoid it:** Linux-only environments (no Windows/AD). When you need a GUI (use RDP or Evil-WinRM instead). When CrackMapExec provides a simpler interface for the same task. Web application testing.
 >
 > **What mastering Impacket unlocks:** Complete Active Directory attack capability from Linux. OSCP/OSEP/CRTP exam readiness. Understanding of Windows protocols at the implementation level. The ability to attack Windows without Windows.
+>
+> **Roadmap Phase:** Phase 4–5 (Exploitation, AD Attacks, and Lateral Movement)
 
 ---
 

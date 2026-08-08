@@ -7,6 +7,8 @@
 > **When to use it:** Analyzing malware at runtime. Unpacking packed executables. Bypassing anti-debug tricks. Understanding obfuscated code that decompilers can't handle. Patching binaries. Dynamic CTF reversing when static analysis isn't enough.
 >
 > **What mastering x64dbg unlocks:** Dynamic malware analysis. Unpacking any packed executable. Runtime value inspection. Bypassing anti-analysis. Complete binary patching capability.
+>
+> **Roadmap Phase:** Phase 7 (Malware Analysis and Reverse Engineering)
 
 ---
 

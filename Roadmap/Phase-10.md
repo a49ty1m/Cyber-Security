@@ -1,4 +1,4 @@
-]\# Phase 10: Operations & Career
+# Phase 10: Operations & Career
 
 > [!IMPORTANT]
 > **Prerequisites:** This phase requires completion of Phase 9 (AI Security). It assumes you have built a complete technical portfolio across Phases 1–9 covering traditional security, offensive operations, defensive engineering, infrastructure, advanced specializations, GRC, and AI red teaming. Phase 10 is where you assemble, polish, and publish that body of work while mastering the operational disciplines (pentest methodologies, red team tradecraft) needed to practice professionally.
@@ -606,8 +606,7 @@
 
 | # | Tool | Domain | What It Does |
 |:-:|:-----|:-------|:-------------|
-| 28 | 🏓 hping3 | DoS / Packet Crafting | TCP/IP packet generator — SYN floods, ping sweeps, firewall testing, custom traceroute. |
-| 29 | 🧬 Detect It Easy (DiE) | Malware Analysis | PE packer and compiler identification. First step before attempting to unpack a binary. |
+| 28 | 🧬 Detect It Easy (DiE) | Malware Analysis | PE packer and compiler identification. First step before attempting to unpack a binary. |
 | 30 | 👁️ Procmon | Malware Analysis | Windows process activity monitor — real-time file, registry, and network event capture during execution. |
 | 31 | 🧵 strings | Malware Analysis | Extract all printable strings from a binary. Fastest first-pass indicator extraction before Ghidra. |
 | 32 | 🧼 SoapUI | API Testing | SOAP/WSDL web service testing. Use for legacy XML-based enterprise APIs. |

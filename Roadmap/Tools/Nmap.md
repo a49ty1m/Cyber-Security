@@ -9,6 +9,8 @@
 > **When to avoid it:** When you don't have authorization (scanning without permission is illegal in most jurisdictions). When stealth is paramount and even SYN scans are too noisy (use passive techniques instead).
 >
 > **What mastering Nmap unlocks:** The ability to map any network, identify attack surfaces, discover vulnerabilities before exploitation, and communicate findings professionally. Nmap mastery is a prerequisite for every offensive security certification (OSCP, CEH, PNPT, etc.).
+>
+> **Roadmap Phase:** Phase 1–2 (Reconnaissance and Scanning & Enumeration)
 
 ---
 

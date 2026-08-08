@@ -9,6 +9,8 @@
 > **When to avoid it:** During stealth-focused red team engagements (Metasploit traffic is signatured by every modern IDS/AV). When a simpler manual exploit exists. When you don't have authorization. For web application testing (Burp Suite is better).
 >
 > **What mastering Metasploit unlocks:** Efficient exploitation and post-exploitation. OSCP certification readiness. Understanding of the full exploit-payload-handler architecture. Ability to validate vulnerabilities with proof-of-exploitation. Pivoting through complex network topologies.
+>
+> **Roadmap Phase:** Phase 4 (Exploitation) and Phase 5 (Post-Exploitation)
 
 ---
 

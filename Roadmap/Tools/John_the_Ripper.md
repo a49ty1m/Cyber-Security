@@ -9,6 +9,8 @@
 > **When to avoid it:** When you have a GPU — Hashcat is 10–100x faster on GPU hardware. When you need GPU-specific attack modes or advanced mask syntax — Hashcat is more feature-complete for GPU workflows.
 >
 > **What mastering JtR unlocks:** Offline credential recovery from any captured hash. Linux password file cracking. Document/archive password cracking. Understanding of the full password cracking methodology (identification → extraction → cracking → credential use).
+>
+> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Offline Password Cracking)
 
 ---
 

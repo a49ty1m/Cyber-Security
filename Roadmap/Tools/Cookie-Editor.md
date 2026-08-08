@@ -5,6 +5,8 @@
 > **When to use it:** Testing session management: can you replace a session cookie with another user's? Testing cookie security attributes (HttpOnly, Secure, SameSite). Manual JWT or session token swap for authorization testing. Importing/exporting cookie sets between browsers for cross-account testing. Quick session fixation testing.
 >
 > **Tier 4 Reminder:** Cookie manipulation is built into browser DevTools and Burp Suite. Cookie-Editor is a convenience tool — know it exists, know the security attributes you're testing, and understand when it's faster than alternatives.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — Session Management Testing)
 
 ---
 

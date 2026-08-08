@@ -5,6 +5,8 @@
 > **When to use it:** First-pass triage before opening a binary in PEStudio or Ghidra. Quick IOC extraction (domains, IPs, file paths). Extracting readable content from unknown files (firmware, PDFs, office docs). Finding hardcoded secrets in compiled binaries during code review or binary analysis. Identifying strings in memory dumps.
 >
 > **Tier 4 Reminder:** Know the command options well, understand what strings output tells you, and know its limitations.
+>
+> **Roadmap Phase:** Phase 7 (Malware Analysis — Static String Extraction)
 
 ---
 

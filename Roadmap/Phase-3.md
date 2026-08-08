@@ -64,7 +64,7 @@
   - [Stage 2: Threat Intelligence Analysis](#stage-2-threat-intelligence-analysis)
   - [Stage 3: OSINT Automation & Tooling](#stage-3-osint-automation-tooling)
   - [Stage 4: Threat Intelligence Dissemination](#stage-4-threat-intelligence-dissemination)
-  - [Stage 4B: Threat Intel Operationalization](#stage-4b-threat-intel-operationalization)
+  - [Stage 5: Threat Intel Operationalization](#stage-5-threat-intel-operationalization)
   - [Lab Progression (Part 15: OSINT & Threat Intelligence)](#lab-progression-part-15-osint-threat-intelligence)
   - [GRC Fundamentals Sidebar (Early Supplement for Defensive Careers)](#grc-fundamentals-sidebar-early-supplement-for-defensive-careers)
 
@@ -89,7 +89,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 <a id="stage-2-offensive-indicators-ttps"></a>
 ### **Stage 2: Offensive Indicators & TTPs**
 
-- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, Metasploit, custom).
+- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [Metasploit](../Tools/Metasploit_Framework.md), custom).
 
 - [ ] **MITRE ATT&CK Mapping:** Correlate **detected behaviors** to **tactics/techniques** to understand adversary intent and prioritize detection investment.
 
@@ -191,6 +191,8 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **Validation & Documentation:** Confirm findings are **actual compromise vs. false positive**, document **timeline, IOCs, and response**.
 
+- [ ] **Jupyter Notebook Threat Hunting:** Mature threat hunting programmes use Jupyter notebooks (JupyterHub or VS Code Jupyter extension) as the primary analysis environment: SIEM or Elasticsearch data pulled via API into pandas DataFrames, statistical anomaly detection with scipy/scikit-learn, and visualisation with matplotlib/seaborn. Reproducible **"hunt books"** — notebooks committed to Git and peer-reviewed — are the production standard at Microsoft MSTIC, Elastic Security Labs, and SANS Hunt teams. Study the [MSTICPy library](https://github.com/microsoft/msticpy) (Microsoft Threat Intelligence Center's open-source hunting library): it provides pre-built connectors for Microsoft Sentinel, Splunk, and QRadar, plus entity enrichment, IOC lookup, and timeline visualisation. Hunt books treat detection logic as code: version-controlled, diff-able, and testable — the same shift-left discipline that CI/CD brought to application code.
+
 ---
 
 <a id="stage-8-incident-response-basics"></a>
@@ -227,13 +229,13 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **Live Response:** Collect **running processes, network connections, logged-in users, active services** before shutdown (loses volatile data).
 
-- [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, FTK Imager**.
+- [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, [FTK Imager](../Tools/FTK_Imager.md)**.
 
 - [ ] **Timeline Analysis:** Build **chronological timeline** of **file creation/modification, registry changes, logs** to reconstruct **attack sequence**.
 
 - [ ] **Artifact Examination:** Analyze **Windows Prefetch, Shimcache, MRU, Recycle Bin, browser history, temp files** for **evidence of compromise**.
 
-- [ ] **Memory Analysis:** Use tools like **Volatility, Rekall** to extract **running processes, injected code, encryption keys, command history** from memory dumps.
+- [ ] **Memory Analysis:** Use tools like **[Volatility](../Tools/Volatility.md), Rekall** to extract **running processes, injected code, encryption keys, command history** from memory dumps.
 
 ---
 
@@ -436,13 +438,46 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 4: Utilizing Deception (The Traps)**
 
 > [!TIP]
-> **Goal:** Gather threat intelligence and waste attacker time.
+> **Goal:** Deploy detection-layer deception that catches attackers operating quietly below IDS thresholds, while understanding how attackers evade it.
 
-- [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers.
+- [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers. Use **Cowrie** (SSH/Telnet), **HoneyD**, or **T-Pot** (multi-protocol stack). Log every interaction and correlate to SIEM.
 
 - [ ] **Traffic Redirection:** Use `Sinkholes` to capture traffic destined for known malicious domains or IPs.
 
 - [ ] **Intelligence Gathering:** Analyze logs and activity from deception tools to inform `Basics and Concepts of Threat Hunting`.
+
+- [ ] **Canary Tokens:** Deploy [canarytokens.org](https://canarytokens.org) tokens across your environment. Understand the three primary token types:
+  - **DNS canary tokens** — embed in files/configs; fire on DNS lookup when a file is opened on an internet-connected host
+  - **HTTP/URL canary tokens** — embed in documents, email signatures, API docs; fire on HTTP GET when accessed
+  - **File-open canary tokens** (Word, PDF, folder) — fire when a document is opened, leaking attacker IP and user-agent
+  - Deploy tokens in: fake credentials files, decoy API key configs, unused service accounts, document shares, internal wikis
+
+- [ ] **Canary Token Lab (Hands-On — 10 minutes):** Complete this exercise before reading further:
+  1. Go to [canarytokens.org/generate](https://canarytokens.org/generate) and generate a **DNS token**. Enter your email for alerts.
+  2. Copy the generated DNS hostname into a file on your lab machine named `aws_credentials.txt` as a fake value: `aws_secret_access_key = AKIA[paste-token-hostname-here]`
+  3. Open the file from a terminal (`cat aws_credentials.txt`) — observe whether the DNS token fires. (It will not fire from `cat` alone since no DNS resolution occurs. This is intentional — understand why.)
+  4. Now generate an **HTTP token** and embed the URL in a fake config file. Use `curl` to trigger it manually.
+  5. Check the canarytokens.org dashboard — observe the activation log showing your IP, user-agent, and timestamp.
+  6. **Offensive takeaway:** Knowing token trigger mechanics tells you which file access patterns to avoid on an engagement. A file opened with `cat` does not beacon; a Word document opened in Microsoft Office on an internet-connected host does.
+  - Deliverable: screenshot of canary token activation log with attacker IP, user-agent, and timestamp annotated.
+
+- [ ] **Honeyfiles and Honeycredentials:** Plant decoy files that look genuinely valuable to a lateral-moving attacker:
+  - `credentials.txt`, `passwords.xlsx`, `backup_keys.txt`, `db_passwords.conf` containing fake but plausible credentials
+  - Apply canary tokens inside these files so access is logged
+  - Monitor for any use of honeycredentials in authentication logs — use is near-certain evidence of active compromise
+  - Place on common share locations (\\\\FILESERVER\\Finance$, \\\\FILESERVER\\IT_Admin$) where attackers enumerate after foothold
+
+- [ ] **Modern Deception Platform Awareness:** Understand enterprise deception platforms beyond basic honeypots:
+  - **Attivo Networks / SentinelOne Singularity Identity** — identity-layer deception, fake AD accounts with monitored credentials
+  - **Illusive Networks** — network-wide deception fabric with fake endpoints, credentials, and connections seeded across endpoints
+  - **Thinkst Canary** — commercial canary token infrastructure with management dashboard and alerting
+  - Understand how these platforms differ from honeypots: they blend into the live environment rather than sitting isolated in DMZ
+
+- [ ] **Attacker Evasion of Deception Infrastructure:** Understand what attackers look for to avoid triggering deception:
+  - Honeypot fingerprinting: blank/minimal service banners, near-perfect uptime, unusual file timestamps, missing Windows event logs
+  - Canary detection: files with atypically recent modification times, identical file sizes, names that are too generic ("passwords.txt")
+  - Defenders counter this by making deception assets realistic: age files, add plausible modification history, use actual service banners
+  - Understand that even sophisticated attackers who detect some canaries will often trigger others due to deception density
 
 ---
 
@@ -564,9 +599,9 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ### **Stage 3: OSINT Automation & Tooling**
 
 > [!TIP]
-> **Goal:** Scale reconnaissance with automation.
+> **Goal:** Scale reconnaissance with automation and operationalise threat intelligence platforms.
 
-- [ ] **Reconnaissance Frameworks:** Master **Recon-ng, theHarvester, SpiderFoot, Maltego** for automated data collection.
+- [ ] **Reconnaissance Frameworks:** Master **[Recon-ng](../Tools/Recon-ng.md), [theHarvester](../Tools/theHarvester.md), [SpiderFoot](../Tools/SpiderFoot.md), [Maltego](../Tools/Maltego.md)** for automated data collection.
 
 - [ ] **Subdomain Enumeration:** Use **Amass, Subfinder, Assetfinder, DNSRecon** to discover **subdomains, ASNs, IP ranges**.
 
@@ -575,6 +610,14 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 - [ ] **Custom Scripting:** Build **Python/Bash scripts** to automate **scraping, parsing, correlation** of OSINT data.
 
 - [ ] **Data Pipeline:** Create **ETL pipelines** to aggregate, normalize, and store intelligence in **databases/dashboards**.
+
+- [ ] **MISP Platform Operation:** Deploy and operate a [MISP (Malware Information Sharing Platform)](https://www.misp-project.org/) instance. Master the operational mechanics, not just awareness:
+  - **Feed management:** Subscribe to and synchronise public MISP feeds (CIRCL default feeds, abuse.ch URLhaus, Botvrij). Understand pull vs. push sy[nc ](../Tools/Netcat.md)models and feed caching behaviour.
+  - **Event creation and sharing:** Create a MISP event from a threat report, populate attributes (IP, domain, hash, YARA rule), set distribution level (Organisation only / Community / All communities), and share via a MISP sync connection or TAXII server.
+  - **Indicator enrichment:** Use MISP modules (VirusTotal, Shodan, PassiveTotal, CIRCL HASHLOOKUP) to automatically enrich submitted indicators. Understand enrichment confidence and staleness.
+  - **Threat actor tagging:** Apply MITRE ATT&CK Galaxy cluster tags to events and attributes. Tag threat actors (e.g., `misp-galaxy:threat-actor="Lazarus Group"`), malware families (`misp-galaxy:malware="Emotet"`), and attack patterns. Understand how tagging enables correlation across events and feeds.
+  - **Warninglists and Correlation:** Enable MISP warninglists to suppress false positives (CDN IPs, public resolvers). Understand how MISP's correlation engine links related indicators across events automatically.
+  - **MISP → SIEM pipeline:** Export indicators in MISP native format or via its API to your SIEM lookup tables. See Stage 5 for the full pipeline exercise.
 
 ---
 
@@ -596,8 +639,8 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
-<a id="stage-4b-threat-intel-operationalization"></a>
-### **Stage 4B: Threat Intel Operationalization**
+<a id="stage-5-threat-intel-operationalization"></a>
+### **Stage 5: Threat Intel Operationalization**
 
 > [!TIP]
 > **Goal:** Close the gap between *collecting* threat intelligence and *acting on it*. A threat report with IOCs and TTPs has zero value if it sits in a PDF. This stage converts intel into SIEM rules, hunting queries, and detection coverage.
@@ -630,7 +673,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 | 6 | Take one APT report → extract IOCs → write 3 Sigma rules → verify they fire in SIEM | Sigma rule set + SIEM alert screenshots |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 15):** You can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences. **You must also complete Stage 4B operationalization:** take a raw APT report, extract structured IOCs, import them into your SIEM, write Sigma rules for at least 3 TTPs, verify the alerts fire in your lab, and execute a documented threat hunt query with recorded results. A practitioner who can collect intel but not act on it has not completed this part.
+> **Move-On Gate (Part 15):** You can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences. **You must also complete Stage 5 operationalization:** take a raw APT report, extract structured IOCs, import them into your SIEM, write Sigma rules for at least 3 TTPs, verify the alerts fire in your lab, and execute a documented threat hunt query with recorded results. A practitioner who can collect intel but not act on it has not completed this part.
 
 
 ---
@@ -789,3 +832,9 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 > **Phase Completion Gate:** Move on only when you can investigate simulated attacks from evidence, improve detections, and write analyst notes that another defender can act on.
 
 ---
+
+> [!NOTE]
+> **✅ Phase 3 ends here.**
+> Part 16 (Adversary Emulation & Purple Teaming) is the **Phase 6 capstone** — it is intentionally numbered out of sequence and lives in [Phase-6.md](Phase-6.md). You will encounter it after completing Phase 6 Parts 23–25. Do not attempt Part 16 now. Proceed to Phase 4: Web & Application Security.
+>
+> ◀ [Phase 2](Phase-2.md) | 🏠 [Master Roadmap](README.md) | [Phase 4](Phase-4.md) ➔

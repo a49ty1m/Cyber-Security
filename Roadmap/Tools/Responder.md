@@ -9,6 +9,8 @@
 > **When to avoid it:** External engagements (requires LAN access). When you only need to listen without injecting (use pcap analysis instead). When SMB signing is enforced on all machines (relay attacks will fail, but hash capture still works).
 >
 > **What mastering Responder unlocks:** Credential capture from Windows environments without touching a single endpoint directly. NTLMv2 hash capture → cracking → domain user credentials. Foundation for NTLM relay attacks (ntlmrelayx). Fundamental AD attack technique present in nearly every internal pentest.
+>
+> **Roadmap Phase:** Phase 4–5 (AD Initial Credential Capture and Relay Attacks)
 
 ---
 

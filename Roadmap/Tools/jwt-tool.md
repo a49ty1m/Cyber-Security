@@ -7,6 +7,8 @@
 > **When to use it:** Any web application or API using JWT authentication. Whenever you intercept a JWT token and want to test its security. API pentesting and bug bounty. CTF web challenges with JWT auth.
 >
 > **What mastering jwt_tool unlocks:** Complete JWT attack surface testing. Understanding of every JWT vulnerability. Ability to forge tokens when the implementation is weak.
+>
+> **Roadmap Phase:** Phase 3 (Web Application Attacks — Authentication and Token Security)
 
 ---
 

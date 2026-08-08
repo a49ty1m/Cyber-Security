@@ -9,6 +9,8 @@
 > **When to avoid it:** Without authorization — ARP poisoning disrupts legitimate network traffic. In networks with Dynamic ARP Inspection (DAI) enabled — it will be blocked. Production environments without explicit permission.
 >
 > **What mastering Bettercap unlocks:** Full MITM capability on local networks. Network-level credential capture. DNS-based attacks. Wi-Fi reconnaissance. The foundation for all LAN-based interception attacks.
+>
+> **Roadmap Phase:** Phase 3–4 (Network Attacks, MitM, and Credential Capture)
 
 ---
 

