@@ -13,6 +13,31 @@
 > - **⏱️ Time Commitment (Part-Time):** 6–10 months
 > - **🎯 Primary Focus:** Detection engineering, SOC & SIEM fundamentals, IDS/IPS/honeypots, threat hunting, incident response basics, forensic fundamentals, and OSINT & threat intelligence. Understand what defenders see before you specialize further.
 
+> [!IMPORTANT]
+> **Red Team Track Treatment — Phase 3 is a Parallel Track, NOT a Sequential Blocker**
+>
+> For the **Penetration Testing → Red Teaming** career path, Phase 3 is NOT completed as a full sequential phase before Phase 4. It runs as a **parallel defensive awareness layer** alongside your offensive studies.
+>
+> **Core support skills — absorb these alongside Phase 2/4/6 offensive work:**
+>
+> | Skill | Why it matters offensively | When to absorb it |
+> |-------|---------------------------|-------------------|
+> | MITRE ATT&CK framework | Maps your TTPs to what defenders detect | During Phase 2B |
+> | Logging & event IDs | Understand what your attacks leave behind | During Phase 2A |
+> | SIEM basics (Splunk/ELK) | Query logs like a defender to improve OPSEC | During Phase 2B |
+> | Detection engineering concepts | Write attacks that evade detection rules | During Phase 6 |
+> | EDR/XDR behavior detection | Understand why payloads get caught | During Phase 6/7 |
+> | Threat hunting methodology | Use for purple team exercises | During Phase 6 Part 16 |
+>
+> **Defensive-specialist topics — available but not blocking offensive progression:**
+>
+> - Deep SOC operations & Tier 1/2/3 analyst workflows
+> - Extensive IR case management & compliance reporting
+> - Advanced DLP policy design
+> - Full incident response specialization (Part 27 in Phase 7 covers forensics from an offensive perspective)
+>
+> **Phase 3 becomes fully active during Phase 6 Part 16 (Adversary Emulation & Purple Teaming).** That is the first point where defensive knowledge and offensive capability combine in a structured way. Until then, sample Phase 3 concepts as they become relevant to your current offensive phase — do not spend 4–6 months completing it sequentially.
+
 ---
 
 > [!NOTE]

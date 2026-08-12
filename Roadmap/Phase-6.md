@@ -66,7 +66,51 @@
 ---
 
 <a id="part-23-active-directory-entra-id"></a>
+
 ## Part 23: Active Directory & Entra ID
+
+> [!IMPORTANT]
+> **Prerequisite Patch Required Before Part 23:** Before starting AD attacks, complete Phase 1 **Stage 5** (Active Directory Concepts) and **Stage 6** (Windows Identity & Kerberos Foundations) in Part 1C. Do not skip these — Kerberoasting and delegation attacks are incomprehensible without understanding the Kerberos ticket lifecycle first. This is a targeted patch, not a full Phase 1 restart.
+
+> [!NOTE]
+> **Part 23 Internal Learning Sequence** — on-prem AD first, then Entra ID:
+>
+> ```text
+> AD architecture: forest / domain / trust relationships
+>         ↓
+> Objects: users / groups / computers / OUs / service accounts
+>         ↓
+> LDAP queries & domain enumeration (BloodHound, ldapsearch)
+>         ↓
+> Kerberos protocol mechanics (TGT, TGS, KRB_AS_REQ/REP, KRB_TGS_REQ/REP)
+>         ↓
+> SPNs & service accounts (Kerberoasting attack surface)
+>         ↓
+> Group Policy Objects (GPO) — abuse vectors
+>         ↓
+> ACLs & delegation — GenericAll, WriteDACL, ForceChangePassword, etc.
+>         ↓
+> Credential attacks — Pass-the-Hash, Pass-the-Ticket, Overpass-the-Hash
+>         ↓
+> Kerberoasting & AS-REP Roasting
+>         ↓
+> Constrained & unconstrained delegation attacks
+>         ↓
+> AD Certificate Services (AD CS) — ESC1–ESC8 attack paths
+>         ↓
+> Lateral movement in AD environments
+>         ↓
+> Persistence mechanisms in AD
+>         ↓
+> ── THEN: Entra ID ──
+>         ↓
+> Entra ID (Azure AD) architecture & hybrid identity
+>         ↓
+> Federation, conditional access, service principals, managed identities
+> ```
+>
+> **Do not attempt Entra ID / cloud identity before you understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
+
 
 <a id="stage-1-discovery-enumeration"></a>
 ### **Stage 1: Discovery & Enumeration**

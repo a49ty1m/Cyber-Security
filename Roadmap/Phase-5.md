@@ -13,6 +13,17 @@
 > - **⏱️ Time Commitment (Part-Time):** 5–8 months
 > - **🎯 Primary Focus:** WiFi pentesting (WPA3, evil twin, PMKID), Bluetooth/BLE/Zigbee/NFC/RFID/GPS attacks, SDR spectrum analysis, and Android/iOS dynamic+static analysis.
 
+> [!IMPORTANT]
+> **Red Team Track Sequencing:** Phase 5 comes **after Phase 6** in the personal execution order, not before it. Active Directory, cloud identity, and container security (Phase 6) are higher-priority for enterprise red teaming than wireless/mobile specialization.
+>
+> **Execute as:** Phase 4 (Web) → **Phase 6** (Infrastructure) → **Phase 5** (Wireless & Mobile)
+>
+> **Optional specializations within Phase 5 — skip unless role-specific:**
+> - GPS/Satellite Spoofing (Part 21 Stage 7) — defer unless role demands it
+> - SDR & Spectrum Analysis (Part 21 Stage 8) — defer unless role demands it
+> - NFC/RFID deep dives — defer unless physical pentesting is your target specialty
+
+
 ---
 
 > [!NOTE]

@@ -120,6 +120,43 @@
 
 > _Parts 4–7 + 31 — Learn to find, probe, crack, and compromise targets. This is the core recon-to-shell pipeline._
 
+> [!IMPORTANT]
+> **Phase 2A Internal Execution Order** — Follow this Part sequence. Part numbers are not chronological; this is the correct dependency order:
+>
+> | Step | Part | Focus | Dependency |
+> |------|------|-------|------------|
+> | 1 | **[Part 4](Phase-2.md#part-4-footprinting-and-reconnaissance)** | Footprinting & Reconnaissance | None — start here |
+> | 2 | **[Part 5](Phase-2.md#part-5-scanning)** | Scanning | Part 4 complete |
+> | 3 | **[Part 6](Phase-2.md#part-6-enumeration)** | Enumeration | Part 5 complete |
+> | 4 | **[Part 6B](Phase-2.md#part-6b-database-security)** | Database Security | Part 6 complete |
+> | 5 | **[Part 31](Phase-2.md#part-31-password-cracking-hash-analysis)** | Password Cracking & Hash Analysis | Part 6 complete — required before Part 7 |
+> | 6 | **[Part 7](Phase-2.md#part-7-system-hacking-initial-compromise)** | System Hacking & Initial Compromise | Parts 6, 6B, 31 complete |
+>
+> **Why this order?**
+> ```text
+> What exists?               → Part 4 (Recon)
+> Where is it?               → Part 5 (Scanning)
+> What services are running? → Part 6 (Enumeration)
+> What databases expose?     → Part 6B (Database Security)
+> Can I use credentials?     → Part 31 (Password Cracking)
+> Can I gain/escalate?       → Part 7 (System Hacking)
+> ```
+
+> [!NOTE]
+> **Phase 2A Exit Gate — do NOT enter Phase 2B until you can demonstrate all of these:**
+> - Perform reconnaissance and enumeration **without jumping to Metasploit immediately**
+> - Identify open ports, running services, and software versions on a target
+> - Crack a captured hash using a wordlist and rules
+> - Gain initial access via at least two different vectors (e.g., exploit + credential reuse)
+> - Escalate privileges on both **Linux** (SUID, sudo misconfig, cron, PATH injection) and **Windows** (unquoted service paths, SeImpersonate, token impersonation)
+> - Establish a persistence mechanism
+> - Document the full attack chain in a structured report
+>
+> **Evidence required before moving to Phase 2B:**
+> - Attack chain diagram committed to Git
+> - Lab notes (target → recon → exploitation → post-exploitation → findings)
+> - At least 1 completed HTB/THM machine writeup covering the full chain
+
 ---
 
 <a id="part-4-footprinting-and-reconnaissance"></a>
@@ -1437,6 +1474,25 @@
 ## 🔹 Phase 2B: Advanced Offensive Operations
 
 > _Parts 8–12 — Master weaponization, deception, disruption, and session manipulation. These build on the access gained in Phase 2A._
+
+> [!WARNING]
+> **Phase 2B Scope Control — Red Team Track**
+>
+> Do **NOT** treat all of Phase 2B as a prerequisite before Phase 4 (Web). Study core Phase 2B concepts now, then proceed to Phase 4. Return to the deferred Phase 2B topics after completing Phases 4 and 6, when the context makes them far more valuable.
+>
+> | Part | Priority | Action |
+> |------|----------|--------|
+> | **Part 9** — Sniffing & Spoofing | Core | Do now — directly supports network understanding |
+> | **Part 10** — Social Engineering | Core | Do now — recon/phishing concepts apply immediately |
+> | **Part 12** — Session Hijacking | Core | Do now — reinforces auth/session concepts from Phase 1 |
+> | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 4** — full malware engineering is in Phase 7 Part 42 |
+> | **Part 11** — Denial of Service | Deferred | Do **after Phase 4** — deeper value after infrastructure understanding |
+>
+> **What to defer until after Phase 4 & 6:**
+> - Advanced malware development / weaponization (Part 8 deep dive → Part 42 is the real home for this)
+> - Sophisticated AV/EDR evasion techniques
+> - Advanced C2 infrastructure design
+> - DoS attack execution against complex targets
 
 ---
 

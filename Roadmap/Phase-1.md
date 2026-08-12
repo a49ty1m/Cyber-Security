@@ -15,7 +15,30 @@
 > - **⏱️ Time Commitment (Part-Time):** 6–10 months
 > - **🎯 Primary Focus:** Master the TCP/IP stack, OSI model, DNS, HTTP/HTTPS, Linux CLI and administration, Windows administration and Event Viewer, Bash/PowerShell, Python/JavaScript, virtualization, cloud basics (AWS/Azure), Docker/Kubernetes, authentication, sessions, cookies, JSON APIs, CORS, and the cryptographic primitives underpinning all of security.
 
----
+> [!IMPORTANT]
+> **Current Status: Substantially Complete → Entering Phase 2A**
+>
+> Phase 1 is largely done. Do NOT restart it. Use **just-in-time prerequisite patches** for specific gaps as they arise in later phases.
+>
+> **What you can do confidently (do not re-study these):**
+> - Linux CLI navigation and common commands
+> - Basic Linux system investigation
+> - Windows administration and basic PowerShell
+> - TCP vs UDP, subnetting, DNS at a practical level
+> - HTTP requests, basic traffic capture, general networking
+>
+> **Known gaps — patch only when a future topic requires them:**
+>
+> | Gap | When to patch | Patch scope |
+> |-----|---------------|-------------|
+> | Wireshark / deep packet analysis | When Phase 2 Scanning or Sniffing requires it | 2–4 sessions on Wireshark filters and dissection |
+> | TLS internals | When Phase 4 HTTPS interception or Phase 6 requires it | TLS handshake + PKI fundamentals only |
+> | Linux service administration | When Phase 2 enumeration labs require it | `systemctl`, user management, `/etc/` configs |
+> | Kerberos / Windows identity | Before Phase 6 Part 23 (AD attacks) | Phase 1 Stage 5 & 6 in Part 1C |
+> | Advanced PowerShell | During Phase 6 AD work | Targeted PS scripting for AD enumeration |
+>
+> **Your next action: proceed to [Phase 2](Phase-2.md) → Part 4 (Footprinting & Reconnaissance).**
+
 
 > [!NOTE]
 >

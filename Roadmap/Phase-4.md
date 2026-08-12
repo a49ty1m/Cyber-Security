@@ -60,7 +60,59 @@
 ---
 
 <a id="part-17-web-application-hacking"></a>
+
 ## Part 17: Web Application Hacking
+
+> [!IMPORTANT]
+> **Phase 4 Resource Alignment**
+>
+> | Resource | Role |
+> |----------|------|
+> | **This roadmap (Phase 4)** | Curriculum — what to learn and in what order |
+> | **PortSwigger Web Security Academy** | Primary lab environment — do labs that match the current topic |
+> | **Burp Suite** | Primary tool for all web testing work |
+> | **OWASP Juice Shop / DVWA** | Secondary lab environments for free-form practice |
+> | **Web pentesting books/courses** | Reference only — use for a second explanation, not as a competing roadmap |
+
+> [!NOTE]
+> **Part 17 Vulnerability Learning Sequence** — work through topics in this order within Stage 3:
+>
+> ```text
+> HTTP/Web fundamentals (already in Phase 1 Part 3C — review if needed)
+>         ↓
+> Recon & attack-surface mapping → Burp Suite setup
+>         ↓
+> Content discovery (directories, endpoints, backup files)
+>         ↓
+> Authentication attacks (broken auth, credential stuffing, password reset flaws)
+>         ↓
+> Authorization & IDOR (access control bypass, object reference manipulation)
+>         ↓
+> XSS — Reflected → Stored → DOM-based
+>         ↓
+> SQL Injection — Error-based → Boolean blind → Time-based blind
+>         ↓
+> CSRF
+>         ↓
+> SSRF
+>         ↓
+> Command Injection
+>         ↓
+> Path Traversal / LFI / RFI
+>         ↓
+> XXE (XML External Entity)
+>         ↓
+> SSTI (Server-Side Template Injection)
+>         ↓
+> File Upload vulnerabilities
+>         ↓
+> Business logic flaws
+>         ↓
+> Web cache poisoning / advanced web attacks
+> ```
+>
+> PortSwigger has labs for every one of these. Do the labs as you reach each topic — not all upfront.
+
 
 <a id="stage-1-reconnaissance-mapping"></a>
 ### **Stage 1: Reconnaissance & Mapping**

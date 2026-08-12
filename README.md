@@ -82,43 +82,14 @@ Every guide follows the same 8-phase structure: **Fundamentals → Core Features
 
 ---
 
-## 🎯 Learning Path Overview
+## 🎯 Learning Path
 
-The recommended order for working through this repository:
+> [!IMPORTANT]
+> **The master roadmap is the single source of truth.** The [10-phase roadmap](Roadmap/README.md) defines exactly what to study, in what order, and why. Do not follow a separate learning path from this file.
 
-```
-Phase 1: Linux Fundamentals
-    └── OverTheWire Bandit (Levels 0-33)
-    └── 01.Linux/ notes
+**→ [Open Master Roadmap](Roadmap/README.md)** — Includes your personal execution order, phase gates, dependency rules, and daily focus system.
 
-Phase 2: Networking
-    └── 02.Networking/ notes
-    └── Nmap tool guide
-    └── Netcat tool guide
-    └── Wireshark tool guide
-
-Phase 3: Reconnaissance & Scanning
-    └── 03.Learnings/ (Footprinting, Scanning, Enumeration)
-    └── Metasploitable 2 Lab (Levels 0-3)
-
-Phase 4: Web Application Security
-    └── Burp Suite tool guide
-    └── OWASP BWA Lab (all levels)
-
-Phase 5: Exploitation
-    └── Metasploit tool guide
-    └── Hydra tool guide
-    └── Metasploitable 2 Lab (Levels 4-8)
-
-Phase 6: Post-Exploitation
-    └── LinPEAS tool guide
-    └── Hashcat tool guide
-    └── Metasploitable 2 Lab (Levels 9-13)
-
-Phase 7: Active Directory
-    └── Impacket tool guide
-    └── BloodHound tool guide
-```
+**Your current position:** Phase 1 substantially complete → entering **Phase 2A: Footprinting & Reconnaissance**
 
 ---
 
