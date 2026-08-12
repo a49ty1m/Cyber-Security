@@ -426,3 +426,48 @@
 > **Phase Completion Gate:** Move on only when your wireless and mobile reports contain reproducible evidence, clear risk ratings, and practical remediation guidance.
 
 ---
+
+<a id="phase-5-mini-projects"></a>
+
+## 🛠️ Phase 5 Mini Projects
+
+> [!TIP]
+> **Why this project is here:** Phase 5 is dedicated to wireless and mobile security. The Wi-Fi Network Scanner belongs here because it requires 802.11 protocol knowledge, monitor mode, and beacon frame analysis — all concepts introduced in Part 21. Build it after completing Part 21 Stage 1 (RF Reconnaissance & Setup).
+
+---
+
+### Project 12 — Wi-Fi Network Scanner
+
+**Maps to:** Part 21 (Wireless Pentesting) → Stage 1: RF Reconnaissance & Setup
+
+**What it is:** A wireless network discovery tool that places a wireless adapter into monitor mode, passively captures 802.11 beacon frames and probe responses, and displays a real-time table of discovered networks showing: SSID, BSSID (MAC address of AP), channel, signal strength (RSSI in dBm), encryption type (Open, WEP, WPA, WPA2, WPA3), and observed clients. Optionally captures probe requests from clients to identify devices looking for known networks.
+
+**What you need before building it:**
+- 802.11 frame types: management frames (beacon, probe request/response, association) vs data frames vs control frames
+- Monitor mode: a wireless adapter in monitor mode captures all 802.11 frames in range, not just those addressed to your device (unlike normal managed mode)
+- Linux wireless tools: `airmon-ng` (enable monitor mode), `iwconfig`/`iw` (interface management)
+- `scapy` with 802.11 support: `from scapy.all import *; sniff(iface='wlan0mon', prn=handler, store=False)`
+- Beacon frame structure: the `Dot11Beacon` layer in scapy — contains SSID (in `Dot11Elt` with ID=0), channel, supported rates, RSN (WPA2/WPA3 info element)
+- RSSI extraction: signal strength is in the `RadioTap` header, not the 802.11 frame itself
+- Encryption detection: parse RSN Information Element (IE) for WPA2/WPA3, check for WPA IE for WPA, check `capability` field for WEP
+
+**Why build it:**
+Wi-Fi is a chronically underestimated attack surface. Building a scanner forces you to confront how much information access points broadcast to the world without any authentication: their SSID, supported security protocols, vendor OUI (from BSSID), channel, and supported rates. Capturing probe requests reveals what networks a device's "remembered networks" list contains — a privacy leak exploitable by evil twin attacks.
+
+This project also teaches a key wireless security lesson: WPA2-Personal (password-based) is only as strong as the password. The PMKID attack (discovered in 2018) allows capturing enough information to attempt offline password cracking without ever connecting to the network — information your scanner can passively collect in seconds. After building this, you understand *why* WPA3 exists and what it actually fixes.
+
+**Deliverable:** Python script using `scapy` that:
+- Checks for a wireless interface in monitor mode (exit with clear instructions if not)
+- Captures beacon frames and updates a live terminal table (use `rich` or `curses` for display)
+- Shows: SSID, BSSID, Channel, RSSI (dBm), Encryption, Client count
+- Optionally logs probe requests with client MAC and requested SSID
+
+README must explain: what monitor mode is, why root is required, how to enable monitor mode (`airmon-ng start wlan0`), and what PMKID is and why it allows offline cracking without a 4-way handshake capture.
+
+> [!CAUTION]
+> This tool must only be used in your own lab environment or networks you own. Capturing wireless traffic from networks you do not own is illegal in most jurisdictions under computer misuse and wiretapping laws. Document this disclaimer prominently in your README.
+
+---
+
+> [!IMPORTANT]
+> **Phase 5 Project Completion Gate:** Your Wi-Fi scanner must correctly identify encryption types and display real captured data from your own lab network. The README must explain *why* PMKID changed the wireless attack landscape in 2018 — not just what it is, but what it enabled that wasn't possible before.

@@ -838,3 +838,46 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 > Part 16 (Adversary Emulation & Purple Teaming) is the **Phase 6 capstone** — it is intentionally numbered out of sequence and lives in [Phase-6.md](Phase-6.md). You will encounter it after completing Phase 6 Parts 23–25. Do not attempt Part 16 now. Proceed to Phase 4: Web & Application Security.
 >
 > ◀ [Phase 2](Phase-2.md) | 🏠 [Master Roadmap](README.md) | [Phase 4](Phase-4.md) ➔
+
+---
+
+<a id="phase-3-mini-projects"></a>
+
+## 🛠️ Phase 3 Mini Projects
+
+> [!TIP]
+> **Why this project is here:** Phase 3 is about defense, detection, and understanding what malicious behavior looks like from the defender's perspective. The Keylogger Detector belongs here because it requires process monitoring, behavioral analysis, and understanding of OS-level keyboard hooks — all detection engineering skills. It is explicitly a defensive tool: you're detecting an attacker's technique, not performing it.
+
+---
+
+### Project 9 — Keylogger Detector
+
+**Maps to:** Part 13A (Detection Engineering & SOC Operations) → Stage 2: Offensive Indicators & TTPs + Stage 5: EDR/XDR/MDR Basics
+
+**What it is:** A host-based monitoring tool that scans running processes for behavioral indicators associated with keylogging software. Checks include: processes with suspicious names or paths, processes accessing `/dev/input/` devices (Linux) or holding `SetWindowsHookEx` hooks (Windows), processes with high keyboard I/O relative to visible UI, and processes spawned from unusual parent processes. Generates an alert report listing suspicious findings with severity and recommended action.
+
+**What you need before building it:**
+- Phase 3 Part 13A completed — you need detection engineering fundamentals before building a detector
+- OS-level process enumeration: `psutil` (Python, cross-platform), `/proc/<pid>/` filesystem (Linux), WMI (Windows)
+- Linux keyboard input: `/dev/input/eventX` devices — a process with a file descriptor open to a keyboard input device when it has no visible window is suspicious
+- Windows hooks: `SetWindowsHookEx` with `WH_KEYBOARD_LL` is the standard keylogging API — legitimate software uses it too (accessibility tools, password managers), so allowlisting is essential
+- Allowlisting: build a baseline of known-legitimate processes that access input devices (e.g., `xorg`, `gnome-shell`, screen readers)
+- Understanding of false positives: every detection tool produces them — document your FP rate and tuning decisions
+
+**Why build it:**
+Keyloggers are one of the most effective and oldest credential-theft tools. Building a detector forces you to think exactly like an EDR/XDR engineer: what behavior is suspicious, what is legitimate, how do you distinguish them, and what is your false-positive tolerance? This is the same problem that CrowdStrike Falcon, SentinelOne, and Carbon Black solve at enterprise scale. Understanding it at the process level makes those tools more than black boxes to you.
+
+It also reinforces a key Phase 3 lesson: detection is not binary. A process accessing keyboard input might be a keylogger or a screen reader. Your tool must reason about *context* — process name, parent process, network connections, user session — not just individual indicators. That contextual reasoning is threat hunting.
+
+**Deliverable:** Python script that:
+- Enumerates running processes with `psutil`
+- Checks for keyboard device access (Linux: `/proc/<pid>/fd/`, Windows: `psutil.net_connections()` + WMI hook query)
+- Compares against a configurable allowlist
+- Outputs a structured report: `[SUSPICIOUS | INFO | CLEAN]` per process with justification
+
+README must explain: what a keylogger hook is, why false positives are unavoidable, and what a real analyst would do next (memory forensics, network connection analysis) after this tool flags a process.
+
+---
+
+> [!IMPORTANT]
+> **Phase 3 Project Completion Gate:** Your Keylogger Detector README must demonstrate you understand detection trade-offs — not just "run this and see." You should be able to explain a scenario where your tool generates a false positive and what the next investigative step would be.

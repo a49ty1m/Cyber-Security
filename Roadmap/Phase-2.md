@@ -2183,3 +2183,101 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or yo
 ---
 
 <a id="toc-part-32-physical-penetration-testing"></a>
+
+---
+
+<a id="phase-2-mini-projects"></a>
+
+## 🛠️ Phase 2 Mini Projects
+
+> [!TIP]
+> **Why these projects are here:** Phase 2 covers the full offensive lifecycle — recon, scanning, enumeration, and exploitation. These 4 projects map directly to Parts 4, 5, 6, and the vulnerability assessment stage. Build each one *after* completing its corresponding Part, not before. They are hands-on reinforcements of what you studied, not shortcuts around it.
+
+> [!NOTE]
+> **How to use this section:** Each project below maps to a specific Phase 2 Part. All code must be committed to your Git repository. README must cover: what the tool does, what protocols it uses, ethical usage requirements (authorized targets only), and sample output.
+
+---
+
+### Project 10 — Port Scanner
+
+**Maps to:** Part 5 (Scanning) → Stage 2: Port, Service & Protocol Enumeration
+
+**What it is:** A TCP/UDP port scanner that discovers open ports on a target host, attempts banner grabbing to identify services, supports concurrent scanning (threading or asyncio), and outputs results in a structured format. Should support SYN scan (raw sockets, requires root) and TCP connect scan (no root required).
+
+**What you need before building it:**
+- TCP 3-way handshake mechanics: SYN → SYN-ACK → ACK (open), SYN → RST (closed), no response (filtered)
+- Raw socket programming in Python (`socket` module)
+- Threading or `asyncio` — scanning 65,535 ports sequentially takes minutes; concurrent scanning takes seconds
+- Service identification via banner grabbing (send a probe, read the response header)
+- Study Nmap source behavior before implementing — understand *why* a SYN scan is stealthier than a full connect scan
+
+**Why build it:**
+Nmap already exists. The reason you build your own is to understand *why* port scanning works at the socket level — what does a TCP RST response mean vs a timeout vs a ICMP unreachable? What does a firewall returning RST vs dropping silently tell you? Building this makes every Nmap flag you use afterward meaningful rather than cargo-culted. This is the foundational recon tool that every subsequent project in this phase depends on.
+
+**Deliverable:** Python CLI — `scan <target> --ports <range> --mode <connect|syn> --threads <n>`. Output: table of open ports with service guesses. README must document the ethical usage requirements and explain the SYN vs connect scan distinction.
+
+---
+
+### Project 11 — Network Packet Sniffer
+
+**Maps to:** Part 9 (Sniffing & Spoofing) → Stage 2: Sniffing & Passive Reconnaissance
+
+**What it is:** A packet capture and analysis tool that captures live network traffic, parses packet headers (Ethernet, IP, TCP, UDP), extracts application-layer data for unencrypted protocols (HTTP, DNS), and displays a real-time stream of summarized traffic. Must run on a designated lab interface only.
+
+**What you need before building it:**
+- OSI model internals: know what each layer encapsulates
+- Ethernet frame structure, IP header fields (TTL, flags, fragmentation), TCP header (sequence numbers, flags, window size)
+- `scapy` (Python) — the standard library for packet crafting and capture
+- Requires root/administrator privileges — document this clearly
+- DNS query/response format (question section, answer section, record types)
+- HTTP request structure (method, path, headers, body)
+
+**Why build it:**
+Every network security tool — from Wireshark to IDS/IPS systems — is built on the same packet capture foundation. Understanding how to capture and parse raw packets is essential for network forensics, building detection rules, and understanding what protocol-level data an attacker can see on an unencrypted network. This project also makes TLS's value immediately tangible: after parsing HTTP in plaintext, you understand exactly what TLS hides.
+
+**Deliverable:** Python tool using `scapy` that captures on a specified interface (`--iface eth0`), filters by protocol (`--filter tcp/udp/dns/http`), and displays structured output. README must include sample output and note that this must only run in your own lab environment.
+
+---
+
+### Project 13 — Subdomain Scanner
+
+**Maps to:** Part 4 (Footprinting & Reconnaissance) → Stage 2: Semi-Passive Infrastructure Mapping + Stage 3: Active Footprinting
+
+**What it is:** A subdomain enumeration tool that combines: wordlist-based DNS brute-forcing (active), Certificate Transparency log querying via the crt.sh API (passive — no direct target traffic), and DNS record analysis (A, CNAME, MX). Must implement concurrent DNS resolution and rate limiting.
+
+**What you need before building it:**
+- DNS resolution mechanics: how a resolver walks the hierarchy (root → TLD → authoritative)
+- DNS record types: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), TXT (verification/SPF)
+- Certificate Transparency: every TLS certificate issued is logged publicly — `crt.sh` exposes this via API, enabling passive subdomain discovery without touching the target
+- `dnspython` or `aiodns` for async DNS resolution
+- SecLists subdomain wordlists (the `Discovery/DNS/` directory)
+
+**Why build it:**
+The most critical vulnerabilities in a real engagement are often not found on `www.target.com` but on `dev.target.com`, `staging.target.com`, `admin-legacy.target.com`, or `vpn.target.com` — subdomains that exist because developers need them and forget to secure them. Subdomain scanning teaches you to think about the *entire attack surface* of an organization rather than just its primary domain. The crt.sh passive technique is particularly valuable: it finds subdomains without generating a single packet to the target.
+
+**Deliverable:** Python CLI — `scan <domain> --wordlist <path> --passive --threads <n>`. Output: list of discovered subdomains with resolved IPs. README must distinguish passive vs active discovery and explain Certificate Transparency.
+
+---
+
+### Project 14 — Vulnerability Scanner
+
+**Maps to:** Part 5 (Scanning) → Stage 4: Vulnerability Association & Attack Mapping + Part 6 (Enumeration) → Stage 1: Service Enumeration & Banner Grabbing
+
+**What it is:** A network vulnerability scanner that: uses port scanning (Project 10) as its discovery layer, performs service version fingerprinting via banner grabbing, queries the NIST NVD API to find CVEs associated with identified service versions, scores each finding using CVSS, and generates a structured report. Must only target authorized systems.
+
+**What you need before building it:**
+- Project 10 (Port Scanner) completed and working — this scanner uses it as a dependency
+- Service version extraction: banner grabbing returns strings like `Apache httpd 2.4.49` — you parse the service name and version
+- NIST NVD API: free, no authentication required for basic queries — `https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=<service+version>`
+- CVSS scoring: understand what Base Score, Attack Vector, Attack Complexity, and Privileges Required mean
+- Report generation: at minimum a structured Markdown or JSON report; optionally HTML
+
+**Why build it:**
+This is the Phase 2 capstone project — it combines everything from recon (port scanning) through enumeration (service fingerprinting) into a vulnerability assessment output. It demonstrates you understand the full discovery-to-finding lifecycle that underpins every professional penetration test and vulnerability management program. Tools like Nessus and OpenVAS follow this exact model: discover → fingerprint → correlate CVEs → score → report. Building it yourself means you understand what these tools do under the hood, not just how to click their interfaces.
+
+**Deliverable:** Python CLI — `scan <target> --ports <range>`. Output: structured report listing open ports, identified services, associated CVEs, and CVSS scores. README must explain the CVE/CVSS scoring model and include a sample report.
+
+---
+
+> [!IMPORTANT]
+> **Phase 2 Project Completion Gate:** Each of these tools must only ever target systems you own or have explicit written authorization to test. Your README files must include this disclaimer. A tool without an ethics section in its documentation is a tool that cannot be shown to an employer.

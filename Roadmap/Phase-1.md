@@ -3264,3 +3264,168 @@ _Understand the web from the ground up — how browsers communicate with servers
 > **Move-On Gate (Part 3C):** You can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Phase 2 when you can explain WHY session hijacking works at the protocol level.
 
 ---
+
+<a id="phase-1-mini-projects"></a>
+
+## 🛠️ Phase 1 Mini Projects
+
+> [!TIP]
+> **Why these projects are here:** Phase 1 covers cryptography, password security, and authentication fundamentals. These 8 projects directly reinforce those concepts by building working tools rather than just reading about them. Each one maps to a specific Part in this phase — build them *after* completing the relevant Part, not before.
+
+> [!NOTE]
+> **How to use this section:** Each project lists the Phase 1 Part it belongs to, what prerequisite knowledge is needed, and what you should be able to explain after completing it. All code must be committed to your Git repository with a proper README covering: what the tool does, the vulnerability/concept it demonstrates, and how to run it.
+
+---
+
+### Project 1 — Password Strength Checker
+
+**Maps to:** Part 3 (Cryptography) → Stage 4: Data at Rest & Password Security
+
+**What it is:** A tool that analyzes a given password and scores it based on length, character diversity (uppercase, lowercase, digits, symbols), entropy, and presence in common password blacklists (e.g., `rockyou.txt` top 10,000).
+
+**What you need before building it:**
+- Understanding of password entropy (bits of entropy = log₂(character set size) × length)
+- Knowledge of dictionary attacks and why common passwords are catastrophically weak
+- Basic regex and string manipulation
+
+**Why build it:**
+It forces you to internalize the *math* behind password strength — not just "use 12 characters," but *why* that matters. The blacklist check introduces you to real-world breach datasets that attackers use. This is the minimum viable "I understand the human layer of security" project.
+
+**Deliverable:** Python CLI tool — input a password, output a strength score with detailed reasoning. README must explain what entropy is and what `rockyou.txt` is.
+
+---
+
+### Project 2 — Password Generator
+
+**Maps to:** Part 3 (Cryptography) → Stage 4: Data at Rest & Password Security
+
+**What it is:** A configurable password generator that produces cryptographically random passwords based on user-specified length, character set requirements, and optionally checks the output against common-password lists.
+
+**What you need before building it:**
+- Know the difference between `random` (pseudorandom, seedable, predictable) and `secrets` (CSPRNG — cryptographically secure pseudorandom number generator)
+- Understand character set composition (pool size determines entropy)
+- Have completed Project 1 (Password Strength Checker) — use it to validate your generator's output
+
+**Why build it:**
+This teaches the single most important distinction a security-aware developer must know: **never use `random` for anything security-sensitive**. `random` in Python is seeded from system time and is trivially predictable. `secrets` uses OS entropy sources. If you can't explain this in an interview, you cannot be trusted to write secure code.
+
+**Deliverable:** Python CLI tool with flags for `--length`, `--symbols`, `--digits`, `--uppercase`. Must use `secrets.choice()` — not `random.choice()`. README must explain why.
+
+---
+
+### Project 3 — Caesar Cipher Encryption Tool
+
+**Maps to:** Part 3 (Cryptography) → Stage 1: Core Concepts & Algorithms
+
+**What it is:** An implementation of the Caesar cipher (a shift substitution cipher) that encrypts and decrypts text, and includes a brute-force cracker that demonstrates why 26 possible keys provides zero real security.
+
+**What you need before building it:**
+- Modular arithmetic (`(char + shift) % 26`)
+- Understanding of substitution ciphers vs transposition ciphers
+- Frequency analysis concept (English letter frequency: E, T, A, O, I, N...)
+
+**Why build it:**
+Caesar cipher is *intentionally broken* — that's the point. Building it and then cracking your own output via brute force (only 26 keys exist) makes the concept of *key space* visceral. Your README should explain why 26 possible keys is computationally trivial, what frequency analysis is, and why modern ciphers (AES) have key spaces of 2¹²⁸ or 2²⁵⁶. This project tells a story that leads directly into Project 4.
+
+**Deliverable:** Python CLI that encrypts, decrypts, and brute-forces Caesar-encrypted text. README must document the brute-force output and explain why this cipher fails.
+
+---
+
+### Project 4 — AES File Encryptor
+
+**Maps to:** Part 3 (Cryptography) → Stage 1: Core Concepts & Algorithms + Stage 4: Data at Rest
+
+**What it is:** A tool that encrypts and decrypts files using AES-256 in GCM mode. Takes a user-supplied password, derives an AES key using PBKDF2 (or Argon2), generates a random IV, encrypts the file, and stores the IV + salt + ciphertext together. Decryption reverses the process and validates the GCM authentication tag.
+
+**What you need before building it:**
+- Understand symmetric encryption: same key encrypts and decrypts
+- Know why you must **never** use raw passwords as keys — always derive via PBKDF2/scrypt/Argon2
+- Understand what an IV (Initialization Vector) is and why reusing it is catastrophic
+- Know the difference between AES-CBC (no authentication) and AES-GCM (authenticated encryption)
+- Library: `cryptography` (Python) — **not** `pycrypto` or `pycryptodome`, which have known issues
+
+**Why build it:**
+AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, and secure messaging. Building this yourself forces you to encounter every common implementation mistake — ECB mode, reused IVs, raw passwords as keys, no integrity check — and understand *why* each one is a real CVE. The GCM authentication tag also introduces you to authenticated encryption, which is non-negotiable in production systems.
+
+**Deliverable:** Python CLI — `encrypt <file> --password <pass>` and `decrypt <file.enc> --password <pass>`. The encrypted file must contain: salt (16B) + IV (12B) + ciphertext + GCM tag. README must explain what happens if the IV is reused (hint: complete plaintext recovery is possible).
+
+---
+
+### Project 5 — RSA Key Pair Generator
+
+**Maps to:** Part 3 (Cryptography) → Stage 2: Secure Communication + Stage 3: Identity & Trust (PKI)
+
+**What it is:** A tool that generates RSA-2048 or RSA-4096 public/private key pairs, exports them in PEM format, demonstrates signing a message with the private key and verifying it with the public key, and optionally demonstrates encrypting a small payload with the public key and decrypting with the private key.
+
+**What you need before building it:**
+- Conceptual understanding of asymmetric cryptography: public key is shareable, private key is secret
+- Why RSA key size matters: RSA-512 was broken in 1999, RSA-1024 is considered deprecated, RSA-2048 is the current minimum
+- Understand what PEM format is (base64-encoded DER with `-----BEGIN...-----` headers)
+- Library: `cryptography` (Python) — use `rsa.generate_private_key()` with proper padding (OAEP for encryption, PSS for signing)
+
+**Why build it:**
+RSA is the foundation of TLS certificates, SSH keys, code signing, and JWT RS256 tokens. Without building this, TLS handshakes and SSH authentication are black boxes. This project also introduces you to *why* RSA is only used for small payloads (key exchange) and not bulk encryption — it's computationally expensive. That asymmetry explains why hybrid encryption (Project 6) is universally used.
+
+**Deliverable:** Python CLI that generates a key pair, saves `private.pem` and `public.pem`, signs a test message, and verifies the signature. README must explain what happens if you lose the private key and why you should never share it.
+
+---
+
+### Project 6 — File Encryption & Decryption Tool (Hybrid)
+
+**Maps to:** Part 3 (Cryptography) → Stage 2: Secure Communication (Capstone of the crypto section)
+
+**What it is:** A hybrid encryption tool — uses RSA (Project 5) to encrypt a randomly generated AES key, and uses AES-GCM (Project 4) to encrypt the actual file. The encrypted output contains: RSA-encrypted AES key + AES IV + AES-GCM ciphertext. Decryption uses the RSA private key to recover the AES key, then decrypts the file.
+
+**What you need before building it:**
+- Both Project 4 (AES File Encryptor) and Project 5 (RSA Key Pair Generator) must be complete
+- Understand *why* hybrid encryption exists: RSA can only encrypt data up to its key size minus padding (~214 bytes for RSA-2048 with OAEP) — it cannot encrypt large files directly
+- Know that this is exactly how TLS works: RSA/ECDH negotiates a session key, AES/ChaCha20 encrypts the actual traffic
+
+**Why build it:**
+This is the capstone of all Phase 1 crypto projects. It mirrors the architecture of TLS, PGP, and Signal. If you can implement and explain hybrid encryption from scratch, you can reason about any secure communication protocol. In an interview, being able to say "I built a tool that works like TLS at the crypto layer" and then *explain it correctly* puts you in a different tier from candidates who just read about it.
+
+**Deliverable:** Python CLI with `encrypt <file> --pubkey public.pem` and `decrypt <file.enc> --privkey private.pem`. README must contain a diagram showing the hybrid model: `AES_key → RSA_encrypt(pubkey) → stored; File → AES_GCM(AES_key) → stored`.
+
+---
+
+### Project 7 — Password Manager
+
+**Maps to:** Part 3B (Authentication Standards Primer) → Stage 1: Session-Based Authentication + Part 3 Stage 4: Data at Rest
+
+**What it is:** A local CLI password manager that stores encrypted credentials (service, username, password) using AES-256-GCM, with a master password that is hashed using Argon2 and never stored in plaintext. Supports add, retrieve, list, and delete operations. The vault is a single encrypted file.
+
+**What you need before building it:**
+- Project 4 (AES File Encryptor) completed — the vault storage mechanism is the same principle
+- Understanding of *slow* hashing algorithms: Argon2 (winner of the Password Hashing Competition), bcrypt — these are intentionally slow to resist brute force. SHA-256 for password hashing is **catastrophically wrong** — document why
+- Key stretching: how to derive a strong AES key from a weak master password using Argon2 + salt
+- Session locking: clear decrypted passwords from memory after timeout
+
+**Why build it:**
+A password manager is one of the highest-impact security tools in daily use, and building one forces you to confront every bad password storage decision that real applications make. The core insight: you must use a *slow* KDF (Argon2/bcrypt) for the master password, not SHA-256. This is the same reason why database breaches of bcrypt-hashed passwords are recoverable only slowly, while SHA-256-hashed breaches are cracked in hours with a GPU. This knowledge transfers directly to secure backend development.
+
+**Deliverable:** Python CLI with commands: `add`, `get`, `list`, `delete`, `lock`. Vault stored as an encrypted JSON file. README must explain *why* Argon2 is used instead of SHA-256 with a concrete timing comparison.
+
+---
+
+### Project 8 — Login System with Multi-Factor Authentication (TOTP)
+
+**Maps to:** Part 3B (Authentication Standards Primer) → Stage 6: MFA Types & Weaknesses
+
+**What it is:** A functional login system (CLI or basic web) that implements: user registration with Argon2-hashed password storage, login with password verification (constant-time comparison), TOTP-based 2FA using RFC 6238 (the same standard as Google Authenticator), session token generation (JWT or UUID token), rate limiting after failed attempts, and account lockout.
+
+**What you need before building it:**
+- Part 3B fully completed — you need to understand sessions, tokens, and MFA types before building this
+- TOTP standard (RFC 6238): a TOTP code = HOTP(secret, floor(unix_time / 30)) — time-divided into 30-second windows, HMAC-SHA1 truncated to 6 digits
+- Libraries: `pyotp` (Python) for TOTP generation/verification
+- Constant-time string comparison (`hmac.compare_digest()`) — prevents timing attacks on password verification
+- JWT structure (header.payload.signature) if using token-based sessions
+
+**Why build it:**
+Authentication is the #1 attack surface in web applications. Building it yourself — rather than using an off-the-shelf library blindly — forces you to understand *why* certain implementation choices exist: why `==` comparison leaks timing information, why TOTP codes expire every 30 seconds, why rate limiting must happen *before* password hashing (not after), and why session tokens must be unpredictable. Every web application developer should be able to implement this, and every security engineer must be able to audit it.
+
+**Deliverable:** Python application with working user registration, login with TOTP, and session management. Include a QR code output (using `qrcode` library) that can be scanned into Google Authenticator. README must explain what a timing attack is and how `hmac.compare_digest()` prevents it.
+
+---
+
+> [!IMPORTANT]
+> **Phase 1 Project Completion Gate:** You should be able to explain the cryptographic choices in every project above without looking at the code. If someone asks "why Argon2 and not SHA-256?" or "why AES-GCM and not AES-CBC?" or "why CSPRNG and not random?" — you must answer from understanding, not memory. If you cannot, revisit the relevant Part before moving to Phase 2.

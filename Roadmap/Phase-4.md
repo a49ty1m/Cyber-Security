@@ -521,3 +521,221 @@
 ---
 
 <a id="toc-part-21-wireless-pentesting"></a>
+
+---
+
+<a id="phase-4-mini-projects"></a>
+
+## 🛠️ Phase 4 Mini Projects
+
+> [!TIP]
+> **Why these projects are here:** Phase 4 covers web application hacking, web server exploitation, API security, and bug bounty methodology. All 9 projects below map directly to Parts 17–20 of this phase. They are not shortcuts — build each one *after* completing its corresponding Part, so you understand the vulnerability class before you write a tool to detect it.
+
+> [!NOTE]
+> **How to use this section:** Projects 15–22 are individual vulnerability checkers. Project 23 (Web Vulnerability Scanner) is the capstone — it integrates all the others into a single tool. Do not start Project 23 until all preceding projects are complete and working. All code must be committed to Git with proper READMEs that include: what vulnerability it targets, how it works, what it *cannot* detect, and ethical usage requirements.
+
+---
+
+### Project 15 — Website Security Header Checker
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Stage 5: Defense & Mitigation
+
+**What it is:** A tool that sends an HTTP(S) request to a target URL and analyzes the response headers for the presence and correctness of security headers: `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, and `Cross-Origin-Resource-Policy`. Grades each header (present/misconfigured/missing) and outputs an overall security score.
+
+**What you need before building it:**
+- HTTP request-response cycle: headers are sent by the server, parsed by the browser
+- What each header does and what its *absence* enables:
+  - Missing `CSP` → XSS can execute arbitrary scripts
+  - Missing `HSTS` → SSL stripping attacks are possible
+  - Missing `X-Frame-Options` or `CSP frame-ancestors` → clickjacking is possible
+  - Missing `X-Content-Type-Options: nosniff` → MIME-sniffing attacks possible
+- `requests` library (Python) for HTTP
+- OWASP Secure Headers Project as your reference for correct values
+
+**Why build it:**
+Security headers are the first passive defense layer of any web application, and the majority of real-world sites fail basic header audits. Building this checker forces you to internalize what each header *prevents* — not just memorize their names. This knowledge transfers directly to code review, penetration testing, and secure development. It also gives you a tool that produces immediate, demonstrable value on any website — useful for bug bounty first steps.
+
+**Deliverable:** Python CLI — `check <url>`. Output: table of headers, presence status, and what each missing header risks. Include an overall letter grade (A–F). README must explain what clickjacking is and which header prevents it.
+
+---
+
+### Project 16 — SSL/TLS Certificate Checker
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Part 18 (Web Server Hacking) → Stage 2: Scanning & Service Enumeration
+
+**What it is:** A tool that connects to a target hostname, retrieves the TLS certificate chain, and checks: certificate expiry date and validity window, hostname match (CN/SAN verification), certificate chain completeness, issuer and signature algorithm (flag SHA-1 signatures), TLS protocol version (flag TLS 1.0/1.1 and SSLv3), and cipher suite strength (flag export ciphers, RC4, DES).
+
+**What you need before building it:**
+- TLS handshake mechanics: ClientHello → ServerHello → Certificate → Key Exchange → Finished
+- Certificate structure: Subject, Issuer, SAN (Subject Alternative Names), validity period, signature algorithm
+- Python `ssl` module: `ssl.create_default_context()`, `ssl.SSLSocket.getpeercert()`
+- `pyOpenSSL` for more detailed certificate chain inspection
+- Know what `ssl.PROTOCOL_TLS_CLIENT` does vs constructing a context manually
+
+**Why build it:**
+Certificate misconfiguration is a frequent finding in professional audits and bug bounty programs. Expired certificates cause service outages. Weak cipher suites are exploitable. TLS 1.0/1.1 vulnerabilities (BEAST, POODLE) are well-documented. Building this tool means you understand TLS not just as "the green padlock" but as a protocol with version numbers, cipher negotiation, and a chain of trust that must be validated properly. This directly prepares you for understanding certificate-based authentication, MTLS, and PKI in Phase 6.
+
+**Deliverable:** Python CLI — `check <hostname>`. Output: certificate details table with expiry, issuer, SAN list, protocol version, cipher suite, and flagged issues. README must explain what an expired certificate means for a production service and why SHA-1 signatures are deprecated.
+
+---
+
+### Project 17 — SQL Injection Detection Tool
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — specifically A03:2021 Injection
+
+**What it is:** An automated SQL injection tester for authorized web applications. Identifies injectable parameters (URL query strings, POST body fields), tests each parameter with error-based, boolean-based, and time-based payloads, analyzes responses for SQL error messages or behavioral anomalies, and generates a finding report with reproduction steps.
+
+**What you need before building it:**
+- SQL syntax basics: `SELECT`, `WHERE`, `UNION`, `--` (comment), `'` (string delimiter)
+- The 3 main SQLi types:
+  - **Error-based:** inject `'` → server returns a database error message containing SQL syntax
+  - **Boolean-based blind:** inject `' AND 1=1--` (true) vs `' AND 1=2--` (false) → compare response differences
+  - **Time-based blind:** inject `'; WAITFOR DELAY '0:0:5'--` (MSSQL) or `'; SELECT SLEEP(5)--` (MySQL) → measure response time
+- HTTP parameter extraction with `BeautifulSoup` (parse HTML forms) and `requests`
+- Database-specific error signatures: MySQL, PostgreSQL, MSSQL, SQLite each have distinct error strings
+
+**Why build it:**
+SQL injection has been in the OWASP Top 10 every year since its inception. It caused the Adobe breach (153M records), LinkedIn breach (117M), and hundreds of others. Building a detector forces you to think like an attacker — what does putting `'` in an input field actually do to a SQL query? What does a time delay reveal when there's no visible output? The understanding you gain here is what separates a developer who knows SQLi exists from one who can identify and fix it in production code.
+
+**Deliverable:** Python CLI — `scan <url> --params auto`. Inject payloads into detected parameters, output findings as a structured report with: parameter name, injection type, payload used, evidence. README must include a lab setup section using DVWA or Juice Shop (never test on live sites without permission).
+
+---
+
+### Project 18 — XSS Scanner
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (client-side)
+
+**What it is:** A reflected XSS detection tool that: extracts injectable parameters from a target URL (query strings, form inputs), injects a set of XSS probe payloads, analyzes the HTML response to check if the payload appears unescaped in the output, and reports confirmed findings. Optionally uses a headless browser (Playwright) to detect DOM-based XSS.
+
+**What you need before building it:**
+- How browsers parse HTML and when script tags execute
+- The 3 XSS types:
+  - **Reflected:** payload in URL → reflected in immediate response → executes in victim's browser
+  - **Stored:** payload saved to database → executes every time the page loads (not testable with this tool alone)
+  - **DOM-based:** payload processed by client-side JavaScript — requires a headless browser to detect
+- XSS payload variants: `<script>alert(1)</script>`, `"><img src=x onerror=alert(1)>`, `javascript:alert(1)`, attribute injection
+- Why `<script>alert(1)</script>` doesn't always work: HTML encoding, Content-Security-Policy, modern browser mitigations
+- `BeautifulSoup` for HTML response parsing
+
+**Why build it:**
+XSS enables session hijacking (steal `document.cookie`), credential phishing (inject fake login forms), defacement, and malware distribution. Detecting it requires understanding how browsers interpret HTML differently depending on context (HTML body vs attribute vs JavaScript string). Building this scanner forces you to internalize exactly why output encoding — not input filtering — is the correct defense. Every output in a web app has a context, and that context determines the correct encoding function.
+
+**Deliverable:** Python CLI — `scan <url>`. Output: list of reflected parameters with payload evidence. README must explain the difference between reflected and stored XSS and why your tool can only detect reflected.
+
+---
+
+### Project 19 — Phishing URL Detector
+
+**Maps to:** Part 10 (Social Engineering) → Stage 2: The Digital Assault (Remote Vectors) + Part 17 Stage 3: OWASP A09 Security Logging and Monitoring Failures
+
+**What it is:** A URL analysis tool that scores a given URL's likelihood of being a phishing link based on: lexical features (URL length, number of dots, presence of IP address, suspicious keywords like `paypal-secure`, `login-verify`), homoglyph detection (lookalike characters: `рaypal.com` using Cyrillic `р`), domain age via WHOIS (newly registered domains are high risk), entropy of the subdomain, and reputation check via VirusTotal API and Google Safe Browsing API.
+
+**What you need before building it:**
+- URL structure: scheme, subdomain, domain, TLD, path, query, fragment — know what each part is
+- Unicode homoglyphs: `а` (Cyrillic) looks identical to `a` (Latin) — phishers exploit this
+- Levenshtein distance for typosquatting detection (e.g., `gooogle.com` vs `google.com`)
+- WHOIS domain age: `python-whois` library
+- VirusTotal API (free tier: 4 requests/minute) — requires an API key
+- Google Safe Browsing API (free) — requires a Google Cloud API key
+- Shannon entropy calculation for detecting algorithmically generated subdomains (DGA)
+
+**Why build it:**
+Phishing is the #1 initial access vector in real-world attacks — responsible for over 80% of reported security incidents according to Verizon DBIR. This is also where security meets machine learning: production phishing detectors at Google, Microsoft, and Cloudflare use ML models trained on millions of URLs. Building the feature-extraction and rule-based version teaches you what features matter and *why*, which is the foundation for building or evaluating ML-based versions later. It also gives you hands-on experience with real threat intelligence APIs.
+
+**Deliverable:** Python CLI — `analyze <url>`. Output: feature breakdown table with scores, overall risk verdict (Likely Phishing / Suspicious / Likely Safe), and evidence. README must explain what a homoglyph attack is with a real example.
+
+---
+
+### Project 20 — Command Injection Detector
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (OS command)
+
+**What it is:** A tool that tests authorized web application endpoints for OS command injection by injecting shell metacharacters and command chaining operators into parameters, analyzing responses for command output or timing anomalies, and reporting confirmed injection points with payload evidence.
+
+**What you need before building it:**
+- Linux/Unix shell operators: `;` (sequential execution), `|` (pipe), `&&` (AND), `||` (OR), `` ` `` (backtick subshell), `$()` (subshell)
+- Windows command chaining: `&`, `&&`, `|`, `||`, `%0A` (URL-encoded newline)
+- Blind command injection: when there's no visible output, use time-based payloads (`; sleep 5`) or out-of-band (DNS/HTTP callback to a server you control)
+- Why command injection happens: web apps that call `os.system()`, `subprocess.call()`, `exec()`, or shell=True with unsanitized user input
+- Payloads: `; id`, `| whoami`, `&& cat /etc/passwd`, `$(id)`, backtick variants
+
+**Why build it:**
+Command injection is the highest-severity web vulnerability class — successful exploitation gives an attacker direct shell access to the server. Unlike SQLi (database) or XSS (browser), command injection compromises the entire operating system. Understanding how to detect it requires knowing how web applications interact with the underlying OS, why `shell=True` in Python's `subprocess` is dangerous, and what a WAF can and cannot block. This knowledge directly informs secure code review.
+
+**Deliverable:** Python CLI — `scan <url> --params <param1,param2>`. Inject payloads, detect command output or timing anomalies, output findings. README must include a vulnerable test case setup using DVWA and explain why `shell=False` with explicit argument lists prevents injection.
+
+---
+
+### Project 21 — SSRF Detection Tool
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A10:2021 Server-Side Request Forgery
+
+**What it is:** A tool that tests authorized web applications for Server-Side Request Forgery by submitting internal network addresses and cloud metadata endpoints as URL parameters, detecting whether the server fetches those URLs (via response content analysis or out-of-band callback), and reporting confirmed SSRF with potential impact analysis.
+
+**What you need before building it:**
+- What SSRF is: an attacker controls a URL that the *server* fetches — the server becomes a proxy for attacking internal resources
+- Internal network targets: `http://127.0.0.1/`, `http://localhost/`, `http://169.254.169.254/` (AWS EC2 metadata), `http://192.168.x.x/`, `http://[::1]/`
+- Cloud metadata endpoints:
+  - AWS: `http://169.254.169.254/latest/meta-data/iam/security-credentials/`
+  - GCP: `http://metadata.internal/computeMetadata/v1/`
+  - Azure: `http://169.254.169.254/metadata/instance`
+- Out-of-band detection: set up a webhook (Webhook.site, Interactsh, or self-hosted) and use your webhook URL as the payload — if the server calls your webhook, SSRF is confirmed
+- URL parser bypass techniques: `http://evil.com@127.0.0.1/`, DNS rebinding concepts
+
+**Why build it:**
+SSRF became a critical vulnerability class with cloud adoption. The 2019 Capital One breach — 100 million records stolen — was executed via SSRF against the AWS EC2 metadata service to steal IAM credentials. Understanding SSRF requires understanding cloud architecture, internal service communication, and why "the server can reach internal services" is a dangerous design assumption. This project also introduces you to out-of-band detection, a technique used throughout professional penetration testing for blind vulnerabilities.
+
+**Deliverable:** Python CLI — `scan <url> --param <url-parameter>`. Test with internal IP payloads and cloud metadata endpoints. Set up Interactsh for OOB detection. Output: confirmed SSRF findings with impact analysis. README must explain the Capital One breach at a high level and which SSRF mitigation (allowlist vs blocklist) is more reliable.
+
+---
+
+### Project 22 — Directory Brute-Force Tool
+
+**Maps to:** Part 17 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping — specifically content discovery
+
+**What it is:** A web directory and file enumeration tool that sends HTTP requests for each entry in a wordlist, analyzes response codes and content lengths to identify valid paths, filters false positives (servers that return 200 for all requests), and reports discovered directories and files with their HTTP status and size.
+
+**What you need before building it:**
+- HTTP status codes: 200 (found), 301/302 (redirect — still interesting), 403 (forbidden — path exists, just restricted), 404 (not found), 500 (server error — may indicate the path processes something)
+- False positive filtering: some servers return 200 for every path (catch-all) — detect this by comparing content-length variance across responses
+- Wordlists: SecLists `Discovery/Web-Content/` — `common.txt` for quick sweeps, `raft-large-files.txt` for thorough enumeration
+- Async HTTP (`asyncio` + `aiohttp`) — sending 10,000 requests sequentially is unusably slow; concurrent async requests make it practical
+- Rate limiting and backoff: don't DoS the target or trigger WAF rate limits
+
+**Why build it:**
+Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup.zip` files, `/phpMyAdmin`, and `/wp-login.php` endpoints are found through directory brute-forcing. These are consistently among the most impactful bug bounty findings and real breach vectors. Building the tool teaches you *why* wordlist composition matters (what paths to test), how HTTP response analysis distinguishes existing paths from non-existent ones, and why false-positive filtering is non-trivial. It combines Phase 3 recon techniques with Phase 4 HTTP knowledge.
+
+**Deliverable:** Python CLI — `scan <url> --wordlist <path> --threads <n> --extensions php,html,txt`. Output: table of discovered paths with status codes and content lengths, false-positive-filtered. README must explain what finding an exposed `.git` directory means for a target's security.
+
+---
+
+### Project 23 — Web Vulnerability Scanner (Capstone)
+
+**Maps to:** Part 20 (Bug Bounty & Penetration Testing) → Stage 3: Vulnerability Assessment (The Deep Dive) — entire Phase 4 capstone
+
+**What it is:** An automated web security assessment tool that orchestrates all preceding Phase 4 projects as modules in a single unified workflow. Given a target URL and authorization, it: runs security header checks (Project 15), TLS certificate inspection (Project 16), SQL injection testing (Project 17), XSS scanning (Project 18), command injection testing (Project 20), SSRF testing (Project 21), and directory brute-forcing (Project 22) — then aggregates all findings into a single structured report with severity ratings, reproduction steps, and remediation guidance.
+
+**What you need before building it:**
+- All Projects 15–22 must be complete and working as standalone tools
+- Plugin/module architecture: each project becomes an importable module with a consistent interface — `run(target, options) → [Finding]`
+- Unified finding schema: `{module, severity, title, url, parameter, payload, evidence, remediation}`
+- Severity scoring: Critical / High / Medium / Low / Info — apply CVSS-inspired logic
+- Async orchestration: run all modules concurrently (not sequentially) to reduce total scan time
+- HTML report generation: use `jinja2` templates to produce a clean, shareable HTML report
+- Scope enforcement: the tool must accept a scope definition and refuse to scan out-of-scope targets
+
+**Why build it:**
+This is the project you show to employers. It doesn't introduce new vulnerability concepts — it demonstrates you can *architect systems*, think about software design (plugin interfaces, unified schemas, concurrent execution), and deliver a professional output (structured report). Recruiters and interviewers don't just see a web scanner — they see evidence that you can integrate multiple domains of knowledge into a cohesive product. A polished version of this with a sample report is your Phase 4 portfolio centerpiece.
+
+It also teaches a critical professional lesson: automated scanners miss things. Your README must document what this scanner *cannot* detect (stored XSS, CSRF, business logic flaws, authentication bypass, insecure direct object references) and why manual testing is still required. That intellectual honesty is what makes a security engineer trustworthy.
+
+**Deliverable:**
+- Python package with a CLI entry point: `webscan <url> --scope <domain> --output <report.html>`
+- Each vulnerability module importable independently
+- HTML report with: executive summary, finding table sorted by severity, per-finding detail pages with PoC steps and remediation
+- README with: architecture diagram showing module integration, limitations section, ethical usage requirements, and sample report screenshot
+
+---
+
+> [!IMPORTANT]
+> **Phase 4 Project Completion Gate:** Project 23 (the capstone) must produce a report that a security professional could read and act on without asking follow-up questions. If your findings lack reproduction steps, payload evidence, or remediation guidance — the project is not done. Polish the report before moving to Phase 5.
