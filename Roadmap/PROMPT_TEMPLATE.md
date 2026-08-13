@@ -1,183 +1,145 @@
 # 🛠️ AI Study Assistant — Roadmap Topic Expansion Prompt
 
-> **How to use:** Copy the entire prompt block below, paste into ChatGPT, Claude, or Gemini.
-> Fill in only the two placeholders at the top. Everything else stays as-is.
+> **How to use:** Fill in the two placeholders, copy everything from the line below into your AI assistant.
+
+- `[TOPIC]` → exact checklist item or skill name
+- `[CONTEXT]` → Phase + Part + Stage (e.g. `Phase 2 / Part 4 / Stage 1 — Passive OSINT`)
 
 ---
 
-## Quick Start
-
-1. Identify the topic you want to expand from any phase file
-2. Replace `[TOPIC]` and `[ROADMAP CONTEXT]` at the top of the prompt
-3. Paste the full prompt — including all instructions below — into an AI assistant
-4. Use the output as your structured study session for that topic
+## Prompt (copy from here ↓)
 
 ---
 
-## Prompt (copy everything below this line)
+**TOPIC:** `[TOPIC]`  
+**CONTEXT:** `[CONTEXT]`
 
 ---
 
-**TOPIC:** `[Paste the exact checklist item or topic name here]`
+### My profile
 
-**ROADMAP CONTEXT:** `[Paste the Phase + Part + Stage, e.g. "Phase 2 / Part 4 / Reconnaissance → Organizational Intelligence Gathering"]`
-
----
-
-### My Profile — read this before answering anything
-
-I am a cybersecurity student and engineer working through a structured 10-phase roadmap toward the following career:
-
-**Career target:** Penetration Tester → Red Team Operator → Advanced Offensive Security → AI Red Teaming
-
-**Current position:** Phase 2A — actively studying Footprinting, Reconnaissance, Scanning, and Enumeration.
-
-**Completed foundations:**
-- Linux CLI and system administration
-- Windows administration, PowerShell basics
-- TCP/IP, OSI model, DNS, HTTP/HTTPS at a practical level
-- Networking fundamentals and basic traffic analysis
-- Cryptography fundamentals, TLS basics
-- HTTP, cookies, SOP, REST APIs, authentication patterns (JWT, OAuth 2.0, OIDC)
-- Basic Python scripting, Bash, PowerShell cmdlets
-
-**Known skill gaps** (patch as needed):
-- Deep Wireshark / packet dissection — not fully practiced yet
-- TLS internals — high level only
-- Linux service administration — still building
-- Active Directory and Kerberos — foundational only
-
-**Lab environment:** Kali Linux + home lab with VMs. Access to TryHackMe, HackTheBox, OverTheWire, PortSwigger Web Security Academy.
-
-**Learning behavior I am actively correcting:**
-- I have a tendency to jump topics — keep answers linear and stage-based
-- I prefer knowing what to do *first*, not a wall of theory
-- I learn best when theory is paired immediately with a specific command, tool output, or lab step
-
-**Documentation rule:** Everything I learn must produce a Git-committed artifact. Keep this in mind when defining lab outputs.
+- **Career target:** Penetration Tester → Red Team Operator → Advanced Offensive Security → AI Red Teaming
+- **Lab environment:** Kali Linux + home VMs, TryHackMe, HackTheBox, PortSwigger Web Security Academy
+- **Documentation rule:** Every session produces a structured MD note sutable for obsidian like tools
 
 ---
 
-### What I need from you
+### Output rules — apply these throughout
 
-Expand the topic above into a complete, structured learning module. Follow this exact structure:
+**Length:** No arbitrary cap — but every sentence must earn its place. If a section has nothing new to add, skip it.
 
----
+**Style:**
 
-## Section 1 — What This Is and Why It Matters
+- Explain things concretely, with real examples and command output — not abstract definitions
+- Use code blocks to show workflows, terminal output, and attack chains
+- Use tables for tools, operators, and comparisons
+- Short paragraphs or bullets — no academic prose walls
+- Each concept explained **once**, in its best form — do not repeat the same idea across sections
+- Skip a section entirely if it genuinely doesn't apply to this topic
 
-- One-paragraph plain-English definition, written for a technical learner — not a beginner, not an expert
-- Which phase of a penetration test or red team operation this belongs to
-- What goes wrong if you skip or underestimate this skill
-- How this connects to what I studied before and what I will study next on my roadmap
+**Tone:** Write like a senior red teamer teaching a capable technical learner. Be explicit, use real examples, and go as deep as the topic requires — but never repeat the same point twice across sections.
 
----
-
-## Section 2 — How Attackers Actually Use This
-
-_This is the most important section. Be specific. Generic "attackers gather information" answers are useless._
-
-- What exactly do attackers look for?
-- How do they find it? (specific methods, not generic categories)
-- What does a high-value finding look like vs. a dead-end?
-- What is the realistic attacker workflow for this topic, step by step?
-- Where does this feed into the next phase of the attack (initial access, privilege escalation, lateral movement, etc.)?
+**Priority order:** offensive perspective first → concrete examples second → defender awareness third → lab fourth
 
 ---
 
-## Section 3 — What Defenders Do About It
+### Section 1 — What it is and where it sits
 
-_Explain this from an attacker's perspective — not as a compliance checklist._
+- 1–2 short paragraphs: plain definition, what it produces, and what phase of an attack/engagement it belongs to
+- Show where it fits in the attack chain using a simple diagram or tree (like `Recon → Passive → Search Dorking → Active → ...`)
+- What breaks if you skip or underestimate this skill?
+- One sentence connecting it to what came before and what comes next in the roadmap
 
-- What detection controls exist for this technique?
-- What log sources would expose this activity? (event IDs, SIEM queries, tool names)
+---
+
+### Section 2 — How attackers actually use this
+
+_This is the most important section. Be explicit and concrete. Generic "attackers gather information" answers are not acceptable._
+
+- What exactly are they looking for? Name it specifically.
+- Walk through a realistic attacker workflow step-by-step with code blocks showing the actual commands and what the output reveals
+- Show one example of a **dead-end finding** vs one example of a **high-value finding** — and explain concretely why one is useful and the other isn't
+- Show where this feeds next — what does the result unlock in the next phase?
+
+Format the workflow like this:
+
+```
+Step 1 — [Action]
+→ command: [exact command]
+→ output reveals: [what you learn]
+
+Step 2 — [Next action]
+→ command: [exact command]
+→ output reveals: [what you learn]
+
+→ Pivot to: [what you do next with this]
+```
+
+---
+
+### Section 3 — Core concepts and terminology
+
+- Define every technical term that appears in the topic — one line each, in plain language
+- If there are subtypes or variants (e.g. scan types, protocol differences, attack variants), map them in a compact table
+- Explain underlying mechanisms only if needed to actually perform the technique — skip general education
+
+---
+
+### Section 4 — Tools and commands
+
+Table format:
+
+| Tool | Command (with realistic placeholder) | What it finds / shows | When to use it |
+| ---- | ------------------------------------ | --------------------- | -------------- |
+
+- Kali-first
+- Real syntax, not pseudocode
+- After the table: for any non-obvious tool, add 3–5 lines showing what the output looks like and how to interpret it
+
+---
+
+### Section 5 — Defender detection
+
+Keep this tight — 5–8 bullets maximum.
+
+- What log source or sensor catches this?
+- What event ID, signature, or behavioral rule triggers?
 - What do defenders commonly miss?
-- How do skilled attackers evade the common defensive controls?
+- How do skilled operators reduce their footprint for this specific technique?
 
-_This section is here to make me a better attacker, not to teach me to be a SOC analyst._
-
----
-
-## Section 4 — Core Concepts and Terminology
-
-- Define every technical term that appears in the topic
-- Explain underlying protocols or mechanisms only if needed to perform the technique — not as general education
-- If there are multiple variants, subtypes, or sub-techniques, map them clearly (a table is fine)
+If this topic is genuinely passive (no server-side events), say so in one sentence and skip the rest.
 
 ---
 
-## Section 5 — Tools and Commands
+### Section 6 — Lab task
 
-Provide a practical reference. For each tool:
+**One specific, completable task you can do today.**
 
-| Tool | What it does for this topic | Key flags / syntax | When to use it |
-|------|----------------------------|---------------------|----------------|
-| ...  | ...                        | ...                 | ...            |
-
-- Lead with the tools I am most likely to have on Kali Linux
-- Show real command examples with realistic targets (use `10.10.x.x`, `example.com`, or `target.htb` as placeholders)
-- Explain what the output means — not just how to run the command
+- **Platform:** [Specific TryHackMe room name / HTB machine / local Kali setup]
+- **Objective:** [One sentence — what am I proving I can do?]
+- **Steps:** [Numbered, 6–10 steps, concrete — not generic "try the tool"]
+- **Expected output:** [What does success look like? What should you see?]
+- **Git artifact:** [Exactly what folder structure and files to commit, with a realistic `git commit -m "..."` message]
 
 ---
 
-## Section 6 — Step-by-Step Practical Methodology
+### Section 7 — Common mistakes
 
-_Write this as an operator checklist — what I actually do, in order._
+5 mistakes max. For each:
 
-For a realistic engagement scenario (external pentest, internal pentest, or red team — choose the most relevant), walk through:
-
-1. **Start:** what condition triggers this technique / when do I reach for this?
-2. **Execute:** specific steps in order, with commands where applicable
-3. **Document:** what do I record and how? (tool output, screenshots, findings)
-4. **Analyze:** how do I interpret the results?
-5. **Pivot:** what does this finding unlock? What do I do next?
+- What the mistake is (one sentence)
+- Why it matters (one sentence)
+- What to do instead (one sentence or command)
 
 ---
 
-## Section 7 — Lab Practice
+### Section 8 — Move-on gate
 
-Give me a concrete, completable lab task that I can do today in my environment (Kali + TryHackMe or HackTheBox).
+3 performance tests only. Each must be an action you perform, not a concept you know.
 
-- **Lab objective:** one sentence — what am I proving I can do?
-- **Setup / target:** which platform, room, or machine (suggest a specific TryHackMe room, HTB box, or describe a Kali local setup)
-- **Task:** numbered steps — what exactly do I do?
-- **Expected output:** what does success look like?
-- **Documentation artifact:** what do I commit to Git from this session?
+❌ "Understand how X works"  
+✅ "Run X against [target] and correctly interpret [specific output] without looking at notes"
 
----
-
-## Section 8 — Common Mistakes and Failure Modes
-
-- What do beginners get wrong about this topic?
-- What assumptions break in real environments vs. CTF environments?
-- What gets you caught or causes engagement failure?
-- What are the ethical and legal boundaries I must understand?
-
----
-
-## Section 9 — Move-On Gate
-
-Give me 5 specific things I must be able to do — without looking at notes — before I can consider this topic complete and move on.
-
-Each item should be phrased as a performance test, not a knowledge test:
-
-- ❌ "Understand what Nmap does" (knowledge — too vague)
-- ✅ "Run a full Nmap SYN scan with OS detection and version detection against a target and correctly interpret every open port in the output" (performance — specific)
-
----
-
-## Section 10 — Key Takeaways
-
-Three to five concise statements that capture:
-- What professionals actually care about for this topic
-- The most important pattern recognition or heuristic to internalize
-- The single biggest mistake to never make
-
----
-
-**Output rules:**
-- Be specific and concrete. No vague "you should familiarize yourself with" language.
-- Treat me as a technical learner who can handle detail — do not over-explain basic concepts.
-- Every code block should be copy-pasteable or clearly explained.
-- If a section genuinely does not apply to this topic, say "Not applicable for this topic" and move on — do not pad it.
-- Prioritize the offensive perspective throughout. The defensive sections exist to make me harder to detect, not to train me as a defender.
+1. [Performance test]
+2. [Performance test]
+3. [Performance test]

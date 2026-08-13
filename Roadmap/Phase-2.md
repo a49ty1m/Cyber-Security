@@ -27,7 +27,7 @@
 > - **Tool output** — [Nmap](../Tools/Nmap.md) scans, Burp captures, [Metasploit](../Tools/Metasploit_Framework.md) session logs saved to files
 > - **Attack chain diagrams** showing the kill chain for each compromise
 > - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
- > - **Git commits** — commit after every lab session with descriptive messages
+> - **Git commits** — commit after every lab session with descriptive messages
 >
 > _By the end of Phase 2, you should have 10+ documented attack chains in your repository._
 
@@ -123,16 +123,17 @@
 > [!IMPORTANT]
 > **Phase 2A Internal Execution Order** — Follow this Part sequence. Part numbers are not chronological; this is the correct dependency order:
 >
-> | Step | Part | Focus | Dependency |
-> |------|------|-------|------------|
-> | 1 | **[Part 4](Phase-2.md#part-4-footprinting-and-reconnaissance)** | Footprinting & Reconnaissance | None — start here |
-> | 2 | **[Part 5](Phase-2.md#part-5-scanning)** | Scanning | Part 4 complete |
-> | 3 | **[Part 6](Phase-2.md#part-6-enumeration)** | Enumeration | Part 5 complete |
-> | 4 | **[Part 6B](Phase-2.md#part-6b-database-security)** | Database Security | Part 6 complete |
-> | 5 | **[Part 31](Phase-2.md#part-31-password-cracking-hash-analysis)** | Password Cracking & Hash Analysis | Part 6 complete — required before Part 7 |
-> | 6 | **[Part 7](Phase-2.md#part-7-system-hacking-initial-compromise)** | System Hacking & Initial Compromise | Parts 6, 6B, 31 complete |
+> | Step | Part                                                              | Focus                               | Dependency                               |
+> | ---- | ----------------------------------------------------------------- | ----------------------------------- | ---------------------------------------- |
+> | 1    | **[Part 4](Phase-2.md#part-4-footprinting-and-reconnaissance)**   | Footprinting & Reconnaissance       | None — start here                        |
+> | 2    | **[Part 5](Phase-2.md#part-5-scanning)**                          | Scanning                            | Part 4 complete                          |
+> | 3    | **[Part 6](Phase-2.md#part-6-enumeration)**                       | Enumeration                         | Part 5 complete                          |
+> | 4    | **[Part 6B](Phase-2.md#part-6b-database-security)**               | Database Security                   | Part 6 complete                          |
+> | 5    | **[Part 31](Phase-2.md#part-31-password-cracking-hash-analysis)** | Password Cracking & Hash Analysis   | Part 6 complete — required before Part 7 |
+> | 6    | **[Part 7](Phase-2.md#part-7-system-hacking-initial-compromise)** | System Hacking & Initial Compromise | Parts 6, 6B, 31 complete                 |
 >
 > **Why this order?**
+>
 > ```text
 > What exists?               → Part 4 (Recon)
 > Where is it?               → Part 5 (Scanning)
@@ -144,6 +145,7 @@
 
 > [!NOTE]
 > **Phase 2A Exit Gate — do NOT enter Phase 2B until you can demonstrate all of these:**
+>
 > - Perform reconnaissance and enumeration **without jumping to Metasploit immediately**
 > - Identify open ports, running services, and software versions on a target
 > - Crack a captured hash using a wordlist and rules
@@ -153,6 +155,7 @@
 > - Document the full attack chain in a structured report
 >
 > **Evidence required before moving to Phase 2B:**
+>
 > - Attack chain diagram committed to Git
 > - Lab notes (target → recon → exploitation → post-exploitation → findings)
 > - At least 1 completed HTB/THM machine writeup covering the full chain
@@ -172,7 +175,7 @@
 
 - [x] **Organizational Hierarchy:** Profile the **Audience** (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link.
 
-- [ ] **Search Engine Hacking:** Use **Google Dorks** (`site:`, `filetype:`, `intitle:`) to find exposed documents and login portals.
+- [x] **Search Engine Hacking:** Use **Google Dorks** (`site:`, `filetype:`, `intitle:`) to find exposed documents and login portals.
 
 - [ ] **Social Vector Mapping:** Scrape LinkedIn and professional sites to identify targets for **Phishing, Whishing, Whaling, or Smishing** based on reported tech stacks.
 
@@ -665,6 +668,7 @@
 - [ ] **FILE Privilege Exploitation:** With `FILE` privilege, read OS files: `SELECT LOAD_FILE('/etc/passwd');` and write files: `SELECT '<?php system($_GET["cmd"]); ?>' INTO OUTFILE '/var/www/html/shell.php';` (requires `secure_file_priv` to be empty or set to a writable path).
 
 - [ ] **User Defined Functions (UDFs):** Upload a malicious shared library to the plugin directory, create a UDF from it, and execute OS commands:
+
   ```sql
   SELECT LOAD_FILE('/tmp/lib_mysqludf_sys.so') INTO DUMPFILE '/usr/lib/mysql/plugin/lib_mysqludf_sys.so';
   CREATE FUNCTION sys_exec RETURNS INTEGER SONAME 'lib_mysqludf_sys.so';
@@ -676,6 +680,7 @@
 **MSSQL:**
 
 - [ ] **`xp_cmdshell` OS Command Execution:**
+
   ```sql
   EXEC sp_configure 'show advanced options', 1; RECONFIGURE;
   EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;
@@ -729,6 +734,7 @@
 - [ ] **Unauthenticated Access:** Redis defaults to no auth on localhost. When exposed externally: `redis-cli -h <target> INFO server`
 
 - [ ] **Config Rewrite RCE (Web Shell):**
+
   ```bash
   redis-cli -h <target> CONFIG [SET](../Tools/SET.md) dir /var/www/html
   redis-cli -h <target> CONFIG SET dbfilename shell.php
@@ -790,13 +796,13 @@
 
 ### **Lab Progression (Part 6B: Database Security)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Local MySQL lab: create a low-priv user, escalate via `FILE` privilege abuse | Step-by-step attack documentation |
-| 2 | MSSQL in a lab VM: enable `xp_cmdshell`, execute OS commands, extract hashes | Command log + hash extraction proof |
-| 3 | Redis without auth: RCE via config rewrite (web shell method) | Working web shell demonstration |
-| 4 | MongoDB without auth: enumerate collections, test `$ne` auth bypass | Injection payload documentation |
-| 5 | Full DB attack chain on HackTheBox/VulnHub machine with exposed DB service | Pentest-style report: enumeration → exploitation → escalation |
+| Level | Task                                                                         | Deliverable                                                   |
+| ----- | ---------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| 1     | Local MySQL lab: create a low-priv user, escalate via `FILE` privilege abuse | Step-by-step attack documentation                             |
+| 2     | MSSQL in a lab VM: enable `xp_cmdshell`, execute OS commands, extract hashes | Command log + hash extraction proof                           |
+| 3     | Redis without auth: RCE via config rewrite (web shell method)                | Working web shell demonstration                               |
+| 4     | MongoDB without auth: enumerate collections, test `$ne` auth bypass          | Injection payload documentation                               |
+| 5     | Full DB attack chain on HackTheBox/VulnHub machine with exposed DB service   | Pentest-style report: enumeration → exploitation → escalation |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can enumerate database services, identify engine and version, test default credentials, achieve OS command execution on at least one DB engine (MySQL or MSSQL), and explain the defensive controls that would prevent each attack. Document every command and finding.
@@ -1480,15 +1486,16 @@
 >
 > Do **NOT** treat all of Phase 2B as a prerequisite before Phase 4 (Web). Study core Phase 2B concepts now, then proceed to Phase 4. Return to the deferred Phase 2B topics after completing Phases 4 and 6, when the context makes them far more valuable.
 >
-> | Part | Priority | Action |
-> |------|----------|--------|
-> | **Part 9** — Sniffing & Spoofing | Core | Do now — directly supports network understanding |
-> | **Part 10** — Social Engineering | Core | Do now — recon/phishing concepts apply immediately |
-> | **Part 12** — Session Hijacking | Core | Do now — reinforces auth/session concepts from Phase 1 |
-> | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 4** — full malware engineering is in Phase 7 Part 42 |
-> | **Part 11** — Denial of Service | Deferred | Do **after Phase 4** — deeper value after infrastructure understanding |
+> | Part                                 | Priority | Action                                                                 |
+> | ------------------------------------ | -------- | ---------------------------------------------------------------------- |
+> | **Part 9** — Sniffing & Spoofing     | Core     | Do now — directly supports network understanding                       |
+> | **Part 10** — Social Engineering     | Core     | Do now — recon/phishing concepts apply immediately                     |
+> | **Part 12** — Session Hijacking      | Core     | Do now — reinforces auth/session concepts from Phase 1                 |
+> | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 4** — full malware engineering is in Phase 7 Part 42  |
+> | **Part 11** — Denial of Service      | Deferred | Do **after Phase 4** — deeper value after infrastructure understanding |
 >
 > **What to defer until after Phase 4 & 6:**
+>
 > - Advanced malware development / weaponization (Part 8 deep dive → Part 42 is the real home for this)
 > - Sophisticated AV/EDR evasion techniques
 > - Advanced C2 infrastructure design
@@ -1510,15 +1517,16 @@
 > **Scope of This Part — Read Carefully:** This Part teaches malware as a **survey course**, not an implementation course. At this stage you have not yet studied how malware works at the binary/code level — that knowledge comes in **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)**. Without that foundation, any malware you write will be a copy-paste artifact you cannot debug, fix, or adapt when it fails (and it will fail).
 >
 > **What IS covered here (practitioner-level):**
+>
 > - Malware taxonomy and attack lifecycle (categories, architecture decisions, C2 design thinking)
 > - Tool-based weaponization: `msfvenom`, Metasploit payload generation, framework-managed C2 (Sliver, Mythic)
 > - How AV/EDR detects malware conceptually (signature, heuristic, behavioral scanning)
 > - Document and cloud delivery vectors — the initial access tradecraft that red teamers use operationally
 >
 > **What Stages 2–5 teach (exposure-level, not implementation-level):**
-> Stages 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the level of *what they are and how they work conceptually*. They are not implementation labs. Each of those stages carries an explicit `[!WARNING]` marker. When you see that marker: understand the concept, understand what defenders see, move on. Do **not** attempt custom code implementation until you have completed **Part 28 (RE & Malware Analysis)** and **Part 42 (Offensive Development, Phase 7)**.
+> Stages 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the level of _what they are and how they work conceptually_. They are not implementation labs. Each of those stages carries an explicit `[!WARNING]` marker. When you see that marker: understand the concept, understand what defenders see, move on. Do **not** attempt custom code implementation until you have completed **Part 28 (RE & Malware Analysis)** and **Part 42 (Offensive Development, Phase 7)**.
 >
-> **Why this sequencing matters:** Students who attempt custom malware engineering before Part 28 produce tools they cannot debug, cannot evade EDR reliably, and cannot modify under time pressure. The correct sequence is: *understand the attack here (Part 8) → understand binaries and malware internals (Part 28) → build your own tooling (Part 42).*
+> **Why this sequencing matters:** Students who attempt custom malware engineering before Part 28 produce tools they cannot debug, cannot evade EDR reliably, and cannot modify under time pressure. The correct sequence is: _understand the attack here (Part 8) → understand binaries and malware internals (Part 28) → build your own tooling (Part 42)._
 
 <a id="stage-1-the-design-logic-architecture"></a>
 
@@ -1546,14 +1554,14 @@
 ### **Stage 2: The Payload & Mechanism — Exposure Survey**
 
 > [!WARNING]
-> **Exposure-Only Stage:** This stage describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until you have completed **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)** and **Part 42 (Offensive Development, Phase 7)**. Your goal here is to understand *what* these techniques do and *why* defenders flag them — not to build them.
+> **Exposure-Only Stage:** This stage describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until you have completed **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)** and **Part 42 (Offensive Development, Phase 7)**. Your goal here is to understand _what_ these techniques do and _why_ defenders flag them — not to build them.
 
 > [!TIP]
 > **Goal:** Understand how payloads execute and what defenders detect at each stage.
 
-- [ ] **Memory-Based Execution:** Understand that attackers inject code into running processes (shellcode injection, process hollowing, DLL injection) to avoid writing to disk and evade file-scanning AV. *Conceptual understanding only — implementation in Part 42.*
+- [ ] **Memory-Based Execution:** Understand that attackers inject code into running processes (shellcode injection, process hollowing, DLL injection) to avoid writing to disk and evade file-scanning AV. _Conceptual understanding only — implementation in Part 42._
 
-- [ ] **Delivery Vectors:** Understand **phishing, drive-by download, watering hole, and supply chain injection** as the four primary delivery mechanisms; know what each one requires from the attacker and what it looks like to defenders. *Practical delivery lab in Stage 6 (document weaponization) below.*
+- [ ] **Delivery Vectors:** Understand **phishing, drive-by download, watering hole, and supply chain injection** as the four primary delivery mechanisms; know what each one requires from the attacker and what it looks like to defenders. _Practical delivery lab in Stage 6 (document weaponization) below._
 
 - [ ] **Staged Payload Architecture:** Understand the difference between **stageless** (one-shot complete payload) and **staged** (stager fetches the full payload at runtime) delivery — know why staged reduces initial payload size but requires an active C2 listener. Use `msfvenom` to generate both and compare their byte sizes and detection rates against VirusTotal (educational only — never upload customer/lab-specific payloads).
 
@@ -1568,20 +1576,20 @@
 ### **Stage 3: Evasion & Defense Bypassing — Exposure Survey**
 
 > [!WARNING]
-> **Exposure-Only Stage:** This stage teaches *how* AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Part 28 (Reverse Engineering & Malware Analysis)**. Practical evasion implementation is in **Part 42 (Offensive Development, Phase 7)**.
+> **Exposure-Only Stage:** This stage teaches _how_ AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Part 28 (Reverse Engineering & Malware Analysis)**. Practical evasion implementation is in **Part 42 (Offensive Development, Phase 7)**.
 
 > [!TIP]
 > **Goal:** Understand how the defensive stack detects malware and what attackers do to evade each layer.
 
 > **Prerequisite Context:** This stage references AMSI, EDR, and ETW. Those systems are covered from the defender's perspective in **Phase 3 (Part 13A: Stages 3–5)**. If you have not completed Phase 3 yet, read those stages before studying evasion — evasion without understanding the detection model is guesswork.
 
-- [ ] **Static Analysis Evasion:** Understand that AV signature detection works by matching known byte patterns — attackers evade it by changing the binary (packing, encoding, obfuscation). Know *that* this works conceptually; implementing a custom packer requires PE format knowledge from Part 28.
+- [ ] **Static Analysis Evasion:** Understand that AV signature detection works by matching known byte patterns — attackers evade it by changing the binary (packing, encoding, obfuscation). Know _that_ this works conceptually; implementing a custom packer requires PE format knowledge from Part 28.
 
 - [ ] **Sandbox Detection:** Understand that sandboxes run samples in controlled VMs — attackers detect this by checking for VM artifacts (driver names, low CPU count, no mouse movement), then go dormant. Know the technique; study the implementation in Part 28.
 
-- [ ] **EDR Userland Hooking Bypass:** Understand that EDR products hook Windows API functions at userland to intercept suspicious calls — attackers bypass this by calling syscalls directly or by unhooking. *Conceptual understanding only — syscall implementation in Part 42.*
+- [ ] **EDR Userland Hooking Bypass:** Understand that EDR products hook Windows API functions at userland to intercept suspicious calls — attackers bypass this by calling syscalls directly or by unhooking. _Conceptual understanding only — syscall implementation in Part 42._
 
-- [ ] **Memory-Based Evasion Concepts:** Understand *what* sleep obfuscation, call stack spoofing, and indirect syscalls do — each is a technique that makes a beacon harder to detect during memory scanning. Implementation and lab practice in Part 42.
+- [ ] **Memory-Based Evasion Concepts:** Understand _what_ sleep obfuscation, call stack spoofing, and indirect syscalls do — each is a technique that makes a beacon harder to detect during memory scanning. Implementation and lab practice in Part 42.
 
 > **🔬 Observation Lab (Stage 3):** In a Windows sandbox VM: (1) Run `Procmon` (Sysinternals), filter on `powershell.exe`. Execute `powershell -Command "Write-Host hello"` and observe the API calls. Now run `powershell -EncodedCommand` with a base64-encoded version of the same command. Compare the Procmon output — same result, different invocation path. This is the "encoded = suspicious" detection signal that AMSI catches. Document what `ScriptBlock Logging` Event ID 4104 shows for each.
 
@@ -1612,14 +1620,14 @@
 ### **Stage 5: Counter-Forensics & Cleanup — Exposure Survey**
 
 > [!WARNING]
-> **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding *what* forensic artifacts exist — that knowledge is in **Part 27 (Digital Forensics, Phase 7)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so you can look for its *absence* during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
+> **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding _what_ forensic artifacts exist — that knowledge is in **Part 27 (Digital Forensics, Phase 7)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so you can look for its _absence_ during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
 
 > [!TIP]
 > **Goal:** Understand what artifacts malware and operators leave behind, and what attackers do to reduce their forensic footprint.
 
 - [ ] **Windows Artifact Landscape:** Know the key artifacts that survive after an attack — **Windows Event Logs, Prefetch files, Shimcache, Amcache, LNK files, MFT records, browser history, $MFT journal, registry hives** — and understand which artifacts survives a reboot, a log clear, or a disk wipe.
 
-- [ ] **Log Manipulation Awareness:** Understand that attackers clear Event Logs using `wevtutil cl System` and that this clearing *itself* generates Event ID 1102 (Security log cleared) — defenders look for the clearing event, not just empty logs. Also understand that SIEMs receive log forwarding — clearing local logs after a SIEM has already ingested them accomplishes nothing.
+- [ ] **Log Manipulation Awareness:** Understand that attackers clear Event Logs using `wevtutil cl System` and that this clearing _itself_ generates Event ID 1102 (Security log cleared) — defenders look for the clearing event, not just empty logs. Also understand that SIEMs receive log forwarding — clearing local logs after a SIEM has already ingested them accomplishes nothing.
 
 - [ ] **Anti-Forensics Counter-Detection:** Know the defender techniques that defeat anti-forensics: **Write-Protect + Memory Forensics (Volatility)**, **SIEM log forwarding**, **EDR telemetry that bypasses local log clearing**, **backup snapshot retention**, and **network forensic reconstruction from PCAP**.
 
@@ -1684,13 +1692,13 @@
 
 ### **Lab Progression (Part 8: Malware & Weaponization)**
 
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Generate 5 payload types with `msfvenom` (staged + stageless, EXE/DLL/PS1/ELF) and compare detection rates | VirusTotal screenshots + payload comparison report |
-| 2 | Deploy Sliver or Mythic in your lab, generate an implant, establish callback, and configure sleep/jitter | C2 lab setup guide + beacon screenshot |
-| 3 | Build an HTML smuggler that delivers a test payload (EICAR) through a simulated email gateway | HTML smuggler code + gateway bypass evidence |
-| 4 | Weaponize a OneNote file with an embedded script that calls back to your Sliver listener | Weaponized `.one` file + callback screenshot |
-| 5 | Map your lab campaign to MITRE ATT&CK — from delivery through C2 establishment | ATT&CK navigator layer JSON + technique annotations |
+| Level | Task                                                                                                       | Deliverable                                         |
+| ----- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| 1     | Generate 5 payload types with `msfvenom` (staged + stageless, EXE/DLL/PS1/ELF) and compare detection rates | VirusTotal screenshots + payload comparison report  |
+| 2     | Deploy Sliver or Mythic in your lab, generate an implant, establish callback, and configure sleep/jitter   | C2 lab setup guide + beacon screenshot              |
+| 3     | Build an HTML smuggler that delivers a test payload (EICAR) through a simulated email gateway              | HTML smuggler code + gateway bypass evidence        |
+| 4     | Weaponize a OneNote file with an embedded script that calls back to your Sliver listener                   | Weaponized `.one` file + callback screenshot        |
+| 5     | Map your lab campaign to MITRE ATT&CK — from delivery through C2 establishment                             | ATT&CK navigator layer JSON + technique annotations |
 
 > [!IMPORTANT]
 > **Move-On Gate (Part 8):** You can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. You are not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes after Part 28 and in Part 42.
@@ -1800,26 +1808,24 @@
 
 ### **Lab Progression (Part 9: Sniffing & Spoofing)**
 
-| Level | Task                                                           | Deliverable                               |
-| ----- | -------------------------------------------------------------- | ----------------------------------------- |
-| 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)  | Annotated pcap with credential extraction |
-| 2     | Perform ARP spoofing + MITM with [Bettercap](../Tools/Bettercap.md) in lab              | Screenshot of intercepted traffic         |
-| 3     | Execute DNS spoofing to redirect lab traffic to phishing page  | DNS spoof lab report                      |
-| 4     | Perform SSL stripping against a lab web server without HSTS    | Before/after traffic comparison           |
-| 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture | End-to-end MITM lab report                |
+| Level | Task                                                                       | Deliverable                               |
+| ----- | -------------------------------------------------------------------------- | ----------------------------------------- |
+| 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)              | Annotated pcap with credential extraction |
+| 2     | Perform ARP spoofing + MITM with [Bettercap](../Tools/Bettercap.md) in lab | Screenshot of intercepted traffic         |
+| 3     | Execute DNS spoofing to redirect lab traffic to phishing page              | DNS spoof lab report                      |
+| 4     | Perform SSL stripping against a lab web server without HSTS                | Before/after traffic comparison           |
+| 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture             | End-to-end MITM lab report                |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can perform a complete MITM attack chain in a lab, capture credentials from unencrypted and downgraded traffic, and explain exactly which defenses (DAI, HSTS, certificate pinning) would have prevented each technique.
 
 ---
 
-
 ---
 
 ---
 
 <a id="toc-part-10-social-engineering"></a>
-
 
 ## Part 10: Social Engineering
 
@@ -1939,7 +1945,7 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **ClickFix/ClearFake:** Simulate browser/OS errors that instruct users to **copy-paste provided PowerShell/terminal scripts** ("fix/update now").
 
 - [ ] **Email Authentication Bypass (DMARC/DKIM/SPF Offensive):** Understand how to send convincing email as or near a target domain, bypassing authentication controls:
-  - **DMARC alignment bypass:** DMARC passes when the From header domain *aligns* with either the SPF envelope-from or the DKIM signing domain. A target with `p=quarantine` but no subdomain policy (`sp=none`) allows subdomain spoofing — register `mail.target.com` and send from a subdomain not covered by the DMARC policy.
+  - **DMARC alignment bypass:** DMARC passes when the From header domain _aligns_ with either the SPF envelope-from or the DKIM signing domain. A target with `p=quarantine` but no subdomain policy (`sp=none`) allows subdomain spoofing — register `mail.target.com` and send from a subdomain not covered by the DMARC policy.
   - **Missing DMARC / weak p=none:** Check with `dig TXT _dmarc.target.com` — if the record is absent or `p=none`, the domain can be directly spoofed without filtering. Use [dmarc.postmarkapp.com](https://dmarc.postmarkapp.com) or `checkdmarc` to scan targets during recon.
   - **Homoglyph domains:** Register visually identical domains using Unicode lookalike characters (e.g., `Ⅰ` for `l`, `а` for `a`). IDN homoglyph attack: `xn--paypl-h2a.com` renders as `payрal.com` in some email clients. Tools: `dnstwist` with `--registered` flag.
   - **Subdomain takeover for mail spoofing:** If a dangling CNAME on a target subdomain points to an unclaimed third-party service (SendGrid, Mailchimp, GitHub Pages), claim the service and send email from that subdomain. It passes SPF and DKIM because it is a legitimate sending service now controlled by you.
@@ -2093,13 +2099,13 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ### **Lab Progression (Part 11: Denial of Service)**
 
-| Level | Task                                                          | Deliverable                              |
-| ----- | ------------------------------------------------------------- | ---------------------------------------- |
-| 1     | Study DoS attack types and classify by OSI layer              | Classification document with examples    |
-| 2     | Simulate SYN flood against lab web server with hping3         | Traffic capture + server impact analysis |
-| 3     | Test [Slowloris](../Tools/Slowloris.md) against Apache in lab, then apply mitigation   | Before/after performance comparison      |
-| 4     | Configure rate limiting and SYN cookies on lab firewall       | Firewall configuration + test results    |
-| 5     | Design a DDoS defense architecture for a hypothetical company | Architecture diagram + defense plan      |
+| Level | Task                                                                                 | Deliverable                              |
+| ----- | ------------------------------------------------------------------------------------ | ---------------------------------------- |
+| 1     | Study DoS attack types and classify by OSI layer                                     | Classification document with examples    |
+| 2     | Simulate SYN flood against lab web server with hping3                                | Traffic capture + server impact analysis |
+| 3     | Test [Slowloris](../Tools/Slowloris.md) against Apache in lab, then apply mitigation | Before/after performance comparison      |
+| 4     | Configure rate limiting and SYN cookies on lab firewall                              | Firewall configuration + test results    |
+| 5     | Design a DDoS defense architecture for a hypothetical company                        | Architecture diagram + defense plan      |
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can explain and classify DoS/DDoS attack types, demonstrate basic DoS in a lab, and design defensive countermeasures at the network, host, and application layers.
@@ -2247,7 +2253,7 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or yo
 ## 🛠️ Phase 2 Mini Projects
 
 > [!TIP]
-> **Why these projects are here:** Phase 2 covers the full offensive lifecycle — recon, scanning, enumeration, and exploitation. These 4 projects map directly to Parts 4, 5, 6, and the vulnerability assessment stage. Build each one *after* completing its corresponding Part, not before. They are hands-on reinforcements of what you studied, not shortcuts around it.
+> **Why these projects are here:** Phase 2 covers the full offensive lifecycle — recon, scanning, enumeration, and exploitation. These 4 projects map directly to Parts 4, 5, 6, and the vulnerability assessment stage. Build each one _after_ completing its corresponding Part, not before. They are hands-on reinforcements of what you studied, not shortcuts around it.
 
 > [!NOTE]
 > **How to use this section:** Each project below maps to a specific Phase 2 Part. All code must be committed to your Git repository. README must cover: what the tool does, what protocols it uses, ethical usage requirements (authorized targets only), and sample output.
@@ -2261,14 +2267,15 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or yo
 **What it is:** A TCP/UDP port scanner that discovers open ports on a target host, attempts banner grabbing to identify services, supports concurrent scanning (threading or asyncio), and outputs results in a structured format. Should support SYN scan (raw sockets, requires root) and TCP connect scan (no root required).
 
 **What you need before building it:**
+
 - TCP 3-way handshake mechanics: SYN → SYN-ACK → ACK (open), SYN → RST (closed), no response (filtered)
 - Raw socket programming in Python (`socket` module)
 - Threading or `asyncio` — scanning 65,535 ports sequentially takes minutes; concurrent scanning takes seconds
 - Service identification via banner grabbing (send a probe, read the response header)
-- Study Nmap source behavior before implementing — understand *why* a SYN scan is stealthier than a full connect scan
+- Study Nmap source behavior before implementing — understand _why_ a SYN scan is stealthier than a full connect scan
 
 **Why build it:**
-Nmap already exists. The reason you build your own is to understand *why* port scanning works at the socket level — what does a TCP RST response mean vs a timeout vs a ICMP unreachable? What does a firewall returning RST vs dropping silently tell you? Building this makes every Nmap flag you use afterward meaningful rather than cargo-culted. This is the foundational recon tool that every subsequent project in this phase depends on.
+Nmap already exists. The reason you build your own is to understand _why_ port scanning works at the socket level — what does a TCP RST response mean vs a timeout vs a ICMP unreachable? What does a firewall returning RST vs dropping silently tell you? Building this makes every Nmap flag you use afterward meaningful rather than cargo-culted. This is the foundational recon tool that every subsequent project in this phase depends on.
 
 **Deliverable:** Python CLI — `scan <target> --ports <range> --mode <connect|syn> --threads <n>`. Output: table of open ports with service guesses. README must document the ethical usage requirements and explain the SYN vs connect scan distinction.
 
@@ -2281,6 +2288,7 @@ Nmap already exists. The reason you build your own is to understand *why* port s
 **What it is:** A packet capture and analysis tool that captures live network traffic, parses packet headers (Ethernet, IP, TCP, UDP), extracts application-layer data for unencrypted protocols (HTTP, DNS), and displays a real-time stream of summarized traffic. Must run on a designated lab interface only.
 
 **What you need before building it:**
+
 - OSI model internals: know what each layer encapsulates
 - Ethernet frame structure, IP header fields (TTL, flags, fragmentation), TCP header (sequence numbers, flags, window size)
 - `scapy` (Python) — the standard library for packet crafting and capture
@@ -2302,6 +2310,7 @@ Every network security tool — from Wireshark to IDS/IPS systems — is built o
 **What it is:** A subdomain enumeration tool that combines: wordlist-based DNS brute-forcing (active), Certificate Transparency log querying via the crt.sh API (passive — no direct target traffic), and DNS record analysis (A, CNAME, MX). Must implement concurrent DNS resolution and rate limiting.
 
 **What you need before building it:**
+
 - DNS resolution mechanics: how a resolver walks the hierarchy (root → TLD → authoritative)
 - DNS record types: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), TXT (verification/SPF)
 - Certificate Transparency: every TLS certificate issued is logged publicly — `crt.sh` exposes this via API, enabling passive subdomain discovery without touching the target
@@ -2309,7 +2318,7 @@ Every network security tool — from Wireshark to IDS/IPS systems — is built o
 - SecLists subdomain wordlists (the `Discovery/DNS/` directory)
 
 **Why build it:**
-The most critical vulnerabilities in a real engagement are often not found on `www.target.com` but on `dev.target.com`, `staging.target.com`, `admin-legacy.target.com`, or `vpn.target.com` — subdomains that exist because developers need them and forget to secure them. Subdomain scanning teaches you to think about the *entire attack surface* of an organization rather than just its primary domain. The crt.sh passive technique is particularly valuable: it finds subdomains without generating a single packet to the target.
+The most critical vulnerabilities in a real engagement are often not found on `www.target.com` but on `dev.target.com`, `staging.target.com`, `admin-legacy.target.com`, or `vpn.target.com` — subdomains that exist because developers need them and forget to secure them. Subdomain scanning teaches you to think about the _entire attack surface_ of an organization rather than just its primary domain. The crt.sh passive technique is particularly valuable: it finds subdomains without generating a single packet to the target.
 
 **Deliverable:** Python CLI — `scan <domain> --wordlist <path> --passive --threads <n>`. Output: list of discovered subdomains with resolved IPs. README must distinguish passive vs active discovery and explain Certificate Transparency.
 
@@ -2322,6 +2331,7 @@ The most critical vulnerabilities in a real engagement are often not found on `w
 **What it is:** A network vulnerability scanner that: uses port scanning (Project 10) as its discovery layer, performs service version fingerprinting via banner grabbing, queries the NIST NVD API to find CVEs associated with identified service versions, scores each finding using CVSS, and generates a structured report. Must only target authorized systems.
 
 **What you need before building it:**
+
 - Project 10 (Port Scanner) completed and working — this scanner uses it as a dependency
 - Service version extraction: banner grabbing returns strings like `Apache httpd 2.4.49` — you parse the service name and version
 - NIST NVD API: free, no authentication required for basic queries — `https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=<service+version>`
