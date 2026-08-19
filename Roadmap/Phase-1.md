@@ -322,13 +322,13 @@ _Before starting the technical curriculum, establish your academic foundation, l
 > [!TIP]
 > **Goal:** Avoid wasting money on inadequate hardware or overspending before you know your specialization.
 
-- [ ] **Minimum Specs:** **32GB RAM** (16GB absolute minimum for running 2–3 VMs simultaneously), **quad-core CPU with VT-x/AMD-V** (Intel VT or AMD-V required for nested virtualization), **500GB+ SSD**. Without hardware virtualization support, nested VMs (VMs inside VMs) will not work.
+- [x] **Minimum Specs:** **32GB RAM** (16GB absolute minimum for running 2–3 VMs simultaneously), **quad-core CPU with VT-x/AMD-V** (Intel VT or AMD-V required for nested virtualization), **500GB+ SSD**. Without hardware virtualization support, nested VMs (VMs inside VMs) will not work.
 
 - [ ] **Recommended Specs:** **64GB RAM, 8-core CPU, 1TB NVMe SSD**. This comfortably runs a Domain Controller + 3 workstations + attacker Kali VM simultaneously for AD labs (Part 23).
 
 - [ ] **Wireless Testing Adapter:** Purchase an **Alfa AWUS036ACH** (or similar Realtek RTL8812AU/RTL8814AU chipset) USB adapter that supports **monitor mode and packet injection**. Built-in WiFi cards rarely support these modes. Required for Part 21 (Wireless Pentesting).
 
-- [ ] **Budget Tiers:** **Tier 1 (~$300):** Used ThinkPad T480/X1 Carbon with 32GB RAM upgrade. **Tier 2 (~$600):** Refurbished Dell Precision/HP Z-series with 64GB. **Tier 3 (~$1,500):** Custom mini-ITX Proxmox server with 128GB RAM for persistent lab infrastructure.
+- [x] **Budget Tiers:** **Tier 1 (~$300):** Used ThinkPad T480/X1 Carbon with 32GB RAM upgrade. **Tier 2 (~$600):** Refurbished Dell Precision/HP Z-series with 64GB. **Tier 3 (~$1,500):** Custom mini-ITX Proxmox server with 128GB RAM for persistent lab infrastructure.
 
 - [ ] **Cloud Supplement:** Use **AWS Free Tier / Azure $200 credit / GCP $300 credit** for cloud security labs (Part 24) without maintaining local infrastructure. Set **billing alerts** to avoid surprise charges.
 
@@ -341,28 +341,28 @@ _Before starting the technical curriculum, establish your academic foundation, l
 > [!TIP]
 > **Goal:** Maximize your formal education and align academic work with offensive security career requirements.
 
-- [ ] **Degree Baseline**
+- [x] **Degree Baseline**
   - A formal undergraduate degree (**B-Tech in CS, IT, or related field**) fulfills baseline **HR screening requirements** for entry-level security roles and many certifications.
 
-- [ ] **Leverage Academic Projects**
+- [x] **Leverage Academic Projects**
   - Treat university **database, networking, and software engineering projects** as structural training for:
     - **backend exploit development**
     - **API security**
     - **system architecture** understanding
 
-- [ ] **Coding Curriculum Alignment**
+- [x] **Coding Curriculum Alignment**
   - The **C, C++, and Python** coding taught in engineering semesters provides the **architectural foundation** needed to eventually write:
     - custom, undetected payloads
     - exploit primitives
 
-- [ ] **Capstone/Final Year Projects**
+- [x] **Capstone/Final Year Projects**
   - Target a security-related capstone to build a **portfolio piece** (examples):
     - vulnerability scanner
     - SIEM dashboard
     - malware analysis sandbox
     - network IDS
 
-- [ ] **Internship Targeting**
+- [x] **Internship Targeting**
   - Pursue internships at **SOCs, MSSPs, consulting firms, or product security teams** during academic years to build **real-world defensive/offensive experience** before graduation.
 
 - [ ] **Research & Publications**
@@ -404,7 +404,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 > [!TIP]
 > **Goal:** Build practical muscle memory through structured, hands-on hacking exercises.
 
-- [ ] **TryHackMe (Beginner → Intermediate)**
+- [x] **TryHackMe (Beginner → Intermediate)**
   - Complete **learning paths** for guided, progressive skill building:
     - Pre-Security
     - Jr Penetration Tester
@@ -417,7 +417,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - web attacks
   - Target: **Hacker rank** or above.
 
-- [ ] **OverTheWire Bandit (Linux Fundamentals)**
+- [x] **OverTheWire Bandit (Linux Fundamentals)**
   - Complete all **34 levels** to build Linux CLI muscle memory:
     - file manipulation
     - SSH
@@ -472,7 +472,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - AI Forensics
   - Isolated lab environments keep hands-on AI attack/defense exercises safe.
 
-- [ ] **PortSwigger Web Security Academy (Free)**
+- [x] **PortSwigger Web Security Academy (Free)**
   - Complete labs covering the **full OWASP Top 10** plus advanced topics:
     - SQL injection, XSS, CSRF, SSRF, XXE
     - JWT attacks, OAuth flaws, WebSocket attacks
@@ -535,6 +535,13 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ## Part 1: Fundamentals
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Foundations of Information Security - Jason Andress` — CIA triad, auth, access control basics
+> - 🟡 `Security in Computing 5th Edition` — Authoritative reference for security concepts
+> - 🟢 `The Linux Command Line - A Complete Introduction` — Quick command reference for CLI fundamentals
+
+
 <a id="stage-1-hardware-cpu-pre-boot-environment"></a>
 
 ### **Stage 1: Hardware, CPU & Pre-Boot Environment**
@@ -560,7 +567,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="stage-2-operating-system-internals"></a>
 
-### **Stage 2: Operating System Internals**
+### Stage 2: Operating System Internals
 
 > [!TIP]
 > **Goal:** Understand the resource manager and its internal logic.
@@ -583,7 +590,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="stage-3-memory-management"></a>
 
-### **Stage 3: Memory Management**
+### Stage 3: Memory Management
 
 > [!TIP]
 > **Goal:** Understand how memory is organized and managed.
@@ -602,7 +609,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="stage-4-data-representation-logic"></a>
 
-### **Stage 4: Data Representation & Logic**
+### Stage 4: Data Representation & Logic
 
 > [!TIP]
 > **Goal:** Master binary representation and Boolean logic fundamentals.
@@ -617,7 +624,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="stage-5-wireless-physical-connections"></a>
 
-### **Stage 5: Wireless & Physical Connections**
+### Stage 5: Wireless & Physical Connections
 
 > [!TIP]
 > **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Part 21 (Wireless Pentesting, Phase 5).
@@ -658,7 +665,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="stage-6-mobile-platform-awareness"></a>
 
-### **Stage 6: Mobile Platform Awareness**
+### Stage 6: Mobile Platform Awareness
 
 > [!TIP]
 > **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Part 22 (Phase 5).
@@ -674,7 +681,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 <a id="stage-7a-programming-scripting-fundamentals"></a>
 
-### **Stage 7A: Programming & Scripting Fundamentals**
+### Stage 7A: Programming & Scripting Fundamentals
 
 > [!TIP]
 > **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Phase 1. **C and C++ are deferred to Stage 7B in Phase 7**, where binary analysis context makes them immediately applicable.
@@ -683,7 +690,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **Python (Automation, Networking & Security Scripting)**
+#### Python (Automation, Networking & Security Scripting)
 
 - [ ] **Core Language Fundamentals:** Master variables, data types, operators, strings, collections (lists, tuples, dictionaries, sets), control flow, loops, functions, modules, packages, decorators, generators, context managers, object-oriented programming, file handling, exception handling, virtual environments (venv), pip, and project structure.
 
@@ -737,7 +744,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **JavaScript & Node.js (Web, Browser & API Security)**
+#### JavaScript & Node.js (Web, Browser & API Security)
 
 > [!NOTE]
 > **JavaScript Scope in Phase 1:** The functional minimum for Phase 1 is: core language syntax, browser APIs, DOM basics, the fetch/axios communication layer, and the Security Context section (XSS, prototype pollution, CSRF, CORS misconfig). The Node.js/Express, Service Worker, SSE, and modern framework awareness content is intentionally brief and awareness-level — revisit it in Phase 4 with web application testing context where it becomes immediately applicable. Do not stall Phase 1 attempting to master React, Angular, or Express.js depth before moving forward.
@@ -833,7 +840,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **C (Operating Systems & Memory Fundamentals)**
+#### C (Operating Systems & Memory Fundamentals)
 
 - [ ] **Language Fundamentals:** Master variables, data types, operators, pointers, pointer arithmetic, arrays, strings, structs, unions, enums, typedefs, functions, recursion, bitwise operations, macros, preprocessing, header files, static vs dynamic variables, dynamic memory allocation, compilation, linking, and debugging.
 
@@ -934,7 +941,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **C++ (Reverse Engineering & Software Analysis)**
+#### C++ (Reverse Engineering & Software Analysis)
 
 - [ ] **Core Language:** Master classes, objects, inheritance, polymorphism, encapsulation, abstraction, constructors, destructors, namespaces, templates, the Standard Template Library (STL), operator overloading, exception handling, smart pointers, RAII, move semantics, object lifecycles, and modern C++ (C++11/14/17) features.
 
@@ -1021,7 +1028,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **Bash (Linux Automation & Operations)**
+#### Bash (Linux Automation & Operations)
 
 - [ ] **Shell Fundamentals:** Master variables, data types, quoting, command substitution, arithmetic operations, loops, conditionals, functions, arrays, pipes, redirection, file descriptors, environment variables, aliases, shell expansion, permissions, process management, exit codes, and shell scripting best practices.
 
@@ -1147,7 +1154,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **PowerShell (Windows Automation & Enterprise Administration)**
+#### PowerShell (Windows Automation & Enterprise Administration)
 
 - [ ] **Language Fundamentals:** Master variables, data types, objects, pipelines, cmdlets, aliases, functions, modules, providers, scripting, execution policies, remoting, error handling, classes, background jobs, and PowerShell best practices.
 
@@ -1254,7 +1261,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### **Cross-Platform Development**
+#### Cross-Platform Development
 
 - [ ] Choose the appropriate language for each task:
   - [ ] Python → Automation, APIs, cross-platform tooling
@@ -1291,7 +1298,7 @@ Before moving to the next stage, you should be able to:
 
 <a id="stage-7b-c-cpp-programming"></a>
 
-### **Stage 7B: C & C++ Programming** ← *Deferred to Phase 7*
+### Stage 7B: C & C++ Programming ← *Deferred to Phase 7*
 
 > [!IMPORTANT]
 > **Do not start Stage 7B now.** This stage is placed here as a structural marker only. C and C++ are the languages of OS internals, exploit primitives, shellcode, and reverse engineering targets — but they require meaningful context to learn effectively:
@@ -1309,6 +1316,14 @@ Before moving to the next stage, you should be able to:
 <a id="part-1b-linux-administration"></a>
 
 ## Part 1B: Linux Administration
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Linux Command Line - A Complete Introduction` — Primary CLI and admin reference
+> - 🟡 `Using And Administering Linux Volume 1 Zero To SysAdmin Getting Started` — systemctl, user management, /etc/ configs
+> - 🟡 `Using And Administering Linux Volume 2 Zero To SysAdmin Advanced` — Advanced admin and service configuration
+> - 🟢 `Using And Administering Linux Volume 3 Zero To SysAdmin Network` — Network services on Linux
+
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Phase._
 
@@ -1417,6 +1432,12 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 <a id="part-1c-windows-administration"></a>
 
 ## Part 1C: Windows Administration
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `EA - Windows Security Internals with PowerShell` — Deep Windows internals + PowerShell scripting (also critical in Phase 6)
+> - 🟡 `Windows PowerShell Cookbook` — PowerShell command reference for admin tasks
+
 
 _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Part 23), cloud (Part 24), and defensive (Phase 3) modules._
 
@@ -1607,6 +1628,13 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 <a id="part-2-networking-fundamentals"></a>
 
 ## Part 2: Networking Fundamentals
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Data Communications and Networking with TCPIP Protocol Suite - Behrouz A. Forouzan (2022)` — The definitive networking reference; read per-chapter as needed (TCP, DNS, subnetting)
+> - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet analysis labs
+> - 🟢 `Computer Networking Principles, Protocols, and Practice` — Lighter alternative for readable second opinions
+
 
 <a id="layer-1-physical-the-hardware-surface"></a>
 
@@ -2537,6 +2565,12 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ## Part 3: Cryptography
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Security in Computing 5th Edition` — Crypto primitives, hashing, PKI reference chapters
+> - 🟡 `Foundations of Information Security - Jason Andress` — Readable crypto foundations without academic abstraction
+
+
 <a id="stage-1-core-concepts-algorithms"></a>
 
 ### **Stage 1: Core Concepts & Algorithms**
@@ -2977,9 +3011,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 - [ ] **API Keys:** Random strings passed in headers (`X-API-Key: ...`) or query parameters. Understand that API keys are **not user-authenticated** — they authenticate the application, not the person. Understand risks: keys embedded in client-side JS, mobile app binaries, or public Git repositories.
 
-- [ ] **Basic Authentication:** Base64-encoded `username:password` in the `Authorization: Basic ...` header. Understand that Base64 is not encryption — the credentials are trivially decoded. Only safe over TLS. Legacy — avoid in modern APIs.
+- [ ] **Basic Authentication:** Base64-encoded `username:password` in the `Authorization: Basic` header. Understand that Base64 is not encryption — the credentials are trivially decoded. Only safe over TLS. Legacy — avoid in modern APIs.
 
-- [ ] **Bearer Tokens:** Tokens (JWTs or opaque) passed in `Authorization: Bearer <token>`. The server trusts whoever holds the token — no additional proof of identity required. Understand the implication: a stolen Bearer token is as good as the user's credentials for its lifetime.
+- [ ] **Bearer Tokens:** Tokens (JWTs or opaque) passed in `Authorization: Bearer <token>` header. The server trusts whoever holds the token — no additional proof of identity required. Understand the implication: a stolen Bearer token is as good as the user's credentials for its lifetime.
 
 - [ ] **mTLS (Mutual TLS):** Client presents a certificate alongside the standard TLS handshake. The server validates the client certificate. Used in service-to-service APIs where both parties must prove identity. High-security, complex to operate.
 
@@ -3076,6 +3110,12 @@ Using your virtualization platform, build a lab environment containing:
 <a id="part-3c-web-technology-fundamentals"></a>
 
 ## Part 3C: Web Technology Fundamentals
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Tangled Web` — Deep dive into how browsers and HTTP work; directly explains why web vulnerabilities exist
+> - 🟡 `Foundations of Information Security - Jason Andress` — Session, cookie, and auth fundamentals chapter
+
 
 > [!IMPORTANT]
 > **Why This Exists Here:** Phase 2 teaches session hijacking (Part 12), sniffing HTTP credentials (Part 9), and social engineering via web-based pretexting (Part 10) — all before Phase 4 introduces web applications. You cannot understand session hijacking without first understanding what a session IS. This Part bridges that gap. Complete it before proceeding to Phase 2.

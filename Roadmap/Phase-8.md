@@ -66,6 +66,13 @@
 <a id="part-35-governance-risk-compliance-grc"></a>
 ## Part 35: Governance, Risk & Compliance (GRC)
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🟡 `CISSP Study Guide 4th Edition` — Reference — broad governance, risk, and compliance framework coverage
+> - 🔴 `Foundations of Information Security - Jason Andress` — Security policy and risk management fundamentals
+> - 🟢 `The Practical Guide to HIPAA Privacy and Security Compliance 2nd` — Reference — compliance framework depth for healthcare/regulated environments
+
+
 <a id="stage-1-security-frameworks-standards"></a>
 ### **Stage 1: Security Frameworks & Standards**
 
@@ -270,6 +277,12 @@
 <a id="part-37-devsecops-secure-sdlc"></a>
 ## Part 37: DevSecOps & Secure SDLC
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Security for Software Engineers` — Full — secure SDLC, threat modeling, SAST/DAST concepts; maps directly to this Part
+> - 🟡 `Web Application Security - Andrew Hoffman` — Reference — secure code patterns from an AppSec engineer perspective
+
+
 <a id="stage-1-security-in-the-development-lifecycle"></a>
 ### **Stage 1: Security in the Development Lifecycle**
 
@@ -393,6 +406,12 @@
 
 <a id="part-37b-secure-code-review-methodology"></a>
 ## Part 37B: Secure Code Review Methodology
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Web Application Security - Andrew Hoffman` — Primary — identifies vulnerable patterns (SQL sinks, XSS outputs, insecure deserialization) in code
+> - 🟡 `Security for Software Engineers` — Reference — secure coding patterns across languages
+
 
 > **Why This Exists:** Automated SAST tools (Part 37) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. You cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
 
@@ -541,6 +560,13 @@
 <a id="toc-part-43-security-architecture--engineering"></a>
 <a id="part-43-security-architecture-engineering"></a>
 ## Part 43: Security Architecture & Engineering
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🟡 `CISSP Study Guide 4th Edition` — Reference — security architecture domains (network, identity, cryptography, physical)
+> - 🟡 `Foundations of Information Security - Jason Andress` — Architecture and design security principles
+> - 🟢 `Cybersecurity First Principles A Reboot of Strategy and Tactics` — Full — strategic security architecture thinking
+
 
 > **Numbering Note:** Part 43 is numbered non-sequentially. It belongs here in Phase 8 because security architecture and engineering requires GRC context (Part 35), supply chain awareness (Part 36), and DevSecOps experience (Parts 37/37B) as prerequisites. It does not follow Part 42 in the learning sequence — Part 42 is in Phase 7 (Offensive Development & Tooling).
 

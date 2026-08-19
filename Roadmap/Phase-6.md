@@ -69,6 +69,14 @@
 
 ## Part 23: Active Directory & Entra ID
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `EA - Windows Security Internals with PowerShell` — Primary companion — AD internals, attack paths (Kerberoasting, DCSync, Golden Ticket), PowerShell enumeration
+> - 🟡 `Windows PowerShell Cookbook` — Reference — PowerShell command reference for AD enumeration and post-exploitation
+> - 🟡 `Windows Server automation with PowerShell cookbook` — Reference — Group Policy, SYSVOL, service configs
+> - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Enterprise attack chain coverage — red vs blue perspective on AD attacks
+
+
 > [!IMPORTANT]
 > **Prerequisite Patch Required Before Part 23:** Before starting AD attacks, complete Phase 1 **Stage 5** (Active Directory Concepts) and **Stage 6** (Windows Identity & Kerberos Foundations) in Part 1C. Do not skip these — Kerberoasting and delegation attacks are incomprehensible without understanding the Kerberos ticket lifecycle first. This is a targeted patch, not a full Phase 1 restart.
 
@@ -209,6 +217,12 @@
 <a id="toc-part-24-cloud-computing"></a>
 <a id="part-24-cloud-computing"></a>
 ## Part 24: Cloud Computing
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Cloud_Hacking (1)` — Full — cloud attack methodology overview (misconfigs, SSRF to metadata, IAM abuse)
+> - 🟢 `Trusted Cloud Computing` — Reference — cloud security architecture and defensive design context
+
 
 > [!IMPORTANT]
 > **Cloud Lab Setup Requirements — Read Before Starting**

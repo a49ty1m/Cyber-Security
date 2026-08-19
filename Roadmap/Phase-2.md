@@ -166,6 +166,15 @@
 
 ## Part 4: Footprinting and Reconnaissance
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Hacker Playbook 2` — Chapter 1: Recon section — real-world attacker passive + active OSINT methodology
+> - 🔴 `Red Team Field Manual v3` — ⚡ Keep open always as command reference
+> - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Recon chapters — structured methodology for the full recon pipeline
+> - 🟡 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reconnaissance chapter — how defenders see your recon footprint (OPSEC awareness)
+> - 🟢 `Python for OSINT Tooling` — Full book — build your own OSINT automation tools in Python
+
+
 <a id="part-4-stage-1-ghost-phase"></a>
 
 ### **Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
@@ -177,11 +186,11 @@
 
 - [x] **Search Engine Hacking:** Use **Google Dorks** (`site:`, `filetype:`, `intitle:`) to find exposed documents and login portals.
 
-- [ ] **Social Vector Mapping:** Scrape LinkedIn and professional sites to identify targets for **Phishing, Whishing, Whaling, or Smishing** based on reported tech stacks.
+- [x] **Social Vector Mapping:** Scrape LinkedIn and professional sites to identify targets for **Phishing, Whishing, Whaling, or Smishing** based on reported tech stacks.
 
-- [ ] **Physical Perimeter Assessment:** Evaluate the likelihood of **Shoulder Surfing, Tailgating, or Dumpster Diving** vulnerabilities.
+- [x] **Physical Perimeter Assessment:** Evaluate the likelihood of **Shoulder Surfing, Tailgating, or Dumpster Diving** vulnerabilities.
 
-- [ ] **Metadata & Leak Analysis:** Use **Wayback Machine** for historical paths and **GitHub/GitLab Dorking** for hardcoded API keys or internal naming conventions.
+- [x] **Metadata & Leak Analysis:** Use **Wayback Machine** for historical paths and **GitHub/GitLab Dorking** for hardcoded API keys or internal naming conventions.
 
 - [ ] **Domain & Ownership:** Perform **WHOIS Lookups** to identify registration dates, contact info, and associated subdomains.
 
@@ -358,6 +367,15 @@
 
 ## Part 5: Scanning
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Red Team Field Manual v3` — ⚡ Keep open during all scanning labs
+> - 🟡 `Ethical Hacking A Hands-on Introduction to Breaking In` — Scanning & fingerprinting chapters — hands-on Nmap and service enumeration
+> - 🟡 `The Power of Scapy V2` — Full (short reference) — custom packet crafting for advanced scanning
+> - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet capture analysis labs
+> - 🟢 `Hacking and Network Defense` — Network scanning chapter — how scan traffic appears in defender logs
+
+
 <a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
 
 ### **Stage 1: Host Discovery & Network Topology (The "Roll Call")**
@@ -499,6 +517,13 @@
 ## Part 6: Enumeration
 
 > [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Hacking Exposed` — Service-specific chapters (SMB, SNMP, LDAP, RPC) — classic enumeration playbook, still directly applicable
+> - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Enumeration chapters (SMB, LDAP, SNMP) — structured per-protocol coverage and what data each leaks
+> - 🟢 `Cyberjutsu Cybersecurity for the Modern Ninja` — Enumeration section — attacker-focused methodology in clear tactical language
+
+
+> [!NOTE]
 > **Note:** Part 5 (Scanning) covers host discovery, port scanning, and defense identification. Part 6 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If you haven't completed Part 5, do so first.
 
 <a id="stage-1-service-enumeration-banner-grabbing"></a>
@@ -614,6 +639,12 @@
 <a id="part-6b-database-security"></a>
 
 ## Part 6B: Database Security
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Web Application Hacking Advanced SQL Injection and Data Store Attacks` — DB internals chapters only now; save injection chapters for Phase 4
+> - 🟡 `Database Security Problems and Solutions` — Full (reference) — attacker-focused DB misconfiguration and exploitation techniques
+
 
 > [!NOTE]
 > **Navigational Note — Why Part 6B Is Here:** Part 6B was added to Phase 2 during the roadmap's v2.0 audit because database exploitation surfaces appear across Phases 2, 4, 6, and 7 but had no dedicated systematic module. SQLi (Part 17, Phase 4) covers injection attacks against web applications that query databases — it does NOT cover direct database engine exploitation. Part 6B fills that gap. Complete this before Part 31 and Part 7.
@@ -814,6 +845,13 @@
 ## Part 31: Password Cracking & Hash Analysis
 
 > [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Cryptography and hashing chapter — ground-truth explanation of how hashes work and why cracking is possible
+> - 🟡 `Reverse Engineering and Password Breaking` — Full (short) — direct coverage of hash formats and cracking methodology
+> - 🟢 `Computer & Internet Security A Hands on Approach 2nd Ed` — Authentication chapters — explains salting, key derivation, and why bcrypt/Argon2 resist cracking
+
+
+> [!NOTE]
 > **Navigational Note — Why Part 31 Is Here:** Part 31 is numbered non-sequentially (Parts 4–6, then 31, then 7–...) because it was added to Phase 2 after the original numbering scheme was established. It sits here — between Part 6 (Enumeration) and Part 7 (System Hacking) — because password cracking is a **direct prerequisite for Part 7**: you cannot use Pass-the-Hash, Kerberoasting, or credential-based lateral movement without first understanding hash types, cracking methodology, and offline attack mechanics. Parts 8–30 do not exist in Phase 2 — they are in later phases. Continue to Part 7 after completing this.
 
 <a id="stage-1-hash-identification-acquisition"></a>
@@ -896,6 +934,17 @@
 <a id="part-7-system-hacking-initial-compromise"></a>
 
 ## Part 7: System Hacking & Initial Compromise
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Hacker Playbook 3 (Red Team Edition)` — Primary companion — initial access, privesc, persistence — read chapters in parallel with labs
+> - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Shellcode, stack/heap overflows — the foundational exploitation textbook; understand WHY exploits work
+> - 🔴 `Red Team Field Manual v3` — ⚡ Keep open always as command reference
+> - 🟡 `The Hacker Playbook 2` — Exploitation and post-exploitation — practical walk-through of real techniques
+> - 🟡 `Gray Hat Hacking The Ethical Hacker's Handbook 2022` — System exploitation, modern privesc techniques
+> - 🟢 `Exploitation Techniques and Tools` — Technique catalog — use as lookup when encountering a specific technique in labs
+> - 🟢 `Exploit Development on Linux Platform` — Full — Linux-specific exploitation fundamentals
+
 
 <a id="stage-1-the-breach-initial-access-exploitation"></a>
 
@@ -1712,6 +1761,13 @@
 
 ## Part 9: Sniffing & Spoofing
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Power of Scapy V2` — ARP spoofing, packet injection chapters — tool mastery for MitM and packet manipulation
+> - 🟡 `Wireshark Cheat Sheet` — Keep open during all capture and analysis labs
+> - 🟢 `Hacking and Network Defense` — Sniffing chapter — defender detection of sniffing activity (informs OPSEC)
+
+
 <a id="stage-1-the-environment-fundamentals-the-setup"></a>
 
 ### **Stage 1: The Environment & Fundamentals (The Setup)**
@@ -1828,6 +1884,12 @@
 <a id="toc-part-10-social-engineering"></a>
 
 ## Part 10: Social Engineering
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Social Engineering The Art of Human Hacking` — The definitive book on SE — read this fully during Part 10
+> - 🟡 `The Social Engineers Playbook` — Full (short) — practical tactical scripts and pretexts
+
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
 
@@ -2118,6 +2180,11 @@ Robert Cialdini's research on influence identified six universal principles that
 <a id="part-12-session-hijacking"></a>
 
 ## Part 12: Session Hijacking
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Tangled Web` — Browser and session management chapters — deep coverage of session flaws that bridges into Phase 4 web exploitation
+
 
 <a id="stage-1-reconnaissance-vulnerability-analysis"></a>
 

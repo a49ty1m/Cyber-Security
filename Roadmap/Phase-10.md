@@ -70,6 +70,14 @@
 
 ## Part 40: Red Team Operations & Tradecraft
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Red Team Field Manual v3` — ⚡ Keep open at all times — the fastest command reference for every red team tool and technique
+> - 🟡 `The Red Report 2023` — Full — current attacker TTP trends and attacker behavior data from real incidents
+> - 🟡 `Threat Intelligence Handbook` — Full — CTI methodology for adversary profiling and red team planning
+> - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reference — structured red team operation planning
+
+
 > **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator.
 
 > [!NOTE]
@@ -158,6 +166,13 @@
 <a id="part-39-penetration-testing-methodologies-report-writing"></a>
 
 ## Part 39: Penetration Testing Methodologies & Report Writing
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Pentester Blueprint` — 🥇 Full book — pentest career methodology, report writing, and professional conduct; read fully before starting Part 39
+> - 🔴 `From Hacking to Report Writing` — Full — report structure, evidence packaging, and finding articulation
+> - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology for web pentest engagements
+
 
 > **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. It follows Part 40 because report quality is dramatically higher when you've already run a real campaign — you know what evidence you collected, what decisions you made, and what the timeline actually looked like.
 
@@ -287,6 +302,13 @@
 <a id="part-41-proof-of-work-career-portfolio"></a>
 
 ## Part 41: Proof of Work & Career Portfolio
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🟡 `cyber security interview questions` — Reference — preparation for technical interviews
+> - 🟡 `Cybersecurity First Principles A Reboot of Strategy and Tactics` — Reference — strategic framing for senior-level interviews and portfolio positioning
+> - 🟢 `The Threat Detection Report 2023` — Reference — current threat landscape context for interview discussions
+
 
 > **Core Principle:** Theory without evidence is worthless. Every technical skill in this roadmap must be validated through _unfakeable_ proof of work — tools you've built, reports you've written, certifications you've earned, and bugs you've found. This section ties it all together.
 

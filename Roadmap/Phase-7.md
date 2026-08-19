@@ -178,6 +178,15 @@
 <a id="part-27-digital-forensics"></a>
 ## Part 27: Digital Forensics
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Art of Memory Forensics` — Primary companion — the definitive memory forensics reference; mandatory reading
+> - 🟡 `Hacking Exposed Computer Forensics Secrets & Solutions 2nd` — Full — disk and network forensics methodology
+> - 🔴 `SANS DFIR Cheatsheets and Notebooks` — ⚡ Keep open during all Part 27 labs as quick reference
+> - 🟡 `Effective Threat Investigation` — Full — structured threat investigation methodology and evidence chaining
+> - 🟢 `Smartphone Forensics Cheatsheet by SANS` — Reference — mobile evidence acquisition quick ref
+
+
 <a id="stage-1-preparation-first-response"></a>
 ### **Stage 1: Preparation & First Response**
 
@@ -324,6 +333,15 @@
 <a id="part-28-reverse-engineering-malware-analysis"></a>
 ## Part 28: Reverse Engineering & Malware Analysis
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Reversing Secrets of Reverse Engineering - Eldad Eilam` — Primary companion — the foundational RE textbook; read early in Part 28
+> - 🟢 `Best of Reverse Engineering` / `Reverse Engineering Hacking and Cracking` — Supplementary RE techniques
+> - 🟡 `The Android Malware Handbook (2023)` — Full — mobile malware RE; use if Part 28 covers mobile malware variants
+> - 🟡 `Designing BSD rootkit` — Full — rootkit internals, evasion, and persistence mechanisms
+> - 🟢 `The Rootkit Arsenal Escape and Evasion in the Dark Corners` — Reference — deepest rootkit engineering reference; read after basic RE is solid
+
+
 <a id="stage-1-static-analysis-foundations"></a>
 ### **Stage 1: Static Analysis Foundations**
 
@@ -442,6 +460,14 @@
 <a id="toc-part-29-modern-exploitation"></a>
 <a id="part-29-modern-exploitation"></a>
 ## Part 29: Modern Exploitation
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Primary companion — shellcode, stack overflows, heap exploitation; read fully in Part 29
+> - 🟡 `Exploit Development on Linux Platform` — Full — Linux-specific exploit writing and shellcode injection
+> - 🟡 `Exploit Development Wintel Platform` — Full — Windows-specific exploit development (SEH, ROP chains)
+> - 🟢 `Build Your Own EXPLOITS` — Full — practical exploit building projects from concept to working PoC
+
 
 > **Prerequisite Gate:** Complete Part 1 Stages 3–4 (Memory Management, Data Representation), Part 1 Stage 7 (C fundamentals), and Part 42 (Offensive Development — exploit writing, shellcode, assembly) before starting this Part. Modern exploitation builds directly on these foundations.
 
@@ -999,6 +1025,14 @@
 <a id="toc-part-42-offensive-development--tooling"></a>
 <a id="part-42-offensive-development-tooling"></a>
 ## Part 42: Offensive Development & Tooling
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Black Hat Python 2nd Edition` — Primary companion — C2 building, RAT development, evasion, and custom offensive tooling
+> - 🟡 `Black Hat Go Go Programming For Hackers and Pentesters` — Full — modern Go-based offensive tooling and implant development
+> - 🟡 `Gray Hat Python - Seitz, Justin` — Full — debugging, fuzzing, shellcode injection, and process manipulation via Python
+> - 🟢 `REALWORLDPYTHON Hackers Guide 2020` — Full — real-world offensive Python automation projects
+
 
 > **Numbering Note:** Part 42 is numbered non-sequentially. It lives here in Phase 7 because it is a Phase 7 prerequisite (required before Part 29 Modern Exploitation). Full malware engineering and custom C2 implant development belong after Part 28 (Malware Analysis) — see the scope restriction note in Part 8 (Phase 2).
 

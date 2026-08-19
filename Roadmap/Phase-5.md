@@ -64,6 +64,14 @@
 <a id="part-21-wireless-pentesting"></a>
 ## Part 21: Wireless Pentesting
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Wireless Hacking` — Full — core wireless attack methodology (WPA2 cracking, PMKID, Evil AP setup)
+> - 🟡 `Wireless Network Security` — Reference — defensive perspective; informs OPSEC and detection awareness
+> - 🔴 `Wireless Hacking Cheat Sheet v1.1` — ⚡ Keep open during all Part 21 labs
+> - 🟢 `Wifi & Security` / `WiFi hacking article` — Supplementary reference PDFs
+
+
 > [!IMPORTANT]
 > **Hardware Acquisition Checklist — Purchase Before Starting Phase 5**
 >
@@ -256,6 +264,15 @@
 <a id="toc-part-22-mobile-platform-pentesting"></a>
 <a id="part-22-mobile-platform-pentesting"></a>
 ## Part 22: Mobile Platform Pentesting
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Hacking android` — Full — Android attack surface, APK analysis, and exploitation
+> - 🔴 `Hacking and securing ios applications` — Full — iOS binary analysis, Jailbreak exploitation, runtime hooking
+> - 🟡 `Cybersecurity for Mobile Devices` — Reference — broad mobile security coverage
+> - 🟢 `Best of Mobile Hacking` — Reference — supplementary attack techniques
+> - 🟢 `Hacking Android Smartphones with NFC Tags` / `Bluetooth Low Energy Hacking` — Reference only if your labs include BLE/NFC vectors
+
 
 <a id="stage-0-mobile-architecture-foundations"></a>
 ### **Stage 0: Mobile Architecture Foundations**

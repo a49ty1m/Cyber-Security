@@ -63,6 +63,20 @@
 
 ## Part 17: Web Application Hacking
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Web Application Hacker's Handbook` — Primary companion — read the chapter matching your current PortSwigger module
+> - 🔴 `SQL Injection Attacks and Defense` — Deepest SQLi reference; read alongside PortSwigger SQLi Modules 6–18
+> - 🔴 `Burp Suite Compendium` / `The Power of Burp Suite` — Reference — deep Burp feature coverage
+> - 🟡 `Web Application Security - Andrew Hoffman` — Full — developer-code-level explanation of WHY each vulnerability exists
+> - 🟡 `Web penetration testing with kali linux` — Targeted chapters — Burp, sqlmap, Nikto, ZAP in practice
+> - 🟡 `Bypassing Web Application Firewall Workshop` — Full — WAF bypass techniques for filter evasion labs
+> - 🟡 `XSS CheatSheet` — Keep open during all PortSwigger XSS modules
+> - 🟢 `White Hat Hacking complete guide to XSS Attacks` — Full (short) — structured XSS coverage
+> - 🟢 `SQL Injection Attacks` / `SQL Injection Strategies` / `SQL injection CyberSecurity` — Quick reference PDFs
+> - 🟢 `Web Application Hacking Advanced SQL Injection and Data Store Attacks` — Advanced DB-level exploitation post-PortSwigger SQLi
+
+
 > [!IMPORTANT]
 > **Phase 4 Resource Alignment**
 >
@@ -239,6 +253,13 @@
 <a id="part-18-web-server-hacking"></a>
 ## Part 18: Web Server Hacking
 
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🟡 `Web Application Attacks` — Broad web attack catalog — covers server-side attack vectors beyond SQLi and XSS
+> - 🟢 `Web security exposed` — Reference — supplementary web server attack coverage
+> - 🟢 `WordPress Hacking and Security` — Reference — CMS-specific attack methodology for real-world scope targets
+
+
 <a id="stage-1-target-acquisition-reconnaissance"></a>
 ### **Stage 1: Target Acquisition & Reconnaissance**
 
@@ -328,6 +349,12 @@
 <a id="toc-part-19-api-security"></a>
 <a id="part-19-api-security"></a>
 ## Part 19: API Security
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Hacking APIs Breaking Web Application Programming Interfaces - Corey` — Full book — the best dedicated API security resource; maps directly to this Part
+> - 🟡 `Web security testing guide` — Reference — OWASP WSTG API test cases; use IDs when writing reports
+
 
 <a id="stage-1-api-reconnaissance-mapping"></a>
 ### **Stage 1: API Reconnaissance & Mapping**
@@ -438,6 +465,15 @@
 <a id="toc-part-20-bug-bounty-and-penetration-testing"></a>
 <a id="part-20-bug-bounty-and-penetration-testing"></a>
 ## Part 20: Bug Bounty and Penetration Testing
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `zseano's methodology` — Full (short) — practical bug bounty workflow from an experienced hunter
+> - 🔴 `From Hacking to Report Writing` — Full — bridges exploitation to professional report writing; read before Part 39
+> - 🟡 `Bug Bounty Hunting For Web Security` — Full — platform-specific methodology for HackerOne, Bugcrowd etc.
+> - 🟡 `Web security testing guide` — Reference — OWASP WSTG test case IDs for reporting (e.g. WSTG-INPV-05)
+> - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology doc to use during assessments
+
 
 <a id="stage-1-preparation-scoping"></a>
 ### **Stage 1: Preparation & Scoping**
