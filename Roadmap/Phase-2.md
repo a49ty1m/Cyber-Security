@@ -204,6 +204,7 @@
 
 <a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
 
+
 ### **Stage 2: Semi-Passive Infrastructure Mapping**
 
 > [!TIP]
@@ -220,7 +221,6 @@
 - [ ] **WAF/CDN/TLS Fingerprinting:** Detect **WAF/CDN** fronting via **JA3/JA4, HTTP header quirks, TLS ALPN/HTTP2**, and favicon hashes.
 
 - [ ] **VHost & Favicon Hunts:** Bruteforce **vhosts/domains** and use **favicon hash**/HTTP header diffs to find hidden apps.
-
 ---
 
 <a id="part-4-stage-3-active-footprinting-network-interrogation"></a>

@@ -1,364 +1,343 @@
-Absolutely. I checked the current TryHackMe room first. **Networking Core Protocols** is the third room in TryHackMe’s networking sequence, after *Networking Concepts* and *Networking Essentials*. Its focus is the practical behavior of **DNS, WHOIS, HTTP, FTP, SMTP, POP3, and IMAP**. ([TryHackMe][1])
-
-One important point: the current room page marks Tasks 2–9 as **Premium**, so I can’t reliably reproduce every lab instruction from the room itself. I can, however, build you a proper study/lab note around the room's objectives and publicly verifiable material. ([TryHackMe][2])
-
 # Networking Core Protocols — TryHackMe Notes
 
-[TryHackMe — Networking Core Protocols](https://tryhackme.com/room/networkingcoreprotocols?utm_source=chatgpt.com)
-
-## 1. Lab Overview
-
-**Room:** Networking Core Protocols
-**Category:** Networking
-**Position:** 3rd room in the Networking series
-
-### Learning objectives
-
-By completing this room, you should understand:
-
-* DNS
-* WHOIS
-* HTTP / HTTPS
-* FTP
-* SMTP
-* POP3
-* IMAP
-* Basic client-server communication
-* How these protocols can be interacted with from the command line
-
-TryHackMe specifically expects prior knowledge of:
-
-* OSI model
-* TCP/IP model
-* Ethernet
-* IP
-* TCP ([TryHackMe][2])
+> **Room:** [Networking Core Protocols](https://tryhackme.com/room/networkingcoreprotocols)  
+> **Series position:** 3rd (after *Networking Concepts* → *Networking Essentials*)  
+> **Next room:** [Networking Secure Protocols](https://tryhackme.com/room/networkingsecureprotocols)
 
 ---
 
-# 2. Core Idea — What Is a Network Protocol?
+## Table of Contents
 
-A **network protocol** is a defined set of rules that determines how systems communicate.
-
-Think of it as a language between computers.
-
-For example:
-
-```text
-Client                         Server
-  |                              |
-  |-------- HTTP Request ------->|
-  |                              |
-  |<------- HTTP Response -------|
-```
-
-Both sides must understand the protocol's rules.
-
-Different protocols solve different problems:
-
-| Protocol | Main Purpose                    |
-| -------- | ------------------------------- |
-| DNS      | Name → IP resolution            |
-| WHOIS    | Domain registration information |
-| HTTP     | Web communication               |
-| FTP      | File transfer                   |
-| SMTP     | Sending email                   |
-| POP3     | Downloading/receiving email     |
-| IMAP     | Synchronizing/accessing email   |
-
-Most of these operate at the **Application layer** of the TCP/IP model. ([TryHackMe][3])
+1. [Room Overview](#1-room-overview)
+2. [What Is a Network Protocol?](#2-what-is-a-network-protocol)
+3. [DNS — Domain Name System](#3-dns--domain-name-system)
+4. [WHOIS](#4-whois)
+5. [HTTP — Hypertext Transfer Protocol](#5-http--hypertext-transfer-protocol)
+6. [HTTP Requests](#6-http-requests)
+7. [HTTP Responses](#7-http-responses)
+8. [HTTP From the Command Line](#8-http-from-the-command-line)
+9. [FTP — File Transfer Protocol](#9-ftp--file-transfer-protocol)
+10. [SMTP — Simple Mail Transfer Protocol](#10-smtp--simple-mail-transfer-protocol)
+11. [POP3 — Post Office Protocol 3](#11-pop3--post-office-protocol-3)
+12. [IMAP — Internet Message Access Protocol](#12-imap--internet-message-access-protocol)
+13. [POP3 vs IMAP](#13-pop3-vs-imap)
+14. [Telnet — Manual Protocol Testing](#14-telnet--manual-protocol-testing)
+15. [Port Reference Cheat Sheet](#15-port-reference-cheat-sheet)
+16. [Protocol Relationships](#16-protocol-relationships)
+17. [Cybersecurity Perspective](#17-cybersecurity-perspective)
+18. [Command Reference](#18-command-reference)
+19. [Learning Progression](#19-learning-progression)
+20. [Room Q&A Reference](#20-room-qa-reference)
+21. [Quick Revision Sheet](#21-quick-revision-sheet)
 
 ---
 
-# 3. DNS — Domain Name System
+## 1. Room Overview
 
-## What is DNS?
+### Prerequisites
 
-DNS translates human-readable domain names into IP addresses.
+The room expects prior knowledge of:
 
-Example:
+- OSI model
+- TCP/IP model
+- Ethernet / IP / TCP fundamentals
 
-```text
-example.com
-     ↓
-93.184.216.34
-```
+### Learning Objectives
 
-Without DNS, users would need to remember IP addresses instead of domain names.
+By the end of this room you should understand:
 
-### Basic process
-
-```text
-User
- ↓
-Browser
- ↓
-DNS Resolver
- ↓
-DNS Server
- ↓
-IP Address
- ↓
-Web Server
-```
+- How DNS resolves names to IP addresses
+- How WHOIS exposes domain registration data
+- How HTTP/HTTPS drives web communication
+- How FTP transfers files
+- How SMTP sends email
+- How POP3 and IMAP retrieve email
+- How to interact with all these protocols manually from the command line
 
 ---
 
-## Important DNS Record Types
+## 2. What Is a Network Protocol?
 
-| Record | Purpose                                            |
-| ------ | -------------------------------------------------- |
-| A      | IPv4 address                                       |
-| AAAA   | IPv6 address                                       |
-| MX     | Mail server                                        |
-| CNAME  | Alias for another domain                           |
-| NS     | Authoritative name server                          |
-| TXT    | Arbitrary text / verification / policy information |
-| PTR    | Reverse DNS lookup                                 |
-| SOA    | Zone authority information                         |
-
-### Remember
+A **network protocol** is a defined set of rules that governs how two systems communicate. Think of it as the shared language between a client and a server — both must speak the same protocol or communication breaks.
 
 ```text
-A       → IPv4
-AAAA    → IPv6
-MX      → Mail server
-CNAME   → Alias
-NS      → Name server
-TXT     → Text/policy
-PTR     → IP → hostname
+Client                          Server
+  |                               |
+  |-------- Request ------------> |
+  |                               |
+  | <------- Response ----------- |
 ```
 
-The room specifically tests **AAAA** for IPv6 and **MX** for email servers. ([GitHub][4])
+Every protocol in this room operates at the **Application layer** of the TCP/IP model, riding on top of TCP (or UDP for DNS).
+
+### Protocol Purpose Summary
+
+| Protocol | Layer       | Transport | Primary Purpose                 |
+| -------- | ----------- | --------- | ------------------------------- |
+| DNS      | Application | UDP/TCP   | Name → IP resolution            |
+| WHOIS    | Application | TCP       | Domain registration lookup      |
+| HTTP     | Application | TCP       | Web communication               |
+| FTP      | Application | TCP       | File transfer                   |
+| SMTP     | Application | TCP       | Sending email                   |
+| POP3     | Application | TCP       | Downloading email               |
+| IMAP     | Application | TCP       | Synchronizing/accessing email   |
 
 ---
 
-## Useful Commands
+## 3. DNS — Domain Name System
 
-### Resolve a domain
+### What Is DNS?
+
+DNS translates human-readable domain names into IP addresses. Without it, every user would need to memorize raw IP addresses.
+
+```text
+example.com  →  DNS  →  93.184.216.34
+```
+
+### DNS Resolution Flow
+
+```text
+User types URL in browser
+        ↓
+   DNS Resolver (ISP or custom, e.g. 8.8.8.8)
+        ↓
+   Root Name Server  →  TLD Server (.com)  →  Authoritative NS
+        ↓
+   IP Address returned
+        ↓
+   Browser connects to Web Server
+```
+
+### DNS Record Types
+
+| Record | Purpose                                              |
+| ------ | ---------------------------------------------------- |
+| A      | Maps domain to IPv4 address                          |
+| AAAA   | Maps domain to IPv6 address                          |
+| MX     | Identifies the mail server for a domain              |
+| CNAME  | Alias — points one domain to another                 |
+| NS     | Specifies the authoritative name server for a domain |
+| TXT    | Arbitrary text: SPF, DKIM, domain verification, etc. |
+| PTR    | Reverse lookup — IP address → hostname               |
+| SOA    | Start of Authority — zone metadata                   |
+
+> **Memory trick:** A → IPv4 · AAAA → IPv6 · MX → mail · CNAME → alias · NS → nameserver · PTR → reverse
+
+### DNS Commands
 
 ```bash
+# Basic resolution
 nslookup example.com
-```
-
-or:
-
-```bash
 dig example.com
-```
 
-### Query a specific record
-
-```bash
+# Query specific record types
 dig example.com A
-```
-
-```bash
 dig example.com AAAA
-```
-
-```bash
 dig example.com MX
-```
-
-```bash
 dig example.com NS
+dig example.com TXT
+
+# Reverse lookup
+dig -x 93.184.216.34
+
+# Use a specific resolver
+dig @8.8.8.8 example.com
+
+# Zone transfer attempt (AXFR)
+dig axfr @ns1.example.com example.com
 ```
 
-### Security relevance
+### Security Relevance
 
-DNS is extremely important during reconnaissance.
-
-You can discover:
+DNS is a **primary recon target**. From a single domain you can map:
 
 ```text
 Domain
- ↓
-DNS records
- ↓
-IP addresses
- ↓
-Mail infrastructure
- ↓
-Name servers
- ↓
-Potential attack surface
+  ↓  A/AAAA records
+IP addresses & hosting infrastructure
+  ↓  MX records
+Mail server provider
+  ↓  NS records
+DNS hosting provider & potential zone transfer targets
+  ↓  TXT records
+Email security config (SPF, DKIM, DMARC), third-party integrations
+  ↓  CNAME records
+Subdomains and CDN/cloud services in use
 ```
 
-For penetration testing, DNS enumeration can help identify infrastructure belonging to an organization.
+Key tools for DNS recon: `dig`, `nslookup`, `dnsx`, `subfinder`, `amass`, `dnsrecon`
 
 ---
 
-# 4. WHOIS
+## 4. WHOIS
 
-## What is WHOIS?
+### What Is WHOIS?
 
-**WHOIS** is used to retrieve registration information about Internet resources such as domains.
+WHOIS retrieves registration data about Internet resources (domains, IP blocks, ASNs). Depending on the registrar and privacy settings, a lookup may return:
 
-Depending on the registry and privacy settings, information may include:
+- Registrar name
+- Registration and expiration dates
+- Nameservers
+- Domain status codes
+- Registrant / admin / technical contact details (often redacted)
 
-* Registrar
-* Registration date
-* Expiration date
-* Nameservers
-* Domain status
-* Registrant information
-* Administrative information
+> **Note:** GDPR and registrar privacy services (e.g. WhoisGuard) frequently mask personal details. You will often see proxy contact info rather than the real registrant.
 
-Privacy regulations and registrar privacy services mean that personal information is often hidden.
-
----
-
-## Command
+### Command
 
 ```bash
 whois example.com
+whois 93.184.216.34    # IP WHOIS — returns ASN, org, CIDR block
 ```
 
-Example workflow:
+### Security Relevance
 
-```bash
-whois x.com
-```
+WHOIS is a **passive reconnaissance** technique — no packets sent to the target.
 
-The room uses WHOIS to investigate domain registration information. Public walkthrough material reports the historical creation dates for `x.com` and `twitter.com` as **1993-04-02** and **2000-01-21**, respectively. ([GitHub][4])
-
-### Security relevance
-
-WHOIS is useful during:
-
-**Passive reconnaissance**
-
-You can potentially determine:
-
-```text
-Target domain
-      ↓
-Registrar
-      ↓
-Registration information
-      ↓
-Nameservers
-      ↓
-Infrastructure clues
-```
+Useful for:
+- Identifying the registrar and hosting org
+- Determining domain age (older domains are often more trusted for email)
+- Correlating multiple domains owned by the same entity
+- Finding historical registration info via tools like whoxy.com or domaintools.com
 
 ---
 
-# 5. HTTP — Hypertext Transfer Protocol
+## 5. HTTP — Hypertext Transfer Protocol
 
-## What is HTTP?
+### What Is HTTP?
 
-HTTP is the protocol used for communication between web clients and web servers.
-
-Basic model:
+HTTP is the application-layer protocol that drives communication between web clients (browsers, `curl`, scripts) and web servers.
 
 ```text
-Browser
-   |
-   | HTTP Request
-   ↓
-Web Server
-   |
-   | HTTP Response
-   ↓
-Browser
+Client (Browser)
+      |
+      |  HTTP Request  (TCP/80)
+      ↓
+  Web Server
+      |
+      |  HTTP Response
+      ↓
+Client (Browser)
 ```
 
-HTTP normally uses:
+| Variant | Port    | Notes                                            |
+| ------- | ------- | ------------------------------------------------ |
+| HTTP    | TCP/80  | Plaintext — all traffic visible on the wire      |
+| HTTPS   | TCP/443 | HTTP tunneled inside TLS — encrypted in transit  |
 
-```text
-TCP/80
-```
-
-HTTPS normally uses:
-
-```text
-TCP/443
-```
+> **HTTPS does not mean "secure website."** HTTPS only means the *transport* is encrypted. The application itself can still be vulnerable.
 
 ---
 
-# 6. HTTP Request
+## 6. HTTP Requests
 
-A basic HTTP request looks conceptually like:
+### Basic Structure
 
 ```http
-GET / HTTP/1.1
+GET /index.html HTTP/1.1
 Host: example.com
+User-Agent: curl/7.88.0
+Accept: */*
+
 ```
 
-Important request methods:
+> The **blank line** after headers is mandatory — it signals the end of the header section.
 
-| Method | Purpose                              |
-| ------ | ------------------------------------ |
-| GET    | Retrieve resource                    |
-| POST   | Submit data                          |
-| PUT    | Replace/update resource              |
-| PATCH  | Partially update resource            |
-| DELETE | Delete resource                      |
-| HEAD   | Retrieve headers without normal body |
+### HTTP Methods
+
+| Method  | Purpose                                    | Idempotent? |
+| ------- | ------------------------------------------ | ----------- |
+| GET     | Retrieve a resource                        | Yes         |
+| POST    | Submit data to create/process a resource   | No          |
+| PUT     | Replace a resource entirely                | Yes         |
+| PATCH   | Partially update a resource                | No          |
+| DELETE  | Remove a resource                          | Yes         |
+| HEAD    | Same as GET but response body is omitted   | Yes         |
+| OPTIONS | Query which methods the server supports    | Yes         |
 
 ---
 
-# 7. HTTP Response
+## 7. HTTP Responses
 
-A server responds with something like:
+### Basic Structure
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: text/html
-Content-Length: ...
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1234
+Server: nginx
+
+<html>...
 ```
 
-### Important status codes
+### Status Code Categories
 
-| Code | Meaning               |
-| ---- | --------------------- |
-| 200  | OK                    |
-| 201  | Created               |
-| 301  | Permanent redirect    |
-| 302  | Temporary redirect    |
-| 400  | Bad request           |
-| 401  | Unauthorized          |
-| 403  | Forbidden             |
-| 404  | Not found             |
-| 500  | Internal server error |
-| 503  | Service unavailable   |
+| Range | Category      | Meaning                                           |
+| ----- | ------------- | ------------------------------------------------- |
+| 1xx   | Informational | Request received, processing continues            |
+| 2xx   | Success       | Request completed successfully                    |
+| 3xx   | Redirection   | Further action required                           |
+| 4xx   | Client Error  | Problem with the request                          |
+| 5xx   | Server Error  | Server failed to fulfill a valid request          |
+
+### Common Status Codes
+
+| Code | Text                  | Meaning                                      |
+| ---- | --------------------- | -------------------------------------------- |
+| 200  | OK                    | Request successful                           |
+| 201  | Created               | Resource created (after POST/PUT)            |
+| 204  | No Content            | Success, no body returned                    |
+| 301  | Moved Permanently     | Permanent redirect — update your bookmark    |
+| 302  | Found                 | Temporary redirect                           |
+| 400  | Bad Request           | Malformed request syntax                     |
+| 401  | Unauthorized          | Authentication required                      |
+| 403  | Forbidden             | Authenticated but not authorized             |
+| 404  | Not Found             | Resource does not exist                      |
+| 405  | Method Not Allowed    | HTTP method not supported on this endpoint   |
+| 500  | Internal Server Error | Generic server-side failure                  |
+| 503  | Service Unavailable   | Server overloaded or down for maintenance    |
+
+> **Security note:** `403` vs `401` matters. `401` = not logged in. `403` = logged in but blocked. Both can indicate interesting resources worth investigating.
 
 ---
 
-# 8. HTTP From the Command Line
-
-You can interact with HTTP without a browser.
+## 8. HTTP From the Command Line
 
 ### curl
 
 ```bash
+# GET request
 curl http://TARGET_IP
-```
 
-Headers only:
-
-```bash
+# Headers only (HEAD request)
 curl -I http://TARGET_IP
-```
 
-Verbose communication:
-
-```bash
+# Verbose — shows full request + response headers
 curl -v http://TARGET_IP
+
+# Follow redirects
+curl -L http://TARGET_IP
+
+# POST with data
+curl -X POST -d "username=admin&password=secret" http://TARGET_IP/login
+
+# Custom header
+curl -H "X-Custom-Header: value" http://TARGET_IP
 ```
 
-### Telnet
+### Telnet / netcat (Manual TCP)
 
-You can manually communicate with an HTTP server:
+Both `telnet` and `nc` let you send raw bytes over TCP — useful for hand-crafting HTTP requests:
 
 ```bash
+# Using telnet
 telnet TARGET_IP 80
+
+# Using netcat (nc) — preferred
+nc TARGET_IP 80
 ```
 
-Then:
+Then type the request manually:
 
 ```http
 GET / HTTP/1.1
@@ -366,765 +345,607 @@ Host: TARGET_IP
 
 ```
 
-Notice the blank line at the end.
-
-That blank line tells the server that the HTTP headers are finished.
+> The blank line after `Host:` is required — it terminates the headers. Without it the server keeps waiting.
 
 ---
 
-## Security relevance
+## 9. FTP — File Transfer Protocol
 
-Understanding HTTP at this level is fundamental for web security.
+### What Is FTP?
 
-You need to understand:
+FTP transfers files between a client and a server. It uses a **two-channel model**:
 
-```text
-Request
- ↓
-Method
- ↓
-URL
- ↓
-Headers
- ↓
-Parameters
- ↓
-Body
- ↓
-Server processing
- ↓
-Response
-```
+| Channel    | Port | Purpose                               |
+| ---------- | ---- | ------------------------------------- |
+| Control    | 21   | Commands and server responses         |
+| Data       | 20*  | Actual file data transfer             |
 
-This becomes important when studying:
+> *Port 20 is used in **Active mode**. In **Passive mode** the server opens a random high port for data — this is more firewall-friendly and is the default in most modern clients.
 
-* SQL injection
-* XSS
-* Authentication vulnerabilities
-* IDOR
-* CSRF
-* SSRF
-* Request smuggling
-* Web enumeration
-
----
-
-# 9. FTP — File Transfer Protocol
-
-## What is FTP?
-
-FTP is a protocol designed for transferring files between a client and server.
-
-Traditional FTP commonly uses:
-
-```text
-TCP/21 → Control connection
-```
-
-FTP has historically been used for:
-
-* Uploading files
-* Downloading files
-* Directory listing
-* File management
-
----
-
-## Basic FTP interaction
-
-Connect:
+### Connecting
 
 ```bash
 ftp TARGET_IP
 ```
 
-Common commands:
-
-```text
-ls
-pwd
-cd
-get
-put
-bye
-```
-
-Example:
-
-```text
-ftp TARGET_IP
-```
-
-Then:
+If anonymous access is enabled:
 
 ```text
 Name: anonymous
-Password: anonymous
+Password: anonymous   (or any email address)
 ```
 
-if anonymous access is enabled.
+### Common FTP Commands
+
+| Command        | Purpose                        |
+| -------------- | ------------------------------ |
+| `ls`           | List files in current dir      |
+| `pwd`          | Print working directory        |
+| `cd <dir>`     | Change directory               |
+| `get <file>`   | Download a file                |
+| `put <file>`   | Upload a file                  |
+| `mget *.txt`   | Download multiple files        |
+| `binary`       | Switch to binary transfer mode |
+| `passive`      | Toggle passive mode            |
+| `bye` / `quit` | Close the FTP session          |
+
+### Example Session
+
+```text
+ftp> ls
+ftp> get flag.txt
+ftp> bye
+```
+
+### FTP vs SFTP vs FTPS
+
+Traditional FTP is **completely unencrypted** — credentials and file contents are sent in plaintext.
+
+| Protocol | Description                                  | Encrypted? |
+| -------- | -------------------------------------------- | ---------- |
+| FTP      | Standard File Transfer Protocol              | No         |
+| FTPS     | FTP + TLS (explicit or implicit)             | Yes        |
+| SFTP     | SSH File Transfer Protocol (different beast) | Yes        |
+
+> SFTP is **not** FTP tunneled over SSH — it is a completely separate subsystem of the SSH protocol. Do not conflate them.
 
 ---
 
-## Downloading a file
+## 10. SMTP — Simple Mail Transfer Protocol
+
+### What Is SMTP?
+
+SMTP handles **sending** email — from a mail client to a mail server, and between mail servers.
 
 ```text
-get flag.txt
+Sender's Mail Client
+        |
+        | SMTP (port 587 / 465)
+        ↓
+  Sender's Mail Server (MTA)
+        |
+        | SMTP (port 25 — server to server)
+        ↓
+  Recipient's Mail Server
 ```
 
-Then leave:
+### SMTP Ports
+
+| Port | Usage                                              |
+| ---- | -------------------------------------------------- |
+| 25   | Server-to-server relay (MTA to MTA)                |
+| 587  | Client submission with STARTTLS (modern standard)  |
+| 465  | Client submission over implicit TLS (SMTPS)        |
+
+> **STARTTLS** = start a plaintext connection on port 587, then *upgrade* it to TLS mid-session.  
+> **Port 465 (SMTPS)** = TLS from the first byte — no unencrypted phase.
+
+### SMTP Commands
+
+| Command        | Purpose                                    |
+| -------------- | ------------------------------------------ |
+| `HELO`         | Identify the sending host (basic)          |
+| `EHLO`         | Extended HELO — used with ESMTP            |
+| `MAIL FROM:`   | Declare the sender's address               |
+| `RCPT TO:`     | Declare the recipient's address            |
+| `DATA`         | Begin the email body                       |
+| `.`            | Terminate the email body (on its own line) |
+| `QUIT`         | End the session                            |
+| `VRFY`         | Verify if a user exists (often disabled)   |
+| `EXPN`         | Expand a mailing list (often disabled)     |
+
+### Example Manual SMTP Session
 
 ```text
-bye
+telnet TARGET_IP 25
+
+Client: EHLO attacker.com
+Server: 250-TARGET_IP Hello attacker.com
+
+Client: MAIL FROM:<alice@example.com>
+Server: 250 Ok
+
+Client: RCPT TO:<bob@example.com>
+Server: 250 Ok
+
+Client: DATA
+Server: 354 End data with <CR><LF>.<CR><LF>
+
+Client: Subject: Test
+Client:
+Client: Hello Bob.
+Client: .
+Server: 250 Ok: queued
+
+Client: QUIT
+Server: 221 Bye
 ```
 
-The room's publicly documented exercise involves connecting to the lab FTP server and retrieving `flag.txt`; a public walkthrough records the resulting lab flag as `THM{FAST-FTP}`. ([GitHub][4])
+### Security Relevance
+
+- **Email spoofing:** SMTP has no built-in authentication of the `MAIL FROM:` field
+- **SPF:** DNS TXT record listing servers authorized to send for a domain
+- **DKIM:** Cryptographic signature in email headers proving authenticity
+- **DMARC:** Policy instructing receivers what to do with SPF/DKIM failures
+- **User enumeration:** `VRFY` / `RCPT TO` responses can leak valid usernames
+- **Open relay:** Misconfigured SMTP server that forwards email for anyone
 
 ---
 
-# 10. FTP Security
+## 11. POP3 — Post Office Protocol 3
 
-Traditional FTP is **not encrypted**.
+### What Is POP3?
 
-That means credentials and transferred information can potentially be exposed to someone able to observe the traffic.
-
-This is why modern environments commonly use alternatives such as:
+POP3 is for **retrieving** email from a mail server to a local client.
 
 ```text
-SFTP
-FTPS
+Mail Server (stores email)
+      |
+      | POP3
+      ↓
+Email Client (downloads and often deletes from server)
 ```
 
-Don't confuse:
+| Variant | Port | Notes             |
+| ------- | ---- | ----------------- |
+| POP3    | 110  | Plaintext         |
+| POP3S   | 995  | POP3 over TLS     |
+
+> By default POP3 **deletes messages from the server after download**. This makes multi-device access painful.
+
+### POP3 Commands
+
+| Command        | Purpose                                   |
+| -------------- | ----------------------------------------- |
+| `USER <name>`  | Send username                             |
+| `PASS <pass>`  | Send password                             |
+| `STAT`         | Number of messages and total size         |
+| `LIST`         | List all messages with sizes              |
+| `RETR <n>`     | Retrieve message number n                 |
+| `DELE <n>`     | Mark message n for deletion               |
+| `RSET`         | Reset (unmark any deletions)              |
+| `QUIT`         | Apply deletions and close session         |
+
+### Manual POP3 Session
+
+```bash
+nc TARGET_IP 110
+```
 
 ```text
-FTP
-SFTP
-FTPS
-```
+Server: +OK Dovecot ready
 
-They are different technologies.
+Client: USER alice
+Server: +OK
+
+Client: PASS password123
+Server: +OK Logged in
+
+Client: LIST
+Server: +OK 4 messages
+1 1024
+2 512
+3 768
+4 2048
+
+Client: RETR 4
+Server: +OK 2048 octets
+...email content...
+
+Client: QUIT
+Server: +OK Logging out
+```
 
 ---
 
-# 11. SMTP — Simple Mail Transfer Protocol
+## 12. IMAP — Internet Message Access Protocol
 
-## What is SMTP?
+### What Is IMAP?
 
-SMTP is primarily responsible for **sending email**.
-
-Think:
-
-```text
-Email Client
-     ↓
-SMTP Server
-     ↓
-Recipient Mail Server
-```
-
-Typical SMTP ports include:
-
-```text
-25
-587
-465
-```
-
-Port usage depends on the deployment and security mechanism.
-
----
-
-# 12. SMTP Commands
-
-Important SMTP commands include:
-
-```text
-HELO
-EHLO
-MAIL FROM:
-RCPT TO:
-DATA
-QUIT
-```
-
-Example conceptual interaction:
-
-```text
-Client → EHLO example.com
-Server → 250 ...
-
-Client → MAIL FROM:<alice@example.com>
-Server → 250 ...
-
-Client → RCPT TO:<bob@example.com>
-Server → 250 ...
-
-Client → DATA
-Server → 354 ...
-
-Client → Email content
-Client → .
-Server → 250 ...
-```
-
-### Important point
-
-`DATA` tells the server that the client is beginning the actual email content.
-
-A single:
-
-```text
-.
-```
-
-on a line by itself indicates that the email content has finished.
-
-The room specifically tests both of these concepts. ([GitHub][4])
-
----
-
-# 13. SMTP Security Relevance
-
-SMTP knowledge matters for understanding:
-
-* Email spoofing
-* Phishing
-* Mail server enumeration
-* SPF
-* DKIM
-* DMARC
-* Email infrastructure
-
-For your cybersecurity roadmap, SMTP is particularly important because it connects networking fundamentals to **email security and reconnaissance**.
-
----
-
-# 14. POP3 — Post Office Protocol 3
-
-## What is POP3?
-
-POP3 is designed primarily for retrieving email from a mail server.
-
-Typical port:
-
-```text
-TCP/110
-```
-
-Secure variant:
-
-```text
-TCP/995
-```
-
-Conceptually:
+IMAP allows a client to **access and synchronize** a mailbox stored on the server. Unlike POP3, mail stays on the server and state (read/unread, folders) is synced across devices.
 
 ```text
 Mail Server
-     |
-     | POP3
-     ↓
-Email Client
+    (bidirectional sync)
+Email Client(s)
 ```
 
-POP3 traditionally focuses on downloading messages to the client.
+| Variant | Port | Notes             |
+| ------- | ---- | ----------------- |
+| IMAP    | 143  | Plaintext         |
+| IMAPS   | 993  | IMAP over TLS     |
 
----
+### IMAP Commands
 
-# 15. POP3 Commands
+IMAP commands are prefixed with a **tag** (e.g. `A1`, `A2`) so that pipelined responses can be matched to their requests.
 
-Common commands:
+| Command                     | Purpose                                  |
+| --------------------------- | ---------------------------------------- |
+| `A LOGIN user pass`         | Authenticate                             |
+| `A LIST "" "*"`             | List all mailboxes                       |
+| `A SELECT INBOX`            | Open INBOX (shows message count)         |
+| `A FETCH <n> BODY[]`        | Retrieve full message n                  |
+| `A FETCH <n> FLAGS`         | Retrieve flags (read/unread etc.)        |
+| `A STORE <n> +FLAGS \Seen`  | Mark message as read                     |
+| `A LOGOUT`                  | End session                              |
 
-```text
-USER
-PASS
-STAT
-LIST
-RETR
-DELE
-QUIT
-```
-
-Example:
-
-```text
-USER username
-PASS password
-LIST
-RETR 1
-```
-
-### RETR
-
-`RETR` retrieves a particular email message.
-
-For example:
-
-```text
-RETR 4
-```
-
-retrieves message number 4.
-
-The room uses Telnet to interact with the POP3 service and retrieve a flag from the fourth message. Publicly documented walkthrough material identifies the server as **Dovecot** and records the lab flag as `THM{TELNET_RETR_EMAIL}`. ([GitHub][4])
-
----
-
-# 16. IMAP — Internet Message Access Protocol
-
-## What is IMAP?
-
-IMAP allows clients to access and synchronize mail stored on a server.
-
-Typical port:
-
-```text
-TCP/143
-```
-
-Secure IMAP commonly uses:
-
-```text
-TCP/993
-```
-
-The important conceptual difference:
-
-### POP3
-
-```text
-Server
-  ↓
-Download mail
-  ↓
-Client
-```
-
-### IMAP
-
-```text
-Server
- ↕
-Synchronize mailbox
- ↕
-Client
-```
-
-IMAP is much better suited to situations where you access the same mailbox from:
-
-* Laptop
-* Phone
-* Tablet
-* Webmail
-
-because messages and mailbox state can remain synchronized on the server.
-
----
-
-# 17. IMAP Commands
-
-IMAP commands are slightly different from POP3.
-
-Example:
-
-```text
-A LOGIN username password
-```
-
-Select mailbox:
-
-```text
-A SELECT INBOX
-```
-
-Retrieve a message:
-
-```text
-A FETCH 4 BODY[]
-```
-
-The room specifically asks which IMAP command retrieves the fourth email message; publicly documented material gives:
-
-```text
-FETCH 4 BODY[]
-```
-
-([GitHub][4])
-
----
-
-# 18. POP3 vs IMAP
-
-| Feature                | POP3                 | IMAP                     |
-| ---------------------- | -------------------- | ------------------------ |
-| Main purpose           | Retrieve email       | Access/synchronize email |
-| Server storage         | Often downloads mail | Mail remains server-side |
-| Multi-device use       | Poorer               | Better                   |
-| Folder synchronization | Limited              | Yes                      |
-| Server-side management | Limited              | Extensive                |
-| Common port            | 110                  | 143                      |
-| Secure version         | POP3S 995            | IMAPS 993                |
-
-### Easy memory trick
-
-```text
-POP3 → Pull mail
-IMAP → Manage mail on server
-SMTP → Send mail
-```
-
----
-
-# 19. Telnet — Why Are We Using It?
-
-This is one of the most important lessons of the room.
-
-Telnet is not the protocol being studied for most of these tasks.
-
-It is being used as a **basic TCP client** that lets you manually talk to services.
-
-For example:
+### Manual IMAP Session
 
 ```bash
-telnet TARGET_IP 80
+nc TARGET_IP 143
 ```
-
-means:
 
 ```text
-Telnet
-  ↓
-TCP connection
-  ↓
-Port 80
-  ↓
-HTTP service
+Server: * OK IMAP4rev1 Dovecot ready
+
+Client: A LOGIN alice password123
+Server: A OK Logged in
+
+Client: A SELECT INBOX
+Server: * 4 EXISTS
+Server: A OK [READ-WRITE] Select completed
+
+Client: A FETCH 4 BODY[]
+Server: * 4 FETCH (BODY[] {2048}
+...email content...
+Server: A OK Fetch completed
+
+Client: A LOGOUT
+Server: * BYE Logging out
 ```
 
-Similarly:
+---
+
+## 13. POP3 vs IMAP
+
+| Feature                  | POP3                                         | IMAP                                 |
+| ------------------------ | -------------------------------------------- | ------------------------------------ |
+| Primary action           | Download mail                                | Access/sync mail on server           |
+| Mail storage             | Moves to client (deleted from server default) | Stays on server                     |
+| Multi-device support     | Poor — mail on one device only               | Excellent — synced everywhere        |
+| Folder/label support     | None                                         | Full server-side folder structure    |
+| Offline access           | Yes (downloaded locally)                     | Yes (with client-side caching)       |
+| Read-state sync          | No                                           | Yes                                  |
+| Common port (plaintext)  | 110                                          | 143                                  |
+| Secure port              | 995 (POP3S)                                  | 993 (IMAPS)                          |
+| Best used when           | Single device, limited server space          | Multiple devices, modern usage       |
+
+### Memory Anchor
+
+```text
+POP3  →  Pull and go (like downloading a file to your machine)
+IMAP  →  Access in place (like working in Google Drive)
+SMTP  →  Send mail out
+```
+
+---
+
+## 14. Telnet — Manual Protocol Testing
+
+### Why Telnet?
+
+Telnet is **not** the protocol being studied in most tasks — it is being used as a **raw TCP client** to talk directly to plaintext services. This strips away the GUI and lets you observe the actual protocol exchange.
 
 ```bash
-telnet TARGET_IP 110
+telnet TARGET_IP 80    # HTTP
+telnet TARGET_IP 25    # SMTP
+telnet TARGET_IP 110   # POP3
+telnet TARGET_IP 143   # IMAP
+telnet TARGET_IP 21    # FTP (control channel)
 ```
 
-connects to the POP3 service.
+### Netcat (nc) — The Better Alternative
 
-This strips away the GUI and lets you see the underlying protocol.
+`nc` does the same thing and is more flexible:
 
----
+```bash
+nc TARGET_IP 80
+nc TARGET_IP 110
+nc -v TARGET_IP 25     # verbose — shows connection status
+```
 
-# 20. Protocol → Port Cheat Sheet
+> In CTFs and real assessments, `nc` is preferred over `telnet` because it is available on more systems, handles binary data cleanly, and is scriptable.
 
-Memorize this:
+### Why This Matters
 
-| Service         | Protocol      | Common Port |
-| --------------- | ------------- | ----------: |
-| DNS             | DNS           |          53 |
-| HTTP            | HTTP          |          80 |
-| HTTPS           | HTTPS         |         443 |
-| FTP             | FTP           |          21 |
-| SMTP            | SMTP          |          25 |
-| SMTP Submission | SMTP          |         587 |
-| POP3            | POP3          |         110 |
-| IMAP            | IMAP          |         143 |
-| POP3S           | POP3 over TLS |         995 |
-| IMAPS           | IMAP over TLS |         993 |
-
-**Don't blindly memorize ports without understanding the service.** During enumeration, the port is a clue, not proof of what is actually running.
+Manual protocol interaction teaches you:
+- What the protocol actually looks like on the wire
+- How minimal a valid request can be
+- What error messages look like at the protocol level
+- How service banners leak software names and version numbers
 
 ---
 
-# 21. Protocol Relationships
+## 15. Port Reference Cheat Sheet
 
-This is the bigger picture you should understand:
+| Service         | Protocol       | Default Port   | Encrypted Port       |
+| --------------- | -------------- | -------------- | -------------------- |
+| DNS             | UDP (+ TCP)    | 53             | 853 (DoT)            |
+| HTTP            | TCP            | 80             | 443 (HTTPS/TLS)      |
+| FTP (control)   | TCP            | 21             | 990 (implicit FTPS)  |
+| FTP (data)      | TCP            | 20 (active)    | —                    |
+| SMTP (relay)    | TCP            | 25             | —                    |
+| SMTP (submit)   | TCP            | 587 (STARTTLS) | 465 (SMTPS)          |
+| POP3            | TCP            | 110            | 995 (POP3S)          |
+| IMAP            | TCP            | 143            | 993 (IMAPS)          |
+| Telnet          | TCP            | 23             | — (never encrypted)  |
+| SSH             | TCP            | 22             | always encrypted     |
+
+> During pentesting, services do not always run on their default port. Always scan with Nmap — the port number is a hint, not a guarantee.
+
+---
+
+## 16. Protocol Relationships
+
+### Big Picture
 
 ```text
-                    NETWORKING
-                        |
-        +---------------+---------------+
-        |               |               |
-       DNS            WEB             EMAIL
-        |               |               |
-      DNS             HTTP          SMTP/POP3/IMAP
-        |               |               |
-   Name → IP       Client ↔ Server    Mail
+                      NETWORKING STACK
+                            |
+           +----------------+----------------+
+           |                |                |
+          DNS              WEB             EMAIL
+           |                |                |
+        A/AAAA/MX         HTTP/HTTPS    SMTP / POP3 / IMAP
+           |                |                |
+      Name to IP       Browser to Server    Mail flow
 ```
 
-And the email flow:
+### Email Flow End-to-End
 
 ```text
-                    SMTP
-Sender ─────────────────────→ Sender Mail Server
-                                  |
-                                  | SMTP
-                                  ↓
-                            Recipient Server
-                                  |
-                           POP3 / IMAP
-                                  |
-                                  ↓
-                           Recipient Client
+                        SMTP (587/465)
+Alice's Mail Client ─────────────────────> Alice's Mail Server (MTA)
+                                                   |
+                                            SMTP (port 25)
+                                                   |
+                                                   v
+                                         Bob's Mail Server (MTA)
+                                                   |
+                                        POP3 (110) or IMAP (143)
+                                                   |
+                                                   v
+                                          Bob's Mail Client
 ```
 
 ---
 
-# 22. Cybersecurity Perspective
-
-This is where you should stop thinking of the room as "just networking."
-
-These protocols directly appear during security assessments.
+## 17. Cybersecurity Perspective
 
 ### DNS
 
-Useful for:
-
-* Infrastructure discovery
-* Subdomain enumeration
-* Mail server discovery
-* Mapping external assets
+| Use case             | How                                                              |
+| -------------------- | ---------------------------------------------------------------- |
+| Infrastructure recon | A/AAAA records map IP ranges                                     |
+| Subdomain discovery  | Brute force or certificate transparency logs                     |
+| Mail server mapping  | MX records                                                       |
+| Zone transfer (AXFR) | `dig axfr @ns1.example.com example.com` — dumps all records if misconfigured |
+| Cache poisoning      | Injecting false DNS responses to redirect traffic                |
+| DNS tunneling        | Exfiltrating data via DNS TXT/A query payloads                   |
 
 ### WHOIS
 
-Useful for:
-
-* Passive reconnaissance
-* Registrar identification
-* Registration timeline
-* Infrastructure research
+| Use case                | Notes                                                 |
+| ----------------------- | ----------------------------------------------------- |
+| Passive recon           | No packets to target — fully passive                  |
+| Domain age assessment   | Older domains tend to have more email trust           |
+| Registrar correlation   | Find other domains with same registrant email         |
+| Historical data         | DomainTools, SecurityTrails, whoxy.com                |
 
 ### HTTP
 
-Critical for:
-
-* Web enumeration
-* Web application testing
-* Authentication testing
-* Request manipulation
-* Vulnerability research
+| Use case               | Relevance                                              |
+| ---------------------- | ------------------------------------------------------ |
+| Web enumeration        | `gobuster`, `ffuf`, `dirb` — brute-force paths/files   |
+| Auth testing           | Understand request/response to test login logic        |
+| Parameter manipulation | Base for SQLi, XSS, IDOR, SSRF, CSRF                  |
+| Header analysis        | Leak server software version, misconfiguration flags   |
+| Request smuggling      | HTTP/1.1 + HTTP/2 boundary desync attacks              |
 
 ### FTP
 
-Useful for:
-
-* Anonymous login testing
-* File enumeration
-* Misconfiguration discovery
-* Sensitive file exposure
+| Use case                  | Notes                                                |
+| ------------------------- | ---------------------------------------------------- |
+| Anonymous login check     | `ftp TARGET` then `user: anonymous`                  |
+| Sensitive file exposure   | Config files, credentials, backups                   |
+| Writable directory abuse  | Upload webshell if FTP root overlaps web root        |
+| Plaintext credential sniff | Capturable with Wireshark on the same LAN           |
 
 ### SMTP
 
-Useful for understanding:
-
-* Email infrastructure
-* Mail-server behavior
-* Spoofing
-* Phishing
-* SPF/DKIM/DMARC
+| Use case           | Notes                                                          |
+| ------------------ | -------------------------------------------------------------- |
+| User enumeration   | `VRFY user` or `RCPT TO:` timing/response differences         |
+| Email spoofing     | Weak/missing SPF, DKIM, DMARC allows forged sender            |
+| Open relay testing | `MAIL FROM: external; RCPT TO: external` — if accepted, it is an open relay |
+| Phishing infra     | Understand mail headers to trace phishing origin               |
 
 ### POP3 / IMAP
 
-Useful for:
-
-* Email investigations
-* Mailbox enumeration
-* Credential exposure analysis
-* Incident response
+| Use case              | Notes                                              |
+| --------------------- | -------------------------------------------------- |
+| Credential brute force | `hydra` supports both protocols                   |
+| Mailbox enumeration   | IMAP `LIST` dumps full folder structure            |
+| Incident response     | Read attacker mailbox during IR engagement         |
+| Plaintext exposure    | POP3/IMAP without TLS = credentials in cleartext  |
 
 ---
 
-# 23. Commands to Keep in Your Notes
+## 18. Command Reference
 
 ```bash
-# DNS
+# ─── DNS ─────────────────────────────────────────────────────────────
 nslookup example.com
 dig example.com
-dig example.com MX
+dig example.com A
 dig example.com AAAA
+dig example.com MX
+dig example.com NS
+dig example.com TXT
+dig -x 93.184.216.34                         # Reverse lookup
+dig axfr @ns1.example.com example.com        # Zone transfer attempt
+dig @8.8.8.8 example.com                     # Use specific resolver
 
-# WHOIS
+# ─── WHOIS ───────────────────────────────────────────────────────────
 whois example.com
+whois 93.184.216.34                          # IP/ASN lookup
 
-# HTTP
+# ─── HTTP ────────────────────────────────────────────────────────────
 curl http://TARGET_IP
-curl -I http://TARGET_IP
-curl -v http://TARGET_IP
+curl -I http://TARGET_IP                     # Headers only
+curl -v http://TARGET_IP                     # Verbose
+curl -L http://TARGET_IP                     # Follow redirects
+curl -X POST -d "key=val" http://TARGET_IP/path
 
-# FTP
+# ─── FTP ─────────────────────────────────────────────────────────────
 ftp TARGET_IP
+# Inside FTP shell: ls / pwd / cd <dir> / get <file> / put <file> / bye
 
-# Raw TCP interaction
-telnet TARGET_IP 80
-telnet TARGET_IP 110
-```
+# ─── Raw TCP — HTTP ──────────────────────────────────────────────────
+nc TARGET_IP 80
+# type: GET / HTTP/1.1
+#       Host: TARGET_IP
+#       (blank line)
 
-For a real assessment, you'd normally also use tools such as:
+# ─── Raw TCP — POP3 ──────────────────────────────────────────────────
+nc TARGET_IP 110
+# USER alice → PASS secret → LIST → RETR 4 → QUIT
 
-```bash
-nmap
-nc
-curl
-dig
-nslookup
-whois
+# ─── Raw TCP — IMAP ──────────────────────────────────────────────────
+nc TARGET_IP 143
+# A LOGIN alice secret → A SELECT INBOX → A FETCH 4 BODY[] → A LOGOUT
+
+# ─── Raw TCP — SMTP ──────────────────────────────────────────────────
+nc TARGET_IP 25
+# EHLO x → MAIL FROM:<x@x.com> → RCPT TO:<y@y.com> → DATA → . → QUIT
+
+# ─── Nmap quick scan ─────────────────────────────────────────────────
+nmap -sV -p 21,25,80,110,143,443,587,993,995 TARGET_IP
 ```
 
 ---
 
-# 24. Important Commands vs Concepts
+## 19. Learning Progression
 
-Don't make the mistake of memorizing every command without understanding what is happening.
+Build understanding in layers — do not just memorize commands:
 
-Your priority should be:
+| Level | Focus                   | Goal                                                         |
+| ----- | ----------------------- | ------------------------------------------------------------ |
+| 1     | Concept                 | What does this protocol do? What problem does it solve?      |
+| 2     | Communication model     | Who talks first? What is the request/response structure?     |
+| 3     | Manual interaction      | Can you use `nc` / `curl` / `ftp` / `dig` yourself?         |
+| 4     | Security implications   | What is exposed? What can be misused? What defends it?       |
 
-**Level 1 — Understand**
-
-```text
-What is DNS?
-What is HTTP?
-What is FTP?
-What is SMTP?
-What is POP3?
-What is IMAP?
-```
-
-**Level 2 — Understand communication**
-
-```text
-Client
-   ↓
-TCP connection
-   ↓
-Service
-   ↓
-Protocol commands
-   ↓
-Response
-```
-
-**Level 3 — Interact manually**
-
-```bash
-telnet
-curl
-ftp
-dig
-whois
-```
-
-**Level 4 — Analyze security implications**
-
-```text
-What information is exposed?
-What happens without encryption?
-What can be enumerated?
-What can be misconfigured?
-What can an attacker observe?
-```
-
-That's the level that actually matters for your pentesting path.
+Level 4 is what separates someone who read notes from someone who can actually enumerate a target.
 
 ---
 
-# 25. Room Questions / Answers to Know
+## 20. Room Q&A Reference
 
-Based on publicly available walkthrough material, the commonly documented answers include: ([GitHub][4])
+Commonly documented answers for this TryHackMe room:
 
-| Question                              | Answer           |
-| ------------------------------------- | ---------------- |
-| DNS record for IPv6                   | `AAAA`           |
-| DNS record for email server           | `MX`             |
-| x.com creation date                   | `1993-04-02`     |
-| twitter.com creation date             | `2000-01-21`     |
-| SMTP command starting message content | `DATA`           |
-| SMTP message terminator               | `.`              |
-| POP3 server identified in lab         | `Dovecot`        |
-| IMAP command for 4th email            | `FETCH 4 BODY[]` |
+| Question                                              | Answer           |
+| ----------------------------------------------------- | ---------------- |
+| DNS record type for IPv6 address                      | `AAAA`           |
+| DNS record type for email server                      | `MX`             |
+| `x.com` creation date (WHOIS)                         | `1993-04-02`     |
+| `twitter.com` creation date (WHOIS)                   | `2000-01-21`     |
+| SMTP command that starts email body input             | `DATA`           |
+| Character that terminates an SMTP message body        | `.`              |
+| POP3 server software identified in the lab            | `Dovecot`        |
+| IMAP command to retrieve the 4th email                | `FETCH 4 BODY[]` |
 
-For the actual flags, **I recommend you retrieve them yourself in the lab rather than treating a walkthrough's flag as your learning objective**. The point of this room is learning how to communicate with the services manually.
+> Retrieve the actual lab flags yourself — that is the point. If you can manually connect to a POP3 server with `nc` and read an email, you have learned something real.
 
 ---
 
-# 26. Final Revision Sheet
+## 21. Quick Revision Sheet
 
-If you have only **5 minutes before an exam/interview**, remember this:
+> Use this if you have 5 minutes before an exam or interview.
 
 ```text
 DNS
-→ Converts domain names to IP addresses
-→ A = IPv4
-→ AAAA = IPv6
-→ MX = mail server
+  → Name to IP resolution
+  → A = IPv4, AAAA = IPv6, MX = mail, CNAME = alias, NS = nameserver
+  → dig / nslookup
+  → Recon: subdomain enum, zone transfer, infrastructure mapping
 
 WHOIS
-→ Domain registration information
-→ whois example.com
+  → Domain registration data
+  → Passive recon — no contact with target
+  → whois example.com
 
-HTTP
-→ Web communication
-→ TCP/80
-→ GET, POST, PUT, DELETE
-→ 200, 301, 403, 404, 500
+HTTP / HTTPS
+  → Web communication
+  → TCP/80 (plaintext), TCP/443 (TLS)
+  → Methods: GET POST PUT PATCH DELETE HEAD
+  → Status: 200 OK, 301 redirect, 401 unauth, 403 forbidden, 404 missing, 500 error
+  → curl / nc
 
 FTP
-→ File transfer
-→ TCP/21
-→ get / put / ls
-→ Traditional FTP is plaintext
+  → File transfer
+  → TCP/21 (control), TCP/20 (data, active mode)
+  → Anonymous: user=anonymous pass=anonymous
+  → get / put / ls / bye
+  → PLAINTEXT — prefer SFTP or FTPS
 
 SMTP
-→ Sends email
-→ 25 / 587 / 465
-→ MAIL FROM
-→ RCPT TO
-→ DATA
-→ . terminates message
+  → Sends email (client to server and server to server)
+  → Ports: 25 (relay), 587 (STARTTLS), 465 (SMTPS)
+  → EHLO → MAIL FROM → RCPT TO → DATA → . → QUIT
+  → Defenses: SPF, DKIM, DMARC
 
 POP3
-→ Retrieves email
-→ TCP/110
-→ RETR retrieves message
-→ POP3S = 995
+  → Retrieves email to local client
+  → TCP/110, POP3S = 995
+  → USER → PASS → LIST → RETR n → QUIT
+  → Downloads mail (often deletes from server)
 
 IMAP
-→ Server-side email access/synchronization
-→ TCP/143
-→ IMAPS = 993
-→ FETCH retrieves message
+  → Accesses and syncs mail on the server
+  → TCP/143, IMAPS = 993
+  → A LOGIN → A SELECT INBOX → A FETCH n BODY[] → A LOGOUT
+  → Mail stays on server — great for multi-device use
 
-TELNET
-→ Basic TCP client
-→ Useful for manually interacting with plaintext services
+TELNET / NC
+  → Raw TCP clients for manual protocol testing
+  → nc TARGET PORT  (preferred over telnet in practice)
 ```
 
-### The mental model
+### Protocol Mental Model
 
 ```text
-        DNS
-        ↓
-  "Where is the server?"
-        ↓
-       HTTP
-        ↓
-  "Give me the webpage"
-        ↓
-       FTP
-        ↓
-  "Give/send me this file"
-        ↓
-      SMTP
-        ↓
-  "Send this email"
-        ↓
-   POP3 / IMAP
-        ↓
-  "Let me access my mail"
+DNS          →  "Where is the server?"
+     |
+HTTP         →  "Give me the webpage"
+     |
+FTP          →  "Transfer me this file"
+     |
+SMTP         →  "Send this email"
+     |
+POP3 / IMAP  →  "Let me access my mailbox"
 ```
 
-This room is worth taking seriously because it gives you the **protocol-level foundation** underneath later work with Nmap, Wireshark, Burp Suite, web exploitation, email security, and network enumeration. TryHackMe itself places *Networking Secure Protocols* immediately after this room, where those plaintext protocols are revisited with TLS, SSH, SFTP/FTPS, and VPN security. ([TryHackMe][5])
+---
 
-[1]: https://tryhackme.com/room/networkingcoreprotocols?utm_source=chatgpt.com "TryHackMe | Networking Core Protocols"
-[2]: https://tryhackme.com/room/networkingcoreprotocols "TryHackMe | Networking Core Protocols"
-[3]: https://tryhackme.com/room/networkingconcepts?utm_source=chatgpt.com "TryHackMe | Networking Concepts"
-[4]: https://github.com/cosmicline/TryHackMe-Answers/blob/main/Networking%20Core%20Protocols?utm_source=chatgpt.com "TryHackMe-Answers/Networking Core Protocols at main · cosmicline/TryHackMe-Answers · GitHub"
-[5]: https://tryhackme.com/room/networkingsecureprotocols?utm_source=chatgpt.com "TryHackMe | Networking Secure Protocols"
+*This room provides the protocol-level foundation underneath later work with Nmap, Wireshark, Burp Suite, web exploitation, email security, and network enumeration. The next room — [Networking Secure Protocols](https://tryhackme.com/room/networkingsecureprotocols) — revisits all of these with TLS, SSH, SFTP/FTPS, and VPN layered on top.*
