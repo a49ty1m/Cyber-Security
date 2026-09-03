@@ -840,194 +840,6 @@ _Before starting the technical curriculum, establish your academic foundation, l
 
 ---
 
-#### C (Operating Systems & Memory Fundamentals)
-
-- [ ] **Language Fundamentals:** Master variables, data types, operators, pointers, pointer arithmetic, arrays, strings, structs, unions, enums, typedefs, functions, recursion, bitwise operations, macros, preprocessing, header files, static vs dynamic variables, dynamic memory allocation, compilation, linking, and debugging.
-
-- [ ] **Memory Management:** Understand:
-  - [ ] Stack
-  - [ ] Heap
-  - [ ] Text Segment (.text)
-  - [ ] Data Segment (.data)
-  - [ ] BSS (.bss)
-  - [ ] Memory Alignment
-  - [ ] Padding
-  - [ ] Stack Frames
-  - [ ] Calling Conventions (cdecl, stdcall, fastcall, System V ABI)
-  - [ ] Process Memory Layout
-  - [ ] Buffer Boundaries
-  - [ ] Memory Allocation (malloc, calloc, realloc, free)
-
-- [ ] **System Programming:** Learn:
-  - [ ] File descriptors
-  - [ ] Processes
-  - [ ] Threads (POSIX Threads)
-  - [ ] Signals
-  - [ ] Pipes
-  - [ ] Named Pipes (FIFO)
-  - [ ] TCP/UDP Sockets
-  - [ ] Shared Memory
-  - [ ] Semaphores
-  - [ ] Message Queues
-  - [ ] IPC mechanisms
-  - [ ] fork()
-  - [ ] exec() family
-  - [ ] wait()/waitpid()
-  - [ ] system() and execve()
-  - [ ] Linux system calls
-  - [ ] File permissions
-  - [ ] Linux APIs (unistd, fcntl, syscalls)
-
-- [ ] **Compiler & Binary Fundamentals:** Understand:
-  - [ ] GCC
-  - [ ] Clang
-  - [ ] Makefiles
-  - [ ] Static vs Dynamic Linking
-  - [ ] Object Files (.o)
-  - [ ] ELF Binary Format
-  - [ ] Symbols
-  - [ ] Libraries (.a / .so)
-  - [ ] Compiler Optimisations
-  - [ ] Debugging with GDB
-  - [ ] objdump
-  - [ ] readelf
-  - [ ] nm
-  - [ ] strings
-  - [ ] ldd
-
-- [ ] **Memory Exploitation Fundamentals:** Learn:
-  - [ ] Buffer Overflows (Stack & Heap)
-  - [ ] Integer Overflows
-  - [ ] Format String Vulnerabilities
-  - [ ] Use-After-Free (UAF)
-  - [ ] Double Free
-  - [ ] Heap Corruption
-  - [ ] Null Pointer Dereference
-  - [ ] Race Conditions
-  - [ ] TOCTOU (Time-of-Check to Time-of-Use)
-  - [ ] Off-by-One Errors
-  - [ ] Stack Canaries
-  - [ ] DEP / NX
-  - [ ] ASLR
-  - [ ] PIE
-  - [ ] RELRO
-  - [ ] Safe Memory Management Practices
-
-- [ ] **Essential Tools:** Gain practical experience with:
-  - [ ] GDB
-  - [ ] GEF or pwndbg
-  - [ ] Valgrind
-  - [ ] AddressSanitizer (ASan)
-  - [ ] objdump
-  - [ ] readelf
-  - [ ] strings
-  - [ ] nm
-  - [ ] ltrace
-  - [ ] strace
-  - [ ] checksec
-
-- [ ] **Automation & Mini Projects:** Build:
-  - [ ] TCP client/server
-  - [ ] Simple shell
-  - [ ] Mini HTTP server
-  - [ ] File parser
-  - [ ] Process monitor
-  - [ ] Memory allocator (mini malloc)
-  - [ ] ELF parser
-  - [ ] Simple debugger
-  - [ ] Binary file analyser
-
-- [ ] **Learning Outcome:** Develop a deep understanding of C programming, Linux internals, process execution, memory management, binary structure, and how memory corruption vulnerabilities occur—forming the foundation for reverse engineering, exploit development, binary exploitation, and operating system security.
-
----
-
-#### C++ (Reverse Engineering & Software Analysis)
-
-- [ ] **Core Language:** Master classes, objects, inheritance, polymorphism, encapsulation, abstraction, constructors, destructors, namespaces, templates, the Standard Template Library (STL), operator overloading, exception handling, smart pointers, RAII, move semantics, object lifecycles, and modern C++ (C++11/14/17) features.
-
-- [ ] **Object-Oriented Internals:** Understand:
-  - [ ] Classes & Objects
-  - [ ] Constructors
-  - [ ] Destructors
-  - [ ] Inheritance
-  - [ ] Multiple Inheritance
-  - [ ] Virtual Functions
-  - [ ] Pure Virtual Functions
-  - [ ] VTables
-  - [ ] VPointers (vptr)
-  - [ ] Runtime Type Information (RTTI)
-  - [ ] Dynamic Casting
-  - [ ] Object Memory Layout
-  - [ ] Name Mangling
-  - [ ] Template Expansion
-  - [ ] Inline Functions
-
-- [ ] **Compiler & Binary Fundamentals:** Learn:
-  - [ ] C++ Compilation Process
-  - [ ] Name Demangling
-  - [ ] Symbol Tables
-  - [ ] Static vs Dynamic Linking
-  - [ ] ELF (Linux)
-  - [ ] PE (Windows)
-  - [ ] Shared Libraries (.so / DLL)
-  - [ ] Import & Export Tables
-  - [ ] Exception Handling Internals
-  - [ ] Debug Symbols
-
-- [ ] **Reverse Engineering:** Learn how C++ applications appear inside:
-  - [ ] Ghidra
-  - [ ] IDA Pro
-  - [ ] Binary Ninja
-  - [ ] Radare2 / Cutter
-  - [ ] x64dbg
-  - [ ] WinDbg
-  - [ ] GDB
-
-- [ ] **Reverse Engineering Concepts:** Study:
-  - [ ] Function Identification
-  - [ ] Class Reconstruction
-  - [ ] VTable Recovery
-  - [ ] RTTI Analysis
-  - [ ] Object Reconstruction
-  - [ ] Constructor & Destructor Identification
-  - [ ] Virtual Function Resolution
-  - [ ] Control Flow Graphs (CFG)
-  - [ ] Cross References (XREFs)
-  - [ ] Strings Analysis
-  - [ ] Import/Export Analysis
-  - [ ] Symbol Recovery
-  - [ ] Manual Decompilation
-
-- [ ] **Malware Analysis Context:** Understand how C++ is commonly used in:
-  - [ ] Malware loaders
-  - [ ] Packers
-  - [ ] Ransomware
-  - [ ] Trojans
-  - [ ] Remote Access Trojans (RATs)
-  - [ ] Command & Control (C2) clients
-  - [ ] Windows API-heavy applications
-
-- [ ] **Essential Libraries & APIs:** Gain familiarity with:
-  - [ ] Standard Template Library (STL)
-  - [ ] Windows API (Win32)
-  - [ ] C Runtime Library (CRT)
-  - [ ] Boost _(awareness)_
-  - [ ] COM Basics _(awareness)_
-
-- [ ] **Practical Projects:**
-  - [ ] PE parser
-  - [ ] ELF parser
-  - [ ] Mini disassembler
-  - [ ] Binary string extractor
-  - [ ] Symbol demangler
-  - [ ] Windows API monitoring tool
-  - [ ] Simple DLL loader
-  - [ ] Basic binary patcher
-
-- [ ] **Learning Outcome:** Read, analyse, reconstruct, and understand modern C++ binaries by recognising compiler-generated patterns, object-oriented structures, Windows/Linux APIs, and binary internals during malware analysis, reverse engineering, exploit research, and advanced penetration testing.
-
----
-
 #### Bash (Linux Automation & Operations)
 
 - [ ] **Shell Fundamentals:** Master variables, data types, quoting, command substitution, arithmetic operations, loops, conditionals, functions, arrays, pipes, redirection, file descriptors, environment variables, aliases, shell expansion, permissions, process management, exit codes, and shell scripting best practices.
@@ -1309,6 +1121,196 @@ Before moving to the next stage, you should be able to:
 > **Return here when you reach Phase 7, before starting Part 28 (Reverse Engineering) and Part 42 (Offensive Development).** At that point, C and C++ become immediately applicable rather than abstract theory.
 >
 > **Phase 7 location:** Phase-7.md — Stage 7B section before Part 42.
+
+_The full curriculum below is what you will complete when you return. Read it now for scope awareness, then close this section and proceed to Part 1B._
+
+---
+
+#### C (Operating Systems & Memory Fundamentals)
+
+- [ ] **Language Fundamentals:** Master variables, data types, operators, pointers, pointer arithmetic, arrays, strings, structs, unions, enums, typedefs, functions, recursion, bitwise operations, macros, preprocessing, header files, static vs dynamic variables, dynamic memory allocation, compilation, linking, and debugging.
+
+- [ ] **Memory Management:** Understand:
+  - [ ] Stack
+  - [ ] Heap
+  - [ ] Text Segment (.text)
+  - [ ] Data Segment (.data)
+  - [ ] BSS (.bss)
+  - [ ] Memory Alignment
+  - [ ] Padding
+  - [ ] Stack Frames
+  - [ ] Calling Conventions (cdecl, stdcall, fastcall, System V ABI)
+  - [ ] Process Memory Layout
+  - [ ] Buffer Boundaries
+  - [ ] Memory Allocation (malloc, calloc, realloc, free)
+
+- [ ] **System Programming:** Learn:
+  - [ ] File descriptors
+  - [ ] Processes
+  - [ ] Threads (POSIX Threads)
+  - [ ] Signals
+  - [ ] Pipes
+  - [ ] Named Pipes (FIFO)
+  - [ ] TCP/UDP Sockets
+  - [ ] Shared Memory
+  - [ ] Semaphores
+  - [ ] Message Queues
+  - [ ] IPC mechanisms
+  - [ ] fork()
+  - [ ] exec() family
+  - [ ] wait()/waitpid()
+  - [ ] system() and execve()
+  - [ ] Linux system calls
+  - [ ] File permissions
+  - [ ] Linux APIs (unistd, fcntl, syscalls)
+
+- [ ] **Compiler & Binary Fundamentals:** Understand:
+  - [ ] GCC
+  - [ ] Clang
+  - [ ] Makefiles
+  - [ ] Static vs Dynamic Linking
+  - [ ] Object Files (.o)
+  - [ ] ELF Binary Format
+  - [ ] Symbols
+  - [ ] Libraries (.a / .so)
+  - [ ] Compiler Optimisations
+  - [ ] Debugging with GDB
+  - [ ] objdump
+  - [ ] readelf
+  - [ ] nm
+  - [ ] strings
+  - [ ] ldd
+
+- [ ] **Memory Exploitation Fundamentals:** Learn:
+  - [ ] Buffer Overflows (Stack & Heap)
+  - [ ] Integer Overflows
+  - [ ] Format String Vulnerabilities
+  - [ ] Use-After-Free (UAF)
+  - [ ] Double Free
+  - [ ] Heap Corruption
+  - [ ] Null Pointer Dereference
+  - [ ] Race Conditions
+  - [ ] TOCTOU (Time-of-Check to Time-of-Use)
+  - [ ] Off-by-One Errors
+  - [ ] Stack Canaries
+  - [ ] DEP / NX
+  - [ ] ASLR
+  - [ ] PIE
+  - [ ] RELRO
+  - [ ] Safe Memory Management Practices
+
+- [ ] **Essential Tools:** Gain practical experience with:
+  - [ ] GDB
+  - [ ] GEF or pwndbg
+  - [ ] Valgrind
+  - [ ] AddressSanitizer (ASan)
+  - [ ] objdump
+  - [ ] readelf
+  - [ ] strings
+  - [ ] nm
+  - [ ] ltrace
+  - [ ] strace
+  - [ ] checksec
+
+- [ ] **Automation & Mini Projects:** Build:
+  - [ ] TCP client/server
+  - [ ] Simple shell
+  - [ ] Mini HTTP server
+  - [ ] File parser
+  - [ ] Process monitor
+  - [ ] Memory allocator (mini malloc)
+  - [ ] ELF parser
+  - [ ] Simple debugger
+  - [ ] Binary file analyser
+
+- [ ] **Learning Outcome:** Develop a deep understanding of C programming, Linux internals, process execution, memory management, binary structure, and how memory corruption vulnerabilities occur—forming the foundation for reverse engineering, exploit development, binary exploitation, and operating system security.
+
+---
+
+#### C++ (Reverse Engineering & Software Analysis)
+
+- [ ] **Core Language:** Master classes, objects, inheritance, polymorphism, encapsulation, abstraction, constructors, destructors, namespaces, templates, the Standard Template Library (STL), operator overloading, exception handling, smart pointers, RAII, move semantics, object lifecycles, and modern C++ (C++11/14/17) features.
+
+- [ ] **Object-Oriented Internals:** Understand:
+  - [ ] Classes & Objects
+  - [ ] Constructors
+  - [ ] Destructors
+  - [ ] Inheritance
+  - [ ] Multiple Inheritance
+  - [ ] Virtual Functions
+  - [ ] Pure Virtual Functions
+  - [ ] VTables
+  - [ ] VPointers (vptr)
+  - [ ] Runtime Type Information (RTTI)
+  - [ ] Dynamic Casting
+  - [ ] Object Memory Layout
+  - [ ] Name Mangling
+  - [ ] Template Expansion
+  - [ ] Inline Functions
+
+- [ ] **Compiler & Binary Fundamentals:** Learn:
+  - [ ] C++ Compilation Process
+  - [ ] Name Demangling
+  - [ ] Symbol Tables
+  - [ ] Static vs Dynamic Linking
+  - [ ] ELF (Linux)
+  - [ ] PE (Windows)
+  - [ ] Shared Libraries (.so / DLL)
+  - [ ] Import & Export Tables
+  - [ ] Exception Handling Internals
+  - [ ] Debug Symbols
+
+- [ ] **Reverse Engineering:** Learn how C++ applications appear inside:
+  - [ ] Ghidra
+  - [ ] IDA Pro
+  - [ ] Binary Ninja
+  - [ ] Radare2 / Cutter
+  - [ ] x64dbg
+  - [ ] WinDbg
+  - [ ] GDB
+
+- [ ] **Reverse Engineering Concepts:** Study:
+  - [ ] Function Identification
+  - [ ] Class Reconstruction
+  - [ ] VTable Recovery
+  - [ ] RTTI Analysis
+  - [ ] Object Reconstruction
+  - [ ] Constructor & Destructor Identification
+  - [ ] Virtual Function Resolution
+  - [ ] Control Flow Graphs (CFG)
+  - [ ] Cross References (XREFs)
+  - [ ] Strings Analysis
+  - [ ] Import/Export Analysis
+  - [ ] Symbol Recovery
+  - [ ] Manual Decompilation
+
+- [ ] **Malware Analysis Context:** Understand how C++ is commonly used in:
+  - [ ] Malware loaders
+  - [ ] Packers
+  - [ ] Ransomware
+  - [ ] Trojans
+  - [ ] Remote Access Trojans (RATs)
+  - [ ] Command & Control (C2) clients
+  - [ ] Windows API-heavy applications
+
+- [ ] **Essential Libraries & APIs:** Gain familiarity with:
+  - [ ] Standard Template Library (STL)
+  - [ ] Windows API (Win32)
+  - [ ] C Runtime Library (CRT)
+  - [ ] Boost _(awareness)_
+  - [ ] COM Basics _(awareness)_
+
+- [ ] **Practical Projects:**
+  - [ ] PE parser
+  - [ ] ELF parser
+  - [ ] Mini disassembler
+  - [ ] Binary string extractor
+  - [ ] Symbol demangler
+  - [ ] Windows API monitoring tool
+  - [ ] Simple DLL loader
+  - [ ] Basic binary patcher
+
+- [ ] **Learning Outcome:** Read, analyse, reconstruct, and understand modern C++ binaries by recognising compiler-generated patterns, object-oriented structures, Windows/Linux APIs, and binary internals during malware analysis, reverse engineering, exploit research, and advanced penetration testing.
 
 ---
 
