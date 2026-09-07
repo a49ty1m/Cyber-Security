@@ -45,6 +45,20 @@
 >
 > _By the end of Phase 5, you should have wireless and mobile assessment templates ready for professional use._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [Aircrack-ng](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Aircrack-ng.md) Suite | Monitor mode (`airmon-ng`), packet capture (`airodump-ng`), 802.11 deauth attacks (`aireplay-ng`), WPA handshake cracking. |
+> | **Tier 1 (Mandatory)** | **Frida & Objection** | Dynamic mobile instrumentation, runtime hook injection, Android/iOS SSL pinning bypass, root/jailbreak detection bypass. |
+> | **Tier 1 (Mandatory)** | **jadx-gui / APKTool** | Static Android reverse engineering, Dalvik decompilation to Java, manifest analysis, APK unpacking & repacking. |
+> | **Tier 2 (Secondary)** | **Proxmark3 Client** | RFID/NFC emulation, cloning 125kHz HID cards and 13.56MHz Mifare Classic credentials. |
+> | **Tier 2 (Secondary)** | **Kismet** | Wireless RF sniffing, passive AP mapping, Bluetooth wardriving telemetry collection. |
+> | **Tier 2 (Secondary)** | **MobSF (Mobile Security Framework)** | Automated SAST/DAST analysis pipeline for Android APK and iOS IPA binaries. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 5 until you can capture a valid 4-way WPA2 handshake, decompile an Android APK to analyze insecure local storage, and use Frida/Objection on a rooted emulator to defeat SSL certificate pinning and view encrypted app traffic in Burp Suite.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -102,7 +116,7 @@
 > **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use your own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
 <a id="stage-1-rf-reconnaissance-setup"></a>
-### **Stage 1: RF Reconnaissance & Setup**
+### **Stage 1: RF Reconnaissance & Setup** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Map the airspace and identify targets.
@@ -116,7 +130,7 @@
 ---
 
 <a id="stage-2-access-point-assault-the-breaching-of-keys"></a>
-### **Stage 2: Access Point Assault (The Breaching of Keys)**
+### **Stage 2: Access Point Assault (The Breaching of Keys)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Obtain the credentials to join the network.
@@ -130,7 +144,7 @@
 ---
 
 <a id="stage-3-enterprise-client-attacks-the-man-in-the-middle"></a>
-### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)**
+### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Steal individual user identities or hijack connections.
@@ -148,7 +162,7 @@
 ---
 
 <a id="stage-4-bluetooth-ble-attacks"></a>
-### **Stage 4: Bluetooth & BLE Attacks**
+### **Stage 4: Bluetooth & BLE Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise Bluetooth connections and devices.
@@ -168,7 +182,7 @@
 ---
 
 <a id="stage-5-zigbee-z-wave-iot-attacks"></a>
-### **Stage 5: Zigbee, Z-Wave & IoT Attacks**
+### **Stage 5: Zigbee, Z-Wave & IoT Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise smart home and industrial IoT networks.
@@ -188,7 +202,7 @@
 ---
 
 <a id="stage-6-nfc-rfid-attacks"></a>
-### **Stage 6: NFC & RFID Attacks**
+### **Stage 6: NFC & RFID Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise Near-Field Communication and passive identification systems.
@@ -209,7 +223,7 @@
 
 <a id="stage-7-gps-satellite-spoofing"></a>
 
-### **Stage 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]**
+### **Stage 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
 > **Optional Specialization:** GPS spoofing and satellite security require expensive specialized hardware (USRP B200/B210 starts at $800+), operate in legally restricted frequency bands (GPS jamming is a federal felony in the US), and serve a very narrow career path (drone security research, maritime/aviation security testing, critical infrastructure GPS dependency analysis). If this aligns with your career goal, complete this stage fully. If not, read for awareness and proceed to Stage 9 (Defense) or Part 22 (Mobile). **Do not let this stage block your progress.**
@@ -231,7 +245,7 @@
 
 <a id="stage-8-sdr-spectrum-analysis"></a>
 
-### **Stage 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]**
+### **Stage 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
 > **Optional Specialization:** Software-Defined Radio analysis requires hardware (HackRF One ~$300, USRP ~$800+) and strong RF/signal processing background. It is primarily used in RF security research, telecom security, and critical infrastructure assessments. For general pentesting and red teaming careers, SDR is awareness-level knowledge. If you are targeting RF security or telecom roles, complete this stage in full. Otherwise, read for awareness and proceed.
@@ -252,7 +266,7 @@
 ---
 
 <a id="stage-9-defense-hardening-the-shield"></a>
-### **Stage 9: Defense & Hardening (The Shield)**
+### **Stage 9: Defense & Hardening (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure the airwaves.
@@ -283,7 +297,7 @@
 
 
 <a id="stage-0-mobile-architecture-foundations"></a>
-### **Stage 0: Mobile Architecture Foundations**
+### **Stage 0: Mobile Architecture Foundations** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand Android and iOS architecture and security models before attempting exploitation. If you completed the awareness-level coverage in Part 1 Stage 6, this stage provides the full depth.
@@ -319,7 +333,7 @@
 ---
 
 <a id="stage-1-lab-setup-reconnaissance"></a>
-### **Stage 1: Lab Setup & Reconnaissance**
+### **Stage 1: Lab Setup & Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prepare the environment and understand the target.
@@ -333,7 +347,7 @@
 ---
 
 <a id="stage-2-static-analysis-code-review"></a>
-### **Stage 2: Static Analysis (Code Review)**
+### **Stage 2: Static Analysis (Code Review)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find hardcoded secrets and configuration flaws.
@@ -347,7 +361,7 @@
 ---
 
 <a id="stage-3-dynamic-analysis-runtime-manipulation"></a>
-### **Stage 3: Dynamic Analysis (Runtime Manipulation)**
+### **Stage 3: Dynamic Analysis (Runtime Manipulation)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Bypass client-side controls.
@@ -361,7 +375,7 @@
 ---
 
 <a id="stage-4-network-api-attacks"></a>
-### **Stage 4: Network & API Attacks**
+### **Stage 4: Network & API Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise the backend server.
@@ -375,7 +389,7 @@
 ---
 
 <a id="stage-5-local-data-storage-defense"></a>
-### **Stage 5: Local Data Storage & Defense**
+### **Stage 5: Local Data Storage & Defense** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Assess data at rest security.
@@ -389,7 +403,7 @@
 ---
 
 <a id="stage-6-defense-secure-development"></a>
-### **Stage 6: Defense & Secure Development**
+### **Stage 6: Defense & Secure Development** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Build security into mobile apps.

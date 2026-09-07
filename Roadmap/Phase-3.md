@@ -55,6 +55,21 @@
 > _By the end of Phase 3, you should have a detection rule library, a working IR playbook, an APT-derived Sigma rule set, and an investigation artifact collection in your repository._
 
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | **Splunk / Elastic (ELK) / Wazuh** | SIEM log ingestion, SPL/KQL query construction, alert tuning, correlated event triage. |
+> | **Tier 1 (Mandatory)** | **Sysmon (System Monitor)** | Endpoint telemetry generation (Event IDs 1, 3, 7, 8, 10, 11, 12/13/14, 22), SwiftOnSecurity config tuning. |
+> | **Tier 1 (Mandatory)** | [Volatility 3](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Volatility.md) | RAM dump analysis, process tree examination (`windows.pstree`), injected code detection (`malfind`). |
+> | **Tier 1 (Mandatory)** | **Sigma & YARA** | Generic log signature development (Sigma) and binary/memory artifact pattern matching (YARA rules). |
+> | **Tier 2 (Secondary)** | [Plaso](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Plaso.md) (log2timeline) | Super-timeline creation, multi-source digital forensic event aggregation. |
+> | **Tier 2 (Secondary)** | [Snort](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Phase-3.md#stage-4-detection-engineering-response) / **Suricata** | Network intrusion detection (NIDS), packet inspection rule writing, alert suppression. |
+> | **Tier 2 (Secondary)** | **MISP & OpenCTI** | Cyber Threat Intelligence (CTI) IOC curation, MITRE ATT&CK mapping, feed ingestion. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 3 until you can ingest Sysmon telemetry into your SIEM, execute an obfuscated PowerShell attack in a lab host, author a validated custom Sigma rule detecting the behavior, and extract injected shellcode from a memory dump using `Volatility 3`.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -101,7 +116,7 @@
 _Understand defensive detection to know what to evade. This Part covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in Part 13B._
 
 <a id="stage-1-defensive-architecture"></a>
-### **Stage 1: Defensive Architecture**
+### **Stage 1: Defensive Architecture** — `🧠 Conceptual`
 
 - [ ] **Defense-In-Depth:** Layer **EDR, SIEM, CASB, firewall, WAF, IDS/IPS, DNS filtering** with **proper tuning** to reduce false positives and enable hunting.
 
@@ -112,7 +127,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-2-offensive-indicators-ttps"></a>
-### **Stage 2: Offensive Indicators & TTPs**
+### **Stage 2: Offensive Indicators & TTPs** — `🧠 Conceptual`
 
 - [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [Metasploit](../Tools/Metasploit_Framework.md), custom).
 
@@ -123,7 +138,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-3-evasion-detection-hardening"></a>
-### **Stage 3: Evasion Detection & Hardening**
+### **Stage 3: Evasion Detection & Hardening** — `🔬 Practical`
 
 - [ ] **Living-off-the-Land Detection:** Monitor **native binary execution** (PowerShell, WMI, certutil, mshta, bitsadmin) with **process whitelisting, memory pattern analysis, and behavioral indicators**.
 
@@ -136,7 +151,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-4-detection-engineering-response"></a>
-### **Stage 4: Detection Engineering & Response**
+### **Stage 4: Detection Engineering & Response** — `🔬 Practical`
 
 - [ ] **Detection Rules:** Write **Sigma, Snort/Suricata, Yara, osquery** rules targeting **adversary TTPs** from reconnaissance to exfiltration.
 
@@ -156,7 +171,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-5-edrxdrmdr-basics"></a>
-### **Stage 5: EDR/XDR/MDR Basics**
+### **Stage 5: EDR/XDR/MDR Basics** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand modern endpoint and extended detection capabilities.
@@ -174,7 +189,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-6-soc-siem-fundamentals"></a>
-### **Stage 6: SOC & SIEM Fundamentals**
+### **Stage 6: SOC & SIEM Fundamentals** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand Security Operations Center workflow and SIEM correlation.
@@ -201,7 +216,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-7-threat-hunting-methodology"></a>
-### **Stage 7: Threat Hunting Methodology**
+### **Stage 7: Threat Hunting Methodology** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Learn proactive threat hunting to find advanced threats.
@@ -221,7 +236,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-8-incident-response-basics"></a>
-### **Stage 8: Incident Response Basics**
+### **Stage 8: Incident Response Basics** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand the incident response lifecycle.
@@ -247,7 +262,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-9-forensic-fundamentals"></a>
-### **Stage 9: Forensic Fundamentals**
+### **Stage 9: Forensic Fundamentals** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Collect and analyze evidence of compromise.
@@ -265,7 +280,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="stage-10-blue-team-evasion-counter-measures"></a>
-### **Stage 10: Blue Team Evasion Counter-Measures**
+### **Stage 10: Blue Team Evasion Counter-Measures** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Know how defenders detect and counter red team techniques.
@@ -306,7 +321,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 _Continuation of Part 13A. These stages cover operational security tools and programs that build on the detection engineering foundation. Complete Part 13A before starting this section._
 
 <a id="stage-11-security-orchestration-automation-response-soar"></a>
-### **Stage 11: Security Orchestration, Automation & Response (SOAR)**
+### **Stage 11: Security Orchestration, Automation & Response (SOAR)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Automate SOC workflows and incident response actions.
@@ -324,7 +339,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-12-data-loss-prevention-dlp-fundamentals"></a>
-### **Stage 12: Data Loss Prevention (DLP) Fundamentals**
+### **Stage 12: Data Loss Prevention (DLP) Fundamentals** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand DLP as a defensive control, not just something to bypass.
@@ -342,7 +357,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-13-vulnerability-management-program"></a>
-### **Stage 13: Vulnerability Management Program**
+### **Stage 13: Vulnerability Management Program** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand the full lifecycle of finding, prioritizing, and remediating vulnerabilities at scale.
@@ -362,7 +377,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-14-insider-threat-detection"></a>
-### **Stage 14: Insider Threat Detection**
+### **Stage 14: Insider Threat Detection** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Detect and investigate threats originating from within the organization.
@@ -416,7 +431,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ## Part 14: IDS, Firewalls, and Honeypots
 
 <a id="stage-1-foundational-strategy-networking"></a>
-### **Stage 1: Foundational Strategy & Networking**
+### **Stage 1: Foundational Strategy & Networking** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Establish the theoretical base and network understanding.
@@ -430,7 +445,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-2-deploying-firewalls-the-shield"></a>
-### **Stage 2: Deploying Firewalls (The Shield)**
+### **Stage 2: Deploying Firewalls (The Shield)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Implement access control and segmentation.
@@ -444,7 +459,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-3-implementing-idsips-the-watchers"></a>
-### **Stage 3: Implementing IDS/IPS (The Watchers)**
+### **Stage 3: Implementing IDS/IPS (The Watchers)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Detect and stop malicious traffic that bypasses firewalls.
@@ -460,7 +475,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-4-utilizing-deception-the-traps"></a>
-### **Stage 4: Utilizing Deception (The Traps)**
+### **Stage 4: Utilizing Deception (The Traps)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Deploy detection-layer deception that catches attackers operating quietly below IDS thresholds, while understanding how attackers evade it.
@@ -507,7 +522,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-5-operations-continuous-improvement"></a>
-### **Stage 5: Operations & Continuous Improvement**
+### **Stage 5: Operations & Continuous Improvement** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Integrate into daily security operations.
@@ -525,7 +540,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-6-email-security-architecture"></a>
-### **Stage 6: Email Security Architecture**
+### **Stage 6: Email Security Architecture** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Secure the #1 initial access vector — email infrastructure.
@@ -545,7 +560,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-7-dns-security-operations"></a>
-### **Stage 7: DNS Security Operations**
+### **Stage 7: DNS Security Operations** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Detect and prevent DNS-based attacks and data exfiltration.
@@ -583,7 +598,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ## Part 15: OSINT & Threat Intelligence
 
 <a id="stage-1-passive-reconnaissance-data-collection"></a>
-### **Stage 1: Passive Reconnaissance & Data Collection**
+### **Stage 1: Passive Reconnaissance & Data Collection** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Gather intelligence without touching target infrastructure.
@@ -603,7 +618,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-2-threat-intelligence-analysis"></a>
-### **Stage 2: Threat Intelligence Analysis**
+### **Stage 2: Threat Intelligence Analysis** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Convert raw data into actionable intelligence.
@@ -621,7 +636,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-3-osint-automation-tooling"></a>
-### **Stage 3: OSINT Automation & Tooling**
+### **Stage 3: OSINT Automation & Tooling** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Scale reconnaissance with automation and operationalise threat intelligence platforms.
@@ -647,7 +662,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-4-threat-intelligence-dissemination"></a>
-### **Stage 4: Threat Intelligence Dissemination**
+### **Stage 4: Threat Intelligence Dissemination** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Communicate intelligence effectively to stakeholders.
@@ -665,7 +680,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-5-threat-intel-operationalization"></a>
-### **Stage 5: Threat Intel Operationalization**
+### **Stage 5: Threat Intel Operationalization** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Close the gap between *collecting* threat intelligence and *acting on it*. A threat report with IOCs and TTPs has zero value if it sits in a PDF. This stage converts intel into SIEM rules, hunting queries, and detection coverage.

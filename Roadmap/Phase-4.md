@@ -26,6 +26,22 @@
 >
 > _By the end of Phase 4, you should have a library of vulnerability reports ready for your portfolio._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [Burp Suite](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Burp_Suite.md) (Community or Pro) | HTTP/S proxying, Repeater parameter manipulation, Intruder fuzzing, match & replace rules, Autorize plugin (IDOR). |
+> | **Tier 1 (Mandatory)** | [ffuf](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/ffuf.md) / [Gobuster](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Gobuster.md) | High-speed web content/directory discovery, virtual host routing fuzzing, parameter fuzzing. |
+> | **Tier 1 (Mandatory)** | [sqlmap](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/sqlmap.md) | Automated SQL injection testing, tamper script crafting, DBMS fingerprinting, database dumping. |
+> | **Tier 1 (Mandatory)** | [Postman](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Postman.md) / cURL | REST/GraphQL API schema testing, authentication token injection, automated regression request suites. |
+> | **Tier 1 (Mandatory)** | [jwt-tool](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/jwt-tool.md) | JSON Web Token tampering, algorithm confusion (`none`), key cracking, signature forgery. |
+> | **Tier 2 (Secondary)** | [Nuclei](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nuclei.md) | Template-based vulnerability scanning, custom YAML template writing for known CVEs. |
+> | **Tier 2 (Secondary)** | [OWASP ZAP](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/OWASP_ZAP.md) | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
+> | **Tier 2 (Secondary)** | [wpscan](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/wpscan.md) & [Nikto](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nikto.md) | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 4 until you can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -129,7 +145,7 @@
 
 
 <a id="stage-1-reconnaissance-mapping"></a>
-### **Stage 1: Reconnaissance & Mapping**
+### **Stage 1: Reconnaissance & Mapping** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand the target application's structure and technologies.
@@ -147,7 +163,7 @@
 ---
 
 <a id="stage-2-vulnerability-analysis-probing"></a>
-### **Stage 2: Vulnerability Analysis & Probing**
+### **Stage 2: Vulnerability Analysis & Probing** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find potential entry points and weaknesses.
@@ -165,7 +181,7 @@
 ---
 
 <a id="stage-3-exploitation-the-owasp-top-10"></a>
-### **Stage 3: Exploitation (The OWASP Top 10)**
+### **Stage 3: Exploitation (The OWASP Top 10)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prove the vulnerability and gain access.
@@ -187,7 +203,7 @@
 ---
 
 <a id="stage-4-post-exploitation-persistence"></a>
-### **Stage 4: Post-Exploitation & Persistence**
+### **Stage 4: Post-Exploitation & Persistence** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Maintain access and pivot deeper.
@@ -203,7 +219,7 @@
 ---
 
 <a id="stage-5-defense-mitigation-the-shield"></a>
-### **Stage 5: Defense & Mitigation (The Shield)**
+### **Stage 5: Defense & Mitigation (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Prevent and detect these attacks.
@@ -261,7 +277,7 @@
 
 
 <a id="stage-1-target-acquisition-reconnaissance"></a>
-### **Stage 1: Target Acquisition & Reconnaissance**
+### **Stage 1: Target Acquisition & Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify the target server and gather intelligence.
@@ -275,7 +291,7 @@
 ---
 
 <a id="stage-2-scanning-service-enumeration"></a>
-### **Stage 2: Scanning & Service Enumeration**
+### **Stage 2: Scanning & Service Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Map out the server's attack surface.
@@ -293,7 +309,7 @@
 ---
 
 <a id="stage-3-vulnerability-assessment-exploitation"></a>
-### **Stage 3: Vulnerability Assessment & Exploitation**
+### **Stage 3: Vulnerability Assessment & Exploitation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find and exploit flaws to gain initial access.
@@ -313,7 +329,7 @@
 ---
 
 <a id="stage-4-post-exploitation-persistence"></a>
-### **Stage 4: Post-Exploitation & Persistence**
+### **Stage 4: Post-Exploitation & Persistence** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Escalate privileges and maintain control.
@@ -357,7 +373,7 @@
 
 
 <a id="stage-1-api-reconnaissance-mapping"></a>
-### **Stage 1: API Reconnaissance & Mapping**
+### **Stage 1: API Reconnaissance & Mapping** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Discover and map API attack surface.
@@ -373,7 +389,7 @@
 ---
 
 <a id="stage-2-owasp-api-security-top-10"></a>
-### **Stage 2: OWASP API Security Top 10**
+### **Stage 2: OWASP API Security Top 10** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Methodically test each API-specific vulnerability class.
@@ -401,7 +417,7 @@
 ---
 
 <a id="stage-3-protocol-specific-api-attacks"></a>
-### **Stage 3: Protocol-Specific API Attacks**
+### **Stage 3: Protocol-Specific API Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Attack REST, GraphQL, gRPC, and SOAP distinctly.
@@ -417,7 +433,7 @@
 ---
 
 <a id="stage-4-api-authentication-token-attacks"></a>
-### **Stage 4: API Authentication & Token Attacks**
+### **Stage 4: API Authentication & Token Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Break API authentication mechanisms.
@@ -433,7 +449,7 @@
 ---
 
 <a id="stage-5-defense-hardening"></a>
-### **Stage 5: Defense & Hardening**
+### **Stage 5: Defense & Hardening** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Know what defenders implement so you can test it properly.
@@ -476,7 +492,7 @@
 
 
 <a id="stage-1-preparation-scoping"></a>
-### **Stage 1: Preparation & Scoping**
+### **Stage 1: Preparation & Scoping** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Stay legal and define the target.
@@ -496,7 +512,7 @@
 ---
 
 <a id="stage-2-reconnaissance-the-wide-net"></a>
-### **Stage 2: Reconnaissance (The Wide Net)**
+### **Stage 2: Reconnaissance (The Wide Net)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find what others missed.
@@ -510,7 +526,7 @@
 ---
 
 <a id="stage-3-vulnerability-assessment-the-deep-dive"></a>
-### **Stage 3: Vulnerability Assessment (The Deep Dive)**
+### **Stage 3: Vulnerability Assessment (The Deep Dive)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find the flaw.
@@ -527,7 +543,7 @@
 ---
 
 <a id="stage-4-exploitation-validation"></a>
-### **Stage 4: Exploitation & Validation**
+### **Stage 4: Exploitation & Validation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prove the risk without breaking the system.
@@ -541,7 +557,7 @@
 ---
 
 <a id="stage-5-reporting-triage"></a>
-### **Stage 5: Reporting & Triage**
+### **Stage 5: Reporting & Triage** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Get paid and drive remediation.
@@ -557,7 +573,7 @@
 ---
 
 <a id="stage-6-professional-development"></a>
-### **Stage 6: Professional Development**
+### **Stage 6: Professional Development** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Build skills and reputation.

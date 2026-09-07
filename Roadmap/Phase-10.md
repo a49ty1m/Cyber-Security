@@ -34,6 +34,20 @@
 >
 > _By the end of Phase 10, a hiring manager should be able to review your GitHub, blog, and resume and understand your capabilities without a single conversation. Your portfolio must tell a coherent story of progressive skill development across all 10 phases._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [Sliver](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Sliver.md) / Mythic / Havoc | Modern Command & Control (C2) architecture, mTLS/DNS/HTTP beaconing, beacon obfuscation, operator collaboration. |
+> | **Tier 1 (Mandatory)** | [Ligolo-ng](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Ligolo-ng.md) / [Chisel](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Chisel.md) | High-performance multi-hop network pivoting, TUN interface tunneling, reverse SOCKS5 proxies. |
+> | **Tier 1 (Mandatory)** | [Evil-WinRM](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Evil-WinRM.md) / PowerShell Empire | Post-exploitation tradecraft, in-memory execution, credential extraction, OPSEC-aware execution. |
+> | **Tier 1 (Mandatory)** | **Git, Obsidian / Markdown & Draw.io** | Professional executive deliverables: threat model diagrams, attack narrative documentation, PTES/NIST-compliant technical reports. |
+> | **Tier 2 (Secondary)** | **GoPhish** | Enterprise social engineering infrastructure, campaign credential harvesting, SPF/DKIM/DMARC analysis. |
+> | **Tier 2 (Secondary)** | **Ghostwriter / Serpico** | Red team engagement tracking, finding management, automated report generation. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 10 until you stand up an operational C2 listener (Sliver) behind a redirector, execute a staged payload on a target, pivot through a dual-homed host into an internal network segment using `Ligolo-ng`, and produce an executive-ready, PTES-standard penetration testing report detailing the full attack path and remediation actions.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -86,7 +100,7 @@
 <a id="strategy-core-operations"></a>
 <a id="stage-1-campaign-planning-infrastructure"></a>
 
-### **Stage 1: Campaign Planning & Infrastructure**
+### **Stage 1: Campaign Planning & Infrastructure** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Define the operation's objectives, rules of engagement, and build the technical infrastructure before any offensive action begins.
@@ -103,7 +117,7 @@
 
 <a id="stage-2-initial-access-payload-delivery"></a>
 
-### **Stage 2: Initial Access & Payload Delivery**
+### **Stage 2: Initial Access & Payload Delivery** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Gain a foothold using tradecraft that survives email gateways, sandboxes, and EDR — and leaves minimal forensic trace.
@@ -114,7 +128,7 @@
 
 <a id="stage-3-opsec-persistence-lateral-movement"></a>
 
-### **Stage 3: OPSEC, Persistence & Lateral Movement**
+### **Stage 3: OPSEC, Persistence & Lateral Movement** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Maintain stealth while expanding access — blend with normal traffic, establish redundant persistence, and move laterally without triggering detection.
@@ -129,7 +143,7 @@
 
 <a id="stage-4-data-exfiltration-impact"></a>
 
-### **Stage 4: Data Exfiltration & Impact**
+### **Stage 4: Data Exfiltration & Impact** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Reach the campaign objective — exfiltrate data or demonstrate impact — without triggering DLP or anomaly-based detection.
@@ -140,7 +154,7 @@
 
 <a id="stage-5-deconfliction-reporting-wrap-up"></a>
 
-### **Stage 5: Deconfliction, Reporting & Wrap-Up**
+### **Stage 5: Deconfliction, Reporting & Wrap-Up** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Close the operation safely, hand off findings, and produce a campaign report that improves the client's detection capability.
@@ -178,7 +192,7 @@
 
 <a id="stage-1-industry-standard-engagement-frameworks"></a>
 
-### **Stage 1: Industry-Standard Engagement Frameworks**
+### **Stage 1: Industry-Standard Engagement Frameworks** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the structured methodologies that govern professional engagements.
@@ -199,7 +213,7 @@
 
 <a id="stage-2-scoping-legal-frameworks-engagement-management"></a>
 
-### **Stage 2: Scoping, Legal Frameworks & Engagement Management**
+### **Stage 2: Scoping, Legal Frameworks & Engagement Management** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Define engagement boundaries that protect the tester and client legally and operationally.
@@ -220,7 +234,7 @@
 
 <a id="stage-3-structured-threat-modeling"></a>
 
-### **Stage 3: Structured Threat Modeling**
+### **Stage 3: Structured Threat Modeling** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Apply structured threat identification before testing begins — not after.
@@ -241,7 +255,7 @@
 
 <a id="stage-4-vulnerability-scoring-risk-prioritization"></a>
 
-### **Stage 4: Vulnerability Scoring & Risk Prioritization**
+### **Stage 4: Vulnerability Scoring & Risk Prioritization** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Rate findings objectively and communicate risk in business terms — not just CVSS numbers.
@@ -262,7 +276,7 @@
 
 <a id="stage-5-professional-report-writing"></a>
 
-### **Stage 5: Professional Report Writing**
+### **Stage 5: Professional Report Writing** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Deliver findings in a format that survives executive scrutiny and drives budgeted remediation.
@@ -314,7 +328,7 @@
 
 <a id="stage-1-certification-roadmap"></a>
 
-### **Stage 1: Certification Roadmap**
+### **Stage 1: Certification Roadmap** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Validate skills through industry-recognized, hands-on certifications.
@@ -355,7 +369,7 @@
 
 <a id="stage-2-technical-portfolio-github-presence"></a>
 
-### **Stage 2: Technical Portfolio & GitHub Presence**
+### **Stage 2: Technical Portfolio & GitHub Presence** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Build a public portfolio that proves you can build, not just study.
@@ -378,7 +392,7 @@
 
 <a id="stage-3-technical-writing-content"></a>
 
-### **Stage 3: Technical Writing & Content**
+### **Stage 3: Technical Writing & Content** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Demonstrate depth of understanding through published analysis.
@@ -397,7 +411,7 @@
 
 <a id="stage-4-bug-bounties-community-engagement"></a>
 
-### **Stage 4: Bug Bounties & Community Engagement**
+### **Stage 4: Bug Bounties & Community Engagement** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Validate offensive skills against real-world targets and build reputation.
@@ -418,7 +432,7 @@
 
 <a id="stage-5-career-positioning-job-search-strategy"></a>
 
-### **Stage 5: Career Positioning & Job Search Strategy**
+### **Stage 5: Career Positioning & Job Search Strategy** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Convert skills and proof into career opportunities.
@@ -442,7 +456,7 @@
 
 <a id="stage-5b-technical-interview-preparation"></a>
 
-### **Stage 5B: Technical Interview Preparation**
+### **Stage 5B: Technical Interview Preparation** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Convert technical competence into hired. Hiring managers are skilled at identifying candidates who know tools but cannot think under pressure. Stage 5B closes the gap between "I can do this in a lab" and "I can demonstrate this in 45 minutes with someone watching."
@@ -466,7 +480,7 @@
   - **Behavioral prep:** "The STAR Interview" by Misha Yurchenko for structure; adapt examples from your own pentest/CTF/bug bounty work.
 
 <a id="stage-6-soft-skills-professional-communication"></a>
-### **Stage 6: Soft Skills & Professional Communication**
+### **Stage 6: Soft Skills & Professional Communication** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Bridge the gap between technical skill and professional impact. These skills separate mid-level practitioners from senior leaders.

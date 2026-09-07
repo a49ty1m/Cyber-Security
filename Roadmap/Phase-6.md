@@ -26,6 +26,23 @@
 >
 > _By the end of Phase 6, you should have enterprise attack documentation rivaling junior consultant deliverables._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [BloodHound](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/BloodHound.md) & SharpHound | AD/Azure graph collection, Cypher query analysis, ACL abuse pathing (`ShortestPath to Domain Admins`). |
+> | **Tier 1 (Mandatory)** | [Impacket](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Impacket.md) Suite | Protocol-level attacks (`secretsdump.py`, `psexec.py`, `wmiexec.py`, `GetNPUsers.py`, `GetUserSPNs.py`). |
+> | **Tier 1 (Mandatory)** | [Mimikatz](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Mimikatz.md) & [Rubeus](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Rubeus.md) | LSASS credential dumping (`sekurlsa::logonpasswords`), Kerberoasting, AS-REP roasting, Overpass-the-Hash, ticket injection. |
+> | **Tier 1 (Mandatory)** | **Certipy** | Active Directory Certificate Services (ADCS) enumeration, ESC1/ESC4 template exploitation, shadow credentials. |
+> | **Tier 1 (Mandatory)** | [NetExec](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/NetExec.md) (nxc) | Network spray & lateral movement orchestrator across SMB, WinRM, LDAP, MSSQL, and RDP. |
+> | **Tier 1 (Mandatory)** | **Prowler & Pacu** | AWS/Azure cloud security posture assessment, IAM privilege escalation, misconfiguration exploitation. |
+> | **Tier 2 (Secondary)** | [Evil-WinRM](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Evil-WinRM.md) | WinRM remote shell execution, DLL payload loading, pass-the-hash administrative control. |
+> | **Tier 2 (Secondary)** | [Kerbrute](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Kerbrute.md) | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
+> | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 6 until you can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -121,7 +138,7 @@
 
 
 <a id="stage-1-discovery-enumeration"></a>
-### **Stage 1: Discovery & Enumeration**
+### **Stage 1: Discovery & Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Map identity surfaces across on-prem AD and Entra ID (Azure AD).
@@ -137,7 +154,7 @@
 ---
 
 <a id="stage-2-credential-auth-attacks"></a>
-### **Stage 2: Credential & Auth Attacks**
+### **Stage 2: Credential & Auth Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Steal or replay credentials to gain higher privilege.
@@ -153,7 +170,7 @@
 ---
 
 <a id="stage-3-delegation-acl-and-adcs-abuse"></a>
-### **Stage 3: Delegation, ACL, and ADCS Abuse**
+### **Stage 3: Delegation, ACL, and ADCS Abuse** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Abuse trust relationships and misconfigurations for escalation.
@@ -169,7 +186,7 @@
 ---
 
 <a id="stage-4-lateral-movement-persistence"></a>
-### **Stage 4: Lateral Movement & Persistence**
+### **Stage 4: Lateral Movement & Persistence** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Move horizontally and maintain footholds.
@@ -185,7 +202,7 @@
 ---
 
 <a id="stage-5-entra-id-azure-ad-hybrid-attacks"></a>
-### **Stage 5: Entra ID (Azure AD) & Hybrid Attacks**
+### **Stage 5: Entra ID (Azure AD) & Hybrid Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Exploit cloud identity to pivot and persist.
@@ -254,7 +271,7 @@
 > > **Never practice cloud attack techniques against accounts you do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
 
 <a id="stage-1-architecture-governance"></a>
-### **Stage 1: Architecture & Governance**
+### **Stage 1: Architecture & Governance** — `🧠 Conceptual`
 
 
 > [!TIP]
@@ -275,7 +292,7 @@
 ---
 
 <a id="stage-2-storage-data-security"></a>
-### **Stage 2: Storage & Data Security**
+### **Stage 2: Storage & Data Security** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Enumerate, audit, and exploit cloud storage misconfigurations — the most common source of cloud data breaches.
@@ -295,7 +312,7 @@
 ---
 
 <a id="stage-3-modern-infrastructure-deployment"></a>
-### **Stage 3: Modern Infrastructure & Deployment**
+### **Stage 3: Modern Infrastructure & Deployment** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Audit and attack the compute layer and the deployment pipeline — misconfigurations here grant persistent, privileged access.
@@ -315,7 +332,7 @@
 ---
 
 <a id="stage-4-automation-scripting"></a>
-### **Stage 4: Automation & Scripting**
+### **Stage 4: Automation & Scripting** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Use automation to enumerate, audit, and monitor cloud environments — understand what defenders see so you know what to avoid generating.
@@ -339,7 +356,7 @@
 ---
 
 <a id="stage-5-cloud-specific-attack-vectors"></a>
-### **Stage 5: Cloud-Specific Attack Vectors**
+### **Stage 5: Cloud-Specific Attack Vectors** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand unique cloud threats.
@@ -359,7 +376,7 @@
 ---
 
 <a id="stage-6-iam-pam-attack-surface"></a>
-### **Stage 6: IAM & PAM Attack Surface**
+### **Stage 6: IAM & PAM Attack Surface** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Master identity-based attack techniques in cloud and enterprise environments.
@@ -386,7 +403,7 @@
 ## Part 25: Container & Orchestration Security
 
 <a id="stage-1-container-fundamentals-attacks"></a>
-### **Stage 1: Container Fundamentals & Attacks**
+### **Stage 1: Container Fundamentals & Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand containerization and its security implications.
@@ -404,7 +421,7 @@
 ---
 
 <a id="stage-2-kubernetes-security"></a>
-### **Stage 2: Kubernetes Security**
+### **Stage 2: Kubernetes Security** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Attack and defend container orchestration platforms.
@@ -424,7 +441,7 @@
 ---
 
 <a id="stage-3-container-runtime-security"></a>
-### **Stage 3: Container Runtime Security**
+### **Stage 3: Container Runtime Security** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Detect and prevent malicious container activity.
@@ -442,7 +459,7 @@
 ---
 
 <a id="stage-4-secrets-configuration-management"></a>
-### **Stage 4: Secrets & Configuration Management**
+### **Stage 4: Secrets & Configuration Management** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Secure sensitive data in containerized environments.
@@ -460,7 +477,7 @@
 ---
 
 <a id="stage-5-cicd-workflow-automation-attacks"></a>
-### **Stage 5: CI/CD & Workflow Automation Attacks**
+### **Stage 5: CI/CD & Workflow Automation Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise the software supply chain and automation tier.
@@ -492,7 +509,7 @@
 
 <a id="stage-6-hypervisor-security"></a>
 
-### **Stage 6: Hypervisor Security**
+### **Stage 6: Hypervisor Security** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the attack surface one layer below containers — the hypervisor. Container escape gets defender attention; hypervisor-level attacks are less understood and harder to detect. Enterprise pentests against virtualised infrastructure encounter these regularly.
@@ -536,7 +553,7 @@
 > **Prerequisites:** This Part requires both offensive (Phase 2) AND defensive (Phase 3) maturity plus enterprise infrastructure knowledge from the Parts above (AD, Cloud, Containers, OT). Complete all prior Phase 6 content before attempting this. Purple teaming is the culmination of offense-defense integration at enterprise scale.
 
 <a id="stage-1-mitre-attck-framework-mastery"></a>
-### **Stage 1: MITRE ATT&CK Framework Mastery**
+### **Stage 1: MITRE ATT&CK Framework Mastery** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the universal language of adversary behavior.
@@ -554,7 +571,7 @@
 ---
 
 <a id="stage-2-apt-threat-actor-emulation"></a>
-### **Stage 2: APT & Threat Actor Emulation**
+### **Stage 2: APT & Threat Actor Emulation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Replicate real-world adversary campaigns.
@@ -574,7 +591,7 @@
 ---
 
 <a id="stage-3-purple-team-exercises"></a>
-### **Stage 3: Purple Team Exercises**
+### **Stage 3: Purple Team Exercises** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Collaborative offense-defense improvement.
@@ -592,7 +609,7 @@
 ---
 
 <a id="stage-4-metrics-reporting"></a>
-### **Stage 4: Metrics & Reporting**
+### **Stage 4: Metrics & Reporting** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Quantify security posture improvement.
@@ -643,7 +660,7 @@
 
 
 <a id="stage-1-industrial-protocol-fundamentals"></a>
-### **Stage 1: Industrial Protocol Fundamentals**
+### **Stage 1: Industrial Protocol Fundamentals** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand operational technology communication.
@@ -661,7 +678,7 @@
 ---
 
 <a id="stage-2-plc-hmi-exploitation"></a>
-### **Stage 2: PLC & HMI Exploitation**
+### **Stage 2: PLC & HMI Exploitation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise industrial controllers and interfaces.
@@ -679,7 +696,7 @@
 ---
 
 <a id="stage-3-safety-system-attacks"></a>
-### **Stage 3: Safety System Attacks**
+### **Stage 3: Safety System Attacks** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand attacks on critical safety instrumented systems.
@@ -697,7 +714,7 @@
 ---
 
 <a id="stage-4-ot-network-segmentation-defense"></a>
-### **Stage 4: OT Network Segmentation & Defense**
+### **Stage 4: OT Network Segmentation & Defense** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Implement defense-in-depth for industrial environments.

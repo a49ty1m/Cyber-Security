@@ -31,6 +31,22 @@
 >
 > _By the end of Phase 2, you should have 10+ documented attack chains in your repository._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [Nmap](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nmap.md) | Host discovery, port scanning, service banner grabbing, NSE script auditing (`-sC -sV`). |
+> | **Tier 1 (Mandatory)** | [Netcat](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Netcat.md) / `socat` | Port binding, raw banner interaction, listener setup, encrypted reverse/bind shells. |
+> | **Tier 1 (Mandatory)** | [Responder](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Responder.md) | LLMNR/NBT-NS/mDNS spoofing, rogue WPAD proxy poisoning, NetNTLMv1/v2 hash harvesting. |
+> | **Tier 1 (Mandatory)** | [Hashcat](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Hashcat.md) | GPU password cracking, rule-based attacks (`best64.rule`), hash-mode identification (`-m 5600`). |
+> | **Tier 1 (Mandatory)** | [Metasploit Framework](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Metasploit_Framework.md) | Modular exploitation, auxiliary scanning, payload generation (`msfvenom`), Meterpreter navigation. |
+> | **Tier 2 (Secondary)** | [theHarvester](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/theHarvester.md) & [Amass](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Amass.md) | Passive OSINT, subdomain enumeration, organization surface mapping. |
+> | **Tier 2 (Secondary)** | [Hydra](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Hydra.md) & [John the Ripper](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/John_the_Ripper.md) | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
+> | **Tier 2 (Secondary)** | [LinPEAS](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/LinPEAS.md) & [WinPEAS](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/WinPEAS.md) | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 2 until you can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -177,7 +193,7 @@
 
 <a id="part-4-stage-1-ghost-phase"></a>
 
-### **Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)**
+### **Stage 1: The "Ghost" Phase (Passive OSINT & Human Profiling)** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Maximum data acquisition with zero target interaction.
@@ -205,7 +221,7 @@
 <a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
 
 
-### **Stage 2: Semi-Passive Infrastructure Mapping**
+### **Stage 2: Semi-Passive Infrastructure Mapping** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Querying third-party aggregators to see what the world already knows about them.
@@ -225,7 +241,7 @@
 
 <a id="part-4-stage-3-active-footprinting-network-interrogation"></a>
 
-### **Stage 3: Active Footprinting & Network Interrogation**
+### **Stage 3: Active Footprinting & Network Interrogation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Direct contact to map the live network fabric. Risk of detection is now ACTIVE.
@@ -248,7 +264,7 @@
 
 <a id="part-4-stage-4-advanced-fingerprinting-logic-analysis"></a>
 
-### **Stage 4: Advanced Fingerprinting & Logic Analysis**
+### **Stage 4: Advanced Fingerprinting & Logic Analysis** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand the defensive "brain" of the target.
@@ -265,7 +281,7 @@
 
 <a id="part-4-stage-5-ipv6-protocol-enumeration"></a>
 
-### **Stage 5: IPv6 & Protocol Enumeration**
+### **Stage 5: IPv6 & Protocol Enumeration** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Discover targets using newer protocols and dual-stack networks.
@@ -288,7 +304,7 @@
 
 <a id="part-4-stage-6-dark-web-breach-intelligence"></a>
 
-### **Stage 6: Dark Web & Breach Intelligence**
+### **Stage 6: Dark Web & Breach Intelligence** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Uncover intelligence from dark web and historical breaches.
@@ -307,7 +323,7 @@
 
 <a id="part-4-stage-7-satellite-geospatial-intelligence"></a>
 
-### **Stage 7: Satellite & Geospatial Intelligence** _(Optional — Skip unless physical pentest is in scope)_
+### **Stage 7: Satellite & Geospatial Intelligence** _(Optional — Skip unless physical pentest is in scope)_ — `🧠🔬 Mixed`
 
 > [!WARNING]
 > **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if you are conducting an authorized physical penetration test where facility layout matters.
@@ -320,7 +336,7 @@
 
 <a id="part-4-stage-8-strategy-attack-mapping"></a>
 
-### **Stage 8: Strategy & Attack Mapping**
+### **Stage 8: Strategy & Attack Mapping** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Convert raw data into an execution plan.
@@ -366,7 +382,7 @@
 
 <a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
 
-### **Stage 1: Host Discovery & Network Topology (The "Roll Call")**
+### **Stage 1: Host Discovery & Network Topology (The "Roll Call")** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify live assets without wasting time on dead IPs or triggering ICMP alarms.
@@ -385,7 +401,7 @@
 
 <a id="stage-2-port-service-protocol-enumeration-the-door-check"></a>
 
-### **Stage 2: Port, Service & Protocol Enumeration (The "Door Check")**
+### **Stage 2: Port, Service & Protocol Enumeration (The "Door Check")** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Determine exactly what applications are running and how they communicate.
@@ -408,7 +424,7 @@
 
 <a id="stage-3-defense-configuration-assessment-the-armor-check"></a>
 
-### **Stage 3: Defense & Configuration Assessment (The "Armor Check")**
+### **Stage 3: Defense & Configuration Assessment (The "Armor Check")** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify security controls that will attempt to block or alert on your presence.
@@ -425,7 +441,7 @@
 
 <a id="stage-4-vulnerability-association-attack-mapping"></a>
 
-### **Stage 4: Vulnerability Association & Attack Mapping**
+### **Stage 4: Vulnerability Association & Attack Mapping** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Convert raw scan data into actionable exploitation vectors.
@@ -442,7 +458,7 @@
 
 <a id="stage-5-stealth-evasion-techniques"></a>
 
-### **Stage 5: Stealth & Evasion Techniques**
+### **Stage 5: Stealth & Evasion Techniques** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Scan without detection by firewalls, IDS, and EDR.
@@ -465,7 +481,7 @@
 
 <a id="stage-6-advanced-scanning-techniques"></a>
 
-### **Stage 6: Advanced Scanning Techniques**
+### **Stage 6: Advanced Scanning Techniques** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Optimize scanning efficiency and discover hidden services.
@@ -516,7 +532,7 @@
 
 <a id="stage-1-service-enumeration-banner-grabbing"></a>
 
-### **Stage 1: Service Enumeration & Banner Grabbing**
+### **Stage 1: Service Enumeration & Banner Grabbing** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
@@ -537,7 +553,7 @@
 
 <a id="stage-2-directory-identity-enumeration"></a>
 
-### **Stage 2: Directory & Identity Enumeration**
+### **Stage 2: Directory & Identity Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Map users, groups, and organizational structure from directory services.
@@ -556,7 +572,7 @@
 
 <a id="stage-3-dns-infrastructure-enumeration"></a>
 
-### **Stage 3: DNS & Infrastructure Enumeration**
+### **Stage 3: DNS & Infrastructure Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract naming, network, and infrastructure intelligence from DNS.
@@ -573,7 +589,7 @@
 
 <a id="stage-4-database-application-enumeration"></a>
 
-### **Stage 4: Database & Application Enumeration**
+### **Stage 4: Database & Application Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract schemas, credentials, and data from discovered database and application services.
@@ -592,7 +608,7 @@
 
 <a id="stage-5-attack-surface-consolidation-enumeration-opsec"></a>
 
-### **Stage 5: Attack Surface Consolidation & Enumeration OpSec**
+### **Stage 5: Attack Surface Consolidation & Enumeration OpSec** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Consolidate findings into an attack plan while maintaining stealth.
@@ -642,7 +658,7 @@
 
 <a id="part-6b-stage-1-database-enumeration-fingerprinting"></a>
 
-### **Stage 1: Database Enumeration & Fingerprinting**
+### **Stage 1: Database Enumeration & Fingerprinting** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify database engine, version, authentication mechanism, and attack surface before attempting exploitation.
@@ -677,7 +693,7 @@
 
 <a id="part-6b-stage-2-relational-database-exploitation"></a>
 
-### **Stage 2: Relational Database Exploitation**
+### **Stage 2: Relational Database Exploitation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Escalate from database access to OS command execution and credential extraction.
@@ -733,7 +749,7 @@
 
 <a id="part-6b-stage-3-nosql-modern-database-attacks"></a>
 
-### **Stage 3: NoSQL & Modern Database Attacks**
+### **Stage 3: NoSQL & Modern Database Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Attack non-relational databases — different injection syntax, different attack surfaces, different default security postures.
@@ -773,7 +789,7 @@
 
 <a id="part-6b-stage-4-database-privilege-escalation"></a>
 
-### **Stage 4: Database Privilege Escalation**
+### **Stage 4: Database Privilege Escalation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Move from low-privileged DB access to OS command execution and system-level access.
@@ -791,7 +807,7 @@
 
 <a id="part-6b-stage-5-database-auditing-defence"></a>
 
-### **Stage 5: Database Auditing & Defence**
+### **Stage 5: Database Auditing & Defence** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand the defender-side mitigations that block the attacks above.
@@ -844,7 +860,7 @@
 
 <a id="stage-1-hash-identification-acquisition"></a>
 
-### **Stage 1: Hash Identification & Acquisition**
+### **Stage 1: Hash Identification & Acquisition** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify what you have before cracking.
@@ -859,7 +875,7 @@
 
 <a id="stage-2-cracking-methodology-tools"></a>
 
-### **Stage 2: Cracking Methodology & Tools**
+### **Stage 2: Cracking Methodology & Tools** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Apply the right technique to each hash type.
@@ -882,7 +898,7 @@
 
 <a id="stage-3-protocol-specific-cracking"></a>
 
-### **Stage 3: Protocol-Specific Cracking**
+### **Stage 3: Protocol-Specific Cracking** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Crack hashes captured from real network protocols.
@@ -901,7 +917,7 @@
 
 <a id="stage-4-wordlist-intelligence-curation"></a>
 
-### **Stage 4: Wordlist & Intelligence Curation**
+### **Stage 4: Wordlist & Intelligence Curation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Build targeted wordlists that outperform generic lists.
@@ -936,7 +952,7 @@
 
 <a id="stage-1-the-breach-initial-access-exploitation"></a>
 
-### **Stage 1: The Breach (Initial Access & Exploitation)**
+### **Stage 1: The Breach (Initial Access & Exploitation)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold.
@@ -1003,7 +1019,7 @@
 
 <a id="stage-2-the-ascension-privilege-escalation"></a>
 
-### **Stage 2: The Ascension (Privilege Escalation)**
+### **Stage 2: The Ascension (Privilege Escalation)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Move from low-level foothold to administrative control by exploiting system logic.
@@ -1303,7 +1319,7 @@
 
 <a id="stage-3-the-stronghold-persistence-lateral-movement"></a>
 
-### **Stage 3: The Stronghold (Persistence & Lateral Movement)**
+### **Stage 3: The Stronghold (Persistence & Lateral Movement)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Establish permanent presence and move horizontally across network.
@@ -1350,7 +1366,7 @@
 
 <a id="stage-4-the-shadow-defense-evasion-anti-forensics"></a>
 
-### **Stage 4: The Shadow (Defense Evasion & Anti-Forensics)**
+### **Stage 4: The Shadow (Defense Evasion & Anti-Forensics)** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Blind the Blue Team and minimize evidence of compromise.
@@ -1403,7 +1419,7 @@
 
 <a id="stage-5-data-exfiltration-impact"></a>
 
-### **Stage 5: Data Exfiltration & Impact**
+### **Stage 5: Data Exfiltration & Impact** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract sensitive data and demonstrate business impact.
@@ -1432,7 +1448,7 @@
 
 <a id="stage-6-the-professional-governance-reporting"></a>
 
-### **Stage 6: The Professional (Governance & Reporting)**
+### **Stage 6: The Professional (Governance & Reporting)** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Execute within legal/ethical boundaries and deliver findings professionally.
@@ -1567,7 +1583,7 @@
 
 <a id="stage-1-the-design-logic-architecture"></a>
 
-### **Stage 1: The Design & Logic (Architecture)**
+### **Stage 1: The Design & Logic (Architecture)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how malware is architected at a design level — the decisions an attacker makes before writing a single line of code.
@@ -1588,7 +1604,7 @@
 
 <a id="stage-2-the-payload-mechanism-weaponization"></a>
 
-### **Stage 2: The Payload & Mechanism — Exposure Survey**
+### **Stage 2: The Payload & Mechanism — Exposure Survey** — `🧠🔬 Mixed`
 
 > [!WARNING]
 > **Exposure-Only Stage:** This stage describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until you have completed **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)** and **Part 42 (Offensive Development, Phase 7)**. Your goal here is to understand _what_ these techniques do and _why_ defenders flag them — not to build them.
@@ -1610,7 +1626,7 @@
 
 <a id="stage-3-evasion-defense-bypassing-invisibility"></a>
 
-### **Stage 3: Evasion & Defense Bypassing — Exposure Survey**
+### **Stage 3: Evasion & Defense Bypassing — Exposure Survey** — `🧠 Conceptual`
 
 > [!WARNING]
 > **Exposure-Only Stage:** This stage teaches _how_ AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Part 28 (Reverse Engineering & Malware Analysis)**. Practical evasion implementation is in **Part 42 (Offensive Development, Phase 7)**.
@@ -1634,7 +1650,7 @@
 
 <a id="stage-4-persistence-escalation-entrenchment"></a>
 
-### **Stage 4: Persistence & Escalation — Exposure Survey**
+### **Stage 4: Persistence & Escalation — Exposure Survey** — `🧠 Conceptual`
 
 > [!WARNING]
 > **Exposure-Only Stage:** Persistence mechanisms and privilege escalation are taught as canonical practitioner skills in **Part 7 (System Hacking, Phase 2)** already. This stage reviews them in the context of malware architecture — what a long-running implant uses to survive reboots and credential rotations. Rootkit-level persistence (BOOTKIT, UEFI implants, kernel drivers) requires kernel internals knowledge from Part 28. Do not attempt rootkit implementation at this stage.
@@ -1654,7 +1670,7 @@
 
 <a id="stage-5-counter-forensics-professionalism-the-cleanup"></a>
 
-### **Stage 5: Counter-Forensics & Cleanup — Exposure Survey**
+### **Stage 5: Counter-Forensics & Cleanup — Exposure Survey** — `🧠 Conceptual`
 
 > [!WARNING]
 > **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding _what_ forensic artifacts exist — that knowledge is in **Part 27 (Digital Forensics, Phase 7)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so you can look for its _absence_ during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
@@ -1676,7 +1692,7 @@
 
 <a id="stage-6-document-cloud-weaponization"></a>
 
-### **Stage 6: Document & Cloud Weaponization**
+### **Stage 6: Document & Cloud Weaponization** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This is the **operational implementation stage** for Part 8 — the techniques here are in-scope for lab practice because they use documented attack patterns that do not require binary internals knowledge.
@@ -1758,7 +1774,7 @@
 
 <a id="stage-1-the-environment-fundamentals-the-setup"></a>
 
-### **Stage 1: The Environment & Fundamentals (The Setup)**
+### **Stage 1: The Environment & Fundamentals (The Setup)** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand the battlefield. You cannot spoof what you cannot map.
@@ -1777,7 +1793,7 @@
 
 <a id="stage-2-sniffing-passive-reconnaissance-the-ear"></a>
 
-### **Stage 2: Sniffing & Passive Reconnaissance (The Ear)**
+### **Stage 2: Sniffing & Passive Reconnaissance (The Ear)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Capture data without alerting the target. "Listen before act."
@@ -1794,7 +1810,7 @@
 
 <a id="stage-3-spoofing-active-deception-the-lie"></a>
 
-### **Stage 3: Spoofing & Active Deception (The Lie)**
+### **Stage 3: Spoofing & Active Deception (The Lie)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
@@ -1815,7 +1831,7 @@
 
 <a id="stage-4-man-in-the-middle-exploitation-the-kill"></a>
 
-### **Stage 4: Man-in-the-Middle & Exploitation (The Kill)**
+### **Stage 4: Man-in-the-Middle & Exploitation (The Kill)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
@@ -1836,7 +1852,7 @@
 
 <a id="stage-5-defenses-mitigation-the-shield"></a>
 
-### **Stage 5: Defenses & Mitigation (The Shield)**
+### **Stage 5: Defenses & Mitigation (The Shield)** — `🧠 Conceptual`
 
 - [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
 
@@ -1883,7 +1899,7 @@
 
 <a id="stage-0-the-psychology-of-social-engineering"></a>
 
-### **Stage 0: The Psychology of Social Engineering (The Foundation)**
+### **Stage 0: The Psychology of Social Engineering (The Foundation)** — `🧠 Conceptual`
 
 > [!IMPORTANT]
 > **Read this before any other Stage in Part 10.** Social engineering is not a collection of clever tricks — it is applied psychology. Every phishing email, vishing call, and pretexting scenario works because it exploits specific, documented cognitive patterns. Understanding these patterns is what separates an operator who succeeds from one who improvises and fails. Defenders must also understand them to design effective awareness training.
@@ -1960,7 +1976,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-1-intelligence-reconnaissance-the-setup"></a>
 
-### **Stage 1: Intelligence & Reconnaissance (The Setup)**
+### **Stage 1: Intelligence & Reconnaissance (The Setup)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Know the target better than they know themselves.
@@ -1977,7 +1993,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-2-the-digital-assault-remote-vectors"></a>
 
-### **Stage 2: The Digital Assault (Remote Vectors)**
+### **Stage 2: The Digital Assault (Remote Vectors)** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Compromise the target from a distance via electronic channels.
@@ -2007,7 +2023,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-3-the-human-element-direct-interaction"></a>
 
-### **Stage 3: The Human Element (Direct Interaction)**
+### **Stage 3: The Human Element (Direct Interaction)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Use psychology and social manipulation to bypass logic.
@@ -2022,7 +2038,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-4-the-physical-breach-boots-on-the-ground"></a>
 
-### **Stage 4: The Physical Breach (Boots on the Ground)**
+### **Stage 4: The Physical Breach (Boots on the Ground)** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Gain physical access to networks and facilities.
@@ -2039,7 +2055,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-5-defense-awareness-the-shield"></a>
 
-### **Stage 5: Defense & Awareness (The Shield)**
+### **Stage 5: Defense & Awareness (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Prevent the human hack through training and controls.
@@ -2086,7 +2102,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-1-objective-strategy-the-planning"></a>
 
-### **Stage 1: Objective & Strategy (The Planning)**
+### **Stage 1: Objective & Strategy (The Planning)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand DoS/DDoS scope and firepower requirements.
@@ -2101,7 +2117,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-2-the-arsenal-attack-methods"></a>
 
-### **Stage 2: The Arsenal (Attack Methods)**
+### **Stage 2: The Arsenal (Attack Methods)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Select the right DoS technique for target vulnerabilities.
@@ -2118,7 +2134,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-3-infrastructure-execution-the-assault"></a>
 
-### **Stage 3: Infrastructure & Execution (The Assault)**
+### **Stage 3: Infrastructure & Execution (The Assault)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Deploy and sustain the attack at scale.
@@ -2135,7 +2151,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-4-defense-mitigation-the-shield"></a>
 
-### **Stage 4: Defense & Mitigation (The Shield)**
+### **Stage 4: Defense & Mitigation (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Detect, absorb, and neutralize DoS attacks.
@@ -2181,7 +2197,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-1-reconnaissance-vulnerability-analysis"></a>
 
-### **Stage 1: Reconnaissance & Vulnerability Analysis**
+### **Stage 1: Reconnaissance & Vulnerability Analysis** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find a target and identify its weaknesses.
@@ -2198,7 +2214,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-2-stealing-the-session-id-the-attack-vectors"></a>
 
-### **Stage 2: Stealing the Session ID (The Attack Vectors)**
+### **Stage 2: Stealing the Session ID (The Attack Vectors)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Execute the attack to acquire the victim's session token.
@@ -2217,7 +2233,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-3-execution-impersonation"></a>
 
-### **Stage 3: Execution & Impersonation**
+### **Stage 3: Execution & Impersonation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Use the stolen token to access the user's account.
@@ -2232,10 +2248,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-4-defense-mitigation-the-shield"></a>
 
-### **Stage 4: Defense & Mitigation (The Shield)**
+### **Stage 4: Defense & Mitigation (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Prevent the attack from succeeding.
+> **Goal:** Prevent and detect session hijacking.
 
 - [ ] **Enforce Encryption:** Mandate **TLS 1.2+** for all web traffic; implement **HSTS** to prevent SSL stripping.
 

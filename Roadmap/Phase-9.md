@@ -44,6 +44,20 @@
 >
 > _By the end of Phase 9, your repository should contain an AI security toolkit and published research. This builds on your traditional security portfolio from Phases 1–8 and feeds directly into the Phase 10 career portfolio._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | **Ollama & Local LLMs** | Local model deployment (`llama3`, `mistral`), offline prompt testing, raw model weight inspection. |
+> | **Tier 1 (Mandatory)** | **Python AI SDKs (OpenAI / Anthropic / LangChain)** | System prompt tampering, function-calling/tool exploitation harness development, automated fuzzing pipelines. |
+> | **Tier 1 (Mandatory)** | **Garak (LLM Vulnerability Scanner)** | Automated vulnerability assessment for generative AI (jailbreaks, prompt injections, data leakage, hallucination probing). |
+> | **Tier 1 (Mandatory)** | **PyRIT (Python Risk Identification Tool)** | Red teaming orchestrator for AI systems, automated multi-turn jailbreak and boundary probing. |
+> | **Tier 2 (Secondary)** | **ChromaDB / FAISS** | Vector database security, RAG poisoning, embedding extraction and inversion attacks. |
+> | **Tier 2 (Secondary)** | **Rebuff / NeMo Guardrails** | Defense side testing: prompt injection detection, input/output rail evasion testing. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 9 until you write an automated Python test script using Garak or PyRIT that executes a multi-turn prompt injection against a local or API-driven LLM agent, forcing it to disclose its system prompt or trigger an unauthorized simulated tool execution.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -94,7 +108,7 @@
 ---
 
 <a id="stage-1-ai-fundamentals-for-security-practitioners"></a>
-### **Stage 1: AI Fundamentals for Security Practitioners**
+### **Stage 1: AI Fundamentals for Security Practitioners** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the raw mechanics of AI/ML models to attack and defend them effectively.
@@ -120,7 +134,7 @@
 ---
 
 <a id="stage-2-attack-surface-frameworks"></a>
-### **Stage 2: Attack Surface & Frameworks**
+### **Stage 2: Attack Surface & Frameworks** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Map the AI/LLM attack surface using structured threat models.
@@ -134,7 +148,7 @@
 ---
 
 <a id="stage-3-adversarial-techniques-llm01llm06"></a>
-### **Stage 3: Adversarial Techniques (LLM01/LLM06)**
+### **Stage 3: Adversarial Techniques (LLM01/LLM06)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Break safety controls and force unintended actions.
@@ -158,7 +172,7 @@
 > **Reminder — Python ML Prerequisite:** Stages 7–10 require the ML skills verified in the Phase Entry Gate above. If you skipped that check or flagged a gap, resolve it before starting Stage 7 — not now, but before you reach it.
 
 <a id="stage-4-rag-data-supply-chain-attacks"></a>
-### **Stage 4: RAG & Data Supply Chain Attacks**
+### **Stage 4: RAG & Data Supply Chain Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Poison or subvert the knowledge base feeding the model.
@@ -172,7 +186,7 @@
 ---
 
 <a id="stage-5-language-model-specific-attacks"></a>
-### **Stage 5: Language Model Specific Attacks**
+### **Stage 5: Language Model Specific Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit LLM architecture and fine-tuning vulnerabilities.
@@ -190,7 +204,7 @@
 ---
 
 <a id="stage-6-multi-model-agent-attacks"></a>
-### **Stage 6: Multi-Model & Agent Attacks**
+### **Stage 6: Multi-Model & Agent Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit weaknesses in agentic and multi-model systems.
@@ -208,7 +222,7 @@
 ---
 
 <a id="stage-7-adversarial-examples-ml-robustness"></a>
-### **Stage 7: Adversarial Examples & ML Robustness**
+### **Stage 7: Adversarial Examples & ML Robustness** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Craft inputs that cause model misclassification or unexpected behavior.
@@ -226,7 +240,7 @@
 ---
 
 <a id="stage-8-model-extraction-inversion"></a>
-### **Stage 8: Model Extraction & Inversion**
+### **Stage 8: Model Extraction & Inversion** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Steal or reverse-engineer the model's behavior and weights.
@@ -242,7 +256,7 @@
 ---
 
 <a id="stage-9-dataset-poisoning-backdoors"></a>
-### **Stage 9: Dataset Poisoning & Backdoors**
+### **Stage 9: Dataset Poisoning & Backdoors** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Corrupt training pipelines to install persistent behavior changes.
@@ -260,7 +274,7 @@
 ---
 
 <a id="stage-10-privacy-attacks-pii-leakage"></a>
-### **Stage 10: Privacy Attacks & PII Leakage**
+### **Stage 10: Privacy Attacks & PII Leakage** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract private information embedded in models.
@@ -286,7 +300,7 @@
 > - [ ] You can explain how label flipping and backdoor attacks differ in mechanism, detectability, and defense
 
 <a id="stage-11-ai-augmented-red-team-workflow"></a>
-### **Stage 11: AI-Augmented Red Team Workflow**
+### **Stage 11: AI-Augmented Red Team Workflow** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Force-multiply your existing red team toolkit with AI-native tooling.
@@ -306,7 +320,7 @@
 ---
 
 <a id="stage-12-agentic-ai-autonomous-attack-infrastructure"></a>
-### **Stage 12: Agentic AI & Autonomous Attack Infrastructure**
+### **Stage 12: Agentic AI & Autonomous Attack Infrastructure** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Build autonomous agents that execute security tasks end-to-end.
@@ -326,7 +340,7 @@
 ---
 
 <a id="stage-13-tooling-evaluation"></a>
-### **Stage 13: Tooling & Evaluation**
+### **Stage 13: Tooling & Evaluation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Automate and measure AI red team coverage.
@@ -340,7 +354,7 @@
 ---
 
 <a id="stage-14-defense-responsible-ai"></a>
-### **Stage 14: Defense & Responsible AI**
+### **Stage 14: Defense & Responsible AI** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Harden AI systems against attacks and ensure ethical deployment.
@@ -362,7 +376,7 @@
 ---
 
 <a id="stage-15-shadow-ai-organizational-ai-risk"></a>
-### **Stage 15: Shadow AI & Organizational AI Risk**
+### **Stage 15: Shadow AI & Organizational AI Risk** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand and prevent unauthorized AI usage that creates organizational exposure.
@@ -380,7 +394,7 @@
 ---
 
 <a id="stage-16-defensive-ai-operations"></a>
-### **Stage 16: Defensive AI Operations**
+### **Stage 16: Defensive AI Operations** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Deploy AI-powered defensive capabilities and detect AI-generated threats.
@@ -407,7 +421,7 @@
 > - [ ] You can explain 3 forensic artifacts that an LLM-powered attack campaign would leave behind (API call logs, embedding store queries, model version history) and describe how you would collect them during a DFIR engagement
 
 <a id="stage-17-ai-security-projects-portfolio"></a>
-### **Stage 17: AI Security Projects & Portfolio**
+### **Stage 17: AI Security Projects & Portfolio** — `🔬 Practical`
 
 
 > [!TIP]
@@ -426,7 +440,7 @@
 ---
 
 <a id="stage-18-ai-security-career-targeting"></a>
-### **Stage 18: AI Security Career Targeting**
+### **Stage 18: AI Security Career Targeting** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Position yourself specifically for AI-native security roles.

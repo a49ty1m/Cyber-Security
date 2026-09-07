@@ -43,6 +43,19 @@
 >
 > _By the end of Phase 8, you should have architecture documentation and compliance artifacts in your portfolio._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | **Semgrep** | Static Application Security Testing (SAST), custom pattern rule writing (detecting CWE-89, CWE-79, hardcoded credentials). |
+> | **Tier 1 (Mandatory)** | **TruffleHog / Gitleaks** | Secret scanning, git commit history scraping, high-entropy regex validation, preventing credential leaks in CI/CD. |
+> | **Tier 1 (Mandatory)** | **Checkov / tfsec** | Infrastructure as Code (IaC) security scanning (Terraform, CloudFormation, Kubernetes manifests, Dockerfiles). |
+> | **Tier 2 (Secondary)** | **OWASP Dependency-Check / Snyk** | Software Composition Analysis (SCA), vulnerable third-party library tracking, CVE alerting. |
+> | **Tier 2 (Secondary)** | **OWASP Threat Dragon / Threatspec** | STRIDE threat modeling diagramming, attack tree generation, security control mapping. |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 8 until you have engineered an automated GitHub Actions CI/CD security pipeline containing Gitleaks (secrets), Checkov (IaC), and a custom Semgrep SAST rule that successfully breaks the build when an unsafe SQL query or insecure deserialization call is introduced.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -91,7 +104,7 @@
 
 
 <a id="stage-1-security-frameworks-standards"></a>
-### **Stage 1: Security Frameworks & Standards**
+### **Stage 1: Security Frameworks & Standards** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the regulatory and standards landscape that defines what pentesters test against.
@@ -109,7 +122,7 @@
 ---
 
 <a id="stage-2-industry-regulations-legal-requirements"></a>
-### **Stage 2: Industry Regulations & Legal Requirements**
+### **Stage 2: Industry Regulations & Legal Requirements** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Know the laws and regulations that dictate security requirements across industries.
@@ -153,7 +166,7 @@
 ---
 
 <a id="stage-3-risk-management-assessment"></a>
-### **Stage 3: Risk Management & Assessment**
+### **Stage 3: Risk Management & Assessment** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Quantify and communicate risk so findings drive action.
@@ -171,7 +184,7 @@
 ---
 
 <a id="stage-4-audit-scope-compliance-testing"></a>
-### **Stage 4: Audit, Scope & Compliance Testing**
+### **Stage 4: Audit, Scope & Compliance Testing** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Execute engagements that satisfy compliance requirements.
@@ -209,7 +222,7 @@
 ## Part 36: Supply Chain Security
 
 <a id="stage-1-understanding-the-attack-surface"></a>
-### **Stage 1: Understanding the Attack Surface**
+### **Stage 1: Understanding the Attack Surface** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Map how software and hardware dependencies become attack vectors.
@@ -223,7 +236,7 @@
 ---
 
 <a id="stage-2-dependency-package-attacks"></a>
-### **Stage 2: Dependency & Package Attacks**
+### **Stage 2: Dependency & Package Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit weaknesses in open-source package ecosystems.
@@ -241,7 +254,7 @@
 ---
 
 <a id="stage-3-build-system-cicd-attacks"></a>
-### **Stage 3: Build System & CI/CD Attacks**
+### **Stage 3: Build System & CI/CD Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise the pipeline that produces software.
@@ -259,7 +272,7 @@
 ---
 
 <a id="stage-4-open-source-third-party-risk"></a>
-### **Stage 4: Open-Source & Third-Party Risk**
+### **Stage 4: Open-Source & Third-Party Risk** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Assess and test third-party component security.
@@ -275,7 +288,7 @@
 ---
 
 <a id="stage-5-defense-verification"></a>
-### **Stage 5: Defense & Verification**
+### **Stage 5: Defense & Verification** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Know how to validate supply chain integrity.
@@ -301,7 +314,7 @@
 
 
 <a id="stage-1-security-in-the-development-lifecycle"></a>
-### **Stage 1: Security in the Development Lifecycle**
+### **Stage 1: Security in the Development Lifecycle** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand where security integrates across the SDLC.
@@ -344,7 +357,7 @@
 ---
 
 <a id="stage-2-static-analysis-sast"></a>
-### **Stage 2: Static Analysis (SAST)**
+### **Stage 2: Static Analysis (SAST)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find vulnerabilities in source code without executing it.
@@ -360,7 +373,7 @@
 ---
 
 <a id="stage-3-dynamic-analysis-dast-iast"></a>
-### **Stage 3: Dynamic Analysis (DAST & IAST)**
+### **Stage 3: Dynamic Analysis (DAST & IAST)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Test running applications for security flaws.
@@ -376,7 +389,7 @@
 ---
 
 <a id="stage-4-software-composition-analysis-sca"></a>
-### **Stage 4: Software Composition Analysis (SCA)**
+### **Stage 4: Software Composition Analysis (SCA)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find vulnerabilities in third-party dependencies.
@@ -390,7 +403,7 @@
 ---
 
 <a id="stage-5-secrets-detection-pipeline-security"></a>
-### **Stage 5: Secrets Detection & Pipeline Security**
+### **Stage 5: Secrets Detection & Pipeline Security** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prevent credential leakage through code and pipelines.
@@ -433,7 +446,7 @@
 > **Why This Exists:** Automated SAST tools (Part 37) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. You cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
 
 <a id="stage-1-code-review-workflow"></a>
-### **Stage 1: Code Review Workflow & Entry Point Mapping**
+### **Stage 1: Code Review Workflow & Entry Point Mapping** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Develop a repeatable, systematic workflow for reviewing any codebase — regardless of language or framework.
@@ -474,7 +487,7 @@
 ---
 
 <a id="stage-2-language-specific-patterns"></a>
-### **Stage 2: Language-Specific Vulnerability Patterns**
+### **Stage 2: Language-Specific Vulnerability Patterns** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Know which dangerous functions and patterns appear in each major language/framework so you can grep for them efficiently.
@@ -518,7 +531,7 @@
 ---
 
 <a id="stage-3-semgrep-custom-rules"></a>
-### **Stage 3: Semgrep & Custom Rule Writing**
+### **Stage 3: Semgrep & Custom Rule Writing** — `🔬 Practical`
 
 > [!NOTE]
 > **Part 37 vs Part 37B — Same Tool, Different Purpose:** Part 37 Stage 2 used Semgrep as a **CI/CD pipeline tool** — running pre-built rulesets automatically on every commit to catch regressions at scale. This stage teaches **Semgrep rule writing for manual code auditing** — a fundamentally different skill. Here you write custom rules targeting your specific codebase, tune for zero false positives, and use taint tracking to trace sources to sinks. If you ran `semgrep --config=auto` in Part 37 and thought you were done: you weren't. Rule authorship is the skill that separates automated scanning from genuine code review.
@@ -591,7 +604,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 
 <a id="stage-1-security-design-principles"></a>
-### **Stage 1: Security Design Principles**
+### **Stage 1: Security Design Principles** — `🧠 Conceptual`
 
 - [ ] **Defense-in-Depth as Architecture:** Design layered defenses where no single control failure compromises the system. Map controls to **preventative, detective, corrective, and compensating** categories.
 
@@ -602,7 +615,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 - [ ] **Security by Design:** Integrate security from **requirements through deployment**, not as a bolt-on. Understand **NIST Secure Software Development Framework (SSDF)** and **OWASP SAMM**.
 
 <a id="stage-2-zero-trust-architecture"></a>
-### **Stage 2: Zero Trust Architecture**
+### **Stage 2: Zero Trust Architecture** — `🧠 Conceptual`
 
 - [ ] **Zero Trust Principles:** Understand **"never trust, always verify"** across **identity, device, network, application, and data** pillars.
 
@@ -635,7 +648,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
     - Cloud CASB bypass: traffic to unapproved cloud apps via split tunnelling gaps
 
 <a id="stage-3-network-security-architecture"></a>
-### **Stage 3: Network Security Architecture**
+### **Stage 3: Network Security Architecture** — `🧠 Conceptual`
 
 - [ ] **Network Segmentation Design:** Design **DMZ, internal zones, management zones, database zones** with proper **firewall rules and ACLs** between them.
 
@@ -667,7 +680,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
   - [ ] **Pentester's perspective:** CNAPP creates a centralised alert correlation target. Offensive actions that individually look benign (enumerate S3, assume role, access parameter store) may be stitched together by Wiz/Lacework into a high-confidence attack path alert. Understand CNAPP detection logic when planning cloud red team operations.
 
 <a id="stage-4-data-security-architecture"></a>
-### **Stage 4: Data Security Architecture**
+### **Stage 4: Data Security Architecture** — `🧠 Conceptual`
 
 - [ ] **Data Classification:** Implement **classification schemes** (Public, Internal, Confidential, Restricted) with **automated labeling** and **DLP policy enforcement**.
 
@@ -678,7 +691,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 - [ ] **Privacy Engineering:** Implement **data anonymization, pseudonymization, tokenization** for GDPR/DPDP Act compliance. Understand **Privacy by Design** principles.
 
 <a id="stage-5-disaster-recovery-business-continuity"></a>
-### **Stage 5: Disaster Recovery & Business Continuity**
+### **Stage 5: Disaster Recovery & Business Continuity** — `🧠 Conceptual`
 
 - [ ] **DR/BCP Fundamentals:** Understand **RPO (Recovery Point Objective)** and **RTO (Recovery Time Objective)** and how they drive architecture decisions.
 

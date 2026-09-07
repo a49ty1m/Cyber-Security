@@ -30,6 +30,21 @@
 >
 > _By the end of Phase 7, your repository should contain at least 2 deep-dive technical analyses._
 
+> [!IMPORTANT]
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+>
+> | Priority | Tool | Purpose & Core Skills |
+> | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [Ghidra](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Ghidra.md) / IDA Free | Static decompilation, function graphing, cross-reference tracing (`XREFs`), struct reconstruction, disassembly. |
+> | **Tier 1 (Mandatory)** | [x64dbg](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/x64dbg.md) & **GDB (pwndbg / GEF)** | Dynamic debugging, hardware/software breakpoints, register inspection, stack inspection, ASLR/DEP bypass analysis. |
+> | **Tier 1 (Mandatory)** | **pwntools (Python)** | Binary exploitation automation, cyclic pattern generation, shellcode compilation, remote socket interaction, ROP chain crafting. |
+> | **Tier 1 (Mandatory)** | [Autopsy](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Autopsy.md) & [FTK Imager](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/FTK_Imager.md) | Forensic disk image acquisition (E01/RAW), MFT analysis, deleted file carving, prefetch and shellbag artifact extraction. |
+> | **Tier 2 (Secondary)** | [Detect It Easy](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Detect_It_Easy.md) (DIE) & PEview | PE/ELF header analysis, packer detection (UPX/Themida), compiler entropy calculation. |
+> | **Tier 2 (Secondary)** | [Procmon](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Procmon.md) & Wireshark | Dynamic behavioral malware analysis, file system modifications, registry hooks, C2 beacon network profiling. |
+> | **Tier 2 (Secondary)** | **binwalk** | Firmware binary unpacking, compression signature discovery, filesystem extraction (SquashFS/JFFS2). |
+>
+> **Phase Exit Tool Gate:** You cannot pass Phase 7 until you can decompile an unknown x86/x64 binary in Ghidra, identify a stack/format-string vulnerability, write a functional Python `pwntools` exploit that bypasses NX using a ROP chain, and acquire/analyze a forensic disk image using FTK Imager and Autopsy.
+
 ---
 
 ### 🗂️ Table of Contents
@@ -188,7 +203,7 @@
 
 
 <a id="stage-1-preparation-first-response"></a>
-### **Stage 1: Preparation & First Response**
+### **Stage 1: Preparation & First Response** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Secure the scene without corrupting evidence.
@@ -204,7 +219,7 @@
 ---
 
 <a id="stage-2-evidence-analysis-the-deep-dive"></a>
-### **Stage 2: Evidence Analysis (The Deep Dive)**
+### **Stage 2: Evidence Analysis (The Deep Dive)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find the needle in the haystack.
@@ -218,7 +233,7 @@
 ---
 
 <a id="stage-3-memory-forensics"></a>
-### **Stage 3: Memory Forensics**
+### **Stage 3: Memory Forensics** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract evidence from volatile memory — the richest source of attacker artifacts.
@@ -245,7 +260,7 @@
 ---
 
 <a id="stage-4-network-forensics"></a>
-### **Stage 4: Network Forensics**
+### **Stage 4: Network Forensics** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Trace the attacker's path through network evidence.
@@ -264,7 +279,7 @@
 ---
 
 <a id="stage-5-cloud-mobile-forensics"></a>
-### **Stage 5: Cloud & Mobile Forensics**
+### **Stage 5: Cloud & Mobile Forensics** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Collect and analyze evidence from cloud and mobile sources.
@@ -282,7 +297,7 @@
 ---
 
 <a id="stage-6-advanced-analysis-reporting"></a>
-### **Stage 6: Advanced Analysis & Reporting**
+### **Stage 6: Advanced Analysis & Reporting** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand the "How" and tell the story.
@@ -298,7 +313,7 @@
 ---
 
 <a id="stage-7-legal-reporting"></a>
-### **Stage 7: Legal & Reporting**
+### **Stage 7: Legal & Reporting** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Present findings professionally and maintain legal admissibility.
@@ -343,7 +358,7 @@
 
 
 <a id="stage-1-static-analysis-foundations"></a>
-### **Stage 1: Static Analysis Foundations**
+### **Stage 1: Static Analysis Foundations** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Analyze binaries without executing them.
@@ -365,7 +380,7 @@
 ---
 
 <a id="stage-2-dynamic-analysis-debugging"></a>
-### **Stage 2: Dynamic Analysis & Debugging**
+### **Stage 2: Dynamic Analysis & Debugging** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Observe malware behavior during live execution.
@@ -388,7 +403,7 @@
 ---
 
 <a id="stage-3-anti-reverse-engineering-evasion-techniques"></a>
-### **Stage 3: Anti-Reverse Engineering & Evasion Techniques**
+### **Stage 3: Anti-Reverse Engineering & Evasion Techniques** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand and defeat techniques malware uses to resist analysis.
@@ -406,7 +421,7 @@
 ---
 
 <a id="stage-4-malware-classification-threat-intelligence"></a>
-### **Stage 4: Malware Classification & Threat Intelligence**
+### **Stage 4: Malware Classification & Threat Intelligence** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Categorize malware and extract actionable intelligence.
@@ -424,7 +439,7 @@
 ---
 
 <a id="stage-5-advanced-re-automation"></a>
-### **Stage 5: Advanced RE & Automation**
+### **Stage 5: Advanced RE & Automation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Scale analysis with scripting and handle complex targets.
@@ -472,7 +487,7 @@
 > **Prerequisite Gate:** Complete Part 1 Stages 3–4 (Memory Management, Data Representation), Part 1 Stage 7 (C fundamentals), and Part 42 (Offensive Development — exploit writing, shellcode, assembly) before starting this Part. Modern exploitation builds directly on these foundations.
 
 <a id="stage-1-recon-triage-tooling"></a>
-### **Stage 1: Recon, Triage & Tooling**
+### **Stage 1: Recon, Triage & Tooling** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prepare targets and environments for exploit development.
@@ -486,7 +501,7 @@
 ---
 
 <a id="stage-2-memory-exploitation-userland"></a>
-### **Stage 2: Memory Exploitation (Userland)**
+### **Stage 2: Memory Exploitation (Userland)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit memory-safety bugs under modern mitigations.
@@ -506,7 +521,7 @@
 ---
 
 <a id="stage-3-advanced-targets"></a>
-### **Stage 3: Advanced Targets**
+### **Stage 3: Advanced Targets** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Move beyond basic binaries to complex environments.
@@ -522,7 +537,7 @@
 ---
 
 <a id="stage-4-exploit-delivery-opsec"></a>
-### **Stage 4: Exploit Delivery & OPSEC**
+### **Stage 4: Exploit Delivery & OPSEC** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Deliver and operate exploits stealthily.
@@ -538,7 +553,7 @@
 ---
 
 <a id="stage-5-post-exploitation-hardening-safety"></a>
-### **Stage 5: Post-Exploitation Hardening & Safety**
+### **Stage 5: Post-Exploitation Hardening & Safety** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Maintain control while minimizing detection and impact.
@@ -568,7 +583,7 @@
 ## Part 30: Hardware Hacking & Embedded Systems [OPTIONAL SPECIALIZATION]
 
 <a id="stage-1-hardware-reconnaissance"></a>
-### **Stage 1: Hardware Reconnaissance**
+### **Stage 1: Hardware Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify attack surface on physical devices.
@@ -586,7 +601,7 @@
 ---
 
 <a id="stage-2-firmware-analysis"></a>
-### **Stage 2: Firmware Analysis**
+### **Stage 2: Firmware Analysis** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Reverse engineer and find vulnerabilities in firmware.
@@ -612,7 +627,7 @@
 ---
 
 <a id="stage-3-runtime-exploitation"></a>
-### **Stage 3: Runtime Exploitation**
+### **Stage 3: Runtime Exploitation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Execute code on live embedded systems.
@@ -632,7 +647,7 @@
 ---
 
 <a id="stage-4-side-channel-physical-attacks"></a>
-### **Stage 4: Side-Channel & Physical Attacks**
+### **Stage 4: Side-Channel & Physical Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Extract secrets through non-traditional attack vectors.
@@ -650,7 +665,7 @@
 ---
 
 <a id="stage-5-iot-embedded-defense"></a>
-### **Stage 5: IoT & Embedded Defense**
+### **Stage 5: IoT & Embedded Defense** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure embedded systems against attacks.
@@ -694,7 +709,7 @@
 > **Safety Gate:** Physical testing requires written authorization, named locations, dates/times, emergency contacts, stop conditions, and a get-out-of-jail letter. Do not practice bypasses on real facilities, campuses, offices, hotels, apartments, or transit systems.
 
 <a id="stage-1-pre-engagement-reconnaissance"></a>
-### **Stage 1: Pre-Engagement & Reconnaissance**
+### **Stage 1: Pre-Engagement & Reconnaissance** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Plan the physical assessment within legal scope.
@@ -710,7 +725,7 @@
 ---
 
 <a id="stage-2-entry-access-control-bypass"></a>
-### **Stage 2: Entry & Access Control Bypass**
+### **Stage 2: Entry & Access Control Bypass** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Defeat physical barriers to gain facility access.
@@ -730,7 +745,7 @@
 ---
 
 <a id="stage-3-hid-usb-payload-attacks"></a>
-### **Stage 3: HID & USB Payload Attacks**
+### **Stage 3: HID & USB Payload Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Deploy physical implants and hardware attack tools.
@@ -748,7 +763,7 @@
 ---
 
 <a id="stage-4-on-site-operations-data-collection"></a>
-### **Stage 4: On-Site Operations & Data Collection**
+### **Stage 4: On-Site Operations & Data Collection** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Achieve objectives once inside.
@@ -764,7 +779,7 @@
 ---
 
 <a id="stage-5-reporting-physical-findings"></a>
-### **Stage 5: Reporting Physical Findings**
+### **Stage 5: Reporting Physical Findings** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Document and communicate physical security gaps professionally.
@@ -798,7 +813,7 @@
 ## Part 33: VoIP & Telecommunications Security [OPTIONAL SPECIALIZATION]
 
 <a id="stage-1-voip-protocol-fundamentals"></a>
-### **Stage 1: VoIP Protocol Fundamentals**
+### **Stage 1: VoIP Protocol Fundamentals** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how VoIP systems communicate.
@@ -814,7 +829,7 @@
 ---
 
 <a id="stage-2-voip-reconnaissance-enumeration"></a>
-### **Stage 2: VoIP Reconnaissance & Enumeration**
+### **Stage 2: VoIP Reconnaissance & Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Discover and map VoIP infrastructure.
@@ -830,7 +845,7 @@
 ---
 
 <a id="stage-3-voip-attacks"></a>
-### **Stage 3: VoIP Attacks**
+### **Stage 3: VoIP Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit weaknesses in VoIP deployments.
@@ -850,7 +865,7 @@
 ---
 
 <a id="stage-4-ss7-telecom-signaling-attacks"></a>
-### **Stage 4: SS7 & Telecom Signaling Attacks**
+### **Stage 4: SS7 & Telecom Signaling Attacks** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand mobile network signaling vulnerabilities.
@@ -868,7 +883,7 @@
 ---
 
 <a id="stage-5-5g-security"></a>
-### **Stage 5: 5G Security**
+### **Stage 5: 5G Security** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the 5G threat landscape.
@@ -882,7 +897,7 @@
 ---
 
 <a id="stage-6-defense-hardening"></a>
-### **Stage 6: Defense & Hardening**
+### **Stage 6: Defense & Hardening** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure VoIP and telecom infrastructure.
@@ -916,7 +931,7 @@
 ## Part 34: Blockchain & Web3 Security [OPTIONAL SPECIALIZATION]
 
 <a id="stage-1-blockchain-fundamentals-for-security"></a>
-### **Stage 1: Blockchain Fundamentals for Security**
+### **Stage 1: Blockchain Fundamentals for Security** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how blockchain and smart contracts work before attacking them.
@@ -932,7 +947,7 @@
 ---
 
 <a id="stage-2-smart-contract-vulnerabilities"></a>
-### **Stage 2: Smart Contract Vulnerabilities**
+### **Stage 2: Smart Contract Vulnerabilities** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify and exploit common Solidity security flaws.
@@ -954,7 +969,7 @@
 ---
 
 <a id="stage-3-smart-contract-auditing-methodology"></a>
-### **Stage 3: Smart Contract Auditing Methodology**
+### **Stage 3: Smart Contract Auditing Methodology** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Systematically audit contracts for vulnerabilities.
@@ -972,7 +987,7 @@
 ---
 
 <a id="stage-4-web3-infrastructure-attacks"></a>
-### **Stage 4: Web3 Infrastructure Attacks**
+### **Stage 4: Web3 Infrastructure Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Attack the broader Web3 ecosystem beyond smart contracts.
@@ -990,7 +1005,7 @@
 ---
 
 <a id="stage-5-defense-secure-development"></a>
-### **Stage 5: Defense & Secure Development**
+### **Stage 5: Defense & Secure Development** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Build secure smart contracts and Web3 applications.
@@ -1040,7 +1055,7 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 
 
 <a id="stage-1-exploit-development-foundation"></a>
-### **Stage 1: Exploit Development Foundation**
+### **Stage 1: Exploit Development Foundation** — `🔬 Practical`
 
 - [ ] **Exploit Prototyping:** Use Python with **pwntools, [impacket](../Tools/Impacket.md)** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
 
@@ -1055,7 +1070,7 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 - [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
 
 <a id="stage-2-windows-offensive-development"></a>
-### **Stage 2: Windows Offensive Development**
+### **Stage 2: Windows Offensive Development** — `🔬 Practical`
 
 - [ ] **Win32 API Exploitation:** Use **CreateProcess, VirtualAlloc, WriteProcessMemory, CreateRemoteThread** for **process injection, DLL loading, and token manipulation**.
 
@@ -1068,14 +1083,14 @@ _Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Funda
 - [ ] **Offensive PowerShell:** Master **download cradles, constrained language mode escape, script block logging evasion**, and **AMSI bypass in PowerShell**.
 
 <a id="stage-3-linux-offensive-development"></a>
-### **Stage 3: Linux Offensive Development**
+### **Stage 3: Linux Offensive Development** — `🔬 Practical`
 
 - [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
 
 - [ ] **ELF Binary Manipulation:** Understand **ELF format, GOT/PLT, dynamic linking** for binary patching and implant injection.
 
 <a id="stage-4-c2-implant-development"></a>
-### **Stage 4: C2 & Implant Development**
+### **Stage 4: C2 & Implant Development** — `🔬 Practical`
 
 - [ ] **C2 Architecture:** Design **client-server implant architecture** with **modular payloads, encrypted channels, and sleep obfuscation**.
 
