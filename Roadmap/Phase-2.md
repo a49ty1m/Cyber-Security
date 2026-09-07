@@ -307,26 +307,14 @@
 
 <a id="part-4-stage-7-satellite-geospatial-intelligence"></a>
 
-### **Stage 7: Satellite & Geospatial Intelligence**
+### **Stage 7: Satellite & Geospatial Intelligence** _(Optional — Skip unless physical pentest is in scope)_
 
-> [!TIP]
-> **Goal:** Use geospatial data to understand physical assets and infrastructure.
-
-> [!NOTE]
-> **Scope Clarification — This Stage vs. Phase 5 SDR/GPS:**
-> This stage covers **passive OSINT using publicly available satellite imagery and geospatial data** — no special hardware required, no restricted frequencies, no legal complexity. Tools like Google Earth Pro, Sentinel Hub, and IP geolocation are legitimate free resources used by security consultants for physical site reconnaissance.
+> [!WARNING]
+> **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if you are conducting an authorized physical penetration test where facility layout matters.
 >
-> This is **entirely distinct** from Phase 5 Stage 7 (GPS Spoofing & Satellite Protocol Security), which is marked **[OPTIONAL]** because it requires specialized hardware (HackRF, GPSDO), operates in restricted RF spectrum, and is a narrow specialization relevant only to specific career paths (aviation security, IoT/V2X, critical infrastructure). If you see the word "satellite" in Phase 5 and think you already covered it here — you have not. These are different domains.
+> For standard corporate network/web pentesting and Red Team engagements, skip this stage entirely and proceed to **Stage 8: Strategy & Attack Mapping**. Do not schedule dedicated study time here.
 
-- [ ] **Satellite Imagery:** Use **Google Earth Pro, Sentinel Hub, USGS Earth Explorer, Maxar Open Data** to visualize **data center locations, server rooms, facility perimeters, parking patterns, physical security posture** — all from open, publicly available imagery.
-
-- [ ] **Physical Facility Assessment via OSINT:** Combine satellite imagery with **LinkedIn employee location data, job postings (mentioning physical location), Google Street View, and building permit records** to map the physical attack surface of a target facility before an authorized physical pentest engagement.
-
-- [ ] **Geolocation Triangulation:** Combine **IP geolocation, BGP origin, ASN info** to identify **likely hosting providers and data center countries**. Use **ipinfo.io, bgp.he.net, PeeringDB** to map provider relationships.
-
-- [ ] **Signal Intelligence (SIGINT) — Passive Only:** Use **RF mapping tools (Wigle.net for WiFi mapping, Shodan for internet-exposed infrastructure, GreyNoise for internet noise)** to identify **telecommunications infrastructure** from open data sources — no hardware required.
-
-- [ ] **Infrastructure Clustering:** Map **AS numbers, IP blocks, DNS servers** to identify **shared hosting clusters, CDN nodes, provider boundaries**.
+- [ ] _[Optional]_ For authorized physical pentest scopes only: Use **Google Earth Pro, Sentinel Hub, ipinfo.io, bgp.he.net** to map physical facility layout, data center locations, and IP infrastructure before an on-site engagement.
 
 ---
 
@@ -1540,8 +1528,8 @@
 > | **Part 9** — Sniffing & Spoofing     | Core     | Do now — directly supports network understanding                       |
 > | **Part 10** — Social Engineering     | Core     | Do now — recon/phishing concepts apply immediately                     |
 > | **Part 12** — Session Hijacking      | Core     | Do now — reinforces auth/session concepts from Phase 1                 |
-> | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 4** — full malware engineering is in Phase 7 Part 42  |
-> | **Part 11** — Denial of Service      | Deferred | Do **after Phase 4** — deeper value after infrastructure understanding |
+> | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 6** — full malware engineering is in Phase 7 Part 42  |
+> | **Part 11** — Denial of Service      | Archive  | **Read passively only. No lab time.** No pentest engagement authorizes active DoS on a production network. Conceptual awareness is sufficient. |
 >
 > **What to defer until after Phase 4 & 6:**
 >
@@ -2089,7 +2077,12 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ## Part 11: Denial of Service
 
-> **Safety Gate:** DoS testing is local-lab-only unless a written contract explicitly authorizes it. Never run DoS tools against public IPs, SaaS platforms, school networks, ISP infrastructure, or bug bounty targets unless the scope explicitly permits availability testing.
+> [!CAUTION]
+> **DEPRIORITIZED — No Lab Time Required.** DoS/DDoS is included here for conceptual awareness only. No authorized penetration test engagement will ask you to denial-of-service a production network. Scheduling lab time on SYN floods and botnet assembly before you are employed is wasted effort on a skill you will almost certainly never use in a professional context.
+>
+> **How to treat this part:** Read Stages 1–2 passively in a single session so you can discuss DoS attack types in a client conversation. Read Stage 4 (defense/mitigation) for OPSEC awareness. Skip the execution labs entirely.
+>
+> If you are targeting DDoS mitigation, CDN architecture, or cloud resilience engineering — those are separate career tracks and this part would be relevant. For Red Team / Penetration Testing: move on.
 
 <a id="stage-1-objective-strategy-the-planning"></a>
 

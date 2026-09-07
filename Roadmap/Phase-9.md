@@ -1,7 +1,22 @@
 # Phase 9: AI Security
 
 > [!IMPORTANT]
-> **Sequencing Advisory:** This phase (Phase 9) covers AI & LLM Red Teaming — the full offensive and defensive AI security domain. It requires completion of Phases 1–8 (traditional security foundations, offensive core, web security, infrastructure, and advanced specializations) before attempting. Phase 10 (Operations & Career) builds on the portfolio of work produced across all prior phases. Complete Phase 9 before attempting Phase 10.
+> **Sequencing Advisory — Corrected Prerequisites:**
+>
+> **True prerequisites for AI Red Teaming:**
+> - ✅ **Phase 4 (Web & API Security)** — Prompt injection, SSRF via LLM tools, and API authentication attacks require deep web exploitation fundamentals
+> - ✅ **Phase 6 (Cloud IAM & Infrastructure)** — RAG pipelines, agentic systems, and LLM services deploy on cloud infrastructure (AWS Bedrock, Azure OpenAI, GCP Vertex); cloud IAM attacks are directly applicable
+> - ✅ **Python fluency** — Interacting with LLM APIs, building test harnesses, and analyzing model behavior requires functional Python
+>
+> **What is NOT a prerequisite for AI Security:**
+> - ❌ Phase 7 (Binary exploitation, kernel RE, DFIR) — LLM attacks operate at the application/API layer, not the binary layer. x86 shellcoding has no bearing on prompt injection or RAG poisoning.
+> - ❌ Phase 8 (GRC, compliance frameworks) — ISO 27001 and NIST CSF knowledge is irrelevant to adversarial ML research and agentic exploit development.
+>
+> **When to start Phase 9:** After completing Phase 6 (Stage 2 exit gate). If AI Security is your primary career target, begin Phase 9 during Stage 3 alongside Phase 7 Part 42 — do not wait until Phase 8 is complete.
+>
+> Phase 10 (Operations & Career) still requires Phase 9 before attempting, as the portfolio assembly depends on AI security artifacts alongside traditional security work.
+
+
 
 ---
 

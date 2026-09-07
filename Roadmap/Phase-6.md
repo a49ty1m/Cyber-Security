@@ -628,8 +628,19 @@
 
 ## Part 26: OT/ICS/SCADA Security [OPTIONAL SPECIALIZATION]
 
-> [!NOTE]
-> **Optional Specialization:** OT/ICS/SCADA security is a distinct career track targeting industrial control systems in energy, utilities, manufacturing, and critical infrastructure. If your career goal is ICS pentesting, SCADA security engineering, or critical infrastructure defense, complete this Part in full. If your goal is general offensive security, cloud, or enterprise AD — treat this Part as awareness-level reading and return to it when specializing. Do not let OT/ICS block your progress into Phase 7.
+
+> [!CAUTION]
+> **OPTIONAL SPECIALIZATION — NOT PART OF THE RED TEAM CRITICAL PATH.**
+>
+> OT/ICS/SCADA security is a **separate career field** targeting industrial control systems in energy, utilities, manufacturing, water treatment, and critical infrastructure. It requires specialized knowledge of industrial protocols (Modbus, DNP3, Profinet), PLC/HMI architecture, and operational safety constraints that are entirely distinct from enterprise IT security.
+>
+> **Skip this Part if:** Your target is general penetration testing, enterprise red teaming, cloud security, or AI security. Do NOT let OT/ICS block your progress to Phase 7.
+>
+> **Complete this Part only if:** You are explicitly targeting ICS/OT pentesting roles (energy sector, industrial consultancies), critical infrastructure defense, or SCADA security engineering. These roles have specific hiring pipelines and certifications (GICSP, ICS-CERT training) that are separate from the standard Red Team track.
+>
+> This content is available here for completeness. Treat it as post-hire optional alongside Phase 5 and Phase 8.
+
+
 
 <a id="stage-1-industrial-protocol-fundamentals"></a>
 ### **Stage 1: Industrial Protocol Fundamentals**

@@ -13,6 +13,23 @@
 > - **⏱️ Time Commitment (Part-Time):** 6–9 months
 > - **🎯 Primary Focus:** GRC frameworks (NIST, ISO 27001, PCI-DSS, DPDP Act), supply chain security (SBOM, SLSA, dependency confusion), DevSecOps integration (SAST/DAST/SCA, secrets scanning, IaC security), and security architecture & engineering (Zero Trust, defense-in-depth design, segmentation, reference architectures).
 
+> [!CAUTION]
+> **POST-HIRE OPTIONAL TRACK — Do NOT include in your pre-employment critical path.**
+>
+> GRC, compliance auditing, and DevSecOps pipeline security are legitimate and valuable skills. They are also **entirely irrelevant to getting your first penetration testing or red team job.** Hiring managers for offensive security roles do not gate candidates on ISO 27001 knowledge or CI/CD SAST integration. Those skills belong to security engineers, compliance officers, and DevSecOps specialists.
+>
+> **When to return to Phase 8:**
+> - You are in a security role that requires client-facing compliance conversations or audit support
+> - Your employer is a consultancy that delivers GRC or DevSecOps alongside pentest engagements
+> - You are pivoting from Red Team toward Security Architecture or Engineering leadership
+>
+> **What you can skim now (1–2 hours total, not a full Phase):**
+> - Part 35 Stage 1 (Security Frameworks overview) — enough to speak intelligently to a CISO about NIST CSF and ISO 27001 during a pentest scoping call
+> - Part 37 Stage 1 (DevSecOps pipeline overview) — useful OPSEC context for understanding what SAST/DAST tools will catch your techniques
+>
+> **Execute as part of the 3-Stage plan:** Phases 1→2A→4→6→7(P42)→9→10. Return here post-hire.
+
+
 ---
 
 > [!NOTE]

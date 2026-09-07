@@ -13,15 +13,23 @@
 > - **⏱️ Time Commitment (Part-Time):** 5–8 months
 > - **🎯 Primary Focus:** WiFi pentesting (WPA3, evil twin, PMKID), Bluetooth/BLE/Zigbee/NFC/RFID/GPS attacks, SDR spectrum analysis, and Android/iOS dynamic+static analysis.
 
-> [!IMPORTANT]
-> **Red Team Track Sequencing:** Phase 5 comes **after Phase 6** in the personal execution order, not before it. Active Directory, cloud identity, and container security (Phase 6) are higher-priority for enterprise red teaming than wireless/mobile specialization.
+> [!CAUTION]
+> **POST-HIRE OPTIONAL TRACK — Do NOT include in your pre-employment critical path.**
 >
-> **Execute as:** Phase 4 (Web) → **Phase 6** (Infrastructure) → **Phase 5** (Wireless & Mobile)
+> Wireless penetration testing in modern enterprise engagements is typically a 1–2 day compliance exercise, not a core skill for getting hired as a penetration tester or red teamer. Mobile pentesting is a niche specialty. Neither warrants 3–5 months of pre-employment lab time when Active Directory, cloud IAM, and web application security are still incomplete.
 >
-> **Optional specializations within Phase 5 — skip unless role-specific:**
-> - GPS/Satellite Spoofing (Part 21 Stage 7) — defer unless role demands it
-> - SDR & Spectrum Analysis (Part 21 Stage 8) — defer unless role demands it
-> - NFC/RFID deep dives — defer unless physical pentesting is your target specialty
+> **When to return to Phase 5:**
+> - You are employed in a security role and have received a wireless/mobile assessment engagement
+> - Your target employer explicitly lists wireless or mobile pentesting in job requirements
+> - You have completed the full critical path (Stages 1–3) and are looking for specialization
+>
+> **What to skip entirely (even post-hire, unless role-specific):**
+> - GPS/Satellite Spoofing (Part 21 Stage 7) — requires HackRF hardware, restricted spectrum; relevant only to aviation/IoT/V2X security
+> - SDR & Spectrum Analysis (Part 21 Stage 8) — separate hardware-intensive specialization
+> - NFC/RFID deep dives — relevant only if physical pentesting is your primary work
+>
+> **Execute as part of the 3-Stage plan:** Phases 1→2A→4→6→7(P42)→9→10. Return here post-hire.
+
 
 
 ---
