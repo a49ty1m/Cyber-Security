@@ -97,6 +97,7 @@ Phase 4 — Web & Application Security      ◄── DO BEFORE Phase 2B
 ──────────────────────────────────────────────────────────────────
   Part 17 → Web Application Hacking
   Part 18 → Web Server Hacking
+  Part 12 → Session Hijacking & Token Attacks  (integrated with Web App Sec)
   Part 19 → API Security
   Part 20 → Bug Bounty Methodology
 
@@ -125,8 +126,8 @@ Phase 2B — Advanced Offensive Operations  (core parts only)
 ──────────────────────────────────────────────────────────────────
   Part 9  → Sniffing & Spoofing  (do now)
   Part 10 → Social Engineering   (do now)
-  Part 12 → Session Hijacking    (do now)
-  Part 8  → Malware & Weaponization  (defer until after Phase 6)
+  [DONE]  → Part 12 (Session Hijacking) — completed in Phase 4 Web Sec
+  Part 8  → Malware & Weaponization  (defer until Phase 7 Part 42)
   [SKIP]  → Part 11 (DoS) — conceptual awareness only, no lab time
     │
     ▼
@@ -387,7 +388,7 @@ Every phase file contains a **Documentation Requirements** block. These artifact
 
 | Phase | Language | Milestone & Core Libraries | Practical Security Application |
 |:---|:---|:---|:---|
-| **Phase 1**<br>Foundations | **Bash** | • **Core:** Expansions, control flow, functions, subshells, exit codes (`$?`)<br>• **Syntax/Pipes:** `set -euo pipefail`, streams (`0, 1, 2`), `\|`, `tee`, `xargs`, `read` | CLI automation, file navigation, OS administration |
+| **Phase 1**<br>Foundations | **Bash** | • **Core:** Expansions, control flow, functions, subshells, exit codes (`$?`)<br>• **Syntax/Pipes:** `set -euo pipefail`, streams (`0, 1, 2`), `&#124;`, `tee`, `xargs`, `read` | CLI automation, file navigation, OS administration |
 | | **PowerShell** | • **Core:** `Verb-Noun` cmdlets, script blocks, PSDrives (`HKLM:`, `Env:`, `Cert:`)<br>• **Object Pipeline:** `Get-Member`, `Select-Object`, `Where-Object`, `ForEach-Object` | Windows administration, registry and service auditing |
 | | **Python** | • **Core:** Control flow, custom functions, exception handling (`try/except/finally`)<br>• **Data & I/O:** Lists, dicts, sets, list comprehensions, file I/O (`with open(...)`) | Foundational programming & security logic |
 | | **JavaScript** | • **Core:** Browser execution context, DOM manipulation, asynchronous flow (`async/await`)<br>• **APIs:** `fetch()`, `document.cookie`, `localStorage`, DevTools debugging | Understanding client-side web mechanics |
@@ -447,7 +448,7 @@ Every phase file contains a **Documentation Requirements** block. These artifact
 |   9    | [Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing)                                                     |   2    |                                               |
 |   10   | [Social Engineering](Phase-2.md#part-10-social-engineering)                                                    |   2    |                                               |
 |   11   | [Denial of Service](Phase-2.md#part-11-denial-of-service)                                                      |   2    |                                               |
-|   12   | [Session Hijacking](Phase-2.md#part-12-session-hijacking)                                                      |   2    |                                               |
+|   12   | [Session Hijacking](Phase-4.md#part-12-session-hijacking)                                                      |   4    | Integrated into Web Security                  |
 |  13A   | [Detection Engineering & SOC Operations](Phase-3.md#part-13a-detection-engineering-soc-operations)             |   3    | SIEM, Detection Rules, Threat Hunting         |
 |  13B   | [Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion)                             |   3    | SOAR, DLP, Vuln Management                    |
 |   14   | [IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots)                                   |   3    |                                               |
@@ -456,23 +457,13 @@ Every phase file contains a **Documentation Requirements** block. These artifact
 |   18   | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking)                                                    |   4    |                                               |
 |   19   | [API Security](Phase-4.md#part-19-api-security)                                                                |   4    |                                               |
 |   20   | [Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology)                                            |   4    |                                               |
-|   21   | [Wireless Network Security](Phase-5.md#part-21-wireless-network-security)                                      |   5    |                                               |
-|   22   | [Mobile Security](Phase-5.md#part-22-mobile-security)                                                          |   5    |                                               |
-|   23   | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)                                    |   6    |                                               |
-|   24   | [Cloud Computing Security](Phase-6.md#part-24-cloud-computing)                                                 |   6    |                                               |
-|  14   | [IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots)                                   |   3    |                                               |
-|  15   | [OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence)                                    |   3    |                                               |
-|  17   | [Web Application Hacking](Phase-4.md#part-17-web-application-hacking)                                          |   4    |                                               |
-|  18   | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking)                                                    |   4    |                                               |
-|  19   | [API Security](Phase-4.md#part-19-api-security)                                                                |   4    |                                               |
-|  20   | [Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology)                                            |   4    |                                               |
-|  21   | [Wireless Network Security](Phase-5.md#part-21-wireless-network-security)                                      |   5    |                                               |
-|  22   | [Mobile Security](Phase-5.md#part-22-mobile-security)                                                          |   5    |                                               |
-|  23   | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)                                    |   6    |                                               |
-|  24   | [Cloud Computing Security](Phase-6.md#part-24-cloud-computing)                                                 |   6    |                                               |
-|  25   | [Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security)                      |   6    | Docker, Kubernetes, Secrets Mgmt              |
-|  26   | [OT/ICS/SCADA Security _(OPTIONAL)_](Phase-6.md#part-26-oticsscada-security)                                   |   6    | Industrial Protocols, PLC, HMI                |
-| **16** | [**Adversary Emulation & Purple Teaming**](Phase-6.md#part-16-adversary-emulation-purple-teaming)              | **6**  | **⚠️ Phase 6 capstone — NOT Phase 3**         |
+|   21   | [Wireless Network Security](Phase-5.md#part-21-wireless-network-security)                                      |   5    | ⚠️ Post-Hire                                   |
+|   22   | [Mobile Security](Phase-5.md#part-22-mobile-security)                                                          |   5    | ⚠️ Post-Hire                                   |
+|   23   | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id)                                    |   6    | Kerberos, ADCS (ESC1-13), BloodHound          |
+|   24   | [Cloud Computing Security](Phase-6.md#part-24-cloud-computing)                                                 |   6    | AWS/Azure IAM, CIEM, IMDSv2                   |
+|   25   | [Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security)                      |   6    | Docker, Kubernetes, Secrets Mgmt              |
+|   26   | [OT/ICS/SCADA Security _(OPTIONAL)_](Phase-6.md#part-26-oticsscada-security)                                   |   6    | Industrial Protocols, PLC, HMI                |
+| **16** | [**Adversary Emulation & Purple Teaming**](Phase-6.md#part-16-adversary-emulation-purple-teaming)              | **6**  | **⚠️ Phase 6 capstone — Enterprise Defense**   |
 | **42** | [**Offensive Development & Tooling**](Phase-7.md#part-42-offensive-development-tooling)                        | **7**  | **⚠️ Complete BEFORE Part 29**                |
 |   27   | [Digital Forensics](Phase-7.md#part-27-digital-forensics)                                                      |   7    |                                               |
 |   28   | [Reverse Engineering & Malware Analysis](Phase-7.md#part-28-reverse-engineering-malware-analysis)              |   7    |                                               |
@@ -535,6 +526,7 @@ Every phase file contains a **Documentation Requirements** block. These artifact
 **🌐 Phase 4 — Web & Application Security** _(do before Phase 2B)_
 
 - [ ] [Part 17: Web Application Hacking](Phase-4.md#part-17-web-application-hacking) — Recon → Exploit → Persist
+- [ ] [Part 12: Session Hijacking & Token Attacks](Phase-4.md#part-12-session-hijacking-token-attacks) — Cookies, JWTs, Session Fixation, Token Forgery
 - [ ] [Part 18: Web Server Hacking](Phase-4.md#part-18-web-server-hacking) — Recon → Exploit → Persist
 - [ ] [Part 19: API Security](Phase-4.md#part-19-api-security) — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks
 - [ ] [Part 20: Bug Bounty & Penetration Testing](Phase-4.md#part-20-bug-bounty-and-penetration-testing) — Scope → Recon → Exploit → Report
@@ -561,8 +553,8 @@ _Stage 1 Exit Gate: 3+ HTB/THM writeups committed, OWASP Top 10 hands-on, Linux 
 
 - [ ] [Part 9: Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) — Protocols → Sniffing → MITM → Defenses
 - [ ] [Part 10: Social Engineering](Phase-2.md#part-10-social-engineering) — Recon → Digital → Human → Physical
-- [ ] [Part 12: Session Hijacking](Phase-2.md#part-12-session-hijacking) — Steal → Hijack → Secure
-- [ ] [Part 8: Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) — Taxonomy → msfvenom → Evasion _(defer until after Phase 6)_
+- [ ] [Part 12: Session Hijacking](Phase-4.md#part-12-session-hijacking-token-attacks) — Network Sniffing in Phase 2 / Full App Layer in Phase 4
+- [ ] [Part 8: Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) — Taxonomy → msfvenom → Evasion _(Full development in Phase 7 Part 42)_
 
 **📝 Report Writing** _(pulled forward from Phase 10 — do alongside Phase 6)_
 

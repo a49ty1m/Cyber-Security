@@ -52,18 +52,18 @@
 
 ### 🗂️ Table of Contents
 
-- [Part 40: Red Team Operations & Tradecraft](#part-40-red-team-operations-tradecraft) _(Plan & Execute First)_
-  - [Stage 1: Campaign Planning & Infrastructure](#stage-1-campaign-planning-infrastructure)
-  - [Stage 2: Initial Access & Payload Delivery](#stage-2-initial-access-payload-delivery)
-  - [Stage 3: OPSEC, Persistence & Lateral Movement](#stage-3-opsec-persistence-lateral-movement)
-  - [Stage 4: Data Exfiltration & Impact](#stage-4-data-exfiltration-impact)
-  - [Stage 5: Deconfliction, Reporting & Wrap-Up](#stage-5-deconfliction-reporting-wrap-up)
-- [Part 39: Penetration Testing Methodologies & Report Writing](#part-39-penetration-testing-methodologies-report-writing) _(Document What You Did)_
+- [Part 39: Penetration Testing Methodologies & Report Writing](#part-39-penetration-testing-methodologies-report-writing)
   - [Stage 1: Industry-Standard Engagement Frameworks](#stage-1-industry-standard-engagement-frameworks)
   - [Stage 2: Scoping, Legal Frameworks & Engagement Management](#stage-2-scoping-legal-frameworks-engagement-management)
   - [Stage 3: Structured Threat Modeling](#stage-3-structured-threat-modeling)
   - [Stage 4: Vulnerability Scoring & Risk Prioritization](#stage-4-vulnerability-scoring-risk-prioritization)
   - [Stage 5: Professional Report Writing](#stage-5-professional-report-writing)
+- [Part 40: Red Team Operations & Tradecraft](#part-40-red-team-operations-tradecraft)
+  - [Stage 1: Campaign Planning & Infrastructure](#stage-1-campaign-planning-infrastructure)
+  - [Stage 2: Initial Access & Payload Delivery](#stage-2-initial-access-payload-delivery)
+  - [Stage 3: OPSEC, Persistence & Lateral Movement](#stage-3-opsec-persistence-lateral-movement)
+  - [Stage 4: Data Exfiltration & Impact](#stage-4-data-exfiltration-impact)
+  - [Stage 5: Deconfliction, Reporting & Wrap-Up](#stage-5-deconfliction-reporting-wrap-up)
 - [Part 41: Proof of Work & Career Portfolio](#part-41-proof-of-work-career-portfolio)
   - [Stage 1: Certification Roadmap](#stage-1-certification-roadmap)
   - [Stage 2: Technical Portfolio & GitHub Presence](#stage-2-technical-portfolio-github-presence)
@@ -79,103 +79,6 @@
   - [Decision Tree](#-tool-selection-decision-tree)
   - [Suggested Study Order](#️-suggested-study-order)
 
-<a id="toc-part-40-red-team-operations--tradecraft"></a>
-<a id="part-40-red-team-operations-tradecraft"></a>
-
-## Part 40: Red Team Operations & Tradecraft
-
-> [!NOTE]
-> **📚 Recommended Books for This Part**
-> - 🔴 `Red Team Field Manual v3` — ⚡ Keep open at all times — the fastest command reference for every red team tool and technique
-> - 🟡 `The Red Report 2023` — Full — current attacker TTP trends and attacker behavior data from real incidents
-> - 🟡 `Threat Intelligence Handbook` — Full — CTI methodology for adversary profiling and red team planning
-> - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reference — structured red team operation planning
-
-
-> **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator.
-
-> [!NOTE]
-> **Sequence Note:** Part 40 precedes Part 39 intentionally. You build and run the operation first (Part 40), then learn to document and report it formally (Part 39). A practitioner who has planned and executed a campaign before studying report structure writes far more credible, specific reports than one who studied report templates in the abstract.
-
-<a id="strategy-core-operations"></a>
-<a id="stage-1-campaign-planning-infrastructure"></a>
-
-### **Stage 1: Campaign Planning & Infrastructure** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Define the operation's objectives, rules of engagement, and build the technical infrastructure before any offensive action begins.
-
-- [ ] **Red Team vs Pentest vs Vuln Assessment:** Understand the fundamental differences — pentests find vulnerabilities with broad scope; red teams test **specific objectives** (e.g., "can an attacker reach the CEO's inbox?") with stealth as a constraint; vulnerability assessments are breadth-first, red teams are depth-first.
-
-- [ ] **Campaign Planning & Objectives:** Define **clear objectives** aligned with business risk — data exfiltration, domain compromise, physical access to server room, insider threat simulation. Write a **red team campaign plan** with rules of engagement, communication protocols, deconfliction procedures, and abort criteria.
-
-- [ ] **C2 Framework Mastery:** Deploy and operate at least 2 C2 frameworks — **Sliver** (open-source, modern), **Mythic** (modular, multi-platform), Cobalt Strike (industry standard, commercial), or **Havoc**. Understand **listener types, payload generation, staging vs stageless, sleep/jitter tuning, and kill dates**.
-
-- [ ] **Infrastructure Setup:** Build **resilient attack infrastructure** — redirectors (Apache mod_rewrite, Nginx reverse proxy, cloud functions), domain categorization for reputation, HTTPS certificates (Let's Encrypt), CDN fronting, and infrastructure teardown procedures. Separate **short-haul (interactive) and long-haul (persistent) C2 channels**.
-
----
-
-<a id="stage-2-initial-access-payload-delivery"></a>
-
-### **Stage 2: Initial Access & Payload Delivery** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Gain a foothold using tradecraft that survives email gateways, sandboxes, and EDR — and leaves minimal forensic trace.
-
-- [ ] **Initial Access Tradecraft:** Master **phishing (spearphishing with pretexting, HTML smuggling, macro-free Office exploitation)**, **external service exploitation**, and **supply chain vectors**. Build payloads that survive email gateways, sandboxes, and EDR.
-
----
-
-<a id="stage-3-opsec-persistence-lateral-movement"></a>
-
-### **Stage 3: OPSEC, Persistence & Lateral Movement** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Maintain stealth while expanding access — blend with normal traffic, establish redundant persistence, and move laterally without triggering detection.
-
-- [ ] **OPSEC Discipline:** Maintain **operational security** throughout campaigns — avoid detection by **blending with normal traffic patterns, using legitimate tools (LOLBins), timestomping, log manipulation, and process injection into trusted processes**. Monitor your own indicators: if a defender could fingerprint your C2 beacon pattern, you've failed.
-
-- [ ] **Persistence Mechanisms:** Implement **multiple persistence layers** — registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, golden/silver tickets, and **out-of-band persistence** (cloud-based implants, trusted application abuse). Test persistence across reboots and credential rotations.
-
-- [ ] **Lateral Movement & Pivoting:** Traverse networks using **Pass-the-Hash, Pass-the-Ticket, overpass-the-hash, DCOM, WMI, WinRM, SSH tunneling, SOCKS proxies**. Document every pivot and maintain network maps during operations.
-
----
-
-<a id="stage-4-data-exfiltration-impact"></a>
-
-### **Stage 4: Data Exfiltration & Impact** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Reach the campaign objective — exfiltrate data or demonstrate impact — without triggering DLP or anomaly-based detection.
-
-- [ ] **Data Exfiltration:** Practice **covert exfiltration** — DNS tunneling, HTTPS over legitimate SaaS (Slack, Teams, Google Drive), steganography, scheduled low-and-slow transfers. Measure data rates and detection thresholds.
-
----
-
-<a id="stage-5-deconfliction-reporting-wrap-up"></a>
-
-### **Stage 5: Deconfliction, Reporting & Wrap-Up** — `🧠🔬 Mixed`
-
-> [!TIP]
-> **Goal:** Close the operation safely, hand off findings, and produce a campaign report that improves the client's detection capability.
-
-- [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
-
-- [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
-
-### **Lab Progression (Part 40: Red Team Operations & Tradecraft)**
-
-| Level | Task                                                                                                                       | Deliverable                                                            |
-| ----- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 1     | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in your lab                                         | C2 deployment guide with listener/payload configuration                |
-| 2     | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite)                                                | Infrastructure diagram + setup documentation                           |
-| 3     | Execute a full red team campaign against your AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
-
-> [!IMPORTANT]
-> **Move-On Gate (Part 40):** You can plan a red team campaign, deploy C2 infrastructure with redirectors, execute a full attack lifecycle with OPSEC discipline, and produce a campaign report that analyzes detection gaps. Only then does Part 39's report-writing framework have something real to structure and communicate.
-
----
-
 <a id="toc-part-39-penetration-testing-methodologies--report-writing"></a>
 <a id="part-39-penetration-testing-methodologies-report-writing"></a>
 
@@ -188,7 +91,7 @@
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology for web pentest engagements
 
 
-> **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. It follows Part 40 because report quality is dramatically higher when you've already run a real campaign — you know what evidence you collected, what decisions you made, and what the timeline actually looked like.
+> **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. While its reporting templates (PTES, CVSS v3.1/v4.0, remediation matrices) are introduced in Phase 2 for documenting your first rooted lab machines, here in Phase 10 you master the end-to-end commercial engagement lifecycle: formal legal scoping, threat modeling, executive debriefing, and enterprise deliverable packaging.
 
 <a id="stage-1-industry-standard-engagement-frameworks"></a>
 
@@ -305,10 +208,104 @@
 | ----- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | 1     | Draft an SoW and RoE document for a fictional engagement using a provided scenario                                    | Complete SoW + RoE document pair                              |
 | 2     | Apply STRIDE to a target application's DFD and produce a ranked threat list                                           | Threat model document with STRIDE matrix                      |
-| 3     | Write a full pentest report (executive summary + 3 findings with PoC + remediation roadmap) for your Part 40 campaign | Professional pentest report in PDF format, password-protected |
+| 3     | Write a full pentest report (executive summary + 3 findings with PoC + remediation roadmap) for an enterprise lab engagement | Professional pentest report in PDF format, password-protected |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 39):** You can select and apply the correct engagement methodology (PTES, NIST 800-115, WSTG), produce an SoW and RoE document, perform STRIDE threat modeling, calculate CVSS scores manually, and write a complete pentest report with executive summary, technical findings, and remediation roadmap. Your report must be written from your Part 40 campaign data — not a fictional scenario.
+> **Move-On Gate (Part 39):** You can select and apply the correct engagement methodology (PTES, NIST 800-115, WSTG), produce an SoW and RoE document, perform STRIDE threat modeling, calculate CVSS scores manually, and write a complete pentest report with executive summary, technical findings, and remediation roadmap.
+
+---
+
+<a id="toc-part-40-red-team-operations--tradecraft"></a>
+<a id="part-40-red-team-operations-tradecraft"></a>
+
+## Part 40: Red Team Operations & Tradecraft
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Red Team Field Manual v3` — ⚡ Keep open at all times — the fastest command reference for every red team tool and technique
+> - 🟡 `The Red Report 2023` — Full — current attacker TTP trends and attacker behavior data from real incidents
+> - 🟡 `Threat Intelligence Handbook` — Full — CTI methodology for adversary profiling and red team planning
+> - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reference — structured red team operation planning
+
+
+> **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator. Building on the foundational scoping and reporting frameworks of Part 39, Part 40 focuses on executing stealthy, multi-stage adversary simulations.
+
+<a id="strategy-core-operations"></a>
+<a id="stage-1-campaign-planning-infrastructure"></a>
+
+### **Stage 1: Campaign Planning & Infrastructure** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Define the operation's objectives, rules of engagement, and build the technical infrastructure before any offensive action begins.
+
+- [ ] **Red Team vs Pentest vs Vuln Assessment:** Understand the fundamental differences — pentests find vulnerabilities with broad scope; red teams test **specific objectives** (e.g., "can an attacker reach the CEO's inbox?") with stealth as a constraint; vulnerability assessments are breadth-first, red teams are depth-first.
+
+- [ ] **Campaign Planning & Objectives:** Define **clear objectives** aligned with business risk — data exfiltration, domain compromise, physical access to server room, insider threat simulation. Write a **red team campaign plan** with rules of engagement, communication protocols, deconfliction procedures, and abort criteria.
+
+- [ ] **C2 Framework Mastery:** Deploy and operate at least 2 C2 frameworks — **Sliver** (open-source, modern), **Mythic** (modular, multi-platform), Cobalt Strike (industry standard, commercial), or **Havoc**. Understand **listener types, payload generation, staging vs stageless, sleep/jitter tuning, and kill dates**.
+
+- [ ] **Infrastructure Setup:** Build **resilient attack infrastructure** — redirectors (Apache mod_rewrite, Nginx reverse proxy, cloud functions), domain categorization for reputation, HTTPS certificates (Let's Encrypt), CDN fronting, and infrastructure teardown procedures. Separate **short-haul (interactive) and long-haul (persistent) C2 channels**.
+
+---
+
+<a id="stage-2-initial-access-payload-delivery"></a>
+
+### **Stage 2: Initial Access & Payload Delivery** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Gain a foothold using tradecraft that survives email gateways, sandboxes, and EDR — and leaves minimal forensic trace.
+
+- [ ] **Initial Access Tradecraft:** Master **phishing (spearphishing with pretexting, HTML smuggling, macro-free Office exploitation)**, **external service exploitation**, and **supply chain vectors**. Build payloads that survive email gateways, sandboxes, and EDR.
+
+---
+
+<a id="stage-3-opsec-persistence-lateral-movement"></a>
+
+### **Stage 3: OPSEC, Persistence & Lateral Movement** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Maintain stealth while expanding access — blend with normal traffic, establish redundant persistence, and move laterally without triggering detection.
+
+- [ ] **OPSEC Discipline:** Maintain **operational security** throughout campaigns — avoid detection by **blending with normal traffic patterns, using legitimate tools (LOLBins), timestomping, log manipulation, and process injection into trusted processes**. Monitor your own indicators: if a defender could fingerprint your C2 beacon pattern, you've failed.
+
+- [ ] **Persistence Mechanisms:** Implement **multiple persistence layers** — registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, golden/silver tickets, and **out-of-band persistence** (cloud-based implants, trusted application abuse). Test persistence across reboots and credential rotations.
+
+- [ ] **Lateral Movement & Pivoting:** Traverse networks using **Pass-the-Hash, Pass-the-Ticket, overpass-the-hash, DCOM, WMI, WinRM, SSH tunneling, SOCKS proxies**. Document every pivot and maintain network maps during operations.
+
+---
+
+<a id="stage-4-data-exfiltration-impact"></a>
+
+### **Stage 4: Data Exfiltration & Impact** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Reach the campaign objective — exfiltrate data or demonstrate impact — without triggering DLP or anomaly-based detection.
+
+- [ ] **Data Exfiltration:** Practice **covert exfiltration** — DNS tunneling, HTTPS over legitimate SaaS (Slack, Teams, Google Drive), steganography, scheduled low-and-slow transfers. Measure data rates and detection thresholds.
+
+---
+
+<a id="stage-5-deconfliction-reporting-wrap-up"></a>
+
+### **Stage 5: Deconfliction, Reporting & Wrap-Up** — `🧠🔬 Mixed`
+
+> [!TIP]
+> **Goal:** Close the operation safely, hand off findings, and produce a campaign report that improves the client's detection capability.
+
+- [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
+
+- [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
+
+### **Lab Progression (Part 40: Red Team Operations & Tradecraft)**
+
+| Level | Task                                                                                                                       | Deliverable                                                            |
+| ----- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| 1     | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in your lab                                         | C2 deployment guide with listener/payload configuration                |
+| 2     | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite)                                                | Infrastructure diagram + setup documentation                           |
+| 3     | Execute a full red team campaign against your AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
+
+> [!IMPORTANT]
+> **Move-On Gate (Part 40):** You can plan a red team campaign, deploy C2 infrastructure with redirectors, execute a full attack lifecycle with OPSEC discipline, and produce a campaign report that analyzes detection gaps.
 
 ---
 
@@ -569,20 +566,20 @@
 
 | # | Tool | Domain | Signature Use Case |
 |:-:|:-----|:-------|:-------------------|
-| 1 | [🗺️ Nmap](../Tools/Nmap.md) | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. |
-| 2 | [🔌 Netcat](../Tools/Netcat.md) | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. |
-| 3 | [🕷️ Burp Suite](../Tools/Burp_Suite.md) | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. |
-| 4 | [💀 Metasploit Framework](../Tools/Metasploit_Framework.md) | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. |
-| 5 | [💨 ffuf](../Tools/ffuf.md) | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. |
-| 6 | [🔍 Gobuster](../Tools/Gobuster.md) | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. |
-| 7 | [🐲 LinPEAS](../Tools/LinPEAS.md) | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment you get a Linux shell. |
-| 8 | [🪟 WinPEAS](../Tools/WinPEAS.md) | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment you get a Windows shell. |
-| 9 | [🔨 Hydra](../Tools/Hydra.md) | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. |
-| 10 | [#️⃣ Hashcat](../Tools/Hashcat.md) | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. |
-| 11 | [🔑 John the Ripper](../Tools/John_the_Ripper.md) | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. |
-| 12 | [💉 sqlmap](../Tools/sqlmap.md) | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. |
-| 13 | [📣 Responder](../Tools/Responder.md) | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. |
-| 14 | [📡 tcpdump](../Tools/tcpdump.md) | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. |
+| 1 | [🗺️ Nmap](Tools/Nmap.md) | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. |
+| 2 | [🔌 Netcat](Tools/Netcat.md) | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. |
+| 3 | [🕷️ Burp Suite](Tools/Burp_Suite.md) | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. |
+| 4 | [💀 Metasploit Framework](Tools/Metasploit_Framework.md) | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. |
+| 5 | [💨 ffuf](Tools/ffuf.md) | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. |
+| 6 | [🔍 Gobuster](Tools/Gobuster.md) | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. |
+| 7 | [🐲 LinPEAS](Tools/LinPEAS.md) | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment you get a Linux shell. |
+| 8 | [🪟 WinPEAS](Tools/WinPEAS.md) | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment you get a Windows shell. |
+| 9 | [🔨 Hydra](Tools/Hydra.md) | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. |
+| 10 | [#️⃣ Hashcat](Tools/Hashcat.md) | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. |
+| 11 | [🔑 John the Ripper](Tools/John_the_Ripper.md) | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. |
+| 12 | [💉 sqlmap](Tools/sqlmap.md) | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. |
+| 13 | [📣 Responder](Tools/Responder.md) | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. |
+| 14 | [📡 tcpdump](Tools/tcpdump.md) | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. |
 
 > [!IMPORTANT]
 > **Gate:** Every one of these 14 tools must be muscle memory before starting Tier 2. Tools 1–8 appear on the OSCP exam. Tools 9–14 appear in virtually every AD and web lab.
@@ -595,18 +592,18 @@
 
 | # | Tool | Domain | Signature Use Case |
 |:-:|:-----|:-------|:-------------------|
-| 15 | [🐍 Impacket](../Tools/Impacket.md) | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. |
-| 16 | [🩸 BloodHound](../Tools/BloodHound.md) | Active Directory | AD attack path visualization. Shortest path to Domain Admin from your current position. |
-| 17 | [🕸️ NetExec (nxc)](../Tools/NetExec.md) | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. |
-| 18 | [🦈 Wireshark](../Tools/Wireshark.md) | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. |
-| 19 | [🌐 Nikto](../Tools/Nikto.md) | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. |
-| 20 | [🔴 wpscan](../Tools/wpscan.md) | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. |
-| 21 | [🌾 theHarvester](../Tools/theHarvester.md) | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. |
-| 22 | [🔭 Recon-ng](../Tools/Recon-ng.md) | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. |
-| 23 | [🔀 Ligolo-ng](../Tools/Ligolo-ng.md) | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. |
-| 24 | [🗡️ Sliver](../Tools/Sliver.md) | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. |
-| 25 | [🛡️ OWASP ZAP](../Tools/OWASP_ZAP.md) | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. |
-| 26 | [🐝 Bettercap](../Tools/Bettercap.md) | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. |
+| 15 | [🐍 Impacket](Tools/Impacket.md) | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. |
+| 16 | [🩸 BloodHound](Tools/BloodHound.md) | Active Directory | AD attack path visualization. Shortest path to Domain Admin from your current position. |
+| 17 | [🕸️ NetExec (nxc)](Tools/NetExec.md) | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. |
+| 18 | [🦈 Wireshark](Tools/Wireshark.md) | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. |
+| 19 | [🌐 Nikto](Tools/Nikto.md) | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. |
+| 20 | [🔴 wpscan](Tools/wpscan.md) | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. |
+| 21 | [🌾 theHarvester](Tools/theHarvester.md) | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. |
+| 22 | [🔭 Recon-ng](Tools/Recon-ng.md) | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. |
+| 23 | [🔀 Ligolo-ng](Tools/Ligolo-ng.md) | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. |
+| 24 | [🗡️ Sliver](Tools/Sliver.md) | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. |
+| 25 | [🛡️ OWASP ZAP](Tools/OWASP_ZAP.md) | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. |
+| 26 | [🐝 Bettercap](Tools/Bettercap.md) | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. |
 
 > [!TIP]
 > **Tier 2 study path:** AD cluster first (Impacket → BloodHound → NetExec). Network (Wireshark → Bettercap). Web specialization (Nikto → wpscan → OWASP ZAP). Red team (Ligolo-ng → Sliver). OSINT (theHarvester → Recon-ng) runs in parallel.
@@ -619,9 +616,9 @@
 
 | # | Tool | Domain | When You Need It |
 |:-:|:-----|:-------|:-----------------|
-| 27 | [🐍 Scapy](../Tools/Scapy.md) | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. |
-| 28 | [🐉 Ghidra](../Tools/Ghidra.md) | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. |
-| 29 | [🔑 jwt_tool](../Tools/jwt-tool.md) | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. |
+| 27 | [🐍 Scapy](Tools/Scapy.md) | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. |
+| 28 | [🐉 Ghidra](Tools/Ghidra.md) | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. |
+| 29 | [🔑 jwt_tool](Tools/jwt-tool.md) | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. |
 | 30 | 📮 Postman | Web / API Testing | Manual REST API testing. Build, replay, and document API requests; manage auth flows. |
 | 31 | 🐙 Ettercap | Sniffing & Spoofing | Legacy MITM tool. Understand it for older environments; use Bettercap for modern labs. |
 | 32 | 🦶 SpiderFoot | OSINT | Automated OSINT with relationship graph. More automated than Recon-ng with less manual control. |

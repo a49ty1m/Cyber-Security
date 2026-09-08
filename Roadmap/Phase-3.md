@@ -99,10 +99,10 @@
   - [Stage 6: Email Security Architecture](#stage-6-email-security-architecture)
   - [Stage 7: DNS Security Operations](#stage-7-dns-security-operations)
   - [Lab Progression (Part 14: IDS, Firewalls, and Honeypots)](#lab-progression-part-14-ids-firewalls-and-honeypots)
-- [Part 15: OSINT & Threat Intelligence](#part-15-osint-threat-intelligence)
-  - [Stage 1: Passive Reconnaissance & Data Collection](#stage-1-passive-reconnaissance-data-collection)
-  - [Stage 2: Threat Intelligence Analysis](#stage-2-threat-intelligence-analysis)
-  - [Stage 3: OSINT Automation & Tooling](#stage-3-osint-automation-tooling)
+- [Part 15: Cyber Threat Intelligence (CTI) & Attack Surface Management](#part-15-cyber-threat-intelligence-cti-attack-surface-management)
+  - [Stage 1: External Attack Surface Management (EASM) & Threat Feeds](#stage-1-external-attack-surface-management-easm-feeds)
+  - [Stage 2: Threat Intelligence Analysis & Actor Profiling](#stage-2-threat-intelligence-analysis-actor-profiling)
+  - [Stage 3: CTI Platforms & Automation (MISP / OpenCTI)](#stage-3-cti-platforms-automation-misp-opencti)
   - [Stage 4: Threat Intelligence Dissemination](#stage-4-threat-intelligence-dissemination)
   - [Stage 5: Threat Intel Operationalization](#stage-5-threat-intel-operationalization)
   - [Lab Progression (Part 15: OSINT & Threat Intelligence)](#lab-progression-part-15-osint-threat-intelligence)
@@ -129,7 +129,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 <a id="stage-2-offensive-indicators-ttps"></a>
 ### **Stage 2: Offensive Indicators & TTPs** — `🧠 Conceptual`
 
-- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [Metasploit](../Tools/Metasploit_Framework.md), custom).
+- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [Metasploit](Tools/Metasploit_Framework.md), custom).
 
 - [ ] **MITRE ATT&CK Mapping:** Correlate **detected behaviors** to **tactics/techniques** to understand adversary intent and prioritize detection investment.
 
@@ -269,13 +269,13 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **Live Response:** Collect **running processes, network connections, logged-in users, active services** before shutdown (loses volatile data).
 
-- [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, [FTK Imager](../Tools/FTK_Imager.md)**.
+- [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, [FTK Imager](Tools/FTK_Imager.md)**.
 
 - [ ] **Timeline Analysis:** Build **chronological timeline** of **file creation/modification, registry changes, logs** to reconstruct **attack sequence**.
 
 - [ ] **Artifact Examination:** Analyze **Windows Prefetch, Shimcache, MRU, Recycle Bin, browser history, temp files** for **evidence of compromise**.
 
-- [ ] **Memory Analysis:** Use tools like **[Volatility](../Tools/Volatility.md), Rekall** to extract **running processes, injected code, encryption keys, command history** from memory dumps.
+- [ ] **Memory Analysis:** Use tools like **[Volatility](Tools/Volatility.md), Rekall** to extract **running processes, injected code, encryption keys, command history** from memory dumps.
 
 ---
 
@@ -594,70 +594,71 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 > **Move-On Gate:** You can deploy and configure IDS/IPS, write custom detection rules, deploy honeypots for deception, and tune detection to minimize false positives while catching evasion attempts.
 
 <a id="toc-part-15-osint--threat-intelligence"></a>
+<a id="part-15-cyber-threat-intelligence-cti-attack-surface-management"></a>
 <a id="part-15-osint-threat-intelligence"></a>
-## Part 15: OSINT & Threat Intelligence
+## Part 15: Cyber Threat Intelligence (CTI) & Attack Surface Management
 
+> [!NOTE]
+> **Defensive Scope Alignment:** Offensive reconnaissance, active scanning, and target footprinting are covered in **Phase 2 (Part 4)**. Part 15 focuses strictly on defensive **Cyber Threat Intelligence (CTI)**, External Attack Surface Management (EASM), threat actor profiling, and operationalizing intelligence into detection telemetry.
+
+<a id="stage-1-external-attack-surface-management-easm-feeds"></a>
 <a id="stage-1-passive-reconnaissance-data-collection"></a>
-### **Stage 1: Passive Reconnaissance & Data Collection** — `🔬 Practical`
+### **Stage 1: External Attack Surface Management (EASM) & Threat Feeds** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Gather intelligence without touching target infrastructure.
+> **Goal:** Monitor and inventory the organization's exposed attack surface from the outside and ingest threat indicator feeds.
 
-- [ ] **Search Engine Intelligence:** Master **Google/Bing/Yandex dorks** for exposed data; use **Shodan/Censys/Zoomeye** for internet-wide scanning.
+- [ ] **Asset Inventory & Shadow IT Discovery:** Map and continuously monitor organizational **ASN ranges, public IP allocations, and registered domains**; identify shadow IT assets and abandoned cloud infrastructure.
 
-- [ ] **Social Media Mining:** Scrape **LinkedIn, Twitter, Facebook, Instagram** for employees, org structure, tech stack mentions, and personal details.
+- [ ] **Certificate Transparency (CT) Monitoring:** Monitor **Certificate Transparency logs in real-time** (via Certstream) to detect spoofed, typosquatted, or phishing domains newly provisioned against the company brand.
 
-- [ ] **Domain & Infrastructure:** Use **WHOIS, DNS records (MX, TXT, SPF, DMARC), Certificate Transparency logs** to map infrastructure.
+- [ ] **Brand Protection & Typosquatting:** Deploy **dnstwist and urlscan.io** to monitor lookalike domains, credential harvesting portals, and phishing campaigns targeting employees and customers.
 
-- [ ] **Breach Data Analysis:** Query **HIBP (Have I Been Pwned), Dehashed, Snusbase** for leaked credentials and PII.
+- [ ] **Dark Web & Breach Intelligence:** Monitor **paste sites, breach databases (HIBP, Dehashed, Snusbase), and dark web marketplaces** for leaked corporate credentials, compromised API keys, and employee credentials sold in stealer-log packages.
 
-- [ ] **Code Repository Mining:** Search **GitHub, GitLab, Bitbucket** for exposed **API keys, credentials, internal IPs, architecture docs**.
-
-- [ ] **Dark Web Monitoring:** Monitor **paste sites, forums, dark web marketplaces** for leaked data, exploit sales, threat actor chatter.
+- [ ] **Threat Feed Ingestion:** Ingest and aggregate **reputable CTI feeds** (abuse.ch URLhaus/ThreatFox, AlienVault OTX, CISA Automated Indicator Sharing [AIS], CIRCL) to build an active indicator baseline.
 
 ---
 
+<a id="stage-2-threat-intelligence-analysis-actor-profiling"></a>
 <a id="stage-2-threat-intelligence-analysis"></a>
-### **Stage 2: Threat Intelligence Analysis** — `🧠 Conceptual`
+### **Stage 2: Threat Intelligence Analysis & Actor Profiling** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Convert raw data into actionable intelligence.
+> **Goal:** Convert raw indicators into actionable threat models and adversary profiles.
 
-- [ ] **IOC Collection:** Aggregate **file hashes, domains, IPs, email patterns** from **threat feeds, MISP, AlienVault OTX**.
+- [ ] **IOC vs TTP (The Pyramid of Pain):** Master **David Bianco's Pyramid of Pain** — understand why hash/IP blocking is trivial for adversaries to bypass, while detecting and mitigating **Tools and TTPs** forces high adversary rebuild costs.
 
-- [ ] **Threat Actor Profiling:** Study **APT groups, TTPs, infrastructure patterns** using **MITRE ATT&CK, threat reports (Mandiant, CrowdStrike)**.
+- [ ] **The Diamond Model of Intrusion Analysis:** Map attacks across the 4 core vertices: **Adversary, Capability, Infrastructure, and Victim**; correlate relationships between infrastructure and victimology.
 
-- [ ] **Campaign Tracking:** Monitor **active campaigns, malware families, exploit trends** to understand current threat landscape.
+- [ ] **Threat Actor Profiling:** Profile **APT groups, cybercrime syndicates, and initial access brokers (IABs)** using **MITRE ATT&CK**, vendor intelligence reports (Mandiant, CrowdStrike, Red Canary), and CISA advisories.
 
-- [ ] **Attribution Analysis:** Correlate **infrastructure, code patterns, language artifacts** to attribute attacks to specific actors.
+- [ ] **Campaign Tracking & Attribution:** Correlate **command-and-control infrastructure patterns, malware compilation timestamps, code reuse, and staging mechanics** to track evolving threat campaigns.
 
-- [ ] **Victimology Studies:** Understand **target selection, industry focus, geographic distribution** of threat actors.
+- [ ] **Strategic, Operational & Tactical CTI:** Distinguish between **Tactical** (atomic IOCs for firewall/SIEM), **Operational** (adversary TTPs for detection engineers), and **Strategic** (high-level risk trends for CISOs and board members).
 
 ---
 
+<a id="stage-3-cti-platforms-automation-misp-opencti"></a>
 <a id="stage-3-osint-automation-tooling"></a>
-### **Stage 3: OSINT Automation & Tooling** — `🔬 Practical`
+### **Stage 3: CTI Platforms & Automation (MISP / OpenCTI)** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Scale reconnaissance with automation and operationalise threat intelligence platforms.
+> **Goal:** Deploy and operate enterprise threat intelligence platforms to automate indicator ingestion, correlation, and decay.
 
-- [ ] **Reconnaissance Frameworks:** Master **[Recon-ng](../Tools/Recon-ng.md), [theHarvester](../Tools/theHarvester.md), [SpiderFoot](../Tools/SpiderFoot.md), [Maltego](../Tools/Maltego.md)** for automated data collection.
+- [ ] **Threat Intelligence Platform (TIP) Architecture:** Understand the role of TIPs in enterprise SOCs: ingesting disparate feeds, normalizing formats, eliminating duplicates, scoring indicator confidence, and exporting actionable lists to defensive controls.
 
-- [ ] **Subdomain Enumeration:** Use **Amass, Subfinder, Assetfinder, DNSRecon** to discover **subdomains, ASNs, IP ranges**.
-
-- [ ] **API Integration:** Leverage **VirusTotal, Shodan, SecurityTrails, Hunter.io APIs** for programmatic data access.
-
-- [ ] **Custom Scripting:** Build **Python/Bash scripts** to automate **scraping, parsing, correlation** of OSINT data.
-
-- [ ] **Data Pipeline:** Create **ETL pipelines** to aggregate, normalize, and store intelligence in **databases/dashboards**.
-
-- [ ] **MISP Platform Operation:** Deploy and operate a [MISP (Malware Information Sharing Platform)](https://www.misp-project.org/) instance. Master the operational mechanics, not just awareness:
-  - **Feed management:** Subscribe to and synchronise public MISP feeds (CIRCL default feeds, abuse.ch URLhaus, Botvrij). Understand pull vs. push sy[nc ](../Tools/Netcat.md)models and feed caching behaviour.
+- [ ] **MISP Platform Operation:** Deploy and operate a [MISP (Malware Information Sharing Platform)](https://www.misp-project.org/) instance. Master the operational mechanics:
+  - **Feed management:** Subscribe to and synchronise public MISP feeds (CIRCL default feeds, abuse.ch URLhaus, Botvrij). Understand pull vs. push sync models and feed caching behaviour.
   - **Event creation and sharing:** Create a MISP event from a threat report, populate attributes (IP, domain, hash, YARA rule), set distribution level (Organisation only / Community / All communities), and share via a MISP sync connection or TAXII server.
   - **Indicator enrichment:** Use MISP modules (VirusTotal, Shodan, PassiveTotal, CIRCL HASHLOOKUP) to automatically enrich submitted indicators. Understand enrichment confidence and staleness.
-  - **Threat actor tagging:** Apply MITRE ATT&CK Galaxy cluster tags to events and attributes. Tag threat actors (e.g., `misp-galaxy:threat-actor="Lazarus Group"`), malware families (`misp-galaxy:malware="Emotet"`), and attack patterns. Understand how tagging enables correlation across events and feeds.
+  - **Threat actor tagging:** Apply MITRE ATT&CK Galaxy cluster tags to events and attributes. Tag threat actors (e.g., `misp-galaxy:threat-actor="Lazarus Group"`), malware families (`misp-galaxy:malware="Emotet"`), and attack patterns.
   - **Warninglists and Correlation:** Enable MISP warninglists to suppress false positives (CDN IPs, public resolvers). Understand how MISP's correlation engine links related indicators across events automatically.
   - **MISP → SIEM pipeline:** Export indicators in MISP native format or via its API to your SIEM lookup tables. See Stage 5 for the full pipeline exercise.
+
+- [ ] **OpenCTI Platform:** Deploy **OpenCTI** with Redis, Elasticsearch/OpenSearch, and RabbitMQ to model complex threat knowledge using the **STIX 2.1 graph standard**.
+
+- [ ] **Indicator Decay & Lifecycle Management:** Implement **indicator decay algorithms** — automatically age out and prune volatile IOCs (ephemeral C2 IPs, fast-flux domains) after 30–90 days to prevent SIEM lookup table degradation and stale alert fatigue.
 
 ---
 

@@ -18,7 +18,7 @@
 > [!NOTE]
 > ### 📝 Phase 6 Documentation Requirements
 > Enterprise infrastructure work must be thoroughly documented. Required artifacts:
-> - **[BloodHound](../Tools/BloodHound.md) exports** — attack path graphs with annotated findings
+> - **[BloodHound](Tools/BloodHound.md) exports** — attack path graphs with annotated findings
 > - **Cloud attack evidence** — CloudTrail logs, IAM policy analysis, exploitation screenshots
 > - **Terraform/CloudFormation configs** — infrastructure-as-code for lab environments committed to Git
 > - **Purple team ATT&CK heatmap** — technique coverage matrix showing detection gaps
@@ -175,13 +175,21 @@
 > [!TIP]
 > **Goal:** Abuse trust relationships and misconfigurations for escalation.
 
-- [ ] **Delegation Abuse:** Exploit **Unconstrained, Constrained (service/alt service), and Resource-Based Constrained Delegation (RBCD)** for impersonation.
+- [ ] **Delegation Abuse:** Exploit **Unconstrained Delegation** (harvesting TGTs from spooler abuse), **Constrained Delegation** (service/alt service S4U2self & S4U2proxy), and **Resource-Based Constrained Delegation (RBCD)** (configuring `msDS-AllowedToActOnBehalfOfOtherIdentity` via machine account creation).
 
-- [ ] **ACL/ACE Abuse:** Exploit **WriteOwner, WriteDACL, GenericAll/GenericWrite, AddMember** on critical principals (DA, EA, DCs, Tier0 groups).
+- [ ] **ACL/ACE Abuse:** Graph abuse paths with BloodHound and execute write primitives: **WriteOwner, WriteDACL, GenericAll, GenericWrite, ExtendedRight (ForceChangePassword), AddMember** on critical principals (Domain Admins, Enterprise Admins, Domain Controllers, Tier0 groups).
 
-- [ ] **Shadow Credentials:** Abuse **msDS-KeyCredentialLink** to add rogue keys for persistence.
+- [ ] **Shadow Credentials (`msDS-KeyCredentialLink`):** Exploit `GenericWrite`/`WriteProperty` over computer or user accounts using `certipy shadow auto` or `pywhiskey` to inject raw RSA public keys and authenticate via PKINIT without knowing or changing the victim's password.
 
-- [ ] **ADCS (PKI) Abuse:** Exploit **ESC1-ESC8** templates (ENROLLEE_SUPPLIES_SUBJECT, weak EKUs, SAN impersonation) to mint **golden certs**; target **HTTP enrollment endpoints** for relays.
+- [ ] **ADCS (Active Directory Certificate Services) Deep Dive (ESC1–ESC13 via Certipy):**
+  - **Reconnaissance & Auditing:** Run `certipy find -vulnerable -stdout` to enumerate Enterprise CAs, Certificate Templates, and vulnerable enrollment permissions.
+  - **ESC1 / ESC2:** Templates with Client Authentication EKU and `CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT` enabled — request a certificate with an arbitrary Subject Alternative Name (SAN, e.g., Domain Admin) using `certipy req -ca <CA-Name> -template <Template> -upn administrator@domain.local`.
+  - **ESC3:** Enrollment Agent templates (`Certificate Request Agent` EKU) — request an agent certificate to enroll on behalf of another user.
+  - **ESC4:** Vulnerable template access control rights (`WriteDacl`, `WriteOwner`, `GenericAll`) — overwrite template properties to enable `ENROLLEE_SUPPLIES_SUBJECT` and Client Authentication, abuse the template, and restore original configuration.
+  - **ESC6 & ESC7:** CA configured with `EDITF_ATTRIBUTESUBJECTALTNAME2` (allows SAN specification on any template) or vulnerable CA access rights (`ManageCA`, `ManageCertificates` — issue pending requests or dump CA private keys for Golden Certificates).
+  - **ESC8 (NTLM Relay to ADCS Web Enrollment):** Relay coerced authentication (via PetitPotam or PrinterBug without signing) to HTTP enrollment endpoints (`/certsrv/`) to mint machine/user certificates.
+  - **ESC9, ESC10, ESC11, ESC13:** Strong certificate binding bypasses, missing RPC packet privacy (`RPC_C_AUTHN_LEVEL_PKT_PRIVACY`), and issuance policy OID group link privilege escalation.
+  - **PKINIT Authentication & UnPAC-the-Hash:** Use `certipy auth -pfx cert.pfx -dc-ip <ip>` to authenticate via PKINIT, obtain a Kerberos TGT, and extract the account's plaintext NT hash directly from the Kerberos PAC (`UnPAC-the-hash`).
 
 ---
 
@@ -195,9 +203,15 @@
 
 - [ ] **GPO Persistence:** Implant via **logon scripts, immediate scheduled tasks, startup items**; abuse **restricted groups** for re-add.
 
-- [ ] **DC Sy[nc ](../Tools/Netcat.md)/ DC Shadow:** Abuse **Replicating Directory Changes** to pull **NTDS.dit** or inject rogue DC changes.
+- [ ] **DCSync / DCShadow:** Abuse **Replicating Directory Changes** (`DS-Replication-Get-Changes-All`) using Mimikatz or `impacket-secretsdump` to pull **NTDS.dit** hashes or inject rogue domain objects via DCShadow.
 
 - [ ] **Golden/Silver Tickets:** Forge **krbtgt/service hashes** for long-lived access; manage **ticket lifetime/renewal** OPSEC.
+
+- [ ] **Cross-Forest Trust Exploitation & SID History:**
+  - Enumerate domain and forest trusts using PowerView (`Get-DomainTrust`, `Get-ForestDomain`) or `netdom query trust`.
+  - Exploit bidirectional / parent-child trusts: forge inter-realm referral tickets (cross-realm TGT) using the domain trust key.
+  - Exploit missing SID filtering on external or forest trusts: inject privileged SIDs (e.g., Enterprise Admins `EA -519`) into `sIDHistory` to achieve full compromise across the trust boundary.
+  - Abuse Foreign Security Principals (FSPs) and cross-forest delegation.
 
 ---
 
@@ -307,7 +321,7 @@
 
 - [ ] **CORS Misconfiguration:** Retrieve CORS config with `aws s3api get-bucket-cors`. Permissive CORS (`AllowedOrigin: *` + `AllowCredentials: true` patterns) enables cross-origin data theft from authenticated browser sessions. Test with a crafted request from an attacker origin.
 
-- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection [strings](../Tools/strings.md), and private certificates that developers have uploaded and forgotten.
+- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection [strings](Tools/strings.md), and private certificates that developers have uploaded and forgotten.
 
 ---
 
@@ -361,17 +375,22 @@
 > [!TIP]
 > **Goal:** Understand unique cloud threats.
 
-- [ ] **IAM Exploitation:** Abuse **overprivileged roles, AssumeRole chains, resource-based policies** for privilege escalation.
+- [ ] **IAM Exploitation & Role Chaining:**
+  - Abuse **AssumeRole trust chains** across AWS accounts; enumerate trust policies using `pacu` or `enumerate-iam`.
+  - Exploit `iam:PassRole` attached to EC2 or Lambda to elevate privileges to higher-tier service roles.
+  - Roll back IAM policies to insecure previous versions using `iam:SetDefaultPolicyVersion`.
 
-- [ ] **Storage Misconfigurations:** Find **public S3 buckets, blob containers** via enumeration and exploitation.
+- [ ] **Storage Misconfigurations:** Find **public S3 buckets, Azure blob containers, and GCP storage buckets** via unauthenticated enumeration, CORS manipulation, and unencrypted snapshot exports.
 
-- [ ] **Metadata Services:** Query **IMDS (169.254.169.254)** for IAM credentials, instance metadata.
+- [ ] **Metadata Services (IMDSv1 vs IMDSv2 Deep Dive):**
+  - **IMDSv1 Vulnerability:** Query `http://169.254.169.254/latest/meta-data/iam/security-credentials/<role-name>` directly via simple GET in SSRF payloads to extract temporary STS access keys, secret keys, and session tokens.
+  - **IMDSv2 Defense & Bypass Surface:** IMDSv2 enforces session-oriented requests requiring a `PUT` request with `X-aws-ec2-metadata-token-ttl-seconds: 21600` to generate a session token, then requires passing the token in `X-aws-ec2-metadata-token: <token>`. Understand how this neutralizes blind SSRF and reverse proxies without header forwarding, but remains vulnerable to full SSRF with custom header injection or command injection on host/container processes.
 
-- [ ] **Serverless Attacks:** Exploit **Lambda environment variables, excessive permissions, function injection**.
+- [ ] **Serverless Attacks:** Exploit **Lambda/Cloud Functions environment variables, excessive execution permissions, event injection, and cold-start persistence**.
 
 - [ ] **Container Escapes:** Break out of **Docker, Kubernetes pods** via misconfigurations. 📌 _See Part 25 Stage 1 for full container escape techniques and Part 25 Stage 2 for Kubernetes-specific attacks._
 
-- [ ] **Multi-Tenancy Issues:** Understand **side-channel attacks, resource exhaustion** in shared cloud environments.
+- [ ] **Multi-Tenancy & Supply Chain:** Understand **cross-tenant data leakage, shared VPC routing oversights, and CI/CD runner poisoning**.
 
 ---
 
@@ -381,7 +400,7 @@
 > [!TIP]
 > **Goal:** Master identity-based attack techniques in cloud and enterprise environments.
 
-- [ ] **IAM Policy Analysis:** Enumerate and analyze **IAM policies** using **Pacu, enumerate-iam, ScoutSuite, Prowler** to find **overprivileged roles, wildcard permissions (*)**, and privilege escalation paths across **AWS/Azure/GCP**.
+- [ ] **IAM Policy Analysis & CIEM:** Enumerate and analyze **IAM policies** using **Pacu, enumerate-iam, ScoutSuite, Prowler** to find **overprivileged roles, wildcard permissions (*)**, and privilege escalation paths across **AWS/Azure/GCP**. Implement **CIEM (Cloud Infrastructure Entitlement Management)** concepts to identify toxic combinations and unused excessive permissions.
 
 - [ ] **Role Chaining & Federation Abuse:** Exploit **AssumeRole chains, cross-account trust relationships, OIDC federation, SAML assertion manipulation** to escalate from low-privilege to administrative access.
 
@@ -408,15 +427,20 @@
 > [!TIP]
 > **Goal:** Understand containerization and its security implications.
 
-- [ ] **Container Anatomy:** Master **namespaces, cgroups, capabilities, seccomp, AppArmor/SELinux** as isolation mechanisms.
+- [ ] **Container Anatomy:** Master **namespaces (PID, NET, MNT, IPC, UTS, USER), cgroups (v1/v2 resource limits), capabilities (POSIX capabilities), seccomp profiles, AppArmor/SELinux** as isolation mechanisms.
 
 - [ ] **Image Vulnerabilities:** Scan images with **Trivy, Clair, Grype** for **CVEs, secrets, misconfigs** in layers.
 
 - [ ] **Dockerfile Security:** Audit **Dockerfiles** for **running as root, exposed secrets, vulnerable base images, unnecessary packages**.
 
-- [ ] **Container Escape:** Exploit **--privileged flag, CAP_SYS_ADMIN, mounted docker.sock, kernel exploits** to break out to host.
+- [ ] **Container Escape Primitives & Host Takeover:**
+  - **`--privileged` Mode Exploitation:** Containers run without seccomp filtering and with all capabilities enabled; mount the underlying host hard disk (`mount /dev/sda1 /mnt`) and chroot to gain instant host root.
+  - **Abuse of Capabilities (`CAP_SYS_ADMIN`):** Exploit cgroup v1 `release_agent` (`notify_on_release`) to execute arbitrary host commands when the cgroup terminates.
+  - **Mounted Docker Socket (`/var/run/docker.sock`):** Issue commands to the host Docker daemon from inside the container to spawn a sibling privileged container: `docker -H unix:///var/run/docker.sock run -v /:/host -it alpine chroot /host`.
+  - **Namespace Hijacking (`hostPID` + `nsenter`):** If `--pid=host` is enabled, list host processes and use `nsenter -t 1 -m -u -i -n -p -- /bin/bash` to enter the host's root namespace.
+  - **Shared Kernel Exploits:** Kernel vulnerabilities (e.g., Dirty COW, Dirty Pipe CVE-2022-0847, CVE-2022-0492) that compromise the host kernel directly through container syscalls.
 
-- [ ] **Docker API Exploitation:** Abuse **exposed Docker API (2375/2376)** to spawn privileged containers and compromise host.
+- [ ] **Docker API Exploitation:** Abuse **exposed Docker API (2375 unauthenticated / 2376 TLS misconfigured)** to remotely spawn privileged containers and compromise host.
 
 ---
 
@@ -683,7 +707,7 @@
 > [!TIP]
 > **Goal:** Compromise industrial controllers and interfaces.
 
-- [ ] **PLC Enumeration:** Use **[Nmap](../Tools/Nmap.md) NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
+- [ ] **PLC Enumeration:** Use **[Nmap](Tools/Nmap.md) NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
 
 - [ ] **Ladder Logic Analysis:** Reverse engineer **PLC programs** to understand **control logic, safety interlocks**.
 
@@ -741,7 +765,7 @@
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
-| 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with [Wireshark](../Tools/Wireshark.md) | Protocol analysis report with annotated packet captures |
+| 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with [Wireshark](Tools/Wireshark.md) | Protocol analysis report with annotated packet captures |
 | 2 | Attack an OpenPLC controller in lab (scan, enumerate, modify ladder logic) | PLC exploitation walkthrough with screenshots |
 | 3 | Design ICS network segmentation using Purdue Model zones and data diodes | ICS security architecture document with network diagram |
 

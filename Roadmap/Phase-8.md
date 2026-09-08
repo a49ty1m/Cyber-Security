@@ -378,7 +378,7 @@
 > [!TIP]
 > **Goal:** Test running applications for security flaws.
 
-- [ ] **DAST Tools:** Use **[OWASP ZAP](../Tools/OWASP_ZAP.md), [Burp Suite](../Tools/Burp_Suite.md) Pro (automated scan), [Nikto](../Tools/Nikto.md)** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
+- [ ] **DAST Tools:** Use **[OWASP ZAP](Tools/OWASP_ZAP.md), [Burp Suite](Tools/Burp_Suite.md) Pro (automated scan), [Nikto](Tools/Nikto.md)** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
 
 - [ ] **IAST (Interactive Application Security Testing):** Understand how **IAST agents (Contrast Security, Seeker)** instrument running code to detect vulnerabilities from the inside during functional tests.
 
@@ -408,11 +408,14 @@
 > [!TIP]
 > **Goal:** Prevent credential leakage through code and pipelines.
 
-- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection [strings](../Tools/strings.md)**.
+- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection [strings](Tools/strings.md)**.
 
 - [ ] **Pre-commit Hooks:** Install **pre-commit framework with detect-secrets or gitleaks** to block secret commits before they reach the remote repository.
 
-- [ ] **Pipeline Hardening:** Apply **least-privilege to CI service accounts**, use **short-lived OIDC tokens** instead of long-lived secrets, scope permissions to **minimum required for each job**.
+- [ ] **Pipeline Hardening & Poison Pipeline Execution (PPE) Defense:**
+  - **PPE Attack Mechanics:** Understand Direct Poison Pipeline Execution (D-PPE) via malicious PR branch modifications to `.github/workflows/` and Indirect Poison Pipeline Execution (I-PPE) by poisoning build scripts (`Makefile`, `package.json` scripts) executed by privileged runners.
+  - **Runner Security:** Understand risks of unhardened self-hosted runners (ephemeral vs persistent runners, Docker-in-Docker socket breakouts, accessing cloud instance metadata from runners).
+  - **CI Service Accounts & OIDC:** Apply **least-privilege to CI service accounts**, replace long-lived static cloud keys with **short-lived OIDC federated tokens** (e.g., GitHub OIDC to AWS STS via `assume-role-with-web-identity`), and scope permissions to **minimum required per job**.
 
 - [ ] **Container Image Security:** Scan **base images and Dockerfiles** with **Trivy, Dockle** for CVEs, misconfigurations, and secrets baked into image layers.
 

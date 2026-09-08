@@ -305,7 +305,7 @@
 > [!TIP]
 > **Goal:** Force-multiply your existing red team toolkit with AI-native tooling.
 
-- [ ] **[Burp Suite](../Tools/Burp_Suite.md) AI Plugins:** Install and operate AI-powered Burp extensions — use **AI-assisted scanning, request analysis, and vulnerability explanation** plugins to accelerate web app assessments.
+- [ ] **[Burp Suite](Tools/Burp_Suite.md) AI Plugins:** Install and operate AI-powered Burp extensions — use **AI-assisted scanning, request analysis, and vulnerability explanation** plugins to accelerate web app assessments.
 
 - [ ] **AutoRecon + LLM Analysis:** Run **AutoRecon** for automated multi-tool recon; pipe structured output into an **LLM (GPT/Claude/Gemini)** for intelligent prioritization, service context, and attack path recommendations.
 
@@ -345,7 +345,7 @@
 > [!TIP]
 > **Goal:** Automate and measure AI red team coverage.
 
-- [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**[Metasploit](../Tools/Metasploit_Framework.md)**) for orchestration.
+- [ ] **Red Team Tooling:** Use **PyRIT (Microsoft)**, **Garak**, **DeepTeam**, alongside traditional frameworks (**[Metasploit](Tools/Metasploit_Framework.md)**) for orchestration.
 
 - [ ] **Benchmarking:** Track **success rates** across **OWASP LLM Top 10** and **agent/tool abuse cases**; log **prompt, response, decision traces**.
 

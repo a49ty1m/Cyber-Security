@@ -22,8 +22,8 @@
 > [!NOTE]
 > ### 📝 Phase 7 Documentation Requirements
 > Advanced specialization work must produce portfolio-quality artifacts. Required artifacts:
-> - **Forensic reports** — [Volatility](../Tools/Volatility.md)/[Autopsy](../Tools/Autopsy.md) analysis with timeline reconstruction
-> - **IDA/[Ghidra](../Tools/Ghidra.md) annotations** — reverse engineering notes with function labels and comments
+> - **Forensic reports** — [Volatility](Tools/Volatility.md)/[Autopsy](Tools/Autopsy.md) analysis with timeline reconstruction
+> - **IDA/[Ghidra](Tools/Ghidra.md) annotations** — reverse engineering notes with function labels and comments
 > - **Exploit code** — well-commented PoC code with ethical usage disclaimers
 > - **Malware IOC lists** — hashes, C2 domains, YARA signatures for analyzed samples
 > - **Git commits** — all analysis, code, and reports committed
@@ -190,6 +190,87 @@
 
 ---
 
+<a id="toc-part-42-offensive-development--tooling"></a>
+<a id="part-42-offensive-development-tooling"></a>
+## Part 42: Offensive Development & Tooling
+
+> [!NOTE]
+> **📚 Recommended Books for This Part**
+> - 🔴 `Black Hat Python 2nd Edition` — Primary companion — C2 building, RAT development, evasion, and custom offensive tooling
+> - 🟡 `Black Hat Go Go Programming For Hackers and Pentesters` — Full — modern Go-based offensive tooling and implant development
+> - 🟡 `Gray Hat Python - Seitz, Justin` — Full — debugging, fuzzing, shellcode injection, and process manipulation via Python
+> - 🟢 `REALWORLDPYTHON Hackers Guide 2020` — Full — real-world offensive Python automation projects
+
+> **Prerequisite Placement Note:** Part 42 is positioned here at the entrance of Phase 7 (immediately following Stage 7B: C/C++ Systems Programming) because it forms the mandatory offensive development foundation required for Part 29 (Modern Exploitation) and advanced tradecraft. Complete Part 42 before tackling memory corruption in Part 29.
+
+<a id="stage-1-exploit-development-foundation"></a>
+### **Stage 1: Exploit Development Foundation** — `🔬 Practical`
+
+- [ ] **Exploit Prototyping:** Use Python with **pwntools, [impacket](Tools/Impacket.md)** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
+
+- [ ] **Buffer Overflow Mastery:** Write **stack-based buffer overflow exploits**, understand **stack frame layout, return address overwrite, NOP sleds**, and **bad character identification**.
+
+- [ ] **Shellcode Writing:** Craft **position-independent shellcode** for **reverse shells, bind shells, staged loaders** avoiding null bytes and bad characters.
+
+- [ ] **Egghunters:** Build **egghunter shellcode** to locate payloads in memory when buffer space is limited.
+
+- [ ] **x86/x64 Assembly:** Develop working fluency in **MOV, PUSH, POP, CALL, JMP, INT, SYSCALL** and understand **calling conventions (cdecl, stdcall, fastcall, System V AMD64)**.
+
+- [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
+
+<a id="stage-2-windows-offensive-development"></a>
+### **Stage 2: Windows Offensive Development** — `🔬 Practical`
+
+- [ ] **Win32 API Exploitation:** Use **CreateProcess, VirtualAlloc, WriteProcessMemory, CreateRemoteThread** for **process injection, DLL loading, and token manipulation**.
+
+- [ ] **EDR Architecture & Telemetry Sources:**
+  - **Userland API Hooking:** Understand how EDRs inject custom DLLs into new processes to hook NTDLL exported syscall stubs (`NtProtectVirtualMemory`, `NtWriteVirtualMemory`) with `JMP` instructions to redirect control flow to inspection engines.
+  - **Bypassing Hooks:** Implement API unhooking (reloading clean `.text` section from disk NTDLL or `KnownDlls`), direct syscalls (`Syswhispers3`), and indirect syscalls (jumping into existing syscall instructions within NTDLL to preserve call stack legitimacy).
+  - **Kernel Callbacks & Minifilters:** Understand telemetry generated via `PsSetCreateProcessNotifyRoutineEx`, `PsSetCreateThreadNotifyRoutine`, `ObRegisterCallbacks` (process handle stripping), and filesystem minifilter drivers.
+  - **ETW-TI (Threat Intelligence):** Understand kernel-level ETW telemetry provided directly by the Windows kernel to EDR sensors, bypassing userland hooks.
+
+- [ ] **C# & .NET Offensive Tooling:** Master **P/Invoke and D/Invoke** to call **native Win32 APIs** from managed code. Understand tools like **SharpHound, Rubeus, Seatbelt, SharpUp, Certify** and how to **modify/recompile** them to evade signatures.
+
+- [ ] **In-Memory Execution:** Master **.NET assembly loading (Assembly.Load), reflection, and inline execution** to run offensive tools without dropping files to disk.
+
+- [ ] **AMSI/ETW Bypass:** Understand how **.NET interacts with AMSI** and **ETW** and techniques to patch or disable them at runtime.
+
+- [ ] **Offensive PowerShell:** Master **download cradles, constrained language mode escape, script block logging evasion**, and **AMSI bypass in PowerShell**.
+
+<a id="stage-3-linux-offensive-development"></a>
+### **Stage 3: Linux Offensive Development** — `🔬 Practical`
+
+- [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
+
+- [ ] **ELF Binary Manipulation:** Understand **ELF format, GOT/PLT, dynamic linking** for binary patching and implant injection.
+
+<a id="stage-4-c2-implant-development"></a>
+### **Stage 4: C2 & Implant Development** — `🔬 Practical`
+
+- [ ] **C2 Architecture:** Design **client-server implant architecture** with **modular payloads, encrypted channels, and sleep obfuscation**.
+
+- [ ] **Protocol Selection:** Choose and implement **HTTP/HTTPS, DNS, named pipes, or cloud API** channels for C2 communication.
+
+- [ ] **C++ Tooling:** Build **custom implants, packers, crypters**, and **network tools** requiring performance and low-level control.
+
+- [ ] **Evasion Integration:** Combine **sleep obfuscation, call stack spoofing, indirect syscalls, and API unhooking** into implant design.
+
+<a id="lab-progression-part-42-offensive-development-tooling"></a>
+### **Lab Progression (Part 42: Offensive Development & Tooling)**
+
+| Level | Task | Deliverable |
+|-------|------|-------------|
+| 1 | Exploit a basic stack buffer overflow (SLMail/Brainpan) | Working exploit script |
+| 2 | Write custom shellcode for a reverse shell (x86) | Shellcode + test harness |
+| 3 | Build a basic C2 implant (Python client → Python server) | Working C2 demo in lab |
+| 4 | Modify a SharpHound/Rubeus tool to evade signatures | Modified tool + AV scan comparison |
+| 5 | Implement AMSI bypass + in-memory .NET execution chain | End-to-end evasion demo in lab |
+
+> [!IMPORTANT]
+> **Move-On Gate:** You can write working exploits, develop custom shellcode, build basic C2 implants, modify existing offensive tools to evade detection, and bypass AMSI/ETW in a controlled lab environment.
+
+---
+
 <a id="part-27-digital-forensics"></a>
 ## Part 27: Digital Forensics
 
@@ -214,7 +295,7 @@
 
 - [ ] **Linux Memory Acquisition (LiME):** For Linux systems, use **LiME (Linux Memory Extractor)** — a loadable kernel module. Build for the target kernel version: `make` against target kernel headers. Load: `sudo insmod lime.ko path=/tmp/memory.lime format=lime`. Volatility 3 accepts LiME format directly. Use `format=raw` for Volatility 2 compatibility. For capture without writing to the local filesystem: `path=tcp:4444` streams the memory image over the network.
 
-- [ ] **Static Acquisition:** Create a forensic image of hard drives using `[FTK Imager](../Tools/FTK_Imager.md)` or `dd`, ensuring a write-blocker is used.
+- [ ] **Static Acquisition:** Create a forensic image of hard drives using `[FTK Imager](Tools/FTK_Imager.md)` or `dd`, ensuring a write-blocker is used.
 
 ---
 
@@ -265,11 +346,11 @@
 > [!TIP]
 > **Goal:** Trace the attacker's path through network evidence.
 
-- [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **[Wireshark](../Tools/Wireshark.md)** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
+- [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **[Wireshark](Tools/Wireshark.md)** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
 
 - [ ] **Flow Analysis:** When full packets are missing, use **NetFlow/sFlow/IPFIX logs** to identify **connections to malicious IPs, unusual traffic volumes, beaconing patterns (regular interval connections)**, and **data exfiltration spikes**.
 
-- [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent [strings](../Tools/strings.md), encrypted traffic to non-standard ports.
+- [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent [strings](Tools/strings.md), encrypted traffic to non-standard ports.
 
 - [ ] **TLS Forensics:** Analyze **JA3/JA4 fingerprints, certificate details, SNI values** to identify **malicious encrypted traffic** without decryption.
 
@@ -304,7 +385,7 @@
 
 - [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs. 📌 _Full reverse engineering methodology is covered in Part 28._
 
-- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **[Plaso](../Tools/Plaso.md)/log2timeline, Timeline Explorer**.
+- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **[Plaso](Tools/Plaso.md)/log2timeline, Timeline Explorer**.
 
 - [ ] **Anti-Forensics Detection:** Look for signs of **timestomping, log clearing, secure deletion, encryption, steganography** indicating a sophisticated attacker who is actively hiding tracks.
 
@@ -320,7 +401,7 @@
 
 - [ ] **Chain of Custody:** Maintain strict **evidence handling, hash verification (SHA-256), transfer documentation** for legal admissibility. Understand **Daubert/Frye standards** for expert testimony.
 
-- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs, MITRE ATT&CK mapping** for technical teams and incident [responder](../Tools/Responder.md)s.
+- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs, MITRE ATT&CK mapping** for technical teams and incident [responder](Tools/Responder.md)s.
 
 - [ ] **Executive Summary:** Translate technical findings into **business impact, risk assessment, regulatory implications** for management and board-level communication.
 
@@ -385,11 +466,11 @@
 > [!TIP]
 > **Goal:** Observe malware behavior during live execution.
 
-- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **[Procmon](../Tools/Procmon.md), Process Hacker, Regshot, Wireshark, FakeNet-NG**.
+- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **[Procmon](Tools/Procmon.md), Process Hacker, Regshot, Wireshark, FakeNet-NG**.
 
 - [ ] **Behavioral Indicators:** Document **file system changes, registry modifications, network connections, process creation, mutex creation, service installs** during execution.
 
-- [ ] **Debugger Proficiency:** Master **[x64dbg](../Tools/x64dbg.md)/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
+- [ ] **Debugger Proficiency:** Master **[x64dbg](Tools/x64dbg.md)/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
 
 - [ ] **API Hooking & Tracing:** Use **API Monitor, Frida, strace/ltrace** to intercept and log **system calls and library calls** at runtime.
 
@@ -834,7 +915,7 @@
 > [!TIP]
 > **Goal:** Discover and map VoIP infrastructure.
 
-- [ ] **SIP Scanning:** Use **svmap (SIPVicious), [nmap](../Tools/Nmap.md) SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
+- [ ] **SIP Scanning:** Use **svmap (SIPVicious), [nmap](Tools/Nmap.md) SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
 
 - [ ] **Extension Enumeration:** Use **svwar** to enumerate **valid SIP extensions** via REGISTER/OPTIONS probing; map **active users and voicemail accounts**.
 
@@ -1034,85 +1115,6 @@
 
 > [!IMPORTANT]
 > **Move-On Gate:** You can identify common Solidity vulnerabilities, write Foundry exploit tests, and produce a professional smart contract audit report.
-
----
-
-<a id="toc-part-42-offensive-development--tooling"></a>
-<a id="part-42-offensive-development-tooling"></a>
-## Part 42: Offensive Development & Tooling
-
-> [!NOTE]
-> **📚 Recommended Books for This Part**
-> - 🔴 `Black Hat Python 2nd Edition` — Primary companion — C2 building, RAT development, evasion, and custom offensive tooling
-> - 🟡 `Black Hat Go Go Programming For Hackers and Pentesters` — Full — modern Go-based offensive tooling and implant development
-> - 🟡 `Gray Hat Python - Seitz, Justin` — Full — debugging, fuzzing, shellcode injection, and process manipulation via Python
-> - 🟢 `REALWORLDPYTHON Hackers Guide 2020` — Full — real-world offensive Python automation projects
-
-
-> **Numbering Note:** Part 42 is numbered non-sequentially. It lives here in Phase 7 because it is a Phase 7 prerequisite (required before Part 29 Modern Exploitation). Full malware engineering and custom C2 implant development belong after Part 28 (Malware Analysis) — see the scope restriction note in Part 8 (Phase 2).
-
-_Phase 7 — Advanced Specializations | Prerequisites: Part 1 (Programming Fundamentals), Part 7 (System Hacking), Part 8 (Malware & Weaponization) | This module contains the offensive programming content that was previously in Part 1 Stage 7 (Fundamentals). It requires solid system hacking knowledge before attempting._
-
-
-<a id="stage-1-exploit-development-foundation"></a>
-### **Stage 1: Exploit Development Foundation** — `🔬 Practical`
-
-- [ ] **Exploit Prototyping:** Use Python with **pwntools, [impacket](../Tools/Impacket.md)** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
-
-- [ ] **Buffer Overflow Mastery:** Write **stack-based buffer overflow exploits**, understand **stack frame layout, return address overwrite, NOP sleds**, and **bad character identification**.
-
-- [ ] **Shellcode Writing:** Craft **position-independent shellcode** for **reverse shells, bind shells, staged loaders** avoiding null bytes and bad characters.
-
-- [ ] **Egghunters:** Build **egghunter shellcode** to locate payloads in memory when buffer space is limited.
-
-- [ ] **x86/x64 Assembly:** Develop working fluency in **MOV, PUSH, POP, CALL, JMP, INT, SYSCALL** and understand **calling conventions (cdecl, stdcall, fastcall, System V AMD64)**.
-
-- [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
-
-<a id="stage-2-windows-offensive-development"></a>
-### **Stage 2: Windows Offensive Development** — `🔬 Practical`
-
-- [ ] **Win32 API Exploitation:** Use **CreateProcess, VirtualAlloc, WriteProcessMemory, CreateRemoteThread** for **process injection, DLL loading, and token manipulation**.
-
-- [ ] **C# & .NET Offensive Tooling:** Master **P/Invoke and D/Invoke** to call **native Win32 APIs** from managed code. Understand tools like **SharpHound, Rubeus, Seatbelt, SharpUp, Certify** and how to **modify/recompile** them to evade signatures.
-
-- [ ] **In-Memory Execution:** Master **.NET assembly loading (Assembly.Load), reflection, and inline execution** to run offensive tools without dropping files to disk.
-
-- [ ] **AMSI/ETW Bypass:** Understand how **.NET interacts with AMSI** and **ETW** and techniques to patch or disable them at runtime.
-
-- [ ] **Offensive PowerShell:** Master **download cradles, constrained language mode escape, script block logging evasion**, and **AMSI bypass in PowerShell**.
-
-<a id="stage-3-linux-offensive-development"></a>
-### **Stage 3: Linux Offensive Development** — `🔬 Practical`
-
-- [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
-
-- [ ] **ELF Binary Manipulation:** Understand **ELF format, GOT/PLT, dynamic linking** for binary patching and implant injection.
-
-<a id="stage-4-c2-implant-development"></a>
-### **Stage 4: C2 & Implant Development** — `🔬 Practical`
-
-- [ ] **C2 Architecture:** Design **client-server implant architecture** with **modular payloads, encrypted channels, and sleep obfuscation**.
-
-- [ ] **Protocol Selection:** Choose and implement **HTTP/HTTPS, DNS, named pipes, or cloud API** channels for C2 communication.
-
-- [ ] **C++ Tooling:** Build **custom implants, packers, crypters**, and **network tools** requiring performance and low-level control.
-
-- [ ] **Evasion Integration:** Combine **sleep obfuscation, call stack spoofing, indirect syscalls, and API unhooking** into implant design.
-
-<a id="lab-progression-part-42-offensive-development-tooling"></a>
-### **Lab Progression (Part 42: Offensive Development & Tooling)**
-
-| Level | Task | Deliverable |
-|-------|------|-------------|
-| 1 | Exploit a basic stack buffer overflow (SLMail/Brainpan) | Working exploit script |
-| 2 | Write custom shellcode for a reverse shell (x86) | Shellcode + test harness |
-| 3 | Build a basic C2 implant (Python client → Python server) | Working C2 demo in lab |
-| 4 | Modify a SharpHound/Rubeus tool to evade signatures | Modified tool + AV scan comparison |
-| 5 | Implement AMSI bypass + in-memory .NET execution chain | End-to-end evasion demo in lab |
-
-> [!IMPORTANT]
-> **Move-On Gate:** You can write working exploits, develop custom shellcode, build basic C2 implants, modify existing offensive tools to evade detection, and bypass AMSI/ETW in a controlled lab environment.
 
 ---
 

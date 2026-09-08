@@ -158,15 +158,9 @@ Do not open at any point in your roadmap.
 | 🔴 | `Social Engineering The Art of Human Hacking` | Full book | **The** definitive SE book — read fully during Part 10 |
 | 🟡 | `The Social Engineers Playbook` | Full (short) | Practical tactical scripts and pretexts |
 
-### Part 12: Session Hijacking
-
-| Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
-| 🔴 | `The Tangled Web` | Browser/session management chapters | Deep coverage of session flaws — bridges into Phase 4 |
-
 ---
 
-## ✅ PHASE 4: Web & Application Security (Parts 17, 18, 19, 20)
+## ✅ PHASE 4: Web & Application Security (Parts 17, 12, 18, 19, 20)
 
 > **PortSwigger Academy is your primary platform here.**
 > Books are depth companions, not replacements for PortSwigger labs.
@@ -185,6 +179,12 @@ Do not open at any point in your roadmap.
 | 🟢 | `White Hat Hacking complete guide to XSS Attacks` | Full (short) | Structured XSS coverage to complement labs |
 | 🟢 | `SQL Injection Attacks` / `SQL Injection Strategies` / `SQL injection CyberSecurity` | Reference PDFs | Quick lookup alongside PortSwigger SQLi labs |
 | 🟢 | `Web Application Hacking Advanced SQL Injection and Data Store Attacks` | Advanced injection chapters | Advanced DB-level SQLi — read after PortSwigger SQLi track |
+
+### Part 12: Session Hijacking & Token Attacks
+
+| Priority | Book | Specific Chapters | What It Adds |
+|---|---|---|---|
+| 🔴 | `The Tangled Web` | Browser/session management chapters | Deep coverage of session flaws, cookie isolation, and DOM token handling — bridges directly into Phase 4 |
 
 ### Part 18: Web Server Hacking
 
@@ -343,6 +343,14 @@ Do not open at any point in your roadmap.
 
 ## ✅ PHASE 10: Operations & Career (Parts 39, 40, 41)
 
+### Part 39: Penetration Testing & Report Writing
+
+| Priority | Book | Use |
+|---|---|---|
+| 🔴 | `The Pentester Blueprint` | Pentest career methodology, report writing, professional conduct — read before Part 39 |
+| 🔴 | `From Hacking to Report Writing` | Report structure, evidence packaging, finding articulation |
+| 🟢 | `Web Application Pentest Methodology` | Structured methodology doc for web pentest engagements |
+
 ### Part 40: Red Team Operations
 
 | Priority | Book | Use |
@@ -351,14 +359,6 @@ Do not open at any point in your roadmap.
 | 🟡 | `The Red Report 2023` | Current attacker TTP trends and real-incident data |
 | 🟡 | `Threat Intelligence Handbook` | CTI methodology for adversary profiling and red team planning |
 | 🟢 | `Cybersecurity Attack-and-Defense Strategies 2nd` | Structured red team operation planning |
-
-### Part 39: Penetration Testing & Report Writing
-
-| Priority | Book | Use |
-|---|---|---|
-| 🔴 | `The Pentester Blueprint` | Pentest career methodology, report writing, professional conduct — read before Part 39 |
-| 🔴 | `From Hacking to Report Writing` | Report structure, evidence packaging, finding articulation |
-| 🟢 | `Web Application Pentest Methodology` | Structured methodology doc for web pentest engagements |
 
 ### Part 41: Proof of Work & Career Portfolio
 
