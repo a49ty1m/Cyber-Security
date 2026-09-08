@@ -17,7 +17,7 @@ Prior to the recent refactoring, this curriculum was an **ambitious, content-ric
 
 ### What Has Been Fixed & Improved
 1. **Critical Sequencing De-conflicted:** 
-   - Application-layer **Session Hijacking & Token Attacks (Part 12)** has been properly rooted inside [Phase-4.md](Phase-4.md) (Web Security), while Phase 2 retains only low-level network sniffing.
+   - Application-layer **Session Hijacking & Token Attacks (Part 12)** resides exclusively inside [Phase-4.md](Phase-4.md) (Web Security), while Phase 2 cleanly terminates at **Part 11: Denial of Service** (with network sniffing and MITM handled in Part 9). All phantom Part 12 duplications across Phase 2 tables and folders have been completely purged.
    - **Malware & Weaponization (Part 8)** in Phase 2 has been demoted to a passive conceptual overview, while true offensive tooling development (**Part 42**) has been relocated to the top of [Phase-7.md](Phase-7.md) immediately following C/C++ Systems Programming.
    - **Report Writing & Methodologies (Part 39)** has been pulled forward into early operational gates (Phase 2 and Phase 6 capstones require commercial-grade PTES reports), and physically moved ahead of Part 40 in [Phase-10.md](Phase-10.md).
 2. **Missing Tradecraft Blind Spots Patched:**
@@ -46,7 +46,7 @@ Prior to the recent refactoring, this curriculum was an **ambitious, content-ric
 
 | Issue Type | Topic | Problem | Severity | Status | Action Taken / Recommended Fix |
 |:---|:---|:---|:---:|:---:|:---|
-| **Sequencing** | **Part 12: Session Hijacking** | Located in Phase 2 before Phase 4. Relies on cookies, JWTs, XSS, and CORS which are only taught in Phase 4. | **CRITICAL** | **RESOLVED** | Migrated full session manipulation, token attacks, and JWT exploitation to `Phase-4.md`. Scoped Phase 2 to network sniffing with explicit redirection. |
+| **Sequencing** | **Part 12: Session Hijacking** | Located in Phase 2 before Phase 4. Relies on cookies, JWTs, XSS, and CORS which are only taught in Phase 4. Created duplicate Part 12 entries with conflicting names across Phase 2 and Phase 4. | **CRITICAL** | **RESOLVED** | Migrated full session manipulation, token attacks, and JWT exploitation exclusively to `Phase-4.md`. Purged the phantom Part 12 stub, TOC references, and folder from Phase 2; Phase 2 now strictly terminates at Part 11 (with network sniffing consolidated into Part 9). |
 | **Sequencing** | **Part 8: Malware & Weaponization** | Positioned in Phase 2 before C, Win32 API, PE headers, and memory injection. | **CRITICAL** | **RESOLVED** | Marked Part 8 as deferred conceptual awareness. Relocated practical Offensive Development (Part 42) to the front of `Phase-7.md` after C/C++. |
 | **Sequencing** | **Part 39: Report Writing** | Placed at the tail of Phase 10. Learners rooted dozens of boxes without documenting commercial deliverables. | **HIGH** | **RESOLVED** | Pulled forward into Phase 2 and Phase 6 exit gates. Physically reordered Part 39 before Part 40 in `Phase-10.md`. |
 | **Contradiction** | **Rootkits / Bootkits in Phase 2** | Part 7 told students to deploy kernel rootkits and bootkits, while line 1709 explicitly stated rootkits require Part 28 kernel internals. | **HIGH** | **RESOLVED** | Purged kernel rootkits and bootkits from Phase 2 Stage 3 persistence; restricted Phase 2 to userland/service persistence. |

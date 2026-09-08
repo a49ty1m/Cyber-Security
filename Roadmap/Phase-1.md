@@ -3134,7 +3134,7 @@ Using your virtualization platform, build a lab environment containing:
 
 
 > [!IMPORTANT]
-> **Why This Exists Here:** Phase 2 teaches session hijacking (Part 12), sniffing HTTP credentials (Part 9), and social engineering via web-based pretexting (Part 10) — all before Phase 4 introduces web applications. You cannot understand session hijacking without first understanding what a session IS. This Part bridges that gap. Complete it before proceeding to Phase 2.
+> **Why This Exists Here:** Phase 4 teaches session hijacking (Part 12), while Phase 2 teaches sniffing HTTP credentials (Part 9) and web-based pretexting (Part 10) — all requiring solid web fundamentals. You cannot understand session hijacking or web exploitation without first understanding what a session IS. This Part bridges that gap. Complete it before proceeding to Phase 2.
 
 > [!NOTE]
 > **Prerequisite: Part 3B Required for Stage 2.** Part 4 Stage 2 (Cookies, Sessions & Tokens) applies the concepts taught in Part 3B (Authentication Standards Primer). If you skipped Part 3B, return to it before starting Stage 2 — the cookie security attributes, session fixation mechanics, and JWT structure will make no sense without that foundation. Part 3B is theory; Part 4 Stage 2 is the hands-on application of that theory in Burp Suite against live targets.

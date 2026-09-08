@@ -126,7 +126,6 @@ Phase 2B — Advanced Offensive Operations  (core parts only)
 ──────────────────────────────────────────────────────────────────
   Part 9  → Sniffing & Spoofing  (do now)
   Part 10 → Social Engineering   (do now)
-  [DONE]  → Part 12 (Session Hijacking) — completed in Phase 4 Web Sec
   Part 8  → Malware & Weaponization  (defer until Phase 7 Part 42)
   [SKIP]  → Part 11 (DoS) — conceptual awareness only, no lab time
     │
@@ -553,7 +552,7 @@ _Stage 1 Exit Gate: 3+ HTB/THM writeups committed, OWASP Top 10 hands-on, Linux 
 
 - [ ] [Part 9: Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) — Protocols → Sniffing → MITM → Defenses
 - [ ] [Part 10: Social Engineering](Phase-2.md#part-10-social-engineering) — Recon → Digital → Human → Physical
-- [ ] [Part 12: Session Hijacking](Phase-4.md#part-12-session-hijacking-token-attacks) — Network Sniffing in Phase 2 / Full App Layer in Phase 4
+- [ ] [Part 11: Denial of Service](Phase-2.md#part-11-denial-of-service) — Layer 4/7 Floods, SYN Cookies, Anycast Defense _(conceptual)_
 - [ ] [Part 8: Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) — Taxonomy → msfvenom → Evasion _(Full development in Phase 7 Part 42)_
 
 **📝 Report Writing** _(pulled forward from Phase 10 — do alongside Phase 6)_

@@ -123,12 +123,6 @@
   - [Stage 3: Infrastructure & Execution (The Assault)](#stage-3-infrastructure-execution-the-assault)
   - [Stage 4: Defense & Mitigation (The Shield)](#stage-4-defense-mitigation-the-shield)
   - [Lab Progression (Part 11: Denial of Service)](#lab-progression-part-11-denial-of-service)
-- [Part 12: Session Hijacking](#part-12-session-hijacking)
-  - [Stage 1: Reconnaissance & Vulnerability Analysis](#stage-1-reconnaissance-vulnerability-analysis)
-  - [Stage 2: Stealing the Session ID (The Attack Vectors)](#stage-2-stealing-the-session-id-the-attack-vectors)
-  - [Stage 3: Execution & Impersonation](#stage-3-execution-impersonation)
-  - [Stage 4: Defense & Mitigation (The Shield)](#stage-4-defense-mitigation-the-shield)
-  - [Lab Progression (Part 12: Session Hijacking)](#lab-progression-part-12-session-hijacking)
 
 ---
 
@@ -1583,7 +1577,7 @@
 
 ## 🔹 Phase 2B: Advanced Offensive Operations
 
-> _Parts 8–12 — Master weaponization, deception, disruption, and session manipulation. These build on the access gained in Phase 2A._
+> _Parts 8–11 — Master weaponization, deception, disruption, and network sniffing. These build on the access gained in Phase 2A._
 
 > [!WARNING]
 > **Phase 2B Scope Control — Red Team Track**
@@ -1594,7 +1588,6 @@
 > | ------------------------------------ | -------- | ---------------------------------------------------------------------- |
 > | **Part 9** — Sniffing & Spoofing     | Core     | Do now — directly supports network understanding                       |
 > | **Part 10** — Social Engineering     | Core     | Do now — recon/phishing concepts apply immediately                     |
-> | **Part 12** — Session Hijacking      | Core     | Do now — reinforces auth/session concepts from Phase 1                 |
 > | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 6** — full malware engineering is in Phase 7 Part 42  |
 > | **Part 11** — Denial of Service      | Archive  | **Read passively only. No lab time.** No pentest engagement authorizes active DoS on a production network. Conceptual awareness is sufficient. |
 >
@@ -2183,39 +2176,8 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="toc-part-12-session-hijacking"></a>
-<a id="part-12-session-hijacking"></a>
-
-## Part 12: Session Hijacking (Network Layer)
-
-> [!IMPORTANT]
-> **Curriculum Redirection Notice:** Session Hijacking is predominantly an application-layer vulnerability (cookies, JWT tampering, XSS token exfiltration, session fixation, and CSRF). To ensure proper progression, the comprehensive web exploitation curriculum is located in:
->
-> ➔ **[Phase 4: Part 12 — Session Hijacking & Token Attacks](Phase-4.md#part-12-session-hijacking-token-attacks)**
->
-> In Phase 2, this module covers strictly **Network-Level Session Interception** (cleartext protocol sniffing, ARP/DNS spoofing, packet carving). Proceed to Phase 4 when ready for web application session attacks.
-
 > [!NOTE]
-> **📚 Recommended Books for This Part**
-> - 🔴 `The Tangled Web` — Browser and session management architecture — essential bridge to Phase 4 web exploitation
-> - 🟡 `Wireshark Cheat Sheet` — Reference for packet reconstruction
-
-<a id="stage-1-network-session-interception"></a>
-
-### **Stage 1: Network-Level Session Interception** — `🔬 Practical`
-
-> [!TIP]
-> **Goal:** Intercept and carve session credentials from unencrypted or improperly secured transit.
-
-- [ ] **Cleartext Protocol Packet Carving:** Capture network traffic on shared or bridged subnets using **tcpdump / Wireshark**; filter for HTTP `Cookie:`, `Authorization: Basic/Bearer`, FTP, Telnet, or SMTP cleartext credentials.
-
-- [ ] **Man-in-the-Middle (MITM) Interception:** Leverage ARP poisoning (`bettercap` / `arpspoof`) or local DNS spoofing to route LAN traffic through your host and observe transit session tokens.
-
-- [ ] **TCP Session Reset Injection:** Forge TCP RST packets with matching sequence numbers to disrupt active TCP connections.
-
-- [ ] **SSL/TLS Stripping Mechanics:** Understand how tools like `sslstrip` historically downgraded HTTPS requests to HTTP when HSTS was absent, and why HSTS (`Strict-Transport-Security` preload) neutralizes this attack.
-
-> 📌 **Next Step:** Complete the full application-layer session hijacking labs (session fixation, XSS cookie theft, JWT signature attacks) in **[Phase 4: Part 12](Phase-4.md#part-12-session-hijacking-token-attacks)**.
+> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[Phase 4: Part 12](Phase-4.md#part-12-session-hijacking-token-attacks)** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in [Part 9: Sniffing & Spoofing](#part-9-sniffing-spoofing).
 
 ---
 
