@@ -76,10 +76,10 @@
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | **Linux CLI & Bash** | Process control (`ps`, `lsof`, `kill`), file manipulation (`awk`, `sed`, `grep`), basic administrative shell scripting. |
-> | **Tier 1 (Mandatory)** | **PowerShell** | Object-based administration (`Get-Process`, `Get-Service`, `Get-NetTCPConnection`), script pipeline basics. |
+> | **Tier 1 (Mandatory)** | [Linux CLI & Bash](#stage-7a-programming-scripting-fundamentals) | Process control (`ps`, `lsof`, `kill`), file manipulation (`awk`, `sed`, `grep`), basic administrative shell scripting. |
+> | **Tier 1 (Mandatory)** | [PowerShell](#stage-4-powershell-administration-windows) | Object-based administration (`Get-Process`, `Get-Service`, `Get-NetTCPConnection`), script pipeline basics. |
 > | **Tier 1 (Mandatory)** | [Wireshark](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Wireshark.md) & [tcpdump](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/tcpdump.md) | Packet sniffing, protocol decoding (TCP 3-way handshake, DNS, ARP, HTTP/TLS), display & capture filter crafting. |
-> | **Tier 1 (Mandatory)** | **OpenSSL & cryptsetup** | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
+> | **Tier 1 (Mandatory)** | [OpenSSL & cryptsetup](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/OpenSSL.md) | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
 > | **Tier 2 (Secondary)** | [iperf3](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/iperf3.md) | Network throughput, latency, and bandwidth bottleneck benchmarking across lab subnets. |
 > | **Tier 2 (Secondary)** | [Scapy](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Scapy.md) | Crafting custom Layer 2/3/4 packets in Python to test protocol boundaries and firewalls. |
 >

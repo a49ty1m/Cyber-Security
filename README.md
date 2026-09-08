@@ -87,7 +87,7 @@ Every guide follows the same 8-phase structure: **Fundamentals → Core Features
 > [!IMPORTANT]
 > **The master roadmap is the single source of truth.** The [10-phase roadmap](Roadmap/README.md) defines exactly what to study, in what order, and why. Do not follow a separate learning path from this file.
 
-**→ [Open Master Roadmap](Roadmap/README.md)** — Includes your personal execution order, phase gates, dependency rules, and daily focus system.
+**→ [Open Master Roadmap](Roadmap/README.md)** — Includes your personal execution order, phase gates, dependency rules, and the [4-Hour Daily Execution Protocol (Concept ➔ Tool ➔ Depth)](Roadmap/README.md#-the-4-hour-daily-execution-protocol-concept--tool--depth).
 
 **Your current position:** Phase 1 substantially complete → entering **Phase 2A: Footprinting & Reconnaissance**
 

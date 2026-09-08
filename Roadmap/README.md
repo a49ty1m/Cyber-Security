@@ -198,7 +198,7 @@ Phase 10 — Operations & Career (final assembly)
 
 ## ⚡ Career Tracks
 
-### 🔴 Red Team & Penetration Testing _(your track)_
+### 🔴 Red Team & Penetration Testing _(MY_Track)_
 
 > Follow the [Personal Execution Order](#-personal-execution-order) above. The sequence below is a summary.
 
@@ -327,6 +327,30 @@ Not: **read checklist → check box → move on.**
 | How do I know I'm done? | I pass the Move-On Gate without looking at notes |
 | Can I study X instead? | Only if X is: current Part / prerequisite patch / weekend programming |
 
+### ⏱️ The 4-Hour Daily Execution Protocol: Concept ➔ Tool ➔ Depth
+
+Never treat your daily work as three disconnected chores. Juggling notes, tools, and books in random order causes cognitive fatigue and shallow retention. They must flow in a **single feedback pipeline**:
+
+```text
+┌───────────────────────────────┐     ┌───────────────────────────────┐     ┌───────────────────────────────┐
+│  1. Phase Topic Notes (105m)  │ ──► │  2. Tool Mastery Drills(105m) │ ──► │  3. Targeted Book Depth (30m) │
+│     The Mental Model ("Why")  │     │    Terminal Execution ("How") │     │    Edge Cases & Deep Theory   │
+└───────────────────────────────┘     └───────────────────────────────┘     └───────────────────────────────┘
+```
+
+#### Daily 4-Hour Allocation:
+
+| Time Block | Component | Focus & Activity | Output / Deliverable |
+| :---: | :--- | :--- | :--- |
+| **Block 1**<br>1 hr 45 min (105 min) | **Phase Topic Notes**<br>*(The Mental Model & "Why")* | Study your current Phase stage topic (e.g., DNS record types, TCP handshake, Linux file permissions, TLS cipher suites). Write clear, concise markdown notes capturing the protocol mechanics, failure modes, and threat model. | Structured markdown notes documenting the concept, architectural flow, and attack surface. |
+| **Block 2**<br>1 hr 45 min (105 min) | **Tool Mastery & Terminal Drills**<br>*(Empirical Proof & "How")* | Immediately open the corresponding `Tools/<Tool>.md` file. Execute the commands, capture real packets, test flags, and break the implementation in your lab terminal. | Terminal logs, pcap/log captures, working shell/Python scripts, and verified command execution. |
+| **Block 3**<br>30 min (30 min) | **Targeted Book Deepener**<br>*(The Technical Edge & Architecture)* | Consult the mapped book from [book_to_phase_map.md](book_to_phase_map.md) **only** for technical questions, protocol edge cases, or gaps encountered during Blocks 1 & 2. | 2–3 precise architectural or edge-case insights added to your lab notes. |
+
+#### Strict Operating Rules for the 4-Hour Grind:
+1. **Never start with the book:** Passive reading gives a false feeling of accomplishment. Peak mental energy belongs to concept mapping (Block 1) and terminal execution (Block 2).
+2. **Never run tools blindly:** If you cannot explain what protocol or packet state a tool flag is manipulating, stop and re-read Block 1. Blind flag memorization makes a script kiddie, not an engineer.
+3. **Targeted book lookup, not linear reading:** Treat the mapped books as high-bandwidth technical encyclopedias, not novels. Jump directly to the chapter or index entry for the specific mechanism you just studied.
+
 ---
 
 ## 📝 Documentation Protocol
@@ -359,24 +383,33 @@ Every phase file contains a **Documentation Requirements** block. These artifact
 ## 💻 Programming Parallel Track
 
 > [!NOTE]
-> **Weekend track only — not a competing curriculum.** Python, Bash, and PowerShell are practiced on Saturdays/Sundays. The milestones below are phase-specific — study them when the roadmap reaches that phase, not before.
+> **Weekend track only — not a competing curriculum.** Python, Bash, and PowerShell are practiced on Saturdays/Sundays. The milestones below are strictly **phase-sequenced** — focus only on the milestone matching your current roadmap phase. Never skip ahead.
 
-| Language | Milestone | Phase it's needed |
-|----------|-----------|-------------------|
-| **Python** | File I/O, loops, functions, `subprocess` | Phase 2A |
-| **Python** | `socket`, `requests`, `scapy` basics | Phase 2 |
-| **Python** | HTTP client, form parsing, cookies | Phase 4 |
-| **Python** | `ldap3`, `impacket` usage | Phase 6 |
-| **Python** | `numpy`, model inference basics | Phase 9 (prerequisite) |
-| **Bash** | Variables, loops, conditionals, pipes | Phase 2A |
-| **Bash** | `curl`, `grep`/`awk`/`sed`, process management | Phase 2 |
-| **Bash** | Cron, log parsing, tool chaining | Phase 3 |
-| **PowerShell** | Cmdlets, pipelines, object output | Phase 2A |
-| **PowerShell** | AD module, `Invoke-`, WMI/CIM | Phase 6 |
-| **PowerShell** | AMSI bypass, constrained language mode | Phase 7 |
-| **C / Assembly** | Shellcode writing, x86-64 calling conventions | Phase 7 Part 42 — **do not start early** |
+| Phase | Language | Milestone & Core Libraries | Practical Security Application |
+|:---|:---|:---|:---|
+| **Phase 1**<br>Foundations | **Bash** | • **Core:** Expansions, control flow, functions, subshells, exit codes (`$?`)<br>• **Syntax/Pipes:** `set -euo pipefail`, streams (`0, 1, 2`), `\|`, `tee`, `xargs`, `read` | CLI automation, file navigation, OS administration |
+| | **PowerShell** | • **Core:** `Verb-Noun` cmdlets, script blocks, PSDrives (`HKLM:`, `Env:`, `Cert:`)<br>• **Object Pipeline:** `Get-Member`, `Select-Object`, `Where-Object`, `ForEach-Object` | Windows administration, registry and service auditing |
+| | **Python** | • **Core:** Control flow, custom functions, exception handling (`try/except/finally`)<br>• **Data & I/O:** Lists, dicts, sets, list comprehensions, file I/O (`with open(...)`) | Foundational programming & security logic |
+| | **JavaScript** | • **Core:** Browser execution context, DOM manipulation, asynchronous flow (`async/await`)<br>• **APIs:** `fetch()`, `document.cookie`, `localStorage`, DevTools debugging | Understanding client-side web mechanics |
+| **Phase 2A**<br>Offense Core | **Bash** | • **Core:** Stream text processing, regex parsing, automated tool chaining<br>• **Toolchain:** `grep -E`, `awk`, `sed`, `cut`, `sort -u`, `uniq -c`, `ps aux`, `lsof`, `kill` | Mass log parsing, scan output carving, quick target lists |
+| | **Python** | • **Core:** External process execution, CLI argument parsing, raw socket checks<br>• **Libraries:** `subprocess.run()`, `argparse`, `sys`, `socket` (banner grabbing) | Automating CLI tool wrappers and custom port checkers |
+| | **PowerShell** | • **Core:** Living-off-the-land local system enumeration<br>• **Cmdlets:** `Get-Process`, `Get-Service`, `Get-NetTCPConnection`, `Get-LocalUser` | Post-access local system auditing without third-party tools |
+| **Phase 2B**<br>Network Sec | **Python** | • **Core:** Custom packet fabrication, protocol dissection, raw frame generation<br>• **Libraries:** `scapy` (`Ether() / IP() / TCP()`, `sr1()`, `sendp()`), raw `socket` (`AF_INET`, `SOCK_RAW`) | Custom packet construction, network boundary fuzzing |
+| | **Bash** | • **Core:** Living-off-the-land network auditing and sweep scripting<br>• **Utilities:** `ip route`, `ss -tulnp`, `nc -zvw2`, parallel ping sweeps (`ping -c 1 &`) | Lightweight living-off-the-land network reconnaissance |
+| **Phase 3**<br>Defense & SOC *(Parallel)* | **PowerShell** | • **Core:** Event log forensics, Windows audit queries, telemetry extraction<br>• **Cmdlets:** `Get-WinEvent` (`-FilterHashtable`, `-FilterXml`), `Get-CimInstance Win32_*` | Ingesting and hunting event logs (Event ID 4624/4625, Sysmon) |
+| | **Bash** | • **Core:** System audit trail parsing, recurring task scheduling, automated defense<br>• **Utilities:** `journalctl`, `/var/log/auth.log` regex extraction, `crontab`, `logger`, `logrotate` | Linux log analysis, alert automation, integrity baselines |
+| | **Python** | • **Core:** Log telemetry ingestion, SIEM integration, rule matching<br>• **Libraries:** `json`, `yaml`, `re`, `requests` (SIEM/Wazuh/Elastic APIs), Sigma/YARA bindings | Detection engineering scripts, threat feed automation |
+| **Phase 4**<br>Web & App Sec | **Python** | • **Core:** HTTP exploit prototyping, automated session handling, token parsing<br>• **Libraries:** `requests.Session()`, `urllib.parse`, `BeautifulSoup` (`bs4`), `PyJWT`, `base64` | Custom web exploit PoCs, auth bruteforcers, API fuzzing |
+| | **JavaScript** | • **Core:** Cross-Site Scripting (XSS) weaponization, client-side session hijacking<br>• **Techniques:** `document.cookie` exfiltration, dynamic `<script>` injection, `fetch()` POST callbacks | Weaponizing XSS payloads and understanding client-side auth |
+| **Phase 6**<br>Enterprise & Cloud | **PowerShell** | • **Core:** Active Directory auditing, LDAP object enumeration, remote administration<br>• **Modules & Cmdlets:** `ActiveDirectory` (`Get-ADUser`, `Get-ADGroupMember`), `Enter-PSSession`, `Invoke-Command` | Domain enumeration, hunting misconfigured AD accounts & ACLs |
+| | **Python** | • **Core:** Protocol-level AD exploitation, LDAP querying, Cloud IAM audit automation<br>• **Libraries:** `impacket` (`smbclient`, `secretsdump`), `ldap3`, `boto3` (AWS IAM/S3), `azure-mgmt-*` | Active Directory attack scripts, cloud IAM enumeration |
+| **Phase 7**<br>Advanced Sec ⚠️ *(Part 42)* | **C / C++** | • **Core:** Win32 API memory manipulation, custom implant loaders, process injection<br>• **APIs:** `VirtualAlloc`, `WriteProcessMemory`, `CreateRemoteThread`, `OpenProcess`, PE headers | Custom malware loaders, shellcode runners, EDR bypass |
+| | **Assembly** | • **Core:** Shellcode analysis, stack frames, calling conventions, exploit dev<br>• **Architecture:** x86-64 registers (`RAX`, `RSP`, `RIP`), stack alignment, syscall execution, GDB / x64dbg | Debugging exploits in GDB/x64dbg, shellcode analysis |
+| | **PowerShell** | • **Core:** In-memory tradecraft, AMSI/ETW bypass mechanics, execution policy bypasses<br>• **Techniques:** Download cradles (`IEX`), .NET Reflection (`[Ref].Assembly`), CLM escape | Offensive tradecraft, bypassing Constrained Language Mode |
+| **Phase 9**<br>AI Security | **Python** | • **Core:** LLM inference security, prompt injection harnesses, agent exploit pipelines<br>• **Libraries & SDKs:** `numpy`, `torch`, `transformers`, `openai`, `anthropic`, `langchain`, `garak`, `pyrit` | Automated jailbreak harnesses, prompt injection PoCs, agent exploit testing |
+| **Phase 10**<br>Red Team Ops | **Python / Go** | • **Core:** Custom C2 payload generation, cross-platform implant compilation, campaign tooling<br>• **Tooling:** Mythic / Havoc agent extensions, cross-compilation (`GOOS=windows`), staging scripts | Red team campaign automation, custom operator tooling |
 
-> **Rule:** If a milestone belongs to a future phase, mark it and move on. Start it when the roadmap arrives there.
+> **Rule:** If a milestone belongs to a future phase, mark it and ignore it for now. Master the skills aligned with your current phase only.
 
 ---
 

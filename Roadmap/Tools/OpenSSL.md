@@ -180,10 +180,13 @@ openssl ec -in ec_private.key -text -noout
 
 ```bash
 # Encrypt a small file with a public key (RSA-OAEP)
-openssl rsautl -encrypt -oaep -inkey public.key -pubin -in secret.txt -out secret.enc
+# Note: openssl rsautl is deprecated in OpenSSL 3.x — use pkeyutl instead
+openssl pkeyutl -encrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 \
+  -pubin -inkey public.key -in secret.txt -out secret.enc
 
 # Decrypt with private key
-openssl rsautl -decrypt -oaep -inkey private.key -in secret.enc -out secret_dec.txt
+openssl pkeyutl -decrypt -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 \
+  -inkey private.key -in secret.enc -out secret_dec.txt
 
 # Sign a file (creates digital signature)
 openssl dgst -sha256 -sign private.key -out signature.bin file.txt
