@@ -23,7 +23,7 @@
 |:-:|--------|:-----:|-------|
 | **01** | [Fundamentals](Phase-1.md#part-1-fundamentals) — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Foundation |
 | **02** | [Linux Administration](Phase-1.md#part-1b-linux-administration) | 🔴 | Foundation |
-| **03** | [Windows Administration](Phase-1.md#part-1c-windows-administration) *(core — Stages 1–4)* | 🟡 | Foundation |
+| **03** | [Windows Administration](Phase-1.md#part-1c-windows-administration)  | 🟡 | Foundation |
 | **04** | [Networking Fundamentals](Phase-1.md#part-2-networking-fundamentals) | 🔴 | Foundation |
 | **05** | [Cryptography](Phase-1.md#part-3-cryptography) — core concepts + attacks | 🔴 | Foundation |
 | **06** | [Authentication Standards](Phase-1.md#part-3b-authentication-standards-primer) — Sessions, JWT, OAuth, MFA | 🔴 | Foundation |
