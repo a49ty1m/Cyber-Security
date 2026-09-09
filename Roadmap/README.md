@@ -19,44 +19,44 @@
 
 > Old numbering (Part 4, Part 31, Part 6B, Part 16 living in Phase 6...) was never sequential — it was archival metadata. This is your actual walk order, top to bottom, nothing else. 🔴 = master it before moving on. 🟡 = learn it solid, keep moving. Cut items from the shelf table are simply gone — not listed, not owed to anyone.
 
-| # | Module | Depth | Old Ref | Stage |
-|:-:|--------|:-----:|---------|-------|
-| **01** | [Fundamentals](Phase-1.md#part-1-fundamentals) — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Part 1 | Foundation |
-| **02** | [Linux Administration](Phase-1.md#part-1b-linux-administration) | 🔴 | Part 1B | Foundation |
-| **03** | [Windows Administration](Phase-1.md#part-1c-windows-administration) *(core — Stages 1–4)* | 🟡 | Part 1C | Foundation |
-| **04** | [Networking Fundamentals](Phase-1.md#part-2-networking-fundamentals) | 🔴 | Part 2 | Foundation |
-| **05** | [Cryptography](Phase-1.md#part-3-cryptography) — core concepts + attacks | 🔴 | Part 3 | Foundation |
-| **06** | [Authentication Standards](Phase-1.md#part-3b-authentication-standards-primer) — Sessions, JWT, OAuth, MFA | 🔴 | Part 3B | Foundation |
-| **07** | [Web Technology Fundamentals](Phase-1.md#part-3c-web-technology-fundamentals) — HTTP, Cookies, CORS, REST | 🔴 | Part 3C | Foundation |
-| | **— Foundation Proof Gate —** *(10 PCAPs, admin baselines, 3 scripts, lab report)* | | | |
-| **08** | [Footprinting & Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance) | 🔴 | Part 4 | Offense I |
-| **09** | [Scanning](Phase-2.md#part-5-scanning) | 🔴 | Part 5 | Offense I |
-| **10** | [Enumeration](Phase-2.md#part-6-enumeration) | 🔴 | Part 6 | Offense I |
-| **11** | [Database Security](Phase-2.md#part-6b-database-security) | 🟡 | Part 6B | Offense I |
-| **12** | [Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) | 🔴 | Part 31 | Offense I |
-| **13** | [System Hacking & Initial Compromise](Phase-2.md#part-7-system-hacking-initial-compromise) | 🔴 | Part 7 | Offense I |
-| | **— Stage Gate 1 —** *(root a box, dump & crack a hash, escalate privesc)* | | | |
-| **14** | [Web Application Hacking](Phase-4.md#part-17-web-application-hacking) — SQLi, XSS, SSRF, IDOR, XXE | 🔴 | Part 17 | Web & App Sec |
-| **15** | [Session Hijacking & Token Attacks](Phase-4.md#part-12-session-hijacking) — Cookies, JWTs, Fixation | 🔴 | Part 12 | Web & App Sec |
-| **16** | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking) — Misconfig, Directory Traversal | 🔴 | Part 18 | Web & App Sec |
-| **17** | [API Security](Phase-4.md#part-19-api-security) — OWASP API Top 10, REST/GraphQL/gRPC | 🔴 | Part 19 | Web & App Sec |
-| **18** | [Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology) — Scope, Recon, Exploit, Report | 🔴 | Part 20 | Web & App Sec |
-| | *(parallel, absorb only — never block)* [Detection Awareness](Phase-3.md#part-13a-detection-engineering-soc-operations), [IDS/Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots), [OSINT](Phase-3.md#part-15-osint-threat-intelligence) | 🟡 | Parts 13A, 14, 15 | side-track |
-| | **— Stage Gate 2 —** *(3+ HTB/THM writeups, OWASP Top 10 hands-on, Linux+Windows privesc demonstrated cold)* | | | |
-| **19** | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id) *(+ deferred Kerberos patch from #03)* | 🔴 | Part 23 | Enterprise |
-| **20** | [Cloud Computing](Phase-6.md#part-24-cloud-computing) *(+ deferred Cloud Assets patch from #04)* | 🔴 | Part 24 | Enterprise |
-| **21** | [Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security) | 🟡 | Part 25 | Enterprise |
-| **22** | [Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming) | 🔴 | Part 16 | Enterprise |
-| **23** | [Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) — ARP, MITM, Bettercap, Responder | 🟡 | Part 9 | Enterprise |
-| **24** | [Social Engineering](Phase-2.md#part-10-social-engineering) — Phishing, Vishing, Physical | 🟡 | Part 10 | Enterprise |
-| **25** | [Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) *(conceptual — full build is #27)* | 🔵 | Part 8 | Enterprise |
-| **26** | [Pentest Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) | 🔴 | Part 39 | Enterprise |
-| | **— Stage Gate 3 —** *(AD domain attacked end-to-end, BloodHound exports in Git, 1 professional report)* | | | |
-| **27** | [Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) — C2, Shellcode, AMSI/ETW | 🔴 | Part 42 | Specialized |
-| **28** | [AI & LLM Red Teaming](Phase-9.md#part-38-ai-llm-red-teaming) — Prompt Injection, RAG, Agentic Exploits | 🔴 | Part 38 | Specialized |
-| **29** | [Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — C2, OPSEC, Campaign | 🔴 | Part 40 | Specialized |
-| **30** | [Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) — Certs, GitHub, Bug Bounties | 🔴 | Part 41 | Specialized |
-| | **— Final Gate —** *(custom C2 in lab, published AI security research, 3+ reports, OSCP)* | | | |
+| # | Module | Depth | Stage |
+|:-:|--------|:-----:|-------|
+| **01** | [Fundamentals](Phase-1.md#part-1-fundamentals) — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Foundation |
+| **02** | [Linux Administration](Phase-1.md#part-1b-linux-administration) | 🔴 | Foundation |
+| **03** | [Windows Administration](Phase-1.md#part-1c-windows-administration) *(core — Stages 1–4)* | 🟡 | Foundation |
+| **04** | [Networking Fundamentals](Phase-1.md#part-2-networking-fundamentals) | 🔴 | Foundation |
+| **05** | [Cryptography](Phase-1.md#part-3-cryptography) — core concepts + attacks | 🔴 | Foundation |
+| **06** | [Authentication Standards](Phase-1.md#part-3b-authentication-standards-primer) — Sessions, JWT, OAuth, MFA | 🔴 | Foundation |
+| **07** | [Web Technology Fundamentals](Phase-1.md#part-3c-web-technology-fundamentals) — HTTP, Cookies, CORS, REST | 🔴 | Foundation |
+| | **— Foundation Proof Gate —** *(10 PCAPs, admin baselines, 3 scripts, lab report)* | | |
+| **08** | [Footprinting & Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance) | 🔴 | Offense I |
+| **09** | [Scanning](Phase-2.md#part-5-scanning) | 🔴 | Offense I |
+| **10** | [Enumeration](Phase-2.md#part-6-enumeration) | 🔴 | Offense I |
+| **11** | [Database Security](Phase-2.md#part-6b-database-security) | 🟡 | Offense I |
+| **12** | [Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) | 🔴 | Offense I |
+| **13** | [System Hacking & Initial Compromise](Phase-2.md#part-7-system-hacking-initial-compromise) | 🔴 | Offense I |
+| | **— Stage Gate 1 —** *(root a box, dump & crack a hash, escalate privesc)* | | |
+| **14** | [Web Application Hacking](Phase-4.md#part-17-web-application-hacking) — SQLi, XSS, SSRF, IDOR, XXE | 🔴 | Web & App Sec |
+| **15** | [Session Hijacking & Token Attacks](Phase-4.md#part-12-session-hijacking) — Cookies, JWTs, Fixation | 🔴 | Web & App Sec |
+| **16** | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking) — Misconfig, Directory Traversal | 🔴 | Web & App Sec |
+| **17** | [API Security](Phase-4.md#part-19-api-security) — OWASP API Top 10, REST/GraphQL/gRPC | 🔴 | Web & App Sec |
+| **18** | [Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology) — Scope, Recon, Exploit, Report | 🔴 | Web & App Sec |
+| | *(parallel, absorb only — never block)* [Detection Awareness](Phase-3.md#part-13a-detection-engineering-soc-operations), [IDS/Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots), [OSINT](Phase-3.md#part-15-osint-threat-intelligence) | 🟡 | side-track |
+| | **— Stage Gate 2 —** *(3+ HTB/THM writeups, OWASP Top 10 hands-on, Linux+Windows privesc demonstrated cold)* | | |
+| **19** | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id) *(+ deferred Kerberos patch from #03)* | 🔴 | Enterprise |
+| **20** | [Cloud Computing](Phase-6.md#part-24-cloud-computing) *(+ deferred Cloud Assets patch from #04)* | 🔴 | Enterprise |
+| **21** | [Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security) | 🟡 | Enterprise |
+| **22** | [Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming) | 🔴 | Enterprise |
+| **23** | [Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) — ARP, MITM, Bettercap, Responder | 🟡 | Enterprise |
+| **24** | [Social Engineering](Phase-2.md#part-10-social-engineering) — Phishing, Vishing, Physical | 🟡 | Enterprise |
+| **25** | [Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) *(conceptual — full build is #27)* | 🔵 | Enterprise |
+| **26** | [Pentest Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) | 🔴 | Enterprise |
+| | **— Stage Gate 3 —** *(AD domain attacked end-to-end, BloodHound exports in Git, 1 professional report)* | | |
+| **27** | [Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) — C2, Shellcode, AMSI/ETW | 🔴 | Specialized |
+| **28** | [AI & LLM Red Teaming](Phase-9.md#part-38-ai-llm-red-teaming) — Prompt Injection, RAG, Agentic Exploits | 🔴 | Specialized |
+| **29** | [Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) — C2, OPSEC, Campaign | 🔴 | Specialized |
+| **30** | [Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) — Certs, GitHub, Bug Bounties | 🔴 | Specialized |
+| | **— Final Gate —** *(custom C2 in lab, published AI security research, 3+ reports, OSCP)* | | |
 
 ---
 
