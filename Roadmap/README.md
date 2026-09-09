@@ -377,24 +377,6 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 
 > One question answered every morning: **"What is my current Part and what am I proving today?"**
 
-### The 4-Hour Block
-
-```
-Block 1 — 75 min  │ Engineering Foundation
-                   │ Read the protocol/mechanism. Write notes.
-                   │ Understand why it works before touching a tool.
-                   │
-Block 2 — 120 min  │ Lab Execution
-                   │ Terminal open. Wireshark running.
-                   │ Execute commands. Capture output. Break things.
-                   │ Never run a tool you cannot explain.
-                   │
-Block 3 — 45 min   │ Artifact & Proof
-                   │ Save PCAP/log. Write the 1-page lab summary.
-                   │ Git commit with a descriptive message.
-                   │ Check the Move-On Gate in the phase file.
-```
-
 ### Hard Rules
 
 1. **Never start with passive reading.** Peak energy belongs to the terminal, not a PDF.
