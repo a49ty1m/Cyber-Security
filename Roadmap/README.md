@@ -12,11 +12,9 @@
 |:-:|---------|
 | 1 | [Phase Overview](#-phase-overview) |
 | 2 | [Stage Execution Order](#-stage-execution-order) ← **Start here** |
-| 3 | [Phase Details](#-phase-details) |
-| 4 | [Master Part Index](#-master-part-index) |
-| 5 | [Daily Protocol](#-daily-protocol) |
-| 6 | [Lab Setup](#-lab-setup) |
-| 7 | [Completion Tracker](#-completion-tracker) |
+| 3 | [Daily Protocol](#️-daily-protocol) |
+| 4 | [Lab Setup](#️-lab-setup) |
+| 5 | [Completion Tracker](#-completion-tracker) |
 
 ---
 
@@ -148,233 +146,6 @@
 
 ---
 
-## 📂 Phase Details
-
-> **Type Legend:** 🧠 Conceptual &nbsp;|&nbsp; 🔬 Lab / Hands-on &nbsp;|&nbsp; ⚔️ Offensive technique &nbsp;|&nbsp; 🛡️ Defensive / Detection &nbsp;|&nbsp; 📋 Career / Portfolio
-
----
-
-### Phase 1 — Foundation
-**File:** [Phase-1.md](Phase-1.md)
-
-The prerequisite layer for everything. Do not rush this and do not skip it.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 1 | Fundamentals — Hardware, CPU, OS Internals, Memory | 🧠 |
-| 1B | Linux Administration — Users, Permissions, Services, Logs | 🔬 |
-| 1C | Windows Administration — NTFS, Registry, Event Viewer, PowerShell | 🔬 |
-| 2 | Networking — OSI/TCP-IP, Protocols, Routing, Wireshark | 🧠🔬 |
-| 3 | Cryptography — Symmetric/Asymmetric, PKI, TLS, Hashing | 🧠 |
-| 3B | Authentication Standards — Sessions, JWT, OAuth2, OIDC, MFA | 🧠 |
-| 3C | Web Technology — HTTP, Cookies, SOP/CORS, REST APIs | 🧠 |
-
-**Exit Gate:** Foundation Proof Gate — Linux/Windows admin proof, 10 PCAP deliverables, 3 scripting tools, lab report.
-
----
-
-### Phase 2 — Offensive Core
-**File:** [Phase-2.md](Phase-2.md)
-
-The full offensive lifecycle from recon to impact. Split into 2A (fundamentals, do first) and 2B (advanced, do after Phase 6).
-
-#### Phase 2A — Offensive Fundamentals ← Do First
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 4 | Footprinting & Reconnaissance — Passive OSINT → Active Mapping | ⚔️ |
-| 5 | Scanning — Host Discovery → Port Enumeration → Evasion | ⚔️🔬 |
-| 6 | Enumeration — Service Profiling → Attack Surface Mapping | ⚔️🔬 |
-| 6B | Database Security — MySQL, MSSQL, MongoDB, Redis | ⚔️🔬 |
-| 31 | Password Cracking & Hash Analysis — Hashcat, Wordlists, Rules | ⚔️🔬 |
-| 7 | System Hacking — Breach → Privesc → Persistence → Evasion → Exfil | ⚔️🔬 |
-
-#### Phase 2B — Advanced Offensive Operations ← Do After Phase 6
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 9 | Sniffing & Spoofing — ARP, MITM, Bettercap, Responder | ⚔️🔬 |
-| 10 | Social Engineering — Phishing, Vishing, Physical Breach | ⚔️ |
-| 8 | Malware & Weaponization — Taxonomy, msfvenom, Evasion concepts | ⚔️ |
-| 11 | Denial of Service — Conceptual awareness only | 🧠 |
-
----
-
-### Phase 3 — Defense Core *(Parallel Track)*
-**File:** [Phase-3.md](Phase-3.md)
-
-> Phase 3 is **not a sequential blocker**. Absorb these concepts alongside Phase 2/4/6 to become a better attacker.
-
-| Part | Topic | When to Absorb |
-|:----:|-------|:--------------:|
-| 13A | Detection Engineering & SOC Operations | During Phase 2A |
-| 13B | Security Operations Expansion — SOAR, DLP, Vuln Mgmt | During Phase 2B |
-| 14 | IDS, Firewalls & Honeypots | During Phase 2A |
-| 15 | OSINT & Threat Intelligence | During Phase 4 |
-| 16 | Adversary Emulation & Purple Teaming | Phase 6 Capstone |
-
----
-
-### Phase 4 — Web & Application Security
-**File:** [Phase-4.md](Phase-4.md)
-
-Do this **before Phase 2B**. Web is the front door of 90% of external engagements.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 17 | Web Application Hacking — SQLi, XSS, SSRF, IDOR, XXE, CSRF | ⚔️🔬 |
-| 12 | Session Hijacking & Token Attacks — Cookies, JWTs, Fixation | ⚔️🔬 |
-| 18 | Web Server Hacking — Misconfig, Directory Traversal, File Upload | ⚔️🔬 |
-| 19 | API Security — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks | ⚔️🔬 |
-| 20 | Bug Bounty Methodology — Scope, Recon, Exploit, Report | ⚔️🔬 |
-
----
-
-### Phase 5 — Wireless & Mobile *(Post-Hire)*
-**File:** [Phase-5.md](Phase-5.md)
-
-> ⚠️ **Skip pre-employment.** Only pursue if your role specifically requires wireless or mobile testing.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 21 | Wireless Network Security — 802.11, WPA2/3, WPA-Enterprise, Rogue AP | ⚔️🔬 |
-| 22 | Mobile Security — Android/iOS Architecture, Frida, Static/Dynamic Analysis | ⚔️🔬 |
-
----
-
-### Phase 6 — Infrastructure & Identity
-**File:** [Phase-6.md](Phase-6.md)
-
-Where enterprise red teams operate. Active Directory and cloud are mandatory skills.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 23 | Active Directory & Entra ID — Kerberoasting, ADCS (ESC1-13), BloodHound | ⚔️🔬 |
-| 24 | Cloud Computing — AWS/Azure/GCP IAM, CIEM, S3, IMDSv2 | ⚔️🔬 |
-| 25 | Container & Orchestration Security — Docker, Kubernetes, Secrets | ⚔️🔬 |
-| 16 | Adversary Emulation & Purple Teaming — MITRE ATT&CK, APT Simulation | ⚔️🛡️ |
-| 26 | OT/ICS/SCADA *(OPTIONAL)* — Industrial Protocols, PLC, HMI | 🧠🔬 |
-
----
-
-### Phase 7 — Advanced Security
-**File:** [Phase-7.md](Phase-7.md)
-
-> Only **Part 42** is on your pre-employment critical path. Parts 27/28/29 are post-hire specializations.
-
-| Part | Topic | Type | Priority |
-|:----:|-------|:----:|:--------:|
-| 42 | Offensive Development & Tooling — C2, Shellcode, AMSI/ETW Bypass | ⚔️🔬 | ✅ Critical |
-| 27 | Digital Forensics — Evidence, Timeline, Network, Reporting | 🛡️🔬 | 🟡 Post-Hire |
-| 28 | Reverse Engineering & Malware Analysis — Static, Dynamic, Anti-RE | 🔬 | 🟡 Post-Hire |
-| 29 | Modern Exploitation — Memory Safety, Sandbox Escape, Mitigations | ⚔️🔬 | 🟡 Post-Hire |
-| 30 | Hardware Hacking *(OPTIONAL)* — Firmware, JTAG, UART, Side-Channel | ⚔️🔬 | ⚪ Optional |
-| 32 | Physical Penetration Testing *(OPTIONAL)* | ⚔️🔬 | ⚪ Optional |
-| 33 | VoIP/SS7/5G *(OPTIONAL)* | 🧠🔬 | ⚪ Optional |
-| 34 | Blockchain/Web3 *(OPTIONAL)* | ⚔️🔬 | ⚪ Optional |
-
-> ⚠️ **Part 42 must be completed before Part 29.** Part 29 explicitly requires shellcode and assembly skills from Part 42.
-
----
-
-### Phase 8 — GRC & DevSecOps *(Post-Hire)*
-**File:** [Phase-8.md](Phase-8.md)
-
-> ⚠️ **Skip pre-employment.** This is a separate career track — not a Red Team prerequisite.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 35 | Governance, Risk & Compliance — NIST, ISO 27001, PCI-DSS | 🧠 |
-| 36 | Supply Chain Security — SBOM, SLSA, Dependency Confusion | 🧠🔬 |
-| 37 | DevSecOps & Secure SDLC — SAST/DAST/SCA, Pipeline Security | 🧠🔬 |
-| 37B | Secure Code Review Methodology — Semgrep, Taint Analysis | 🔬 |
-| 43 | Security Architecture & Engineering — Zero Trust, Defense-in-Depth | 🧠 |
-
----
-
-### Phase 9 — AI Security
-**File:** [Phase-9.md](Phase-9.md)
-
-> Unlocked after Phase 6 (not after Phase 8). True prerequisites: Web/API + Cloud IAM.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 38 | AI & LLM Red Teaming — Prompt Injection, RAG Poisoning, Jailbreaks, Agentic Exploits | ⚔️🔬 |
-
----
-
-### Phase 10 — Operations & Career
-**File:** [Phase-10.md](Phase-10.md)
-
-> Start Part 39 (Report Writing) in Stage 2, not here. Pull it forward.
-
-| Part | Topic | Type |
-|:----:|-------|:----:|
-| 39 | Pentest Methodologies & Report Writing — PTES, OWASP WSTG, CVSS | 🧠🔬 |
-| 40 | Red Team Operations & Tradecraft — C2, OPSEC, Campaign Planning | ⚔️🔬 |
-| 41 | Proof of Work & Career Portfolio — Certs, GitHub, Bug Bounties | 📋 |
-
----
-
-## 🗂️ Master Part Index
-
-> Parts are numbered non-sequentially by design. Use this table to jump to any Part directly.
-
-| Part | Name | Phase | Status |
-|:----:|------|:-----:|:------:|
-| 1 | [Fundamentals](Phase-1.md#part-1-fundamentals) | 1 | |
-| 1B | [Linux Administration](Phase-1.md#part-1b-linux-administration) | 1 | |
-| 1C | [Windows Administration](Phase-1.md#part-1c-windows-administration) | 1 | |
-| 2 | [Networking](Phase-1.md#part-2-networking-fundamentals) | 1 | |
-| 3 | [Cryptography](Phase-1.md#part-3-cryptography) | 1 | |
-| 3B | [Authentication Standards Primer](Phase-1.md#part-3b-authentication-standards-primer) | 1 | |
-| 3C | [Web Technology Fundamentals](Phase-1.md#part-3c-web-technology-fundamentals) | 1 | |
-| 4 | [Footprinting & Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance) | 2 | |
-| 5 | [Scanning](Phase-2.md#part-5-scanning) | 2 | |
-| 6 | [Enumeration](Phase-2.md#part-6-enumeration) | 2 | |
-| 6B | [Database Security](Phase-2.md#part-6b-database-security) | 2 | |
-| 7 | [System Hacking & Initial Compromise](Phase-2.md#part-7-system-hacking-initial-compromise) | 2 | |
-| 8 | [Malware & Weaponization](Phase-2.md#part-8-malware-weaponization) | 2 | |
-| 9 | [Sniffing & Spoofing](Phase-2.md#part-9-sniffing-spoofing) | 2 | |
-| 10 | [Social Engineering](Phase-2.md#part-10-social-engineering) | 2 | |
-| 11 | [Denial of Service](Phase-2.md#part-11-denial-of-service) | 2 | |
-| 12 | [Session Hijacking & Token Attacks](Phase-4.md#part-12-session-hijacking) | 4 | |
-| 13A | [Detection Engineering & SOC Operations](Phase-3.md#part-13a-detection-engineering-soc-operations) | 3 | |
-| 13B | [Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion) | 3 | |
-| 14 | [IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots) | 3 | |
-| 15 | [OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence) | 3 | |
-| 16 | [Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming) | 6 | Capstone |
-| 17 | [Web Application Hacking](Phase-4.md#part-17-web-application-hacking) | 4 | |
-| 18 | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking) | 4 | |
-| 19 | [API Security](Phase-4.md#part-19-api-security) | 4 | |
-| 20 | [Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology) | 4 | |
-| 21 | [Wireless Network Security](Phase-5.md#part-21-wireless-network-security) | 5 | ⚠️ Post-Hire |
-| 22 | [Mobile Security](Phase-5.md#part-22-mobile-security) | 5 | ⚠️ Post-Hire |
-| 23 | [Active Directory & Entra ID](Phase-6.md#part-23-active-directory-entra-id) | 6 | |
-| 24 | [Cloud Computing Security](Phase-6.md#part-24-cloud-computing) | 6 | |
-| 25 | [Container & Orchestration Security](Phase-6.md#part-25-container-orchestration-security) | 6 | |
-| 26 | [OT/ICS/SCADA Security](Phase-6.md#part-26-oticsscada-security) | 6 | ⚪ Optional |
-| 27 | [Digital Forensics](Phase-7.md#part-27-digital-forensics) | 7 | ⚠️ Post-Hire |
-| 28 | [Reverse Engineering & Malware Analysis](Phase-7.md#part-28-reverse-engineering-malware-analysis) | 7 | ⚠️ Post-Hire |
-| 29 | [Modern Exploitation](Phase-7.md#part-29-modern-exploitation) | 7 | ⚠️ Requires Part 42 first |
-| 30 | [Hardware Hacking](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization) | 7 | ⚪ Optional |
-| 31 | [Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) | 2 | Before Part 7 |
-| 32 | [Physical Penetration Testing](Phase-7.md#part-32-physical-penetration-testing-optional-specialization) | 7 | ⚪ Optional |
-| 33 | [VoIP/SS7/5G](Phase-7.md#part-33-voip-telecommunications-security-optional-specialization) | 7 | ⚪ Optional |
-| 34 | [Blockchain/Web3](Phase-7.md#part-34-blockchain-web3-security-optional-specialization) | 7 | ⚪ Optional |
-| 35 | [Governance, Risk & Compliance](Phase-8.md#part-35-governance-risk-compliance-grc) | 8 | ⚠️ Post-Hire |
-| 36 | [Supply Chain Security](Phase-8.md#part-36-supply-chain-security) | 8 | ⚠️ Post-Hire |
-| 37 | [DevSecOps & Secure SDLC](Phase-8.md#part-37-devsecops-secure-sdlc) | 8 | ⚠️ Post-Hire |
-| 37B | [Secure Code Review Methodology](Phase-8.md#part-37b-secure-code-review-methodology) | 8 | ⚠️ Post-Hire |
-| 38 | [AI & LLM Red Teaming](Phase-9.md#part-38-ai-llm-red-teaming) | 9 | |
-| 39 | [Pentest Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) | 10 | Pull into Stage 2 |
-| 40 | [Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) | 10 | Before Part 39 |
-| 41 | [Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) | 10 | |
-| 42 | [Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) | 7 | Before Part 29 |
-| 43 | [Security Architecture & Engineering](Phase-8.md#part-43-security-architecture-engineering) | 8 | ⚠️ Post-Hire |
-
----
-
 ## ⏱️ Daily Protocol
 
 > One question answered every morning: **"What is my current Part and what am I proving today?"**
@@ -397,7 +168,6 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 3. **No writeup = learning didn't happen.** Every lab session gets a committed markdown file.
 4. **Respect the Move-On Gates.** Do not proceed to the next stage until you can demonstrate the skill without notes.
 5. **Git commit after every session.** If you haven't committed in 2 weeks, you're drifting.
-
 
 ### Programming Track *(Weekends Only)*
 
@@ -468,6 +238,11 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 - [ ] [Part 19: API Security](Phase-4.md#part-19-api-security)
 - [ ] [Part 20: Bug Bounty Methodology](Phase-4.md#part-20-bug-bounty-methodology)
 
+> **Phase 3 — Defensive Awareness** *(absorb in parallel — do NOT block on it)*
+> - [Part 13A: Detection Engineering](Phase-3.md#part-13a-detection-engineering-soc-operations) during Phase 2A
+> - [Part 14: IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots) during Phase 2A
+> - [Part 15: OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence) during Phase 4
+
 *Stage 1 Exit Gate: 3+ HTB/THM writeups, OWASP Top 10 hands-on, Linux & Windows privesc demonstrated*
 
 ---
@@ -491,6 +266,10 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 **Report Writing (pulled forward)**
 
 - [ ] [Part 39: Pentest Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing)
+
+> **Phase 3 — Defensive Awareness** *(absorb in parallel)*
+> - [Part 13B: Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion) during Phase 2B
+> - [Part 16: Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming) — Phase 6 capstone
 
 *Stage 2 Exit Gate: AD domain attacked end-to-end, BloodHound exports in Git, 1 professional pentest report*
 
@@ -516,13 +295,6 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 ---
 
 ### 🟡 Post-Hire — Return After Employment
-
-**Phase 3 — Defense Core** *(absorb opportunistically during Stages 1–2)*
-
-- [ ] [Part 13A: Detection Engineering & SOC Operations](Phase-3.md#part-13a-detection-engineering-soc-operations)
-- [ ] [Part 13B: Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion)
-- [ ] [Part 14: IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots)
-- [ ] [Part 15: OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence)
 
 **Phase 5 — Wireless & Mobile**
 
