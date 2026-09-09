@@ -8,32 +8,10 @@
 
 | # | Section |
 |:-:|---------|
-| 1 | [Phase Overview](#-phase-overview) |
-| 2 | [Execution Order](#-execution-order--renumbered) ← **Start here** |
-| 3 | [Shelf — Off Sequence Pre-Employment](#-shelf--not-numbered-not-touched-pre-employment) |
-| 4 | [Daily Protocol](#️-daily-protocol) |
-| 5 | [Lab Setup](#️-lab-setup) |
-
----
-
-## 📊 Phase Overview
-
-| Phase | File | Focus | Time (FT) | Track |
-|:-----:|------|-------|:---------:|:-----:|
-| 1 | [Phase-1.md](Phase-1.md) | Foundation — OS, Linux/Windows, Networking, Crypto, Web | 4–6 mo | ✅ Critical |
-| 2 | [Phase-2.md](Phase-2.md) | Offensive Core — Recon, Scanning, Enumeration, Hacking | 4–5 mo | ✅ Critical |
-| 3 | [Phase-3.md](Phase-3.md) | Defense Core — SIEM, Detection, MITRE ATT&CK | Parallel | ✅ Parallel |
-| 4 | [Phase-4.md](Phase-4.md) | Web & App Security — OWASP, API, Bug Bounty | 3–4 mo | ✅ Critical |
-| 5 | [Phase-5.md](Phase-5.md) | Wireless & Mobile — WiFi, BLE, Android/iOS | 3–5 mo | 🟡 Post-Hire |
-| 6 | [Phase-6.md](Phase-6.md) | Infrastructure — Active Directory, Cloud, Kubernetes | 5–7 mo | ✅ Critical |
-| 7 | [Phase-7.md](Phase-7.md) | Advanced Security — Offensive Dev, DFIR, Exploit Dev | 2–3 mo* | ✅ Critical* |
-| 8 | [Phase-8.md](Phase-8.md) | GRC & DevSecOps — Frameworks, Supply Chain, Architecture | 4–6 mo | 🟡 Post-Hire |
-| 9 | [Phase-9.md](Phase-9.md) | AI Security — LLM Red Teaming, Prompt Injection, RAG | 3–5 mo | ✅ Critical |
-| 10 | [Phase-10.md](Phase-10.md) | Operations & Career — Red Team Ops, Portfolio, Reports | 2–3 mo | ✅ Critical |
-
-> \* Phase 7: Only **Part 42 (Offensive Development)** is on the critical path. Parts 27/28/29 are post-hire.
-
-> **Critical Path Total:** ~23–33 months full-time to junior/mid penetration tester level.
+| 1 | [Execution Order](#-execution-order--renumbered) ← **Start here** |
+| 2 | [Shelf — Off Sequence Pre-Employment](#-shelf--not-numbered-not-touched-pre-employment) |
+| 3 | [Daily Protocol](#️-daily-protocol) |
+| 4 | [Lab Setup](#️-lab-setup) |
 
 ---
 
