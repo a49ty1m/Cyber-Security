@@ -90,29 +90,29 @@
 
 - [Lab Baseline Setup](#lab-baseline-setup)
 - [Module 01: Fundamentals](#module-01-fundamentals)
-  - [Stage 1: Hardware, CPU & Pre-Boot Environment](#stage-1-hardware-cpu-pre-boot-environment)
-  - [Stage 2: Operating System Internals](#stage-2-operating-system-internals)
-  - [Stage 3: Memory Management](#stage-3-memory-management)
-  - [Stage 4: Data Representation & Logic](#stage-4-data-representation-logic)
-  - [Stage 5: Wireless & Physical Connections](#stage-5-wireless-physical-connections)
-  - [Stage 6: Mobile Platform Awareness](#stage-6-mobile-platform-awareness)
-  - [Stage 7A: Programming & Scripting Fundamentals (Python, Bash, PowerShell, JS)](#stage-7a-programming-scripting-fundamentals)
-  - [Stage 7B: C & C++ (Stage 5 — deferred)](#stage-7b-c-cpp-programming)
+  - [Topic 1: Hardware, CPU & Pre-Boot Environment](#stage-1-hardware-cpu-pre-boot-environment)
+  - [Topic 2: Operating System Internals](#stage-2-operating-system-internals)
+  - [Topic 3: Memory Management](#stage-3-memory-management)
+  - [Topic 4: Data Representation & Logic](#stage-4-data-representation-logic)
+  - [Topic 5: Wireless & Physical Connections](#stage-5-wireless-physical-connections)
+  - [Topic 6: Mobile Platform Awareness](#stage-6-mobile-platform-awareness)
+  - [Topic 7A: Programming & Scripting Fundamentals (Python, Bash, PowerShell, JS)](#stage-7a-programming-scripting-fundamentals)
+  - [Topic 7B: C & C++ (Stage 5 — deferred)](#stage-7b-c-cpp-programming)
 - [Module 02: Linux Administration](#module-02-linux-administration)
-  - [Stage 1: User & Access Management (Linux)](#stage-1-user-access-management-linux)
-  - [Stage 2: Service & Process Management (Linux)](#stage-2-service-process-management-linux)
-  - [Stage 3: Networking (Linux)](#stage-3-networking-linux)
-  - [Stage 4: Log Analysis & Monitoring (Linux)](#stage-4-log-analysis-monitoring-linux)
-  - [Stage 5: Storage & Filesystem (Linux)](#stage-5-storage-filesystem-linux)
-  - [Stage 6: Security Hardening (Linux)](#stage-6-security-hardening-linux)
+  - [Topic 1: User & Access Management (Linux)](#stage-1-user-access-management-linux)
+  - [Topic 2: Service & Process Management (Linux)](#stage-2-service-process-management-linux)
+  - [Topic 3: Networking (Linux)](#stage-3-networking-linux)
+  - [Topic 4: Log Analysis & Monitoring (Linux)](#stage-4-log-analysis-monitoring-linux)
+  - [Topic 5: Storage & Filesystem (Linux)](#stage-5-storage-filesystem-linux)
+  - [Topic 6: Security Hardening (Linux)](#stage-6-security-hardening-linux)
   - [Lab Progression (Linux)](#lab-progression-linux)
 - [Module 03: Windows Administration](#module-03-windows-administration)
-  - [Stage 1: User & Access Management (Windows)](#stage-1-user-access-management-windows)
-  - [Stage 2: System Management (Windows)](#stage-2-system-management-windows)
-  - [Stage 3: Event Viewer & Auditing (Windows)](#stage-3-event-viewer-auditing-windows)
-  - [Stage 4: PowerShell Administration (Windows)](#stage-4-powershell-administration-windows)
-  - [Stage 5: Active Directory Concepts (Prerequisite for Module 19)](#stage-5-active-directory-concepts-prerequisite-for-part-23)
-  - [Stage 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19)](#stage-6-windows-identity-kerberos-foundations)
+  - [Topic 1: User & Access Management (Windows)](#stage-1-user-access-management-windows)
+  - [Topic 2: System Management (Windows)](#stage-2-system-management-windows)
+  - [Topic 3: Event Viewer & Auditing (Windows)](#stage-3-event-viewer-auditing-windows)
+  - [Topic 4: PowerShell Administration (Windows)](#stage-4-powershell-administration-windows)
+  - [Topic 5: Active Directory Concepts (Prerequisite for Module 19)](#stage-5-active-directory-concepts-prerequisite-for-part-23)
+  - [Topic 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19)](#stage-6-windows-identity-kerberos-foundations)
   - [Lab Progression (Windows)](#lab-progression-windows)
   - [macOS Security Awareness (Supplemental)](#macos-security-awareness-supplemental)
 - [Module 04: Networking Fundamentals](#module-04-networking-fundamentals)
@@ -125,26 +125,26 @@
   - [Automation & Programmability](#automation-programmability)
   - [PCAP Analysis — Systematic Methodology](#part-2-stage-pcap-analysis)
 - [Module 05: Cryptography](#module-05-cryptography)
-  - [Stage 1: Core Concepts & Algorithms](#stage-1-core-concepts-algorithms)
-  - [Stage 2: Secure Communication (Data in Transit)](#stage-2-secure-communication-data-in-transit)
-  - [Stage 3: Identity & Trust (PKI)](#stage-3-identity-trust-pki)
-  - [Stage 4: Data at Rest & Password Security](#stage-4-data-at-rest-password-security)
-  - [Stage 5: Cryptographic Attacks & Weaknesses](#stage-5-cryptographic-attacks-weaknesses)
+  - [Topic 1: Core Concepts & Algorithms](#stage-1-core-concepts-algorithms)
+  - [Topic 2: Secure Communication (Data in Transit)](#stage-2-secure-communication-data-in-transit)
+  - [Topic 3: Identity & Trust (PKI)](#stage-3-identity-trust-pki)
+  - [Topic 4: Data at Rest & Password Security](#stage-4-data-at-rest-password-security)
+  - [Topic 5: Cryptographic Attacks & Weaknesses](#stage-5-cryptographic-attacks-weaknesses)
   - [Lab Progression (Cryptography)](#lab-progression-cryptography)
 - [Module 06: Authentication Standards](#module-06-authentication-standards)
-  - [Stage 1: Session-Based Authentication](#auth-primer-stage-1-session-based-auth)
-  - [Stage 2: Token-Based Authentication & JWT](#auth-primer-stage-2-token-based-auth)
-  - [Stage 3: OAuth 2.0 — Delegated Authorization](#auth-primer-stage-3-oauth2)
-  - [Stage 4: OpenID Connect (OIDC)](#auth-primer-stage-4-oidc)
-  - [Stage 5: API Authentication Patterns](#auth-primer-stage-5-api-auth-patterns)
-  - [Stage 6: MFA Types & Weaknesses](#auth-primer-stage-6-mfa-types)
+  - [Topic 1: Session-Based Authentication](#auth-primer-stage-1-session-based-auth)
+  - [Topic 2: Token-Based Authentication & JWT](#auth-primer-stage-2-token-based-auth)
+  - [Topic 3: OAuth 2.0 — Delegated Authorization](#auth-primer-stage-3-oauth2)
+  - [Topic 4: OpenID Connect (OIDC)](#auth-primer-stage-4-oidc)
+  - [Topic 5: API Authentication Patterns](#auth-primer-stage-5-api-auth-patterns)
+  - [Topic 6: MFA Types & Weaknesses](#auth-primer-stage-6-mfa-types)
   - [Lab Progression (Authentication Standards)](#auth-primer-lab-progression)
 - [Module 07: Web Technology Fundamentals](#module-07-web-technology-fundamentals)
-  - [Stage 1: HTTP — The Protocol of the Web](#stage-1-http-the-protocol-of-the-web)
-  - [Stage 2: Cookies, Sessions & Tokens](#stage-2-cookies-sessions-tokens)
-  - [Stage 3: Same-Origin Policy, CORS & Web Security Headers](#stage-3-same-origin-policy-cors-web-security-headers)
-  - [Stage 4: Web Authentication Patterns](#stage-4-web-authentication-patterns)
-  - [Stage 5: REST APIs, JSON & Modern Web Architecture](#stage-5-rest-apis-json-modern-web-architecture)
+  - [Topic 1: HTTP — The Protocol of the Web](#stage-1-http-the-protocol-of-the-web)
+  - [Topic 2: Cookies, Sessions & Tokens](#stage-2-cookies-sessions-tokens)
+  - [Topic 3: Same-Origin Policy, CORS & Web Security Headers](#stage-3-same-origin-policy-cors-web-security-headers)
+  - [Topic 4: Web Authentication Patterns](#stage-4-web-authentication-patterns)
+  - [Topic 5: REST APIs, JSON & Modern Web Architecture](#stage-5-rest-apis-json-modern-web-architecture)
   - [Lab Progression (Web Technology Fundamentals)](#lab-progression-web-technology-fundamentals)
 - [Foundation Proof Gate](#foundation-proof-gate)
 
@@ -181,7 +181,7 @@
 
 <a id="stage-1-hardware-cpu-pre-boot-environment"></a>
 
-### **Stage 1: Hardware, CPU & Pre-Boot Environment** — `🧠 Conceptual`
+### **Topic 1: Hardware, CPU & Pre-Boot Environment** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Master the machine before the Operating System initializes.
@@ -204,7 +204,7 @@
 
 <a id="stage-2-operating-system-internals"></a>
 
-### **Stage 2: Operating System Internals** — `🧠 Conceptual`
+### **Topic 2: Operating System Internals** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the resource manager and its internal logic.
@@ -227,7 +227,7 @@
 
 <a id="stage-3-memory-management"></a>
 
-### **Stage 3: Memory Management** — `🧠 Conceptual`
+### **Topic 3: Memory Management** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how memory is organized and managed.
@@ -246,7 +246,7 @@
 
 <a id="stage-4-data-representation-logic"></a>
 
-### **Stage 4: Data Representation & Logic** — `🧠 Conceptual`
+### **Topic 4: Data Representation & Logic** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Master binary representation and Boolean logic fundamentals.
@@ -261,7 +261,7 @@
 
 <a id="stage-5-wireless-physical-connections"></a>
 
-### **Stage 5: Wireless & Physical Connections** — `🧠 Conceptual`
+### **Topic 5: Wireless & Physical Connections** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Part 21 (Wireless Pentesting, Phase 5).
@@ -302,7 +302,7 @@
 
 <a id="stage-6-mobile-platform-awareness"></a>
 
-### **Stage 6: Mobile Platform Awareness** — `🧠 Conceptual`
+### **Topic 6: Mobile Platform Awareness** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Part 22 (Phase 5).
@@ -318,7 +318,7 @@
 
 <a id="stage-7a-programming-scripting-fundamentals"></a>
 
-### **Stage 7A: Programming & Scripting Fundamentals** — `🔬 Practical`
+### **Topic 7A: Programming & Scripting Fundamentals** — `🔬 Practical`
 
 > [!TIP]
 > **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Phase 1. **C and C++ are deferred to Stage 7B in Phase 7**, where binary analysis context makes them immediately applicable.
@@ -747,7 +747,7 @@ Before moving to the next stage, you should be able to:
 
 <a id="stage-7b-c-cpp-programming"></a>
 
-### **Stage 7B: C & C++ Programming** ← *Deferred to Phase 7* — `🔬 Practical`
+### **Topic 7B: C & C++ Programming** ← *Deferred to Phase 7* — `🔬 Practical`
 
 > [!IMPORTANT]
 > **Do not start Stage 7B now.** This stage is placed here as a structural marker only. C and C++ are the languages of OS internals, exploit primitives, shellcode, and reverse engineering targets — but they require meaningful context to learn effectively:
@@ -975,7 +975,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-1-user-access-management-linux"></a>
 
-### **Stage 1: User & Access Management (Linux)** — `🔬 Practical`
+### **Topic 1: User & Access Management (Linux)** — `🔬 Practical`
 
 - [ ] **User Accounts:** Create, modify, and delete users with **useradd/usermod/userdel**. Understand **/etc/passwd**, **/etc/shadow**, and **/etc/group** file structures.
 
@@ -991,7 +991,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-2-service-process-management-linux"></a>
 
-### **Stage 2: Service & Process Management (Linux)** — `🔬 Practical`
+### **Topic 2: Service & Process Management (Linux)** — `🔬 Practical`
 
 - [ ] **systemd:** Manage services with **systemctl** (start, stop, enable, disable, status, mask). Understand **unit files**, **targets**, and **dependencies**.
 
@@ -1005,7 +1005,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-3-networking-linux"></a>
 
-### **Stage 3: Networking (Linux)** — `🔬 Practical`
+### **Topic 3: Networking (Linux)** — `🔬 Practical`
 
 - [ ] **Network Configuration:** Configure interfaces with **ip addr, ip link, ip route**. Understand **DHCP vs. static**, **/etc/netplan/**, **/etc/network/interfaces**, and **NetworkManager (nmcli)**.
 
@@ -1019,7 +1019,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-4-log-analysis-monitoring-linux"></a>
 
-### **Stage 4: Log Analysis & Monitoring (Linux)** — `🔬 Practical`
+### **Topic 4: Log Analysis & Monitoring (Linux)** — `🔬 Practical`
 
 - [ ] **journalctl:** Query systemd journal logs — filter by **unit, priority, time range, boot**. Understand **persistent vs. volatile** journaling.
 
@@ -1033,7 +1033,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-5-storage-filesystem-linux"></a>
 
-### **Stage 5: Storage & Filesystem (Linux)** — `🔬 Practical`
+### **Topic 5: Storage & Filesystem (Linux)** — `🔬 Practical`
 
 - [ ] **Disk Management:** Use **fdisk, parted, lsblk, blkid** to manage partitions. Understand **MBR vs. GPT**.
 
@@ -1045,7 +1045,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-6-security-hardening-linux"></a>
 
-### **Stage 6: Security Hardening (Linux)** — `🔬 Practical`
+### **Topic 6: Security Hardening (Linux)** — `🔬 Practical`
 
 - [ ] **SELinux:** Understand **enforcing, permissive, disabled** modes. Use **getenforce, setenforce, sestatus**. Read **audit.log** denials and create custom policies with **audit2allow**.
 
@@ -1096,7 +1096,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-1-user-access-management-windows"></a>
 
-### **Stage 1: User & Access Management (Windows)** — `🔬 Practical`
+### **Topic 1: User & Access Management (Windows)** — `🔬 Practical`
 
 - [ ] **Local Users & Groups:** Create and manage local accounts with **lusrmgr.msc** and **net user/net localgroup** commands. Understand **built-in accounts (Administrator, Guest, SYSTEM)**.
 
@@ -1110,7 +1110,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-2-system-management-windows"></a>
 
-### **Stage 2: System Management (Windows)** — `🔬 Practical`
+### **Topic 2: System Management (Windows)** — `🔬 Practical`
 
 - [ ] **Windows Services:** Manage services with **services.msc** and **sc.exe/Get-Service**. Understand **service accounts (LocalSystem, LocalService, NetworkService)**, startup types, and recovery options.
 
@@ -1124,7 +1124,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-3-event-viewer-auditing-windows"></a>
 
-### **Stage 3: Event Viewer & Auditing (Windows)** — `🔬 Practical`
+### **Topic 3: Event Viewer & Auditing (Windows)** — `🔬 Practical`
 
 - [ ] **Event Log Structure:** Navigate **Application, System, Security, Setup** logs in **Event Viewer (eventvwr.msc)**. Understand **Event IDs, sources, levels (Information, Warning, Error, Critical)**.
 
@@ -1147,7 +1147,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-4-powershell-administration-windows"></a>
 
-### **Stage 4: PowerShell Administration (Windows)** — `🔬 Practical`
+### **Topic 4: PowerShell Administration (Windows)** — `🔬 Practical`
 
 - [ ] **Core Cmdlets:** Master **Get-Process, Get-Service, Get-EventLog, Get-WinEvent, Get-ChildItem, Get-Content, Set-Item, New-Item, Remove-Item, Test-NetConnection**.
 
@@ -1161,7 +1161,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-5-active-directory-concepts-prerequisite-for-part-23"></a>
 
-### **Stage 5: Active Directory Concepts** _(Prerequisite for Part 23)_ — `🧠 Conceptual`
+### **Topic 5: Active Directory Concepts** _(Prerequisite for Part 23)_ — `🧠 Conceptual`
 
 - [ ] **AD Architecture:** Understand **domains, forests, trusts, OUs, sites**, and **replication**. Know the difference between a **domain controller** and a **member server**.
 
@@ -1176,7 +1176,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-6-windows-identity-kerberos-foundations"></a>
 
-### **Stage 6: Windows Identity & Kerberos Protocol Foundations** _(Critical Prerequisite for Part 23)_ — `🧠 Conceptual`
+### **Topic 6: Windows Identity & Kerberos Protocol Foundations** _(Critical Prerequisite for Part 23)_ — `🧠 Conceptual`
 
 > [!NOTE]
 > **Prerequisite: Stage 5 Required.** This stage explains the authentication protocols and cryptographic mechanisms behind the Active Directory concepts introduced in Stage 5. Where Stage 5 told you that SPNs, service accounts, and delegation exist — Stage 6 explains _how they work at the protocol level_ and _why that makes them exploitable_. Read Stage 5 first, then return here.
@@ -2240,7 +2240,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 <a id="stage-1-core-concepts-algorithms"></a>
 
-### **Stage 1: Core Concepts & Algorithms** — `🧠 Conceptual`
+### **Topic 1: Core Concepts & Algorithms** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Build a working mental model of every cryptographic primitive used in security — symmetric ciphers, asymmetric key operations, hash functions, MACs, and key derivation. Stage 5 teaches how these break. You need this stage first or Stage 5 will be memorisation without understanding.
@@ -2289,7 +2289,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
   - A regular PRNG (e.g., `rand()`, `Math.random()`) is deterministic and seeded — an attacker who knows the seed can predict all outputs. **Never use for cryptographic material.**
   - A CSPRNG (Cryptographically Secure PRNG) is seeded from hardware entropy (CPU timing jitter, device interrupts, `/dev/urandom`, `getrandom()` syscall). Outputs are computationally indistinguishable from random.
   - **In practice:** Use `os.urandom()` in Python, `crypto.getRandomValues()` in JS, `SecureRandom` in Java. Avoid seeding with timestamps, process IDs, or predictable values.
-  - **IV/nonce generation:** Always generated with a CSPRNG. A predictable IV in CBC or a repeated nonce in GCM/CTR is a critical vulnerability (see Stage 5).
+  - **IV/nonce generation:** Always generated with a CSPRNG. A predictable IV in CBC or a repeated nonce in GCM/CTR is a critical vulnerability (see Topic 5).
 
 - [ ] **Encoding vs Encryption vs Hashing — The Foundational Confusion:**
   - **Encoding** (Base64, URL encoding, hex): Transforms data format for transmission/storage. **Reversible with no key.** Provides zero security. Seeing Base64 in a field does not mean it is encrypted.
@@ -2301,7 +2301,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 <a id="stage-2-secure-communication-data-in-transit"></a>
 
-### **Stage 2: Secure Communication (Data in Transit)** — `🧠 Conceptual`
+### **Topic 2: Secure Communication (Data in Transit)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand exactly how TLS secures a connection — every step of the handshake, every field in the cipher suite string, and why forward secrecy matters. This stage directly underpins your ability to analyse TLS captures (Part 2 PCAP lab), exploit TLS misconfigurations (Part 18), and understand downgrade attacks (Stage 5).
@@ -2364,7 +2364,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 <a id="stage-3-identity-trust-pki"></a>
 
-### **Stage 3: Identity & Trust (PKI)** — `🧠 Conceptual`
+### **Topic 3: Identity & Trust (PKI)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how the internet decides to trust a server's public key — and how that trust infrastructure is attacked. PKI underpins HTTPS, code signing, email encryption, VPN authentication, and Active Directory. Certificate-related misconfigurations appear in nearly every enterprise pentest (Part 23 ADCS attacks, Part 24 cloud IAM, Part 18 web server hacking).
@@ -2426,7 +2426,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 <a id="stage-4-data-at-rest-password-security"></a>
 
-### **Stage 4: Data at Rest & Password Security** — `🧠 Conceptual`
+### **Topic 4: Data at Rest & Password Security** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure stored data.
@@ -2449,7 +2449,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 <a id="stage-5-cryptographic-attacks-weaknesses"></a>
 
-### **Stage 5: Cryptographic Attacks & Weaknesses** — `🧠 Conceptual`
+### **Topic 5: Cryptographic Attacks & Weaknesses** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how crypto fails at the mechanism level — not just which algorithms are "weak", but WHY they break and what an attacker can do with the break. These attack classes appear repeatedly across Phases 4–7.
@@ -2491,7 +2491,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 <a id="stage-6-post-quantum-cryptography"></a>
 
-### **Stage 6: Post-Quantum Cryptography (PQC)** — `🧠 Conceptual`
+### **Topic 6: Post-Quantum Cryptography (PQC)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the quantum threat to current public-key cryptography and the NIST-standardised replacements being deployed in production now.
@@ -2556,7 +2556,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 <a id="auth-primer-stage-1-session-based-auth"></a>
 
-### **Stage 1: Session-Based Authentication** — `🧠 Conceptual`
+### **Topic 1: Session-Based Authentication** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the original web identity model — the one most legacy applications still use.
@@ -2577,7 +2577,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 <a id="auth-primer-stage-2-token-based-auth"></a>
 
-### **Stage 2: Token-Based Authentication & JWT** — `🧠 Conceptual`
+### **Topic 2: Token-Based Authentication & JWT** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand stateless authentication tokens — how they are structured, signed, validated, and abused.
@@ -2614,7 +2614,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 <a id="auth-primer-stage-3-oauth2"></a>
 
-### **Stage 3: OAuth 2.0 — Delegated Authorization** — `🧠 Conceptual`
+### **Topic 3: OAuth 2.0 — Delegated Authorization** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand what OAuth is, what problem it solves, and how the authorization code flow works — before you attack it in Phase 4.
@@ -2650,7 +2650,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 <a id="auth-primer-stage-4-oidc"></a>
 
-### **Stage 4: OpenID Connect (OIDC) — Federated Identity** — `🧠 Conceptual`
+### **Topic 4: OpenID Connect (OIDC) — Federated Identity** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how OIDC extends OAuth 2.0 to provide authentication (identity), not just authorization.
@@ -2678,7 +2678,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 <a id="auth-primer-stage-5-api-auth-patterns"></a>
 
-### **Stage 5: API Authentication Patterns** — `🧠 Conceptual`
+### **Topic 5: API Authentication Patterns** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Identify how different API authentication mechanisms work and where each fails.
@@ -2697,7 +2697,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 <a id="auth-primer-stage-6-mfa-types"></a>
 
-### **Stage 6: Multi-Factor Authentication (MFA) Types & Weaknesses** — `🧠 Conceptual`
+### **Topic 6: Multi-Factor Authentication (MFA) Types & Weaknesses** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand MFA mechanisms and their security properties before encountering MFA bypass attacks.
@@ -2816,7 +2816,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 <a id="stage-1-http-the-protocol-of-the-web"></a>
 
-### **Stage 1: HTTP — The Protocol of the Web** — `🧠 Conceptual`
+### **Topic 1: HTTP — The Protocol of the Web** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand every component of an HTTP request and response before you attempt to intercept or manipulate one.
@@ -2850,7 +2850,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 <a id="stage-2-cookies-sessions-tokens"></a>
 
-### **Stage 2: Cookies, Sessions & Tokens** — `🧠 Conceptual`
+### **Topic 2: Cookies, Sessions & Tokens** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how web applications maintain state — because this is exactly what session hijacking attacks target.
@@ -2894,7 +2894,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 <a id="stage-3-same-origin-policy-cors-web-security-headers"></a>
 
-### **Stage 3: Same-Origin Policy, CORS & Web Security Headers** — `🧠 Conceptual`
+### **Topic 3: Same-Origin Policy, CORS & Web Security Headers** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the browser's core security boundary — and why attackers work so hard to bypass it.
@@ -2932,7 +2932,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 <a id="stage-4-web-authentication-patterns"></a>
 
-### **Stage 4: Web Authentication Patterns** — `🧠 Conceptual`
+### **Topic 4: Web Authentication Patterns** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Know how web applications prove identity — attackers break authentication by understanding exactly how these mechanisms work.
@@ -2958,7 +2958,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 <a id="stage-5-rest-apis-json-modern-web-architecture"></a>
 
-### **Stage 5: REST APIs, JSON & Modern Web Architecture** — `🧠 Conceptual`
+### **Topic 5: REST APIs, JSON & Modern Web Architecture** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the modern web architecture that most applications are built on — critical for Phase 2 enumeration and Phase 4 API security.

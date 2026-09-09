@@ -52,7 +52,7 @@
 > **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use your own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
 <a id="stage-1-rf-reconnaissance-setup"></a>
-### **Stage 1: RF Reconnaissance & Setup** — `🔬 Practical`
+### **Topic 1: RF Reconnaissance & Setup** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Map the airspace and identify targets.
@@ -66,7 +66,7 @@
 ---
 
 <a id="stage-2-access-point-assault-the-breaching-of-keys"></a>
-### **Stage 2: Access Point Assault (The Breaching of Keys)** — `🔬 Practical`
+### **Topic 2: Access Point Assault (The Breaching of Keys)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Obtain the credentials to join the network.
@@ -80,7 +80,7 @@
 ---
 
 <a id="stage-3-enterprise-client-attacks-the-man-in-the-middle"></a>
-### **Stage 3: Enterprise & Client Attacks (The Man-in-the-Middle)** — `🔬 Practical`
+### **Topic 3: Enterprise & Client Attacks (The Man-in-the-Middle)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Steal individual user identities or hijack connections.
@@ -98,7 +98,7 @@
 ---
 
 <a id="stage-4-bluetooth-ble-attacks"></a>
-### **Stage 4: Bluetooth & BLE Attacks** — `🔬 Practical`
+### **Topic 4: Bluetooth & BLE Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise Bluetooth connections and devices.
@@ -118,7 +118,7 @@
 ---
 
 <a id="stage-5-zigbee-z-wave-iot-attacks"></a>
-### **Stage 5: Zigbee, Z-Wave & IoT Attacks** — `🔬 Practical`
+### **Topic 5: Zigbee, Z-Wave & IoT Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise smart home and industrial IoT networks.
@@ -138,7 +138,7 @@
 ---
 
 <a id="stage-6-nfc-rfid-attacks"></a>
-### **Stage 6: NFC & RFID Attacks** — `🔬 Practical`
+### **Topic 6: NFC & RFID Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise Near-Field Communication and passive identification systems.
@@ -159,7 +159,7 @@
 
 <a id="stage-7-gps-satellite-spoofing"></a>
 
-### **Stage 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
+### **Topic 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
 > **Optional Specialization:** GPS spoofing and satellite security require expensive specialized hardware (USRP B200/B210 starts at $800+), operate in legally restricted frequency bands (GPS jamming is a federal felony in the US), and serve a very narrow career path (drone security research, maritime/aviation security testing, critical infrastructure GPS dependency analysis). If this aligns with your career goal, complete this stage fully. If not, read for awareness and proceed to Stage 9 (Defense) or Part 22 (Mobile). **Do not let this stage block your progress.**
@@ -181,7 +181,7 @@
 
 <a id="stage-8-sdr-spectrum-analysis"></a>
 
-### **Stage 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
+### **Topic 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
 > **Optional Specialization:** Software-Defined Radio analysis requires hardware (HackRF One ~$300, USRP ~$800+) and strong RF/signal processing background. It is primarily used in RF security research, telecom security, and critical infrastructure assessments. For general pentesting and red teaming careers, SDR is awareness-level knowledge. If you are targeting RF security or telecom roles, complete this stage in full. Otherwise, read for awareness and proceed.
@@ -202,7 +202,7 @@
 ---
 
 <a id="stage-9-defense-hardening-the-shield"></a>
-### **Stage 9: Defense & Hardening (The Shield)** — `🧠 Conceptual`
+### **Topic 9: Defense & Hardening (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure the airwaves.
@@ -240,7 +240,7 @@
 
 
 <a id="stage-0-mobile-architecture-foundations"></a>
-### **Stage 0: Mobile Architecture Foundations** — `🧠 Conceptual`
+### **Topic 0: Mobile Architecture Foundations** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand Android and iOS architecture and security models before attempting exploitation. If you completed the awareness-level coverage in Part 1 Stage 6, this stage provides the full depth.
@@ -276,7 +276,7 @@
 ---
 
 <a id="stage-1-lab-setup-reconnaissance"></a>
-### **Stage 1: Lab Setup & Reconnaissance** — `🔬 Practical`
+### **Topic 1: Lab Setup & Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prepare the environment and understand the target.
@@ -290,7 +290,7 @@
 ---
 
 <a id="stage-2-static-analysis-code-review"></a>
-### **Stage 2: Static Analysis (Code Review)** — `🔬 Practical`
+### **Topic 2: Static Analysis (Code Review)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find hardcoded secrets and configuration flaws.
@@ -304,7 +304,7 @@
 ---
 
 <a id="stage-3-dynamic-analysis-runtime-manipulation"></a>
-### **Stage 3: Dynamic Analysis (Runtime Manipulation)** — `🔬 Practical`
+### **Topic 3: Dynamic Analysis (Runtime Manipulation)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Bypass client-side controls.
@@ -318,7 +318,7 @@
 ---
 
 <a id="stage-4-network-api-attacks"></a>
-### **Stage 4: Network & API Attacks** — `🔬 Practical`
+### **Topic 4: Network & API Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise the backend server.
@@ -332,7 +332,7 @@
 ---
 
 <a id="stage-5-local-data-storage-defense"></a>
-### **Stage 5: Local Data Storage & Defense** — `🔬 Practical`
+### **Topic 5: Local Data Storage & Defense** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Assess data at rest security.
@@ -346,7 +346,7 @@
 ---
 
 <a id="stage-6-defense-secure-development"></a>
-### **Stage 6: Defense & Secure Development** — `🧠 Conceptual`
+### **Topic 6: Defense & Secure Development** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Build security into mobile apps.
@@ -488,7 +488,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 
 <a id="stage-1-industrial-protocol-fundamentals"></a>
-### **Stage 1: Industrial Protocol Fundamentals** — `🧠 Conceptual`
+### **Topic 1: Industrial Protocol Fundamentals** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand operational technology communication.
@@ -506,7 +506,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-plc-hmi-exploitation"></a>
-### **Stage 2: PLC & HMI Exploitation** — `🔬 Practical`
+### **Topic 2: PLC & HMI Exploitation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise industrial controllers and interfaces.
@@ -524,7 +524,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-safety-system-attacks"></a>
-### **Stage 3: Safety System Attacks** — `🧠 Conceptual`
+### **Topic 3: Safety System Attacks** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand attacks on critical safety instrumented systems.
@@ -542,7 +542,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-ot-network-segmentation-defense"></a>
-### **Stage 4: OT Network Segmentation & Defense** — `🧠 Conceptual`
+### **Topic 4: OT Network Segmentation & Defense** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Implement defense-in-depth for industrial environments.
@@ -631,7 +631,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 
 <a id="stage-1-preparation-first-response"></a>
-### **Stage 1: Preparation & First Response** — `🔬 Practical`
+### **Topic 1: Preparation & First Response** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Secure the scene without corrupting evidence.
@@ -647,7 +647,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-evidence-analysis-the-deep-dive"></a>
-### **Stage 2: Evidence Analysis (The Deep Dive)** — `🔬 Practical`
+### **Topic 2: Evidence Analysis (The Deep Dive)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find the needle in the haystack.
@@ -661,7 +661,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-memory-forensics"></a>
-### **Stage 3: Memory Forensics** — `🔬 Practical`
+### **Topic 3: Memory Forensics** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Extract evidence from volatile memory — the richest source of attacker artifacts.
@@ -688,7 +688,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-network-forensics"></a>
-### **Stage 4: Network Forensics** — `🔬 Practical`
+### **Topic 4: Network Forensics** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Trace the attacker's path through network evidence.
@@ -707,7 +707,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-cloud-mobile-forensics"></a>
-### **Stage 5: Cloud & Mobile Forensics** — `🧠🔬 Mixed`
+### **Topic 5: Cloud & Mobile Forensics** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Collect and analyze evidence from cloud and mobile sources.
@@ -725,7 +725,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-6-advanced-analysis-reporting"></a>
-### **Stage 6: Advanced Analysis & Reporting** — `🧠🔬 Mixed`
+### **Topic 6: Advanced Analysis & Reporting** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand the "How" and tell the story.
@@ -741,7 +741,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-7-legal-reporting"></a>
-### **Stage 7: Legal & Reporting** — `🧠 Conceptual`
+### **Topic 7: Legal & Reporting** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Present findings professionally and maintain legal admissibility.
@@ -793,7 +793,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 
 <a id="stage-1-static-analysis-foundations"></a>
-### **Stage 1: Static Analysis Foundations** — `🔬 Practical`
+### **Topic 1: Static Analysis Foundations** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Analyze binaries without executing them.
@@ -815,7 +815,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-dynamic-analysis-debugging"></a>
-### **Stage 2: Dynamic Analysis & Debugging** — `🔬 Practical`
+### **Topic 2: Dynamic Analysis & Debugging** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Observe malware behavior during live execution.
@@ -838,7 +838,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-anti-reverse-engineering-evasion-techniques"></a>
-### **Stage 3: Anti-Reverse Engineering & Evasion Techniques** — `🧠🔬 Mixed`
+### **Topic 3: Anti-Reverse Engineering & Evasion Techniques** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand and defeat techniques malware uses to resist analysis.
@@ -856,7 +856,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-malware-classification-threat-intelligence"></a>
-### **Stage 4: Malware Classification & Threat Intelligence** — `🧠🔬 Mixed`
+### **Topic 4: Malware Classification & Threat Intelligence** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Categorize malware and extract actionable intelligence.
@@ -874,7 +874,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-advanced-re-automation"></a>
-### **Stage 5: Advanced RE & Automation** — `🔬 Practical`
+### **Topic 5: Advanced RE & Automation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Scale analysis with scripting and handle complex targets.
@@ -929,7 +929,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Prerequisite Gate:** Complete Part 1 Stages 3–4 (Memory Management, Data Representation), Part 1 Stage 7 (C fundamentals), and Part 42 (Offensive Development — exploit writing, shellcode, assembly) before starting this Part. Modern exploitation builds directly on these foundations.
 
 <a id="stage-1-recon-triage-tooling"></a>
-### **Stage 1: Recon, Triage & Tooling** — `🔬 Practical`
+### **Topic 1: Recon, Triage & Tooling** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prepare targets and environments for exploit development.
@@ -943,7 +943,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-memory-exploitation-userland"></a>
-### **Stage 2: Memory Exploitation (Userland)** — `🔬 Practical`
+### **Topic 2: Memory Exploitation (Userland)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit memory-safety bugs under modern mitigations.
@@ -963,7 +963,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-advanced-targets"></a>
-### **Stage 3: Advanced Targets** — `🧠🔬 Mixed`
+### **Topic 3: Advanced Targets** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Move beyond basic binaries to complex environments.
@@ -979,7 +979,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-exploit-delivery-opsec"></a>
-### **Stage 4: Exploit Delivery & OPSEC** — `🔬 Practical`
+### **Topic 4: Exploit Delivery & OPSEC** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Deliver and operate exploits stealthily.
@@ -995,7 +995,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-post-exploitation-hardening-safety"></a>
-### **Stage 5: Post-Exploitation Hardening & Safety** — `🧠 Conceptual`
+### **Topic 5: Post-Exploitation Hardening & Safety** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Maintain control while minimizing detection and impact.
@@ -1032,7 +1032,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 
 <a id="stage-1-hardware-reconnaissance"></a>
-### **Stage 1: Hardware Reconnaissance** — `🔬 Practical`
+### **Topic 1: Hardware Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify attack surface on physical devices.
@@ -1050,7 +1050,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-firmware-analysis"></a>
-### **Stage 2: Firmware Analysis** — `🔬 Practical`
+### **Topic 2: Firmware Analysis** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Reverse engineer and find vulnerabilities in firmware.
@@ -1076,7 +1076,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-runtime-exploitation"></a>
-### **Stage 3: Runtime Exploitation** — `🔬 Practical`
+### **Topic 3: Runtime Exploitation** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Execute code on live embedded systems.
@@ -1096,7 +1096,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-side-channel-physical-attacks"></a>
-### **Stage 4: Side-Channel & Physical Attacks** — `🧠🔬 Mixed`
+### **Topic 4: Side-Channel & Physical Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Extract secrets through non-traditional attack vectors.
@@ -1114,7 +1114,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-iot-embedded-defense"></a>
-### **Stage 5: IoT & Embedded Defense** — `🧠 Conceptual`
+### **Topic 5: IoT & Embedded Defense** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure embedded systems against attacks.
@@ -1165,7 +1165,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Safety Gate:** Physical testing requires written authorization, named locations, dates/times, emergency contacts, stop conditions, and a get-out-of-jail letter. Do not practice bypasses on real facilities, campuses, offices, hotels, apartments, or transit systems.
 
 <a id="stage-1-pre-engagement-reconnaissance"></a>
-### **Stage 1: Pre-Engagement & Reconnaissance** — `🧠 Conceptual`
+### **Topic 1: Pre-Engagement & Reconnaissance** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Plan the physical assessment within legal scope.
@@ -1181,7 +1181,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-entry-access-control-bypass"></a>
-### **Stage 2: Entry & Access Control Bypass** — `🔬 Practical`
+### **Topic 2: Entry & Access Control Bypass** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Defeat physical barriers to gain facility access.
@@ -1201,7 +1201,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-hid-usb-payload-attacks"></a>
-### **Stage 3: HID & USB Payload Attacks** — `🔬 Practical`
+### **Topic 3: HID & USB Payload Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Deploy physical implants and hardware attack tools.
@@ -1219,7 +1219,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-on-site-operations-data-collection"></a>
-### **Stage 4: On-Site Operations & Data Collection** — `🔬 Practical`
+### **Topic 4: On-Site Operations & Data Collection** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Achieve objectives once inside.
@@ -1235,7 +1235,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-reporting-physical-findings"></a>
-### **Stage 5: Reporting Physical Findings** — `🧠 Conceptual`
+### **Topic 5: Reporting Physical Findings** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Document and communicate physical security gaps professionally.
@@ -1276,7 +1276,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 
 <a id="stage-1-voip-protocol-fundamentals"></a>
-### **Stage 1: VoIP Protocol Fundamentals** — `🧠 Conceptual`
+### **Topic 1: VoIP Protocol Fundamentals** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how VoIP systems communicate.
@@ -1292,7 +1292,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-voip-reconnaissance-enumeration"></a>
-### **Stage 2: VoIP Reconnaissance & Enumeration** — `🔬 Practical`
+### **Topic 2: VoIP Reconnaissance & Enumeration** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Discover and map VoIP infrastructure.
@@ -1308,7 +1308,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-voip-attacks"></a>
-### **Stage 3: VoIP Attacks** — `🔬 Practical`
+### **Topic 3: VoIP Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit weaknesses in VoIP deployments.
@@ -1328,7 +1328,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-ss7-telecom-signaling-attacks"></a>
-### **Stage 4: SS7 & Telecom Signaling Attacks** — `🧠 Conceptual`
+### **Topic 4: SS7 & Telecom Signaling Attacks** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand mobile network signaling vulnerabilities.
@@ -1346,7 +1346,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-5g-security"></a>
-### **Stage 5: 5G Security** — `🧠 Conceptual`
+### **Topic 5: 5G Security** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the 5G threat landscape.
@@ -1360,7 +1360,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-6-defense-hardening"></a>
-### **Stage 6: Defense & Hardening** — `🧠 Conceptual`
+### **Topic 6: Defense & Hardening** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Secure VoIP and telecom infrastructure.
@@ -1401,7 +1401,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 
 <a id="stage-1-blockchain-fundamentals-for-security"></a>
-### **Stage 1: Blockchain Fundamentals for Security** — `🧠 Conceptual`
+### **Topic 1: Blockchain Fundamentals for Security** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand how blockchain and smart contracts work before attacking them.
@@ -1417,7 +1417,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-2-smart-contract-vulnerabilities"></a>
-### **Stage 2: Smart Contract Vulnerabilities** — `🔬 Practical`
+### **Topic 2: Smart Contract Vulnerabilities** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Identify and exploit common Solidity security flaws.
@@ -1439,7 +1439,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-3-smart-contract-auditing-methodology"></a>
-### **Stage 3: Smart Contract Auditing Methodology** — `🔬 Practical`
+### **Topic 3: Smart Contract Auditing Methodology** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Systematically audit contracts for vulnerabilities.
@@ -1457,7 +1457,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-4-web3-infrastructure-attacks"></a>
-### **Stage 4: Web3 Infrastructure Attacks** — `🧠🔬 Mixed`
+### **Topic 4: Web3 Infrastructure Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Attack the broader Web3 ecosystem beyond smart contracts.
@@ -1475,7 +1475,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="stage-5-defense-secure-development"></a>
-### **Stage 5: Defense & Secure Development** — `🧠 Conceptual`
+### **Topic 5: Defense & Secure Development** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Build secure smart contracts and Web3 applications.
@@ -1566,7 +1566,7 @@ Choose one track:
 
 
 <a id="stage-1-security-frameworks-standards"></a>
-### **Stage 1: Security Frameworks & Standards** — `🧠 Conceptual`
+### **Topic 1: Security Frameworks & Standards** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Understand the regulatory and standards landscape that defines what pentesters test against.
@@ -1584,7 +1584,7 @@ Choose one track:
 ---
 
 <a id="stage-2-industry-regulations-legal-requirements"></a>
-### **Stage 2: Industry Regulations & Legal Requirements** — `🧠 Conceptual`
+### **Topic 2: Industry Regulations & Legal Requirements** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Know the laws and regulations that dictate security requirements across industries.
@@ -1628,7 +1628,7 @@ Choose one track:
 ---
 
 <a id="stage-3-risk-management-assessment"></a>
-### **Stage 3: Risk Management & Assessment** — `🧠 Conceptual`
+### **Topic 3: Risk Management & Assessment** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Quantify and communicate risk so findings drive action.
@@ -1646,7 +1646,7 @@ Choose one track:
 ---
 
 <a id="stage-4-audit-scope-compliance-testing"></a>
-### **Stage 4: Audit, Scope & Compliance Testing** — `🧠🔬 Mixed`
+### **Topic 4: Audit, Scope & Compliance Testing** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Execute engagements that satisfy compliance requirements.
@@ -1691,7 +1691,7 @@ Choose one track:
 
 
 <a id="stage-1-understanding-the-attack-surface"></a>
-### **Stage 1: Understanding the Attack Surface** — `🧠 Conceptual`
+### **Topic 1: Understanding the Attack Surface** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Map how software and hardware dependencies become attack vectors.
@@ -1705,7 +1705,7 @@ Choose one track:
 ---
 
 <a id="stage-2-dependency-package-attacks"></a>
-### **Stage 2: Dependency & Package Attacks** — `🔬 Practical`
+### **Topic 2: Dependency & Package Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Exploit weaknesses in open-source package ecosystems.
@@ -1723,7 +1723,7 @@ Choose one track:
 ---
 
 <a id="stage-3-build-system-cicd-attacks"></a>
-### **Stage 3: Build System & CI/CD Attacks** — `🔬 Practical`
+### **Topic 3: Build System & CI/CD Attacks** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Compromise the pipeline that produces software.
@@ -1741,7 +1741,7 @@ Choose one track:
 ---
 
 <a id="stage-4-open-source-third-party-risk"></a>
-### **Stage 4: Open-Source & Third-Party Risk** — `🔬 Practical`
+### **Topic 4: Open-Source & Third-Party Risk** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Assess and test third-party component security.
@@ -1757,7 +1757,7 @@ Choose one track:
 ---
 
 <a id="stage-5-defense-verification"></a>
-### **Stage 5: Defense & Verification** — `🧠🔬 Mixed`
+### **Topic 5: Defense & Verification** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Know how to validate supply chain integrity.
@@ -1790,7 +1790,7 @@ Choose one track:
 
 
 <a id="stage-1-security-in-the-development-lifecycle"></a>
-### **Stage 1: Security in the Development Lifecycle** — `🧠🔬 Mixed`
+### **Topic 1: Security in the Development Lifecycle** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand where security integrates across the SDLC.
@@ -1833,7 +1833,7 @@ Choose one track:
 ---
 
 <a id="stage-2-static-analysis-sast"></a>
-### **Stage 2: Static Analysis (SAST)** — `🔬 Practical`
+### **Topic 2: Static Analysis (SAST)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find vulnerabilities in source code without executing it.
@@ -1849,7 +1849,7 @@ Choose one track:
 ---
 
 <a id="stage-3-dynamic-analysis-dast-iast"></a>
-### **Stage 3: Dynamic Analysis (DAST & IAST)** — `🔬 Practical`
+### **Topic 3: Dynamic Analysis (DAST & IAST)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Test running applications for security flaws.
@@ -1865,7 +1865,7 @@ Choose one track:
 ---
 
 <a id="stage-4-software-composition-analysis-sca"></a>
-### **Stage 4: Software Composition Analysis (SCA)** — `🔬 Practical`
+### **Topic 4: Software Composition Analysis (SCA)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Find vulnerabilities in third-party dependencies.
@@ -1879,7 +1879,7 @@ Choose one track:
 ---
 
 <a id="stage-5-secrets-detection-pipeline-security"></a>
-### **Stage 5: Secrets Detection & Pipeline Security** — `🔬 Practical`
+### **Topic 5: Secrets Detection & Pipeline Security** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Prevent credential leakage through code and pipelines.
@@ -1932,7 +1932,7 @@ Choose one track:
 > **Why This Exists:** Automated SAST tools (Part 37) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. You cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
 
 <a id="stage-1-code-review-workflow"></a>
-### **Stage 1: Code Review Workflow & Entry Point Mapping** — `🧠🔬 Mixed`
+### **Topic 1: Code Review Workflow & Entry Point Mapping** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Develop a repeatable, systematic workflow for reviewing any codebase — regardless of language or framework.
@@ -1973,7 +1973,7 @@ Choose one track:
 ---
 
 <a id="stage-2-language-specific-patterns"></a>
-### **Stage 2: Language-Specific Vulnerability Patterns** — `🧠🔬 Mixed`
+### **Topic 2: Language-Specific Vulnerability Patterns** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Know which dangerous functions and patterns appear in each major language/framework so you can grep for them efficiently.
@@ -2017,7 +2017,7 @@ Choose one track:
 ---
 
 <a id="stage-3-semgrep-custom-rules"></a>
-### **Stage 3: Semgrep & Custom Rule Writing** — `🔬 Practical`
+### **Topic 3: Semgrep & Custom Rule Writing** — `🔬 Practical`
 
 > [!NOTE]
 > **Part 37 vs Part 37B — Same Tool, Different Purpose:** Part 37 Stage 2 used Semgrep as a **CI/CD pipeline tool** — running pre-built rulesets automatically on every commit to catch regressions at scale. This stage teaches **Semgrep rule writing for manual code auditing** — a fundamentally different skill. Here you write custom rules targeting your specific codebase, tune for zero false positives, and use taint tracking to trace sources to sinks. If you ran `semgrep --config=auto` in Part 37 and thought you were done: you weren't. Rule authorship is the skill that separates automated scanning from genuine code review.
@@ -2097,7 +2097,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 
 <a id="stage-1-security-design-principles"></a>
-### **Stage 1: Security Design Principles** — `🧠 Conceptual`
+### **Topic 1: Security Design Principles** — `🧠 Conceptual`
 
 - [ ] **Defense-in-Depth as Architecture:** Design layered defenses where no single control failure compromises the system. Map controls to **preventative, detective, corrective, and compensating** categories.
 
@@ -2108,7 +2108,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 - [ ] **Security by Design:** Integrate security from **requirements through deployment**, not as a bolt-on. Understand **NIST Secure Software Development Framework (SSDF)** and **OWASP SAMM**.
 
 <a id="stage-2-zero-trust-architecture"></a>
-### **Stage 2: Zero Trust Architecture** — `🧠 Conceptual`
+### **Topic 2: Zero Trust Architecture** — `🧠 Conceptual`
 
 - [ ] **Zero Trust Principles:** Understand **"never trust, always verify"** across **identity, device, network, application, and data** pillars.
 
@@ -2141,7 +2141,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
     - Cloud CASB bypass: traffic to unapproved cloud apps via split tunnelling gaps
 
 <a id="stage-3-network-security-architecture"></a>
-### **Stage 3: Network Security Architecture** — `🧠 Conceptual`
+### **Topic 3: Network Security Architecture** — `🧠 Conceptual`
 
 - [ ] **Network Segmentation Design:** Design **DMZ, internal zones, management zones, database zones** with proper **firewall rules and ACLs** between them.
 
@@ -2173,7 +2173,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
   - [ ] **Pentester's perspective:** CNAPP creates a centralised alert correlation target. Offensive actions that individually look benign (enumerate S3, assume role, access parameter store) may be stitched together by Wiz/Lacework into a high-confidence attack path alert. Understand CNAPP detection logic when planning cloud red team operations.
 
 <a id="stage-4-data-security-architecture"></a>
-### **Stage 4: Data Security Architecture** — `🧠 Conceptual`
+### **Topic 4: Data Security Architecture** — `🧠 Conceptual`
 
 - [ ] **Data Classification:** Implement **classification schemes** (Public, Internal, Confidential, Restricted) with **automated labeling** and **DLP policy enforcement**.
 
@@ -2184,7 +2184,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 - [ ] **Privacy Engineering:** Implement **data anonymization, pseudonymization, tokenization** for GDPR/DPDP Act compliance. Understand **Privacy by Design** principles.
 
 <a id="stage-5-disaster-recovery-business-continuity"></a>
-### **Stage 5: Disaster Recovery & Business Continuity** — `🧠 Conceptual`
+### **Topic 5: Disaster Recovery & Business Continuity** — `🧠 Conceptual`
 
 - [ ] **DR/BCP Fundamentals:** Understand **RPO (Recovery Point Objective)** and **RTO (Recovery Time Objective)** and how they drive architecture decisions.
 
@@ -2258,7 +2258,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 _Continuation of Part 13A. These stages cover operational security tools and programs that build on the detection engineering foundation. Complete Part 13A before starting this section._
 
 <a id="stage-11-security-orchestration-automation-response-soar"></a>
-### **Stage 11: Security Orchestration, Automation & Response (SOAR)** — `🔬 Practical`
+### **Topic 11: Security Orchestration, Automation & Response (SOAR)** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Automate SOC workflows and incident response actions.
@@ -2276,7 +2276,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-12-data-loss-prevention-dlp-fundamentals"></a>
-### **Stage 12: Data Loss Prevention (DLP) Fundamentals** — `🧠🔬 Mixed`
+### **Topic 12: Data Loss Prevention (DLP) Fundamentals** — `🧠🔬 Mixed`
 
 > [!TIP]
 > **Goal:** Understand DLP as a defensive control, not just something to bypass.
@@ -2294,7 +2294,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-13-vulnerability-management-program"></a>
-### **Stage 13: Vulnerability Management Program** — `🔬 Practical`
+### **Topic 13: Vulnerability Management Program** — `🔬 Practical`
 
 > [!TIP]
 > **Goal:** Understand the full lifecycle of finding, prioritizing, and remediating vulnerabilities at scale.
@@ -2314,7 +2314,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="stage-14-insider-threat-detection"></a>
-### **Stage 14: Insider Threat Detection** — `🧠 Conceptual`
+### **Topic 14: Insider Threat Detection** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Detect and investigate threats originating from within the organization.
@@ -2381,7 +2381,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 <a id="stage-1-objective-strategy-the-planning"></a>
 
-### **Stage 1: Threat Model & Mechanics** — `🧠 Conceptual`
+### **Topic 1: Threat Model & Mechanics** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Classify DoS vectors across the OSI stack.
@@ -2396,7 +2396,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 <a id="stage-2-defense-mitigation-the-shield"></a>
 
-### **Stage 2: Defense & Engineering Resilience** — `🧠 Conceptual`
+### **Topic 2: Defense & Engineering Resilience** — `🧠 Conceptual`
 
 > [!TIP]
 > **Goal:** Design resilient architectures that absorb and deflect denial-of-service attempts.
@@ -2414,7 +2414,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 > [!NOTE]
-> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[Stage 3: Module 15](Stage-3_Web-and-App-Sec.md#module-15-session-hijacking--token-attacks)** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in [Part 9: Sniffing & Spoofing](#part-9-sniffing-spoofing).
+> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[Stage 3: Module 15](Stage-3_Web-and-App-Sec.md#module-15-session-hijacking--token-attacks)** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[Stage 4: Module 23 (Sniffing & Spoofing)](Stage-4_Enterprise.md#module-23-sniffing--spoofing)**.
 
 ---
 
