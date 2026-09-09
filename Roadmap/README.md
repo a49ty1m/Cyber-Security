@@ -150,6 +150,8 @@
 
 ## 📂 Phase Details
 
+> **Type Legend:** 🧠 Conceptual &nbsp;|&nbsp; 🔬 Lab / Hands-on &nbsp;|&nbsp; ⚔️ Offensive technique &nbsp;|&nbsp; 🛡️ Defensive / Detection &nbsp;|&nbsp; 📋 Career / Portfolio
+
 ---
 
 ### Phase 1 — Foundation
