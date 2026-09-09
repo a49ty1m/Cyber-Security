@@ -178,23 +178,23 @@ The full offensive lifecycle from recon to impact. Split into 2A (fundamentals, 
 
 #### Phase 2A — Offensive Fundamentals ← Do First
 
-| Part | Topic |
-|:----:|-------|
-| 4 | Footprinting & Reconnaissance — Passive OSINT → Active Mapping |
-| 5 | Scanning — Host Discovery → Port Enumeration → Evasion |
-| 6 | Enumeration — Service Profiling → Attack Surface Mapping |
-| 6B | Database Security — MySQL, MSSQL, MongoDB, Redis |
-| 31 | Password Cracking & Hash Analysis — Hashcat, Wordlists, Rules |
-| 7 | System Hacking — Breach → Privesc → Persistence → Evasion → Exfil |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 4 | Footprinting & Reconnaissance — Passive OSINT → Active Mapping | ⚔️ |
+| 5 | Scanning — Host Discovery → Port Enumeration → Evasion | ⚔️🔬 |
+| 6 | Enumeration — Service Profiling → Attack Surface Mapping | ⚔️🔬 |
+| 6B | Database Security — MySQL, MSSQL, MongoDB, Redis | ⚔️🔬 |
+| 31 | Password Cracking & Hash Analysis — Hashcat, Wordlists, Rules | ⚔️🔬 |
+| 7 | System Hacking — Breach → Privesc → Persistence → Evasion → Exfil | ⚔️🔬 |
 
 #### Phase 2B — Advanced Offensive Operations ← Do After Phase 6
 
-| Part | Topic |
-|:----:|-------|
-| 9 | Sniffing & Spoofing — ARP, MITM, Bettercap, Responder |
-| 10 | Social Engineering — Phishing, Vishing, Physical Breach |
-| 8 | Malware & Weaponization — Taxonomy, msfvenom, Evasion concepts |
-| 11 | Denial of Service — Conceptual awareness only |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 9 | Sniffing & Spoofing — ARP, MITM, Bettercap, Responder | ⚔️🔬 |
+| 10 | Social Engineering — Phishing, Vishing, Physical Breach | ⚔️ |
+| 8 | Malware & Weaponization — Taxonomy, msfvenom, Evasion concepts | ⚔️ |
+| 11 | Denial of Service — Conceptual awareness only | 🧠 |
 
 ---
 
@@ -218,13 +218,13 @@ The full offensive lifecycle from recon to impact. Split into 2A (fundamentals, 
 
 Do this **before Phase 2B**. Web is the front door of 90% of external engagements.
 
-| Part | Topic |
-|:----:|-------|
-| 17 | Web Application Hacking — SQLi, XSS, SSRF, IDOR, XXE, CSRF |
-| 12 | Session Hijacking & Token Attacks — Cookies, JWTs, Fixation |
-| 18 | Web Server Hacking — Misconfig, Directory Traversal, File Upload |
-| 19 | API Security — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks |
-| 20 | Bug Bounty Methodology — Scope, Recon, Exploit, Report |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 17 | Web Application Hacking — SQLi, XSS, SSRF, IDOR, XXE, CSRF | ⚔️🔬 |
+| 12 | Session Hijacking & Token Attacks — Cookies, JWTs, Fixation | ⚔️🔬 |
+| 18 | Web Server Hacking — Misconfig, Directory Traversal, File Upload | ⚔️🔬 |
+| 19 | API Security — OWASP API Top 10, REST/GraphQL/gRPC, Auth Attacks | ⚔️🔬 |
+| 20 | Bug Bounty Methodology — Scope, Recon, Exploit, Report | ⚔️🔬 |
 
 ---
 
@@ -233,10 +233,10 @@ Do this **before Phase 2B**. Web is the front door of 90% of external engagement
 
 > ⚠️ **Skip pre-employment.** Only pursue if your role specifically requires wireless or mobile testing.
 
-| Part | Topic |
-|:----:|-------|
-| 21 | Wireless Network Security — 802.11, WPA2/3, WPA-Enterprise, Rogue AP |
-| 22 | Mobile Security — Android/iOS Architecture, Frida, Static/Dynamic Analysis |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 21 | Wireless Network Security — 802.11, WPA2/3, WPA-Enterprise, Rogue AP | ⚔️🔬 |
+| 22 | Mobile Security — Android/iOS Architecture, Frida, Static/Dynamic Analysis | ⚔️🔬 |
 
 ---
 
@@ -245,13 +245,13 @@ Do this **before Phase 2B**. Web is the front door of 90% of external engagement
 
 Where enterprise red teams operate. Active Directory and cloud are mandatory skills.
 
-| Part | Topic |
-|:----:|-------|
-| 23 | Active Directory & Entra ID — Kerberoasting, ADCS (ESC1-13), BloodHound |
-| 24 | Cloud Computing — AWS/Azure/GCP IAM, CIEM, S3, IMDSv2 |
-| 25 | Container & Orchestration Security — Docker, Kubernetes, Secrets |
-| 16 | Adversary Emulation & Purple Teaming — MITRE ATT&CK, APT Simulation |
-| 26 | OT/ICS/SCADA *(OPTIONAL)* — Industrial Protocols, PLC, HMI |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 23 | Active Directory & Entra ID — Kerberoasting, ADCS (ESC1-13), BloodHound | ⚔️🔬 |
+| 24 | Cloud Computing — AWS/Azure/GCP IAM, CIEM, S3, IMDSv2 | ⚔️🔬 |
+| 25 | Container & Orchestration Security — Docker, Kubernetes, Secrets | ⚔️🔬 |
+| 16 | Adversary Emulation & Purple Teaming — MITRE ATT&CK, APT Simulation | ⚔️🛡️ |
+| 26 | OT/ICS/SCADA *(OPTIONAL)* — Industrial Protocols, PLC, HMI | 🧠🔬 |
 
 ---
 
@@ -260,16 +260,16 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 
 > Only **Part 42** is on your pre-employment critical path. Parts 27/28/29 are post-hire specializations.
 
-| Part | Topic | Priority |
-|:----:|-------|:--------:|
-| **42** | **Offensive Development & Tooling — C2, Shellcode, AMSI/ETW Bypass** | ✅ Critical |
-| 27 | Digital Forensics — Evidence, Timeline, Network, Reporting | 🟡 Post-Hire |
-| 28 | Reverse Engineering & Malware Analysis — Static, Dynamic, Anti-RE | 🟡 Post-Hire |
-| 29 | Modern Exploitation — Memory Safety, Sandbox Escape, Mitigations | 🟡 Post-Hire |
-| 30 | Hardware Hacking *(OPTIONAL)* — Firmware, JTAG, UART, Side-Channel | ⚪ Optional |
-| 32 | Physical Penetration Testing *(OPTIONAL)* | ⚪ Optional |
-| 33 | VoIP/SS7/5G *(OPTIONAL)* | ⚪ Optional |
-| 34 | Blockchain/Web3 *(OPTIONAL)* | ⚪ Optional |
+| Part | Topic | Type | Priority |
+|:----:|-------|:----:|:--------:|
+| 42 | Offensive Development & Tooling — C2, Shellcode, AMSI/ETW Bypass | ⚔️🔬 | ✅ Critical |
+| 27 | Digital Forensics — Evidence, Timeline, Network, Reporting | 🛡️🔬 | 🟡 Post-Hire |
+| 28 | Reverse Engineering & Malware Analysis — Static, Dynamic, Anti-RE | 🔬 | 🟡 Post-Hire |
+| 29 | Modern Exploitation — Memory Safety, Sandbox Escape, Mitigations | ⚔️🔬 | 🟡 Post-Hire |
+| 30 | Hardware Hacking *(OPTIONAL)* — Firmware, JTAG, UART, Side-Channel | ⚔️🔬 | ⚪ Optional |
+| 32 | Physical Penetration Testing *(OPTIONAL)* | ⚔️🔬 | ⚪ Optional |
+| 33 | VoIP/SS7/5G *(OPTIONAL)* | 🧠🔬 | ⚪ Optional |
+| 34 | Blockchain/Web3 *(OPTIONAL)* | ⚔️🔬 | ⚪ Optional |
 
 > ⚠️ **Part 42 must be completed before Part 29.** Part 29 explicitly requires shellcode and assembly skills from Part 42.
 
@@ -280,13 +280,13 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 
 > ⚠️ **Skip pre-employment.** This is a separate career track — not a Red Team prerequisite.
 
-| Part | Topic |
-|:----:|-------|
-| 35 | Governance, Risk & Compliance — NIST, ISO 27001, PCI-DSS |
-| 36 | Supply Chain Security — SBOM, SLSA, Dependency Confusion |
-| 37 | DevSecOps & Secure SDLC — SAST/DAST/SCA, Pipeline Security |
-| 37B | Secure Code Review Methodology — Semgrep, Taint Analysis |
-| 43 | Security Architecture & Engineering — Zero Trust, Defense-in-Depth |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 35 | Governance, Risk & Compliance — NIST, ISO 27001, PCI-DSS | 🧠 |
+| 36 | Supply Chain Security — SBOM, SLSA, Dependency Confusion | 🧠🔬 |
+| 37 | DevSecOps & Secure SDLC — SAST/DAST/SCA, Pipeline Security | 🧠🔬 |
+| 37B | Secure Code Review Methodology — Semgrep, Taint Analysis | 🔬 |
+| 43 | Security Architecture & Engineering — Zero Trust, Defense-in-Depth | 🧠 |
 
 ---
 
@@ -295,9 +295,9 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 
 > Unlocked after Phase 6 (not after Phase 8). True prerequisites: Web/API + Cloud IAM.
 
-| Part | Topic |
-|:----:|-------|
-| 38 | AI & LLM Red Teaming — Prompt Injection, RAG Poisoning, Jailbreaks, Agentic Exploits |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 38 | AI & LLM Red Teaming — Prompt Injection, RAG Poisoning, Jailbreaks, Agentic Exploits | ⚔️🔬 |
 
 ---
 
@@ -306,11 +306,11 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 
 > Start Part 39 (Report Writing) in Stage 2, not here. Pull it forward.
 
-| Part | Topic |
-|:----:|-------|
-| 39 | Pentest Methodologies & Report Writing — PTES, OWASP WSTG, CVSS |
-| 40 | Red Team Operations & Tradecraft — C2, OPSEC, Campaign Planning |
-| 41 | Proof of Work & Career Portfolio — Certs, GitHub, Bug Bounties |
+| Part | Topic | Type |
+|:----:|-------|:----:|
+| 39 | Pentest Methodologies & Report Writing — PTES, OWASP WSTG, CVSS | 🧠🔬 |
+| 40 | Red Team Operations & Tradecraft — C2, OPSEC, Campaign Planning | ⚔️🔬 |
+| 41 | Proof of Work & Career Portfolio — Certs, GitHub, Bug Bounties | 📋 |
 
 ---
 
