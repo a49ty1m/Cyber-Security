@@ -1,10 +1,10 @@
-# Phase 1: The Unshakeable Foundation
+# Stage 1: The Unshakeable Foundation
 
 ---
 
 ### 🧭 Navigation
 
-🏠 [Master Roadmap](README.md) | [Phase 2](Phase-2.md) ➔
+🏠 [Master Roadmap](README.md) | [Stage 2: Offense I](Stage-2_Offense-I.md) ➔
 
 ---
 
@@ -37,7 +37,7 @@
 > | Kerberos / Windows identity | Before Phase 6 Part 23 (AD attacks) | Phase 1 Stage 5 & 6 in Part 1C |
 > | Advanced PowerShell | During Phase 6 AD work | Targeted PS scripting for AD enumeration |
 >
-> **Your next action: proceed to [Phase 2](Phase-2.md) → Part 4 (Footprinting & Reconnaissance).**
+> **Your next action: proceed to [Stage 2: Offense I](Stage-2_Offense-I.md) → Part 4 (Footprinting & Reconnaissance).**
 
 
 > [!NOTE]
@@ -547,7 +547,14 @@ _Before starting the technical curriculum, establish your academic foundation, l
 <a id="toc-part-1-fundamentals"></a>
 <a id="part-1-fundamentals"></a>
 
-## Part 1: Fundamentals
+
+---
+
+<a id="module-01-fundamentals"></a>
+<a id="part-1-fundamentals"></a>
+
+## Module 01: Fundamentals
+
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -689,7 +696,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
 
 > [!NOTE]
-> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[Part 22: Mobile Platform Pentesting](Phase-5.md#part-22-mobile-platform-pentesting)** (Phase 5). Do not attempt until you have completed Phases 2–4.
+> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[Shelf 02: Mobile Platform Pentesting](Shelf_Post-Hire.md#shelf-02-mobile-platform-pentesting)** (Phase 5). Do not attempt until you have completed Phases 2–4.
 
 ---
 
@@ -1134,7 +1141,7 @@ Before moving to the next stage, you should be able to:
 >
 > **Return here when you reach Phase 7, before starting Part 28 (Reverse Engineering) and Part 42 (Offensive Development).** At that point, C and C++ become immediately applicable rather than abstract theory.
 >
-> **Phase 7 location:** Phase-7.md — Stage 7B section before Part 42.
+> **Phase 7 location:** Stage-5_Specialized.md — Stage 7B section before Part 42.
 
 _The full curriculum below is what you will complete when you return. Read it now for scope awareness, then close this section and proceed to Part 1B._
 
@@ -1331,7 +1338,14 @@ _The full curriculum below is what you will complete when you return. Read it no
 <a id="toc-part-1b-linux-administration"></a>
 <a id="part-1b-linux-administration"></a>
 
-## Part 1B: Linux Administration
+
+---
+
+<a id="module-02-linux-administration"></a>
+<a id="part-1b-linux-administration"></a>
+
+## Module 02: Linux Administration
+
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -1447,7 +1461,14 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 <a id="toc-part-1c-windows-administration"></a>
 <a id="part-1c-windows-administration"></a>
 
-## Part 1C: Windows Administration
+
+---
+
+<a id="module-03-windows-administration"></a>
+<a id="part-1c-windows-administration"></a>
+
+## Module 03: Windows Administration
+
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -1643,7 +1664,14 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 <a id="toc-part-2-networking-fundamentals"></a>
 <a id="part-2-networking-fundamentals"></a>
 
-## Part 2: Networking Fundamentals
+
+---
+
+<a id="module-04-networking-fundamentals"></a>
+<a id="part-2-networking-fundamentals"></a>
+
+## Module 04: Networking Fundamentals
+
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -2579,7 +2607,14 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 <a id="toc-part-3-cryptography"></a>
 <a id="part-3-cryptography"></a>
 
-## Part 3: Cryptography
+
+---
+
+<a id="module-05-cryptography"></a>
+<a id="part-3-cryptography"></a>
+
+## Module 05: Cryptography
+
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -2889,7 +2924,14 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 <a id="toc-part-3b-authentication-standards-primer"></a>
 <a id="part-3b-authentication-standards-primer"></a>
 
-## Part 3B: Authentication Standards Primer
+
+---
+
+<a id="module-06-authentication-standards"></a>
+<a id="part-3b-authentication-standards-primer"></a>
+
+## Module 06: Authentication Standards
+
 
 > [!IMPORTANT]
 > **Why This Exists Here:** Parts 8, 12, 19, and 23 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before you hit the attack techniques. Deep exploitation and protocol abuse are covered in Part 19 (API Security, Phase 4) and Part 23 (Entra ID, Phase 6). This Part is concepts only.
@@ -3125,7 +3167,14 @@ Using your virtualization platform, build a lab environment containing:
 
 <a id="part-3c-web-technology-fundamentals"></a>
 
-## Part 3C: Web Technology Fundamentals
+
+---
+
+<a id="module-07-web-technology-fundamentals"></a>
+<a id="part-3c-web-technology-fundamentals"></a>
+
+## Module 07: Web Technology Fundamentals
+
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -3508,3 +3557,16 @@ Authentication is the #1 attack surface in web applications. Building it yoursel
 
 > [!IMPORTANT]
 > **Phase 1 Project Completion Gate:** You should be able to explain the cryptographic choices in every project above without looking at the code. If someone asks "why Argon2 and not SHA-256?" or "why AES-GCM and not AES-CBC?" or "why CSPRNG and not random?" — you must answer from understanding, not memory. If you cannot, revisit the relevant Part before moving to Phase 2.
+
+---
+
+<a id="foundation-proof-gate"></a>
+
+## 🏁 Foundation Proof Gate
+
+> [!IMPORTANT]
+> **Exit Gate Verification:** Before advancing to **Stage 2 (Offense I)**, you must verify and demonstrate:
+> 1. **10 Annotated PCAPs** (DNS, TCP 3-way, ARP poisoning, TLS handshake, HTTP GET/POST, ICMP, DHCP, SSH, SMB, FTP).
+> 2. **Baseline Hardened Configurations** for both Linux (SSH keys, firewall, disabled root) and Windows (Local Security Policy, disabled LLMNR/NBT-NS).
+> 3. **3 Custom Automation Scripts** written cold in Python, Bash, and PowerShell.
+> 4. **1 Comprehensive Lab Topology Report** committed to your notes Git repository.
