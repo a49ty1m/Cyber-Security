@@ -82,8 +82,13 @@
 > | **Tier 1 (Mandatory)** | [OpenSSL & cryptsetup](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/OpenSSL.md) | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
 > | **Tier 2 (Secondary)** | [iperf3](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/iperf3.md) | Network throughput, latency, and bandwidth bottleneck benchmarking across lab subnets. |
 > | **Tier 2 (Secondary)** | [Scapy](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Scapy.md) | Crafting custom Layer 2/3/4 packets in Python to test protocol boundaries and firewalls. |
->
-> **Phase Exit Tool Gate:** You cannot pass Phase 1 until you can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using - [Lab Baseline Setup](#lab-baseline-setup)
+> **Stage Exit Tool Gate:** You cannot pass Stage 1 until you can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using `openssl s_client`.
+
+---
+
+### 🗂️ Table of Contents
+
+- [Lab Baseline Setup](#lab-baseline-setup)
 - [Module 01: Fundamentals](#module-01-fundamentals)
   - [Stage 1: Hardware, CPU & Pre-Boot Environment](#stage-1-hardware-cpu-pre-boot-environment)
   - [Stage 2: Operating System Internals](#stage-2-operating-system-internals)
