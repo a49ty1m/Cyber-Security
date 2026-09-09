@@ -336,13 +336,13 @@ _Before starting the technical curriculum, establish your academic foundation, l
 > [!TIP]
 > **Goal:** Avoid wasting money on inadequate hardware or overspending before you know your specialization.
 
-- [x] **Minimum Specs:** **32GB RAM** (16GB absolute minimum for running 2–3 VMs simultaneously), **quad-core CPU with VT-x/AMD-V** (Intel VT or AMD-V required for nested virtualization), **500GB+ SSD**. Without hardware virtualization support, nested VMs (VMs inside VMs) will not work.
+- [ ] **Minimum Specs:** **32GB RAM** (16GB absolute minimum for running 2–3 VMs simultaneously), **quad-core CPU with VT-x/AMD-V** (Intel VT or AMD-V required for nested virtualization), **500GB+ SSD**. Without hardware virtualization support, nested VMs (VMs inside VMs) will not work.
 
 - [ ] **Recommended Specs:** **64GB RAM, 8-core CPU, 1TB NVMe SSD**. This comfortably runs a Domain Controller + 3 workstations + attacker Kali VM simultaneously for AD labs (Part 23).
 
 - [ ] **Wireless Testing Adapter:** Purchase an **Alfa AWUS036ACH** (or similar Realtek RTL8812AU/RTL8814AU chipset) USB adapter that supports **monitor mode and packet injection**. Built-in WiFi cards rarely support these modes. Required for Part 21 (Wireless Pentesting).
 
-- [x] **Budget Tiers:** **Tier 1 (~$300):** Used ThinkPad T480/X1 Carbon with 32GB RAM upgrade. **Tier 2 (~$600):** Refurbished Dell Precision/HP Z-series with 64GB. **Tier 3 (~$1,500):** Custom mini-ITX Proxmox server with 128GB RAM for persistent lab infrastructure.
+- [ ] **Budget Tiers:** **Tier 1 (~$300):** Used ThinkPad T480/X1 Carbon with 32GB RAM upgrade. **Tier 2 (~$600):** Refurbished Dell Precision/HP Z-series with 64GB. **Tier 3 (~$1,500):** Custom mini-ITX Proxmox server with 128GB RAM for persistent lab infrastructure.
 
 - [ ] **Cloud Supplement:** Use **AWS Free Tier / Azure $200 credit / GCP $300 credit** for cloud security labs (Part 24) without maintaining local infrastructure. Set **billing alerts** to avoid surprise charges.
 
@@ -355,28 +355,28 @@ _Before starting the technical curriculum, establish your academic foundation, l
 > [!TIP]
 > **Goal:** Maximize your formal education and align academic work with offensive security career requirements.
 
-- [x] **Degree Baseline**
+- [ ] **Degree Baseline**
   - A formal undergraduate degree (**B-Tech in CS, IT, or related field**) fulfills baseline **HR screening requirements** for entry-level security roles and many certifications.
 
-- [x] **Leverage Academic Projects**
+- [ ] **Leverage Academic Projects**
   - Treat university **database, networking, and software engineering projects** as structural training for:
     - **backend exploit development**
     - **API security**
     - **system architecture** understanding
 
-- [x] **Coding Curriculum Alignment**
+- [ ] **Coding Curriculum Alignment**
   - The **C, C++, and Python** coding taught in engineering semesters provides the **architectural foundation** needed to eventually write:
     - custom, undetected payloads
     - exploit primitives
 
-- [x] **Capstone/Final Year Projects**
+- [ ] **Capstone/Final Year Projects**
   - Target a security-related capstone to build a **portfolio piece** (examples):
     - vulnerability scanner
     - SIEM dashboard
     - malware analysis sandbox
     - network IDS
 
-- [x] **Internship Targeting**
+- [ ] **Internship Targeting**
   - Pursue internships at **SOCs, MSSPs, consulting firms, or product security teams** during academic years to build **real-world defensive/offensive experience** before graduation.
 
 - [ ] **Research & Publications**
@@ -418,7 +418,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
 > [!TIP]
 > **Goal:** Build practical muscle memory through structured, hands-on hacking exercises.
 
-- [x] **TryHackMe (Beginner → Intermediate)**
+- [ ] **TryHackMe (Beginner → Intermediate)**
   - Complete **learning paths** for guided, progressive skill building:
     - Pre-Security
     - Jr Penetration Tester
@@ -431,7 +431,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - web attacks
   - Target: **Hacker rank** or above.
 
-- [x] **OverTheWire Bandit (Linux Fundamentals)**
+- [ ] **OverTheWire Bandit (Linux Fundamentals)**
   - Complete all **34 levels** to build Linux CLI muscle memory:
     - file manipulation
     - SSH
@@ -486,7 +486,7 @@ _Before starting the technical curriculum, establish your academic foundation, l
     - AI Forensics
   - Isolated lab environments keep hands-on AI attack/defense exercises safe.
 
-- [x] **PortSwigger Web Security Academy (Free)**
+- [ ] **PortSwigger Web Security Academy (Free)**
   - Complete labs covering the **full OWASP Top 10** plus advanced topics:
     - SQL injection, XSS, CSRF, SSRF, XXE
     - JWT attacks, OAuth flaws, WebSocket attacks
