@@ -10,13 +10,13 @@
 >
 > **What mastering sqlmap unlocks:** Full automated SQL injection exploitation. Database enumeration and credential extraction. Understanding of all SQL injection techniques. Post-exploitation via SQLi (file read/write, OS command execution in some cases).
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — SQL Injection)
+> **Roadmap Stage / Module:** Stage 3: Module 14 (Web Application Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

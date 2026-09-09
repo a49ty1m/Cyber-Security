@@ -1,6 +1,7 @@
 # 🌿 Ettercap: Complete Mastery Checklist
 
 > ⚠️ **Legacy Tool Notice:** Ettercap has been superseded by [Bettercap](Bettercap.md) for all active MitM work. This file is preserved for understanding protocol fundamentals, interpreting older documentation and courses that reference Ettercap, and testing legacy environments where Bettercap is unavailable. **For new engagements and lab work, use Bettercap instead.**
+> **Roadmap Stage / Module:** Stage 4: Module 23 (Sniffing & Spoofing — Legacy Reference)
 
 > **What is Ettercap?** Ettercap is a comprehensive MITM framework for LAN attacks — ARP poisoning, DNS spoofing, passive traffic analysis, and credential sniffing — with a GUI and plugin system. It was the original go-to MITM tool before Bettercap superseded it. Understanding Ettercap remains valuable because many tutorials, courses, and older documentation reference it, and it is still present in most security lab environments.
 >
@@ -12,7 +13,7 @@
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

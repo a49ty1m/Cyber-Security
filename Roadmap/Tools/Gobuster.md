@@ -8,13 +8,13 @@
 >
 > **What mastering Gobuster unlocks:** Fast web attack surface discovery. DNS subdomain enumeration without Amass/subfinder. Solid first-pass reconnaissance that feeds more targeted manual testing.
 >
-> **Roadmap Phase:** Phase 2–3 (Scanning & Enumeration and Web Discovery)
+> **Roadmap Stage / Module:** Stage 2: Module 10 (Enumeration) & Stage 3: Module 14 (Web App Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

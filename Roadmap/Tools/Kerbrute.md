@@ -10,13 +10,13 @@
 >
 > **What mastering Kerbrute unlocks:** The ability to start every AD engagement from zero. Username enumeration without LDAP access. Safe password spraying below lockout thresholds. AS-REP Roasting target discovery. OSCP/CRTP/PNPT certification readiness for AD initial access.
 >
-> **Roadmap Phase:** Phase 2–3 (Scanning & Enumeration, AD Initial Access)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory & Entra ID)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Recon & Scanning | AD Attacks | Post-Exploitation | Credential Access |
 |:-----------------|:-----------|:------------------|:-----------------|

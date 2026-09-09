@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** This is a conceptual and lab tool. Real HTTP flood attacks at scale require botnets — not single-machine tools. Understand the mechanism and the defenses.
 >
-> **Roadmap Phase:** Phase 10 (DoS Awareness — HTTP Layer 7 Flood Testing)
+> **Roadmap Stage / Module:** Shelf: Module S17 (Denial of Service & Resilience)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

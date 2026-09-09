@@ -10,13 +10,13 @@
 >
 > **What mastering Nuclei unlocks:** Automated vulnerability detection across large attack surfaces. CVE validation. Bug bounty automation pipeline. Custom template writing for proprietary targets. Modern replacement for Nikto in professional workflows.
 >
-> **Roadmap Phase:** Phase 2–3 (Scanning & Enumeration, Web Vulnerability Detection)
+> **Roadmap Stage / Module:** Stage 3: Module 14 (Web App Hacking) & Module 16 (Web Server Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Recon | Scanning | Web Attacks | Automation |
 |:------|:---------|:-----------|:-----------|

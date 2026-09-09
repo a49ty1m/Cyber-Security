@@ -10,13 +10,13 @@
 >
 > **What mastering Ollama unlocks:** Local LLM infrastructure for Phase 9 security testing, ability to build and test AI applications without cloud costs, foundation for running Garak and PyRIT against local models, and understanding of LLM deployment architecture (APIs, model management, inference).
 >
-> **Roadmap Phase:** Phase 9 — AI & LLM Security (LLM Infrastructure & Local Models)
+> **Roadmap Stage / Module:** Stage 5: Module 28 (AI & LLM Red Teaming)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | AI/LLM Security | LLM Red Teaming | AI SDKs |
 |:---------------|:----------------|:--------|

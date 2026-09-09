@@ -8,13 +8,13 @@
 >
 > **What mastering Plaso unlocks:** Automated super-timeline creation. Evidence correlation across artifact types. Efficient incident reconstruction. Foundation for Phase 7 Part 27 Stage 4 (Network Forensics) and Stage 6 (Advanced Analysis & Reporting).
 >
-> **Roadmap Phase:** Phase 7 Part 27 (Digital Forensics)
+> **Roadmap Stage / Module:** Shelf: Module S04 (Digital Forensics)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

@@ -10,13 +10,13 @@
 >
 > **What mastering Python AI SDKs unlocks:** Ability to build sophisticated LLM application targets for security testing, write automated multi-turn attack scripts, integrate LLMs into security tools, and demonstrate competency with the most widely deployed AI infrastructure (required for AI security roles).
 >
-> **Roadmap Phase:** Phase 9 — AI & LLM Security (Building LLM Applications for Attack/Defense)
+> **Roadmap Stage / Module:** Stage 5: Module 28 (AI & LLM Red Teaming)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | AI/LLM Security | Local LLMs | Red Teaming |
 |:---------------|:-----------|:------------|

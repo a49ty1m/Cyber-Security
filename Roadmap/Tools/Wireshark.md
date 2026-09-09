@@ -10,13 +10,13 @@
 >
 > **What mastering Wireshark unlocks:** Deep protocol understanding that makes you a better attacker AND defender. The ability to prove findings with evidence. Network forensics skills. The ability to debug any network issue. Understanding of how every tool you use (Nmap, Metasploit, Burp) actually works on the wire.
 >
-> **Roadmap Phase:** Phase 2–7 (Scanning through DFIR — used across all phases)
+> **Roadmap Stage / Module:** Stage 1: Module 04 (Networking Fundamentals)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

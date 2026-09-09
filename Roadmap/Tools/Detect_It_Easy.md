@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Understand the output, know the common packers/compilers, and be able to use DiE findings to guide your next steps.
 >
-> **Roadmap Phase:** Phase 7 (Malware Analysis — Initial Triage and Packer Identification)
+> **Roadmap Stage / Module:** Shelf: Module S05 (Reverse Engineering & Malware Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

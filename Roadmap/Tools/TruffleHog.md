@@ -10,13 +10,13 @@
 >
 > **What mastering TruffleHog unlocks:** Comprehensive multi-source secret scanning capability, credential verification (knowing if a found secret is live), broader attack surface coverage beyond Git (S3, CI/CD, collaboration tools), and complementary coverage alongside Gitleaks for Phase 8 DevSecOps pipelines.
 >
-> **Roadmap Phase:** Phase 8 — DevSecOps & Architecture (CI/CD Security, Secret Scanning)
+> **Roadmap Stage / Module:** Shelf: Module S12 & S13 (Supply Chain & DevSecOps)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Secrets Scanning | SAST | IaC Security |
 |:----------------|:-----|:-------------|

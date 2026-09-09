@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Know the command syntax, understand the output, and know when wrk is appropriate over ab.
 >
-> **Roadmap Phase:** Phase 10 (DoS Awareness and HTTP Performance Testing)
+> **Roadmap Stage / Module:** Shelf: Module S17 (Denial of Service & Resilience)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

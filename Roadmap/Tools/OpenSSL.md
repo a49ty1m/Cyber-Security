@@ -12,13 +12,13 @@
 >
 > **What mastering them unlocks:** Deep understanding of TLS internals (essential for attacking misconfigurations), the ability to inspect any certificate chain independently, PKI concepts required for Phase 6 ADCS attacks, and disk forensics awareness for Phase 7.
 >
-> **Roadmap Phase:** Phase 1 — Cryptography & PKI (Part 3 Stage 3–6)
+> **Roadmap Stage / Module:** Stage 1: Module 05 (Cryptography)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Networking | Crypto & Certs | Packet Analysis | Exploitation |
 |:-----------|:---------------|:----------------|:-------------|

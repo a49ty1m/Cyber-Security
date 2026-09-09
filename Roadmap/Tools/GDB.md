@@ -10,13 +10,13 @@
 >
 > **What mastering GDB unlocks:** Ability to debug any binary at the assembly level, the dynamic analysis foundation for all exploit development, complement to Ghidra's static analysis, and the core skill that makes pwntools exploits debuggable and reliable.
 >
-> **Roadmap Phase:** Phase 7 — Exploit Development & Reverse Engineering (Dynamic Debugging)
+> **Roadmap Stage / Module:** Stage 5: Module 27 (Offensive Development) & Shelf: Module S06 (Modern Exploitation)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Dynamic Debugging | Binary Exploitation | Static Analysis |
 |:-----------------|:-------------------|:----------------|

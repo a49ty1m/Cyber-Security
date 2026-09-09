@@ -10,13 +10,13 @@
 >
 > **What mastering Nmap unlocks:** The ability to map any network, identify attack surfaces, discover vulnerabilities before exploitation, and communicate findings professionally. Nmap mastery is a prerequisite for every offensive security certification (OSCP, CEH, PNPT, etc.).
 >
-> **Roadmap Phase:** Phase 1–2 (Reconnaissance and Scanning & Enumeration)
+> **Roadmap Stage / Module:** Stage 2: Module 08 (Footprinting) & Module 09 (Scanning)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

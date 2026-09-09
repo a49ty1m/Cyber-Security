@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Cookie manipulation is built into browser DevTools and Burp Suite. Cookie-Editor is a convenience tool — know it exists, know the security attributes you're testing, and understand when it's faster than alternatives.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — Session Management Testing)
+> **Roadmap Stage / Module:** Stage 3: Module 15 (Session Hijacking & Token Attacks)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

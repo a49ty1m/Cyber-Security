@@ -10,13 +10,13 @@
 >
 > **What mastering Objection unlocks:** Rapid mobile application security assessment capability, SSL pinning bypass without custom script writing, structured mobile app exploration, and an efficient workflow for Phase 5 mobile pentesting engagements.
 >
-> **Roadmap Phase:** Phase 5 — Wireless & Mobile Security (Part 21–22)
+> **Roadmap Stage / Module:** Shelf: Module S02 (Mobile Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Mobile Security | Dynamic Analysis | Static Analysis | Network |
 |:---------------|:----------------|:----------------|:--------|

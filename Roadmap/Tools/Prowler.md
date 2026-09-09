@@ -10,13 +10,13 @@
 >
 > **What mastering Prowler unlocks:** Cloud security assessment capability, compliance reporting against major frameworks, understanding of the most common cloud attack surfaces (exposed buckets, overprivileged roles, missing MFA), and the reconnaissance capability needed before Pacu exploitation.
 >
-> **Roadmap Phase:** Phase 6 — Enterprise & Cloud Security (Cloud Security Assessment)
+> **Roadmap Stage / Module:** Stage 4: Module 20 (Cloud Computing)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Cloud Security | AD/Enterprise | Exploitation |
 |:--------------|:-------------|:-------------|

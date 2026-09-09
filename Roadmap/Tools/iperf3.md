@@ -6,13 +6,13 @@
 >
 > **Tier 2 (Secondary):** iperf3 is a network throughput benchmarking tool. For Phase 1, know how to run basic client/server tests and interpret bandwidth, jitter, and packet loss output. Most security professionals use it for lab setup verification and network baselining, not active assessments.
 >
-> **Roadmap Phase:** Phase 1 (Tier 2 — network baselining and lab verification) — advanced stress testing revisited in Phase 10
+> **Roadmap Stage / Module:** Stage 1: Module 04 (Networking Fundamentals)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

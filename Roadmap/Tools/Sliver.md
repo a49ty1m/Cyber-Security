@@ -10,13 +10,13 @@
 >
 > **What mastering Sliver unlocks:** Full C2 framework operation. Multi-session management. In-memory implant deployment. Advanced post-exploitation. Understanding of C2 infrastructure design — foundational for advanced red team and threat simulation.
 >
-> **Roadmap Phase:** Phase 5–6 (C2, Persistence, and Advanced Post-Exploitation)
+> **Roadmap Stage / Module:** Stage 5: Module 27 (Offensive Dev) & Module 29 (Red Team Operations)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

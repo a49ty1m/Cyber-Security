@@ -10,13 +10,13 @@
 >
 > **What mastering Metasploit unlocks:** Efficient exploitation and post-exploitation. OSCP certification readiness. Understanding of the full exploit-payload-handler architecture. Ability to validate vulnerabilities with proof-of-exploitation. Pivoting through complex network topologies.
 >
-> **Roadmap Phase:** Phase 4 (Exploitation) and Phase 5 (Post-Exploitation)
+> **Roadmap Stage / Module:** Stage 2: Module 13 (System Hacking & Initial Compromise)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

@@ -8,13 +8,13 @@
 >
 > **Platform:** Windows only. Free. No installation required.
 >
-> **Roadmap Phase:** Phase 7 (Malware Analysis — Static PE Triage)
+> **Roadmap Stage / Module:** Shelf: Module S05 (Reverse Engineering & Malware Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

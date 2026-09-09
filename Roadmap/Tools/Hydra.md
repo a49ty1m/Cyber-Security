@@ -10,13 +10,13 @@
 >
 > **What mastering Hydra unlocks:** Ability to validate password strength across any protocol. Credential testing automation. Understanding of authentication attack methodology. OSCP/PNPT exam readiness for credential attacks.
 >
-> **Roadmap Phase:** Phase 3–4 (Service Attacks and Exploitation)
+> **Roadmap Stage / Module:** Stage 2: Module 12 (Password Cracking) & Module 13 (Initial Access)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

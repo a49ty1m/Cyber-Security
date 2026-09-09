@@ -10,13 +10,13 @@
 >
 > **What mastering socat unlocks:** Fully interactive encrypted shells (the biggest shell upgrade from Netcat), protocol relay skills for pivoting through restricted networks, PTY shell stabilization (solving the interactive shell problem), and the ability to bridge any two communication channels in the field.
 >
-> **Roadmap Phase:** Phase 2 — Exploitation & Post-Exploitation (Shell Handling, Pivoting)
+> **Roadmap Stage / Module:** Stage 2: Module 13 (System Hacking — Shell Handling & Redirection)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Shell & Pivoting | Networking | Tunneling | Crypto |
 |:----------------|:-----------|:----------|:-------|

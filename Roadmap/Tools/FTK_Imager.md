@@ -8,13 +8,13 @@
 >
 > **What mastering FTK Imager unlocks:** Evidence-grade acquisition workflow. Chain of custody documentation. Forensic image creation and verification. Foundation for Phase 7 Part 27 (Digital Forensics) field work.
 >
-> **Roadmap Phase:** Phase 7 Part 27 (Digital Forensics)
+> **Roadmap Stage / Module:** Shelf: Module S04 (Digital Forensics)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

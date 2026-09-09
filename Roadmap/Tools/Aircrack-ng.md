@@ -10,13 +10,13 @@
 >
 > **What mastering Aircrack-ng unlocks:** Complete Wi-Fi security assessment capability. Understanding of WPA2 authentication weaknesses. Deauth attack understanding (DoS and forced handshake capture). Wireless security awareness for all network security roles. CEH, OSCP (wireless section), and eWPT readiness.
 >
-> **Roadmap Phase:** Phase 3 (Wireless Security — Network Attack Surface)
+> **Roadmap Stage / Module:** Shelf: Module S01 (Wireless Network Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Network Attacks | Packet Analysis | Credential Access | MitM |
 |:----------------|:----------------|:-----------------|:-----|

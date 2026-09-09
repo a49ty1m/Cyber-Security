@@ -10,13 +10,13 @@
 >
 > **What mastering Hashcat unlocks:** Ability to crack passwords from any hash type. Post-exploitation credential recovery. Wi-Fi security auditing. Password policy validation. Understanding of cryptographic hash functions and their weaknesses.
 >
-> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Credential Recovery and Password Cracking)
+> **Roadmap Stage / Module:** Stage 2: Module 12 (Password Cracking & Hash Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

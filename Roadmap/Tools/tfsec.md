@@ -10,13 +10,13 @@
 >
 > **What mastering tfsec unlocks:** Terraform security analysis proficiency, ability to enforce security standards in Terraform-based DevSecOps pipelines, complementary coverage to Checkov for comprehensive IaC security, and practical skills for cloud security engineering roles.
 >
-> **Roadmap Phase:** Phase 8 — DevSecOps & Architecture (Infrastructure as Code Security)
+> **Roadmap Stage / Module:** Shelf: Module S13 (DevSecOps & Secure SDLC — IaC)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | IaC Security | Cloud Assessment | Secrets Scanning |
 |:------------|:----------------|:-----------------|

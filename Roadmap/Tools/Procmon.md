@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Know how to capture and filter Procmon output during malware analysis and troubleshooting. Depth of mastery is situational.
 >
-> **Roadmap Phase:** Phase 7 (Malware Analysis and Reverse Engineering — Dynamic Windows Behavior Monitoring)
+> **Roadmap Stage / Module:** Stage 1: Module 03 (Windows Admin) & Shelf: Module S05 (Malware Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

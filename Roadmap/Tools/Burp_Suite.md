@@ -10,13 +10,13 @@
 >
 > **What mastering Burp Suite unlocks:** The ability to test any web application for security vulnerabilities. Web application pentesting (OSCP, OSWE, eWPT). Bug bounty hunting. Understanding of web security at the HTTP level. Career opportunities in application security.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks)
+> **Roadmap Stage / Module:** Stage 3: Module 14 (Web Application Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

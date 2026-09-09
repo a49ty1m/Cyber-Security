@@ -10,13 +10,13 @@
 >
 > **What mastering Gitleaks unlocks:** The ability to find leaked credentials in any repository (offensive capability), implement preventive secret scanning in development workflows (defensive capability), and achieve the Phase 8 exit gate of a CI/CD security pipeline with secret scanning.
 >
-> **Roadmap Phase:** Phase 8 — DevSecOps & Architecture (CI/CD Security, Secret Scanning)
+> **Roadmap Stage / Module:** Shelf: Module S12 & S13 (Supply Chain & DevSecOps)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Secrets Scanning | SAST | IaC Security |
 |:----------------|:-----|:-------------|

@@ -10,13 +10,13 @@
 >
 > **What mastering Wazuh unlocks:** Full SOC operations capability without any licensing cost, understanding of agent-based endpoint monitoring, FIM and compliance checking, active response automation, and hands-on experience with the platform used by many real-world MSPs and SMB security teams.
 >
-> **Roadmap Phase:** Phase 3 — Detection Engineering & SOC Operations (Part 13A)
+> **Roadmap Stage / Module:** Stage 3: Side-Track A (Detection Engineering & SOC Operations)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
 |:--------------|:----------|:----------------|:----------|

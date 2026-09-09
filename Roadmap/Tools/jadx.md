@@ -10,13 +10,13 @@
 >
 > **What mastering jadx unlocks:** Static analysis of any Android app without source code, ability to find hardcoded secrets (Phase 5 OWASP M9), understanding of app security mechanisms that dynamic analysis will then target, and foundation for Android malware analysis in Phase 7.
 >
-> **Roadmap Phase:** Phase 5 — Wireless & Mobile Security (Mobile Reverse Engineering)
+> **Roadmap Stage / Module:** Shelf: Module S02 (Mobile Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Mobile Static Analysis | Mobile Dynamic Analysis | Binary Analysis |
 |:----------------------|:------------------------|:----------------|

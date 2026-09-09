@@ -10,13 +10,13 @@
 >
 > **What mastering Rubeus unlocks:** Windows-native Kerberos attack execution. AS-REP Roasting and Kerberoasting without Impacket. Pass-the-Ticket, S4U2Self/S4U2Proxy delegation abuse, ticket harvesting, and constrained delegation exploitation. CRTP, CRTE, OSEP certification readiness.
 >
-> **Roadmap Phase:** Phase 4–5 (Post-Exploitation, Kerberos Attacks, Lateral Movement)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory & Entra ID)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Kerberos Attacks | AD Attacks | Credential Access | C2 |
 |:----------------|:-----------|:-----------------|:---|

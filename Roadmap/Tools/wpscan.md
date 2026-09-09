@@ -10,13 +10,13 @@
 >
 > **What mastering WPScan unlocks:** WordPress attack surface enumeration. Plugin/theme CVE identification. User enumeration for password attacks. Understanding of the WordPress security model and common attack patterns.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — CMS Security Testing)
+> **Roadmap Stage / Module:** Stage 3: Module 16 (Web Server Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

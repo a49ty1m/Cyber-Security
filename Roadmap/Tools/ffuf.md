@@ -1,6 +1,7 @@
 # 🌀 ffuf: Complete Mastery Checklist
 
 > **What is ffuf?** ffuf (Fuzz Faster U Fool) is a fast, flexible web fuzzer written in Go. It uses a wordlist to replace the `FUZZ` keyword in any part of an HTTP request — URL path, query string, POST body, headers, or virtual host. It's the primary tool for: directory and file discovery, virtual host enumeration, parameter fuzzing, and API endpoint discovery.
+> **Roadmap Stage / Module:** Stage 3: Module 14 (Web Application Hacking) & Stage 2: Module 10 (Enumeration)
 >
 > **Why does it exist?** Web application attack surfaces are far larger than what's visible in the browser. Hidden endpoints, backup files, admin panels, old API versions, and misconfigured directories are only discoverable by systematically testing many possible paths. ffuf does this at high speed with flexible filtering options.
 >
@@ -16,7 +17,7 @@
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

@@ -10,13 +10,13 @@
 >
 > **What mastering PyRIT unlocks:** Adaptive multi-turn LLM attack capability, ability to red-team AI systems with specific attack objectives, Microsoft's AI red-teaming methodology, and the advanced Phase 9 skills required for professional AI security assessment roles.
 >
-> **Roadmap Phase:** Phase 9 — AI & LLM Security (Advanced LLM Red Teaming)
+> **Roadmap Stage / Module:** Stage 5: Module 28 (AI & LLM Red Teaming)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | LLM Red Teaming | Automated Scanning | Local Models | AI SDKs |
 |:---------------|:------------------|:------------|:--------|

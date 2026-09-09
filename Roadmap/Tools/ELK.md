@@ -10,13 +10,13 @@
 >
 > **What mastering ELK unlocks:** SOC operations capability, ability to deploy a SIEM from scratch, KQL (Kibana Query Language) proficiency, detection engineering using Elastic Security's SIEM rules, and understanding of the data pipeline architecture used in almost every enterprise SOC.
 >
-> **Roadmap Phase:** Phase 3 — Detection Engineering & SOC Operations (Part 13A)
+> **Roadmap Stage / Module:** Stage 3: Side-Track A (Detection Engineering & SOC Operations)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
 |:--------------|:----------|:----------------|:----------|

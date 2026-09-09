@@ -10,13 +10,13 @@
 >
 > **What mastering Responder unlocks:** Credential capture from Windows environments without touching a single endpoint directly. NTLMv2 hash capture → cracking → domain user credentials. Foundation for NTLM relay attacks (ntlmrelayx). Fundamental AD attack technique present in nearly every internal pentest.
 >
-> **Roadmap Phase:** Phase 4–5 (AD Initial Credential Capture and Relay Attacks)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory) & Module 23 (Sniffing & Spoofing)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

@@ -10,13 +10,13 @@
 >
 > **What mastering NetExec unlocks:** Rapid credential validation across entire networks. Mass lateral movement assessment. Domain enumeration without being on a domain-joined machine. Full post-exploitation automation. CME muscle memory maps 1:1 to nxc commands.
 >
-> **Roadmap Phase:** Phase 4–5 (Exploitation, AD Lateral Movement, and Post-Exploitation)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory & Entra ID)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

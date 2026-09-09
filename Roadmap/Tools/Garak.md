@@ -10,13 +10,13 @@
 >
 > **What mastering Garak unlocks:** Systematic LLM vulnerability assessment capability, the Phase 9 exit gate deliverable (automated scan report), understanding of the full LLM vulnerability taxonomy, and the ability to run security regression testing on AI systems.
 >
-> **Roadmap Phase:** Phase 9 — AI & LLM Security (LLM Red Teaming, Phase 9 Exit Gate)
+> **Roadmap Stage / Module:** Stage 5: Module 28 (AI & LLM Red Teaming)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | LLM Security | Local Models | AI SDKs | Red Teaming |
 |:------------|:------------|:--------|:------------|

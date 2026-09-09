@@ -10,13 +10,13 @@
 >
 > **What mastering theHarvester unlocks:** Systematic passive OSINT collection. Email address discovery for phishing campaigns. Subdomain enumeration without touching the target. Full pre-attack intelligence profile construction.
 >
-> **Roadmap Phase:** Phase 1 (Reconnaissance — Passive OSINT)
+> **Roadmap Stage / Module:** Stage 2: Module 08 (Footprinting & Reconnaissance)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

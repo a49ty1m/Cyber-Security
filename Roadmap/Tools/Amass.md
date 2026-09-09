@@ -10,13 +10,13 @@
 >
 > **What mastering Amass unlocks:** Complete external attack surface visibility. Bug bounty asset discovery that competitors miss. Subdomain takeover identification. API-enriched recon combining 30+ data sources. Readiness for OSCP, eCPPT, PNPT, and bug bounty programmes.
 >
-> **Roadmap Phase:** Phase 1 (Reconnaissance — External Asset Discovery)
+> **Roadmap Stage / Module:** Stage 2: Module 08 (Footprinting & Reconnaissance)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Recon & OSINT | Scanning | Web Attacks | Exploitation |
 |:-------------|:---------|:-----------|:------------|

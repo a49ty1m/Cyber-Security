@@ -10,13 +10,13 @@
 >
 > **What mastering Certipy unlocks:** One of the most powerful privilege escalation paths in Active Directory, ability to generate golden certificates for persistent domain access, coverage of ADCS in pentest reports, and the skills required to audit organizations' PKI security posture.
 >
-> **Roadmap Phase:** Phase 6 — Enterprise Attack Paths (Part 25–26, ADCS Exploitation)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory & Entra ID — ADCS)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Active Directory | Credentials | Network | Cloud |
 |:----------------|:-----------|:--------|:------|

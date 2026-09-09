@@ -10,13 +10,13 @@
 >
 > **What mastering JtR unlocks:** Offline credential recovery from any captured hash. Linux password file cracking. Document/archive password cracking. Understanding of the full password cracking methodology (identification → extraction → cracking → credential use).
 >
-> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Offline Password Cracking)
+> **Roadmap Stage / Module:** Stage 2: Module 12 (Password Cracking & Hash Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

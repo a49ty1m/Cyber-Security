@@ -8,13 +8,13 @@
 >
 > **What mastering Ghidra unlocks:** Static malware analysis. Vulnerability research in closed-source software. CTF reversing challenges. Understanding binary behavior without source code. The foundation of serious malware analysis and vulnerability research.
 >
-> **Roadmap Phase:** Phase 7 (Malware Analysis and Reverse Engineering)
+> **Roadmap Stage / Module:** Shelf: Module S05 (Reverse Engineering & Malware Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

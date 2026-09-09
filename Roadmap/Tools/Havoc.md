@@ -10,13 +10,13 @@
 >
 > **What mastering Havoc unlocks:** Advanced EDR evasion technique understanding, Windows offensive tradecraft at the API/syscall level, ability to test and improve blue team detection capabilities, and Phase 10 advanced red team proficiency.
 >
-> **Roadmap Phase:** Phase 10 — Advanced Red Team & Purple Team (Advanced C2 & EDR Evasion)
+> **Roadmap Stage / Module:** Stage 5: Module 29 (Red Team Operations & Tradecraft)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | C2 Frameworks | EDR Evasion | Post-Exploitation |
 |:-------------|:-----------|:-----------------|

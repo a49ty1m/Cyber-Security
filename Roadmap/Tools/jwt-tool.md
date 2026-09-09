@@ -8,13 +8,13 @@
 >
 > **What mastering jwt_tool unlocks:** Complete JWT attack surface testing. Understanding of every JWT vulnerability. Ability to forge tokens when the implementation is weak.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — Authentication and Token Security)
+> **Roadmap Stage / Module:** Stage 3: Module 15 (Session Hijacking & Token Attacks)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

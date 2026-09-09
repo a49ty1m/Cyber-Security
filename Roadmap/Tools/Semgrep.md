@@ -10,13 +10,13 @@
 >
 > **What mastering Semgrep unlocks:** Automated security code review at scale, ability to enforce security standards across a codebase via CI/CD, the Phase 8 exit gate skill (custom SAST rule that fails CI/CD builds), and the foundation for application security engineering roles (AppSec).
 >
-> **Roadmap Phase:** Phase 8 — DevSecOps & Architecture (CI/CD Security, SAST)
+> **Roadmap Stage / Module:** Shelf: Module S13 (DevSecOps) & Module S14 (Secure Code Review)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | SAST/DevSecOps | Secrets Scanning | IaC Security |
 |:--------------|:----------------|:-------------|

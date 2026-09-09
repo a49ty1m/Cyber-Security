@@ -8,13 +8,13 @@
 >
 > **What mastering Postman unlocks:** Efficient API attack surface exploration. Complex authentication flow handling. Organized API security testing. The foundation for every modern API pentest.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — API Security Testing)
+> **Roadmap Stage / Module:** Stage 3: Module 17 (API Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

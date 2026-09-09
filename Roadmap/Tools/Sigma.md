@@ -10,13 +10,13 @@
 >
 > **What mastering Sigma unlocks:** Platform-agnostic detection engineering, ability to operationalize threat intelligence, contribution to the SigmaHQ community library, and the skills to rapidly deploy detection coverage across any SIEM environment.
 >
-> **Roadmap Phase:** Phase 3 — Detection Engineering & SOC Operations (Part 13A Stage 2–3)
+> **Roadmap Stage / Module:** Stage 3: Side-Track A (Detection Engineering & SOC Operations)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Detection Rules | SIEM Platforms | Endpoint Telemetry | Malware Analysis |
 |:---------------|:--------------|:------------------|:-----------------|

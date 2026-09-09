@@ -10,13 +10,13 @@
 >
 > **What mastering BloodHound unlocks:** The ability to find attack paths that no amount of manual enumeration would reveal. OSCP/OSEP/CRTP exam readiness. Understanding of AD security at a deep level. Both offensive AND defensive AD analysis skills. Career differentiation — BloodHound proficiency is highly valued.
 >
-> **Roadmap Phase:** Phase 5 (Active Directory Post-Exploitation and Lateral Movement)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory & Entra ID)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

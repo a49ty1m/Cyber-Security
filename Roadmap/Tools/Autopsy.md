@@ -8,13 +8,13 @@
 >
 > **What mastering Autopsy unlocks:** Full disk forensic investigations. Evidence-grade artifact documentation. Chain of custody preservation. The foundation of Phase 7 Part 27 (Digital Forensics) work.
 >
-> **Roadmap Phase:** Phase 7 Part 27 (Digital Forensics)
+> **Roadmap Stage / Module:** Shelf: Module S04 (Digital Forensics)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

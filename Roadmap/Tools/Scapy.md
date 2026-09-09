@@ -10,13 +10,13 @@
 >
 > **What mastering Scapy unlocks:** Deep understanding of network protocols at the packet level. Ability to build any custom network tool in Python. Protocol fuzzing and research. Building PoC exploit tools. The ultimate network programming foundation.
 >
-> **Roadmap Phase:** Phase 2–3 (Scanning, Enumeration, and Network Protocol Research)
+> **Roadmap Stage / Module:** Stage 1: Module 04 (Networking Fundamentals) & Stage 4: Module 23 (Sniffing)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

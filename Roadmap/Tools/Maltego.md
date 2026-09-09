@@ -8,13 +8,13 @@
 >
 > **When to use theHarvester/SpiderFoot:** For automated bulk collection. Maltego is better for interactive, analyst-driven investigation where visual relationships matter.
 >
-> **Roadmap Phase:** Phase 1 (Reconnaissance — Visual Link Analysis and OSINT Investigation)
+> **Roadmap Stage / Module:** Stage 2: Module 08 (Footprinting & Reconnaissance)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

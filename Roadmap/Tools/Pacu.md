@@ -10,13 +10,13 @@
 >
 > **What mastering Pacu unlocks:** AWS penetration testing capability, understanding of IAM privilege escalation paths (critical for cloud architecture reviews), demonstration of cloud misconfiguration impact, and the skills needed for cloud-focused red team engagements.
 >
-> **Roadmap Phase:** Phase 6 — Enterprise & Cloud Security (Cloud Exploitation)
+> **Roadmap Stage / Module:** Stage 4: Module 20 (Cloud Computing)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Cloud Security | Cloud Audit | Enterprise |
 |:--------------|:-----------|:-----------|

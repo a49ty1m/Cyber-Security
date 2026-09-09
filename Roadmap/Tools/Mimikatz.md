@@ -10,13 +10,13 @@
 >
 > **What mastering Mimikatz unlocks:** Complete Windows credential extraction. Pass-the-Hash and Pass-the-Ticket lateral movement. Golden Ticket and Silver Ticket persistence. DCSync — the ability to replicate all AD hashes without touching LSASS. OSCP, CRTP, OSEP, and PNPT certification readiness.
 >
-> **Roadmap Phase:** Phase 4–5 (Post-Exploitation, Credential Access, Lateral Movement)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory & Entra ID)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Post-Exploitation | AD Attacks | Credential Access | C2 |
 |:-----------------|:-----------|:-----------------|:---|

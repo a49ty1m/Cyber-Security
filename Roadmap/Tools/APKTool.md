@@ -10,13 +10,13 @@
 >
 > **What mastering APKTool unlocks:** Ability to patch any Android app without source code (removing checks, injecting Frida gadget), deep understanding of Android's Smali bytecode layer, capability to modify app behavior for edge case testing, and the technical foundation for Android malware modification analysis.
 >
-> **Roadmap Phase:** Phase 5 — Wireless & Mobile Security (Mobile Reverse Engineering)
+> **Roadmap Stage / Module:** Shelf: Module S02 (Mobile Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Mobile Static Analysis | Mobile Dynamic Analysis | Resources |
 |:----------------------|:------------------------|:---------|

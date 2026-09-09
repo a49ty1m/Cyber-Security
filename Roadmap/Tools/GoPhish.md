@@ -8,13 +8,13 @@
 >
 > **Legal / Ethics:** Only use on authorized targets. Phishing without authorization is a crime. GoPhish campaigns must be explicitly included in the engagement scope.
 >
-> **Roadmap Phase:** Phase 6 (Social Engineering and Phishing Simulation)
+> **Roadmap Stage / Module:** Stage 4: Module 24 (Social Engineering)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

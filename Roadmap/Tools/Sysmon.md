@@ -10,13 +10,13 @@
 >
 > **What mastering Sysmon unlocks:** High-fidelity Windows endpoint telemetry, the ability to detect virtually every attacker TTP at the endpoint level, solid foundation for writing Sigma rules, and the practical skills for MITRE ATT&CK coverage assessment.
 >
-> **Roadmap Phase:** Phase 3 — Detection Engineering & SOC Operations (Part 13A Stage 1)
+> **Roadmap Stage / Module:** Stage 3: Side-Track A (Detection Engineering & SOC Operations)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Endpoint Telemetry | SIEM Platforms | Detection Rules | Forensics |
 |:------------------|:--------------|:----------------|:----------|

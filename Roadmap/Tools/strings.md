@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Know the command options well, understand what strings output tells you, and know its limitations.
 >
-> **Roadmap Phase:** Phase 7 (Malware Analysis — Static String Extraction)
+> **Roadmap Stage / Module:** Shelf: Module S05 (Reverse Engineering & Malware Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

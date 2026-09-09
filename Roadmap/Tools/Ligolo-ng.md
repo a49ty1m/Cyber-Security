@@ -8,13 +8,13 @@
 >
 > **What mastering Ligolo-ng unlocks:** Full network pivoting capability. The ability to attack internal networks through a beachhead. The core skill that separates basic pentesting from advanced red team operations.
 >
-> **Roadmap Phase:** Phase 5 (Pivoting and Tunneling)
+> **Roadmap Stage / Module:** Stage 2: Module 13 (System Hacking — Pivoting) & Stage 4: Module 19
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

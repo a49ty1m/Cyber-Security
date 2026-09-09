@@ -10,13 +10,13 @@
 >
 > **What mastering tcpdump unlocks:** Network traffic analysis capability in any environment. Evidence collection from servers. Protocol-level debugging. Foundation for understanding all network-based attacks and defenses.
 >
-> **Roadmap Phase:** Phase 1 (Tier 1 Mandatory — packet capture foundations) through Phase 7 (DFIR — CLI packet capture used across all phases)
+> **Roadmap Stage / Module:** Stage 1: Module 04 (Networking Fundamentals)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

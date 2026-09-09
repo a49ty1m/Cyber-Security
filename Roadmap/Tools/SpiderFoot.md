@@ -8,13 +8,13 @@
 >
 > **When to use theHarvester or Recon-ng:** For specific, targeted queries. When you need module-level control and structured database output. SpiderFoot for comprehensive automated coverage; Recon-ng for controlled, structured pipelines.
 >
-> **Roadmap Phase:** Phase 1 (Reconnaissance — Automated OSINT Collection)
+> **Roadmap Stage / Module:** Stage 2: Module 08 (Footprinting & Reconnaissance)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

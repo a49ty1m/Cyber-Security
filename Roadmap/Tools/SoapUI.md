@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Know what SOAP is, how to import a WSDL and send requests, and be aware of SOAP-specific vulnerabilities. Deep mastery is needed only if your role frequently encounters legacy enterprise web services.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — Legacy SOAP/WSDL Services)
+> **Roadmap Stage / Module:** Stage 3: Module 17 (API Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

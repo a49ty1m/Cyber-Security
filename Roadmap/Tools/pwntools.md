@@ -10,13 +10,13 @@
 >
 > **What mastering pwntools unlocks:** Binary exploitation proficiency (the Phase 7 exit gate), ability to write and automate exploits for real CVEs, CTF competition competency, and the skills required for vulnerability research and offensive security engineering roles.
 >
-> **Roadmap Phase:** Phase 7 — Exploit Development & Reverse Engineering (Binary Exploitation)
+> **Roadmap Stage / Module:** Stage 5: Module 27 (Offensive Dev) & Shelf: Module S06 (Modern Exploitation)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Binary Exploitation | Debugging | Static Analysis | Forensics |
 |:-------------------|:---------|:----------------|:---------|

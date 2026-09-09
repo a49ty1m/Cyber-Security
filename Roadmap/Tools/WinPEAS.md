@@ -10,13 +10,13 @@
 >
 > **What mastering WinPEAS unlocks:** Systematic Windows privilege escalation. Understanding of every Windows escalation category. The ability to understand the output and prioritize what actually leads to escalation vs. false alarms.
 >
-> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Windows Privilege Escalation)
+> **Roadmap Stage / Module:** Stage 2: Module 13 (System Hacking & Initial Compromise)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

@@ -10,13 +10,13 @@
 >
 > **What mastering Bettercap unlocks:** Full MITM capability on local networks. Network-level credential capture. DNS-based attacks. Wi-Fi reconnaissance. The foundation for all LAN-based interception attacks.
 >
-> **Roadmap Phase:** Phase 3–4 (Network Attacks, MitM, and Credential Capture)
+> **Roadmap Stage / Module:** Stage 4: Module 23 (Sniffing & Spoofing)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

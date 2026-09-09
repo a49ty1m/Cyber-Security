@@ -10,13 +10,13 @@
 >
 > **What mastering Splunk unlocks:** SOC Analyst roles (Tier 1/2), detection engineering capability, the ability to write correlation rules that catch real attacks, and deep understanding of log-based forensics — all required for Phase 3 Part 13A.
 >
-> **Roadmap Phase:** Phase 3 — Detection Engineering & SOC Operations (Part 13A)
+> **Roadmap Stage / Module:** Stage 3: Side-Track A (Detection Engineering & SOC Operations)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
 |:--------------|:----------|:----------------|:----------|

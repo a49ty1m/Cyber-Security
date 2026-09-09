@@ -6,13 +6,13 @@
 >
 > **SET vs. GoPhish:** SET = quick setup, single attacker box, command-line driven, Metasploit-integrated. GoPhish = full campaign management, web UI, tracking, reporting, multi-target. For real engagements: GoPhish for managed campaigns. SET for quick lab demonstrations or payload delivery.
 >
-> **Roadmap Phase:** Phase 6 (Social Engineering and Red Team Operations)
+> **Roadmap Stage / Module:** Stage 4: Module 24 (Social Engineering)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

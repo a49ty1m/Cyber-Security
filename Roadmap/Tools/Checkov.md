@@ -10,13 +10,13 @@
 >
 > **What mastering Checkov unlocks:** Ability to enforce security standards in IaC codebases via CI/CD gates, understanding of the most common cloud security misconfigurations at the code level, and the Phase 8 exit gate IaC security component.
 >
-> **Roadmap Phase:** Phase 8 — DevSecOps & Architecture (Infrastructure as Code Security)
+> **Roadmap Stage / Module:** Shelf: Module S13 (DevSecOps & Secure SDLC — IaC)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | IaC Security | Secrets Scanning | SAST |
 |:------------|:----------------|:-----|

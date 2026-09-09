@@ -10,13 +10,13 @@
 >
 > **What mastering OWASP ZAP unlocks:** Free automated web application scanning. Complete OWASP Top 10 coverage. API security testing. CI/CD integration capability. The ability to perform professional web assessments without a commercial license.
 >
-> **Roadmap Phase:** Phase 3 (Web Application Attacks — Automated Scanning)
+> **Roadmap Stage / Module:** Stage 3: Module 14 (Web Application Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

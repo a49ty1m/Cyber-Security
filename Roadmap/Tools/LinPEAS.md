@@ -10,13 +10,13 @@
 >
 > **What mastering LinPEAS unlocks:** Rapid privilege escalation enumeration. Deep understanding of Linux security misconfigurations. OSCP/PNPT readiness. Ability to manually verify and exploit every finding LinPEAS reports. Understanding of Linux internals from a security perspective.
 >
-> **Roadmap Phase:** Phase 4–5 (Post-Exploitation — Linux Privilege Escalation)
+> **Roadmap Stage / Module:** Stage 2: Module 13 (System Hacking & Initial Compromise)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

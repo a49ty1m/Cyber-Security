@@ -10,13 +10,13 @@
 >
 > **What mastering Frida unlocks:** SSL pinning bypass (the Phase 5 exit requirement), runtime secret extraction from mobile apps, ability to patch any mobile application's logic at runtime, foundation for all dynamic mobile app security testing, and the skill that makes mobile pentesting dramatically more powerful than static analysis alone.
 >
-> **Roadmap Phase:** Phase 5 — Wireless & Mobile Security (Part 21–22)
+> **Roadmap Stage / Module:** Shelf: Module S02 (Mobile Security)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Mobile Security | Android Analysis | iOS Analysis | Network |
 |:---------------|:----------------|:-------------|:--------|

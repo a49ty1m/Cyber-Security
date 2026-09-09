@@ -10,13 +10,13 @@
 >
 > **What mastering Chisel unlocks:** Network pivoting through HTTP/HTTPS even through firewalls. SOCKS5 proxy access to internal networks. Port forwarding to expose internal services. OSCP exam pivoting proficiency. CTF and real-world engagement pivoting chain completion.
 >
-> **Roadmap Phase:** Phase 5 (Pivoting, Tunneling & Network Access)
+> **Roadmap Stage / Module:** Stage 2: Module 13 (System Hacking — Pivoting) & Stage 4: Module 19
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Pivoting & Tunneling | Post-Exploitation | C2 | Network |
 |:--------------------|:-----------------|:---|:--------|

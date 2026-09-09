@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** ab is the simplest HTTP benchmarking tool — great for quick capacity checks. For serious load testing, use wrk. Understand what the output numbers mean.
 >
-> **Roadmap Phase:** Phase 10 (DoS Awareness and HTTP Load Testing)
+> **Roadmap Stage / Module:** Shelf: Module S17 (Denial of Service & Resilience)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

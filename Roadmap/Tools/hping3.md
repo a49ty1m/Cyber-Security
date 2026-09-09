@@ -6,13 +6,13 @@
 >
 > **Tier 4 Reminder:** Understand what it does and how to run basic tests. You do not need to master the full feature set.
 >
-> **Roadmap Phase:** Phase 10 (DoS Awareness and Network Stress Testing)
+> **Roadmap Stage / Module:** Stage 1: Module 04 (Networking Fundamentals) & Shelf: Module S17 (DoS)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

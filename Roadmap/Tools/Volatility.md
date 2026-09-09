@@ -8,13 +8,13 @@
 >
 > **What mastering Volatility unlocks:** Memory forensics investigations. Detection of fileless malware and process injection. Credential extraction from memory. Foundation for Phase 7 Part 27 Stage 3 (Memory Forensics Gate).
 >
-> **Roadmap Phase:** Phase 7 Part 27 (Digital Forensics) — Memory Forensics Gate
+> **Roadmap Stage / Module:** Shelf: Module S04 (Digital Forensics)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

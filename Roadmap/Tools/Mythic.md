@@ -10,13 +10,13 @@
 >
 > **What mastering Mythic unlocks:** Advanced C2 operations capability, understanding of modern post-exploitation tradecraft, multi-operator red team coordination skills, and the Phase 10 exit gate for sophisticated red team operations.
 >
-> **Roadmap Phase:** Phase 10 — Advanced Red Team & Purple Team (C2 Infrastructure)
+> **Roadmap Stage / Module:** Stage 5: Module 29 (Red Team Operations & Tradecraft)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | C2 Frameworks | Post-Exploitation | Offensive Tooling |
 |:-------------|:----------------|:-----------------|

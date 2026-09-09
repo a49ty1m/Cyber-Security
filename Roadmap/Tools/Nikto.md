@@ -12,13 +12,13 @@
 >
 > **Modern Alternative — Nuclei:** For professional and bug bounty work, [Nuclei](Nuclei.md) is now the preferred first-pass web vulnerability scanner. It uses community-maintained YAML templates (9,000+), has a dramatically lower false positive rate, and is faster than Nikto. Nikto remains useful for quick legacy checks and understanding historical web scanner methodology. Use Nuclei as your primary scanner; use Nikto when a course or lab specifically requires it.
 >
-> **Roadmap Phase:** Phase 2–3 (Scanning & Enumeration and Web Vulnerability Detection)
+> **Roadmap Stage / Module:** Stage 3: Module 16 (Web Server Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

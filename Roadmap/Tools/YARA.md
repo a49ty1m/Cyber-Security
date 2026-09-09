@@ -10,13 +10,13 @@
 >
 > **What mastering YARA unlocks:** Malware family identification, threat hunting capability, memory forensics integration with Volatility, the ability to write high-fidelity IOC signatures that resist malware evasion, and contribution to threat intelligence sharing platforms (MISP, VirusTotal).
 >
-> **Roadmap Phase:** Phase 3 — Detection Engineering & Malware Analysis / Phase 7 — Reverse Engineering
+> **Roadmap Stage / Module:** Stage 3: Side-Track A (Detection Engineering) & Shelf: Module S05
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 | Detection Rules | Malware Analysis | Memory Forensics | SIEM |
 |:---------------|:----------------|:-----------------|:-----|

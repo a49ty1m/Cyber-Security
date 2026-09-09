@@ -10,13 +10,13 @@
 >
 > **What mastering Evil-WinRM unlocks:** Seamless Windows post-exploitation shell access. Pass-the-hash without Metasploit. In-memory PowerShell script execution bypassing disk-based AV. SSL-encrypted command and control over WinRM. Readiness for OSCP, CRTP, HTB Active Directory machines.
 >
-> **Roadmap Phase:** Phase 4–5 (Exploitation and Post-Exploitation / Lateral Movement)
+> **Roadmap Stage / Module:** Stage 4: Module 19 (Active Directory) & Stage 2: Module 13 (System Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | AD Attacks |
 |:-----------------|:-------------|:------------------|:-----------|

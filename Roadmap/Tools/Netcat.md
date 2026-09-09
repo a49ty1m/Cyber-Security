@@ -10,13 +10,13 @@
 >
 > **What mastering Netcat unlocks:** Deep understanding of TCP/UDP at the socket level, ability to improvise network solutions in restricted environments, shell handling skills critical for every pentest, the confidence to interact with any network service manually.
 >
-> **Roadmap Phase:** Phase 2–5 (Scanning, Exploitation, Post-Exploitation, and Pivoting)
+> **Roadmap Stage / Module:** Stage 1: Module 04 (Networking) & Stage 2: Module 13 (System Hacking)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md) · [🐧 Metasploitable 2 Lab](../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|

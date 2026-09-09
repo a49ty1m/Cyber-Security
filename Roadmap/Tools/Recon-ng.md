@@ -10,13 +10,13 @@
 >
 > **What mastering Recon-ng unlocks:** Structured, professional OSINT operations. Module-based intelligence collection from 50+ data sources. Correlated database of all OSINT findings. Professional report generation. The mindset for conducting thorough, systematic reconnaissance.
 >
-> **Roadmap Phase:** Phase 1 (Reconnaissance — Modular OSINT Framework)
+> **Roadmap Stage / Module:** Stage 2: Module 08 (Footprinting & Reconnaissance)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

@@ -8,13 +8,13 @@
 >
 > **Tier 4 Reminder:** Understand the attack mechanism, how servers are affected, and what defenses work against it.
 >
-> **Roadmap Phase:** Phase 10 (DoS Awareness — Slow HTTP Attack Testing)
+> **Roadmap Stage / Module:** Shelf: Module S17 (Denial of Service & Resilience)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 

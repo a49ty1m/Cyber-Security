@@ -1,7 +1,12 @@
 # 🔧 Tools Directory
 
-> **52 tool mastery checklists** organized by tier and roadmap phase.
-> Each file follows a structured 8-phase curriculum with checkbox tasks, competency matrix, and interview questions.
+> **88 tool mastery checklists** organized by tier and roadmap stage/module.
+> Each file follows a structured curriculum with checkbox tasks, competency matrix, and interview questions.
+
+---
+
+## 🧭 Navigation
+> [🏠 Master Roadmap](../README.md) · [Stage 1: Foundation](../Stage-1_Foundation.md) · [Stage 2: Offense I](../Stage-2_Offense-I.md) · [Stage 3: Web & App Sec](../Stage-3_Web-and-App-Sec.md) · [Stage 4: Enterprise](../Stage-4_Enterprise.md) · [Stage 5: Specialized](../Stage-5_Specialized.md) · [📦 Shelf](../Shelf_Post-Hire.md)
 
 ---
 
@@ -9,114 +14,136 @@
 
 | Tier | Label | Meaning | Depth |
 |:----:|:------|:--------|:------|
-| 1 | **Core** | Used on every engagement. Must be mastered before advancing. | 8 phases · 38–50 tasks · 33–58 hrs |
-| 2 | **Frequent** | Used regularly in specific attack chains or phases. | 8 phases · 25–40 tasks · 25–45 hrs |
-| 3 | **Situational** | Used for specific target types or scenarios. | 4–6 phases · 16–24 tasks · 12–22 hrs |
-| 4 | **Niche / Reference** | Specialized use. Know when to reach for it. | 4–5 phases · 12–18 tasks · 6–14 hrs |
+| 1 | **Core** | Used on every engagement. Must be mastered before advancing. | Full checklists · 38–50 tasks · 33–58 hrs |
+| 2 | **Frequent** | Used regularly in specific attack chains or modules. | Targeted checklists · 25–40 tasks · 25–45 hrs |
+| 3 | **Situational** | Used for specific target types, environments, or scenarios. | Focused checklists · 16–24 tasks · 12–22 hrs |
+| 4 | **Niche / Reference** | Specialized use, post-hire depth, or legacy context. Know when to reach for it. | Reference checklists · 12–18 tasks · 6–14 hrs |
 
 ---
 
 ## Tier 1 — Core Tools
 
-| Tool | Description | Roadmap Phase |
-|:-----|:------------|:-------------|
-| [🗺️ Nmap](Nmap.md) | Network discovery, port scanning, service/OS detection, NSE scripting | Phase 1–2 |
-| [🕷️ Burp Suite](Burp_Suite.md) | Web application security testing platform — proxy, scanner, intruder, repeater | Phase 3 |
-| [💀 Metasploit Framework](Metasploit_Framework.md) | Exploitation framework — exploits, payloads, post-exploitation, pivoting | Phase 4 |
-| [🔥 Hashcat](Hashcat.md) | GPU-accelerated offline password cracking — all hash types and attack modes | Phase 4–5 |
-| [🦈 Wireshark](Wireshark.md) | Packet capture and deep protocol analysis — live capture and PCAP forensics | Phase 2–7 |
-| [🔌 Netcat](Netcat.md) | TCP/UDP swiss-army knife — port scanning, file transfer, reverse/bind shells | Phase 2–5 |
-| [🩸 BloodHound](BloodHound.md) | AD graph-based attack path analysis — CE (Docker) and Legacy (Neo4j) | Phase 5 |
-| [🐍 Impacket](Impacket.md) | Python AD attack suite — secretsdump, Kerberoast, AS-REP, DCSync, relay | Phase 4–5 |
-| [🐉 LinPEAS](LinPEAS.md) | Linux privilege escalation enumeration script | Phase 4–5 |
-| [🔓 Hydra](Hydra.md) | Online password brute-force — SSH, FTP, HTTP, SMB, RDP and more | Phase 3–4 |
+| Tool | Description | Stage / Module |
+|:-----|:------------|:---------------|
+| [🗺️ Nmap](Nmap.md) | Network discovery, port scanning, service/OS detection, NSE scripting | Stage 2: Module 08 & 09 |
+| [🕷️ Burp Suite](Burp_Suite.md) | Web application security testing platform — proxy, scanner, intruder, repeater | Stage 3: Module 14 |
+| [💀 Metasploit Framework](Metasploit_Framework.md) | Exploitation framework — exploits, payloads, post-exploitation, pivoting | Stage 2: Module 13 |
+| [🔥 Hashcat](Hashcat.md) | GPU-accelerated offline password cracking — all hash types and attack modes | Stage 2: Module 12 |
+| [🦈 Wireshark](Wireshark.md) | Packet capture and deep protocol analysis — live capture and PCAP forensics | Stage 1: Module 04 |
+| [🔌 Netcat](Netcat.md) | TCP/UDP swiss-army knife — port scanning, file transfer, reverse/bind shells | Stage 1: Module 04 & Stage 2: Module 13 |
+| [🩸 BloodHound](BloodHound.md) | AD graph-based attack path analysis — CE (Docker) and Legacy (Neo4j) | Stage 4: Module 19 |
+| [🐍 Impacket](Impacket.md) | Python AD attack suite — secretsdump, Kerberoast, AS-REP, DCSync, relay | Stage 4: Module 19 |
+| [🐉 LinPEAS](LinPEAS.md) | Linux privilege escalation enumeration script | Stage 2: Module 13 |
+| [🔓 Hydra](Hydra.md) | Online password brute-force — SSH, FTP, HTTP, SMB, RDP and more | Stage 2: Module 12 & 13 |
 
 ---
 
 ## Tier 2 — Frequent Tools
 
-| Tool | Description | Roadmap Phase |
-|:-----|:------------|:-------------|
-| [🌐 NetExec](NetExec.md) | AD credential testing and lateral movement — successor to CrackMapExec (`nxc`) | Phase 4–5 |
-| [📡 Responder](Responder.md) | LLMNR/NBT-NS/mDNS poisoning — NetNTLMv2 credential capture and relay | Phase 4–5 |
-| [🔑 John the Ripper](John_the_Ripper.md) | CPU-focused password cracking — exotic formats and incremental modes | Phase 4–5 |
-| [💉 sqlmap](sqlmap.md) | Automated SQL injection detection and exploitation | Phase 3 |
-| [🌀 ffuf](ffuf.md) | Fast web fuzzer — directory, parameter, virtual host, and content discovery | Phase 3 |
-| [📂 Gobuster](Gobuster.md) | Directory, DNS, and virtual host brute-forcing | Phase 2–3 |
-| [🔍 Nikto](Nikto.md) | Web server vulnerability scanner — misconfigurations and known CVEs | Phase 2–3 |
-| [⚡ Nuclei](Nuclei.md) | Template-based vulnerability scanner — 9,000+ community templates, modern Nikto replacement | Phase 2–3 |
-| [🪟 WinPEAS](WinPEAS.md) | Windows privilege escalation enumeration script | Phase 4–5 |
-| [🔬 Ghidra](Ghidra.md) | NSA reverse engineering framework — binary analysis, decompilation | Phase 7 |
-| [🐛 x64dbg](x64dbg.md) | Windows userland debugger for dynamic malware analysis | Phase 7 |
-| [🐍 Sliver](Sliver.md) | Modern open-source C2 framework — implants, pivoting, armory | Phase 5–6 |
-| [🔀 Ligolo-ng](Ligolo-ng.md) | Agent-based network pivoting and tunneling via TUN interface | Phase 5 |
-| [🔀 Chisel](Chisel.md) | HTTP/HTTPS TCP tunneling and SOCKS5 proxy — firewall-friendly pivoting | Phase 5 |
-| [🌾 theHarvester](theHarvester.md) | OSINT email, subdomain, and hostname harvesting | Phase 1 |
-| [🔭 Recon-ng](Recon-ng.md) | Modular OSINT reconnaissance framework | Phase 1 |
-| [🕸️ SpiderFoot](SpiderFoot.md) | Automated OSINT intelligence gathering — 200+ modules | Phase 1 |
-| [🕵️ Maltego](Maltego.md) | Visual link analysis and OSINT graph mapping | Phase 1 |
-| [🌐 Amass](Amass.md) | OWASP subdomain enumeration — passive, active, API-enriched | Phase 1 |
-| [🎣 GoPhish](GoPhish.md) | Phishing simulation platform — campaigns, tracking, reporting | Phase 6 |
-| [🎭 SET](SET.md) | Social Engineering Toolkit — credential harvesting, payload delivery | Phase 6 |
-| [🕵️ Bettercap](Bettercap.md) | Active network MitM framework — ARP, DNS, HTTPS, BLE, Wi-Fi | Phase 3–4 |
-| [🐛 Ettercap](Ettercap.md) | ⚠️ Legacy MitM tool — use Bettercap for active work. Preserved for protocol fundamentals | Phase 3 |
-| [📦 Scapy](Scapy.md) | Python packet crafting and network manipulation library | Phase 2–3 |
-| [📻 tcpdump](tcpdump.md) | CLI packet capture — remote collection, filter syntax, PCAP production | Phase 2–7 |
-| [🔐 jwt-tool](jwt-tool.md) | JWT security testing — algorithm confusion, secret cracking, claim manipulation | Phase 3 |
-| [🔌 WPScan](wpscan.md) | WordPress security scanner — plugins, themes, users, vulnerabilities | Phase 3 |
-| [🪟 Evil-WinRM](Evil-WinRM.md) | WinRM post-exploitation shell — PTH, AMSI bypass, in-memory execution | Phase 4–5 |
-| [🔑 Kerbrute](Kerbrute.md) | AD username enumeration and password spraying via Kerberos pre-auth | Phase 2–3 |
-| [🐱 Mimikatz](Mimikatz.md) | Windows in-memory credential dumping — logonpasswords, DCSync, Golden Ticket | Phase 4–5 |
-| [🎫 Rubeus](Rubeus.md) | Windows-native Kerberos attack toolkit — roasting, PTT, delegation abuse | Phase 4–5 |
-| [📡 Aircrack-ng](Aircrack-ng.md) | Wi-Fi security toolkit — monitor mode, handshake capture, WPA cracking | Phase 3 |
-| [🧠 Volatility](Volatility.md) | Memory forensics framework — process analysis, network artifacts, malware detection | Phase 7 |
-| [🔍 Autopsy](Autopsy.md) | Digital forensics platform — disk image analysis, file recovery, timeline | Phase 7 |
-| [💾 FTK Imager](FTK_Imager.md) | Forensic evidence acquisition — disk and memory imaging | Phase 7 |
-| [📅 Plaso](Plaso.md) | Super-timeline generation from forensic artifacts — log2timeline | Phase 7 |
+| Tool | Description | Stage / Module |
+|:-----|:------------|:---------------|
+| [🌐 NetExec](NetExec.md) | AD credential testing and lateral movement — successor to CrackMapExec (`nxc`) | Stage 4: Module 19 |
+| [📡 Responder](Responder.md) | LLMNR/NBT-NS/mDNS poisoning — NetNTLMv2 credential capture and relay | Stage 4: Module 19 & 23 |
+| [🔑 John the Ripper](John_the_Ripper.md) | CPU-focused password cracking — exotic formats and incremental modes | Stage 2: Module 12 |
+| [💉 sqlmap](sqlmap.md) | Automated SQL injection detection and exploitation | Stage 3: Module 14 |
+| [🌀 ffuf](ffuf.md) | Fast web fuzzer — directory, parameter, virtual host, and content discovery | Stage 3: Module 14 & Stage 2: Module 10 |
+| [📂 Gobuster](Gobuster.md) | Directory, DNS, and virtual host brute-forcing | Stage 2: Module 10 & Stage 3: Module 14 |
+| [🔍 Nikto](Nikto.md) | Web server vulnerability scanner — misconfigurations and known CVEs | Stage 3: Module 16 |
+| [⚡ Nuclei](Nuclei.md) | Template-based vulnerability scanner — 9,000+ community templates | Stage 3: Module 14 & 16 |
+| [🪟 WinPEAS](WinPEAS.md) | Windows privilege escalation enumeration script | Stage 2: Module 13 |
+| [🔀 Ligolo-ng](Ligolo-ng.md) | Agent-based network pivoting and tunneling via TUN interface | Stage 2: Module 13 & Stage 4: Module 19 |
+| [🔀 Chisel](Chisel.md) | HTTP/HTTPS TCP tunneling and SOCKS5 proxy — firewall-friendly pivoting | Stage 2: Module 13 & Stage 4: Module 19 |
+| [🌾 theHarvester](theHarvester.md) | OSINT email, subdomain, and hostname harvesting | Stage 2: Module 08 |
+| [🔭 Recon-ng](Recon-ng.md) | Modular OSINT reconnaissance framework | Stage 2: Module 08 |
+| [🕸️ SpiderFoot](SpiderFoot.md) | Automated OSINT intelligence gathering — 200+ modules | Stage 2: Module 08 |
+| [🕵️ Maltego](Maltego.md) | Visual link analysis and OSINT graph mapping | Stage 2: Module 08 |
+| [🌐 Amass](Amass.md) | OWASP subdomain enumeration — passive, active, API-enriched | Stage 2: Module 08 |
+| [🎣 GoPhish](GoPhish.md) | Phishing simulation platform — campaigns, tracking, reporting | Stage 4: Module 24 |
+| [🎭 SET](SET.md) | Social Engineering Toolkit — credential harvesting, payload delivery | Stage 4: Module 24 |
+| [🕵️ Bettercap](Bettercap.md) | Active network MitM framework — ARP, DNS, HTTPS, BLE, Wi-Fi | Stage 4: Module 23 |
+| [📦 Scapy](Scapy.md) | Python packet crafting and network manipulation library | Stage 1: Module 04 & Stage 4: Module 23 |
+| [📻 tcpdump](tcpdump.md) | CLI packet capture — remote collection, filter syntax, PCAP production | Stage 1: Module 04 |
+| [🔐 jwt-tool](jwt-tool.md) | JWT security testing — algorithm confusion, secret cracking, claim manipulation | Stage 3: Module 15 |
+| [🔌 WPScan](wpscan.md) | WordPress security scanner — plugins, themes, users, vulnerabilities | Stage 3: Module 16 |
+| [🪟 Evil-WinRM](Evil-WinRM.md) | WinRM post-exploitation shell — PTH, AMSI bypass, in-memory execution | Stage 4: Module 19 & Stage 2: Module 13 |
+| [🔑 Kerbrute](Kerbrute.md) | AD username enumeration and password spraying via Kerberos pre-auth | Stage 4: Module 19 |
+| [🎫 Certipy](Certipy.md) | Active Directory Certificate Services (ADCS) enumeration and abuse | Stage 4: Module 19 |
+| [🐱 Mimikatz](Mimikatz.md) | Windows in-memory credential dumping — logonpasswords, DCSync, Golden Ticket | Stage 4: Module 19 |
+| [🎫 Rubeus](Rubeus.md) | Windows-native Kerberos attack toolkit — roasting, PTT, delegation abuse | Stage 4: Module 19 |
+| [🐍 Sliver](Sliver.md) | Modern open-source C2 framework — implants, pivoting, armory | Stage 5: Module 27 & 29 |
+| [⚔️ Havoc](Havoc.md) | Modern post-exploitation command and control framework | Stage 5: Module 29 |
+| [🏛️ Mythic](Mythic.md) | Multi-agent collaborative C2 framework | Stage 5: Module 29 |
+| [🤖 Garak](Garak.md) | LLM vulnerability scanner and red teaming automation framework | Stage 5: Module 28 |
+| [🛡️ PyRIT](PyRIT.md) | Python Risk Identification Tool for generative AI red teaming | Stage 5: Module 28 |
+| [🤖 Ollama](Ollama.md) | Local LLM execution framework for offensive & security model testing | Stage 5: Module 28 |
+| [🧠 Python AI SDKs](Python_AI_SDKs.md) | Programmatic attack surfaces for LLM APIs, LangChain, and agentic workflows | Stage 5: Module 28 |
+| [☁️ Pacu](Pacu.md) | AWS penetration testing framework — privilege escalation and data exfiltration | Stage 4: Module 20 |
+| [☁️ Prowler](Prowler.md) | Multi-cloud security assessment, auditing, and hardening tool | Stage 4: Module 20 |
+| [🔬 Ghidra](Ghidra.md) | NSA reverse engineering framework — binary analysis, decompilation | Shelf: Module S05 |
+| [🐛 x64dbg](x64dbg.md) | Windows userland debugger for dynamic malware analysis | Shelf: Module S05 |
+| [🧠 Volatility](Volatility.md) | Memory forensics framework — process analysis, network artifacts, malware detection | Shelf: Module S04 |
+| [🔍 Autopsy](Autopsy.md) | Digital forensics platform — disk image analysis, file recovery, timeline | Shelf: Module S04 |
+| [💾 FTK Imager](FTK_Imager.md) | Forensic evidence acquisition — disk and memory imaging | Shelf: Module S04 |
+| [📅 Plaso](Plaso.md) | Super-timeline generation from forensic artifacts — log2timeline | Shelf: Module S04 |
+| [📡 Aircrack-ng](Aircrack-ng.md) | Wi-Fi security toolkit — monitor mode, handshake capture, WPA cracking | Shelf: Module S01 |
 
 ---
 
 ## Tier 3 — Situational Tools
 
-| Tool | Description | Roadmap Phase |
-|:-----|:------------|:-------------|
-| [🛡️ OWASP ZAP](OWASP_ZAP.md) | Free web application scanner — active scan, spider, fuzzer | Phase 3 |
-| [📬 Postman](Postman.md) | API development and security testing platform | Phase 3 |
-| [🧼 SoapUI](SoapUI.md) | SOAP and REST web services security testing | Phase 3 |
-| [🔬 PEStudio](PEStudio.md) | Windows PE file static analysis — imports, strings, entropy, indicators | Phase 7 |
-| [🔎 Detect It Easy](Detect_It_Easy.md) | File type, packer, compiler, and protector identification | Phase 7 |
-| [📝 strings](strings.md) | Static string extraction from binaries and memory dumps | Phase 7 |
-| [🔍 Procmon](Procmon.md) | Windows process monitor — file system, registry, network, process activity | Phase 7 |
+| Tool | Description | Stage / Module |
+|:-----|:------------|:---------------|
+| [🛡️ OWASP ZAP](OWASP_ZAP.md) | Free web application scanner — active scan, spider, fuzzer | Stage 3: Module 14 |
+| [📬 Postman](Postman.md) | API development and security testing platform | Stage 3: Module 17 |
+| [🧼 SoapUI](SoapUI.md) | SOAP and REST web services security testing | Stage 3: Module 17 |
+| [🔒 OpenSSL](OpenSSL.md) | TLS handshake inspection, key generation, and certificate verification | Stage 1: Module 05 |
+| [🔄 socat](socat.md) | Multipurpose bidirectional relay — reverse shells, encrypted tunnels, port forwards | Stage 2: Module 13 |
+| [🔎 Splunk](Splunk.md) | Enterprise SIEM log ingestion, search processing, and alert creation | Stage 3: Side-Track A |
+| [🦌 ELK](ELK.md) | Elasticsearch, Logstash, Kibana open telemetry security data pipeline | Stage 3: Side-Track A |
+| [🛡️ Wazuh](Wazuh.md) | Open-source XDR and SIEM host-based monitoring platform | Stage 3: Side-Track A |
+| [📊 Sysmon](Sysmon.md) | Advanced Windows event telemetry for process creation and network connections | Stage 3: Side-Track A |
+| [📜 Sigma](Sigma.md) | Generic signature format for SIEM detection rules | Stage 3: Side-Track A |
+| [🔍 YARA](YARA.md) | Pattern matching swiss knife for malware identification and classification | Stage 3: Side-Track A & Shelf: S05 |
+| [⚡ pwntools](pwntools.md) | CTF framework and exploit development library | Stage 5: Module 27 & Shelf: S06 |
+| [🐞 GDB](GDB.md) | GNU Debugger with GEF/pwndbg extensions for Linux binary exploitation | Stage 5: Module 27 & Shelf: S06 |
+| [🔬 PEStudio](PEStudio.md) | Windows PE file static analysis — imports, strings, entropy, indicators | Shelf: Module S05 |
+| [🔎 Detect It Easy](Detect_It_Easy.md) | File type, packer, compiler, and protector identification | Shelf: Module S05 |
+| [📝 strings](strings.md) | Static string extraction from binaries and memory dumps | Shelf: Module S05 |
+| [🔍 Procmon](Procmon.md) | Windows process monitor — file system, registry, network, process activity | Stage 1: Module 03 & Shelf: S05 |
+| [💉 Frida](Frida.md) | Dynamic instrumentation toolkit for mobile app runtime analysis | Shelf: Module S02 |
+| [📱 Objection](Objection.md) | Runtime mobile security assessment framework powered by Frida | Shelf: Module S02 |
+| [🔍 jadx](jadx.md) | Dex to Java decompiler with GUI for Android APK analysis | Shelf: Module S02 |
+| [📦 APKTool](APKTool.md) | Reverse engineering Android APK files — decoding and rebuilding resources | Shelf: Module S02 |
+| [🛡️ Semgrep](Semgrep.md) | Fast static analysis engine for finding bugs and enforcing code standards | Shelf: Module S13 & S14 |
+| [🔑 Gitleaks](Gitleaks.md) | Fast secret scanner for Git repositories and files | Shelf: Module S12 & S13 |
+| [🐽 TruffleHog](TruffleHog.md) | Deep secret scanner searching high-entropy strings and credentials in Git | Shelf: Module S12 & S13 |
+| [🛡️ Checkov](Checkov.md) | Static code analysis tool for infrastructure-as-code (Terraform, K8s) | Shelf: Module S13 |
+| [⚙️ tfsec](tfsec.md) | Security scanner for Terraform code | Shelf: Module S13 |
 
 ---
 
 ## Tier 4 — Niche / Reference Tools
 
-| Tool | Description | Roadmap Phase |
-|:-----|:------------|:-------------|
-| [🍪 Cookie-Editor](Cookie-Editor.md) | Browser cookie inspection and manipulation extension | Phase 3 |
-| [📊 ApacheBench](ApacheBench.md) | HTTP load testing and benchmarking tool (`ab`) | Phase 10 |
-| [⚡ wrk](wrk.md) | Modern HTTP benchmarking with Lua scripting | Phase 10 |
-| [💣 GoldenEye](GoldenEye.md) | HTTP DoS simulation tool — educational use only | Phase 10 |
-| [🐌 Slowloris](Slowloris.md) | Slow HTTP DoS tool — connection exhaustion simulation | Phase 10 |
-| [🔨 hping3](hping3.md) | TCP/IP packet crafting — SYN floods, traceroute, firewall testing | Phase 10 |
-| [📶 iperf3](iperf3.md) | Network bandwidth and throughput testing | Phase 10 |
+| Tool | Description | Stage / Module |
+|:-----|:------------|:---------------|
+| [🍪 Cookie-Editor](Cookie-Editor.md) | Browser cookie inspection and manipulation extension | Stage 3: Module 15 |
+| [📊 ApacheBench](ApacheBench.md) | HTTP load testing and benchmarking tool (`ab`) | Shelf: Module S17 |
+| [⚡ wrk](wrk.md) | Modern HTTP benchmarking with Lua scripting | Shelf: Module S17 |
+| [💣 GoldenEye](GoldenEye.md) | HTTP DoS simulation tool — educational use only | Shelf: Module S17 |
+| [🐌 Slowloris](Slowloris.md) | Slow HTTP DoS tool — connection exhaustion simulation | Shelf: Module S17 |
+| [🔨 hping3](hping3.md) | TCP/IP packet crafting — SYN floods, traceroute, firewall testing | Stage 1: Module 04 & Shelf: S17 |
+| [📶 iperf3](iperf3.md) | Network bandwidth and throughput testing | Stage 1: Module 04 |
+| [🐛 Ettercap](Ettercap.md) | ⚠️ Legacy MitM tool — preserved for protocol fundamentals | Stage 4: Module 23 (Legacy) |
 
 ---
 
-## Navigation by Phase
+## Navigation by Stage
 
-| Phase | Relevant Tools |
+| Stage | Relevant Tools |
 |:------|:--------------|
-| **Phase 1 — Reconnaissance** | theHarvester, Recon-ng, SpiderFoot, Maltego |
-| **Phase 2 — Scanning & Enumeration** | Nmap, Netcat, Gobuster, Nikto, Scapy, tcpdump, Wireshark |
-| **Phase 3 — Web & Service Attacks** | Burp Suite, sqlmap, ffuf, Gobuster, Nikto, OWASP ZAP, Postman, SoapUI, jwt-tool, WPScan, Bettercap, Ettercap, Scapy |
-| **Phase 4 — Exploitation** | Metasploit, Hydra, Hashcat, Impacket, NetExec, Responder |
-| **Phase 5 — Post-Exploitation & Lateral Movement** | LinPEAS, WinPEAS, BloodHound, Impacket, NetExec, Responder, Hashcat, John the Ripper, Sliver, Ligolo-ng, Netcat |
-| **Phase 6 — Social Engineering & Red Team** | GoPhish, SET, Sliver |
-| **Phase 7 — DFIR & Reverse Engineering** | Volatility, Autopsy, FTK Imager, Plaso, Ghidra, x64dbg, PEStudio, Detect It Easy, strings, Procmon, Wireshark, tcpdump |
-| **Phase 10 — DoS Awareness** | ApacheBench, wrk, GoldenEye, Slowloris, hping3, iperf3 |
-
----
-
-
+| **Stage 1 — Foundation** | Wireshark, tcpdump, Netcat, OpenSSL, Scapy, iperf3, Procmon |
+| **Stage 2 — Offense I** | Nmap, Netcat, Gobuster, theHarvester, Recon-ng, SpiderFoot, Maltego, Amass, Metasploit, Hydra, Hashcat, John the Ripper, LinPEAS, WinPEAS, socat, Ligolo-ng, Chisel |
+| **Stage 3 — Web & App Sec** | Burp Suite, sqlmap, ffuf, Gobuster, Nikto, Nuclei, OWASP ZAP, Postman, SoapUI, jwt-tool, WPScan, Cookie-Editor · *(Side-Track: Splunk, ELK, Wazuh, Sysmon, Sigma, YARA)* |
+| **Stage 4 — Enterprise** | BloodHound, Impacket, NetExec, Responder, Evil-WinRM, Kerbrute, Certipy, Mimikatz, Rubeus, Pacu, Prowler, Bettercap, Ettercap, Scapy, GoPhish, SET, Ligolo-ng, Chisel |
+| **Stage 5 — Specialized** | Sliver, Havoc, Mythic, pwntools, GDB, Ollama, Python AI SDKs, Garak, PyRIT |
+| **Shelf — Post-Hire** | Aircrack-ng (S01), Frida, Objection, jadx, APKTool (S02), Volatility, Autopsy, FTK Imager, Plaso (S04), Ghidra, x64dbg, PEStudio, Detect It Easy, strings (S05), Semgrep, Gitleaks, TruffleHog, Checkov, tfsec (S12–S14), ApacheBench, wrk, GoldenEye, Slowloris, hping3 (S17) |

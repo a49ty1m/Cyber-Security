@@ -8,13 +8,13 @@
 >
 > **What mastering x64dbg unlocks:** Dynamic malware analysis. Unpacking any packed executable. Runtime value inspection. Bypassing anti-analysis. Complete binary patching capability.
 >
-> **Roadmap Phase:** Phase 7 (Malware Analysis and Reverse Engineering)
+> **Roadmap Stage / Module:** Shelf: Module S05 (Reverse Engineering & Malware Analysis)
 
 ---
 
 ## 🧭 Navigation
 
-> [🏠 Home](../README.md) · [📋 Roadmap](../Roadmap/README.md)
+> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
 
 ---
 
