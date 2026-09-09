@@ -377,6 +377,17 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 
 > One question answered every morning: **"What is my current Part and what am I proving today?"**
 
+### Daily Activities
+
+**1. Engineering Foundation**
+Read the protocol or mechanism for your current topic. Write structured notes. Understand *why* it works before touching a tool.
+
+**2. Lab Execution**
+Terminal open. Wireshark running. Execute commands, capture output, break things. Never run a tool you cannot explain at the packet or system level.
+
+**3. Artifact & Proof**
+Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descriptive message. Check the Move-On Gate in the phase file.
+
 ### Hard Rules
 
 1. **Never start with passive reading.** Peak energy belongs to the terminal, not a PDF.
@@ -384,6 +395,7 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 3. **No writeup = learning didn't happen.** Every lab session gets a committed markdown file.
 4. **Respect the Move-On Gates.** Do not proceed to the next stage until you can demonstrate the skill without notes.
 5. **Git commit after every session.** If you haven't committed in 2 weeks, you're drifting.
+
 
 ### Programming Track *(Weekends Only)*
 
