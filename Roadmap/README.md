@@ -327,7 +327,7 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 | 3 | [Cryptography](Phase-1.md#part-3-cryptography) | 1 | |
 | 3B | [Authentication Standards Primer](Phase-1.md#part-3b-authentication-standards-primer) | 1 | |
 | 3C | [Web Technology Fundamentals](Phase-1.md#part-3c-web-technology-fundamentals) | 1 | |
-| **4** | **[Footprinting & Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance)** | **2** | **← Current** |
+| 4 | [Footprinting & Reconnaissance](Phase-2.md#part-4-footprinting-and-reconnaissance) | 2 | |
 | 5 | [Scanning](Phase-2.md#part-5-scanning) | 2 | |
 | 6 | [Enumeration](Phase-2.md#part-6-enumeration) | 2 | |
 | 6B | [Database Security](Phase-2.md#part-6b-database-security) | 2 | |
@@ -341,7 +341,7 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 | 13B | [Security Operations Expansion](Phase-3.md#part-13b-security-operations-expansion) | 3 | |
 | 14 | [IDS, Firewalls & Honeypots](Phase-3.md#part-14-ids-firewalls-and-honeypots) | 3 | |
 | 15 | [OSINT & Threat Intelligence](Phase-3.md#part-15-osint-threat-intelligence) | 3 | |
-| **16** | [**Adversary Emulation & Purple Teaming**](Phase-6.md#part-16-adversary-emulation-purple-teaming) | **6** | Capstone |
+| 16 | [Adversary Emulation & Purple Teaming](Phase-6.md#part-16-adversary-emulation-purple-teaming) | 6 | Capstone |
 | 17 | [Web Application Hacking](Phase-4.md#part-17-web-application-hacking) | 4 | |
 | 18 | [Web Server Hacking](Phase-4.md#part-18-web-server-hacking) | 4 | |
 | 19 | [API Security](Phase-4.md#part-19-api-security) | 4 | |
@@ -356,7 +356,7 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 | 28 | [Reverse Engineering & Malware Analysis](Phase-7.md#part-28-reverse-engineering-malware-analysis) | 7 | ⚠️ Post-Hire |
 | 29 | [Modern Exploitation](Phase-7.md#part-29-modern-exploitation) | 7 | ⚠️ Requires Part 42 first |
 | 30 | [Hardware Hacking](Phase-7.md#part-30-hardware-hacking-embedded-systems-optional-specialization) | 7 | ⚪ Optional |
-| **31** | [**Password Cracking & Hash Analysis**](Phase-2.md#part-31-password-cracking-hash-analysis) | **2** | Before Part 7 |
+| 31 | [Password Cracking & Hash Analysis](Phase-2.md#part-31-password-cracking-hash-analysis) | 2 | Before Part 7 |
 | 32 | [Physical Penetration Testing](Phase-7.md#part-32-physical-penetration-testing-optional-specialization) | 7 | ⚪ Optional |
 | 33 | [VoIP/SS7/5G](Phase-7.md#part-33-voip-telecommunications-security-optional-specialization) | 7 | ⚪ Optional |
 | 34 | [Blockchain/Web3](Phase-7.md#part-34-blockchain-web3-security-optional-specialization) | 7 | ⚪ Optional |
@@ -366,9 +366,9 @@ Where enterprise red teams operate. Active Directory and cloud are mandatory ski
 | 37B | [Secure Code Review Methodology](Phase-8.md#part-37b-secure-code-review-methodology) | 8 | ⚠️ Post-Hire |
 | 38 | [AI & LLM Red Teaming](Phase-9.md#part-38-ai-llm-red-teaming) | 9 | |
 | 39 | [Pentest Methodologies & Report Writing](Phase-10.md#part-39-penetration-testing-methodologies-report-writing) | 10 | Pull into Stage 2 |
-| **40** | [**Red Team Operations & Tradecraft**](Phase-10.md#part-40-red-team-operations-tradecraft) | **10** | Before Part 39 |
+| 40 | [Red Team Operations & Tradecraft](Phase-10.md#part-40-red-team-operations-tradecraft) | 10 | Before Part 39 |
 | 41 | [Proof of Work & Career Portfolio](Phase-10.md#part-41-proof-of-work-career-portfolio) | 10 | |
-| **42** | [**Offensive Development & Tooling**](Phase-7.md#part-42-offensive-development-tooling) | **7** | Before Part 29 |
+| 42 | [Offensive Development & Tooling](Phase-7.md#part-42-offensive-development-tooling) | 7 | Before Part 29 |
 | 43 | [Security Architecture & Engineering](Phase-8.md#part-43-security-architecture-engineering) | 8 | ⚠️ Post-Hire |
 
 ---
