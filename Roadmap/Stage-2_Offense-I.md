@@ -663,7 +663,35 @@
 - [ ] **Service Discovery:** Scan for database services on standard and non-standard ports:
   - MySQL / MariaDB: 3306 | MSSQL: 1433 (TCP), 1434 (UDP browser) | PostgreSQL: 5432
   - Oracle: 1521 (TNS) | MongoDB: 27017 | Redis: 6379 | Elasticsearch: 9200 (HTTP), 9300 (cluster)
+  - **SQLite: no network port** — SQLite is an embedded, serverless database stored as a single file on disk (`.db`, `.sqlite`, `.sqlite3`). It is not a network service. Discovery is via filesystem enumeration: `find / -name "*.db" -o -name "*.sqlite" -o -name "*.sqlite3" 2>/dev/null`. Common locations: Android app data (`/data/data/<package>/databases/`), iOS app sandbox, browser profile directories (Chrome/Firefox history, cookies, logins stored in SQLite), desktop applications, and web apps that use SQLite as a lightweight backend.
   - Use: `nmap -sV -p 1433,3306,5432,1521,27017,6379,9200 <target>`
+
+- [ ] **SQLite Enumeration & Exploitation:** Once a SQLite file is found on a compromised host:
+  ```bash
+  # Open and enumerate
+  sqlite3 target.db
+  .tables                          # list all tables
+  .schema <tablename>              # show table structure
+  SELECT * FROM <tablename>;       # dump contents
+
+  # One-liner dump without interactive shell
+  sqlite3 target.db ".dump"
+  sqlite3 target.db "SELECT * FROM users;"
+
+  # Extract browser credentials (Chrome — Linux path)
+  sqlite3 ~/.config/google-chrome/Default/Login\ Data \
+    "SELECT origin_url, username_value, password_value FROM logins;"
+  # Note: password_value is DPAPI-encrypted on Windows; AES-256 key stored in 'Local State'
+  # Use tools: SharpChrome, HackBrowserData, LaZagne
+  ```
+  **High-value SQLite targets on a compromised system:**
+  - **Browser credentials:** Chrome/Edge `Login Data`, `Cookies`, `History` — all SQLite
+  - **Firefox:** `logins.json` + `key4.db` (NSS key storage) — credentials encrypted with master password
+  - **Android apps:** Every app's private database in `/data/data/<package>/databases/` — accessible after rooting or via ADB backup
+  - **iOS apps:** App sandbox SQLite databases — accessible post-jailbreak or via iTunes backup extraction
+  - **Slack, Signal (Desktop):** Store message history and sometimes tokens in SQLite
+  - **Password managers (some):** Local vault files in SQLite format
+  **Forensic note:** SQLite files contain a **freelist** of deleted pages — data is not zeroed on deletion. Forensic tools (`sqliteaos`, `undark`, `forensic-sqlite-recovery`) can recover deleted rows from the freelist and WAL (Write-Ahead Log) file.
 
 - [ ] **Version Fingerprinting & Banner Grabbing:**
   - MySQL: `nmap --script mysql-info -p 3306 <target>` or `mysql -h <target> -u root`
