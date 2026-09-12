@@ -1,4 +1,4 @@
-# Stage 3: Web & Application Security
+# Stage 3 — Web & App Sec
 
 ---
 
@@ -8,15 +8,18 @@
 ---
 
 > [!NOTE]
-> **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 3–4 months
-> - **⏱️ Time Commitment (Part-Time):** 4–7 months
-> - **🎯 Primary Focus:** Web application hacking, web server exploitation, API security (OWASP API Top 10), and professional bug bounty methodology.
+> **Stage Overview — Modules 14–18**
+>
+> - **⏱️ Estimated Time:** ~8–10 weeks of consistent daily sessions
+> - **🎯 Modules:** `14`–`16` Web Application & Server Hacking · `17` API Security · `18` Bug Bounty Methodology
+> - **🟡 Parallel (absorb only, never block):** Detection Awareness · IDS/Honeypots · OSINT/CTI
+> - **🔴 Gate:** 3+ HTB/THM writeups · OWASP Top 10 hands-on · Linux+Windows privesc demonstrated cold — before moving to Stage 4
+> - **🎯 Primary Focus:** Web application hacking, session hijacking & token attacks, web server exploitation, API security (OWASP API Top 10), and professional bug bounty methodology.
 
 ---
 
 > [!NOTE]
-> ### 📝 Phase 4 Documentation Requirements
+> ### 📝 Stage 3 Documentation Requirements
 > Every vulnerability you discover must be documented to professional reporting standards. Required artifacts:
 > - **Bug reports** in standard format (title, severity, description, steps to reproduce, impact, remediation)
 > - **Burp request/response pairs** — saved HTTP interactions proving each vulnerability
@@ -40,7 +43,7 @@
 > | **Tier 2 (Secondary)** | [OWASP ZAP](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/OWASP_ZAP.md) | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
 > | **Tier 2 (Secondary)** | [wpscan](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/wpscan.md) & [Nikto](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nikto.md) | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
 >
-> **Phase Exit Tool Gate:** You cannot pass Phase 4 until you can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
+> **Stage 3 Exit Gate:** You cannot pass Stage 3 until you can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
 
 ---
 
@@ -1770,6 +1773,23 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 > **Phase 3 Project Completion Gate:** Your Keylogger Detector README must demonstrate you understand detection trade-offs — not just "run this and see." You should be able to explain a scenario where your tool generates a false positive and what the next investigative step would be.
 
 ---
+
+> [!TIP]
+> ### 🎮 Concurrent CTF Practice — Stage 3
+>
+> Web security is learned by doing. Every concept maps to a PortSwigger lab and an HTB/THM box. Do them as you study each topic, not after.
+>
+> | Module | Platform | Lab / Box | Why |
+> |---|---|---|---|
+> | 14–16 Web Vulns | [PortSwigger Web Security Academy](https://portswigger.net/web-security) | All **Apprentice** labs across SQLi, XSS, CSRF, SSRF, XXE, IDOR, Path Traversal | Covers every OWASP Top 10 item hands-on |
+> | 14–16 Web Vulns | HackTheBox | **Unified** · **Markup** · **Vaccine** (Starting Point) | SQLi, XXE, SSTI in real web apps |
+> | 14–16 Web Vulns | TryHackMe | **OWASP Top 10** room · **OWASP Juice Shop** | Guided walkthrough of all 10 classes |
+> | 17 API Security | [HackTheBox Labs](https://app.hackthebox.com) | **Postman** · **BookWorm** | REST and GraphQL API attacks |
+> | 17 API Security | [DVWA](https://dvwa.co.uk) / [crAPI](https://github.com/OWASP/crAPI) | Deploy locally and work through all labs | Dedicated API vulnerability practice |
+> | 18 Bug Bounty | [PentesterLab](https://pentesterlab.com) | White Badge + Green Badge exercises | Bug class recognition in real code |
+> | 18 Bug Bounty | [HackerOne](https://www.hackerone.com) / [Bugcrowd](https://www.bugcrowd.com) | Join 1 public program and submit 1 report | Real-world recon + reporting practice |
+>
+> **Rule:** For every PortSwigger lab you complete, write one paragraph explaining the root cause, not just the steps.
 
 <a id="stage-gate-2"></a>
 

@@ -1,4 +1,4 @@
-# Stage 4: Enterprise Infrastructure, Identity & Adversary Emulation
+# Stage 4 — Enterprise
 
 ---
 
@@ -8,15 +8,17 @@
 ---
 
 > [!NOTE]
-> **Phase Overview**
-> - **⏱️ Time Commitment (Full-Time):** 6–9 months
-> - **⏱️ Time Commitment (Part-Time):** 10–14 months
-> - **🎯 Primary Focus:** Active Directory & Entra ID (on-prem + hybrid cloud identity), cloud computing attacks (AWS/Azure/GCP), container & Kubernetes security, OT/ICS/SCADA industrial systems, and adversary emulation & purple teaming.
+> **Stage Overview — Modules 19–26**
+>
+> - **⏱️ Estimated Time:** ~10–13 weeks of consistent daily sessions
+> - **🎯 Modules:** `19` Active Directory & Entra ID · `20` Cloud Security · `21` Containers & Kubernetes · `22` Adversary Emulation & Purple Teaming · `23` Sniffing & Spoofing · `24` Social Engineering · `25` Malware & Weaponization (conceptual) · `26` Pentest Reporting
+> - **🔴 Gate:** AD domain attacked end-to-end · BloodHound exports in Git · 1 professional report — before moving to Stage 5
+> - **🎯 Primary Focus:** Active Directory & Entra ID attack paths, cloud security (AWS/Azure/GCP), container & Kubernetes exploitation, adversary emulation & purple teaming, lateral movement, social engineering, and professional pentest reporting.
 
 ---
 
 > [!NOTE]
-> ### 📝 Phase 6 Documentation Requirements
+> ### 📝 Stage 4 Documentation Requirements
 > Enterprise infrastructure work must be thoroughly documented. Required artifacts:
 > - **[BloodHound](Tools/BloodHound.md) exports** — attack path graphs with annotated findings
 > - **Cloud attack evidence** — CloudTrail logs, IAM policy analysis, exploitation screenshots
@@ -41,7 +43,7 @@
 > | **Tier 2 (Secondary)** | [Kerbrute](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Kerbrute.md) | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
 > | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. |
 >
-> **Phase Exit Tool Gate:** You cannot pass Phase 6 until you can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
+> **Stage 4 Exit Gate:** You cannot pass Stage 4 until you can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
 
 ---
 
@@ -1197,7 +1199,52 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-6-document-cloud-weaponization"></a>
+<a id="stage-5b-windows-persistence-memory-forensics"></a>
+
+### **Topic 5b: Windows Persistence Analysis & Memory Forensics** — `🧠 Conceptual`
+
+> [!NOTE]
+> **Scope:** This is a conceptual exposure pass — you learn what the techniques are and what artifacts they leave so you can identify them on an engagement or in a blue-team investigation. Deep Volatility memory analysis and advanced rootkit internals are covered post-hire in Shelf S21 (Advanced Windows Internals).
+
+> [!TIP]
+> **Goal:** Know every common Windows persistence location an attacker would use, the forensic artifact each produces, and the Volatility plugin or Sysinternals tool that surfaces it.
+
+**Windows Persistence Mechanisms (with detection artifacts):**
+
+- [ ] **Registry Run Keys:** `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`, `HKLM\...\Run`, `RunOnce`, `RunServices`. Detection: Autoruns.exe (Sysinternals), reg query output, Sysmon Event ID 13 (registry value set), Windows Event 4657.
+
+- [ ] **Scheduled Tasks:** `schtasks /create` or via Task Scheduler XML dropped to `C:\Windows\System32\Tasks\`. Detection: `schtasks /query /fo LIST /v`, Sysmon Event ID 1 (process create), Windows Event ID 4698 (scheduled task created), 4702 (modified).
+
+- [ ] **Windows Services:** `sc create EvilSvc binPath= "C:\backdoor.exe" start= auto`. Detection: `sc query`, Windows Event ID 7045 (new service installed), 4688 (process created with SYSTEM token from service).
+
+- [ ] **DLL Search Order Hijacking (Persistence variant):** Place a malicious DLL in a directory searched before the legitimate DLL location for a service/application that auto-starts. Detection: Process Monitor (DLL load events), Sysmon Event ID 7 (image loaded), comparing DLL path against known-good baselines.
+
+- [ ] **WMI Event Subscriptions:** Create `__EventFilter` + `CommandLineEventConsumer` + `__FilterToConsumerBinding` — survives reboots, no registry or file drop required if using "fileless" WMI subscriptions. Detection: `Get-WMIObject -Namespace root\subscription -Class __EventFilter`, Sysmon Event ID 19/20/21 (WMI activity), Windows Event 5861.
+
+- [ ] **Startup Folder Persistence:** Drop a LNK or executable into `C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` or the system-wide equivalent. Detection: Autoruns, directory listing with timestamps, Sysmon Event ID 11 (file created).
+
+- [ ] **Boot/Pre-OS Persistence:** Awareness only — bootkit, MBR/VBR overwrites, UEFI implants. Not lab-practiced at this stage. Detect via: offline bootable scanner, Secure Boot attestation, TPM measurement comparison.
+
+**Windows Memory Forensics (Conceptual — Volatility awareness):**
+
+- [ ] **Why Memory Forensics:** Many advanced threats (fileless malware, in-memory shellcode, process injection) leave minimal or no disk artifacts. Memory forensics captures the running state: process list, network connections, injected code, decrypted credentials, and encryption keys that never touch disk.
+
+- [ ] **Key Volatility 3 Plugins to know:**
+  - `windows.pslist` / `windows.pstree` — list running processes and their parent/child relationships; look for orphaned processes or unusual parent-child pairs (e.g., `Word.exe` spawning `cmd.exe`)
+  - `windows.cmdline` — show command-line arguments for each process; reveals powershell `-EncodedCommand` or suspicious flags
+  - `windows.netscan` — active and recently closed network connections from memory; catches C2 callbacks that are not in `netstat` anymore
+  - `windows.dlllist` — DLLs loaded per process; look for DLLs loaded from `%TEMP%`, `%APPDATA%`, or unusual paths
+  - `windows.malfind` — scan process memory for regions that are `PAGE_EXECUTE_READWRITE` and contain PE headers or shellcode signatures — primary plugin for detecting injected shellcode
+  - `windows.handles` — open handles per process; reveals processes holding handles to suspicious files, registry keys, or mutexes
+  - `windows.dumpfiles` / `windows.procdump` — extract files and process executables from memory for static analysis
+
+- [ ] **Memory Acquisition:** Understand the difference between live acquisition (`winpmem`, `DumpIt`, `RAMMap`) vs. crash dump (`%SystemRoot%\MEMORY.DMP`) vs. hibernation file (`hiberfil.sys`). Know that `hiberfil.sys` and `pagefile.sys` contain memory artifacts even without a live acquisition tool.
+
+- [ ] **Lab (Conceptual):** Download a pre-made memory image from [MemLabs](https://github.com/stuxnet999/MemLabs) or [Volatility Foundation samples](https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples). Run `windows.pslist`, `windows.malfind`, and `windows.netscan` on it. Document what looks suspicious and why. This is awareness-level — you are learning to read the output, not yet building full DFIR investigation workflows (that is Shelf S04 / Stage-5 parallel).
+
+---
+
+
 
 ### **Topic 6: Document & Cloud Weaponization** — `🔬 Practical`
 
@@ -1415,6 +1462,23 @@ Robert Cialdini's research on influence identified six universal principles that
 
 
 ---
+
+> [!TIP]
+> ### 🎮 Concurrent CTF Practice — Stage 4
+>
+> Enterprise environments require enterprise practice. Standard HTB/THM boxes are no longer enough — you need pro labs.
+>
+> | Module | Platform | Lab / Box | Why |
+> |---|---|---|---|
+> | 19 Active Directory | HackTheBox | **Forest** · **Monteverde** · **Cascade** | Kerberoasting, AS-REP, ACL abuse, Pass-the-Hash |
+> | 19 Active Directory | TryHackMe | **Active Directory Basics** · **Attacktive Directory** | Guided AD attack path from scratch |
+> | 19 Active Directory | HackTheBox Pro Labs | **Offshore** or **RastaLabs** | Full multi-domain enterprise AD simulation |
+> | 20 Cloud | [flaws.cloud](http://flaws.cloud) + [flaws2.cloud](http://flaws2.cloud) | All levels | AWS S3, IAM, metadata exploitation |
+> | 20 Cloud | [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) | All scenarios | Rhino Security's vulnerable-by-design AWS env |
+> | 21 Containers | HackTheBox | **Unobtainium** · **Registry** | Container escape + Kubernetes privilege escalation |
+> | 22–26 Full chain | HackTheBox Pro Labs | **Dante** (OSCP prep) | Full network penetration test simulation |
+>
+> **Rule:** For every AD box: export your BloodHound graph, annotate the attack path, commit it to Git. That is a portfolio artifact.
 
 <a id="stage-gate-3"></a>
 

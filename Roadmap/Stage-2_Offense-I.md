@@ -1,4 +1,4 @@
-# Stage 2: Offense I
+# Stage 2 — Offense I
 
 ---
 
@@ -9,17 +9,18 @@
 ---
 
 > [!NOTE]
-> **Phase Overview**
+> **Stage Overview — Modules 08–13**
 >
-> - **⏱️ Time Commitment (Full-Time):** 5–7 months
-> - **⏱️ Time Commitment (Part-Time):** 8–12 months
-> - **🎯 Primary Focus:** The complete offensive lifecycle from recon to impact. Split into two sub-phases: **Phase 2A** (Offensive Fundamentals — recon, scanning, enumeration, credential attacks, system hacking) and **Phase 2B** (Advanced Offensive Operations — malware, sniffing/spoofing, social engineering, denial-of-service, session hijacking).
+> - **⏱️ Estimated Time:** ~5–6 weeks of consistent daily sessions
+> - **🎯 Modules:** `08` Footprinting & Recon · `09` Scanning · `10` Enumeration · `11` Database Security · `12` Password Cracking & Hash Analysis · `13` System Hacking & Initial Compromise
+> - **🔴 Gate:** Root a box · dump & crack a hash · escalate privesc — before moving to Stage 3
+> - **🎯 Primary Focus:** The complete recon-to-shell pipeline. Footprinting, scanning, enumeration, credential attacks, database exploitation, and system hacking (Linux & Windows privilege escalation).
 
 ---
 
 > [!NOTE]
 >
-> ### 📝 Phase 2 Documentation Requirements
+> ### 📝 Stage 2 Documentation Requirements
 >
 > Every attack you execute must be documented. Required artifacts:
 >
@@ -45,7 +46,7 @@
 > | **Tier 2 (Secondary)** | [Hydra](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Hydra.md) & [John the Ripper](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/John_the_Ripper.md) | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
 > | **Tier 2 (Secondary)** | [LinPEAS](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/LinPEAS.md) & [WinPEAS](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/WinPEAS.md) | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
 >
-> **Phase Exit Tool Gate:** You cannot pass Phase 2 until you can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
+> **Stage 2 Exit Gate:** You cannot pass Stage 2 until you can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
 
 ---
 
@@ -1393,6 +1394,25 @@
 
 - [ ] **Web Shell Placement:** Upload lightweight web shells (PHP, ASP.NET, JSP) to writable web roots for out-of-band foothold retention. *(Note: Kernel rootkits and UEFI bootkits are advanced low-level techniques covered in Phase 7).*
 
+**🐧 Linux Persistence Analysis:**
+
+- [ ] **Cron Backdoors:** Add malicious entries to `/etc/crontab`, `/etc/cron.d/`, `/var/spool/cron/crontabs/<user>`, or cron hourly/daily/weekly drop dirs. Understand which require root vs user privs. Know the detection artifacts: `auditd` rules on crontab writes, `/var/log/syslog` cron entries, and inotify watches on cron directories.
+
+- [ ] **Shell Init File Injection:** Inject into `~/.bashrc`, `~/.bash_profile`, `~/.profile`, `/etc/profile`, `/etc/bash.bashrc`, or `/etc/profile.d/*.sh` to execute on every user login. Know the difference between interactive vs non-interactive shell loading order. Detect via: file modification timestamps, `md5sum` baselines, auditd file watches.
+
+- [ ] **Systemd Unit Abuse:** Create a malicious `.service` file in `~/.config/systemd/user/` (user-level, no root required) or `/etc/systemd/system/` (system-level, requires root). Understand `WantedBy=multi-user.target` and `Type=forking`. Detect via: `systemctl list-units --state=enabled`, `journalctl -u <service>`, auditd watches on `/etc/systemd/`.
+
+- [ ] **SSH Authorized Keys Backdoor:** Append attacker public key to `~/.ssh/authorized_keys` or `/root/.ssh/authorized_keys`. Also inject into `/etc/skel/.ssh/authorized_keys` to persist into new user accounts. Detect via: SSH login events (`/var/log/auth.log`), authorized_keys modification timestamps.
+
+- [ ] **LD_PRELOAD Hijack:** Set `LD_PRELOAD=/tmp/evil.so` in environment init files or `/etc/ld.so.preload` to load a malicious shared library before every executed binary. Detect via: `ldd` output anomalies, `/etc/ld.so.preload` file existence (uncommon), auditd exec syscall monitoring.
+
+- [ ] **SUID Binary Planting:** Compile a SUID root shell (`chmod u+s /tmp/shell`) or modify an existing SUID binary. Find all SUID binaries: `find / -perm -4000 -type f 2>/dev/null`. Detect via: baseline comparison of SUID binary list, auditd `chmod`/`chown` watches.
+
+- [ ] **PAM Backdoor (Advanced):** Modify a PAM module (`/lib/security/pam_unix.so`) or add a new PAM config entry to accept a hardcoded master password. Requires root. Detect via: PAM module file hashes, `/etc/pam.d/` config file modification times.
+
+- [ ] **Forensic Artifact Awareness:** Know what evidence each Linux persistence technique leaves: cron log entries, systemd journal records, SSH auth logs, auditd syscall logs, shell history files. Practice finding these artifacts on a compromised box and mapping them back to the attacker technique.
+
+
 **Lateral Movement, Pivoting & Egress Evasion:**
 
 - [ ] **SMB/WinRM:** Use **PsExec, Invoke-Command, Evil-WinRM, WMIexec** to execute **commands on adjacent machines**.
@@ -1624,6 +1644,24 @@
 
 
 ---
+
+> [!TIP]
+> ### 🎮 Concurrent CTF Practice — Stage 2
+>
+> Practice must run concurrently with every module — not after you "finish" the theory.
+>
+> | Module | Platform | Box / Room | Why |
+> |---|---|---|---|
+> | 08–10 Recon & Enum | TryHackMe | **Relevant** room · **Passive Recon** · **Active Recon** | Hands-on with theHarvester, Nmap, Gobuster |
+> | 08–10 Recon & Enum | HackTheBox | **Included** (Starting Point) | Full recon-to-shell intro chain |
+> | 09 Scanning | TryHackMe | **Nmap** room | Every flag and scan type |
+> | 11 Database | HackTheBox | **Sequel** (Starting Point) | SQL injection from scratch |
+> | 12 Credentials | HackTheBox | **Responder** (Starting Point) | NetNTLM capture + Hashcat crack |
+> | 13 System Hacking | TryHackMe | **Linux PrivEsc** + **Windows PrivEsc** rooms | Structured coverage of every vector |
+> | 13 System Hacking | HackTheBox | **Blue** (EternalBlue) · **Optimum** · **Jarvis** | Real boxes requiring privesc |
+> | General | [Proving Grounds Play](https://www.offensive-security.com/labs/) | Any Easy-rated box | Free OSCP-style practice |
+>
+> **Rule:** Every box you root gets a written writeup committed to your notes repo. No writeup = learning didn't happen.
 
 <a id="stage-gate-1"></a>
 

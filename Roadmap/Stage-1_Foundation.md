@@ -1,4 +1,4 @@
-# Stage 1: The Unshakeable Foundation
+# Stage 1 — Foundation
 
 ---
 
@@ -9,11 +9,13 @@
 ---
 
 > [!NOTE]
-> **Phase Overview**
+> **Stage Overview — Modules 01–07**
 >
-> - **⏱️ Time Commitment (Full-Time):** 4–6 months
-> - **⏱️ Time Commitment (Part-Time):** 6–10 months
-> - **🎯 Primary Focus:** Master the TCP/IP stack, OSI model, DNS, HTTP/HTTPS, Linux CLI and administration, Windows administration and Event Viewer, Bash/PowerShell, Python/JavaScript, virtualization, cloud basics (AWS/Azure), Docker/Kubernetes, authentication, sessions, cookies, JSON APIs, CORS, and the cryptographic primitives underpinning all of security.
+> - **⏱️ Estimated Time:** ~2–3 months of consistent daily sessions
+> - **🎯 Modules:** `01` Hardware & Architecture · `02` Linux · `03` Windows · `04` Networking · `05` Cryptography · `06` Authentication & Identity · `07` Web Technology Fundamentals
+> - **📅 Programming Track:** Weekend-only — Python, Bash, PowerShell throughout this stage
+> - **🔴 Gate:** 10 PCAPs · admin baselines · 3 scripts · lab report — before moving to Stage 2
+> - **🎯 Primary Focus:** Master the TCP/IP stack, Linux & Windows administration, networking protocols, cryptographic primitives, authentication standards (JWT, OAuth, SAML), and web technology fundamentals (HTTP, CORS, CSP, REST).
 
 > [!IMPORTANT]
 > **Current Status: Substantially Complete → Entering Phase 2A**
@@ -42,7 +44,7 @@
 
 > [!NOTE]
 >
-> ### 📝 Phase 1 Documentation Requirements
+> ### 📝 Stage 1 Documentation Requirements
 >
 > Every topic you complete in this phase must be documented and committed to your private Git repository. Required artifacts:
 >
@@ -58,7 +60,7 @@
 
 > [!IMPORTANT]
 >
-> ### 🧱 Phase 1 Pacing Checkpoints
+> ### 🧱 Stage 1 Pacing Checkpoints
 >
 > Phase 1 is intentionally broad. Treat it as six smaller milestones instead of one giant block:
 >
@@ -186,11 +188,11 @@
 > [!TIP]
 > **Goal:** Master the machine before the Operating System initializes.
 
-- [ ] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
+- [x] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
 
-- [ ] **Registers:** Command the "steering wheel" of the CPU: **EAX/RAX** (accumulator), **ESP/RSP** (stack pointer), and **EIP/RIP** (instruction pointer).
+- [x] **Registers:** Command the "steering wheel" of the CPU: **EAX/RAX** (accumulator), **ESP/RSP** (stack pointer), and **EIP/RIP** (instruction pointer).
 
-- [ ] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
+- [x] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
 
 - [ ] **Instruction Sets:** Develop a working familiarity with **Assembly** language (**MOV**, **PUSH**, **POP**, **CALL**, **JMP**).
 
@@ -3173,6 +3175,22 @@ Authentication is the #1 attack surface in web applications. Building it yoursel
 
 > [!IMPORTANT]
 > **Phase 1 Project Completion Gate:** You should be able to explain the cryptographic choices in every project above without looking at the code. If someone asks "why Argon2 and not SHA-256?" or "why AES-GCM and not AES-CBC?" or "why CSPRNG and not random?" — you must answer from understanding, not memory. If you cannot, revisit the relevant Part before moving to Phase 2.
+
+---
+
+> [!TIP]
+> ### 🎮 Concurrent CTF Practice — Stage 1
+>
+> Don't wait until Module 30 to touch CTF platforms. Start now, in parallel with your module work.
+>
+> | Platform | What to do during Stage 1 | Why |
+> |---|---|---|
+> | [TryHackMe](https://tryhackme.com) | Complete the **Pre-Security** and **Linux Fundamentals** (Parts 1–3) learning paths | Reinforces Modules 02–04 with guided labs |
+> | [OverTheWire: Bandit](https://overthewire.org/wargames/bandit) | Work through Bandit levels 0–20 | Builds Linux CLI muscle memory you will need constantly |
+> | [PortSwigger Web Security Academy](https://portswigger.net/web-security) | Read the **HTTP** and **Web app** intro sections | Sets you up for Stage 3 — no exploitation yet |
+> | [PicoCTF](https://picoctf.org) | Solve 5–10 beginner challenges (General Skills, Cryptography) | Reinforces Module 05 Cryptography and scripting |
+>
+> **Rule:** 1 CTF challenge per day minimum. Document every solve: what the challenge was, your approach, what you learned.
 
 ---
 
