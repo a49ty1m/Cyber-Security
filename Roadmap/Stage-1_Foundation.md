@@ -4,7 +4,7 @@
 
 ### 🧭 Navigation
 
-🏠 [Master Roadmap](README.md) | [Stage 2: Offense I](Stage-2_Offense-I.md) ➔
+🏠 [[README|Master Roadmap]] | [[Stage-2_Offense-I|Stage 2: Offense I]] ➔
 
 ---
 
@@ -39,7 +39,7 @@
 > | Kerberos / Windows identity | Before Phase 6 Part 23 (AD attacks) | Phase 1 Stage 5 & 6 in Part 1C |
 > | Advanced PowerShell | During Phase 6 AD work | Targeted PS scripting for AD enumeration |
 >
-> **Your next action: proceed to [Stage 2: Offense I](Stage-2_Offense-I.md) → Part 4 (Footprinting & Reconnaissance).**
+> **Your next action: proceed to [[Stage-2_Offense-I|Stage 2: Offense I]] → Part 4 (Footprinting & Reconnaissance).**
 
 
 > [!NOTE]
@@ -80,10 +80,10 @@
 > | :--- | :--- | :--- |
 > | **Tier 1 (Mandatory)** | [Linux CLI & Bash](#stage-7a-programming-scripting-fundamentals) | Process control (`ps`, `lsof`, `kill`), file manipulation (`awk`, `sed`, `grep`), basic administrative shell scripting. |
 > | **Tier 1 (Mandatory)** | [PowerShell](#stage-4-powershell-administration-windows) | Object-based administration (`Get-Process`, `Get-Service`, `Get-NetTCPConnection`), script pipeline basics. |
-> | **Tier 1 (Mandatory)** | [Wireshark](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Wireshark.md) & [tcpdump](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/tcpdump.md) | Packet sniffing, protocol decoding (TCP 3-way handshake, DNS, ARP, HTTP/TLS), display & capture filter crafting. |
-> | **Tier 1 (Mandatory)** | [OpenSSL & cryptsetup](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/OpenSSL.md) | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
-> | **Tier 2 (Secondary)** | [iperf3](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/iperf3.md) | Network throughput, latency, and bandwidth bottleneck benchmarking across lab subnets. |
-> | **Tier 2 (Secondary)** | [Scapy](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Scapy.md) | Crafting custom Layer 2/3/4 packets in Python to test protocol boundaries and firewalls. |
+> | **Tier 1 (Mandatory)** | [[Wireshark]] & [[tcpdump]] | Packet sniffing, protocol decoding (TCP 3-way handshake, DNS, ARP, HTTP/TLS), display & capture filter crafting. |
+> | **Tier 1 (Mandatory)** | [[OpenSSL|OpenSSL & cryptsetup]] | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
+> | **Tier 2 (Secondary)** | [[iperf3]] | Network throughput, latency, and bandwidth bottleneck benchmarking across lab subnets. |
+> | **Tier 2 (Secondary)** | [[Scapy]] | Crafting custom Layer 2/3/4 packets in Python to test protocol boundaries and firewalls. |
 > **Stage Exit Tool Gate:** You cannot pass Stage 1 until you can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using `openssl s_client`.
 
 ---
@@ -193,6 +193,8 @@
 - [x] **Registers:** Command the "steering wheel" of the CPU: **EAX/RAX** (accumulator), **ESP/RSP** (stack pointer), and **EIP/RIP** (instruction pointer).
 
 - [x] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
+
+- [ ] **RAM (Random Access Memory):** Understand RAM as the primary **volatile** working memory — data in RAM is lost when power is removed. Modern systems use **DRAM (Dynamic RAM)**, which requires constant refresh cycles. Security relevance: RAM contains active process memory, decrypted credentials, encryption keys, and TLS session state that never touch disk — making it a high-value forensic and attack target. **Cold boot attacks:** If RAM is rapidly cooled (e.g., with compressed air or liquid nitrogen), the DRAM capacitor charge persists for seconds to minutes after power loss — allowing an attacker to physically remove the DIMMs, insert them into a controlled system, and read the contents. This technique was used to extract BitLocker and FileVault keys from powered-off machines in the 2008 Princeton cold boot paper. Modern mitigations: **memory encryption** (AMD SME/SEV, Intel TME), **BIOS-level memory scrambling on power-off**, and self-encrypting DIMMs. From an offensive perspective: live system memory acquisition (`winpmem`, `LiME`, `/dev/mem`) captures RAM content including process heap, stack frames, and kernel structures before they are lost — this is the first forensic action in incident response.
 
 - [ ] **Instruction Sets:** Develop a working familiarity with **Assembly** language (**MOV**, **PUSH**, **POP**, **CALL**, **JMP**).
 
@@ -324,7 +326,7 @@
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
 
 > [!NOTE]
-> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[Shelf 02: Mobile Platform Pentesting](Shelf_Post-Hire.md#shelf-02-mobile-platform-pentesting)** (Phase 5). Do not attempt until you have completed Phases 2–4.
+> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Shelf_Post-Hire#shelf-02-mobile-platform-pentesting|Shelf 02: Mobile Platform Pentesting]]** (Phase 5). Do not attempt until you have completed Phases 2–4.
 
 ---
 
@@ -1406,6 +1408,8 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Unicast vs. Multicast:** Master **FF:FF:FF:FF:FF:FF** (broadcast) and multicast MAC ranges.
 
 - [ ] **Frame Structure:** Understand **Ethernet frames**, **VLAN tags (802.1Q)**, and **frame size (MTU)** constraints.
+
+- [ ] **MTU & IP Fragmentation:** **MTU (Maximum Transmission Unit)** is the largest payload a network link can carry in a single frame — standard Ethernet MTU is **1500 bytes**. When an IP packet exceeds the MTU of an outgoing link, the router fragments it into smaller pieces (unless the **DF (Don't Fragment) bit** is set). The destination host reassembles fragments using the **Fragment Offset field** and **More Fragments (MF) bit** in the IP header. **PMTUD (Path MTU Discovery):** A host sends packets with DF=1 and relies on ICMP Type 3 Code 4 ("Fragmentation Needed") messages from routers to discover the lowest MTU along the path — this fails when ICMP is blocked. **Security relevance:** Attackers craft overlapping fragments to bypass packet inspection on older IDS/NIDS — the IDS reassembles fragments differently than the end host, allowing payload delivery that evades detection. Nmap `-f` fragments packets for firewall evasion. **Tiny Fragment Attack:** Put TCP header data into a second fragment so stateless packet filters that inspect only the first fragment miss the port number. Modern stateful firewalls buffer all fragments before inspection, closing this gap. Know that **jumbo frames** (MTU up to 9000 bytes) are common in datacenter/internal networks and can affect tool behavior.
 
 - [ ] **MAC Address Spoofing:** Learn tools like **macchanger** and implications for network security.
 
@@ -3011,6 +3015,10 @@ _Understand the web from the ground up — how browsers communicate with servers
   - **Single Page Applications (SPAs):** React/Vue/Angular apps that handle routing client-side. Authentication uses tokens (JWTs) stored in localStorage or cookies.
   - **Microservices:** Applications split into small services communicating via internal APIs — internal APIs may have weaker authentication than external-facing ones
   - **API Gateways:** Proxy all external API traffic — rate limiting, authentication, and input validation applied here. Bypass = directly targeting internal service endpoints
+  - **Reverse Proxy:** Sits in front of backend servers — the client sees only the proxy's IP. Used for load balancing, SSL termination, WAF, and caching (nginx, HAProxy, AWS ALB). **Security implication:** The real backend IP is hidden, but misconfigurations (exposed `/server-status`, `X-Forwarded-For` trust) can leak it or allow IP spoofing.
+  - **Forward Proxy:** Sits in front of **clients**, proxying outbound requests on their behalf — clients are configured to route through it. Corporate environments use forward proxies for content filtering, logging, and TLS inspection (MITM with a trusted internal CA cert installed on endpoints). **Security implication:** Forward proxies see all employee traffic including decrypted HTTPS — a compromised proxy is a full network MITM position. Attackers abuse misconfigured forward proxies to pivot (`CONNECT` method abuse), bypass firewall egress controls, or exfiltrate data via allowed outbound ports (TCP 80/443).
+  - **Service Mesh:** A dedicated infrastructure layer that handles **service-to-service communication** in microservice environments (Istio, Linkerd, Consul Connect). Every service gets a **sidecar proxy** (Envoy) that intercepts all inbound and outbound traffic. Provides: mTLS between services (zero-trust east-west encryption), observability (traces, metrics, access logs), and policy enforcement (which service can call which). **Security implications:** A compromised sidecar or misconfigured mesh policy allows lateral movement between services that appears as legitimate internal traffic. Service mesh audit logs are a detection source for container-level lateral movement. Attack surface: mesh control plane (Istiod API server), mTLS certificate issuance, and RBAC policies that allow service impersonation.
+  - **Zero Trust Architecture:** A security model where **no network location is inherently trusted** — every access request is authenticated, authorized, and encrypted regardless of whether it originates inside or outside the corporate network perimeter. Core principles: **verify explicitly** (authenticate and authorize every request using all available signals — identity, device health, location, risk), **use least privilege** (just-in-time and just-enough-access), **assume breach** (minimize blast radius, segment access, monitor everything). Implementation components: Identity Provider (IdP), device compliance enforcement (MDM), network micro-segmentation, and continuous access evaluation. **Why it matters offensively:** Zero trust environments eliminate the "inside = trusted" assumption that lateral movement relies on — an attacker who gains a foothold cannot freely access other services. Attackers must compromise valid identity tokens or device certificates rather than just pivoting via IP connectivity. Common bypass: steal a valid access token with broad scope, abuse a misconfigured policy exception, or compromise an IdP.
 
 - [ ] **Proxy Tools Awareness:** Understand that tools like **Burp Suite** and **OWASP ZAP** act as HTTP proxies sitting between your browser and the web server, capturing and allowing modification of every request and response. This is the primary tool for Phase 4 web security work.
 

@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Network Attacks | Packet Analysis | Credential Access | MitM |
 |:----------------|:----------------|:-----------------|:-----|
-| [🗺️ Nmap](Nmap.md) | [🦈 Wireshark](Wireshark.md) | [🔥 Hashcat](Hashcat.md) | [🕵️ Bettercap](Bettercap.md) |
-| [🔨 hping3](hping3.md) | [📻 tcpdump](tcpdump.md) | [🔑 John the Ripper](John_the_Ripper.md) | [🐛 Ettercap](Ettercap.md) |
-| **📡 Aircrack-ng** (you are here) | [📦 Scapy](Scapy.md) | [🔓 Hydra](Hydra.md) | [🕵️ Bettercap](Bettercap.md) |
+| [[Nmap|🗺️ Nmap]] | [[Wireshark|🦈 Wireshark]] | [[Hashcat|🔥 Hashcat]] | [[Bettercap|🕵️ Bettercap]] |
+| [[hping3|🔨 hping3]] | [[tcpdump|📻 tcpdump]] | [[John_the_Ripper|🔑 John the Ripper]] | [[Ettercap|🐛 Ettercap]] |
+| **📡 Aircrack-ng** (you are here) | [[Scapy|📦 Scapy]] | [[Hydra|🔓 Hydra]] | [[Bettercap|🕵️ Bettercap]] |
 
 ---
 

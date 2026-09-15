@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | C2 Frameworks | EDR Evasion | Post-Exploitation |
 |:-------------|:-----------|:-----------------|
-| [🏰 Mythic](Mythic.md) | **⚔️ Havoc** (you are here) | [🔱 Sliver](Sliver.md) |
-| | [💉 Metasploit](Metasploit_Framework.md) | [🔧 Impacket](Impacket.md) |
+| [[Mythic|🏰 Mythic]] | **⚔️ Havoc** (you are here) | [[Sliver|🔱 Sliver]] |
+| | [[Metasploit_Framework|💉 Metasploit]] | [[Impacket|🔧 Impacket]] |
 
 ---
 

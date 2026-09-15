@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
 |:--------------|:----------|:----------------|:----------|
-| [📊 Splunk](Splunk.md) | [🔭 Sysmon](Sysmon.md) | [🔎 Sigma](Sigma.md) | [🧠 Volatility](Volatility.md) |
-| **🐺 Wazuh** (you are here) | [📦 Plaso](Plaso.md) | [🦠 YARA](YARA.md) | [🔬 Autopsy](Autopsy.md) |
-| [📦 ELK](ELK.md) | | | |
+| [[Splunk|📊 Splunk]] | [[Sysmon|🔭 Sysmon]] | [[Sigma|🔎 Sigma]] | [[Volatility|🧠 Volatility]] |
+| **🐺 Wazuh** (you are here) | [[Plaso|📦 Plaso]] | [[YARA|🦠 YARA]] | [[Autopsy|🔬 Autopsy]] |
+| [[ELK|📦 ELK]] | | | |
 
 ---
 

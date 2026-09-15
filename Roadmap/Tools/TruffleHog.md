@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Secrets Scanning | SAST | IaC Security |
 |:----------------|:-----|:-------------|
-| [🕵️ Gitleaks](Gitleaks.md) | [🔍 Semgrep](Semgrep.md) | [✅ Checkov](Checkov.md) |
-| **🔎 TruffleHog** (you are here) | | [🛡️ tfsec](tfsec.md) |
+| [[Gitleaks|🕵️ Gitleaks]] | [[Semgrep|🔍 Semgrep]] | [[Checkov|✅ Checkov]] |
+| **🔎 TruffleHog** (you are here) | | [[tfsec|🛡️ tfsec]] |
 
 ---
 

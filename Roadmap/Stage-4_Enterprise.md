@@ -3,7 +3,7 @@
 ---
 
 ### 🧭 Navigation
-◀ [Stage 3: Web & App Sec](Stage-3_Web-and-App-Sec.md) | 🏠 [Master Roadmap](README.md) | [Stage 5: Specialized](Stage-5_Specialized.md) ➔
+◀ [[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] | 🏠 [[README|Master Roadmap]] | [[Stage-5_Specialized|Stage 5: Specialized]] ➔
 
 ---
 
@@ -20,7 +20,7 @@
 > [!NOTE]
 > ### 📝 Stage 4 Documentation Requirements
 > Enterprise infrastructure work must be thoroughly documented. Required artifacts:
-> - **[BloodHound](Tools/BloodHound.md) exports** — attack path graphs with annotated findings
+> - **[[BloodHound]] exports** — attack path graphs with annotated findings
 > - **Cloud attack evidence** — CloudTrail logs, IAM policy analysis, exploitation screenshots
 > - **Terraform/CloudFormation configs** — infrastructure-as-code for lab environments committed to Git
 > - **Purple team ATT&CK heatmap** — technique coverage matrix showing detection gaps
@@ -33,14 +33,14 @@
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | [BloodHound](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/BloodHound.md) & SharpHound | AD/Azure graph collection, Cypher query analysis, ACL abuse pathing (`ShortestPath to Domain Admins`). |
-> | **Tier 1 (Mandatory)** | [Impacket](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Impacket.md) Suite | Protocol-level attacks (`secretsdump.py`, `psexec.py`, `wmiexec.py`, `GetNPUsers.py`, `GetUserSPNs.py`). |
-> | **Tier 1 (Mandatory)** | [Mimikatz](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Mimikatz.md) & [Rubeus](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Rubeus.md) | LSASS credential dumping (`sekurlsa::logonpasswords`), Kerberoasting, AS-REP roasting, Overpass-the-Hash, ticket injection. |
+> | **Tier 1 (Mandatory)** | [[BloodHound]] & SharpHound | AD/Azure graph collection, Cypher query analysis, ACL abuse pathing (`ShortestPath to Domain Admins`). |
+> | **Tier 1 (Mandatory)** | [[Impacket]] Suite | Protocol-level attacks (`secretsdump.py`, `psexec.py`, `wmiexec.py`, `GetNPUsers.py`, `GetUserSPNs.py`). |
+> | **Tier 1 (Mandatory)** | [[Mimikatz]] & [[Rubeus]] | LSASS credential dumping (`sekurlsa::logonpasswords`), Kerberoasting, AS-REP roasting, Overpass-the-Hash, ticket injection. |
 > | **Tier 1 (Mandatory)** | **Certipy** | Active Directory Certificate Services (ADCS) enumeration, ESC1/ESC4 template exploitation, shadow credentials. |
-> | **Tier 1 (Mandatory)** | [NetExec](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/NetExec.md) (nxc) | Network spray & lateral movement orchestrator across SMB, WinRM, LDAP, MSSQL, and RDP. |
+> | **Tier 1 (Mandatory)** | [[NetExec]] (nxc) | Network spray & lateral movement orchestrator across SMB, WinRM, LDAP, MSSQL, and RDP. |
 > | **Tier 1 (Mandatory)** | **Prowler & Pacu** | AWS/Azure cloud security posture assessment, IAM privilege escalation, misconfiguration exploitation. |
-> | **Tier 2 (Secondary)** | [Evil-WinRM](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Evil-WinRM.md) | WinRM remote shell execution, DLL payload loading, pass-the-hash administrative control. |
-> | **Tier 2 (Secondary)** | [Kerbrute](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Kerbrute.md) | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
+> | **Tier 2 (Secondary)** | [[Evil-WinRM]] | WinRM remote shell execution, DLL payload loading, pass-the-hash administrative control. |
+> | **Tier 2 (Secondary)** | [[Kerbrute]] | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
 > | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. |
 >
 > **Stage 4 Exit Gate:** You cannot pass Stage 4 until you can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
@@ -361,7 +361,7 @@
 
 - [ ] **CORS Misconfiguration:** Retrieve CORS config with `aws s3api get-bucket-cors`. Permissive CORS (`AllowedOrigin: *` + `AllowCredentials: true` patterns) enables cross-origin data theft from authenticated browser sessions. Test with a crafted request from an attacker origin.
 
-- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection [strings](Tools/strings.md), and private certificates that developers have uploaded and forgotten.
+- [ ] **Secrets in Object Storage:** Use **trufflehog** (`trufflehog s3 --bucket=<name>`) to scan bucket contents for hardcoded credentials, API keys, database connection [[strings]], and private certificates that developers have uploaded and forgotten.
 
 ---
 
@@ -780,7 +780,7 @@
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
 
-- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[ettercap](Tools/Ettercap.md)**.
+- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[[Ettercap]]**.
 
 - [ ] **DNS Spoofing:** Respond to **DNS queries faster than the legitimate server**; redirect victims to malicious login pages for **credential harvesting** or **malware distribution**.
 
@@ -801,7 +801,7 @@
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
 
-- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [Burp Suite](Tools/Burp_Suite.md)** to intercept and modify traffic in real-time.
+- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [[Burp_Suite]]** to intercept and modify traffic in real-time.
 
 - [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
 
@@ -836,7 +836,7 @@
 | Level | Task                                                                       | Deliverable                               |
 | ----- | -------------------------------------------------------------------------- | ----------------------------------------- |
 | 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)              | Annotated pcap with credential extraction |
-| 2     | Perform ARP spoofing + MITM with [Bettercap](Tools/Bettercap.md) in lab | Screenshot of intercepted traffic         |
+| 2     | Perform ARP spoofing + MITM with [[Bettercap]] in lab | Screenshot of intercepted traffic         |
 | 3     | Execute DNS spoofing to redirect lab traffic to phishing page              | DNS spoof lab report                      |
 | 4     | Perform SSL stripping against a lab web server without HSTS                | Before/after traffic comparison           |
 | 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture             | End-to-end MITM lab report                |
@@ -1052,7 +1052,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Email Authentication Lab:** Configure and validate SPF, DKIM, and DMARC on a test domain or lab mail stack.
 - [ ] **Header Forensics Lab:** Analyze benign/phishing email headers and identify sender path, SPF/DKIM/DMARC result, and suspicious infrastructure.
-- [ ] **[GoPhish](Tools/GoPhish.md) Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
+- [ ] **[[GoPhish]] Simulation Lab:** Run a consented internal lab campaign against test inboxes only; measure open/click/report rates.
 - [ ] **Pretext Review:** Write three pretexts and then write the defensive awareness guidance that would defeat them.
   > [!IMPORTANT]
   > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
@@ -1127,7 +1127,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Staged Payload Architecture:** Understand the difference between **stageless** (one-shot complete payload) and **staged** (stager fetches the full payload at runtime) delivery — know why staged reduces initial payload size but requires an active C2 listener. Use `msfvenom` to generate both and compare their byte sizes and detection rates against VirusTotal (educational only — never upload customer/lab-specific payloads).
 
-- [ ] **Framework-Managed C2:** Deploy **[Sliver](Tools/Sliver.md)** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
+- [ ] **Framework-Managed C2:** Deploy **[[Sliver]]** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
 
 > **🔬 Observation Lab (Stage 2):** Run EICAR test file (`https://www.eicar.org/download/eicar.com`) through VirusTotal and note detection rate. Then generate an msfvenom stageless payload (`msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o stageless.exe`) and a staged payload (`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o staged.exe`). Compare: (1) file sizes, (2) VirusTotal detection rates for both. Record which AV engines flag them and whether detections are signature-based or heuristic. Never execute either payload outside a controlled lab VM with no network access.
 

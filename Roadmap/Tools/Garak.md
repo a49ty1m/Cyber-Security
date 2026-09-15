@@ -16,11 +16,11 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | LLM Security | Local Models | AI SDKs | Red Teaming |
 |:------------|:------------|:--------|:------------|
-| **🧨 Garak** (you are here) | [🦙 Ollama](Ollama.md) | [🤖 Python AI SDKs](Python_AI_SDKs.md) | [⚔️ PyRIT](PyRIT.md) |
+| **🧨 Garak** (you are here) | [[Ollama|🦙 Ollama]] | [[Python_AI_SDKs|🤖 Python AI SDKs]] | [[PyRIT|⚔️ PyRIT]] |
 
 ---
 

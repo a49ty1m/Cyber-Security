@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Recon & Scanning | AD Attacks | Post-Exploitation | Credential Access |
 |:-----------------|:-----------|:------------------|:-----------------|
-| [🗺️ Nmap](Nmap.md) | [🐍 Impacket](Impacket.md) | [🩸 BloodHound](BloodHound.md) | [🔥 Hashcat](Hashcat.md) |
-| [🌾 theHarvester](theHarvester.md) | [🌐 NetExec](NetExec.md) | [🪟 WinPEAS](WinPEAS.md) | [📡 Responder](Responder.md) |
-| **🔑 Kerbrute** (you are here) | [🩸 BloodHound](BloodHound.md) | [🔥 Hashcat](Hashcat.md) | [🐍 Impacket](Impacket.md) |
+| [[Nmap|🗺️ Nmap]] | [[Impacket|🐍 Impacket]] | [[BloodHound|🩸 BloodHound]] | [[Hashcat|🔥 Hashcat]] |
+| [[theHarvester|🌾 theHarvester]] | [[NetExec|🌐 NetExec]] | [[WinPEAS|🪟 WinPEAS]] | [[Responder|📡 Responder]] |
+| **🔑 Kerbrute** (you are here) | [[BloodHound|🩸 BloodHound]] | [[Hashcat|🔥 Hashcat]] | [[Impacket|🐍 Impacket]] |
 
 ---
 

@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md) · [🐧 Metasploitable 2 Lab](../../Lab/Metasploitable_2/TASK_LIST.md) · [🌐 OWASP BWA Lab](../../Lab/OWASP_Broken_WebApps/TASK_LIST.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]] · [[../Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[../Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:-------------------|:--------------|
-| [🗺️ Nmap](Nmap.md) | [💀 Metasploit](Metasploit_Framework.md) | [🐉 LinPEAS](LinPEAS.md) | [🕷️ Burp Suite](Burp_Suite.md) |
-| [🔌 Netcat](Netcat.md) | **🐍 Impacket** (you are here) | [🩸 BloodHound](BloodHound.md) | [🦈 Wireshark](Wireshark.md) |
-| | [🔓 Hydra](Hydra.md) | [🔥 Hashcat](Hashcat.md) | |
+| [[Nmap|🗺️ Nmap]] | [[Metasploit_Framework|💀 Metasploit]] | [[LinPEAS|🐉 LinPEAS]] | [[Burp_Suite|🕷️ Burp Suite]] |
+| [[Netcat|🔌 Netcat]] | **🐍 Impacket** (you are here) | [[BloodHound|🩸 BloodHound]] | [[Wireshark|🦈 Wireshark]] |
+| | [[Hydra|🔓 Hydra]] | [[Hashcat|🔥 Hashcat]] | |
 
 ---
 

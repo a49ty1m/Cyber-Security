@@ -3,7 +3,7 @@
 ---
 
 ### 🧭 Navigation
-◀ [Stage 5: Specialized](Stage-5_Specialized.md) | 🏠 [Master Roadmap](README.md)
+◀ [[Stage-5_Specialized|Stage 5: Specialized]] | 🏠 [[README|Master Roadmap]]
 
 ---
 
@@ -75,7 +75,7 @@
 
 - [ ] **Replay Attacks:** (For legacy/WEP) Use **Replay Attack** techniques to generate traffic and accelerate IV collection for cracking.
 
-- [ ] **Offline Cracking:** Run the captured handshake against wordlists using [Hashcat](Tools/Hashcat.md)/Aircrack-ng.
+- [ ] **Offline Cracking:** Run the captured handshake against wordlists using [[Hashcat]]/Aircrack-ng.
 
 ---
 
@@ -283,7 +283,7 @@
 
 - [ ] **Environment Prep:** Configure a Rooted (Android) or Jailbroken (iOS) device to bypass **Operating System Hardening**.
 
-- [ ] **Binary Acquisition:** Extract the APK or IPA and perform **Basics of Reverse Engineering** using tools like `jadx` or `[Ghidra](Tools/Ghidra.md)`.
+- [ ] **Binary Acquisition:** Extract the APK or IPA and perform **Basics of Reverse Engineering** using tools like `jadx` or `[[Ghidra]]`.
 
 - [ ] **Reconnaissance:** Map the app's attack surface (activities, services, URL schemes) and identify backend endpoints.
 
@@ -368,7 +368,7 @@
 | Level | Task | Deliverable |
 |-------|------|-------------|
 | 1 | Capture a WPA2 4-way handshake from your own AP using Aircrack-ng and crack it with a wordlist | Handshake capture file + successful crack report |
-| 2 | Execute an evil twin attack with [Bettercap](Tools/Bettercap.md)/hostapd-mana and capture credentials in your lab | MITM attack walkthrough with evidence screenshots |
+| 2 | Execute an evil twin attack with [[Bettercap]]/hostapd-mana and capture credentials in your lab | MITM attack walkthrough with evidence screenshots |
 | 3 | Perform BLE enumeration and GATT service analysis of an IoT device using Bettercap or GATTacker | BLE security audit report with service map |
 
 > [!IMPORTANT]
@@ -511,7 +511,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!TIP]
 > **Goal:** Compromise industrial controllers and interfaces.
 
-- [ ] **PLC Enumeration:** Use **[Nmap](Tools/Nmap.md) NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
+- [ ] **PLC Enumeration:** Use **[[Nmap]] NSE scripts, plcscan** to identify **Siemens S7, Allen-Bradley, Schneider** devices.
 
 - [ ] **Ladder Logic Analysis:** Reverse engineer **PLC programs** to understand **control logic, safety interlocks**.
 
@@ -569,7 +569,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
-| 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with [Wireshark](Tools/Wireshark.md) | Protocol analysis report with annotated packet captures |
+| 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with [[Wireshark]] | Protocol analysis report with annotated packet captures |
 | 2 | Attack an OpenPLC controller in lab (scan, enumerate, modify ladder logic) | PLC exploitation walkthrough with screenshots |
 | 3 | Design ICS network segmentation using Purdue Model zones and data diodes | ICS security architecture document with network diagram |
 
@@ -642,7 +642,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 - [ ] **Linux Memory Acquisition (LiME):** For Linux systems, use **LiME (Linux Memory Extractor)** — a loadable kernel module. Build for the target kernel version: `make` against target kernel headers. Load: `sudo insmod lime.ko path=/tmp/memory.lime format=lime`. Volatility 3 accepts LiME format directly. Use `format=raw` for Volatility 2 compatibility. For capture without writing to the local filesystem: `path=tcp:4444` streams the memory image over the network.
 
-- [ ] **Static Acquisition:** Create a forensic image of hard drives using `[FTK Imager](Tools/FTK_Imager.md)` or `dd`, ensuring a write-blocker is used.
+- [ ] **Static Acquisition:** Create a forensic image of hard drives using `[[FTK_Imager]]` or `dd`, ensuring a write-blocker is used.
 
 ---
 
@@ -693,11 +693,11 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!TIP]
 > **Goal:** Trace the attacker's path through network evidence.
 
-- [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **[Wireshark](Tools/Wireshark.md)** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
+- [ ] **Traffic Reconstruction:** Open **packet captures (PCAP)** in **[[Wireshark]]** to find **C2 communication patterns, data exfiltration, lateral movement, cleartext credentials**, and **DNS tunneling indicators**.
 
 - [ ] **Flow Analysis:** When full packets are missing, use **NetFlow/sFlow/IPFIX logs** to identify **connections to malicious IPs, unusual traffic volumes, beaconing patterns (regular interval connections)**, and **data exfiltration spikes**.
 
-- [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent [strings](Tools/strings.md), encrypted traffic to non-standard ports.
+- [ ] **Protocol Anomaly Detection:** Identify **protocol abuse** — DNS queries with encoded payloads, ICMP data exfiltration, HTTP/S beaconing with unusual User-Agent [[strings]], encrypted traffic to non-standard ports.
 
 - [ ] **TLS Forensics:** Analyze **JA3/JA4 fingerprints, certificate details, SNI values** to identify **malicious encrypted traffic** without decryption.
 
@@ -732,7 +732,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 - [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs. 📌 _Full reverse engineering methodology is covered in Part 28._
 
-- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **[Plaso](Tools/Plaso.md)/log2timeline, Timeline Explorer**.
+- [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **[[Plaso]]/log2timeline, Timeline Explorer**.
 
 - [ ] **Anti-Forensics Detection:** Look for signs of **timestomping, log clearing, secure deletion, encryption, steganography** indicating a sophisticated attacker who is actively hiding tracks.
 
@@ -748,7 +748,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 - [ ] **Chain of Custody:** Maintain strict **evidence handling, hash verification (SHA-256), transfer documentation** for legal admissibility. Understand **Daubert/Frye standards** for expert testimony.
 
-- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs, MITRE ATT&CK mapping** for technical teams and incident [responder](Tools/Responder.md)s.
+- [ ] **Technical Report:** Document **methodology, findings, evidence location, IOCs, MITRE ATT&CK mapping** for technical teams and incident [[Responder]]s.
 
 - [ ] **Executive Summary:** Translate technical findings into **business impact, risk assessment, regulatory implications** for management and board-level communication.
 
@@ -820,11 +820,11 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!TIP]
 > **Goal:** Observe malware behavior during live execution.
 
-- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **[Procmon](Tools/Procmon.md), Process Hacker, Regshot, Wireshark, FakeNet-NG**.
+- [ ] **Sandbox Execution:** Detonate samples in **isolated VMs** (FlareVM, REMnux) with **snapshots**; monitor using **[[Procmon]], Process Hacker, Regshot, Wireshark, FakeNet-NG**.
 
 - [ ] **Behavioral Indicators:** Document **file system changes, registry modifications, network connections, process creation, mutex creation, service installs** during execution.
 
-- [ ] **Debugger Proficiency:** Master **[x64dbg](Tools/x64dbg.md)/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
+- [ ] **Debugger Proficiency:** Master **[[x64dbg]]/x32dbg** (Windows) and **GDB with gef/pwndbg** (Linux) for **breakpoints, stepping, memory inspection, register manipulation**.
 
 - [ ] **API Hooking & Tracing:** Use **API Monitor, Frida, strace/ltrace** to intercept and log **system calls and library calls** at runtime.
 
@@ -1297,7 +1297,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!TIP]
 > **Goal:** Discover and map VoIP infrastructure.
 
-- [ ] **SIP Scanning:** Use **svmap (SIPVicious), [nmap](Tools/Nmap.md) SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
+- [ ] **SIP Scanning:** Use **svmap (SIPVicious), [[Nmap]] SIP NSE scripts** to discover **SIP-enabled devices, extensions, PBX software versions**.
 
 - [ ] **Extension Enumeration:** Use **svwar** to enumerate **valid SIP extensions** via REGISTER/OPTIONS probing; map **active users and voicemail accounts**.
 
@@ -1854,7 +1854,7 @@ Choose one track:
 > [!TIP]
 > **Goal:** Test running applications for security flaws.
 
-- [ ] **DAST Tools:** Use **[OWASP ZAP](Tools/OWASP_ZAP.md), [Burp Suite](Tools/Burp_Suite.md) Pro (automated scan), [Nikto](Tools/Nikto.md)** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
+- [ ] **DAST Tools:** Use **[[OWASP_ZAP]], [[Burp_Suite]] Pro (automated scan), [[Nikto]]** to **black-box test** running applications for **OWASP Top 10 vulnerabilities** in CI pipelines.
 
 - [ ] **IAST (Interactive Application Security Testing):** Understand how **IAST agents (Contrast Security, Seeker)** instrument running code to detect vulnerabilities from the inside during functional tests.
 
@@ -1884,7 +1884,7 @@ Choose one track:
 > [!TIP]
 > **Goal:** Prevent credential leakage through code and pipelines.
 
-- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection [strings](Tools/strings.md)**.
+- [ ] **Secrets Scanning:** Use **truffleHog, gitleaks, git-secrets** to scan **git history** (not just current HEAD) for **API keys, passwords, private keys, connection [[strings]]**.
 
 - [ ] **Pre-commit Hooks:** Install **pre-commit framework with detect-secrets or gitleaks** to block secret commits before they reach the remote repository.
 
@@ -2414,7 +2414,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 > [!NOTE]
-> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[Stage 3: Module 15](Stage-3_Web-and-App-Sec.md#module-15-session-hijacking--token-attacks)** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[Stage 4: Module 23 (Sniffing & Spoofing)](Stage-4_Enterprise.md#module-23-sniffing--spoofing)**.
+> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[[Stage-3_Web-and-App-Sec#module-15-session-hijacking--token-attacks|Stage 3: Module 15]]** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[[Stage-4_Enterprise#module-23-sniffing--spoofing|Stage 4: Module 23 (Sniffing & Spoofing)]]**.
 
 ---
 

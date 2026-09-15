@@ -3,7 +3,7 @@
 ---
 
 ### 🧭 Navigation
-◀ [Stage 2: Offense I](Stage-2_Offense-I.md) | 🏠 [Master Roadmap](README.md) | [Stage 4: Enterprise](Stage-4_Enterprise.md) ➔
+◀ [[Stage-2_Offense-I|Stage 2: Offense I]] | 🏠 [[README|Master Roadmap]] | [[Stage-4_Enterprise|Stage 4: Enterprise]] ➔
 
 ---
 
@@ -34,14 +34,14 @@
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | [Burp Suite](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Burp_Suite.md) (Community or Pro) | HTTP/S proxying, Repeater parameter manipulation, Intruder fuzzing, match & replace rules, Autorize plugin (IDOR). |
-> | **Tier 1 (Mandatory)** | [ffuf](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/ffuf.md) / [Gobuster](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Gobuster.md) | High-speed web content/directory discovery, virtual host routing fuzzing, parameter fuzzing. |
-> | **Tier 1 (Mandatory)** | [sqlmap](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/sqlmap.md) | Automated SQL injection testing, tamper script crafting, DBMS fingerprinting, database dumping. |
-> | **Tier 1 (Mandatory)** | [Postman](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Postman.md) / cURL | REST/GraphQL API schema testing, authentication token injection, automated regression request suites. |
-> | **Tier 1 (Mandatory)** | [jwt-tool](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/jwt-tool.md) | JSON Web Token tampering, algorithm confusion (`none`), key cracking, signature forgery. |
-> | **Tier 2 (Secondary)** | [Nuclei](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nuclei.md) | Template-based vulnerability scanning, custom YAML template writing for known CVEs. |
-> | **Tier 2 (Secondary)** | [OWASP ZAP](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/OWASP_ZAP.md) | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
-> | **Tier 2 (Secondary)** | [wpscan](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/wpscan.md) & [Nikto](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nikto.md) | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
+> | **Tier 1 (Mandatory)** | [[Burp_Suite]] (Community or Pro) | HTTP/S proxying, Repeater parameter manipulation, Intruder fuzzing, match & replace rules, Autorize plugin (IDOR). |
+> | **Tier 1 (Mandatory)** | [[ffuf]] / [[Gobuster]] | High-speed web content/directory discovery, virtual host routing fuzzing, parameter fuzzing. |
+> | **Tier 1 (Mandatory)** | [[sqlmap]] | Automated SQL injection testing, tamper script crafting, DBMS fingerprinting, database dumping. |
+> | **Tier 1 (Mandatory)** | [[Postman]] / cURL | REST/GraphQL API schema testing, authentication token injection, automated regression request suites. |
+> | **Tier 1 (Mandatory)** | [[jwt-tool]] | JSON Web Token tampering, algorithm confusion (`none`), key cracking, signature forgery. |
+> | **Tier 2 (Secondary)** | [[Nuclei]] | Template-based vulnerability scanning, custom YAML template writing for known CVEs. |
+> | **Tier 2 (Secondary)** | [[OWASP_ZAP]] | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
+> | **Tier 2 (Secondary)** | [[wpscan]] & [[Nikto]] | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
 >
 > **Stage 3 Exit Gate:** You cannot pass Stage 3 until you can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
 
@@ -166,11 +166,11 @@
 
 - [ ] **OSINT & Discovery:** Perform **Reconnaissance** using **Google Dorks, Shodan, Certificate Transparency** to find subdomains, exposed admin panels, and developer info.
 
-- [ ] **Service Enumeration:** Use `[nmap](Tools/Nmap.md) -sV -sC` to identify web servers, versions, and common vulnerabilities.
+- [ ] **Service Enumeration:** Use `[[Nmap]] -sV -sC` to identify web servers, versions, and common vulnerabilities.
 
 - [ ] **Technology Fingerprinting:** Use **Wappalyzer, BuiltWith, WhatWeb** to identify frameworks, CMS, WAF, CDN, and backend technologies.
 
-- [ ] **Content Discovery:** Run **[Gobuster](Tools/Gobuster.md), [ffuf](Tools/ffuf.md), dirsearch** to find hidden directories, backup files, API endpoints, and admin panels.
+- [ ] **Content Discovery:** Run **[[Gobuster]], [[ffuf]], dirsearch** to find hidden directories, backup files, API endpoints, and admin panels.
 
 - [ ] **Sitemap & Robots Analysis:** Parse **robots.txt, sitemap.xml, security.txt** for disallowed paths and contact info.
 
@@ -278,7 +278,7 @@
 | 2 | Exploit SQLi + XSS + SSRF on DVWA or OWASP Juice Shop | Attack chain documentation with request/response evidence |
 | 3 | Perform an authenticated web app assessment on WebGoat (all modules) | Structured vulnerability report |
 | 4 | Chain 3+ vulnerabilities for maximum impact on a single lab target (e.g., XSS→session theft→admin access→RCE) | Kill chain diagram + technical report |
-| 5 | Write a custom [Burp Suite](Tools/Burp_Suite.md) extension or automated scanner script | Working extension/script + README |
+| 5 | Write a custom [[Burp_Suite]] extension or automated scanner script | Working extension/script + README |
 | 6 | Complete 10 PentesterLab exercises (source-code-level web vulnerability analysis) | Exercise certificates + code review notes |
 | 7 | Solve 5 Root-Me web application challenges at intermediate difficulty | Challenge completion screenshots + methodology notes |
 
@@ -370,7 +370,7 @@
   - Host an exploit page that issues authenticated requests and reads private session data or anti-CSRF tokens from the response body.
 
 - [ ] **Network-Level Interception (Legacy/Fallback Contexts):**
-  - In internal network assessments where TLS is missing or unpinned: ARP spoofing ([Bettercap](Tools/Bettercap.md)), DNS spoofing, and SSL stripping ([Bettercap](Tools/Bettercap.md) / [Burp Suite](Tools/Burp_Suite.md)) to harvest cleartext session headers.
+  - In internal network assessments where TLS is missing or unpinned: ARP spoofing ([[Bettercap]]), DNS spoofing, and SSL stripping ([[Bettercap]] / [[Burp_Suite]]) to harvest cleartext session headers.
 
 ---
 
@@ -380,7 +380,7 @@
 > [!TIP]
 > **Goal:** Exploit stateless token architectures (JWT/OAuth) to forge administrative identities and replay stolen credentials.
 
-- [ ] **JSON Web Token (JWT) Exploitation ([jwt-tool](Tools/jwt-tool.md)):**
+- [ ] **JSON Web Token (JWT) Exploitation ([[jwt-tool]]):**
   - **Algorithm Confusion (`alg: none`):** Strip or alter the signature header to `none` / `None` / `NONE` to test if the backend accepts unsigned payloads.
   - **Key Confusion (RS256 ➔ HS256):** When a server uses asymmetric RS256, change the algorithm to symmetric HS256 and sign the token using the server's public key as the HMAC secret key.
   - **Weak HMAC Secret Cracking:** Extract the signature and crack the secret offline using `hashcat -m 16500 jwt.txt rockyou.txt` or `jwt-tool -C -d dictionary.txt`.
@@ -494,7 +494,7 @@
 
 - [ ] **Service Exploitation:** Look for **buffer overflow, format string, RCE** exploits for specific service versions (Apache mod_ssl, ProFTPd, vsftpd).
 
-- [ ] **Credential Attacks:** Launch **brute force, password spray, dictionary attacks** against **SSH, FTP, admin panels** with [Hydra](Tools/Hydra.md)/Medusa.
+- [ ] **Credential Attacks:** Launch **brute force, password spray, dictionary attacks** against **SSH, FTP, admin panels** with [[Hydra]]/Medusa.
 
 - [ ] **Default Credentials:** Test **default admin passwords** for web servers (tomcat/tomcat, admin/admin) and management interfaces.
 
@@ -652,7 +652,7 @@
 | 1 | Complete crAPI (completely ridiculous API) lab — all OWASP API Top 10 challenges | Challenge completion documentation |
 | 2 | Test BOLA, broken auth, and mass assignment against vAPI or Juice Shop API | OWASP API assessment report |
 | 3 | Exploit JWT algorithm confusion (`alg:none`, RS256→HS256) and forge tokens in a lab API | JWT attack PoC + writeup |
-| 4 | Write automated API security tests using [Postman](Tools/Postman.md) collections or Burp macros | Test suite + results |
+| 4 | Write automated API security tests using [[Postman]] collections or Burp macros | Test suite + results |
 | 5 | Audit a GraphQL API (introspection dump, batching abuse, nested query DoS, IDOR via node IDs) | GraphQL security assessment report |
 
 > [!IMPORTANT]
@@ -1076,7 +1076,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 <a id="stage-2-offensive-indicators-ttps"></a>
 ### **Topic 2: Offensive Indicators & TTPs** — `🧠 Conceptual`
 
-- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [Metasploit](Tools/Metasploit_Framework.md), custom).
+- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [[Metasploit_Framework|Metasploit]], custom).
 
 - [ ] **MITRE ATT&CK Mapping:** Correlate **detected behaviors** to **tactics/techniques** to understand adversary intent and prioritize detection investment.
 
@@ -1216,13 +1216,13 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **Live Response:** Collect **running processes, network connections, logged-in users, active services** before shutdown (loses volatile data).
 
-- [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, [FTK Imager](Tools/FTK_Imager.md)**.
+- [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, [[FTK_Imager]]**.
 
 - [ ] **Timeline Analysis:** Build **chronological timeline** of **file creation/modification, registry changes, logs** to reconstruct **attack sequence**.
 
 - [ ] **Artifact Examination:** Analyze **Windows Prefetch, Shimcache, MRU, Recycle Bin, browser history, temp files** for **evidence of compromise**.
 
-- [ ] **Memory Analysis:** Use tools like **[Volatility](Tools/Volatility.md), Rekall** to extract **running processes, injected code, encryption keys, command history** from memory dumps.
+- [ ] **Memory Analysis:** Use tools like **[[Volatility]], Rekall** to extract **running processes, injected code, encryption keys, command history** from memory dumps.
 
 ---
 
@@ -1684,7 +1684,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
-> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [Shelf 11: GRC](Shelf_Post-Hire.md#shelf-11-governance-risk--compliance-grc) (Phase 8). This sidebar gives you the minimum needed to function effectively in a defensive role from Day 1._
+> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#shelf-11-governance-risk--compliance-grc|Shelf 11: GRC]] (Phase 8). This sidebar gives you the minimum needed to function effectively in a defensive role from Day 1._
 
 
 
@@ -1725,7 +1725,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 > [!NOTE]
 > **✅ Phase 3 ends here.**
-> Part 16 (Adversary Emulation & Purple Teaming) lives in [Stage 4: Enterprise](Stage-4_Enterprise.md#module-22-adversary-emulation--purple-teaming).
+> Part 16 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#module-22-adversary-emulation--purple-teaming|Stage 4: Enterprise]].
 >
 > 
 

@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Cloud Security | AD/Enterprise | Exploitation |
 |:--------------|:-------------|:-------------|
-| **☁️ Prowler** (you are here) | [🩸 BloodHound](BloodHound.md) | [🐦 Pacu](Pacu.md) |
-| [🔑 Certipy](Certipy.md) | [🔧 Impacket](Impacket.md) | [💀 NetExec](NetExec.md) |
+| **☁️ Prowler** (you are here) | [[BloodHound|🩸 BloodHound]] | [[Pacu|🐦 Pacu]] |
+| [[Certipy|🔑 Certipy]] | [[Impacket|🔧 Impacket]] | [[NetExec|💀 NetExec]] |
 
 ---
 

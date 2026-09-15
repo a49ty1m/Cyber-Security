@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Recon & OSINT | Scanning | Web Attacks | Exploitation |
 |:-------------|:---------|:-----------|:------------|
-| [🌾 theHarvester](theHarvester.md) | [🗺️ Nmap](Nmap.md) | [🕷️ Burp Suite](Burp_Suite.md) | [💀 Metasploit](Metasploit_Framework.md) |
-| [🔭 Recon-ng](Recon-ng.md) | [📂 Gobuster](Gobuster.md) | [💉 sqlmap](sqlmap.md) | [🔓 Hydra](Hydra.md) |
-| **🌐 Amass** (you are here) | [🔍 Nikto](Nikto.md) | [🌀 ffuf](ffuf.md) | [🐍 Impacket](Impacket.md) |
+| [[theHarvester|🌾 theHarvester]] | [[Nmap|🗺️ Nmap]] | [[Burp_Suite|🕷️ Burp Suite]] | [[Metasploit_Framework|💀 Metasploit]] |
+| [[Recon-ng|🔭 Recon-ng]] | [[Gobuster|📂 Gobuster]] | [[sqlmap|💉 sqlmap]] | [[Hydra|🔓 Hydra]] |
+| **🌐 Amass** (you are here) | [[Nikto|🔍 Nikto]] | [[ffuf|🌀 ffuf]] | [[Impacket|🐍 Impacket]] |
 
 ---
 

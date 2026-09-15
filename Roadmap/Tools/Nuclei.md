@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Recon | Scanning | Web Attacks | Automation |
 |:------|:---------|:-----------|:-----------|
-| [🌐 Amass](Amass.md) | [🗺️ Nmap](Nmap.md) | [🕷️ Burp Suite](Burp_Suite.md) | [🌀 ffuf](ffuf.md) |
-| [🌾 theHarvester](theHarvester.md) | [🔍 Nikto](Nikto.md) | [💉 sqlmap](sqlmap.md) | [📂 Gobuster](Gobuster.md) |
-| [🔭 Recon-ng](Recon-ng.md) | **⚡ Nuclei** (you are here) | [🕷️ Burp Suite](Burp_Suite.md) | [🌐 Amass](Amass.md) |
+| [[Amass|🌐 Amass]] | [[Nmap|🗺️ Nmap]] | [[Burp_Suite|🕷️ Burp Suite]] | [[ffuf|🌀 ffuf]] |
+| [[theHarvester|🌾 theHarvester]] | [[Nikto|🔍 Nikto]] | [[sqlmap|💉 sqlmap]] | [[Gobuster|📂 Gobuster]] |
+| [[Recon-ng|🔭 Recon-ng]] | **⚡ Nuclei** (you are here) | [[Burp_Suite|🕷️ Burp Suite]] | [[Amass|🌐 Amass]] |
 
 ---
 

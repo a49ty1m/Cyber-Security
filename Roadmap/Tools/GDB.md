@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Dynamic Debugging | Binary Exploitation | Static Analysis |
 |:-----------------|:-------------------|:----------------|
-| **🐛 GDB** (you are here) | [🐍 pwntools](pwntools.md) | [🔭 Ghidra](Ghidra.md) |
-| [🐛 x64dbg](x64dbg.md) | | |
+| **🐛 GDB** (you are here) | [[pwntools|🐍 pwntools]] | [[Ghidra|🔭 Ghidra]] |
+| [[x64dbg|🐛 x64dbg]] | | |
 
 ---
 

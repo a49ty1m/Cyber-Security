@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [🏠 Master Roadmap](../README.md) · [🔧 Tools Index](README.md)
+> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
 
 | Cloud Security | Cloud Audit | Enterprise |
 |:--------------|:-----------|:-----------|
-| **🐦 Pacu** (you are here) | [☁️ Prowler](Prowler.md) | [🩸 BloodHound](BloodHound.md) |
-| [🔑 Certipy](Certipy.md) | | [🔧 Impacket](Impacket.md) |
+| **🐦 Pacu** (you are here) | [[Prowler|☁️ Prowler]] | [[BloodHound|🩸 BloodHound]] |
+| [[Certipy|🔑 Certipy]] | | [[Impacket|🔧 Impacket]] |
 
 ---
 

@@ -25,42 +25,42 @@
 
 | # | Module | Depth | Stage | Est. Time |
 |:--:|--------|:-----:|-------|:---------:|
-| **01** | [Fundamentals](Stage-1_Foundation.md#module-01-fundamentals) — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Foundation | 2–3 wks |
-| **02** | [Linux Administration](Stage-1_Foundation.md#module-02-linux-administration) | 🔴 | Foundation | 2–3 wks |
-| **03** | [Windows Administration](Stage-1_Foundation.md#module-03-windows-administration) | 🟡 | Foundation | 1–2 wks |
-| **04** | [Networking Fundamentals](Stage-1_Foundation.md#module-04-networking-fundamentals) | 🔴 | Foundation | 2–3 wks |
-| **05** | [Cryptography](Stage-1_Foundation.md#module-05-cryptography) — core concepts + attacks | 🔴 | Foundation | 1–2 wks |
-| **06** | [Authentication Standards](Stage-1_Foundation.md#module-06-authentication-standards) — Sessions, JWT, OAuth, MFA | 🔴 | Foundation | 1–2 wks |
-| **07** | [Web Technology Fundamentals](Stage-1_Foundation.md#module-07-web-technology-fundamentals) — HTTP, Cookies, CORS, REST | 🔴 | Foundation | 1–2 wks |
-| | **— [Foundation Proof Gate](Stage-1_Foundation.md#foundation-proof-gate) —** *(10 PCAPs, admin baselines, 3 scripts, lab report)* | | | **~2–3 mos** |
-| **08** | [Footprinting & Reconnaissance](Stage-2_Offense-I.md#module-08-footprinting--reconnaissance) | 🔴 | Offense I | 1–2 wks |
-| **09** | [Scanning](Stage-2_Offense-I.md#module-09-scanning) | 🔴 | Offense I | 1 wk |
-| **10** | [Enumeration](Stage-2_Offense-I.md#module-10-enumeration) | 🔴 | Offense I | 1–2 wks |
-| **11** | [Database Security](Stage-2_Offense-I.md#module-11-database-security) | 🟡 | Offense I | 1 wk |
-| **12** | [Password Cracking & Hash Analysis](Stage-2_Offense-I.md#module-12-password-cracking--hash-analysis) | 🔴 | Offense I | 1 wk |
-| **13** | [System Hacking & Initial Compromise](Stage-2_Offense-I.md#module-13-system-hacking--initial-compromise) | 🔴 | Offense I | 2–3 wks |
-| | **— [Stage Gate 1](Stage-2_Offense-I.md#stage-gate-1) —** *(root a box, dump & crack a hash, escalate privesc)* | | | **~5–6 wks** |
-| **14** | [Web Application Hacking](Stage-3_Web-and-App-Sec.md#module-14-web-application-hacking) — SQLi, XSS, SSRF, IDOR, XXE | 🔴 | Web & App Sec | 3–4 wks |
-| **15** | [Session Hijacking & Token Attacks](Stage-3_Web-and-App-Sec.md#module-15-session-hijacking--token-attacks) — Cookies, JWTs, Fixation | 🔴 | Web & App Sec | 1–2 wks |
-| **16** | [Web Server Hacking](Stage-3_Web-and-App-Sec.md#module-16-web-server-hacking) — Misconfig, Directory Traversal | 🔴 | Web & App Sec | 1–2 wks |
-| **17** | [API Security](Stage-3_Web-and-App-Sec.md#module-17-api-security) — OWASP API Top 10, REST/GraphQL/gRPC | 🔴 | Web & App Sec | 2 wks |
-| **18** | [Bug Bounty Methodology](Stage-3_Web-and-App-Sec.md#module-18-bug-bounty-methodology) — Scope, Recon, Exploit, Report | 🔴 | Web & App Sec | 2 wks |
-| | *(parallel, absorb only — never block)* [Detection Awareness](Stage-3_Web-and-App-Sec.md#side-track-a-detection-engineering--soc-operations), [IDS/Honeypots](Stage-3_Web-and-App-Sec.md#side-track-b-ids-firewalls-and-honeypots), [OSINT](Stage-3_Web-and-App-Sec.md#side-track-c-cyber-threat-intelligence-cti--attack-surface-management) | 🟡 | side-track | ongoing |
-| | **— [Stage Gate 2](Stage-3_Web-and-App-Sec.md#stage-gate-2) —** *(3+ HTB/THM writeups, OWASP Top 10 hands-on, Linux+Windows privesc demonstrated cold)* | | | **~8–10 wks** |
-| **19** | [Active Directory & Entra ID](Stage-4_Enterprise.md#module-19-active-directory--entra-id) *(+ deferred Kerberos patch from #03)* | 🔴 | Enterprise | 3–4 wks |
-| **20** | [Cloud Computing](Stage-4_Enterprise.md#module-20-cloud-computing) *(+ deferred Cloud Assets patch from #04)* | 🔴 | Enterprise | 2–3 wks |
-| **21** | [Container & Orchestration Security](Stage-4_Enterprise.md#module-21-container--orchestration-security) | 🟡 | Enterprise | 1–2 wks |
-| **22** | [Adversary Emulation & Purple Teaming](Stage-4_Enterprise.md#module-22-adversary-emulation--purple-teaming) | 🔴 | Enterprise | 2 wks |
-| **23** | [Sniffing & Spoofing](Stage-4_Enterprise.md#module-23-sniffing--spoofing) — ARP, MITM, Bettercap, Responder | 🟡 | Enterprise | 1 wk |
-| **24** | [Social Engineering](Stage-4_Enterprise.md#module-24-social-engineering) — Phishing, Vishing, Physical | 🟡 | Enterprise | 1 wk |
-| **25** | [Malware & Weaponization](Stage-4_Enterprise.md#module-25-malware--weaponization-conceptual) *(conceptual — full build is #27)* | 🔵 | Enterprise | 1 wk |
-| **26** | [Pentest Methodologies & Report Writing](Stage-4_Enterprise.md#module-26-pentest-methodologies--report-writing) | 🔴 | Enterprise | 1–2 wks |
-| | **— [Stage Gate 3](Stage-4_Enterprise.md#stage-gate-3) —** *(AD domain attacked end-to-end, BloodHound exports in Git, 1 professional report)* | | | **~10–13 wks** |
-| **27** | [Offensive Development & Tooling](Stage-5_Specialized.md#module-27-offensive-development--tooling) — C2, Shellcode, AMSI/ETW | 🔴 | Specialized | 4–6 wks |
-| **28** | [AI & LLM Red Teaming](Stage-5_Specialized.md#module-28-ai--llm-red-teaming) — Prompt Injection, RAG, Agentic Exploits | 🔴 | Specialized | 3–4 wks |
-| **29** | [Red Team Operations & Tradecraft](Stage-5_Specialized.md#module-29-red-team-operations--tradecraft) — C2, OPSEC, Campaign | 🔴 | Specialized | 4–6 wks |
-| **30** | [Proof of Work & Career Portfolio](Stage-5_Specialized.md#module-30-proof-of-work--career-portfolio) — Certs, GitHub, Bug Bounties | 🔴 | Specialized | 4–6 wks |
-| | **— [Final Gate](Stage-5_Specialized.md#final-gate) —** *(custom C2 in lab, published AI security research, 3+ reports, OSCP)* | | | **~15–22 wks** |
+| **01** | [[Stage-1_Foundation#module-01-fundamentals\|Fundamentals]] — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Foundation | 2–3 wks |
+| **02** | [[Stage-1_Foundation#module-02-linux-administration\|Linux Administration]] | 🔴 | Foundation | 2–3 wks |
+| **03** | [[Stage-1_Foundation#module-03-windows-administration\|Windows Administration]] | 🟡 | Foundation | 1–2 wks |
+| **04** | [[Stage-1_Foundation#module-04-networking-fundamentals\|Networking Fundamentals]] | 🔴 | Foundation | 2–3 wks |
+| **05** | [[Stage-1_Foundation#module-05-cryptography\|Cryptography]] — core concepts + attacks | 🔴 | Foundation | 1–2 wks |
+| **06** | [[Stage-1_Foundation#module-06-authentication-standards\|Authentication Standards]] — Sessions, JWT, OAuth, MFA | 🔴 | Foundation | 1–2 wks |
+| **07** | [[Stage-1_Foundation#module-07-web-technology-fundamentals\|Web Technology Fundamentals]] — HTTP, Cookies, CORS, REST | 🔴 | Foundation | 1–2 wks |
+| | **— [[Stage-1_Foundation#foundation-proof-gate\|Foundation Proof Gate]] —** *(10 PCAPs, admin baselines, 3 scripts, lab report)* | | | **~2–3 mos** |
+| **08** | [[Stage-2_Offense-I#module-08-footprinting--reconnaissance\|Footprinting & Reconnaissance]] | 🔴 | Offense I | 1–2 wks |
+| **09** | [[Stage-2_Offense-I#module-09-scanning\|Scanning]] | 🔴 | Offense I | 1 wk |
+| **10** | [[Stage-2_Offense-I#module-10-enumeration\|Enumeration]] | 🔴 | Offense I | 1–2 wks |
+| **11** | [[Stage-2_Offense-I#module-11-database-security\|Database Security]] | 🟡 | Offense I | 1 wk |
+| **12** | [[Stage-2_Offense-I#module-12-password-cracking--hash-analysis\|Password Cracking & Hash Analysis]] | 🔴 | Offense I | 1 wk |
+| **13** | [[Stage-2_Offense-I#module-13-system-hacking--initial-compromise\|System Hacking & Initial Compromise]] | 🔴 | Offense I | 2–3 wks |
+| | **— [[Stage-2_Offense-I#stage-gate-1\|Stage Gate 1]] —** *(root a box, dump & crack a hash, escalate privesc)* | | | **~5–6 wks** |
+| **14** | [[Stage-3_Web-and-App-Sec#module-14-web-application-hacking\|Web Application Hacking]] — SQLi, XSS, SSRF, IDOR, XXE | 🔴 | Web & App Sec | 3–4 wks |
+| **15** | [[Stage-3_Web-and-App-Sec#module-15-session-hijacking--token-attacks\|Session Hijacking & Token Attacks]] — Cookies, JWTs, Fixation | 🔴 | Web & App Sec | 1–2 wks |
+| **16** | [[Stage-3_Web-and-App-Sec#module-16-web-server-hacking\|Web Server Hacking]] — Misconfig, Directory Traversal | 🔴 | Web & App Sec | 1–2 wks |
+| **17** | [[Stage-3_Web-and-App-Sec#module-17-api-security\|API Security]] — OWASP API Top 10, REST/GraphQL/gRPC | 🔴 | Web & App Sec | 2 wks |
+| **18** | [[Stage-3_Web-and-App-Sec#module-18-bug-bounty-methodology\|Bug Bounty Methodology]] — Scope, Recon, Exploit, Report | 🔴 | Web & App Sec | 2 wks |
+| | *(parallel, absorb only — never block)* [[Stage-3_Web-and-App-Sec#side-track-a-detection-engineering--soc-operations\|Detection Awareness]], [[Stage-3_Web-and-App-Sec#side-track-b-ids-firewalls-and-honeypots\|IDS/Honeypots]], [[Stage-3_Web-and-App-Sec#side-track-c-cyber-threat-intelligence-cti--attack-surface-management\|OSINT]] | 🟡 | side-track | ongoing |
+| | **— [[Stage-3_Web-and-App-Sec#stage-gate-2\|Stage Gate 2]] —** *(3+ HTB/THM writeups, OWASP Top 10 hands-on, Linux+Windows privesc demonstrated cold)* | | | **~8–10 wks** |
+| **19** | [[Stage-4_Enterprise#module-19-active-directory--entra-id\|Active Directory & Entra ID]] *(+ deferred Kerberos patch from #03)* | 🔴 | Enterprise | 3–4 wks |
+| **20** | [[Stage-4_Enterprise#module-20-cloud-computing\|Cloud Computing]] *(+ deferred Cloud Assets patch from #04)* | 🔴 | Enterprise | 2–3 wks |
+| **21** | [[Stage-4_Enterprise#module-21-container--orchestration-security\|Container & Orchestration Security]] | 🟡 | Enterprise | 1–2 wks |
+| **22** | [[Stage-4_Enterprise#module-22-adversary-emulation--purple-teaming\|Adversary Emulation & Purple Teaming]] | 🔴 | Enterprise | 2 wks |
+| **23** | [[Stage-4_Enterprise#module-23-sniffing--spoofing\|Sniffing & Spoofing]] — ARP, MITM, Bettercap, Responder | 🟡 | Enterprise | 1 wk |
+| **24** | [[Stage-4_Enterprise#module-24-social-engineering\|Social Engineering]] — Phishing, Vishing, Physical | 🟡 | Enterprise | 1 wk |
+| **25** | [[Stage-4_Enterprise#module-25-malware--weaponization-conceptual\|Malware & Weaponization]] *(conceptual — full build is #27)* | 🔵 | Enterprise | 1 wk |
+| **26** | [[Stage-4_Enterprise#module-26-pentest-methodologies--report-writing\|Pentest Methodologies & Report Writing]] | 🔴 | Enterprise | 1–2 wks |
+| | **— [[Stage-4_Enterprise#stage-gate-3\|Stage Gate 3]] —** *(AD domain attacked end-to-end, BloodHound exports in Git, 1 professional report)* | | | **~10–13 wks** |
+| **27** | [[Stage-5_Specialized#module-27-offensive-development--tooling\|Offensive Development & Tooling]] — C2, Shellcode, AMSI/ETW | 🔴 | Specialized | 4–6 wks |
+| **28** | [[Stage-5_Specialized#module-28-ai--llm-red-teaming\|AI & LLM Red Teaming]] — Prompt Injection, RAG, Agentic Exploits | 🔴 | Specialized | 3–4 wks |
+| **29** | [[Stage-5_Specialized#module-29-red-team-operations--tradecraft\|Red Team Operations & Tradecraft]] — C2, OPSEC, Campaign | 🔴 | Specialized | 4–6 wks |
+| **30** | [[Stage-5_Specialized#module-30-proof-of-work--career-portfolio\|Proof of Work & Career Portfolio]] — Certs, GitHub, Bug Bounties | 🔴 | Specialized | 4–6 wks |
+| | **— [[Stage-5_Specialized#final-gate\|Final Gate]] —** *(custom C2 in lab, published AI security research, 3+ reports, OSCP)* | | | **~15–22 wks** |
 
 > **Total realistic estimate: ~10–14 months** of consistent daily sessions. Drift, passive reading instead of lab time, or skipping stage gates will stretch this significantly.
 
@@ -68,360 +68,132 @@
 
 ## 🗺️ Topics — Mapped to Execution Order
 
-> Topics listed per module, in the exact sequence you walk them.
+> Comprehensive topic breakdown mapped directly to the execution order across all 5 stages.
 
 ---
 
-### 🔵 S T A G E   1   —   F O U N D A T I O N
+### 🔵 STAGE 1 — FOUNDATION
 *Modules 01–07 · ~2–3 months*
 
----
-
-#### `01` H A R D W A R E   &   C O M P U T E R   A R C H I T E C T U R E
-
-**Hardware**
-`CPU Architecture` `x86 / x64` `ARM / ARM64` `CPU Registers` `Instruction Sets` `RAM` `Cache` `Storage` `HDD / SSD / NVMe` `BIOS` `UEFI` `TPM` `Secure Boot` `DMA` `I/O` `PCIe` `USB` `Firmware` `Embedded Controllers`
-
-**Computer Architecture**
-`Memory Addressing` `Virtual Memory` `Physical Memory` `Stack` `Heap` `Pointers` `Processes` `Threads` `Context Switching` `Interrupts` `System Calls` `Privilege Rings` `User Mode` `Kernel Mode` `IPC`
-
----
-
-#### `02` L I N U X
-
-**Internals**
-`Kernel` `Processes` `Threads` `Syscalls` `Signals` `File Descriptors` `Sockets` `Pipes` `IPC` `/proc` `/sys` `/dev` `/tmp` `/var` `/etc`
-
-**Security Model**
-`Users` `Groups` `Permissions` `ACL` `Capabilities` `SUID` `SGID` `sudo` `Namespaces` `cgroups` `SELinux` `AppArmor`
-
-**Services**
-`systemd` `Cron` `SSH` `Services` `Daemons` `Startup Mechanisms`
-
-— **Tools:** `Bash` `strace` `ltrace` `gdb` `lsof` `ss` `ps` `top` `tmux`
-
----
-
-#### `03` W I N D O W S
-
-**Architecture**
-`Win32` `Windows NT` `Processes` `Threads` `DLLs` `Handles` `Tokens` `Services` `Registry` `NTFS` `ACLs` `Named Pipes` `WMI` `COM` `RPC`
-
-**Authentication**
-`NTLM` `Kerberos` `Windows Hello` `Credential Providers` `LSASS` `SAM` `LSA` `DPAPI`
-
-**Security**
-`UAC` `Windows Defender` `Windows Firewall` `AppLocker` `WDAC` `AMSI` `ETW` `Event Logging` `Security Policies`
-
-**PowerShell**
-`PowerShell` `PowerShell Remoting` `Windows Automation` `Security Automation` `PowerShell Logging`
+| # | Module | Category / Domain | Core Concepts & Technical Scope | Key Tools & Standards |
+|:--:|--------|-------------------|---------------------------------|-----------------------|
+| **01** | [[Stage-1_Foundation#module-01-fundamentals\|Hardware & Architecture]] | **Hardware** | CPU Architecture (`x86/x64`, `ARM/ARM64`), CPU Registers, Instruction Sets, RAM, Cache hierarchies, Storage (`HDD/SSD/NVMe`), BIOS, UEFI, TPM, Secure Boot, DMA, I/O, PCIe, USB, Firmware, Embedded Controllers | `x86_64`, `ARM64`, UEFI, TPM 2.0 |
+| | | **Architecture** | Memory Addressing, Virtual & Physical Memory, Stack & Heap internals, Pointers, Processes, Threads, Context Switching, Interrupts, System Calls, Privilege Rings (`User Mode` vs `Kernel Mode`), IPC | POSIX, Win32 API, C |
+| **02** | [[Stage-1_Foundation#module-02-linux-administration\|Linux Administration]] | **Internals** | Linux Kernel, Processes, Threads, Syscalls, Signals, File Descriptors, Sockets, Pipes, IPC, Virtual Filesystems (`/proc`, `/sys`, `/dev`), Critical Directories (`/tmp`, `/var`, `/etc`) | `bash`, `strace`, `ltrace`, `gdb` |
+| | | **Security Model** | Users, Groups, Permissions, POSIX ACLs, Linux Capabilities, `SUID` / `SGID`, `sudo` policy, Namespaces, `cgroups`, MAC (`SELinux`, `AppArmor`) | `lsof`, `ss`, `ps`, `top`, `tmux` |
+| | | **Services** | `systemd` unit lifecycle, Cron jobs, SSH daemon configuration, System Daemons, Startup & Boot mechanisms | `systemctl`, `journalctl`, OpenSSH |
+| **03** | [[Stage-1_Foundation#module-03-windows-administration\|Windows Administration]] | **Architecture** | Win32 API, Windows NT Kernel, Processes, Threads, DLLs, Handles, Access Tokens, Services, Registry hives, NTFS & ACLs, Named Pipes, WMI, COM, RPC | Sysinternals (`Procmon`, `Process Explorer`) |
+| | | **Authentication** | NTLM, Kerberos, Windows Hello, Credential Providers, LSASS architecture, SAM database, LSA Secrets, DPAPI | Mimikatz, Rubeus, LSASS |
+| | | **Security Controls** | UAC, Windows Defender, Windows Firewall, AppLocker, WDAC, AMSI, ETW, Security Event Logs, Local Security Policies | Event Viewer, Group Policy Editor |
+| | | **PowerShell & Admin** | PowerShell Core, PowerShell Remoting (`WinRM`), Windows Automation, Security Automation, PowerShell Script Block Logging | PowerShell 7+, WinRM |
+| **04** | [[Stage-1_Foundation#module-04-networking-fundamentals\|Networking Fundamentals]] | **Core & Models** | Ethernet, MAC addressing, ARP, IPv4 & IPv6, ICMP, TCP & UDP mechanics, QUIC, Ports & Sockets, Routing, Switching, VLANs, NAT & PAT, Subnetting & CIDR, MTU & Fragmentation | `wireshark`, `tcpdump`, `netcat`, `socat` |
+| | | **Protocols** | DNS, DHCP, HTTP, HTTPS, TLS, SSH, FTP, SFTP, SMTP, IMAP, POP3, LDAP, SMB, NFS, SNMP, RDP, WinRM, Kerberos, NTLM, SIP, MQTT, WebSocket, gRPC | OpenSSL, `dig`, `curl` |
+| | | **Infrastructure** | Firewalls, WAFs, IDS/IPS, Load Balancers, Proxies (Forward/Reverse), VPN, CDN, DNS Providers, API Gateways, Network Segmentation, Zero Trust Architecture, Service Mesh | Suricata, Snort, Cloudflare |
+| | | **Packet Analysis** | Packet Capture, Packet Reconstruction, TCP Stream Analysis, DNS Analysis, TLS Analysis, Protocol Fingerprinting, Traffic Anomaly Detection, Network Forensics | `wireshark`, `tcpdump`, `tshark`, `nmap`, `masscan` |
+| **05** | [[Stage-1_Foundation#module-05-cryptography\|Cryptography]] | **Primitives & Core** | Encoding vs Hashing vs Encryption, Symmetric Cryptography (`AES`, `ChaCha20`), Asymmetric Cryptography (`RSA`, `ECC`, `Diffie-Hellman`), Digital Signatures, HMAC, Randomness, Entropy | `openssl`, Python `cryptography` |
+| | | **PKI & Key Mgmt** | Public Key Infrastructure (PKI), X.509 Certificates, TLS Handshake mechanics, Key Lifecycle & Management, Password Hashing (`bcrypt`, `scrypt`, `Argon2`), Cryptographic Failures | `hashcat`, `john`, `gpg` |
+| **06** | [[Stage-1_Foundation#module-06-authentication-standards\|Authentication & Identity]] | **Authentication** | Password Authentication, MFA / 2FA, Passkeys, Passwordless, Biometrics, Device Authentication, Session Lifecycle Management, Account Recovery, Session Fixation, Session Hijacking | FIDO2 / WebAuthn, OAuth Playground |
+| | | **Identity & Federation** | OAuth 2.0, OpenID Connect (OIDC), SAML 2.0, LDAP, Kerberos, Active Directory, Entra ID, Identity Providers (IdP), Federation, RBAC, ABAC, Privileged Access Management (PAM), Identity Governance | Keycloak, Entra ID, Okta |
+| | | **Token Security** | JWT Structure (Header, Payload, Signature), JWS, JWE, Signing, Verification, Algorithm Confusion, Key Management, Claims, Expiration, Audience, Issuer, Token Rotation, Refresh Tokens, Token Revocation, Authorization Boundaries | `jwt.io`, Burp Suite |
+| **07** | [[Stage-1_Foundation#module-07-web-technology-fundamentals\|Web Technology Fundamentals]] | **Web Fundamentals** | HTTP/HTTPS specs, Requests & Responses, Headers, Cookies, Sessions, Caching, Browser Security Model, Same-Origin Policy (SOP), CORS, CSP, WebSockets, Webhooks | Browser DevTools, Postman, `curl` |
+| | | **Modern Architecture** | Service Workers, WebAssembly (Wasm), WebRTC, GraphQL, gRPC, Serverless, Microservices, Reverse Proxies, CDNs, WAFs, API Gateways, Microservice Communication, Internal APIs, Service-to-Service Authentication | Docker, Envoy, Nginx |
+| **01–07** | **Programming Track** *(Weekend Track)* | **Scripting & Tooling** | Python, Bash, PowerShell, JavaScript, C / C++, Go, Rust, Java, PHP, SQL, x86/x64 Assembly | Python 3, GCC/Clang, Go, Rust |
+| | | **Security Domains** | Automation, Network Programming, HTTP & APIs, Sockets, Async & Multithreading, Parsing & Regex, Exploit Research, Security Tool Development, Data Processing, Browser Internals (DOM, Events, Fetch/XHR), Memory/Pointers/Heap | Scapy, Requests, BeautifulSoup, `pwntools` |
 
 ---
 
-#### `04` N E T W O R K I N G
-
-**Core**
-`Ethernet` `MAC` `ARP` `IPv4` `IPv6` `ICMP` `TCP` `UDP` `QUIC` `Ports` `Sockets` `Routing` `Switching` `VLAN` `NAT` `PAT` `Subnetting` `CIDR` `MTU` `Fragmentation`
-
-**Protocols**
-`DNS` `DHCP` `HTTP` `HTTPS` `TLS` `SSH` `FTP` `SFTP` `SMTP` `IMAP` `POP3` `LDAP` `SMB` `NFS` `SNMP` `RDP` `WinRM` `Kerberos` `NTLM` `SIP` `MQTT` `WebSocket` `gRPC`
-
-**Infrastructure**
-`Firewalls` `WAF` `IDS` `IPS` `Load Balancers` `Reverse Proxies` `Forward Proxies` `VPN` `CDN` `DNS Providers` `API Gateways` `Network Segmentation` `Zero Trust` `Service Mesh`
-
-**Packet-Level Skills**
-`Packet Capture` `Packet Reconstruction` `TCP Stream Analysis` `DNS Analysis` `TLS Analysis` `Protocol Fingerprinting` `Traffic Anomaly Detection` `Network Forensics`
-
-— **Tools:** `Wireshark` `tcpdump` `Nmap` `Masscan` `Netcat` `Socat` `NSE`
-
----
-
-#### `05` C R Y P T O G R A P H Y
-
-`Encoding` `Hashing` `Encryption` `Symmetric Cryptography` `AES` `ChaCha20` `RSA` `ECC` `Diffie-Hellman` `Digital Signatures` `HMAC` `PKI` `Certificates` `TLS` `Randomness` `Entropy` `Key Management` `Password Hashing` `bcrypt` `scrypt` `Argon2` `Cryptographic Failures`
-
----
-
-#### `06` A U T H E N T I C A T I O N   &   I D E N T I T Y
-
-**Authentication**
-`Password Authentication` `MFA` `2FA` `Passkeys` `Passwordless` `Biometrics` `Device Authentication` `Session Management`
-
-**Identity**
-`OAuth` `OIDC` `SAML` `LDAP` `Kerberos` `Active Directory` `Entra ID` `Identity Providers` `Federation`
-
-**JWT & Token Security**
-`JWT Structure` `JWS` `JWE` `Signing` `Verification` `Algorithm Selection` `Key Management` `Claims` `Expiration` `Audience` `Issuer` `Token Rotation` `Refresh Tokens` `Token Revocation` `Authorization Boundaries`
-
-**Authorization**
-`Account Recovery` `Session Fixation` `Session Hijacking` `Token Security` `RBAC` `ABAC` `Privileged Access` `Identity Governance`
-
----
-
-#### `07` W E B   T E C H N O L O G Y   F U N D A M E N T A L S
-
-**Web Fundamentals**
-`HTTP` `HTTPS` `Requests` `Responses` `Headers` `Cookies` `Sessions` `Caching` `Browser Security` `Same-Origin Policy` `CORS` `CSP` `WebSockets` `Webhooks`
-
-**Modern Web**
-`Service Workers` `WebAssembly` `WebRTC` `GraphQL` `gRPC` `Serverless` `Microservices`
-`Reverse Proxy` `CDN` `WAF` `API Gateway` `Load Balancer` `Microservice Communication` `Internal APIs` `Service-to-Service Authentication`
-
-#### `01–07` P R O G R A M M I N G   *(Weekend Track)*
-`Python` `Bash` `PowerShell` `JavaScript` `C / C++` `Go` `Rust` `Java` `PHP` `SQL` `Assembly`
-`Automation` `Networking` `HTTP` `APIs` `Sockets` `Async` `Multithreading` `Parsing` `Regex` `Exploit Research` `Security Tool Development` `Data Processing`
-`Browser Internals` `DOM` `Events` `Fetch` `XHR` `WebSockets` `Node.js` `Client-Side Security`
-`Memory` `Pointers` `Structures` `Heap` `Stack` `Memory Management` `Native APIs`
-
----
-
-### 🟠 S T A G E   2   —   O F F E N S E   I
+### 🟠 STAGE 2 — OFFENSE I
 *Modules 08–13 · ~5–6 weeks*
 
----
-
-#### `08–10` R E C O N   &   E N U M E R A T I O N
-
-**Infrastructure Recon**
-`Domains` `Subdomains` `DNS` `ASN` `IP Ranges` `Cloud Assets` `Certificates` `Technology Stack` `Exposed Services` `Internet-Facing Infrastructure`
-
-**Application Recon**
-`Endpoints` `Parameters` `APIs` `JavaScript Files` `Hidden Routes` `Authentication Flows` `Third-Party Integrations` `Mobile Backends`
-
-**Network Recon**
-`Reconnaissance` `Scanning` `Enumeration` `Footprinting` `Sniffing` `Spoofing` `ARP Poisoning` `MITM`
-
-— **Tools:** `Amass` `Subfinder` `Assetfinder` `httpx` `Naabu` `Nmap` `Nuclei` `Shodan` `Censys` `Maltego` `SpiderFoot`
+| # | Module | Category / Domain | Core Concepts & Technical Scope | Key Tools & Standards |
+|:--:|--------|-------------------|---------------------------------|-----------------------|
+| **08–10** | [[Stage-2_Offense-I#module-08-footprinting--reconnaissance\|Recon & Enumeration]] | **Infrastructure** | Domain & Subdomain Enumeration, DNS analysis, ASN mapping, IP Ranges & CIDR blocks, Cloud Asset Discovery, Certificate Transparency logs, Technology Stack Fingerprinting, Exposed Services, Attack Surface Mapping | `amass`, `subfinder`, `assetfinder`, `httpx`, `shodan`, `censys` |
+| | | **Application Recon** | Endpoint & Parameter Discovery, API Discovery, JavaScript Source Code Analysis, Hidden Routes, Authentication Flows, Third-Party Integrations, Mobile Backends | `katana`, `gau`, `waybackurls`, `nuclei` |
+| | | **Network Recon** | Port Scanning, Service Fingerprinting, Host Footprinting, Sniffing & Traffic Interception, ARP Poisoning, MITM | `nmap`, `masscan`, `naabu`, `maltego`, `spiderfoot` |
+| **11** | [[Stage-2_Offense-I#module-11-database-security\|Database Security]] | **SQL Databases** | MySQL, PostgreSQL, Microsoft SQL Server (`MSSQL`), Oracle, SQLite | `sqlmap`, Native DB CLIs |
+| | | **NoSQL & Cache** | MongoDB, Redis, Elasticsearch | `nosqlmap`, Redis CLI |
+| | | **Attacks & Hardening** | SQL & NoSQL Injection, Auth & Access Controls, Privilege Separation, Secrets Storage in Databases, Encryption at Rest/Transit, Data Exposure, Backup Security, DB Logging & Auditing | Hex dumps, Data exfiltration scripts |
+| **12** | [[Stage-2_Offense-I#module-12-password-cracking--hash-analysis\|Credential Attacks]] | **Password Attacks** | Password Security Policies, Online Brute-Force, Password Spraying, Credential Stuffing, Hash Analysis, Dictionary & Rule-Based Cracking | `hashcat`, `john`, `hydra` |
+| | | **Secret Stores** | NTLM & Kerberos hashes, Credential Stores, LSASS memory extraction, SAM database, DPAPI blobs, Browser Credentials, SSH Keys, API Keys, Cloud Credentials, Secrets Management Vaults | `rubeus`, `mimikatz`, `secretsdump` |
+| **13** | [[Stage-2_Offense-I#module-13-system-hacking--initial-compromise\|System Hacking & PrivEsc]] | **Linux PrivEsc** | `SUID` / `SGID` abuse, `sudo` misconfigurations, Linux Capabilities, Vulnerable Cron Jobs, Systemd Services, `$PATH` Hijacking, Insecure File Permissions, Exposed Credentials, Container Escape Basics, Kernel Exploits | `linpeas`, `GTFOBins`, `pspy` |
+| | | **Windows PrivEsc** | Insecure Service Permissions, Unquoted Service Paths, Registry Autoruns, Token Impersonation (`SeImpersonate`), UAC Bypasses, Scheduled Tasks, DLL Search Order Hijacking, WMI abuse, Named Pipe abuse, Kernel Exploits | `winpeas`, `Seatbelt`, `PowerUp`, `SharpUp` |
 
 ---
 
-#### `11` D A T A B A S E   S E C U R I T Y
-
-**SQL:** `MySQL` `PostgreSQL` `MSSQL` `Oracle` `SQLite`
-**NoSQL:** `MongoDB` `Redis` `Elasticsearch`
-**Security:** `Injection` `Authentication` `Authorization` `Privilege Separation` `Secrets` `Encryption` `Data Exposure` `Backup Security` `Logging` `Database Auditing`
-
----
-
-#### `12` C R E D E N T I A L   A T T A C K S
-
-`Password Security` `Password Policies` `Brute Force` `Password Spraying` `Credential Stuffing` `Hash Analysis` `NTLM` `Kerberos` `Credential Stores` `Browser Credentials` `SSH Keys` `API Keys` `Cloud Credentials` `Secrets Management`
-
-— **Tools:** `Hashcat` `John the Ripper` `Rubeus` `Mimikatz` `Secretsdump`
-
----
-
-#### `13` S Y S T E M   H A C K I N G   &   P R I V I L E G E   E S C A L A T I O N
-
-**Linux PrivEsc:** `SUID` `SGID` `sudo` `Capabilities` `Cron` `Services` `PATH` `Permissions` `Credentials` `Containers` `Kernel`
-**Windows PrivEsc:** `Services` `Registry` `Tokens` `UAC` `Scheduled Tasks` `DLL Search Order` `WMI` `Named Pipes` `Permissions` `Credentials` `Kernel`
-
----
-
-### 🟣 S T A G E   3   —   W E B   &   A P P   S E C
+### 🟣 STAGE 3 — WEB & APP SEC
 *Modules 14–18 · ~8–10 weeks*
 
----
-
-#### `14–16` W E B   S E C U R I T Y
-
-**Core Vulnerabilities**
-`Broken Access Control` `Authentication Failures` `SQL Injection` `NoSQL Injection` `XSS` `CSRF` `SSRF` `XXE` `SSTI` `IDOR / BOLA` `BFLA` `Path Traversal` `Command Injection` `File Upload` `Open Redirect` `Prototype Pollution` `Deserialization` `Race Conditions` `Business Logic Bugs`
-
-**Modern Web Attacks**
-`HTTP Request Smuggling` `Web Cache Poisoning` `Web Cache Deception` `Host Header Attacks` `Parser Confusion` `Request Splitting` `Client-Side Desync`
-
-**Session & Token Attacks**
-`Session Fixation` `Session Hijacking` `Cookie Tampering` `JWT Attacks` `Token Forgery`
+| # | Module | Category / Domain | Core Concepts & Technical Scope | Key Tools & Standards |
+|:--:|--------|-------------------|---------------------------------|-----------------------|
+| **14–16** | [[Stage-3_Web-and-App-Sec#module-14-web-application-hacking\|Web Security]] | **OWASP Core Vulns** | Broken Access Control, Authentication Failures, SQL Injection, NoSQL Injection, Cross-Site Scripting (`XSS` — Stored/Reflected/DOM), `CSRF`, `SSRF`, `XXE`, Server-Side Template Injection (`SSTI`), `IDOR` / `BOLA`, `BFLA`, Path Traversal, Command Injection, Insecure File Upload, Open Redirect, Prototype Pollution, Insecure Deserialization, Race Conditions, Business Logic Bugs | Burp Suite Pro, OWASP ZAP, `sqlmap`, `ffuf` |
+| | | **Modern Web Attacks** | HTTP Request Smuggling (CL.TE, TE.CL, TE.TE), Web Cache Poisoning, Web Cache Deception, Host Header Attacks, HTTP Parser Confusion, Request Splitting, Client-Side Desync | Turbo Intruder, HTTP Request Smuggler |
+| | | **Session & Token** | Session Fixation, Session Hijacking, Cookie Tampering, JWT Attacks (Algorithm Confusion, `none` algorithm, weak secret brute-forcing), Token Forgery | `jwt_tool`, Burp Extensions |
+| **17** | [[Stage-3_Web-and-App-Sec#module-17-api-security\|API Security]] | **REST APIs** | OWASP API Security Top 10, API Discovery, Authentication & Authorization, Broken Object Level Authorization (`BOLA`), Broken Function Level Authorization (`BFLA`), Rate Limiting Bypasses, Pagination & Filtering flaws, Mass Assignment, API Versioning flaws, Verbose Error Handling | Postman, `kiterunner`, `mitmproxy` |
+| | | **GraphQL & Modern** | GraphQL Schema Introspection, Query Depth & Complexity attacks, Batching Attacks, Resolver Security, SOAP, gRPC, WebSockets, Webhooks | InQL, GraphQL Raider, Altair |
+| | | **Identity & Tokens** | API Keys, OAuth 2.0 flows & grants, OpenID Connect (OIDC), JWT Access & Refresh Token handling, SAML SSO | Burp Suite, OAuth Playground |
+| **18** | [[Stage-3_Web-and-App-Sec#module-18-bug-bounty-methodology\|Bug Bounty Methodology]] | **Core Methodology** | Program Scope Analysis, High-Speed Asset Discovery, Endpoint Discovery, Attack Surface Prioritization, Vulnerability Chaining, Business Logic Flaws, Race Conditions, Impact Analysis, Professional Report Writing, Triage Communication | HackerOne, Bugcrowd, Intigriti |
+| | | **Elite Tradecraft** | Unconventional Attack Surfaces, Client-Side JavaScript Analysis & Deobfuscation, API Architecture Mapping, Business Workflow Analysis, Low-Severity to Critical Chaining, Novel Logic Flaws, Research-Driven Hunting | Custom recon pipelines, Burp Suite Pro |
 
 ---
 
-#### `17` A P I   S E C U R I T Y
-
-**REST:** `API Discovery` `Authentication` `Authorization` `Object-Level Authorization` `Function-Level Authorization` `Rate Limits` `Pagination` `Filtering` `Mass Assignment` `Versioning` `Error Handling`
-**GraphQL:** `Schema` `Queries` `Mutations` `Introspection` `Resolver Security` `Complexity` `Batching`
-**Other:** `SOAP` `gRPC` `WebSockets` `Webhooks`
-**Identity:** `API Keys` `OAuth 2.0` `OpenID Connect` `JWT` `Access Tokens` `Refresh Tokens` `SAML` `SSO`
-
----
-
-#### `18` B U G   B O U N T Y   M E T H O D O L O G Y
-
-`Scope Analysis` `Asset Discovery` `Endpoint Discovery` `API Analysis` `Authentication Testing` `Authorization Testing` `Business Logic` `Race Conditions` `Chaining` `Impact Analysis` `Report Writing` `Triage Communication`
-Elite: `Unusual Attack Surfaces` `JavaScript Analysis` `API Architecture Understanding` `Business Workflow Analysis` `Low-Severity Chaining` `Novel Logic Flaws` `Research-Driven Hunting`
-
----
-
-### 🏢 S T A G E   4   —   E N T E R P R I S E
+### 🏢 STAGE 4 — ENTERPRISE
 *Modules 19–26 · ~10–13 weeks*
 
----
-
-#### `19` A C T I V E   D I R E C T O R Y   &   E N T R A   I D
-
-**Architecture:** `Domain` `Forest` `Tree` `Domain Controller` `OU` `Users` `Groups` `GPO` `LDAP` `DNS` `Trusts`
-**Authentication:** `Kerberos` `NTLM` `Tickets` `SPNs` `Service Accounts` `Managed Service Accounts`
-**Attack Surface:** `Identity ACLs` `Delegation` `Group Membership` `AD CS` `Certificate Templates` `Trust Relationships`
-**Offensive:** `Enumeration` `Credential Exposure` `Kerberos Abuse` `NTLM Abuse` `Delegation Abuse` `ACL Abuse` `AD CS Abuse` `Privilege Escalation` `Lateral Movement` `Persistence` `Domain-Level Attack Paths`
-**Defensive:** `Identity Detection` `Kerberos Monitoring` `LDAP Monitoring` `Windows Event Analysis` `Attack Path Analysis` `AD Hardening`
-
-— **Tools:** `BloodHound` `Impacket` `NetExec` `Rubeus` `Mimikatz` `Certipy` `PowerView`
-
----
-
-#### `20` C L O U D   S E C U R I T Y
-
-**AWS:** `IAM` `EC2` `S3` `VPC` `Lambda` `ECS` `EKS` `Cognito` `KMS` `Secrets Manager` `CloudTrail` `CloudWatch` `API Gateway` `Route 53` `ECR`
-**Azure:** `Entra ID` `Azure IAM` `Virtual Machines` `Storage` `Functions` `Key Vault` `AKS` `Defender`
-**GCP:** `IAM` `Compute` `Cloud Storage` `GKE` `Cloud Functions` `Secret Manager` `Cloud Logging`
-**Cloud Attacks:** `IAM Misconfiguration` `Identity Attack Paths` `Storage Exposure` `Metadata Services` `SSRF` `Cloud Credentials` `Role Abuse` `Cross-Account Access` `Cloud Persistence` `Cloud Detection`
-
----
-
-#### `21` C O N T A I N E R S   &   K U B E R N E T E S
-
-**Docker:** `Images` `Containers` `Dockerfile` `Registry` `Networking` `Volumes` `Capabilities` `Privileges` `Docker Socket`
-**Kubernetes:** `Pods` `Services` `Deployments` `Ingress` `API Server` `RBAC` `Service Accounts` `Secrets` `ConfigMaps` `Network Policies` `Admission Controllers` `Namespaces`
-**Security:** `Container Escape` `Kubernetes Privilege Escalation` `Identity Abuse` `Secret Exposure` `Image Security` `Cluster Security` `Runtime Detection`
+| # | Module | Category / Domain | Core Concepts & Technical Scope | Key Tools & Standards |
+|:--:|--------|-------------------|---------------------------------|-----------------------|
+| **19** | [[Stage-4_Enterprise#module-19-active-directory--entra-id\|Active Directory & Entra ID]] | **AD Architecture** | Domains, Forests, Trees, Domain Controllers (DCs), Organizational Units (OUs), Users, Security Groups, Group Policy Objects (GPOs), LDAP, Dynamic DNS, Forest & Domain Trusts | `bloodhound`, `sharphound`, `powerview` |
+| | | **Authentication** | Kerberos protocol mechanics (TGT, TGS, AS-REQ/REP), SPNs, Service Accounts, Managed Service Accounts (gMSA), NTLM protocol & relay mechanisms | `impacket`, `netexec`, `rubeus` |
+| | | **Offensive Vectors** | AD Enumeration, Credential Exposure, AS-REP Roasting, Kerberoasting, Delegation Abuse (Unconstrained, Constrained, RBCD), ACL/ACE Abuse, AD CS Abuse (ESC1–ESC8), Privilege Escalation, Lateral Movement, DCSync, Golden & Silver Tickets, Domain Persistence | `certipy`, `mimikatz`, `coercer` |
+| | | **Defensive & Monitoring**| Identity Detection, Kerberos Monitoring, LDAP Monitoring, Windows Event Log Analysis (Event IDs 4624, 4672, 4768, 4769, 4771), Attack Path Analysis, AD Hardening & Tiered Architecture | Microsoft Sentinel, Sysmon, Event Viewer |
+| **20** | [[Stage-4_Enterprise#module-20-cloud-computing\|Cloud Security]] | **Multi-Cloud Tech** | **AWS:** IAM, EC2, S3, VPC, Lambda, ECS, EKS, Cognito, KMS, Secrets Manager, CloudTrail, CloudWatch, API Gateway, Route 53, ECR<br>**Azure:** Entra ID, Azure IAM, VMs, Storage, Functions, Key Vault, AKS, Defender<br>**GCP:** IAM, Compute Engine, Cloud Storage, GKE, Cloud Functions, Secret Manager, Cloud Logging | AWS CLI, Azure CLI, gcloud CLI |
+| | | **Cloud Attacks** | IAM Misconfiguration, Identity Attack Paths, Storage Bucket Exposure, Instance Metadata Service (IMDSv1 vs IMDSv2), SSRF to Cloud Metadata, Cloud Credential Extraction, Role & Permission Abuse, Cross-Account Access, Cloud Persistence, Cloud Trail/Logging Evasion | `pacu`, `scoutsuite`, `prowler` |
+| **21** | [[Stage-4_Enterprise#module-21-container--orchestration-security\|Containers & Kubernetes]] | **Docker Containers** | Container Images, Runtimes, Dockerfile Security, Private Registries, Container Networking, Volumes, Linux Capabilities, Privileged Containers, Docker Socket Exposure | Docker CLI, `trivy`, `dive` |
+| | | **Kubernetes (K8s)** | Pods, Services, Deployments, Ingress Controllers, K8s API Server, RBAC Roles & RoleBindings, ServiceAccounts, Secrets, ConfigMaps, Network Policies, Admission Controllers, Namespaces | `kubectl`, `kube-bench`, `peirates` |
+| | | **Security & Attacks** | Container Breakout / Escape to Host, Kubernetes Cluster Privilege Escalation, ServiceAccount Token Abuse, Secret Leakage, Image Supply Chain Attacks, Cluster Security Hardening, Runtime Threat Detection | Falco, `cdk-go` |
+| **22** | [[Stage-4_Enterprise#module-22-adversary-emulation--purple-teaming\|Adversary Emulation]] | **Attack Lifecycle** | MITRE ATT&CK Framework: Initial Access → Execution → Persistence → Privilege Escalation → Defense Evasion → Credential Access → Discovery → Lateral Movement → Collection → Command & Control → Exfiltration → Impact | MITRE ATT&CK Navigator |
+| | | **Emulation Tradecraft** | Cyber Kill Chain, Diamond Model, Attack Path Development, Adversary Emulation, Identity Attack Paths, Cloud Attack Paths, Hybrid Environment Attacks, Detection Validation, Purple Teaming collaboration, Campaign Planning | `atomic-red-team`, `caldera` |
+| **23** | [[Stage-4_Enterprise#module-23-sniffing--spoofing\|Lateral Movement & Sniffing]] | **Lateral Movement** | SMB, RDP, SSH, WinRM, WMI, RPC, Remote Services Execution, Credential Reuse, Pass-the-Hash (`PtH`), Pass-the-Ticket (`PtT`), Overpass-the-Hash, Kerberos Abuse, Remote Administration Protocols | `impacket`, `netexec`, `crackmapexec` |
+| | | **Sniffing & Spoofing** | ARP Poisoning, Network MITM, LLMNR & NBT-NS Spoofing, Network Traffic Interception, Credential Capture in Transit | `responder`, `bettercap`, Wireshark |
+| **24** | [[Stage-4_Enterprise#module-24-social-engineering\|Social Engineering]] | **Vectors & Delivery** | Phishing, Spear Phishing, Vishing, Smishing, Pretexting, Physical Facility Access, Tailgating, Baiting, Malicious USB Drops, Credential Harvesting Infrastructure | `gophish`, `setoolkit` |
+| | | **Methodology** | OSINT-Driven Target Profiling, Psychological Pretext Construction, Defensive Awareness Training, Bypassing Secure Email Gateways (SEG) | OSINT tools, Canva / Email builders |
+| **25** | [[Stage-4_Enterprise#module-25-malware--weaponization-conceptual\|Malware & C2 Architectures]] | **Malware Analysis** | Malware Families (Viruses, Worms, Trojans, RATs, Stealers, Loaders, Botnets, Ransomware, Rootkits, Infostealers), Static Analysis, Dynamic Analysis, Behavioral Analysis, Configuration Extraction, Persistence, IOC/IOA Extraction, Sandbox Analysis, Memory Analysis, Network Analysis | `yara`, `sigma`, Any.Run, Hybrid Analysis |
+| | | **C2 Infrastructure** | C2 Architecture, HTTP/S, DNS Tunneling, WebSockets, Custom Protocols, Encrypted Channels, Beaconing Intervals & Jitter, Redirectors, Infrastructure Domain Management & Domain Fronting, Traffic Analysis, C2 Detection | `sliver`, `mythic`, `cobalt-strike`, `metasploit`, `havoc`, `empire` |
+| **26** | [[Stage-4_Enterprise#module-26-pentest-methodologies--report-writing\|Pentest Reporting]] | **Methodology & RoE** | Pentest Methodologies (PTES, NIST SP 800-115, OWASP), Scoping Questionnaires, Rules of Engagement (RoE), Legal & Compliance Boundaries | PTES Framework |
+| | | **Technical Delivery** | Executive Summaries, Technical Writing, Vulnerability Documentation, Reproducible PoC Steps, CVSS v3.1/v4.0 Risk Rating, Remediation Recommendations, Professional Client Debriefing | Markdown / LaTeX templates |
 
 ---
 
-#### `22` A D V E R S A R Y   E M U L A T I O N   &   R E D   T E A M I N G
-
-**Attack Lifecycle:** `Reconnaissance` `Initial Access` `Execution` `Persistence` `Defense Evasion` `Credential Access` `Discovery` `Collection` `Command & Control` `Exfiltration` `Impact`
-**Advanced:** `Attack Path Development` `Adversary Emulation` `Identity Attack Paths` `Cloud Attack Paths` `Hybrid Environment Attacks` `Detection Validation` `Purple Teaming` `OPSEC` `Campaign Planning`
-**Frameworks:** `MITRE ATT&CK` `Cyber Kill Chain` `Diamond Model` `Atomic Red Team` `Caldera`
-
----
-
-#### `23` L A T E R A L   M O V E M E N T   &   S N I F F I N G
-
-**Lateral Movement:** `SMB` `RDP` `SSH` `WinRM` `WMI` `RPC` `Remote Services` `Credential Reuse` `Pass-the-Hash` `Pass-the-Ticket` `Overpass-the-Hash` `Kerberos Abuse` `Remote Administration`
-**Sniffing / Spoofing:** `ARP Poisoning` `MITM` `Responder` `Bettercap` `Network Interception`
-
----
-
-#### `24` S O C I A L   E N G I N E E R I N G
-
-`Phishing` `Spear Phishing` `Vishing` `Smishing` `Pretexting` `Physical Access` `Tailgating` `Baiting` `OSINT-Driven SE` `Pretext Construction`
-
----
-
-#### `25` M A L W A R E   &   C 2
-
-**Malware Families:** `Virus` `Worm` `Trojan` `RAT` `Stealer` `Loader` `Botnet` `Ransomware` `Rootkit` `Spyware` `Infostealer`
-**Analysis:** `Static Analysis` `Dynamic Analysis` `Behavioral Analysis` `Configuration Extraction` `Persistence` `IOC Extraction` `Sandbox Analysis` `Memory Analysis` `Network Analysis`
-**Detection:** `YARA` `Sigma` `Behavioral Detection` `IOC` `IOA` `TTP Mapping`
-**C2:** `C2 Architecture` `HTTP/S` `DNS` `WebSocket` `Custom Protocols` `Encrypted Channels` `Beaconing` `Redirectors` `Infrastructure Domain Management` `Traffic Analysis` `C2 Detection`
-
-— **C2 Frameworks:** `Sliver` `Mythic` `Cobalt Strike` `Metasploit` `Havoc` `Empire`
-
----
-
-#### `26` P E N T E S T   R E P O R T I N G
-
-`Pentest Methodologies` `Scope Definition` `Rules of Engagement` `Technical Writing` `Executive Summaries` `Vulnerability Documentation` `Reproduction Steps` `Risk Rating` `Remediation Recommendations` `Professional Communication`
-
----
-
-### 🔬 S T A G E   5   —   S P E C I A L I Z E D
+### 🔬 STAGE 5 — SPECIALIZED
 *Modules 27–30 · ~15–22 weeks*
 
----
-
-#### `27` O F F E N S I V E   D E V E L O P M E N T   &   T O O L I N G
-
-**Exploit Development**
-`Stack` `Heap` `Pointers` `Memory Corruption` `Information Disclosure`
-`Buffer Overflow` `Heap Corruption` `Use-After-Free` `Double Free` `Integer Overflow` `Format String` `Type Confusion` `Race Conditions`
-`ASLR` `DEP / NX` `Stack Canaries` `PIE` `RELRO` `CFG` `CFI` `Sandboxing`
-`ROP` `JOP` `Memory Leaks` `Exploit Reliability` `Browser Exploitation` `Kernel Exploitation`
-
-**Security Tool Development & Automation**
-`Python` `Bash` `PowerShell` `C / C++` `Go` `Rust`
-`Recon Tools` `Port Scanners` `HTTP Clients` `API Testing Tools` `Fuzzers` `Parsers` `Enumeration Frameworks` `Log Analyzers` `Malware Analysis Utilities` `Custom Research Tools`
-`Recon Automation` `Enumeration` `Asset Discovery` `API Testing` `Vulnerability Scanning` `Log Processing` `Report Generation`
-
----
-
-#### `27` R E V E R S E   E N G I N E E R I N G   *(parallel to #27)*
-
-**Binary Formats:** `PE` `ELF` `Mach-O` `DLL` `Shared Libraries`
-**Analysis:** `Static Analysis` `Dynamic Analysis` `Disassembly` `Decompilation` `Debugging` `Control Flow` `Data Flow` `API Analysis` `Strings` `Imports` `Exports`
-**Architecture:** `x86` `x64` `ARM` `ARM64`
-**Advanced:** `Packing` `Obfuscation` `Anti-Debugging` `Anti-VM` `Control Flow Obfuscation` `Binary Patching` `Hooking` `Runtime Analysis`
-
-— **Tools:** `Ghidra` `IDA` `Binary Ninja` `radare2` `x64dbg` `WinDbg` `GDB`
-
----
-
-#### `27` F U Z Z I N G   &   V U L N E R A B I L I T Y   R E S E A R C H   *(parallel to #27)*
-
-**Fuzzing:** `Black-Box` `White-Box` `Grey-Box` `Mutation-Based` `Generation-Based` `Coverage-Guided` `Protocol Fuzzing` `File Format Fuzzing` `API Fuzzing` `Web Fuzzing` `Binary Fuzzing` `Crash Triage` `Corpus Management` `Sanitizers`
-**Vulnerability Research:** `Attack Surface Research` `Bug Discovery` `Root Cause Analysis` `Variant Analysis` `Patch Diffing` `Protocol Research` `Parser Analysis` `Memory Corruption` `Logic Bugs` `Race Conditions` `Authentication Research` `Authorization Research` `Supply-Chain Research` `CVE Analysis` `CWE` `CVSS` `Exploitability Analysis` `Responsible Disclosure`
-**Source Code Auditing:** `SAST` `Secure Code Review` `Logic Flaw Discovery` `Patch Diffing` `Variant Analysis` `Dependency Analysis` `Secret Scanning` `API Surface Analysis` `Authentication Review` `Authorization Review`
-**Protocol Research:** `Protocol Fuzzing` `Protocol Fingerprinting` `Custom Protocol Analysis` `Packet-Level Reconstruction` `Parser Analysis` `Modbus` `DNP3` `OPC` `Industrial Protocols` `Telecom Signaling` `SS7` `Diameter` `IMS` `VoLTE`
-
----
-
-#### `28` A I   &   L L M   R E D   T E A M I N G
-
-**AI Foundations:** `Machine Learning` `Deep Learning` `Neural Networks` `Transformers` `LLMs` `Embeddings` `Vector Databases` `RAG` `AI Agents` `Tool Calling` `Function Calling` `Model APIs` `Agent Memory`
-**LLM Security:** `Prompt Injection` `Indirect Prompt Injection` `Jailbreaks` `Sensitive Information Disclosure` `System Prompt Leakage` `Insecure Output Handling` `Excessive Agency` `Data / Model Poisoning` `Vector / Embedding Weaknesses` `Unbounded Consumption`
-**Agent Security:** `AI Agent Architecture` `Agent Identity` `Agent Permissions` `Tool Abuse` `Context Poisoning` `Memory Poisoning` `Agent-to-Agent Security` `Tool Boundary Security` `Human-in-the-Loop` `Agent Sandboxing` `Agent Supply Chain` `Autonomous Security Testing` `AI Red Teaming`
-**RAG Security:** `RAG Architecture` `Vector Database Security` `Embedding Weaknesses` `Context Poisoning` `Retrieval Manipulation` `Data Poisoning` `Indirect Prompt Injection via RAG`
-
----
-
-#### `28` M O D E R N   A T T A C K   S U R F A C E S   *(parallel to #28)*
-
-**Cloud-Native:** `Containers` `Serverless` `Service Mesh` `Edge Computing` `API Ecosystems` `Microservices` `Immutable Infrastructure` `Secret Management` `Cloud Identity` `Zero Trust`
-**Supply Chain:** `Secure SDLC` `Source Code Security` `SAST` `DAST` `SCA` `Secret Scanning` `Dependency Security` `Package Security` `CI/CD Security` `Git Security` `Container Security` `IaC Security` `SBOM` `Artifact Security` `Software Signing` `Build Pipeline Security` `Dependency Confusion` `Supply Chain Attacks`
-**Web3:** `Blockchain Architecture` `Ethereum` `EVM` `Solidity` `Smart Contracts` `Wallets` `Tokens` `DeFi` `Oracles` `Bridges` `Signatures` `Reentrancy` `Access Control` `Integer Issues` `Oracle Manipulation` `Flash Loan` `Signature Abuse` `Smart Contract Logic` `Wallet Security` `Bridge Security` `Blockchain Forensics`
-**IoT & Embedded:** `Embedded Systems` `Firmware` `Bootloaders` `UART` `SPI` `I2C` `JTAG` `Hardware Debugging` `Firmware Extraction` `Firmware Analysis` `Secure Boot` `OTA Updates` `Device Authentication` `IoT Network Security`
-**Emerging:** `AI Agents` `Autonomous Coding Agents` `AI Tool Interfaces` `Agent Skills` `MCP Security` `WebAssembly` `Passkeys` `Modern Authentication` `Connected Devices` `Autonomous Systems`
-
----
-
-#### `29` R E D   T E A M   O P E R A T I O N S   &   O P S E C
-
-**Red Team Operations:** `Attack Path Development` `Adversary Emulation` `Identity Attack Paths` `Cloud Attack Paths` `Hybrid Environment Attacks` `Detection Validation` `Purple Teaming` `Campaign Planning`
-**OPSEC:** `Personal OPSEC` `Infrastructure OPSEC` `Identity Separation` `Metadata Awareness` `Compartmentalization` `Secure Communications` `Logging Awareness` `Infrastructure Hygiene` `Operational Security Failures`
-
----
-
-#### `29` D E F E N S I V E   A W A R E N E S S   *(parallel to #29)*
-
-**DFIR:** `Disk Forensics` `Memory Forensics` `Network Forensics` `Windows Forensics` `Linux Forensics` `Browser Forensics` `Email Forensics` `Mobile Forensics` `Timeline Analysis` `Artifact Analysis` `Evidence Preservation`
-`Detection` `Triage` `Investigation` `Containment` `Eradication` `Recovery` `Root Cause Analysis` `IOC Analysis` `Timeline Construction` `Malware Investigation` `Post-Incident Review`
-**SOC / SIEM / EDR:** `Detection Engineering` `Alert Triage` `Incident Investigation` `SOC Workflow` `Log Ingestion` `Correlation Rules` `Event Normalization` `Alert Logic` `Sigma Rules` `Endpoint Detection` `Behavioral Detection` `XDR` `Response Actions`
-**Threat Hunting:** `Hypothesis-Driven Hunting` `IOC Hunting` `Behavioral Hunting` `MITRE ATT&CK Mapping` `YARA` `Sigma` `Endpoint Telemetry` `Network Telemetry`
-**Detection Engineering:** `Detection Logic` `Behavioral Rules` `IOA` `TTP-Based Detection` `Alert Quality` `False Positive Reduction` `Detection Coverage Mapping`
-
-— **Tools:** `Volatility` `Autopsy` `FTK` `Wireshark`
-
----
-
-#### `29` I N T E L L I G E N C E   *(parallel to #29)*
-
-**Threat Intelligence:** `Threat Actors` `Campaigns` `Malware Families` `Infrastructure` `IOCs` `IOAs` `TTPs` `Domains` `IPs` `Hashes` `Infrastructure Correlation` `Attribution` `Threat Reports` `MITRE ATT&CK Mapping`
-**OSINT & Digital Investigation:** `Search Intelligence` `Domain Intelligence` `Username Intelligence` `Email Intelligence` `Public Records` `Metadata` `Image Intelligence` `Video Intelligence` `Social Media Intelligence` `Infrastructure Intelligence` `Breach Intelligence` `Digital Footprinting`
-**Dark Web Intelligence:** `Tor` `Onion Services` `Privacy Networks` `Underground Markets` `Cybercrime Ecosystems` `Threat Actor Communities` `Leak Ecosystems` `Malware Ecosystems` `Initial Access Markets` `Credential Markets` `Ransomware Ecosystems` `Cryptocurrency Intelligence` `Dark Web OSINT`
-**Threat Actor Research:** `Attribution` `Campaign Analysis` `TTPs` `Infrastructure Correlation` `Malware Families` `Threat Reports` `Actor Profiling` `MITRE ATT&CK Groups`
-**Malware Intelligence:** `IOC Extraction` `TTP Mapping` `Configuration Extraction` `C2 Infrastructure` `Malware Families` `Attribution` `Sandbox Reports` `Memory Analysis`
-
-— **Tools:** `Maltego` `SpiderFoot` `Shodan` `Censys`
-
----
-
-#### `30` P R O O F   O F   W O R K   &   C A R E E R
-
-**CTF:** `Web (PortSwigger, DVWA, PentesterLab)` `Network/System (HTB, THM, VulnHub, Proving Grounds)` `Reverse/Pwn (Binary Exploitation)` `Crypto Challenges` `Forensics (Memory, Disk, Network, Malware)` `OSINT Challenges` `Enterprise (AD Labs, Cloud Labs)`
-**Penetration Testing:** `Pentest Methodologies` `Scope Definition` `Rules of Engagement` `Reconnaissance` `Exploitation` `Post-Exploitation` `Reporting` `Remediation Guidance`
-**Responsible Disclosure:** `CVE Process` `Coordinated Disclosure` `Vendor Communication` `Advisory Writing` `Timeline Management` `PoC Handling`
-**Security Research:** `Read Source Code` `Read Technical Papers` `Read CVEs` `Read Advisories` `Reproduce Vulnerabilities` `Modify PoCs` `Debug Crashes` `Patch Diffing` `Find Variants` `Build Fuzzers` `Analyze Protocols` `Reverse Binaries` `Develop Hypotheses` `Discover Novel Vulnerabilities` `Publish Responsible Research`
-**Technical Writing:** `Research Papers` `Blog Posts` `CVE Write-ups` `Tool Documentation` `Lab Reports` `Conference Submissions`
-**Open Source Contribution:** `Security Tool Contributions` `Research Publications` `Public PoC Development` `Community Engagement` `GitHub Portfolio`
+| # | Module / Sub-Track | Category / Domain | Core Concepts & Technical Scope | Key Tools & Standards |
+|:--:|--------------------|-------------------|---------------------------------|-----------------------|
+| **27** | [[Stage-5_Specialized#module-27-offensive-development--tooling\|Offensive Development]] | **Exploit Dev** | Memory Corruption, Stack & Heap Exploitation, Pointers, Buffer Overflows, Heap Corruption, Use-After-Free (`UAF`), Double Free, Integer Overflows, Format String Vulnerabilities, Type Confusion, Race Conditions; Mitigations & Bypasses (`ASLR`, `DEP/NX`, `Stack Canaries`, `PIE`, `RELRO`, `CFG/CFI`, Sandboxing); ROP Chains, JOP, Memory Leaks, Exploit Reliability, Browser & Kernel Exploitation | `gdb`, `pwntools`, `mona.py`, Visual Studio, GCC/Clang |
+| | | **Tool Development** | Custom Security Tool Authoring in Python, Bash, PowerShell, C/C++, Go, Rust; Recon Tools, Port Scanners, HTTP Clients, API Testing Tools, Fuzzers, Parsers, Enumeration Frameworks, Log Analyzers, Malware Analysis Utilities, Automated Recon Pipelines | Python, Go, Rust, C++ |
+| **27** | **Reverse Engineering** *(Parallel Track)* | **Binary Formats** | PE (Portable Executable), ELF, Mach-O, DLLs, Shared Libraries | `PEview`, `readelf`, Hex Editors |
+| | | **Analysis & Evasion** | Disassembly, Decompilation, Debugging, Control Flow Analysis, Data Flow Analysis, API Analysis, Strings, Imports/Exports; x86, x64, ARM, ARM64 architectures; Packing, Code Obfuscation, Anti-Debugging, Anti-VM, Control Flow Flattening, Binary Patching, Hooking, Runtime Analysis | `ghidra`, `ida-pro`, `binary-ninja`, `radare2`, `x64dbg`, `windbg` |
+| **27** | **Fuzzing & Vuln Research** *(Parallel Track)* | **Fuzzing Mechanics** | Black-Box, White-Box, Grey-Box Fuzzing, Mutation-Based vs Generation-Based Fuzzing, Coverage-Guided Fuzzing, Protocol Fuzzing, File Format Fuzzing, API Fuzzing, Web Fuzzing, Binary Fuzzing, Crash Triage, Corpus Management, Sanitizers (`ASan`, `MSan`, `UBSan`) | `afl++`, `libfuzzer`, `honggfuzz`, `boofuzz` |
+| | | **Vuln Research** | Attack Surface Research, Bug Discovery, Root Cause Analysis, Variant Analysis, Patch Diffing, Protocol Research, Parser Analysis, Memory Corruption, Logic Bugs, Supply Chain Vulnerabilities, CVE/CWE/CVSS Analysis, Responsible Disclosure | `semgrep`, `ghidra`, BinDiff |
+| | | **Protocols & Source** | SAST, Secure Code Review, Logic Flaw Discovery, Dependency Scanning, Secret Scanning; Industrial Protocols (`Modbus`, `DNP3`, `OPC`), Telecom Signaling (`SS7`, `Diameter`, `IMS`, `VoLTE`) | Wireshark, Protocol Analyzers |
+| **28** | [[Stage-5_Specialized#module-28-ai--llm-red-teaming\|AI & LLM Red Teaming]] | **AI Foundations** | Machine Learning, Deep Learning, Neural Networks, Transformers, LLMs, Embeddings, Vector Databases, Retrieval-Augmented Generation (`RAG`), AI Agents, Tool/Function Calling, Model APIs, Agent Memory | LangChain, LlamaIndex, OpenAI / Anthropic APIs |
+| | | **LLM Vulnerabilities**| Direct Prompt Injection, Indirect Prompt Injection, Jailbreaks, Sensitive Information Disclosure, System Prompt Leakage, Insecure Output Handling, Excessive Agency, Data & Model Poisoning, Vector / Embedding Weaknesses, Unbounded Consumption | OWASP Top 10 for LLM, `garak`, `pyrit` |
+| | | **Agent & RAG Security**| AI Agent Architecture, Agent Identity & Permissions, Tool Abuse & Privilege Escalation, Context Poisoning, Memory Poisoning, Agent-to-Agent Security, Tool Boundary Enforcement, Human-in-the-Loop Bypasses, Agent Sandboxing, Agent Supply Chain, Autonomous Security Testing | Custom AI Red Teaming testbeds |
+| **28** | **Modern Attack Surfaces** *(Parallel Track)* | **Cloud-Native & CI/CD**| Containers, Serverless, Service Mesh, Edge Computing, API Ecosystems, Microservices, Immutable Infrastructure, Secret Management, Zero Trust; Secure SDLC, Source Code Security, SAST/DAST/SCA, Secret Scanning, CI/CD Pipeline Security, Git Security, Container & IaC Security, SBOM, Software Signing, Dependency Confusion, Supply Chain Attacks | Semgrep, Trivy, Cosign, Syft |
+| | | **Web3 & Blockchain** | Blockchain Architecture, Ethereum & EVM, Solidity, Smart Contracts, Wallets, Tokens, DeFi Protocols, Oracles, Bridges, Signatures; Reentrancy, Access Control Flaws, Integer Issues, Oracle Manipulation, Flash Loans, Signature Abuse, Smart Contract Logic Flaws, Blockchain Forensics | `slither`, `mythril`, Foundry, Remix |
+| | | **IoT & Embedded** | Embedded Systems, Firmware Internals, Bootloaders, Hardware Interfaces (`UART`, `SPI`, `I2C`, `JTAG`), Hardware Debugging, Firmware Extraction, Firmware Analysis, Secure Boot Bypasses, OTA Updates, Device Authentication, IoT Network Security | `binwalk`, Saleae Logic, JTAGulator |
+| | | **Emerging Attack Vectors**| AI Agents, Autonomous Coding Agents, AI Tool Interfaces, Agent Skills, Model Context Protocol (`MCP`) Security, WebAssembly (`Wasm`), Passkeys, Modern Authentication, Connected Devices | MCP Inspector, Browser DevTools |
+| **29** | [[Stage-5_Specialized#module-29-red-team-operations--tradecraft\|Red Team Operations]] | **Red Team Ops** | Attack Path Development, Adversary Emulation, Identity Attack Paths, Cloud Attack Paths, Hybrid Environment Attacks, Detection Validation, Purple Teaming, Full Campaign Planning & Execution | Cobalt Strike, Sliver, Mythic |
+| | | **OPSEC** | Personal OPSEC, Infrastructure OPSEC, Identity Separation, Metadata Awareness, Compartmentalization, Secure Communications, Logging Awareness, Infrastructure Hygiene, Operational Security Failures | Tor, Disposable VPS, Redirection infra |
+| **29** | **Defensive Awareness** *(Parallel Track)* | **DFIR** | Disk Forensics, Memory Forensics, Network Forensics, Windows / Linux / Browser / Email / Mobile Forensics, Evidence Preservation, Timeline Analysis, Incident Response Triage, Containment, Eradication, Recovery, Root Cause Analysis, IOC Analysis, Malware Investigation | `volatility`, `autopsy`, `ftk`, Wireshark |
+| | | **SOC / SIEM / EDR** | Detection Engineering, Alert Triage, Incident Investigation, SOC Workflows, Log Ingestion, Correlation Rules, Event Normalization, Alert Logic, Sigma Rules, Endpoint Detection, Behavioral Detection, XDR, Automated Response Actions | Splunk, Elastic SIEM, Sigma rules |
+| | | **Threat Hunting** | Hypothesis-Driven Hunting, IOC Hunting, Behavioral Hunting, MITRE ATT&CK Mapping, YARA, Sigma, Endpoint & Network Telemetry, Detection Coverage Mapping | YARA, Sysmon, Velociraptor |
+| **29** | **Intelligence** *(Parallel Track)* | **Threat Intelligence** | Threat Actors, Campaigns, Malware Families, Infrastructure, IOCs, IOAs, TTPs, Domains, IPs, Hashes, Infrastructure Correlation, Threat Attribution, Threat Intelligence Reports, MITRE ATT&CK Mapping | MISP, OpenCTI, MITRE ATT&CK |
+| | | **OSINT & Digital Intel**| Search Intelligence, Domain & DNS Intelligence, Username & Email Intel, Public Records, Exif Metadata, Image & Video Geolocation, Social Media Intelligence, Infrastructure Intel, Breach Intelligence, Digital Footprinting | `maltego`, `spiderfoot`, `shodan`, `censys` |
+| | | **Dark Web Intel** | Tor, Onion Services, Privacy Networks, Underground Markets, Cybercrime Ecosystems, Threat Actor Communities, Leak Ecosystems, Initial Access Markets, Credential Markets, Ransomware Ecosystems, Cryptocurrency Forensics | Tor Browser, Dark Web scrapers |
+| **30** | [[Stage-5_Specialized#module-30-proof-of-work--career-portfolio\|Proof of Work & Career]] | **Hands-on & Labs** | PortSwigger Web Security Academy, DVWA, PentesterLab; Hack The Box (`HTB`), TryHackMe (`THM`), VulnHub, Proving Grounds; Binary Exploitation (Reverse/Pwn); Enterprise Labs (Active Directory & Multi-Cloud) | HTB Pro Labs, PortSwigger Academy |
+| | | **Engagements & CVEs** | Penetration Testing Methodologies, Scope Definition, RoE, Exploitation & Post-Exploitation, Client-Ready Reporting, Remediation Guidance; CVE Process, Coordinated Vulnerability Disclosure, Vendor Communication, Advisory Writing | Mitre CVE program, GitHub Advisories |
+| | | **Security Research**| Source Code Auditing, Technical Papers, CVE Analysis, Vulnerability Reproduction, PoC Modification, Crash Debugging, Patch Diffing, Variant Finding, Custom Fuzzers, Novel Vulnerability Discovery | GitHub, Exploit-DB, Packet Storm |
+| | | **Portfolio & Writing**| Research Papers, Blog Posts, CVE Write-ups, Tool Documentation, Lab Reports, Conference Submissions, Open Source Security Tool Contributions, Public GitHub Portfolio, Industry Certifications | GitHub, Medium / Substack, GitBook |
 
 ---
 
@@ -433,27 +205,27 @@ Elite: `Unusual Attack Surfaces` `JavaScript Analysis` `API Architecture Underst
 
 | # | Module | Focus Area |
 |:-:|--------|------------|
-| S01 | [Wireless Network Security](Shelf_Post-Hire.md#shelf-01-wireless-network-security) | WPA2/WPA3, Evil Twin, PMKID |
-| S02 | [Mobile Security](Shelf_Post-Hire.md#shelf-02-mobile-platform-pentesting) | Android/iOS, Frida, MobSF, Pinning |
-| S03 | [OT / ICS / SCADA Security](Shelf_Post-Hire.md#shelf-03-otics-scada-security) | Modbus, S7comm, Purdue model |
-| S04 | [Digital Forensics](Shelf_Post-Hire.md#shelf-04-digital-forensics) | Memory, Disk, Autopsy, Volatility |
-| S05 | [Reverse Engineering & Malware Analysis](Shelf_Post-Hire.md#shelf-05-reverse-engineering--malware-analysis) | Ghidra, x64dbg, unpacking |
-| S06 | [Modern Exploitation](Shelf_Post-Hire.md#shelf-06-modern-exploitation) | Binary exploitation, ROP, ASLR/DEP |
-| S07 | [Hardware Hacking & Embedded Systems](Shelf_Post-Hire.md#shelf-07-hardware-hacking--embedded-systems) | UART, JTAG, Firmware extraction |
-| S08 | [Physical Penetration Testing](Shelf_Post-Hire.md#shelf-08-physical-penetration-testing) | Lock picking, RFID cloning, bypass |
-| S09 | [VoIP & Telecommunications Security](Shelf_Post-Hire.md#shelf-09-voip--telecommunications-security) | SIP, RTP, SS7/5G concepts |
-| S10 | [Blockchain & Web3 Security](Shelf_Post-Hire.md#shelf-10-blockchain--web3-security) | Smart contract audits, reentrancy |
-| S11 | [Governance, Risk & Compliance](Shelf_Post-Hire.md#shelf-11-governance-risk--compliance-grc) | ISO 27001, SOC 2, NIST CSF |
-| S12 | [Supply Chain Security](Shelf_Post-Hire.md#shelf-12-supply-chain-security) | SBOM, Dependency confusion, SLSA |
-| S13 | [DevSecOps & Secure SDLC](Shelf_Post-Hire.md#shelf-13-devsecops--secure-sdlc) | CI/CD pipelines, SAST/DAST, Semgrep |
-| S14 | [Secure Code Review Methodology](Shelf_Post-Hire.md#shelf-14-secure-code-review-methodology) | Code auditing, source-level vuln analysis |
-| S15 | [Security Architecture & Engineering](Shelf_Post-Hire.md#shelf-15-security-architecture--engineering) | Zero Trust, threat modeling, STRIDE |
-| S16 | [Security Operations Expansion](Shelf_Post-Hire.md#shelf-16-security-operations-expansion) | SOAR, DLP, Insider threat |
-| S17 | [Denial of Service & Resilience](Shelf_Post-Hire.md#shelf-17-denial-of-service--availability-resilience) | Layer 4/7 mechanisms, Anycast, DDoS mitigation |
-| S18 | [Automotive Security](Shelf_Post-Hire.md#shelf-18-automotive-security) | CAN Bus, ECU, Telematics, Automotive Forensics |
-| S19 | [Telecom Security](Shelf_Post-Hire.md#shelf-19-telecom-security) | GSM, 4G/5G, SS7, SIM Security, VoLTE |
-| S20 | [Advanced Linux Internals](Shelf_Post-Hire.md#shelf-20-advanced-linux-internals) | Kernel Modules, Container Escape, Linux Persistence |
-| S21 | [Advanced Windows Internals](Shelf_Post-Hire.md#shelf-21-advanced-windows-internals) | Windows Memory Forensics, Token Security, Service Security |
+| S01 | [[Shelf_Post-Hire#shelf-01-wireless-network-security\|Wireless Network Security]] | WPA2/WPA3, Evil Twin, PMKID |
+| S02 | [[Shelf_Post-Hire#shelf-02-mobile-platform-pentesting\|Mobile Security]] | Android/iOS, Frida, MobSF, Pinning |
+| S03 | [[Shelf_Post-Hire#shelf-03-otics-scada-security\|OT / ICS / SCADA Security]] | Modbus, S7comm, Purdue model |
+| S04 | [[Shelf_Post-Hire#shelf-04-digital-forensics\|Digital Forensics]] | Memory, Disk, Autopsy, Volatility |
+| S05 | [[Shelf_Post-Hire#shelf-05-reverse-engineering--malware-analysis\|Reverse Engineering & Malware Analysis]] | Ghidra, x64dbg, unpacking |
+| S06 | [[Shelf_Post-Hire#shelf-06-modern-exploitation\|Modern Exploitation]] | Binary exploitation, ROP, ASLR/DEP |
+| S07 | [[Shelf_Post-Hire#shelf-07-hardware-hacking--embedded-systems\|Hardware Hacking & Embedded Systems]] | UART, JTAG, Firmware extraction |
+| S08 | [[Shelf_Post-Hire#shelf-08-physical-penetration-testing\|Physical Penetration Testing]] | Lock picking, RFID cloning, bypass |
+| S09 | [[Shelf_Post-Hire#shelf-09-voip--telecommunications-security\|VoIP & Telecommunications Security]] | SIP, RTP, SS7/5G concepts |
+| S10 | [[Shelf_Post-Hire#shelf-10-blockchain--web3-security\|Blockchain & Web3 Security]] | Smart contract audits, reentrancy |
+| S11 | [[Shelf_Post-Hire#shelf-11-governance-risk--compliance-grc\|Governance, Risk & Compliance]] | ISO 27001, SOC 2, NIST CSF |
+| S12 | [[Shelf_Post-Hire#shelf-12-supply-chain-security\|Supply Chain Security]] | SBOM, Dependency confusion, SLSA |
+| S13 | [[Shelf_Post-Hire#shelf-13-devsecops--secure-sdlc\|DevSecOps & Secure SDLC]] | CI/CD pipelines, SAST/DAST, Semgrep |
+| S14 | [[Shelf_Post-Hire#shelf-14-secure-code-review-methodology\|Secure Code Review Methodology]] | Code auditing, source-level vuln analysis |
+| S15 | [[Shelf_Post-Hire#shelf-15-security-architecture--engineering\|Security Architecture & Engineering]] | Zero Trust, threat modeling, STRIDE |
+| S16 | [[Shelf_Post-Hire#shelf-16-security-operations-expansion\|Security Operations Expansion]] | SOAR, DLP, Insider threat |
+| S17 | [[Shelf_Post-Hire#shelf-17-denial-of-service--availability-resilience\|Denial of Service & Resilience]] | Layer 4/7 mechanisms, Anycast, DDoS mitigation |
+| S18 | [[Shelf_Post-Hire#shelf-18-automotive-security\|Automotive Security]] | CAN Bus, ECU, Telematics, Automotive Forensics |
+| S19 | [[Shelf_Post-Hire#shelf-19-telecom-security\|Telecom Security]] | GSM, 4G/5G, SS7, SIM Security, VoLTE |
+| S20 | [[Shelf_Post-Hire#shelf-20-advanced-linux-internals\|Advanced Linux Internals]] | Kernel Modules, Container Escape, Linux Persistence |
+| S21 | [[Shelf_Post-Hire#shelf-21-advanced-windows-internals\|Advanced Windows Internals]] | Windows Memory Forensics, Token Security, Service Security |
 
 ---
 
