@@ -48,17 +48,20 @@
 ---
 
 ### 🗂️ Table of Contents
+
 - [Module 14: Web Application Hacking](#part-17-web-application-hacking)
   - [Topic 1: Reconnaissance & Mapping](#stage-1-reconnaissance-mapping)
   - [Topic 2: Vulnerability Analysis & Probing](#stage-2-vulnerability-analysis-probing)
-  - [Topic 3: Exploitation (The OWASP Top 10)](#stage-3-exploitation-the-owasp-top-10)
+  - [Topic 3: Exploitation (The OWASP Top 10 & Modern Web Attacks)](#stage-3-exploitation-the-owasp-top-10)
   - [Topic 4: Post-Exploitation & Persistence](#stage-4-post-exploitation-persistence)
   - [Topic 5: Defense & Mitigation (The Shield)](#stage-5-defense-mitigation-the-shield)
   - [Lab Progression (Module 14: Web Application Hacking)](#lab-progression-part-17-web-application-hacking)
-- [Module 15: Session Hijacking & Token Attacks](#part-12-session-hijacking-token-attacks)
+- [Module 15: Session Hijacking & Token Attacks](#part-12-session-hijacking)
   - [Topic 1: Session Architecture & Vulnerability Analysis](#stage-1-session-architecture-vulnerability-analysis)
   - [Topic 2: Token Theft & Interception Vectors](#stage-2-token-theft-interception-vectors)
   - [Topic 3: Token Forgery & Replay](#stage-3-token-forgery-replay)
+  - [Topic 4: Defense & Mitigation (The Shield)](#stage-4-defense-mitigation-the-shield)
+  - [Lab Progression (Module 15: Session Hijacking & Token Attacks)](#lab-progression-part-12-session-hijacking)
 - [Module 16: Web Server Hacking](#part-18-web-server-hacking)
   - [Topic 1: Target Acquisition & Reconnaissance](#stage-1-target-acquisition-reconnaissance)
   - [Topic 2: Scanning & Service Enumeration](#stage-2-scanning-service-enumeration)
@@ -72,14 +75,59 @@
   - [Topic 4: API Authentication & Token Attacks](#stage-4-api-authentication-token-attacks)
   - [Topic 5: Defense & Hardening](#stage-5-defense-hardening)
   - [Lab Progression (Module 17: API Security)](#lab-progression-part-19-api-security)
-- [Module 18: Bug Bounty Methodology](#part-20-bug-bounty-and-penetration-testing)
+- [Module 18: Bug Bounty Methodology](#part-20-bug-bounty-methodology)
   - [Topic 1: Preparation & Scoping](#stage-1-preparation-scoping)
   - [Topic 2: Reconnaissance (The Wide Net)](#stage-2-reconnaissance-the-wide-net)
   - [Topic 3: Vulnerability Assessment (The Deep Dive)](#stage-3-vulnerability-assessment-the-deep-dive)
   - [Topic 4: Exploitation & Validation](#stage-4-exploitation-validation)
   - [Topic 5: Reporting & Triage](#stage-5-reporting-triage)
   - [Topic 6: Professional Development](#stage-6-professional-development)
-
+- [🏆 Stage 3 Capstone Project](#stage-3-capstone-project)
+- [🧭 Stage 3 Reflection & Competency Check](#stage-3-reflection-competency-check)
+- [🛠️ Stage 3 Mini Projects](#phase-4-mini-projects)
+  - [Project 15 — Website Security Header Checker](#project-15-website-security-header-checker)
+  - [Project 16 — SSL/TLS Certificate Checker](#project-16-ssltls-certificate-checker)
+  - [Project 17 — SQL Injection Detection Tool](#project-17-sql-injection-detection-tool)
+  - [Project 18 — XSS Scanner](#project-18-xss-scanner)
+  - [Project 19 — Phishing URL Detector](#project-19-phishing-url-detector)
+  - [Project 20 — Command Injection Detector](#project-20-command-injection-detector)
+  - [Project 21 — SSRF Detection Tool](#project-21-ssrf-detection-tool)
+  - [Project 22 — Directory Brute-Force Tool](#project-22-directory-brute-force-tool)
+  - [Project 23 — Web Vulnerability Scanner (Capstone)](#project-23-web-vulnerability-scanner-capstone)
+- [🛡️ Parallel Side-Track: Defensive Awareness & Threat Intelligence](#side-track)
+  - [Side-Track A: Detection Engineering & SOC Operations](#part-13a-detection-engineering-soc-operations)
+    - [Topic 1: Defensive Architecture](#stage-1-defensive-architecture)
+    - [Topic 2: Offensive Indicators & TTPs](#stage-2-offensive-indicators-ttps)
+    - [Topic 3: Evasion Detection & Hardening](#stage-3-evasion-detection-hardening)
+    - [Topic 4: Detection Engineering & Response](#stage-4-detection-engineering-response)
+    - [Topic 5: EDR/XDR/MDR Basics](#stage-5-edrxdrmdr-basics)
+    - [Topic 6: SOC & SIEM Fundamentals](#stage-6-soc-siem-fundamentals)
+    - [Topic 7: Threat Hunting Methodology](#stage-7-threat-hunting-methodology)
+    - [Topic 8: Incident Response Basics](#stage-8-incident-response-basics)
+    - [Topic 9: Forensic Fundamentals](#stage-9-forensic-fundamentals)
+    - [Topic 10: Blue Team Evasion Counter-Measures](#stage-10-blue-team-evasion-counter-measures)
+  - [Side-Track B: IDS, Firewalls, and Honeypots](#part-14-ids-firewalls-and-honeypots)
+    - [Topic 1: Foundational Strategy & Networking](#stage-1-foundational-strategy-networking)
+    - [Topic 2: Deploying Firewalls (The Shield)](#stage-2-deploying-firewalls-the-shield)
+    - [Topic 3: Implementing IDS/IPS (The Watchers)](#stage-3-implementing-idsips-the-watchers)
+    - [Topic 4: Utilizing Deception (The Traps)](#stage-4-utilizing-deception-the-traps)
+    - [Topic 5: Operations & Continuous Improvement](#stage-5-operations-continuous-improvement)
+    - [Topic 6: Email Security Architecture](#stage-6-email-security-architecture)
+    - [Topic 7: DNS Security Operations](#stage-7-dns-security-operations)
+    - [Lab Progression (Side-Track B: IDS, Firewalls & Honeypots)](#lab-progression-part-14-ids-firewalls-and-honeypots)
+  - [Side-Track C: Cyber Threat Intelligence (CTI) & Attack Surface Management](#part-15-osint-threat-intelligence)
+    - [Topic 1: External Attack Surface Management (EASM) & Threat Feeds](#stage-1-passive-reconnaissance-data-collection)
+    - [Topic 2: Threat Intelligence Analysis & Actor Profiling](#stage-2-threat-intelligence-analysis)
+    - [Topic 3: CTI Platforms & Automation (MISP / OpenCTI)](#stage-3-osint-automation-tooling)
+    - [Topic 4: Threat Intelligence Dissemination](#stage-4-threat-intelligence-dissemination)
+    - [Topic 5: Threat Intel Operationalization](#stage-5-threat-intel-operationalization)
+    - [Lab Progression (Side-Track C: Threat Intelligence & OSINT)](#lab-progression-part-15-osint-threat-intelligence)
+    - [GRC Fundamentals Sidebar (Early Supplement for Defensive Careers)](#grc-fundamentals-sidebar-early-supplement-for-defensive-careers)
+  - [🏆 Defensive Operations Capstone Project](#defensive-operations-capstone-project)
+  - [🧭 Defensive Operations Reflection & Competency Check](#defensive-operations-reflection-competency-check)
+- [🛠️ Defensive Operations Mini Projects](#phase-3-mini-projects)
+  - [Project 9 — Keylogger Detector](#project-9-keylogger-detector)
+- [🏁 Stage Gate 2 — Web Application Security Gate](#stage-gate-2)
 ---
 
 <a id="part-17-web-application-hacking"></a>
@@ -791,6 +839,8 @@
 
 ---
 
+<a id="stage-3-capstone-project"></a>
+
 ### 🏆 Stage 3 Capstone Project
 
 **Find and Document 5 Web Vulnerabilities Across Multiple Targets**
@@ -810,6 +860,8 @@
 > **Capstone Gate:** My 5 reports must each contain reproducible steps, accurate CVSS scores, and actionable remediation guidance.
 
 ---
+
+<a id="stage-3-reflection-competency-check"></a>
 
 ### 🧭 Stage 3 Reflection & Competency Check
 
@@ -841,6 +893,8 @@
 
 ---
 
+<a id="project-15-website-security-header-checker"></a>
+
 ### Project 15 — Website Security Header Checker
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Stage 5: Defense & Mitigation
@@ -864,6 +918,8 @@ Security headers are the first passive defense layer of any web application, and
 
 ---
 
+<a id="project-16-ssltls-certificate-checker"></a>
+
 ### Project 16 — SSL/TLS Certificate Checker
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Module 16 (Web Server Hacking) → Stage 2: Scanning & Service Enumeration
@@ -883,6 +939,8 @@ Certificate misconfiguration is a frequent finding in professional audits and bu
 **Deliverable:** Python CLI — `check <hostname>`. Output: certificate details table with expiry, issuer, SAN list, protocol version, cipher suite, and flagged issues. README must explain what an expired certificate means for a production service and why SHA-1 signatures are deprecated.
 
 ---
+
+<a id="project-17-sql-injection-detection-tool"></a>
 
 ### Project 17 — SQL Injection Detection Tool
 
@@ -905,6 +963,8 @@ SQL injection has been in the OWASP Top 10 every year since its inception. It ca
 **Deliverable:** Python CLI — `scan <url> --params auto`. Inject payloads into detected parameters, output findings as a structured report with: parameter name, injection type, payload used, evidence. README must include a lab setup section using DVWA or Juice Shop (never test on live sites without permission).
 
 ---
+
+<a id="project-18-xss-scanner"></a>
 
 ### Project 18 — XSS Scanner
 
@@ -929,6 +989,8 @@ XSS enables session hijacking (steal `document.cookie`), credential phishing (in
 
 ---
 
+<a id="project-19-phishing-url-detector"></a>
+
 ### Project 19 — Phishing URL Detector
 
 **Maps to:** Module 24 (Social Engineering) → Stage 2: The Digital Assault (Remote Vectors) + Module 14 Topic 3: OWASP A09 Security Logging and Monitoring Failures
@@ -951,6 +1013,8 @@ Phishing is the #1 initial access vector in real-world attacks — responsible f
 
 ---
 
+<a id="project-20-command-injection-detector"></a>
+
 ### Project 20 — Command Injection Detector
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (OS command)
@@ -970,6 +1034,8 @@ Command injection is the highest-severity web vulnerability class — successful
 **Deliverable:** Python CLI — `scan <url> --params <param1,param2>`. Inject payloads, detect command output or timing anomalies, output findings. README must include a vulnerable test case setup using DVWA and explain why `shell=False` with explicit argument lists prevents injection.
 
 ---
+
+<a id="project-21-ssrf-detection-tool"></a>
 
 ### Project 21 — SSRF Detection Tool
 
@@ -994,6 +1060,8 @@ SSRF became a critical vulnerability class with cloud adoption. The 2019 Capital
 
 ---
 
+<a id="project-22-directory-brute-force-tool"></a>
+
 ### Project 22 — Directory Brute-Force Tool
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping — specifically content discovery
@@ -1013,6 +1081,8 @@ Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup
 **Deliverable:** Python CLI — `scan <url> --wordlist <path> --threads <n> --extensions php,html,txt`. Output: table of discovered paths with status codes and content lengths, false-positive-filtered. README must explain what finding an exposed `.git` directory means for a target's security.
 
 ---
+
+<a id="project-23-web-vulnerability-scanner-capstone"></a>
 
 ### Project 23 — Web Vulnerability Scanner (Capstone)
 
@@ -1690,6 +1760,8 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
+<a id="defensive-operations-capstone-project"></a>
+
 ### 🏆 Defensive Operations Capstone Project
 
 **Deploy a SIEM, Investigate Simulated Attacks, and Build a Detection Library**
@@ -1709,6 +1781,8 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > **Capstone Gate:** My SIEM must be operational, my detection rules must fire on the simulated attacks, and my investigation reports must follow a structured IR format.
 
 ---
+
+<a id="defensive-operations-reflection-competency-check"></a>
 
 ### 🧭 Defensive Operations Reflection & Competency Check
 
@@ -1739,6 +1813,8 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > **Why this project is here:** Defensive operations cover defense, detection, and understanding what malicious behavior looks like from the defender's perspective. The Keylogger Detector belongs here because it requires process monitoring, behavioral analysis, and understanding of OS-level keyboard hooks — all detection engineering skills. It is explicitly a defensive tool: you're detecting an attacker's technique, not performing it.
 
 ---
+
+<a id="project-9-keylogger-detector"></a>
 
 ### Project 9 — Keylogger Detector
 

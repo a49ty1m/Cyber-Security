@@ -52,54 +52,64 @@
 
 ### 🗂️ Table of Contents
 
-- [Module 08: Footprinting & Reconnaissance](#module-08-footprinting--reconnaissance)
+- [🔹 Stage 2 Execution Pipeline](#stage-2-execution-pipeline)
+- [Module 08: Footprinting & Reconnaissance](#part-4-footprinting-and-reconnaissance)
   - [Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling)](#part-4-stage-1-ghost-phase)
   - [Topic 2: Semi-Passive Infrastructure Mapping](#part-4-stage-2-semi-passive-infrastructure-mapping)
   - [Topic 3: Active Footprinting & Network Interrogation](#part-4-stage-3-active-footprinting-network-interrogation)
   - [Topic 4: Advanced Fingerprinting & Logic Analysis](#part-4-stage-4-advanced-fingerprinting-logic-analysis)
   - [Topic 5: IPv6 & Protocol Enumeration](#part-4-stage-5-ipv6-protocol-enumeration)
   - [Topic 6: Dark Web & Breach Intelligence](#part-4-stage-6-dark-web-breach-intelligence)
-  - [Topic 7: Satellite & Geospatial Intelligence](#part-4-stage-7-satellite-geospatial-intelligence)
+  - [Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope)](#part-4-stage-7-satellite-geospatial-intelligence)
   - [Topic 8: Strategy & Attack Mapping](#part-4-stage-8-strategy-attack-mapping)
-  - [Lab Progression (Footprinting & Reconnaissance)](#part-4-lab-progression)
-- [Module 09: Scanning](#module-09-scanning)
+  - [Lab Progression (Module 08: Footprinting & Reconnaissance)](#part-4-lab-progression)
+- [Module 09: Scanning](#part-5-scanning)
   - [Topic 1: Host Discovery & Network Topology (The "Roll Call")](#stage-1-host-discovery-network-topology-the-roll-call)
   - [Topic 2: Port, Service & Protocol Enumeration (The "Door Check")](#stage-2-port-service-protocol-enumeration-the-door-check)
   - [Topic 3: Defense & Configuration Assessment (The "Armor Check")](#stage-3-defense-configuration-assessment-the-armor-check)
   - [Topic 4: Vulnerability Association & Attack Mapping](#stage-4-vulnerability-association-attack-mapping)
   - [Topic 5: Stealth & Evasion Techniques](#stage-5-stealth-evasion-techniques)
   - [Topic 6: Advanced Scanning Techniques](#stage-6-advanced-scanning-techniques)
-  - [Lab Progression (Scanning)](#lab-progression-part-5-scanning)
-- [Module 10: Enumeration](#module-10-enumeration)
+  - [Lab Progression (Module 09: Scanning)](#lab-progression-part-5-scanning)
+- [Module 10: Enumeration](#part-6-enumeration)
   - [Topic 1: Service Enumeration & Banner Grabbing](#stage-1-service-enumeration-banner-grabbing)
   - [Topic 2: Directory & Identity Enumeration](#stage-2-directory-identity-enumeration)
   - [Topic 3: DNS & Infrastructure Enumeration](#stage-3-dns-infrastructure-enumeration)
   - [Topic 4: Database & Application Enumeration](#stage-4-database-application-enumeration)
   - [Topic 5: Attack Surface Consolidation & Enumeration OpSec](#stage-5-attack-surface-consolidation-enumeration-opsec)
-  - [Lab Progression (Enumeration)](#lab-progression-part-6-enumeration)
-- [Module 11: Database Security](#module-11-database-security)
+  - [Lab Progression (Module 10: Enumeration)](#lab-progression-part-6-enumeration)
+- [Module 11: Database Security](#part-6b-database-security)
   - [Topic 1: Database Enumeration & Fingerprinting](#part-6b-stage-1-database-enumeration-fingerprinting)
   - [Topic 2: Relational Database Exploitation](#part-6b-stage-2-relational-database-exploitation)
   - [Topic 3: NoSQL & Modern Database Attacks](#part-6b-stage-3-nosql-modern-database-attacks)
   - [Topic 4: Database Privilege Escalation](#part-6b-stage-4-database-privilege-escalation)
   - [Topic 5: Database Auditing & Defence](#part-6b-stage-5-database-auditing-defence)
-  - [Lab Progression (Database Security)](#part-6b-lab-progression)
-- [Module 12: Password Cracking & Hash Analysis](#module-12-password-cracking--hash-analysis)
+  - [Lab Progression (Module 11: Database Security)](#part-6b-lab-progression)
+- [Module 12: Password Cracking & Hash Analysis](#part-31-password-cracking-hash-analysis)
   - [Topic 1: Hash Identification & Acquisition](#stage-1-hash-identification-acquisition)
   - [Topic 2: Cracking Methodology & Tools](#stage-2-cracking-methodology-tools)
   - [Topic 3: Protocol-Specific Cracking](#stage-3-protocol-specific-cracking)
   - [Topic 4: Wordlist & Intelligence Curation](#stage-4-wordlist-intelligence-curation)
-- [Module 13: System Hacking & Initial Compromise](#module-13-system-hacking--initial-compromise)
+- [Module 13: System Hacking & Initial Compromise](#part-7-system-hacking-initial-compromise)
   - [Topic 1: The Breach (Initial Access & Exploitation)](#stage-1-the-breach-initial-access-exploitation)
   - [Topic 2: The Ascension (Privilege Escalation)](#stage-2-the-ascension-privilege-escalation)
   - [Topic 3: The Stronghold (Persistence & Lateral Movement)](#stage-3-the-stronghold-persistence-lateral-movement)
   - [Topic 4: The Shadow (Defense Evasion & Anti-Forensics)](#stage-4-the-shadow-defense-evasion-anti-forensics)
   - [Topic 5: Data Exfiltration & Impact](#stage-5-data-exfiltration-impact)
   - [Topic 6: The Professional (Governance & Reporting)](#stage-6-the-professional-governance-reporting)
-  - [Lab Progression (System Hacking & Initial Compromise)](#lab-progression-part-7-system-hacking-initial-compromise)
-- [Stage Gate 1](#stage-gate-1)
-
+  - [Lab Progression (Module 13: System Hacking & Initial Compromise)](#lab-progression-part-7-system-hacking-initial-compromise)
+- [🔹 Architecture Alignment Note: Network & Weaponization Tracks](#toc-part-8-malware--weaponization)
+- [🏆 Stage 2 Capstone Project](#stage-2-capstone-project)
+- [🧭 Stage 2 Reflection & Competency Check](#stage-2-reflection-competency-check)
+- [🛠️ Stage 2 Mini Projects](#stage-2-mini-projects)
+  - [Project 10 — Port Scanner](#project-10-port-scanner)
+  - [Project 11 — Network Packet Sniffer](#project-11-network-packet-sniffer)
+  - [Project 13 — Subdomain Scanner](#project-13-subdomain-scanner)
+  - [Project 14 — Vulnerability Scanner](#project-14-vulnerability-scanner)
+- [🏁 Stage Gate 1 — Host Dominance & Privilege Escalation](#stage-gate-1)
 ---
+
+<a id="stage-2-execution-pipeline"></a>
 
 ## 🔹 Stage 2 Execution Pipeline
 
@@ -1677,6 +1687,8 @@
 >
 > **Rule:** Every box I root gets a written writeup committed to my notes repo. No writeup = learning didn't happen.
 
+<a id="stage-2-capstone-project"></a>
+
 ### 🏆 Stage 2 Capstone Project
 
 **Complete a Full Penetration Test on a Deliberately Vulnerable Lab**
@@ -1699,6 +1711,8 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or my
 > **Capstone Gate:** My report must be structured professionally enough to present to a client. A reader should understand every step without needing to ask questions.
 
 ---
+
+<a id="stage-2-reflection-competency-check"></a>
 
 ### 🧭 Stage 2 Reflection & Competency Check
 
@@ -1729,6 +1743,8 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or my
 
 ---
 
+<a id="project-10-port-scanner"></a>
+
 ### Project 10 — Port Scanner
 
 **Maps to:** Module 09 (Scanning) → Topic 2: Port, Service & Protocol Enumeration
@@ -1749,6 +1765,8 @@ Nmap already exists. The reason I build my own is to understand _why_ port scann
 **Deliverable:** Python CLI — `scan <target> --ports <range> --mode <connect|syn> --threads <n>`. Output: table of open ports with service guesses. README must document the ethical usage requirements and explain the SYN vs connect scan distinction.
 
 ---
+
+<a id="project-11-network-packet-sniffer"></a>
 
 ### Project 11 — Network Packet Sniffer
 
@@ -1772,6 +1790,8 @@ Every network security tool — from Wireshark to IDS/IPS systems — is built o
 
 ---
 
+<a id="project-13-subdomain-scanner"></a>
+
 ### Project 13 — Subdomain Scanner
 
 **Maps to:** Module 08 (Footprinting & Reconnaissance) → Topic 2 & Topic 3: Infrastructure Mapping
@@ -1792,6 +1812,8 @@ The most critical vulnerabilities in a real engagement are often not found on `w
 **Deliverable:** Python CLI — `scan <domain> --wordlist <path> --passive --threads <n>`. Output: list of discovered subdomains with resolved IPs. README must distinguish passive vs active discovery and explain Certificate Transparency.
 
 ---
+
+<a id="project-14-vulnerability-scanner"></a>
 
 ### Project 14 — Vulnerability Scanner
 

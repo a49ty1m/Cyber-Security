@@ -17,6 +17,68 @@
 
 ---
 
+### 🗂️ Table of Contents
+
+- [Module 27: Offensive Development & Tooling](#part-42-offensive-development-tooling)
+  - [C Language — Systems Programming & Exploit Foundations](#c-language-systems-programming-exploit-foundations)
+  - [C++ — Reverse Engineering Context](#c-reverse-engineering-context)
+  - [Move-On Gate (Topic 7B)](#move-on-gate-topic-7b)
+  - [Topic 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
+  - [Topic 2: Windows Offensive Development](#stage-2-windows-offensive-development)
+  - [Topic 3: Linux Offensive Development](#stage-3-linux-offensive-development)
+  - [Topic 4: C2 & Implant Development](#stage-4-c2-implant-development)
+  - [Lab Progression (Module 27: Offensive Development & Tooling)](#lab-progression-part-42-offensive-development-tooling)
+  - [Security Automation](#module-27-security-automation)
+- [Module 28: AI & LLM Red Teaming](#part-38-ai-llm-red-teaming)
+  - [Topic 1: AI Fundamentals for Security Practitioners](#stage-1-ai-fundamentals-for-security-practitioners)
+  - [Topic 2: Attack Surface & Frameworks](#stage-2-attack-surface-frameworks)
+  - [Topic 3: Adversarial Techniques (LLM01/LLM06)](#stage-3-adversarial-techniques-llm01llm06)
+  - [Topic 4: RAG & Data Supply Chain Attacks](#stage-4-rag-data-supply-chain-attacks)
+  - [Topic 5: Language Model Specific Attacks](#stage-5-language-model-specific-attacks)
+  - [Topic 6: Multi-Model & Agent Attacks](#stage-6-multi-model-agent-attacks)
+  - [Topic 7: Adversarial Examples & ML Robustness](#stage-7-adversarial-examples-ml-robustness)
+  - [Topic 8: Model Extraction & Inversion](#stage-8-model-extraction-inversion)
+  - [Topic 9: Dataset Poisoning & Backdoors](#stage-9-dataset-poisoning-backdoors)
+  - [Topic 10: Privacy Attacks & PII Leakage](#stage-10-privacy-attacks-pii-leakage)
+  - [Topic 11: AI-Augmented Red Team Workflow](#stage-11-ai-augmented-red-team-workflow)
+  - [Topic 12: Agentic AI & Autonomous Attack Infrastructure](#stage-12-agentic-ai-autonomous-attack-infrastructure)
+  - [Topic 13: Tooling & Evaluation](#stage-13-tooling-evaluation)
+  - [Topic 14: Defense & Responsible AI](#stage-14-defense-responsible-ai)
+  - [Topic 15: Shadow AI & Organizational AI Risk](#stage-15-shadow-ai-organizational-ai-risk)
+  - [Topic 16: Defensive AI Operations](#stage-16-defensive-ai-operations)
+  - [Topic 17: AI Security Projects & Portfolio](#stage-17-ai-security-projects-portfolio)
+  - [Topic 18: AI Security Career Targeting](#stage-18-ai-security-career-targeting)
+  - [Lab Progression (Module 28: AI & LLM Red Teaming)](#lab-progression-module-28-ai-llm-red-teaming)
+  - [🏆 AI Red Teaming Capstone Project](#ai-red-teaming-capstone-project)
+  - [🧭 AI Red Teaming Reflection & Competency Check](#ai-red-teaming-reflection-competency-check)
+- [Module 29: Red Team Operations & Tradecraft](#part-40-red-team-operations-tradecraft)
+  - [Topic 1: Campaign Planning & Infrastructure](#stage-1-campaign-planning-infrastructure)
+  - [Topic 2: Initial Access & Payload Delivery](#stage-2-initial-access-payload-delivery)
+  - [Topic 3: OPSEC, Persistence & Lateral Movement](#stage-3-opsec-persistence-lateral-movement)
+  - [Topic 4: Data Exfiltration & Impact](#stage-4-data-exfiltration-impact)
+  - [Topic 5: Deconfliction, Reporting & Wrap-Up](#stage-5-deconfliction-reporting-wrap-up)
+  - [Lab Progression (Module 29: Red Team Operations & Tradecraft)](#lab-progression-module-29-red-team-operations-tradecraft)
+- [Module 30: Proof of Work & Career Portfolio](#part-41-proof-of-work-career-portfolio)
+  - [Topic 1: Certification Roadmap](#stage-1-certification-roadmap)
+  - [Topic 2: Technical Portfolio & GitHub Presence](#stage-2-technical-portfolio-github-presence)
+  - [Topic 3: Technical Writing & Content](#stage-3-technical-writing-content)
+  - [Topic 4: Bug Bounties & Community Engagement](#stage-4-bug-bounties-community-engagement)
+  - [Topic 5: Career Positioning & Job Search Strategy](#stage-5-career-positioning-job-search-strategy)
+  - [Topic 5B: Technical Interview Preparation](#stage-5b-technical-interview-preparation)
+  - [Topic 6: Soft Skills & Professional Communication](#stage-6-soft-skills-professional-communication)
+  - [Lab Progression (Module 30: Proof of Work & Career Portfolio)](#lab-progression-module-30-proof-of-work-career-portfolio)
+  - [🏆 Stage 5 Capstone Project](#stage-5-capstone-project)
+  - [🧭 Stage 5 Reflection & Competency Check](#stage-5-reflection-competency-check)
+- [🛠️ Tool Priority Reference](#tool-priority-reference)
+  - [🔴 Tier 1 — Core Pentest Essentials](#tier-1-core-pentest-essentials)
+  - [🔶 Tier 2 — Important, Frequent Use](#tier-2-important-frequent-use)
+  - [🔷 Tier 3 — Specialized / Situational](#tier-3-specialized-situational)
+  - [🔹 Tier 4 — Niche / Concept-Focused](#tier-4-niche-concept-focused)
+  - [📐 Tool Selection Decision Tree](#tool-selection-decision-tree)
+  - [🗓️ Suggested Study Order](#suggested-study-order)
+- [🏁 Final Gate — Mastery & Career Validation](#final-gate)
+---
+
 <a id="module-27-offensive-development--tooling"></a>
 <a id="part-42-offensive-development-tooling"></a>
 
@@ -28,6 +90,8 @@
 
 > [!TIP]
 > **Goal:** Build the C and C++ foundations required for shellcode writing, exploit development, Windows API exploitation, and reverse engineering of compiled binaries. These are not general-purpose programming languages at this stage — they are the substrate of offensive development and RE.
+
+<a id="c-language-systems-programming-exploit-foundations"></a>
 
 ### **C Language — Systems Programming & Exploit Foundations**
 
@@ -57,6 +121,8 @@
 
 ---
 
+<a id="c-reverse-engineering-context"></a>
+
 ### **C++ — Reverse Engineering Context**
 
 - [ ] **Object Model & Memory Layout:** Understand how C++ objects are laid out in memory: the this pointer, member variables at fixed offsets, vtable pointer at offset 0 for polymorphic objects. Know why `sizeof(MyClass)` may surprise you (padding, vtable pointer).
@@ -72,6 +138,8 @@
 **Lab:** Compile a C++ class with a virtual function, disassemble it with objdump or Ghidra, locate the vtable, and manually trace the virtual dispatch mechanism. Then do the same with a class hierarchy (base + derived) and verify the vtptr is overwritten correctly.
 
 ---
+
+<a id="move-on-gate-topic-7b"></a>
 
 ### **Move-On Gate (Topic 7B)**
 
@@ -615,6 +683,8 @@
 
 ---
 
+<a id="lab-progression-module-28-ai-llm-red-teaming"></a>
+
 ### **Lab Progression (Module 28: AI & LLM Red Teaming)**
 
 | Level | Task | Deliverable |
@@ -627,6 +697,8 @@
 > **Move-On Gate (Module 28):** Execute prompt injection attacks across multiple models, demonstrate RAG poisoning in a lab, and publish an AI security tool to GitHub with documentation.
 
 ---
+
+<a id="ai-red-teaming-capstone-project"></a>
 
 ### 🏆 AI Red Teaming Capstone Project
 
@@ -647,6 +719,8 @@
 > **Capstone Gate:** My assessment report must cover at least 5 OWASP LLM Top 10 categories with working proof-of-concept attacks and actionable defensive recommendations.
 
 ---
+
+<a id="ai-red-teaming-reflection-competency-check"></a>
 
 ### 🧭 AI Red Teaming Reflection & Competency Check
 
@@ -744,6 +818,8 @@
 - [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
 
 - [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
+
+<a id="lab-progression-module-29-red-team-operations-tradecraft"></a>
 
 ### **Lab Progression (Module 29: Red Team Operations & Tradecraft)**
 
@@ -955,6 +1031,8 @@
 
 ---
 
+<a id="lab-progression-module-30-proof-of-work-career-portfolio"></a>
+
 ### **Lab Progression (Module 30: Proof of Work & Career Portfolio)**
 
 | Level | Task                                                                                                         | Deliverable                                                |
@@ -967,6 +1045,8 @@
 > **Move-On Gate (Module 30):** Produce one pentest report with three executive summaries (CISO, engineering lead, compliance officer) for the same set of findings, and have a live portfolio with working tools, published writeups, and at least one industry-recognized certification.
 
 ---
+
+<a id="stage-5-capstone-project"></a>
 
 ### 🏆 Stage 5 Capstone Project
 
@@ -990,6 +1070,8 @@
 > **Capstone Gate:** A hiring manager should be able to review my GitHub, blog, and resume and understand my capabilities without a single conversation. My portfolio must tell a coherent story of progressive skill development.
 
 ---
+
+<a id="stage-5-reflection-competency-check"></a>
 
 ### 🧭 Stage 5 Reflection & Competency Check
 
@@ -1015,6 +1097,8 @@
 > Every tool has a dedicated mastery checklist in the `Tools/` directory. Study them in priority order. Don't go deep on Ghidra before I're fluent with Nmap.
 
 ---
+
+<a id="tier-1-core-pentest-essentials"></a>
 
 ### 🔴 Tier 1 — Core Pentest Essentials
 
@@ -1042,6 +1126,8 @@
 
 ---
 
+<a id="tier-2-important-frequent-use"></a>
+
 ### 🔶 Tier 2 — Important, Frequent Use
 
 *12 tools. Critical for Active Directory attacks, network analysis, red teaming, and web specialization. I will use these in most serious engagements — just not on every single target like Tier 1.*
@@ -1066,6 +1152,8 @@
 
 ---
 
+<a id="tier-3-specialized-situational"></a>
+
 ### 🔷 Tier 3 — Specialized / Situational
 
 *12 tools. Essential within their specific domain, but not universally needed. Pick the sub-group that matches my track.*
@@ -1089,6 +1177,8 @@
 
 ---
 
+<a id="tier-4-niche-concept-focused"></a>
+
 ### 🔹 Tier 4 — Niche / Concept-Focused
 
 *11 tools. Know what each does and when to call for it. Deep practice is optional unless DoS testing or low-level malware analysis is my specific role.*
@@ -1110,6 +1200,8 @@
 > **Tier 4 is conceptual.** I should be able to explain what each tool does and run a basic test — that's it. I do not need to master these to be a working penetration tester.
 
 ---
+
+<a id="tool-selection-decision-tree"></a>
 
 ### 📐 Tool Selection Decision Tree
 
@@ -1182,6 +1274,8 @@ WHAT DO YOU NEED TO DO?
 ```
 
 ---
+
+<a id="suggested-study-order"></a>
 
 ### 🗓️ Suggested Study Order
 

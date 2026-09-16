@@ -49,63 +49,66 @@
 
 ### 🗂️ Table of Contents
 
-- [Module 19: Active Directory & Entra ID](#module-19-active-directory--entra-id)
+- [Module 19: Active Directory & Entra ID](#part-23-active-directory-entra-id)
   - [Topic 1: Discovery & Enumeration](#stage-1-discovery-enumeration)
   - [Topic 2: Credential & Auth Attacks](#stage-2-credential-auth-attacks)
   - [Topic 3: Delegation, ACL, and ADCS Abuse](#stage-3-delegation-acl-and-adcs-abuse)
   - [Topic 4: Lateral Movement & Persistence](#stage-4-lateral-movement-persistence)
   - [Topic 5: Entra ID (Azure AD) & Hybrid Attacks](#stage-5-entra-id-azure-ad-hybrid-attacks)
-  - [Lab Progression (Active Directory & Entra ID)](#lab-progression-part-23-active-directory-entra-id)
-- [Module 20: Cloud Computing](#module-20-cloud-computing)
+  - [Lab Progression (Module 19: Active Directory & Entra ID)](#lab-progression-part-23-active-directory-entra-id)
+- [Module 20: Cloud Computing](#part-24-cloud-computing)
   - [Topic 1: Architecture & Governance](#stage-1-architecture-governance)
   - [Topic 2: Storage & Data Security](#stage-2-storage-data-security)
   - [Topic 3: Modern Infrastructure & Deployment](#stage-3-modern-infrastructure-deployment)
   - [Topic 4: Automation & Scripting](#stage-4-automation-scripting)
   - [Topic 5: Cloud-Specific Attack Vectors](#stage-5-cloud-specific-attack-vectors)
   - [Topic 6: IAM & PAM Attack Surface](#stage-6-iam-pam-attack-surface)
-- [Module 21: Container & Orchestration Security](#module-21-container--orchestration-security)
+- [Module 21: Container & Orchestration Security](#part-25-container-orchestration-security)
   - [Topic 1: Container Fundamentals & Attacks](#stage-1-container-fundamentals-attacks)
   - [Topic 2: Kubernetes Security](#stage-2-kubernetes-security)
   - [Topic 3: Container Runtime Security](#stage-3-container-runtime-security)
   - [Topic 4: Secrets & Configuration Management](#stage-4-secrets-configuration-management)
   - [Topic 5: CI/CD & Workflow Automation Attacks](#stage-5-cicd-workflow-automation-attacks)
-  - [Lab Progression (Container & Orchestration Security)](#lab-progression-part-25-container-orchestration-security)
-- [Module 22: Adversary Emulation & Purple Teaming](#module-22-adversary-emulation--purple-teaming)
+  - [Lab Progression (Module 21: Container & Orchestration Security)](#lab-progression-part-25-container-orchestration-security)
+  - [Topic 6: Hypervisor Security](#stage-6-hypervisor-security)
+- [Module 22: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming)
   - [Topic 1: MITRE ATT&CK Framework Mastery](#stage-1-mitre-attck-framework-mastery)
   - [Topic 2: APT & Threat Actor Emulation](#stage-2-apt-threat-actor-emulation)
   - [Topic 3: Purple Team Exercises](#stage-3-purple-team-exercises)
   - [Topic 4: Metrics & Reporting](#stage-4-metrics-reporting)
-  - [Lab Progression (Adversary Emulation & Purple Teaming)](#lab-progression-part-16-adversary-emulation-purple-teaming)
-- [Module 23: Sniffing & Spoofing](#module-23-sniffing--spoofing)
-  - [Topic 1: The Environment & Fundamentals](#stage-1-the-environment-fundamentals-the-setup)
-  - [Topic 2: Sniffing & Passive Reconnaissance](#stage-2-sniffing-passive-reconnaissance-the-ear)
-  - [Topic 3: Spoofing & Active Deception](#stage-3-spoofing-active-deception-the-lie)
-  - [Topic 4: Man-in-the-Middle & Exploitation](#stage-4-man-in-the-middle-exploitation-the-kill)
-  - [Topic 5: Defenses & Mitigation](#stage-5-defenses-mitigation-the-shield)
-  - [Lab Progression (Sniffing & Spoofing)](#lab-progression-part-9-sniffing-spoofing)
-- [Module 24: Social Engineering](#module-24-social-engineering)
-  - [Topic 0: The Psychology of Social Engineering](#stage-0-the-psychology-of-social-engineering-the-foundation)
-  - [Topic 1: Intelligence & Reconnaissance](#stage-1-intelligence-reconnaissance-the-setup)
-  - [Topic 2: The Digital Assault](#stage-2-the-digital-assault-remote-vectors)
-  - [Topic 3: The Human Element](#stage-3-the-human-element-direct-interaction)
-  - [Topic 4: The Physical Breach](#stage-4-the-physical-breach-boots-on-the-ground)
-  - [Topic 5: Defense & Awareness](#stage-5-defense-awareness-the-shield)
-  - [Lab Progression (Social Engineering)](#lab-progression-part-10-social-engineering)
-- [Module 25: Malware & Weaponization (Conceptual)](#module-25-malware--weaponization-conceptual)
+  - [Lab Progression (Module 22: Adversary Emulation & Purple Teaming)](#lab-progression-part-16-adversary-emulation-purple-teaming)
+- [Module 23: Sniffing & Spoofing](#part-9-sniffing-spoofing)
+  - [Topic 1: The Environment & Fundamentals (The Setup)](#stage-1-the-environment-fundamentals-the-setup)
+  - [Topic 2: Sniffing & Passive Reconnaissance (The Ear)](#stage-2-sniffing-passive-reconnaissance-the-ear)
+  - [Topic 3: Spoofing & Active Deception (The Lie)](#stage-3-spoofing-active-deception-the-lie)
+  - [Topic 4: Man-in-the-Middle & Exploitation (The Kill)](#stage-4-man-in-the-middle-exploitation-the-kill)
+  - [Topic 5: Defenses & Mitigation (The Shield)](#stage-5-defenses-mitigation-the-shield)
+  - [Lab Progression (Module 23: Sniffing & Spoofing)](#lab-progression-part-9-sniffing-spoofing)
+- [Module 24: Social Engineering](#part-10-social-engineering)
+  - [Topic 0: The Psychology of Social Engineering (The Foundation)](#stage-0-the-psychology-of-social-engineering-the-foundation)
+  - [Topic 1: Intelligence & Reconnaissance (The Setup)](#stage-1-intelligence-reconnaissance-the-setup)
+  - [Topic 2: The Digital Assault (Remote Vectors)](#stage-2-the-digital-assault-remote-vectors)
+  - [Topic 3: The Human Element (Direct Interaction)](#stage-3-the-human-element-direct-interaction)
+  - [Topic 4: The Physical Breach (Boots on the Ground)](#stage-4-the-physical-breach-boots-on-the-ground)
+  - [Topic 5: Defense & Awareness (The Shield)](#stage-5-defense-awareness-the-shield)
+  - [Lab Progression (Module 24: Social Engineering)](#lab-progression-part-10-social-engineering)
+- [Module 25: Malware & Weaponization (Conceptual)](#part-8-malware-weaponization)
   - [Topic 1: The Design & Logic (Architecture)](#stage-1-the-design-logic-architecture)
-  - [Topic 2: The Payload & Mechanism](#stage-2-the-payload-mechanism-weaponization)
-  - [Topic 3: Evasion & Defense Bypassing](#stage-3-evasion-defense-bypassing-invisibility)
-  - [Topic 4: Persistence & Escalation](#stage-4-persistence-escalation-entrenchment)
-  - [Topic 5: Counter-Forensics & Cleanup](#stage-5-counter-forensics-professionalism-the-cleanup)
-  - [Topic 6: Document & Cloud Weaponization](#stage-6-document-cloud-weaponization)
-- [Module 26: Pentest Methodologies & Report Writing](#module-26-pentest-methodologies--report-writing)
+  - [Topic 2: The Payload & Mechanism — Exposure Survey](#stage-2-the-payload-mechanism-weaponization)
+  - [Topic 3: Evasion & Defense Bypassing — Exposure Survey](#stage-3-evasion-defense-bypassing-invisibility)
+  - [Topic 4: Persistence & Escalation — Exposure Survey](#stage-4-persistence-escalation-entrenchment)
+  - [Topic 5: Counter-Forensics & Cleanup — Exposure Survey](#stage-5-counter-forensics-professionalism-the-cleanup)
+  - [Topic 5b: Windows Persistence Analysis & Memory Forensics](#stage-5b-windows-persistence-memory-forensics)
+  - [Topic 6: Document & Cloud Weaponization](#topic-6-document-cloud-weaponization)
+  - [Lab Progression (Module 25: Malware & Weaponization)](#lab-progression-module-25-malware-weaponization)
+- [Module 26: Pentest Methodologies & Report Writing](#part-39-penetration-testing-methodologies-report-writing)
   - [Topic 1: Industry-Standard Engagement Frameworks](#stage-1-industry-standard-engagement-frameworks)
   - [Topic 2: Scoping, Legal Frameworks & Engagement Management](#stage-2-scoping-legal-frameworks-engagement-management)
   - [Topic 3: Structured Threat Modeling](#stage-3-structured-threat-modeling)
   - [Topic 4: Vulnerability Scoring & Risk Prioritization](#stage-4-vulnerability-scoring-risk-prioritization)
   - [Topic 5: Professional Report Writing](#stage-5-professional-report-writing)
-- [Stage Gate 3](#stage-gate-3)
-
+  - [Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)](#lab-progression-module-26-penetration-testing-methodologies-report-writing)
+- [🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting](#stage-gate-3)
 ---
 
 <a id="part-23-active-directory-entra-id"></a>
@@ -1245,6 +1248,8 @@ Robert Cialdini's research on influence identified six universal principles that
 
 
 
+<a id="topic-6-document-cloud-weaponization"></a>
+
 ### **Topic 6: Document & Cloud Weaponization** — `🔬 Practical`
 
 > [!TIP]
@@ -1295,6 +1300,8 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Google Workspace Logs:** Review **Admin/Drive/Access Transparency** for trace evidence.
 
 - [ ] **Artifact Hygiene:** Track **recent documents, registry keys, LNK files**, and clear only when within ROE.
+
+<a id="lab-progression-module-25-malware-weaponization"></a>
 
 ### **Lab Progression (Module 25: Malware & Weaponization)**
 
@@ -1442,6 +1449,8 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Re-test Procedures:** Document **exactly how the client verifies each remediation** — include test steps, expected output, and acceptance criteria; schedule and execute a **formal re-test engagement** where contracted; issue a re-test supplement report with delta findings.
 
 - [ ] **Report Versioning & Delivery:** Maintain **draft → client review → final** versioning; deliver reports in **password-protected PDF** with restricted printing/copying; PGP-encrypt email attachments; define report retention and destruction policy in the SoW.
+
+<a id="lab-progression-module-26-penetration-testing-methodologies-report-writing"></a>
 
 ### **Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)**
 

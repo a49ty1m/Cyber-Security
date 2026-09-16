@@ -90,17 +90,18 @@
 
 ### 🗂️ Table of Contents
 
-- [Lab Baseline Setup](#lab-baseline-setup)
-- [Module 01: Fundamentals](#module-01-fundamentals)
+- [🛠️ Lab Baseline Setup](#career-foundation-lab-setup)
+- [Module 01: Fundamentals](#part-1-fundamentals)
   - [Topic 1: Hardware, CPU & Pre-Boot Environment](#stage-1-hardware-cpu-pre-boot-environment)
   - [Topic 2: Operating System Internals](#stage-2-operating-system-internals)
   - [Topic 3: Memory Management](#stage-3-memory-management)
   - [Topic 4: Data Representation & Logic](#stage-4-data-representation-logic)
   - [Topic 5: Wireless & Physical Connections](#stage-5-wireless-physical-connections)
   - [Topic 6: Mobile Platform Awareness](#stage-6-mobile-platform-awareness)
-  - [Topic 7A: Programming & Scripting Fundamentals (Python, Bash, PowerShell, JS)](#stage-7a-programming-scripting-fundamentals)
-  - [Topic 7B: C & C++ (Stage 5 — deferred)](#stage-7b-c-cpp-programming)
-- [Module 02: Linux Administration](#module-02-linux-administration)
+  - [Topic 7A: Programming & Scripting Fundamentals](#stage-7a-programming-scripting-fundamentals)
+- [Stage Completion Criteria](#stage-completion-criteria)
+  - [Topic 7B: C & C++ Programming ← *Deferred to Stage 5 (Module 27)*](#stage-7b-c-cpp-programming)
+- [Module 02: Linux Administration](#part-1b-linux-administration)
   - [Topic 1: User & Access Management (Linux)](#stage-1-user-access-management-linux)
   - [Topic 2: Service & Process Management (Linux)](#stage-2-service-process-management-linux)
   - [Topic 3: Networking (Linux)](#stage-3-networking-linux)
@@ -108,7 +109,7 @@
   - [Topic 5: Storage & Filesystem (Linux)](#stage-5-storage-filesystem-linux)
   - [Topic 6: Security Hardening (Linux)](#stage-6-security-hardening-linux)
   - [Lab Progression (Linux)](#lab-progression-linux)
-- [Module 03: Windows Administration](#module-03-windows-administration)
+- [Module 03: Windows Administration](#part-1c-windows-administration)
   - [Topic 1: User & Access Management (Windows)](#stage-1-user-access-management-windows)
   - [Topic 2: System Management (Windows)](#stage-2-system-management-windows)
   - [Topic 3: Event Viewer & Auditing (Windows)](#stage-3-event-viewer-auditing-windows)
@@ -117,7 +118,7 @@
   - [Topic 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19)](#stage-6-windows-identity-kerberos-foundations)
   - [Lab Progression (Windows)](#lab-progression-windows)
   - [macOS Security Awareness (Supplemental)](#macos-security-awareness-supplemental)
-- [Module 04: Networking Fundamentals](#module-04-networking-fundamentals)
+- [Module 04: Networking Fundamentals](#part-2-networking-fundamentals)
   - [Layer 1: Physical (The Hardware Surface)](#layer-1-physical-the-hardware-surface)
   - [Layer 2: Data Link (The Local Target)](#layer-2-data-link-the-local-target)
   - [Layer 3: Network (The Routing Logic)](#layer-3-network-the-routing-logic)
@@ -126,30 +127,41 @@
   - [Lab Progression & Professional Development (2026 Red Team Focus)](#lab-progression-professional-development-2026-red-team-focus)
   - [Automation & Programmability](#automation-programmability)
   - [PCAP Analysis — Systematic Methodology](#part-2-stage-pcap-analysis)
-- [Module 05: Cryptography](#module-05-cryptography)
+- [Module 05: Cryptography](#part-3-cryptography)
   - [Topic 1: Core Concepts & Algorithms](#stage-1-core-concepts-algorithms)
   - [Topic 2: Secure Communication (Data in Transit)](#stage-2-secure-communication-data-in-transit)
   - [Topic 3: Identity & Trust (PKI)](#stage-3-identity-trust-pki)
   - [Topic 4: Data at Rest & Password Security](#stage-4-data-at-rest-password-security)
   - [Topic 5: Cryptographic Attacks & Weaknesses](#stage-5-cryptographic-attacks-weaknesses)
+  - [Topic 6: Post-Quantum Cryptography (PQC)](#stage-6-post-quantum-cryptography)
   - [Lab Progression (Cryptography)](#lab-progression-cryptography)
-- [Module 06: Authentication Standards](#module-06-authentication-standards)
+- [Module 06: Authentication Standards](#part-3b-authentication-standards-primer)
   - [Topic 1: Session-Based Authentication](#auth-primer-stage-1-session-based-auth)
   - [Topic 2: Token-Based Authentication & JWT](#auth-primer-stage-2-token-based-auth)
   - [Topic 3: OAuth 2.0 — Delegated Authorization](#auth-primer-stage-3-oauth2)
-  - [Topic 4: OpenID Connect (OIDC)](#auth-primer-stage-4-oidc)
+  - [Topic 4: OpenID Connect (OIDC) — Federated Identity](#auth-primer-stage-4-oidc)
   - [Topic 5: API Authentication Patterns](#auth-primer-stage-5-api-auth-patterns)
-  - [Topic 6: MFA Types & Weaknesses](#auth-primer-stage-6-mfa-types)
-  - [Lab Progression (Authentication Standards)](#auth-primer-lab-progression)
-- [Module 07: Web Technology Fundamentals](#module-07-web-technology-fundamentals)
+  - [Topic 6: Multi-Factor Authentication (MFA) Types & Weaknesses](#auth-primer-stage-6-mfa-types)
+  - [Lab Progression (Module 06: Authentication Standards)](#auth-primer-lab-progression)
+  - [🏆 Stage 1 Capstone Project](#stage-1-capstone-project)
+  - [🧭 Stage 1 Reflection & Competency Check](#stage-1-reflection-competency-check)
+- [Module 07: Web Technology Fundamentals](#part-3c-web-technology-fundamentals)
   - [Topic 1: HTTP — The Protocol of the Web](#stage-1-http-the-protocol-of-the-web)
   - [Topic 2: Cookies, Sessions & Tokens](#stage-2-cookies-sessions-tokens)
   - [Topic 3: Same-Origin Policy, CORS & Web Security Headers](#stage-3-same-origin-policy-cors-web-security-headers)
   - [Topic 4: Web Authentication Patterns](#stage-4-web-authentication-patterns)
   - [Topic 5: REST APIs, JSON & Modern Web Architecture](#stage-5-rest-apis-json-modern-web-architecture)
-  - [Lab Progression (Web Technology Fundamentals)](#lab-progression-web-technology-fundamentals)
-- [Foundation Proof Gate](#foundation-proof-gate)
-
+  - [Lab Progression (Module 07: Web Technology Fundamentals)](#lab-progression-web-technology-fundamentals)
+- [🛠️ Stage 1 Mini Projects](#phase-1-mini-projects)
+  - [Project 1 — Password Strength Checker](#project-1-password-strength-checker)
+  - [Project 2 — Password Generator](#project-2-password-generator)
+  - [Project 3 — Caesar Cipher Encryption Tool](#project-3-caesar-cipher-encryption-tool)
+  - [Project 4 — AES File Encryptor](#project-4-aes-file-encryptor)
+  - [Project 5 — RSA Key Pair Generator](#project-5-rsa-key-pair-generator)
+  - [Project 6 — File Encryption & Decryption Tool (Hybrid)](#project-6-file-encryption-decryption-tool-hybrid)
+  - [Project 7 — Password Manager](#project-7-password-manager)
+  - [Project 8 — Login System with Multi-Factor Authentication (TOTP)](#project-8-login-system-with-multi-factor-authentication-totp)
+- [🏁 Foundation Proof Gate](#foundation-proof-gate)
 ---
 
 <a id="lab-baseline-setup"></a>
@@ -744,6 +756,8 @@
 - [ ] Learn to combine multiple languages into complete security workflows rather than treating each language in isolation.
 
 ---
+
+<a id="stage-completion-criteria"></a>
 
 ## **Stage Completion Criteria**
 
@@ -2769,6 +2783,8 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 ---
 
+<a id="stage-1-capstone-project"></a>
+
 ### 🏆 Stage 1 Capstone Project
 
 **Build a Small Enterprise Lab and Document the Full Architecture**
@@ -2792,6 +2808,8 @@ Using my virtualization platform, build a lab environment containing:
 > **Capstone Gate:** My lab must be fully operational, documented, and reproducible. A peer should be able to rebuild it from my guide alone.
 
 ---
+
+<a id="stage-1-reflection-competency-check"></a>
 
 ### 🧭 Stage 1 Reflection & Competency Check
 
@@ -3056,6 +3074,8 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 ---
 
+<a id="project-1-password-strength-checker"></a>
+
 ### Project 1 — Password Strength Checker
 
 **Maps to:** Module 05 (Cryptography) → Topic 4: Data at Rest & Password Security
@@ -3073,6 +3093,8 @@ It forces me to internalize the *math* behind password strength — not just "us
 **Deliverable:** Python CLI tool — input a password, output a strength score with detailed reasoning. README must explain what entropy is and what `rockyou.txt` is.
 
 ---
+
+<a id="project-2-password-generator"></a>
 
 ### Project 2 — Password Generator
 
@@ -3092,6 +3114,8 @@ This teaches the single most important distinction a security-aware developer mu
 
 ---
 
+<a id="project-3-caesar-cipher-encryption-tool"></a>
+
 ### Project 3 — Caesar Cipher Encryption Tool
 
 **Maps to:** Module 05 (Cryptography) → Topic 1: Core Concepts & Algorithms
@@ -3109,6 +3133,8 @@ Caesar cipher is *intentionally broken* — that's the point. Building it and th
 **Deliverable:** Python CLI that encrypts, decrypts, and brute-forces Caesar-encrypted text. README must document the brute-force output and explain why this cipher fails.
 
 ---
+
+<a id="project-4-aes-file-encryptor"></a>
 
 ### Project 4 — AES File Encryptor
 
@@ -3130,6 +3156,8 @@ AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, an
 
 ---
 
+<a id="project-5-rsa-key-pair-generator"></a>
+
 ### Project 5 — RSA Key Pair Generator
 
 **Maps to:** Module 05 (Cryptography) → Topic 2: Secure Communication + Topic 3: Identity & Trust (PKI)
@@ -3149,6 +3177,8 @@ RSA is the foundation of TLS certificates, SSH keys, code signing, and JWT RS256
 
 ---
 
+<a id="project-6-file-encryption-decryption-tool-hybrid"></a>
+
 ### Project 6 — File Encryption & Decryption Tool (Hybrid)
 
 **Maps to:** Module 05 (Cryptography) → Topic 2: Secure Communication (Capstone of the crypto section)
@@ -3166,6 +3196,8 @@ This is the capstone of all Stage 1 crypto projects. It mirrors the architecture
 **Deliverable:** Python CLI with `encrypt <file> --pubkey public.pem` and `decrypt <file.enc> --privkey private.pem`. README must contain a diagram showing the hybrid model: `AES_key → RSA_encrypt(pubkey) → stored; File → AES_GCM(AES_key) → stored`.
 
 ---
+
+<a id="project-7-password-manager"></a>
 
 ### Project 7 — Password Manager
 
@@ -3185,6 +3217,8 @@ A password manager is one of the highest-impact security tools in daily use, and
 **Deliverable:** Python CLI with commands: `add`, `get`, `list`, `delete`, `lock`. Vault stored as an encrypted JSON file. README must explain *why* Argon2 is used instead of SHA-256 with a concrete timing comparison.
 
 ---
+
+<a id="project-8-login-system-with-multi-factor-authentication-totp"></a>
 
 ### Project 8 — Login System with Multi-Factor Authentication (TOTP)
 
