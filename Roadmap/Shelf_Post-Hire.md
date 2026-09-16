@@ -2342,7 +2342,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 - [ ] **Detection Rule Lab:** Write 5 Sigma/YARA/Suricata/Zeek/osquery rules and test them against lab activity.
 - [ ] **Incident Timeline Lab:** Reconstruct 2 incidents from logs and produce analyst notes with evidence and containment actions.
 - [ ] **SOAR Playbook Lab:** Build one automated phishing triage playbook (extract IOCs → check reputation → quarantine) using Shuffle, Tines, or n8n.
-- [ ] **IR Playbook Execution Lab:** Build and run a complete Incident Response playbook for a **ransomware scenario** in my home lab: (1) detect the ransomware beacon via SIEM alert; (2) isolate the infected VM from the network segment; (3) preserve a forensic memory dump and disk image before remediation; (4) identify the initial access vector from logs; (5) eradicate the payload and restore from a clean snapshot; (6) write a post-incident report with a timeline, root cause, and control improvement recommendations. Use a scenario from **[Blue Team Labs Online](https://blueteamlabs.online)**, **[LetsDefend](https://letsdefend.io)**, or **[CyberDefenders](https://cyberdefenders.org)** as my scenario source if I don't want to stage my own.
+- [ ] **IR Playbook Execution Lab:** Run a complete ransomware IR playbook in home lab: (1) detect beacon via SIEM alert, (2) isolate infected VM, (3) preserve forensic memory dump and disk image, (4) identify initial access vector from logs, (5) eradicate and restore from clean snapshot, (6) write post-incident report with timeline, root cause, and control improvements. *Scenario sources: Blue Team Labs Online, LetsDefend, CyberDefenders.*
 
 **Platform Guide for SecOps:**
 

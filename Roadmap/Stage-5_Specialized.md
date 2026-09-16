@@ -990,7 +990,7 @@
 > [!TIP]
 > **Goal:** Convert technical competence into hired. Hiring managers are skilled at identifying candidates who know tools but cannot think under pressure. Stage 5B closes the gap between "I can do this in a lab" and "I can demonstrate this in 45 minutes with someone watching."
 
-- [ ] **Security System Design Questions:** Practice designing secure systems from scratch under time pressure. Common prompts: "Design a secure authentication system for 10 million users," "How would you architect a zero-trust access control system for a hybrid cloud environment?", "Design the logging and alerting infrastructure for a 500-person company." Practice on a whiteboard or draw.io. Structure my answer: **requirements → threat model → component design → data flow → control gaps → trade-offs**. Never jump to components before stating requirements.
+- [ ] **Security System Design Questions:** Practice designing secure systems under time pressure. Common prompts: "Design auth for 10M users", "Architect zero-trust for hybrid cloud", "Design logging for a 500-person company." Structure every answer: **requirements → threat model → component design → data flow → control gaps → trade-offs**. Never jump to components before stating requirements.
 
 - [ ] **Live Hacking / CTF Demonstrations:** Some interviews include live exploitation challenges. Practice solving HTB/THM boxes verbally as I work — narrate my reasoning out loud. Interviewers are evaluating _how you think_, not just whether you solve it. Practice: "I notice port 8080 is open with a Tomcat banner. My first step is to check for the default manager credentials because default deployments are common in enterprise environments..."
 

@@ -1248,7 +1248,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 - [ ] **Validation & Documentation:** Confirm findings are **actual compromise vs. false positive**, document **timeline, IOCs, and response**.
 
-- [ ] **Jupyter Notebook Threat Hunting:** Mature threat hunting programmes use Jupyter notebooks (JupyterHub or VS Code Jupyter extension) as the primary analysis environment: SIEM or Elasticsearch data pulled via API into pandas DataFrames, statistical anomaly detection with scipy/scikit-learn, and visualisation with matplotlib/seaborn. Reproducible **"hunt books"** — notebooks committed to Git and peer-reviewed — are the production standard at Microsoft MSTIC, Elastic Security Labs, and SANS Hunt teams. Study the [MSTICPy library](https://github.com/microsoft/msticpy) (Microsoft Threat Intelligence Center's open-source hunting library): it provides pre-built connectors for Microsoft Sentinel, Splunk, and QRadar, plus entity enrichment, IOC lookup, and timeline visualisation. Hunt books treat detection logic as code: version-controlled, diff-able, and testable — the same shift-left discipline that CI/CD brought to application code.
+- [ ] **Jupyter Notebook Threat Hunting:** Production threat hunting uses Jupyter notebooks as the analysis environment — SIEM/Elasticsearch data pulled into pandas DataFrames, anomaly detection via scipy/scikit-learn, visualised with matplotlib. "Hunt books" committed to Git are the standard at Microsoft MSTIC and Elastic Security Labs. *Study: [MSTICPy](https://github.com/microsoft/msticpy) — pre-built connectors for Sentinel, Splunk, QRadar plus IOC enrichment and timeline visualisation.*
 
 ---
 
