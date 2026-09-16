@@ -18,11 +18,11 @@
 > - **🎯 Primary Focus:** Master the TCP/IP stack, Linux & Windows administration, networking protocols, cryptographic primitives, authentication standards (JWT, OAuth, SAML), and web technology fundamentals (HTTP, CORS, CSP, REST).
 
 > [!IMPORTANT]
-> **Current Status: Substantially Complete → Entering Phase 2A**
+> **Current Status: Substantially Complete → Entering Stage 2**
 >
-> Phase 1 is largely done. Do NOT restart it. Use **just-in-time prerequisite patches** for specific gaps as they arise in later phases.
+> Stage 1 is largely done. Do NOT restart it. Use **just-in-time prerequisite patches** for specific gaps as they arise in later stages.
 >
-> **What you can do confidently (do not re-study these):**
+> **What I can do confidently (do not re-study these):**
 > - Linux CLI navigation and common commands
 > - Basic Linux system investigation
 > - Windows administration and basic PowerShell
@@ -33,28 +33,28 @@
 >
 > | Gap | When to patch | Patch scope |
 > |-----|---------------|-------------|
-> | Wireshark / deep packet analysis | When Phase 2 Scanning or Sniffing requires it | 2–4 sessions on Wireshark filters and dissection |
-> | TLS internals | When Phase 4 HTTPS interception or Phase 6 requires it | TLS handshake + PKI fundamentals only |
-> | Linux service administration | When Phase 2 enumeration labs require it | `systemctl`, user management, `/etc/` configs |
-> | Kerberos / Windows identity | Before Phase 6 Part 23 (AD attacks) | Phase 1 Stage 5 & 6 in Part 1C |
-> | Advanced PowerShell | During Phase 6 AD work | Targeted PS scripting for AD enumeration |
+> | Wireshark / deep packet analysis | When Stage 2 Scanning or Stage 4 Sniffing requires it | 2–4 sessions on Wireshark filters and dissection |
+> | TLS internals | When Stage 3 HTTPS interception or Stage 4 requires it | TLS handshake + PKI fundamentals only |
+> | Linux service administration | When Stage 2 enumeration labs require it | `systemctl`, user management, `/etc/` configs |
+> | Kerberos / Windows identity | Before Stage 4 Module 19 (AD attacks) | Module 03 Topics 5 & 6 |
+> | Advanced PowerShell | During Stage 4 AD work | Targeted PS scripting for AD enumeration |
 >
-> **Your next action: proceed to [[Stage-2_Offense-I|Stage 2: Offense I]] → Part 4 (Footprinting & Reconnaissance).**
+> **My next action: proceed to [[Stage-2_Offense-I|Stage 2: Offense I]] → Module 08 (Footprinting & Reconnaissance).**
 
 
 > [!NOTE]
 >
 > ### 📝 Stage 1 Documentation Requirements
 >
-> Every topic you complete in this phase must be documented and committed to your private Git repository. Required artifacts:
+> Every topic I complete in this stage must be documented and committed to my private Git repository. Required artifacts:
 >
 > - **Markdown lab notes** for every lab completed (structured: objective → steps → output → lessons learned)
-> - **Network diagrams** (draw.io/Excalidraw) of your home lab topology
+> - **Network diagrams** (draw.io/Excalidraw) of my home lab topology
 > - **Screenshots** of completed labs, tool output, and configuration changes
 > - **Shell command logs** — save terminal history for key sessions
 > - **Git commits** — commit after every lab session with descriptive messages
 >
-> _This documentation becomes the foundation of your Phase 10 portfolio. Start building it now, not later._
+> _This documentation becomes the foundation of my Stage 5 (Module 30) portfolio. Start building it now, not later._
 
 ---
 
@@ -62,7 +62,7 @@
 >
 > ### 🧱 Stage 1 Pacing Checkpoints
 >
-> Phase 1 is intentionally broad. Treat it as six smaller milestones instead of one giant block:
+> Stage 1 is intentionally broad. Treat it as seven smaller milestones instead of one giant block:
 >
 > 1. **Lab setup complete:** Hypervisor installed, baseline VMs created, Git documentation repository active.
 > 2. **Computer fundamentals complete:** Hardware, OS internals, memory, data representation, and basic scripting understood.
@@ -74,7 +74,7 @@
 > Do not wait for the final capstone to feel progress. Commit evidence at each checkpoint.
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -84,7 +84,7 @@
 > | **Tier 1 (Mandatory)** | [[OpenSSL|OpenSSL & cryptsetup]] | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
 > | **Tier 2 (Secondary)** | [[iperf3]] | Network throughput, latency, and bandwidth bottleneck benchmarking across lab subnets. |
 > | **Tier 2 (Secondary)** | [[Scapy]] | Crafting custom Layer 2/3/4 packets in Python to test protocol boundaries and firewalls. |
-> **Stage Exit Tool Gate:** You cannot pass Stage 1 until you can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using `openssl s_client`.
+> **Stage Exit Tool Gate:** I cannot pass Stage 1 until I can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using `openssl s_client`.
 
 ---
 
@@ -175,7 +175,7 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Foundations of Information Security - Jason Andress` — CIA triad, auth, access control basics
 > - 🟡 `Security in Computing 5th Edition` — Authoritative reference for security concepts
 > - 🟢 `The Linux Command Line - A Complete Introduction` — Quick command reference for CLI fundamentals
@@ -278,7 +278,7 @@
 ### **Topic 5: Wireless & Physical Connections** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Part 21 (Wireless Pentesting, Phase 5).
+> **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Shelf 01 (Wireless Network Security).
 
 **WiFi Fundamentals:**
 
@@ -300,17 +300,17 @@
 
 **Wireless & IoT Protocol Awareness:**
 
-- [ ] **Bluetooth/BLE Awareness:** Know that **Bluetooth Classic** (profiles, L2CAP, RFCOMM) and **BLE** (GAP, GATT, advertising, pairing) exist as distinct stacks with different security models. 📌 _Full BLE exploitation is covered in Part 21 Stage 4._
+- [ ] **Bluetooth/BLE Awareness:** Know that **Bluetooth Classic** (profiles, L2CAP, RFCOMM) and **BLE** (GAP, GATT, advertising, pairing) exist as distinct stacks with different security models. 📌 _Full BLE exploitation is covered in Shelf 01 Topic 4._
 
-- [ ] **NFC/RFID Awareness:** Know that **NFC (ISO14443)** and **RFID (passive/active)** are used for access control, payments, and tracking. 📌 _Full NFC/RFID attacks are covered in Part 21 Stage 6._
+- [ ] **NFC/RFID Awareness:** Know that **NFC (ISO14443)** and **RFID (passive/active)** are used for access control, payments, and tracking. 📌 _Full NFC/RFID attacks are covered in Shelf 01 Topic 6._
 
-- [ ] **IoT Protocol Awareness:** Know that **Zigbee** (mesh, 802.15.4), **Z-Wave**, and **LoRaWAN** (gateway-node, long-range) exist as IoT networking protocols with distinct security models. 📌 _Full IoT protocol exploitation is covered in Part 21 Stage 5._
+- [ ] **IoT Protocol Awareness:** Know that **Zigbee** (mesh, 802.15.4), **Z-Wave**, and **LoRaWAN** (gateway-node, long-range) exist as IoT networking protocols with distinct security models. 📌 _Full IoT protocol exploitation is covered in Shelf 01 Topic 5._
 
 **Physical Infrastructure:**
 
 - [ ] **Cable Infrastructure:** Know **UTP/STP, fiber optics**, connector types, and physical plant organization.
 
-- [ ] **Environmental & Physical Security Awareness:** Understand **electromagnetic shielding basics** and that **physical access control systems** (smart cards, RFID readers) and **TEMPEST concepts** exist. 📌 _Physical penetration testing is covered in Part 32 (Phase 7). Hardware hacking is covered in Part 30 (Phase 7)._
+- [ ] **Environmental & Physical Security Awareness:** Understand **electromagnetic shielding basics** and that **physical access control systems** (smart cards, RFID readers) and **TEMPEST concepts** exist. 📌 _Physical penetration testing is covered in Shelf 08. Hardware hacking is covered in Shelf 07._
 
 ---
 
@@ -319,14 +319,14 @@
 ### **Topic 6: Mobile Platform Awareness** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Part 22 (Phase 5).
+> **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Shelf 02 (Mobile Platform Pentesting).
 
 - [ ] **Android vs iOS Architecture:** Understand at a high level that **Android** (APK format, Linux kernel, sandboxing, SELinux) and **iOS** (IPA format, Mach-O binaries, Secure Enclave, code signing) have fundamentally different security models.
 
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
 
 > [!NOTE]
-> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Shelf_Post-Hire#shelf-02-mobile-platform-pentesting|Shelf 02: Mobile Platform Pentesting]]** (Phase 5). Do not attempt until you have completed Phases 2–4.
+> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Shelf_Post-Hire#shelf-02-mobile-platform-pentesting|Shelf 02: Mobile Platform Pentesting]]** (Shelf 02). Do not attempt until completing Stages 2–4.
 
 ---
 
@@ -335,9 +335,9 @@
 ### **Topic 7A: Programming & Scripting Fundamentals** — `🔬 Practical`
 
 > [!TIP]
-> **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Phase 1. **C and C++ are deferred to Stage 7B in Phase 7**, where binary analysis context makes them immediately applicable.
+> **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Stage 1. **C and C++ are deferred to Stage 5 (Module 27)**, where binary analysis context makes them immediately applicable.
 >
-> **Stage 7B (C & C++) lives in Phase 7 — before Parts 28 and 42.** Do not attempt C or C++ now. They require debugger experience and binary analysis context to learn meaningfully.
+> **C & C++ programming lives in Stage 5 (Module 27) and Shelf 05.** Do not attempt C or C++ now. They require debugger experience and binary analysis context to learn meaningfully.
 
 ---
 
@@ -398,14 +398,14 @@
 #### JavaScript & Node.js (Web, Browser & API Security)
 
 > [!NOTE]
-> **JavaScript Scope in Phase 1:** The functional minimum for Phase 1 is: core language syntax, browser APIs, DOM basics, the fetch/axios communication layer, and the Security Context section (XSS, prototype pollution, CSRF, CORS misconfig). The Node.js/Express, Service Worker, SSE, and modern framework awareness content is intentionally brief and awareness-level — revisit it in Phase 4 with web application testing context where it becomes immediately applicable. Do not stall Phase 1 attempting to master React, Angular, or Express.js depth before moving forward.
+> **JavaScript Scope in Stage 1:** The functional minimum for Stage 1 is: core language syntax, browser APIs, DOM basics, the fetch/axios communication layer, and the Security Context section (XSS, prototype pollution, CSRF, CORS misconfig). The Node.js/Express, Service Worker, SSE, and modern framework awareness content is intentionally brief and awareness-level — revisit it in Stage 3 with web application testing context where it becomes immediately applicable. Do not stall Stage 1 attempting to master React, Angular, or Express.js depth before moving forward.
 
 - [ ] **Core JavaScript:** Master variables, data types, operators, scope, hoisting, closures, prototypes, prototype chain, objects, arrays, functions, asynchronous programming, callbacks, Promises, async/await, ES6+ features, modules, classes, the event loop, memory model, DOM manipulation, BOM, and browser APIs.
 
 - [ ] **Node.js Fundamentals:** Learn npm, package management, Express.js, middleware, routing, filesystem APIs, child processes, streams, buffers, environment variables, authentication, session management, JWT handling, server-side JavaScript, and REST API development.
 
 - [ ] **Browser Internals:** Understand:
-  - [ ] Cookies (attributes: `HttpOnly`, `Secure`, `SameSite`) — _security reasoning for each attribute is covered in full in **Part 3C Stage 2: Cookies, Sessions & Tokens**_
+  - [ ] Cookies (attributes: `HttpOnly`, `Secure`, `SameSite`) — _security reasoning for each attribute is covered in full in **Module 07 (Web Technology Fundamentals): Cookies, Sessions & Tokens**_
   - [ ] localStorage
   - [ ] sessionStorage
   - [ ] IndexedDB
@@ -415,7 +415,7 @@
   - [ ] XMLHttpRequest (XHR)
   - [ ] WebSockets
   - [ ] Server-Sent Events (SSE)
-  - [ ] Cross-Origin Resource Sharing (CORS) _(canonical full treatment in Part 3C Stage 3: Same-Origin Policy, CORS & Web Security Headers)_
+  - [ ] Cross-Origin Resource Sharing (CORS) _(canonical full treatment in Module 07 (Web Technology Fundamentals): Same-Origin Policy, CORS & Web Security Headers)_
   - [ ] Content Security Policy (CSP)
   - [ ] Same-Origin Policy (SOP)
   - [ ] postMessage API
@@ -737,7 +737,7 @@
 
 - [ ] **Additional Languages — Security Awareness:**
 
-  **Java:** Java is the dominant language in enterprise backends (Spring Boot, Jakarta EE), Android development, and many legacy security tools (Burp Suite extensions, Metasploit auxiliary modules, OWASP tooling). Security relevance: **Java deserialization** (`ObjectInputStream.readObject()`) is one of the most exploited vulnerability classes — `ysoserial` generates gadget chains that achieve RCE by exploiting unsafe deserialization of attacker-controlled bytes. **SSRF** via `java.net.URL` fetches any URI including `file://`, `jar://`, `ftp://`. Know how Java class loading works (ClassLoader hierarchy, classpath, JAR files) — relevant for understanding exploitation and for writing Burp extensions. Tools: `jd-gui` (decompiler), `jadx` (Android RE). You do not need to master Java — you need to read it, understand deserialization gadget chains, and write basic Burp Suite extensions (`IBurpExtender` interface).
+  **Java:** Java is the dominant language in enterprise backends (Spring Boot, Jakarta EE), Android development, and many legacy security tools (Burp Suite extensions, Metasploit auxiliary modules, OWASP tooling). Security relevance: **Java deserialization** (`ObjectInputStream.readObject()`) is one of the most exploited vulnerability classes — `ysoserial` generates gadget chains that achieve RCE by exploiting unsafe deserialization of attacker-controlled bytes. **SSRF** via `java.net.URL` fetches any URI including `file://`, `jar://`, `ftp://`. Know how Java class loading works (ClassLoader hierarchy, classpath, JAR files) — relevant for understanding exploitation and for writing Burp extensions. Tools: `jd-gui` (decompiler), `jadx` (Android RE). I do not need to master Java — I need to read it, understand deserialization gadget chains, and write basic Burp Suite extensions (`IBurpExtender` interface).
 
   **PHP:** PHP powers a significant portion of the web (WordPress, Drupal, Laravel, Magento, legacy custom apps). Security relevance: PHP's loose type comparison (`==` vs `===`) enables **type juggling** attacks — `"0e12345" == "0e67890"` evaluates to `true` because both are treated as scientific notation zero. **PHP deserialization** via `unserialize()` with magic methods (`__wakeup`, `__destruct`, `__toString`) enables RCE gadget chains. **File inclusion**: `include $_GET['page']` with no sanitisation → LFI/RFI. **`eval()` and `system()` injection**. Know how to read PHP source for these patterns during whitebox assessments and CTFs. Tools: `phpggc` (PHP deserialization gadget chain generator, equivalent of ysoserial for PHP).
 
@@ -747,7 +747,7 @@
 
 ## **Stage Completion Criteria**
 
-Before moving to the next stage, you should be able to:
+Before moving to the next stage, I should be able to:
 
 - [ ] Write custom automation tools from scratch.
 - [ ] Read and modify existing security scripts.
@@ -760,27 +760,27 @@ Before moving to the next stage, you should be able to:
 
 > **📌 Cross-Reference:** Offensive programming is covered in dedicated Parts:
 >
-> - **Part 42: Offensive Development & Tooling** (Phase 7) — Exploit prototyping with pwntools, custom C2 implant logic, buffer overflow exploits, shellcode writing, Win32 API process injection, DLL loading, token manipulation, .NET offensive tooling (P/Invoke, D/Invoke, SharpHound, Rubeus), AMSI/ETW bypass, in-memory execution, offensive PowerShell (download cradles, constrained language mode escape).
-> - **Part 29: Modern Exploitation** (Phase 7) — Advanced memory exploitation, kernel exploits, browser exploitation.
-> - **Part 8: Malware & Weaponization** (Phase 2) — Document weaponization (VBA macros, DDE template abuse, OneNote/PDF weaponization), email client abuse, OAuth consent phishing, cloud persistence, data exfiltration, and covert channels.
+> - **Module 27: Offensive Development & Tooling** (Stage 5) — Exploit prototyping with pwntools, custom C2 implant logic, buffer overflow exploits, shellcode writing, Win32 API process injection, DLL loading, token manipulation, .NET offensive tooling (P/Invoke, D/Invoke, SharpHound, Rubeus), AMSI/ETW bypass, in-memory execution, offensive PowerShell (download cradles, constrained language mode escape).
+> - **Shelf 06: Modern Exploitation** — Advanced memory exploitation, kernel exploits, browser exploitation.
+> - **Module 25: Malware & Weaponization** (Stage 4) — Document weaponization (VBA macros, DDE template abuse, OneNote/PDF weaponization), email client abuse, OAuth consent phishing, cloud persistence, data exfiltration, and covert channels.
 
 ---
 
 <a id="stage-7b-c-cpp-programming"></a>
 
-### **Topic 7B: C & C++ Programming** ← *Deferred to Phase 7* — `🔬 Practical`
+### **Topic 7B: C & C++ Programming** ← *Deferred to Stage 5 (Module 27)* — `🔬 Practical`
 
 > [!IMPORTANT]
 > **Do not start Stage 7B now.** This stage is placed here as a structural marker only. C and C++ are the languages of OS internals, exploit primitives, shellcode, and reverse engineering targets — but they require meaningful context to learn effectively:
-> - You need to have seen a stack frame in a debugger before C memory layout makes sense.
-> - You need to have read disassembly before C++ vtables mean anything.
-> - You need to have written at least one exploit before custom shellcode has purpose.
+> - I need to have seen a stack frame in a debugger before C memory layout makes sense.
+> - I need to have read disassembly before C++ vtables mean anything.
+> - I need to have written at least one exploit before custom shellcode has purpose.
 >
-> **Return here when you reach Phase 7, before starting Part 28 (Reverse Engineering) and Part 42 (Offensive Development).** At that point, C and C++ become immediately applicable rather than abstract theory.
+> **Return here when reaching Stage 5, before starting Module 27 (Offensive Development) and Shelf 05 (Reverse Engineering).** At that point, C and C++ become immediately applicable rather than abstract theory.
 >
-> **Phase 7 location:** Stage-5_Specialized.md — Stage 7B section before Part 42.
+> **Stage 5 location:** Stage-5_Specialized.md — C/C++ Foundation before Module 27.
 
-_The full curriculum below is what you will complete when you return. Read it now for scope awareness, then close this section and proceed to Part 1B._
+_The full curriculum below is what I will complete when I return. Read it now for scope awareness, then close this section and proceed to Module 02._
 
 ---
 
@@ -985,14 +985,14 @@ _The full curriculum below is what you will complete when you return. Read it no
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `The Linux Command Line - A Complete Introduction` — Primary CLI and admin reference
 > - 🟡 `Using And Administering Linux Volume 1 Zero To SysAdmin Getting Started` — systemctl, user management, /etc/ configs
 > - 🟡 `Using And Administering Linux Volume 2 Zero To SysAdmin Advanced` — Advanced admin and service configuration
 > - 🟢 `Using And Administering Linux Volume 3 Zero To SysAdmin Network` — Network services on Linux
 
 
-_Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Phase._
+_Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Stage._
 
 <a id="stage-1-user-access-management-linux"></a>
 
@@ -1091,7 +1091,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 | 7     | Enable SELinux/AppArmor, troubleshoot a denied operation               | Audit log analysis + policy fix document   |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can create users, manage services, configure networking, read logs, and harden a Linux system from scratch without referring to documentation for basic commands.
+> **Move-On Gate:** I can create users, manage services, configure networking, read logs, and harden a Linux system from scratch without referring to documentation for basic commands.
 
 ---
 
@@ -1108,12 +1108,12 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
-> - 🔴 `EA - Windows Security Internals with PowerShell` — Deep Windows internals + PowerShell scripting (also critical in Phase 6)
+> **📚 Recommended Books for This Module**
+> - 🔴 `EA - Windows Security Internals with PowerShell` — Deep Windows internals + PowerShell scripting (also critical in Stage 4)
 > - 🟡 `Windows PowerShell Cookbook` — PowerShell command reference for admin tasks
 
 
-_Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Part 23), cloud (Part 24), and defensive (Phase 3) modules._
+_Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Module 19), Cloud (Module 20), and Defensive modules._
 
 <a id="stage-1-user-access-management-windows"></a>
 
@@ -1182,7 +1182,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 <a id="stage-5-active-directory-concepts-prerequisite-for-part-23"></a>
 
-### **Topic 5: Active Directory Concepts** _(Prerequisite for Part 23)_ — `🧠 Conceptual`
+### **Topic 5: Active Directory Concepts** _(Prerequisite for Module 19)_ — `🧠 Conceptual`
 
 - [ ] **AD Architecture:** Understand **domains, forests, trusts, OUs, sites**, and **replication**. Know the difference between a **domain controller** and a **member server**.
 
@@ -1193,17 +1193,17 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **DHCP in AD:** Understand **DHCP server authorization**, **scopes, reservations, options**, and how DHCP integrates with DNS.
 
 > [!NOTE]
-> **Stage 5 → Stage 6 Transition:** Stage 5 gives you the conceptual map of Active Directory — the structure, objects, and administrative mechanisms. Stage 6 gives you the protocol mechanics — _why_ these structures exist and _how_ authentication flows through them. The overlap you may notice on account types and trust architecture is intentional: Stage 5 names them, Stage 6 explains how they are exploited. Both stages are required before Phase 6 Part 23 (Active Directory attacks). Do not skip Stage 6 even if Stage 5 felt complete.
+> **Stage 5 → Stage 6 Transition:** Stage 5 gives me the conceptual map of Active Directory — the structure, objects, and administrative mechanisms. Stage 6 gives me the protocol mechanics — _why_ these structures exist and _how_ authentication flows through them. The overlap you may notice on account types and trust architecture is intentional: Stage 5 names them, Stage 6 explains how they are exploited. Both topics are required before Stage 4 Module 19 (Active Directory attacks). Do not skip Topic 6 even if Topic 5 felt complete.
 
 <a id="stage-6-windows-identity-kerberos-foundations"></a>
 
-### **Topic 6: Windows Identity & Kerberos Protocol Foundations** _(Critical Prerequisite for Part 23)_ — `🧠 Conceptual`
+### **Topic 6: Windows Identity & Kerberos Protocol Foundations** _(Critical Prerequisite for Module 19)_ — `🧠 Conceptual`
 
 > [!NOTE]
 > **Prerequisite: Stage 5 Required.** This stage explains the authentication protocols and cryptographic mechanisms behind the Active Directory concepts introduced in Stage 5. Where Stage 5 told you that SPNs, service accounts, and delegation exist — Stage 6 explains _how they work at the protocol level_ and _why that makes them exploitable_. Read Stage 5 first, then return here.
 
 > [!IMPORTANT]
-> **Why This Exists Here:** Part 23 (Active Directory attacks in Phase 6) immediately begins with Kerberoasting, AS-REP Roasting, ADCS abuse, and ACL exploitation. These techniques are impossible to understand deeply without knowing the underlying Kerberos protocol, LDAP structure, and trust architecture. This stage provides that foundation **before** you reach Phase 6 — not during it. Do not skip this stage even if it feels abstract now; it will crystallize completely when you reach the AD attacks.
+> **Why This Exists Here:** Module 19 (Active Directory attacks in Stage 4) immediately begins with Kerberoasting, AS-REP Roasting, ADCS abuse, and ACL exploitation. These techniques are impossible to understand deeply without knowing the underlying Kerberos protocol, LDAP structure, and trust architecture. This topic provides that foundation **before** I reach Stage 4 — not during it. Do not skip this topic even if it feels abstract now; it will crystallize completely when I reach the AD attacks.
 
 - [ ] **Kerberos Authentication Flow:** Trace the full authentication lifecycle step-by-step:
   - **AS-REQ:** Client sends authentication request to the KDC (Key Distribution Center) on the DC, encrypted with user's password hash
@@ -1249,7 +1249,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Delegation Types:**
   - **Unconstrained Delegation:** Any service on a machine set with unconstrained delegation receives the user's TGT — extremely dangerous; classic target for the "Printer Bug" attack
   - **Constrained Delegation:** Service can only impersonate to specific target SPNs; still abusable with S4U2Self/S4U2Proxy techniques
-  - **Resource-Based Constrained Delegation (RBCD):** Defined on the resource, not the caller; abusable when you have `WriteProperty` on a computer object
+  - **Resource-Based Constrained Delegation (RBCD):** Defined on the resource, not the caller; abusable when I have `WriteProperty` on a computer object
 
 - [ ] **Access Control Lists (ACLs) in Active Directory:**
   - **DACLs:** Discretionary Access Control Lists — who can do what to an AD object
@@ -1260,10 +1260,10 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 - [ ] **Active Directory Certificate Services (ADCS) — Awareness:**
   - Understand that ADCS is the PKI infrastructure for issuing certificates to users, machines, and services
   - Know that certificates can be used for authentication (PKINIT) and that misconfigured certificate templates are the root cause of ESC1–ESC8 vulnerabilities
-  - You do not need to exploit these now — you need to know they exist so the Part 23 coverage makes sense
+  - I do not need to exploit these now — I need to know they exist so the Module 19 coverage makes sense
 
 > [!TIP]
-> **Lab Exercise:** Build a Windows Server 2022 Domain Controller lab (if not already done from Stage 3–5 labs). Run `ldapsearch -x -H ldap://DC_IP -b "DC=corp,DC=local"` from a Linux host. Run `klist` on a domain-joined Windows machine after logon to see your TGT. Run `setspn -T corp.local -Q */*` to list all SPNs. These three commands will make everything above concrete.
+> **Lab Exercise:** Build a Windows Server 2022 Domain Controller lab (if not already done from Stage 3–5 labs). Run `ldapsearch -x -H ldap://DC_IP -b "DC=corp,DC=local"` from a Linux host. Run `klist` on a domain-joined Windows machine after logon to see my TGT. Run `setspn -T corp.local -Q */*` to list all SPNs. These three commands will make everything above concrete.
 
 <a id="lab-progression-windows"></a>
 
@@ -1280,7 +1280,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 | 7     | Write PowerShell script to audit AD: list all admins, find stale accounts, export report | Working .ps1 script + CSV output                      |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can set up a Windows domain from scratch, create users/groups/GPOs, read Event Viewer logs to identify suspicious activity, and write basic PowerShell automation scripts without referring to documentation for core tasks.
+> **Move-On Gate:** I can set up a Windows domain from scratch, create users/groups/GPOs, read Event Viewer logs to identify suspicious activity, and write basic PowerShell automation scripts without referring to documentation for core tasks.
 
 ---
 
@@ -1315,7 +1315,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Data Communications and Networking with TCPIP Protocol Suite - Behrouz A. Forouzan (2022)` — The definitive networking reference; read per-chapter as needed (TCP, DNS, subnetting)
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet analysis labs
 > - 🟢 `Computer Networking Principles, Protocols, and Practice` — Lighter alternative for readable second opinions
@@ -1419,7 +1419,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **ARP Defense:** Understand **static ARP entries**, **ARP inspection (DAI)**, and detection mechanisms.
 
-> **📌 Cross-Reference:** Hands-on ARP spoofing, poisoning, and MITM via ARP are taught in **Part 9: Sniffing & Spoofing, Phase 3** (the canonical location for all spoofing techniques).
+> **📌 Cross-Reference:** Hands-on ARP spoofing, poisoning, and MITM via ARP are taught in **Module 23: Sniffing & Spoofing** (Stage 4).
 
 **VLAN & Virtual Networks:**
 
@@ -1517,7 +1517,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 **Cisco Wireless Architecture:** _(Optional — Network Engineering Depth)_
 
-> ⚠️ _Cisco-specific wireless architecture (WLC, CAPWAP, FlexConnect) is relevant for enterprise network roles. Security practitioners should understand that centralized wireless management exists, but Cisco-specific deployment models are not a security prerequisite. Wireless security attacks are covered in Part 21._
+> ⚠️ _Cisco-specific wireless architecture (WLC, CAPWAP, FlexConnect) is relevant for enterprise network roles. Security practitioners should understand that centralized wireless management exists, but Cisco-specific deployment models are not a security prerequisite. Wireless security attacks are covered in Shelf 01._
 
 - [ ] **Autonomous AP Mode:** Understand **standalone APs** with individual management (legacy).
 
@@ -1581,7 +1581,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 > - **Route Leaks:** An AS accidentally re-advertises routes it should not, causing traffic rerouting. Leaks differ from hijacks in intent but have the same network impact.
 > - **RPKI (Resource Public Key Infrastructure):** The primary mitigation. Certificate authority binds IP prefixes to AS numbers via **Route Origin Authorizations (ROAs)**. BGP routers can validate ROAs and drop **RPKI-invalid** routes. Cloudflare, ARIN, and most large ISPs have adopted RPKI. Cloud providers deploying BGP peering are expected to understand RPKI. Check status: `https://stats.labs.apnic.net/rpki`.
 > - **Monitoring:** BGPStream (`bgpstream.caida.org`) and Cloudflare Radar provide real-time BGP anomaly detection. Security engineers at cloud-adjacent companies use these to detect supply-chain routing attacks against their infrastructure.
-> - **AS Path Manipulation:** Understanding AS path prepending, MED, and local preference is prerequisite for reasoning about which routes your organisation's traffic will take — relevant when assessing traffic interception risk for specific adversary threat models.
+> - **AS Path Manipulation:** Understanding AS path prepending, MED, and local preference is prerequisite for reasoning about which routes my organisation's traffic will take — relevant when assessing traffic interception risk for specific adversary threat models.
 
 - [ ] **EIGRP (Enhanced Interior Gateway Routing Protocol):** Master Cisco proprietary **DUAL algorithm** and metrics.
 
@@ -1899,7 +1899,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 
 - [ ] **Status Codes:** Know **2xx (success), 3xx (redirect), 4xx (client), 5xx (server)**.
 
-- [ ] **Session Cookies:** Understand `HttpOnly`, `Secure`, `SameSite` flags and cookie theft. _(Security attribute security reasoning is in **Part 3C Stage 2: Cookies, Sessions & Tokens** — the canonical treatment with exploitation context.)_
+- [ ] **Session Cookies:** Understand `HttpOnly`, `Secure`, `SameSite` flags and cookie theft. _(Security attribute security reasoning is in **Module 07 (Web Technology Fundamentals): Cookies, Sessions & Tokens** — the canonical treatment with exploitation context.)_
 
 - [ ] **HTTP/2 & HTTP/3:** Master **multiplexing, server push**, and new vulnerability surfaces.
 
@@ -2153,7 +2153,7 @@ _Phase 1 — Foundation | Prerequisite: Part 1 Stage 2 (OS Internals) | This mod
 ### PCAP Analysis — Systematic Methodology
 
 > [!IMPORTANT]
-> **Why This Exists Here:** PCAP analysis is referenced as a prerequisite or required skill in Phase 2 (Part 9 Sniffing/Spoofing), Phase 3 (network forensics), Phase 5 (wireless attacks), and Phase 7 (DFIR network forensics) — but is never taught as a standalone systematic skill anywhere. This stage fills that gap. After completing this stage, you will be able to approach any PCAP file with a structured methodology rather than random scrolling.
+> **Why This Exists Here:** PCAP analysis is referenced as a prerequisite or required skill in Stage 2/4 (Sniffing/Spoofing), Stage 3 (traffic analysis), and Shelf 01/04 (Wireless/DFIR) — but is never taught as a standalone systematic skill anywhere. This stage fills that gap. After completing this stage, I will be able to approach any PCAP file with a structured methodology rather than random scrolling.
 
 _Purpose: Develop a repeatable, professional workflow for capturing, filtering, dissecting, and documenting network evidence from PCAP files. This is one of the most high-leverage skills in both offensive (recon, credential capture, MITM validation) and defensive (incident response, network forensics) security._
 
@@ -2222,7 +2222,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 - [ ] **Step 5 — Timeline Reconstruction:** Sort by time; identify the first connection, first DNS query, first executable download, first outbound beacon. Build a timeline connecting cause and effect.
 
-- [ ] **Step 6 — IOC Documentation:** For every anomaly found, document: timestamp, source IP:port, destination IP:port, protocol, finding summary, and recommendation. This is your network forensics artifact.
+- [ ] **Step 6 — IOC Documentation:** For every anomaly found, document: timestamp, source IP:port, destination IP:port, protocol, finding summary, and recommendation. This is my network forensics artifact.
 
 **PCAP Lab Progression:**
 
@@ -2243,7 +2243,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 | 10  | Firewall drop (no response to SYN)             | `tcp.flags.syn==1`          | Open vs filtered vs closed port evidence       |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can open any unknown PCAP file and within 5 minutes identify: the top protocols present, the most active conversations, whether cleartext credentials are visible, and whether any anomalous patterns exist. You can write a 1-page network event summary from a PCAP without assistance.
+> **Move-On Gate:** I can open any unknown PCAP file and within 5 minutes identify: the top protocols present, the most active conversations, whether cleartext credentials are visible, and whether any anomalous patterns exist. I can write a 1-page network event summary from a PCAP without assistance.
 
 ---
 
@@ -2260,7 +2260,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Security in Computing 5th Edition` — Crypto primitives, hashing, PKI reference chapters
 > - 🟡 `Foundations of Information Security - Jason Andress` — Readable crypto foundations without academic abstraction
 
@@ -2331,7 +2331,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### **Topic 2: Secure Communication (Data in Transit)** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand exactly how TLS secures a connection — every step of the handshake, every field in the cipher suite string, and why forward secrecy matters. This stage directly underpins your ability to analyse TLS captures (Part 2 PCAP lab), exploit TLS misconfigurations (Part 18), and understand downgrade attacks (Stage 5).
+> **Goal:** Understand exactly how TLS secures a connection — every step of the handshake, every field in the cipher suite string, and why forward secrecy matters. This stage directly underpins my ability to analyse TLS captures (Module 04 PCAP lab), exploit TLS misconfigurations (Module 16), and understand downgrade attacks (Stage 5).
 
 - [ ] **TLS 1.3 Handshake — Step by Step:**
   TLS 1.3 reduced the handshake from 2 round-trips (TLS 1.2) to 1 round-trip. Know every message:
@@ -2394,7 +2394,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### **Topic 3: Identity & Trust (PKI)** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand how the internet decides to trust a server's public key — and how that trust infrastructure is attacked. PKI underpins HTTPS, code signing, email encryption, VPN authentication, and Active Directory. Certificate-related misconfigurations appear in nearly every enterprise pentest (Part 23 ADCS attacks, Part 24 cloud IAM, Part 18 web server hacking).
+> **Goal:** Understand how the internet decides to trust a server's public key — and how that trust infrastructure is attacked. PKI underpins HTTPS, code signing, email encryption, VPN authentication, and Active Directory. Certificate-related misconfigurations appear in nearly every enterprise pentest (Module 19 ADCS attacks, Module 20 cloud IAM, Module 16 web server hacking).
 
 - [ ] **X.509 Certificate Anatomy — Read a Certificate Field by Field:**
   A certificate is a signed data structure that binds a public key to an identity. Open any certificate in a browser or with `openssl x509 -text -noout -in cert.pem` and locate:
@@ -2418,7 +2418,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 - [ ] **CA Hierarchy — Root, Intermediate, and Leaf Certificates:**
   - **Root CA:** Self-signed; embedded in OS/browser trust stores. Root CA private keys are kept **offline in HSMs** — compromise of a root CA is catastrophic (all certs it issued become untrustable). About 150 root CAs are trusted by default in modern browsers.
   - **Intermediate CA:** Signed by the root CA. Issues end-entity (leaf) certificates. Used to isolate the root CA from daily issuance operations. Most TLS certs are issued by intermediates.
-  - **Leaf certificate:** The TLS certificate you install on your server. Trusted because: leaf is signed by intermediate → intermediate is signed by root → root is in the trust store.
+  - **Leaf certificate:** The TLS certificate you install on my server. Trusted because: leaf is signed by intermediate → intermediate is signed by root → root is in the trust store.
   - **Chain of trust:** A TLS server must present the full chain (leaf + intermediates) — the client should not need to fetch intermediates. A missing intermediate causes "incomplete chain" errors even if the leaf cert itself is valid.
 
 - [ ] **OCSP (Online Certificate Status Protocol) and CRL (Certificate Revocation List):**
@@ -2429,22 +2429,22 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 - [ ] **Certificate Transparency (CT):**
   - Every publicly-trusted TLS certificate must be logged to a **CT log** (an append-only, cryptographically verifiable log of all issued certs). Browsers enforce this.
-  - **Why it matters offensively:** CT logs are public — [crt.sh](https://crt.sh) and [censys.io](https://search.censys.io) allow you to enumerate all certificates ever issued for a domain, revealing subdomains, internal staging hostnames, and historical infrastructure. This is a primary recon tool in Part 4.
-  - **Why it matters defensively:** Your organisation can monitor CT logs for certificates issued for your domain by unauthorised CAs (mis-issuance detection). Tools: `certspotter`, Cloudflare's CT monitor.
+  - **Why it matters offensively:** CT logs are public — [crt.sh](https://crt.sh) and [censys.io](https://search.censys.io) allow me to enumerate all certificates ever issued for a domain, revealing subdomains, internal staging hostnames, and historical infrastructure. This is a primary recon tool in Module 08.
+  - **Why it matters defensively:** My organisation can monitor CT logs for certificates issued for my domain by unauthorised CAs (mis-issuance detection). Tools: `certspotter`, Cloudflare's CT monitor.
 
 - [ ] **Certificate Pinning:**
   - An application hardcodes the expected certificate (or its public key hash) instead of trusting the full CA chain. If the server presents a different certificate — even one signed by a trusted CA — the connection is rejected.
   - **HTTP Public Key Pinning (HPKP):** Browser-level pinning via response header. Deprecated — too easy to permanently brick a site if pins are set incorrectly.
-  - **In-app pinning (mobile/desktop):** The app's code contains the expected certificate or SPKI hash. Hardened apps (banking, VPN clients) use this. Bypass techniques are in Part 22 (Frida, Objection, `ssl-kill-switch`).
+  - **In-app pinning (mobile/desktop):** The app's code contains the expected certificate or SPKI hash. Hardened apps (banking, VPN clients) use this. Bypass techniques are in Shelf 02 (Frida, Objection, `ssl-kill-switch`).
   - **Security implication:** Corporate SSL inspection proxies (Zscaler, Forcepoint) intercept HTTPS by replacing certificates with corporate CA-signed ones. Apps with cert pinning break under SSL inspection — this is a common enterprise compatibility issue.
 
 - [ ] **S/MIME and Email Encryption:**
   - S/MIME signs and/or encrypts email using the sender's certificate. Signing proves authenticity (recipient validates signature against sender's public key cert); encryption uses the recipient's public key cert.
   - Requires both parties to have certificates issued by mutually trusted CAs — historically a barrier to adoption. Enterprise deployments use an internal CA.
-  - **Security relevance:** Understanding S/MIME is prerequisite for understanding email-based attacks (Part 10): why DMARC prevents *domain spoofing* but not *content forgery*, and why digitally signed emails from a phishing actor with their own valid cert still pass S/MIME validation.
+  - **Security relevance:** Understanding S/MIME is prerequisite for understanding email-based attacks (Module 24): why DMARC prevents *domain spoofing* but not *content forgery*, and why digitally signed emails from a phishing actor with their own valid cert still pass S/MIME validation.
 
 - [ ] **PKI Attack Surface (Forward Reference):**
-  - **ADCS (Active Directory Certificate Services):** Microsoft's enterprise CA. Misconfigurations (ESC1–ESC8) allow attackers to request certificates for arbitrary users, including domain admins. Covered in depth in Part 23.
+  - **ADCS (Active Directory Certificate Services):** Microsoft's enterprise CA. Misconfigurations (ESC1–ESC8) allow attackers to request certificates for arbitrary users, including domain admins. Covered in depth in Module 19.
   - **CA compromise:** If a CA's private key is stolen, all certs it issued can be forged. Notable historical example: DigiNotar (2011) — CA compromised, fraudulent Google certs issued, CA removed from all trust stores.
   - **Mis-issued certificates:** CAs have issued certs for domains they shouldn't have (e.g., Symantec issuing google.com test certs). CT logs are the primary detection mechanism.
   - **Wildcard certificate abuse:** A `*.domain.com` cert is valid for any single-level subdomain. If stolen or extracted from one server, it can impersonate any subdomain.
@@ -2470,7 +2470,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 - [ ] **Envelope Encryption Pattern:** The production standard for cloud and enterprise key management. Architecture: a **Data Encryption Key (DEK)** encrypts the actual data; a **Key Encryption Key (KEK)** encrypts the DEK; the KEK is stored in a Hardware Security Module or KMS. The critical property: rotating the KEK requires re-encrypting only the small DEK, not re-encrypting terabytes of data. AWS S3 SSE-KMS, Azure Storage Service Encryption, and GCP CMEK all implement this pattern. Understand it before designing any data-at-rest system that must support key rotation or compliance requirements.
 
-- [ ] **Key Rotation Lifecycle:** Know what rotation actually means operationally. Automatic rotation (AWS KMS default: annual) creates a new **backing key version** — old versions remain for decryption, new data uses the new version. Full re-encryption rotation: generate new key → decrypt all data with old key → re-encrypt with new key → decommission old key. Know which your system uses and why the distinction matters for breach impact: if a key is compromised, automatic rotation protects future data but not already-encrypted data unless you run a full re-encryption.
+- [ ] **Key Rotation Lifecycle:** Know what rotation actually means operationally. Automatic rotation (AWS KMS default: annual) creates a new **backing key version** — old versions remain for decryption, new data uses the new version. Full re-encryption rotation: generate new key → decrypt all data with old key → re-encrypt with new key → decommission old key. Know which my system uses and why the distinction matters for breach impact: if a key is compromised, automatic rotation protects future data but not already-encrypted data unless I run a full re-encryption.
 
 ---
 
@@ -2542,7 +2542,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
   - **zk-SNARKs (Succinct Non-Interactive Argument of Knowledge):** Used in Zcash and Ethereum's zkEVM. Prover demonstrates knowledge of a secret satisfying a circuit without revealing the secret.
   - **zk-STARKs:** Transparent (no trusted setup) alternative to SNARKs. Larger proofs but post-quantum secure.
   - **ZKP-based authentication:** Prove knowledge of a password without sending the password — no secret transmitted, no hash to steal.
-  - **Security relevance:** ZKP systems introduce new attack surfaces (circuit under-constrained bugs, trusted setup compromise in pairing-based SNARKs). Full ZKP security is covered in Part 34 (Blockchain & Web3 Security). Awareness here is sufficient for Phase 1.
+  - **Security relevance:** ZKP systems introduce new attack surfaces (circuit under-constrained bugs, trusted setup compromise in pairing-based SNARKs). Full ZKP security is covered in Shelf 10 (Blockchain & Web3 Security). Awareness here is sufficient for Stage 1.
 
 <a id="lab-progression-cryptography"></a>
 
@@ -2560,7 +2560,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 - [ ] **Post-Quantum Awareness:** Document NIST PQC primitives (ML-KEM, ML-DSA, SLH-DSA), hybrid deployment model, and crypto-agility migration risk. Run `openssl s_client -connect` against a modern server and identify whether `X25519MLKEM768` appears in the KeyShare group list.
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke. You can read a TLS cipher suite string and explain each component. You can create a local CA, issue a signed certificate, and verify the chain. You can explain why AES-ECB is insecure without looking it up.
+> **Move-On Gate:** I can explain what was encrypted, what was authenticated, what was signed, and what failed when trust broke. I can read a TLS cipher suite string and explain each component. I can create a local CA, issue a signed certificate, and verify the chain. I can explain why AES-ECB is insecure without looking it up.
 
 ---
 
@@ -2577,9 +2577,9 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 
 > [!IMPORTANT]
-> **Why This Exists Here:** Parts 8, 12, 19, and 23 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before you hit the attack techniques. Deep exploitation and protocol abuse are covered in Part 19 (API Security, Phase 4) and Part 23 (Entra ID, Phase 6). This Part is concepts only.
+> **Why This Exists Here:** Modules 15, 17, 19, and 25 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before I hit the attack techniques. Deep exploitation and protocol abuse are covered in Module 17 (API Security, Stage 3) and Module 19 (Entra ID, Stage 4). This module is concepts only.
 
-_Purpose: Understand how modern applications establish and maintain identity. Understand what tokens ARE, how they are issued, and how they are validated — before you learn to forge or steal them._
+_Purpose: Understand how modern applications establish and maintain identity. Understand what tokens ARE, how they are issued, and how they are validated — before I learn to forge or steal them._
 
 <a id="auth-primer-stage-1-session-based-auth"></a>
 
@@ -2592,7 +2592,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 - [ ] **Session ID Properties:** Know that secure session IDs must be **cryptographically random (≥128 bits), opaque (no encoded data), short-lived, invalidated on logout and privilege change**, and transmitted only over TLS.
 
-- [ ] **Cookie Security Attributes:** Know the five attributes by name — `HttpOnly`, `Secure`, `SameSite`, `Domain`/`Path`, `Expires`/`Max-Age`. The full security reasoning for each (what its absence allows an attacker to do and why) is in **Part 3C Stage 2: Cookies, Sessions & Tokens** — the canonical treatment. Review it there rather than here.
+- [ ] **Cookie Security Attributes:** Know the five attributes by name — `HttpOnly`, `Secure`, `SameSite`, `Domain`/`Path`, `Expires`/`Max-Age`. The full security reasoning for each (what its absence allows an attacker to do and why) is in **Module 07 (Web Technology Fundamentals): Cookies, Sessions & Tokens** — the canonical treatment. Review it there rather than here.
 
 - [ ] **Session Fixation vs Session Hijacking:** Understand the difference:
   - **Fixation:** Attacker sets the session ID before authentication; victim authenticates and server doesn't rotate the session ID
@@ -2629,7 +2629,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
   - **HS256/HS512 (HMAC):** Symmetric — same secret used to sign and verify; both parties share the secret
   - **RS256/RS512 (RSA) / ES256 (ECDSA):** Asymmetric — private key signs, public key verifies; parties only share the public key
 
-- [ ] **JWT Common Weaknesses (Awareness):** Know these exist — exploitation is in Part 19:
+- [ ] **JWT Common Weaknesses (Awareness):** Know these exist — exploitation is in Module 17:
   - `alg: none` attack — token with no signature accepted if library doesn't enforce algorithm
   - RS256→HS256 confusion — attacker signs with the public key (treated as HMAC secret)
   - Weak secret brute-forcing — HMAC secrets guessable offline
@@ -2644,7 +2644,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 ### **Topic 3: OAuth 2.0 — Delegated Authorization** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand what OAuth is, what problem it solves, and how the authorization code flow works — before you attack it in Phase 4.
+> **Goal:** Understand what OAuth is, what problem it solves, and how the authorization code flow works — before I attack it in Stage 3.
 
 - [ ] **OAuth 2.0 Purpose:** Understand that OAuth 2.0 is an **authorization delegation framework** — it allows a user to grant an application (the client) access to a resource (e.g., their Google Drive) without sharing their password. The user delegates a limited set of permissions (scopes).
 
@@ -2683,7 +2683,7 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > **Goal:** Understand how OIDC extends OAuth 2.0 to provide authentication (identity), not just authorization.
 
 - [ ] **OIDC vs OAuth 2.0:** Understand the critical distinction:
-  - **OAuth 2.0** answers: _"Can this application access this resource on your behalf?"_ — it is about authorization
+  - **OAuth 2.0** answers: _"Can this application access this resource on my behalf?"_ — it is about authorization
   - **OIDC** answers: _"Who is this user?"_ — it adds an authentication layer on top of OAuth 2.0
   - OIDC adds the `openid` scope, the **ID Token** (a JWT containing user identity claims), and the `/userinfo` endpoint
 
@@ -2730,9 +2730,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > **Goal:** Understand MFA mechanisms and their security properties before encountering MFA bypass attacks.
 
 - [ ] **MFA Factors:** Understand the three categories:
-  - **Something you know:** Password, PIN, security question
-  - **Something you have:** TOTP app (Authenticator), hardware key (YubiKey, FIDO2), SMS OTP, email OTP
-  - **Something you are:** Biometrics (fingerprint, FaceID, iris scan)
+  - **Something I know:** Password, PIN, security question
+  - **Something I have:** TOTP app (Authenticator), hardware key (YubiKey, FIDO2), SMS OTP, email OTP
+  - **Something I am:** Biometrics (fingerprint, FaceID, iris scan)
 
 - [ ] **TOTP (Time-Based One-Time Password):** Understand RFC 6238 — a shared secret + current 30-second time window is hashed (HMAC-SHA1) to generate a 6-digit code. Know that TOTP codes are **phishable** — an attacker can relay them in real time (AiTM attack). Know that TOTP is defeated by phishing proxies like Evilginx2/Modlishka.
 
@@ -2747,11 +2747,11 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 - [ ] **MFA Fatigue (Push Bombing):** Understand that push-based MFA (Authenticator app showing Approve/Deny) is defeated by repeatedly sending push notifications until the user approves to stop the alerts. Mitigated by number matching (app asks user to match number from screen to push notification).
 
 > [!NOTE]
-> **Cross-Reference:** MFA bypass attacks (Evilginx2, push bombing, device code phishing) are covered in **Part 7 Stage 1** (System Hacking), **Part 8 Stage 6** (Cloud Weaponization), and **Part 23** (Entra ID MFA conditional access bypass). The mechanism explains above make those attack descriptions immediately actionable.
+> **Cross-Reference:** MFA bypass attacks (Evilginx2, push bombing, device code phishing) are covered in **Module 13** (System Hacking), **Module 20/25** (Cloud & Weaponization), and **Module 19** (Entra ID MFA conditional access bypass). The mechanism explains above make those attack descriptions immediately actionable.
 
 <a id="auth-primer-lab-progression"></a>
 
-### **Lab Progression (Part 3B: Authentication Standards)**
+### **Lab Progression (Module 06: Authentication Standards)**
 
 | Level | Task                                                                                                                                                | Deliverable                                     |
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -2762,18 +2762,18 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 | 5     | Build a local Flask API secured with JWT — intentionally break it three ways (alg:none, expired token accepted, weak HMAC secret) and document each | Broken API code + analysis report               |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can explain the difference between a session cookie, an opaque access token, and a JWT. You can trace the OAuth 2.0 Authorization Code flow step-by-step. You can decode a JWT and identify what is and is not protected. You can explain why FIDO2 defeats phishing but TOTP does not.
+> **Move-On Gate:** I can explain the difference between a session cookie, an opaque access token, and a JWT. I can trace the OAuth 2.0 Authorization Code flow step-by-step. I can decode a JWT and identify what is and is not protected. I can explain why FIDO2 defeats phishing but TOTP does not.
 
 > [!TIP]
-> **Next Step — Theory to Practice:** Part 3B is the concepts layer. **Part 4 Stage 2** is where you apply these concepts live: intercepting session cookies in Burp Suite, analyzing JWT security attributes, and testing cookie flags against OWASP Juice Shop. Complete Part 3B first, then Part 4 will feel like applying knowledge you already have rather than learning new material.
+> **Next Step — Theory to Practice:** Module 06 is the concepts layer. **Module 07 & Module 15** are where I apply these concepts live: intercepting session cookies in Burp Suite, analyzing JWT security attributes, and testing cookie flags against OWASP Juice Shop. Complete Module 06 first, then subsequent modules will feel like applying knowledge I already have rather than learning new material.
 
 ---
 
-### 🏆 Phase 1 Capstone Project
+### 🏆 Stage 1 Capstone Project
 
 **Build a Small Enterprise Lab and Document the Full Architecture**
 
-Using your virtualization platform, build a lab environment containing:
+Using my virtualization platform, build a lab environment containing:
 
 - [ ] **1 Windows Server** (Domain Controller with Active Directory)
 - [ ] **1 Linux Server** (web server or DNS server)
@@ -2786,23 +2786,23 @@ Using your virtualization platform, build a lab environment containing:
 - [ ] Network topology diagram (draw.io/Excalidraw) showing all VMs, IPs, subnets, and firewall rules
 - [ ] Build guide documenting every installation and configuration step (reproducible by someone else)
 - [ ] Security baseline report: what services are running, what ports are open, what logging is enabled
-- [ ] All documentation committed to your private Git repository
+- [ ] All documentation committed to my private Git repository
 
 > [!IMPORTANT]
-> **Capstone Gate:** Your lab must be fully operational, documented, and reproducible. A peer should be able to rebuild it from your guide alone.
+> **Capstone Gate:** My lab must be fully operational, documented, and reproducible. A peer should be able to rebuild it from my guide alone.
 
 ---
 
-### 🧭 Phase 1 Reflection & Competency Check
+### 🧭 Stage 1 Reflection & Competency Check
 
 - [ ] **Reflection:** What foundational concept felt weakest: OS internals, Linux, Windows, networking, programming, or cryptography?
-- [ ] **Reflection:** Which lab failure taught you the most, and how did you debug it?
-- [ ] **Competency:** Can you rebuild the lab from documentation without relying on memory?
-- [ ] **Competency:** Can you explain the network path, authentication flow, and logging sources in your lab?
-- [ ] **Competency:** Can you troubleshoot a broken service using logs, packet captures, and command-line tools?
+- [ ] **Reflection:** Which lab failure taught you the most, and how did I debug it?
+- [ ] **Competency:** Can I rebuild the lab from documentation without relying on memory?
+- [ ] **Competency:** Can I explain the network path, authentication flow, and logging sources in my lab?
+- [ ] **Competency:** Can I troubleshoot a broken service using logs, packet captures, and command-line tools?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move to Phase 2 only when you can operate your lab independently, explain each major component, and produce professional notes for every configuration decision.
+> **Stage Completion Gate:** Move to Stage 2 only when I can operate my lab independently, explain each major component, and produce professional notes for every configuration decision.
 
 ---
 
@@ -2820,33 +2820,33 @@ Using your virtualization platform, build a lab environment containing:
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `The Tangled Web` — Deep dive into how browsers and HTTP work; directly explains why web vulnerabilities exist
 > - 🟡 `Foundations of Information Security - Jason Andress` — Session, cookie, and auth fundamentals chapter
 
 
 > [!IMPORTANT]
-> **Why This Exists Here:** Phase 4 teaches session hijacking (Part 12), while Phase 2 teaches sniffing HTTP credentials (Part 9) and web-based pretexting (Part 10) — all requiring solid web fundamentals. You cannot understand session hijacking or web exploitation without first understanding what a session IS. This Part bridges that gap. Complete it before proceeding to Phase 2.
+> **Why This Exists Here:** Stage 3 teaches session hijacking (Module 15), while Stage 2/4 teaches sniffing HTTP credentials (Module 23) and web-based pretexting (Module 24) — all requiring solid web fundamentals. I cannot understand session hijacking or web exploitation without first understanding what a session IS. This module bridges that gap. Complete it before proceeding to Stage 2.
 
 > [!NOTE]
-> **Prerequisite: Part 3B Required for Stage 2.** Part 4 Stage 2 (Cookies, Sessions & Tokens) applies the concepts taught in Part 3B (Authentication Standards Primer). If you skipped Part 3B, return to it before starting Stage 2 — the cookie security attributes, session fixation mechanics, and JWT structure will make no sense without that foundation. Part 3B is theory; Part 4 Stage 2 is the hands-on application of that theory in Burp Suite against live targets.
+> **Prerequisite: Module 06 Required for Lab Work.** Module 07 (Cookies, Sessions & Tokens) applies the concepts taught in Module 06 (Authentication Standards). If I skipped Module 06, return to it before starting hands-on labs — cookie security attributes, session fixation mechanics, and JWT structure require that foundation.
 
-_Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the "what is being attacked" context that makes Phase 2 make sense._
+_Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the "what is being attacked" context that makes Stage 2 make sense._
 
 > [!IMPORTANT]
 > **⚡ Pre-Flight Checklist — Complete BEFORE Stage 1:**
-> - [ ] Install **[Burp Suite Community Edition](https://portswigger.net/burp/communitydownload)** and configure your browser to proxy through `127.0.0.1:8080`. Intercept one HTTP request before reading any further.
-> - [ ] Install **Docker** (`sudo apt install docker.io`) and run OWASP Juice Shop: `docker run -d -p 3000:3000 bkimminich/juice-shop`. Verify you can access `http://localhost:3000`.
+> - [ ] Install **[Burp Suite Community Edition](https://portswigger.net/burp/communitydownload)** and configure my browser to proxy through `127.0.0.1:8080`. Intercept one HTTP request before reading any further.
+> - [ ] Install **Docker** (`sudo apt install docker.io`) and run OWASP Juice Shop: `docker run -d -p 3000:3000 bkimminich/juice-shop`. Verify I can access `http://localhost:3000`.
 > - [ ] Install the **Wappalyzer** browser extension (Firefox/Chrome) to fingerprint technology stacks on any site.
 >
-> These tools are not optional. Every lab in Part 3C requires Burp Suite. You are not learning concepts to describe them — you are learning to observe them in live traffic.
+> These tools are not optional. Every lab in Module 07 requires Burp Suite. I am not learning concepts to describe them — I am learning to observe them in live traffic.
 
 <a id="stage-1-http-the-protocol-of-the-web"></a>
 
 ### **Topic 1: HTTP — The Protocol of the Web** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand every component of an HTTP request and response before you attempt to intercept or manipulate one.
+> **Goal:** Understand every component of an HTTP request and response before I attempt to intercept or manipulate one.
 
 - [ ] **HTTP Request Anatomy:** Understand the structure of an HTTP request — **request line (method, URI, HTTP version)**, **headers (Host, User-Agent, Content-Type, Authorization, Cookie)**, and **body** (for POST/PUT). Know that HTTP is a **stateless, text-based, application-layer protocol** running over TCP (port 80) or TLS (port 443).
 
@@ -2873,7 +2873,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 - [ ] **HTTP/2 and HTTP/3 / QUIC:** Know that HTTP/2 uses **multiplexed binary frames over TCP** (no head-of-line blocking at the app layer). HTTP/3 replaces TCP with **QUIC** — a UDP-based transport protocol built into the application layer that provides: multiplexed streams, **TLS 1.3 mandatory encryption**, **0-RTT connection resumption** (client sends data on the very first packet using a previously cached session ticket — creates a **replay attack surface**), and built-in congestion control. Security implications: **0-RTT data is replayable** — a network attacker who captures a 0-RTT ClientHello can replay it to the server to re-execute non-idempotent requests (POST, state mutations). **Interception implications:** Burp Suite and most proxies require explicit QUIC support — many tools silently fall back to HTTP/2 or HTTP/1.1, potentially missing HTTP/3-only endpoints. QUIC runs on **UDP 443** — firewall rules blocking UDP 443 force HTTP/3 fallback to HTTP/2. Know that `Alt-Svc: h3=":443"` is the HTTP response header advertising HTTP/3 support. In Wireshark, QUIC traffic appears as **QUIC** protocol on UDP 443, not TLS — requires SSLKEYLOGFILE for decryption.
 
-- [ ] **SIP (Session Initiation Protocol) & VoIP Fundamentals:** Understand SIP as the application-layer signaling protocol for establishing, modifying, and terminating real-time voice/video sessions. **Architecture:** SIP **User Agents (UA)** communicate via a **SIP Proxy/Registrar** server. The SIP proxy routes `INVITE` requests; the **RTP (Real-time Transport Protocol)** carries the actual media stream over UDP on negotiated ephemeral ports. **Key SIP methods:** `REGISTER` (bind a SIP URI to an IP), `INVITE` (initiate a call), `ACK`/`BYE`/`CANCEL`/`OPTIONS`. SIP runs on **UDP/TCP 5060** (plaintext) or **TLS 5061** (SIPS). **Security attack surface:** SIP lacks authentication by default on many deployments — **SIP enumeration** (OPTIONS flood to discover valid extensions), **SIP registration hijacking** (re-register a victim's extension to your IP), **toll fraud** (abusing an open SIP server to make international calls billed to the victim), **SIP INVITE flooding (DoS)**, and **RTP injection** (hijack an active call's media stream by guessing the UDP port and sequence numbers). Tools: `svmap`/`svwar` (SIPVicious suite), `sippts`, Wireshark SIP/RTP dissectors. Mitigations: TLS for signaling (SIPS), SRTP for media, SIP digest authentication, rate limiting, IP allowlists. Full VoIP exploitation is in 🔖 Shelf S09: VoIP & Telecommunications Security.
+- [ ] **SIP (Session Initiation Protocol) & VoIP Fundamentals:** Understand SIP as the application-layer signaling protocol for establishing, modifying, and terminating real-time voice/video sessions. **Architecture:** SIP **User Agents (UA)** communicate via a **SIP Proxy/Registrar** server. The SIP proxy routes `INVITE` requests; the **RTP (Real-time Transport Protocol)** carries the actual media stream over UDP on negotiated ephemeral ports. **Key SIP methods:** `REGISTER` (bind a SIP URI to an IP), `INVITE` (initiate a call), `ACK`/`BYE`/`CANCEL`/`OPTIONS`. SIP runs on **UDP/TCP 5060** (plaintext) or **TLS 5061** (SIPS). **Security attack surface:** SIP lacks authentication by default on many deployments — **SIP enumeration** (OPTIONS flood to discover valid extensions), **SIP registration hijacking** (re-register a victim's extension to my IP), **toll fraud** (abusing an open SIP server to make international calls billed to the victim), **SIP INVITE flooding (DoS)**, and **RTP injection** (hijack an active call's media stream by guessing the UDP port and sequence numbers). Tools: `svmap`/`svwar` (SIPVicious suite), `sippts`, Wireshark SIP/RTP dissectors. Mitigations: TLS for signaling (SIPS), SRTP for media, SIP digest authentication, rate limiting, IP allowlists. Full VoIP exploitation is in 🔖 Shelf S09: VoIP & Telecommunications Security.
 
 - [ ] **MQTT (Message Queuing Telemetry Transport):** Understand MQTT as a lightweight **publish/subscribe** messaging protocol designed for constrained IoT devices and low-bandwidth networks. **Architecture:** A central **broker** (e.g., Mosquitto, HiveMQ, AWS IoT Core) receives messages from **publishers** on named **topics** (e.g., `home/sensors/temperature`) and forwards them to all **subscribers** who have registered interest in that topic. Runs on **TCP 1883** (plaintext) or **TCP 8883** (TLS). **Security weaknesses:** Many deployments run with **no authentication** (anonymous connect allowed), **no TLS** (plaintext credential and payload exposure), **overly broad topic wildcards** (`#` subscribes to all topics on the broker — a single unauthenticated `SUBSCRIBE #` command dumps all device data), and **no authorization** (any authenticated client can publish to any topic, enabling command injection to field devices). **Attack scenarios:** Connect to an exposed MQTT broker with `mosquitto_sub -h <target> -t '#' -v` to read all device telemetry; publish malicious commands to actuator topics; extract embedded credentials from hardcoded MQTT client configs in firmware. Tools: `mosquitto_pub`, `mosquitto_sub`, `mqtt-pwn`, MQTT Explorer. Full IoT protocol exploitation is in Stage-5 Module 28 (IoT & Embedded).
 
@@ -2933,7 +2933,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 - [ ] **Same-Origin Policy (SOP):** The SOP is the browser's foundational security boundary. It prevents JavaScript from one origin reading responses from a different origin. An **origin** is defined as: `scheme + hostname + port` (e.g., `https://example.com:443`). Any difference = different origin.
   - SOP **allows** cross-origin _requests_ to be sent (e.g., forms, image loads)
   - SOP **blocks** JavaScript from _reading_ cross-origin responses
-  - **Impact:** Without SOP, a malicious site could read your banking portal's response using your session cookie
+  - **Impact:** Without SOP, a malicious site could read my banking portal's response using my session cookie
 
 - [ ] **Cross-Origin Resource Sharing (CORS):** CORS is a server-side mechanism that **relaxes SOP** for specific trusted origins. Understand:
   - `Access-Control-Allow-Origin: https://trusted.com` — explicitly permits a specific origin
@@ -2979,11 +2979,11 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 - [ ] **Multi-Factor Authentication (MFA):** Know the three factor categories — something you **know** (password), something you **have** (TOTP app, SMS, hardware key), something you **are** (biometrics). Know that SMS-based MFA is vulnerable to SIM swapping. Understand TOTP (Time-based One-Time Password) — HMAC of shared secret + timestamp truncated to 6 digits.
 
-- [ ] **OAuth 2.0 Flow Awareness (Foundational):** OAuth 2.0 Authorization Code Flow is covered in full depth in **Part 3B Stage 3: OAuth 2.0 — Delegated Authorization**. Review it before proceeding to Phase 4 API Security (Part 19) where it is exploited.
+- [ ] **OAuth 2.0 Flow Awareness (Foundational):** OAuth 2.0 Authorization Code Flow is covered in full depth in **Module 06 Topic 3: OAuth 2.0 — Delegated Authorization**. Review it before proceeding to Stage 3 API Security (Module 17) where it is exploited.
 
 - [ ] **API Keys & Bearer Tokens:** Used in API authentication. Sent in `Authorization: Bearer <token>` header or as URL parameters. Key risks: hardcoded in source code, committed to Git repositories, logged in access logs, transmitted in URL (logged by proxies).
 
-- [ ] **Password Storage (Server Side):** bcrypt, scrypt, and Argon2id password hashing — including salt, work factor, and rainbow table resistance — are covered in full in **Part 3 Stage 4: Data at Rest & Password Security**. Review that section for the complete treatment.
+- [ ] **Password Storage (Server Side):** bcrypt, scrypt, and Argon2id password hashing — including salt, work factor, and rainbow table resistance — are covered in full in **Module 05 Topic 4: Data at Rest & Password Security**. Review that section for the complete treatment.
 
 ---
 
@@ -2992,7 +2992,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 ### **Topic 5: REST APIs, JSON & Modern Web Architecture** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand the modern web architecture that most applications are built on — critical for Phase 2 enumeration and Phase 4 API security.
+> **Goal:** Understand the modern web architecture that most applications are built on — critical for Stage 2 enumeration and Stage 3 API security.
 
 - [ ] **REST API Principles:** Representational State Transfer uses standard HTTP methods to perform CRUD operations on resources. Resources are identified by URLs. REST APIs are stateless — each request must contain full authentication context. Understand:
   - `GET /api/users/42` — retrieve user 42
@@ -3007,7 +3007,7 @@ _Understand the web from the ground up — how browsers communicate with servers
   - Null values, nesting, and data types (string, number, boolean, null, array, object)
   - Security relevance: JSON injection, prototype pollution, type confusion attacks
 
-- [ ] **API Versioning & Endpoints:** APIs use versioning (`/api/v1/`, `/api/v2/`) — older versions may have weaker controls. Understand that endpoint enumeration (discovering hidden API paths) is a core Phase 2 recon technique.
+- [ ] **API Versioning & Endpoints:** APIs use versioning (`/api/v1/`, `/api/v2/`) — older versions may have weaker controls. Understand that endpoint enumeration (discovering hidden API paths) is a core Stage 2 recon technique.
 
 - [ ] **Content Negotiation:** APIs declare content types via `Content-Type` and `Accept` headers. A server may respond differently to `application/json` vs `text/html` requests — useful for recon and for bypassing input validation that only applies to web form submissions.
 
@@ -3020,13 +3020,13 @@ _Understand the web from the ground up — how browsers communicate with servers
   - **Service Mesh:** A dedicated infrastructure layer that handles **service-to-service communication** in microservice environments (Istio, Linkerd, Consul Connect). Every service gets a **sidecar proxy** (Envoy) that intercepts all inbound and outbound traffic. Provides: mTLS between services (zero-trust east-west encryption), observability (traces, metrics, access logs), and policy enforcement (which service can call which). **Security implications:** A compromised sidecar or misconfigured mesh policy allows lateral movement between services that appears as legitimate internal traffic. Service mesh audit logs are a detection source for container-level lateral movement. Attack surface: mesh control plane (Istiod API server), mTLS certificate issuance, and RBAC policies that allow service impersonation.
   - **Zero Trust Architecture:** A security model where **no network location is inherently trusted** — every access request is authenticated, authorized, and encrypted regardless of whether it originates inside or outside the corporate network perimeter. Core principles: **verify explicitly** (authenticate and authorize every request using all available signals — identity, device health, location, risk), **use least privilege** (just-in-time and just-enough-access), **assume breach** (minimize blast radius, segment access, monitor everything). Implementation components: Identity Provider (IdP), device compliance enforcement (MDM), network micro-segmentation, and continuous access evaluation. **Why it matters offensively:** Zero trust environments eliminate the "inside = trusted" assumption that lateral movement relies on — an attacker who gains a foothold cannot freely access other services. Attackers must compromise valid identity tokens or device certificates rather than just pivoting via IP connectivity. Common bypass: steal a valid access token with broad scope, abuse a misconfigured policy exception, or compromise an IdP.
 
-- [ ] **Proxy Tools Awareness:** Understand that tools like **Burp Suite** and **OWASP ZAP** act as HTTP proxies sitting between your browser and the web server, capturing and allowing modification of every request and response. This is the primary tool for Phase 4 web security work.
+- [ ] **Proxy Tools Awareness:** Understand that tools like **Burp Suite** and **OWASP ZAP** act as HTTP proxies sitting between my browser and the web server, capturing and allowing modification of every request and response. This is the primary tool for Stage 3 web security work.
 
 ---
 
 <a id="lab-progression-web-technology-fundamentals"></a>
 
-### **Lab Progression (Part 3C: Web Technology Fundamentals)**
+### **Lab Progression (Module 07: Web Technology Fundamentals)**
 
 > [!TIP]
 > **Goal:** Build practical web layer familiarity before any offensive work begins.
@@ -3040,35 +3040,35 @@ _Understand the web from the ground up — how browsers communicate with servers
 | 5     | Using Burp, capture a JWT from Juice Shop; decode the payload (base64); document what claims it contains; attempt the `alg: none` bypass and document whether it succeeds                   | JWT analysis notes with decoded payload and bypass attempt |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 3C):** You can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Phase 2 when you can explain WHY session hijacking works at the protocol level.
+> **Move-On Gate (Module 07):** I can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Stage 2 when I can explain WHY session hijacking works at the protocol level.
 
 ---
 
 <a id="phase-1-mini-projects"></a>
 
-## 🛠️ Phase 1 Mini Projects
+## 🛠️ Stage 1 Mini Projects
 
 > [!TIP]
-> **Why these projects are here:** Phase 1 covers cryptography, password security, and authentication fundamentals. These 8 projects directly reinforce those concepts by building working tools rather than just reading about them. Each one maps to a specific Part in this phase — build them *after* completing the relevant Part, not before.
+> **Why these projects are here:** Stage 1 covers cryptography, password security, and authentication fundamentals. These 8 projects directly reinforce those concepts by building working tools rather than just reading about them. Each one maps to a specific Module in this stage — build them *after* completing the relevant Module, not before.
 
 > [!NOTE]
-> **How to use this section:** Each project lists the Phase 1 Part it belongs to, what prerequisite knowledge is needed, and what you should be able to explain after completing it. All code must be committed to your Git repository with a proper README covering: what the tool does, the vulnerability/concept it demonstrates, and how to run it.
+> **How to use this section:** Each project lists the Stage 1 Module it belongs to, what prerequisite knowledge is needed, and what I should be able to explain after completing it. All code must be committed to my Git repository with a proper README covering: what the tool does, the vulnerability/concept it demonstrates, and how to run it.
 
 ---
 
 ### Project 1 — Password Strength Checker
 
-**Maps to:** Part 3 (Cryptography) → Stage 4: Data at Rest & Password Security
+**Maps to:** Module 05 (Cryptography) → Topic 4: Data at Rest & Password Security
 
 **What it is:** A tool that analyzes a given password and scores it based on length, character diversity (uppercase, lowercase, digits, symbols), entropy, and presence in common password blacklists (e.g., `rockyou.txt` top 10,000).
 
-**What you need before building it:**
+**What I need before building it:**
 - Understanding of password entropy (bits of entropy = log₂(character set size) × length)
 - Knowledge of dictionary attacks and why common passwords are catastrophically weak
 - Basic regex and string manipulation
 
 **Why build it:**
-It forces you to internalize the *math* behind password strength — not just "use 12 characters," but *why* that matters. The blacklist check introduces you to real-world breach datasets that attackers use. This is the minimum viable "I understand the human layer of security" project.
+It forces me to internalize the *math* behind password strength — not just "use 12 characters," but *why* that matters. The blacklist check introduces you to real-world breach datasets that attackers use. This is the minimum viable "I understand the human layer of security" project.
 
 **Deliverable:** Python CLI tool — input a password, output a strength score with detailed reasoning. README must explain what entropy is and what `rockyou.txt` is.
 
@@ -3076,17 +3076,17 @@ It forces you to internalize the *math* behind password strength — not just "u
 
 ### Project 2 — Password Generator
 
-**Maps to:** Part 3 (Cryptography) → Stage 4: Data at Rest & Password Security
+**Maps to:** Module 05 (Cryptography) → Topic 4: Data at Rest & Password Security
 
 **What it is:** A configurable password generator that produces cryptographically random passwords based on user-specified length, character set requirements, and optionally checks the output against common-password lists.
 
-**What you need before building it:**
+**What I need before building it:**
 - Know the difference between `random` (pseudorandom, seedable, predictable) and `secrets` (CSPRNG — cryptographically secure pseudorandom number generator)
 - Understand character set composition (pool size determines entropy)
-- Have completed Project 1 (Password Strength Checker) — use it to validate your generator's output
+- Have completed Project 1 (Password Strength Checker) — use it to validate my generator's output
 
 **Why build it:**
-This teaches the single most important distinction a security-aware developer must know: **never use `random` for anything security-sensitive**. `random` in Python is seeded from system time and is trivially predictable. `secrets` uses OS entropy sources. If you can't explain this in an interview, you cannot be trusted to write secure code.
+This teaches the single most important distinction a security-aware developer must know: **never use `random` for anything security-sensitive**. `random` in Python is seeded from system time and is trivially predictable. `secrets` uses OS entropy sources. If I can't explain this in an interview, I cannot be trusted to write secure code.
 
 **Deliverable:** Python CLI tool with flags for `--length`, `--symbols`, `--digits`, `--uppercase`. Must use `secrets.choice()` — not `random.choice()`. README must explain why.
 
@@ -3094,17 +3094,17 @@ This teaches the single most important distinction a security-aware developer mu
 
 ### Project 3 — Caesar Cipher Encryption Tool
 
-**Maps to:** Part 3 (Cryptography) → Stage 1: Core Concepts & Algorithms
+**Maps to:** Module 05 (Cryptography) → Topic 1: Core Concepts & Algorithms
 
 **What it is:** An implementation of the Caesar cipher (a shift substitution cipher) that encrypts and decrypts text, and includes a brute-force cracker that demonstrates why 26 possible keys provides zero real security.
 
-**What you need before building it:**
+**What I need before building it:**
 - Modular arithmetic (`(char + shift) % 26`)
 - Understanding of substitution ciphers vs transposition ciphers
 - Frequency analysis concept (English letter frequency: E, T, A, O, I, N...)
 
 **Why build it:**
-Caesar cipher is *intentionally broken* — that's the point. Building it and then cracking your own output via brute force (only 26 keys exist) makes the concept of *key space* visceral. Your README should explain why 26 possible keys is computationally trivial, what frequency analysis is, and why modern ciphers (AES) have key spaces of 2¹²⁸ or 2²⁵⁶. This project tells a story that leads directly into Project 4.
+Caesar cipher is *intentionally broken* — that's the point. Building it and then cracking my own output via brute force (only 26 keys exist) makes the concept of *key space* visceral. My README should explain why 26 possible keys is computationally trivial, what frequency analysis is, and why modern ciphers (AES) have key spaces of 2¹²⁸ or 2²⁵⁶. This project tells a story that leads directly into Project 4.
 
 **Deliverable:** Python CLI that encrypts, decrypts, and brute-forces Caesar-encrypted text. README must document the brute-force output and explain why this cipher fails.
 
@@ -3112,19 +3112,19 @@ Caesar cipher is *intentionally broken* — that's the point. Building it and th
 
 ### Project 4 — AES File Encryptor
 
-**Maps to:** Part 3 (Cryptography) → Stage 1: Core Concepts & Algorithms + Stage 4: Data at Rest
+**Maps to:** Module 05 (Cryptography) → Topic 1: Core Concepts & Algorithms + Topic 4: Data at Rest
 
 **What it is:** A tool that encrypts and decrypts files using AES-256 in GCM mode. Takes a user-supplied password, derives an AES key using PBKDF2 (or Argon2), generates a random IV, encrypts the file, and stores the IV + salt + ciphertext together. Decryption reverses the process and validates the GCM authentication tag.
 
-**What you need before building it:**
+**What I need before building it:**
 - Understand symmetric encryption: same key encrypts and decrypts
-- Know why you must **never** use raw passwords as keys — always derive via PBKDF2/scrypt/Argon2
+- Know why I must **never** use raw passwords as keys — always derive via PBKDF2/scrypt/Argon2
 - Understand what an IV (Initialization Vector) is and why reusing it is catastrophic
 - Know the difference between AES-CBC (no authentication) and AES-GCM (authenticated encryption)
 - Library: `cryptography` (Python) — **not** `pycrypto` or `pycryptodome`, which have known issues
 
 **Why build it:**
-AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, and secure messaging. Building this yourself forces you to encounter every common implementation mistake — ECB mode, reused IVs, raw passwords as keys, no integrity check — and understand *why* each one is a real CVE. The GCM authentication tag also introduces you to authenticated encryption, which is non-negotiable in production systems.
+AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, and secure messaging. Building this myself forces me to encounter every common implementation mistake — ECB mode, reused IVs, raw passwords as keys, no integrity check — and understand *why* each one is a real CVE. The GCM authentication tag also introduces you to authenticated encryption, which is non-negotiable in production systems.
 
 **Deliverable:** Python CLI — `encrypt <file> --password <pass>` and `decrypt <file.enc> --password <pass>`. The encrypted file must contain: salt (16B) + IV (12B) + ciphertext + GCM tag. README must explain what happens if the IV is reused (hint: complete plaintext recovery is possible).
 
@@ -3132,11 +3132,11 @@ AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, an
 
 ### Project 5 — RSA Key Pair Generator
 
-**Maps to:** Part 3 (Cryptography) → Stage 2: Secure Communication + Stage 3: Identity & Trust (PKI)
+**Maps to:** Module 05 (Cryptography) → Topic 2: Secure Communication + Topic 3: Identity & Trust (PKI)
 
 **What it is:** A tool that generates RSA-2048 or RSA-4096 public/private key pairs, exports them in PEM format, demonstrates signing a message with the private key and verifying it with the public key, and optionally demonstrates encrypting a small payload with the public key and decrypting with the private key.
 
-**What you need before building it:**
+**What I need before building it:**
 - Conceptual understanding of asymmetric cryptography: public key is shareable, private key is secret
 - Why RSA key size matters: RSA-512 was broken in 1999, RSA-1024 is considered deprecated, RSA-2048 is the current minimum
 - Understand what PEM format is (base64-encoded DER with `-----BEGIN...-----` headers)
@@ -3145,23 +3145,23 @@ AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, an
 **Why build it:**
 RSA is the foundation of TLS certificates, SSH keys, code signing, and JWT RS256 tokens. Without building this, TLS handshakes and SSH authentication are black boxes. This project also introduces you to *why* RSA is only used for small payloads (key exchange) and not bulk encryption — it's computationally expensive. That asymmetry explains why hybrid encryption (Project 6) is universally used.
 
-**Deliverable:** Python CLI that generates a key pair, saves `private.pem` and `public.pem`, signs a test message, and verifies the signature. README must explain what happens if you lose the private key and why you should never share it.
+**Deliverable:** Python CLI that generates a key pair, saves `private.pem` and `public.pem`, signs a test message, and verifies the signature. README must explain what happens if I lose the private key and why I should never share it.
 
 ---
 
 ### Project 6 — File Encryption & Decryption Tool (Hybrid)
 
-**Maps to:** Part 3 (Cryptography) → Stage 2: Secure Communication (Capstone of the crypto section)
+**Maps to:** Module 05 (Cryptography) → Topic 2: Secure Communication (Capstone of the crypto section)
 
 **What it is:** A hybrid encryption tool — uses RSA (Project 5) to encrypt a randomly generated AES key, and uses AES-GCM (Project 4) to encrypt the actual file. The encrypted output contains: RSA-encrypted AES key + AES IV + AES-GCM ciphertext. Decryption uses the RSA private key to recover the AES key, then decrypts the file.
 
-**What you need before building it:**
+**What I need before building it:**
 - Both Project 4 (AES File Encryptor) and Project 5 (RSA Key Pair Generator) must be complete
 - Understand *why* hybrid encryption exists: RSA can only encrypt data up to its key size minus padding (~214 bytes for RSA-2048 with OAEP) — it cannot encrypt large files directly
 - Know that this is exactly how TLS works: RSA/ECDH negotiates a session key, AES/ChaCha20 encrypts the actual traffic
 
 **Why build it:**
-This is the capstone of all Phase 1 crypto projects. It mirrors the architecture of TLS, PGP, and Signal. If you can implement and explain hybrid encryption from scratch, you can reason about any secure communication protocol. In an interview, being able to say "I built a tool that works like TLS at the crypto layer" and then *explain it correctly* puts you in a different tier from candidates who just read about it.
+This is the capstone of all Stage 1 crypto projects. It mirrors the architecture of TLS, PGP, and Signal. If I can implement and explain hybrid encryption from scratch, I can reason about any secure communication protocol. In an interview, being able to say "I built a tool that works like TLS at the crypto layer" and then *explain it correctly* puts you in a different tier from candidates who just read about it.
 
 **Deliverable:** Python CLI with `encrypt <file> --pubkey public.pem` and `decrypt <file.enc> --privkey private.pem`. README must contain a diagram showing the hybrid model: `AES_key → RSA_encrypt(pubkey) → stored; File → AES_GCM(AES_key) → stored`.
 
@@ -3169,18 +3169,18 @@ This is the capstone of all Phase 1 crypto projects. It mirrors the architecture
 
 ### Project 7 — Password Manager
 
-**Maps to:** Part 3B (Authentication Standards Primer) → Stage 1: Session-Based Authentication + Part 3 Stage 4: Data at Rest
+**Maps to:** Module 06 (Authentication Standards) → Topic 1: Session-Based Authentication + Module 05 Topic 4: Data at Rest
 
 **What it is:** A local CLI password manager that stores encrypted credentials (service, username, password) using AES-256-GCM, with a master password that is hashed using Argon2 and never stored in plaintext. Supports add, retrieve, list, and delete operations. The vault is a single encrypted file.
 
-**What you need before building it:**
+**What I need before building it:**
 - Project 4 (AES File Encryptor) completed — the vault storage mechanism is the same principle
 - Understanding of *slow* hashing algorithms: Argon2 (winner of the Password Hashing Competition), bcrypt — these are intentionally slow to resist brute force. SHA-256 for password hashing is **catastrophically wrong** — document why
 - Key stretching: how to derive a strong AES key from a weak master password using Argon2 + salt
 - Session locking: clear decrypted passwords from memory after timeout
 
 **Why build it:**
-A password manager is one of the highest-impact security tools in daily use, and building one forces you to confront every bad password storage decision that real applications make. The core insight: you must use a *slow* KDF (Argon2/bcrypt) for the master password, not SHA-256. This is the same reason why database breaches of bcrypt-hashed passwords are recoverable only slowly, while SHA-256-hashed breaches are cracked in hours with a GPU. This knowledge transfers directly to secure backend development.
+A password manager is one of the highest-impact security tools in daily use, and building one forces me to confront every bad password storage decision that real applications make. The core insight: I must use a *slow* KDF (Argon2/bcrypt) for the master password, not SHA-256. This is the same reason why database breaches of bcrypt-hashed passwords are recoverable only slowly, while SHA-256-hashed breaches are cracked in hours with a GPU. This knowledge transfers directly to secure backend development.
 
 **Deliverable:** Python CLI with commands: `add`, `get`, `list`, `delete`, `lock`. Vault stored as an encrypted JSON file. README must explain *why* Argon2 is used instead of SHA-256 with a concrete timing comparison.
 
@@ -3188,42 +3188,42 @@ A password manager is one of the highest-impact security tools in daily use, and
 
 ### Project 8 — Login System with Multi-Factor Authentication (TOTP)
 
-**Maps to:** Part 3B (Authentication Standards Primer) → Stage 6: MFA Types & Weaknesses
+**Maps to:** Module 06 (Authentication Standards) → Topic 6: MFA Types & Weaknesses
 
 **What it is:** A functional login system (CLI or basic web) that implements: user registration with Argon2-hashed password storage, login with password verification (constant-time comparison), TOTP-based 2FA using RFC 6238 (the same standard as Google Authenticator), session token generation (JWT or UUID token), rate limiting after failed attempts, and account lockout.
 
-**What you need before building it:**
-- Part 3B fully completed — you need to understand sessions, tokens, and MFA types before building this
+**What I need before building it:**
+- Module 06 fully completed — I need to understand sessions, tokens, and MFA types before building this
 - TOTP standard (RFC 6238): a TOTP code = HOTP(secret, floor(unix_time / 30)) — time-divided into 30-second windows, HMAC-SHA1 truncated to 6 digits
 - Libraries: `pyotp` (Python) for TOTP generation/verification
 - Constant-time string comparison (`hmac.compare_digest()`) — prevents timing attacks on password verification
 - JWT structure (header.payload.signature) if using token-based sessions
 
 **Why build it:**
-Authentication is the #1 attack surface in web applications. Building it yourself — rather than using an off-the-shelf library blindly — forces you to understand *why* certain implementation choices exist: why `==` comparison leaks timing information, why TOTP codes expire every 30 seconds, why rate limiting must happen *before* password hashing (not after), and why session tokens must be unpredictable. Every web application developer should be able to implement this, and every security engineer must be able to audit it.
+Authentication is the #1 attack surface in web applications. Building it myself — rather than using an off-the-shelf library blindly — forces me to understand *why* certain implementation choices exist: why `==` comparison leaks timing information, why TOTP codes expire every 30 seconds, why rate limiting must happen *before* password hashing (not after), and why session tokens must be unpredictable. Every web application developer should be able to implement this, and every security engineer must be able to audit it.
 
 **Deliverable:** Python application with working user registration, login with TOTP, and session management. Include a QR code output (using `qrcode` library) that can be scanned into Google Authenticator. README must explain what a timing attack is and how `hmac.compare_digest()` prevents it.
 
 ---
 
 > [!IMPORTANT]
-> **Phase 1 Project Completion Gate:** You should be able to explain the cryptographic choices in every project above without looking at the code. If someone asks "why Argon2 and not SHA-256?" or "why AES-GCM and not AES-CBC?" or "why CSPRNG and not random?" — you must answer from understanding, not memory. If you cannot, revisit the relevant Part before moving to Phase 2.
+> **Stage 1 Project Completion Gate:** I should be able to explain the cryptographic choices in every project above without looking at the code. If someone asks "why Argon2 and not SHA-256?" or "why AES-GCM and not AES-CBC?" or "why CSPRNG and not random?" — I must answer from understanding, not memory. If I cannot, revisit the relevant Module before moving to Stage 2.
 
 ---
 
 > [!TIP]
 > ### 🎮 Concurrent CTF Practice — Stage 1
 >
-> Don't wait until Module 30 to touch CTF platforms. Start now, in parallel with your module work.
+> Don't wait until Module 30 to touch CTF platforms. Start now, in parallel with my module work.
 >
 > | Platform | What to do during Stage 1 | Why |
 > |---|---|---|
 > | [TryHackMe](https://tryhackme.com) | Complete the **Pre-Security** and **Linux Fundamentals** (Parts 1–3) learning paths | Reinforces Modules 02–04 with guided labs |
-> | [OverTheWire: Bandit](https://overthewire.org/wargames/bandit) | Work through Bandit levels 0–20 | Builds Linux CLI muscle memory you will need constantly |
+> | [OverTheWire: Bandit](https://overthewire.org/wargames/bandit) | Work through Bandit levels 0–20 | Builds Linux CLI muscle memory I will need constantly |
 > | [PortSwigger Web Security Academy](https://portswigger.net/web-security) | Read the **HTTP** and **Web app** intro sections | Sets you up for Stage 3 — no exploitation yet |
 > | [PicoCTF](https://picoctf.org) | Solve 5–10 beginner challenges (General Skills, Cryptography) | Reinforces Module 05 Cryptography and scripting |
 >
-> **Rule:** 1 CTF challenge per day minimum. Document every solve: what the challenge was, your approach, what you learned.
+> **Rule:** 1 CTF challenge per day minimum. Document every solve: what the challenge was, my approach, what I learned.
 
 ---
 
@@ -3232,8 +3232,8 @@ Authentication is the #1 attack surface in web applications. Building it yoursel
 ## 🏁 Foundation Proof Gate
 
 > [!IMPORTANT]
-> **Exit Gate Verification:** Before advancing to **Stage 2 (Offense I)**, you must verify and demonstrate:
+> **Exit Gate Verification:** Before advancing to **Stage 2 (Offense I)**, I must verify and demonstrate:
 > 1. **10 Annotated PCAPs** (DNS, TCP 3-way, ARP poisoning, TLS handshake, HTTP GET/POST, ICMP, DHCP, SSH, SMB, FTP).
 > 2. **Baseline Hardened Configurations** for both Linux (SSH keys, firewall, disabled root) and Windows (Local Security Policy, disabled LLMNR/NBT-NS).
 > 3. **3 Custom Automation Scripts** written cold in Python, Bash, and PowerShell.
-> 4. **1 Comprehensive Lab Topology Report** committed to your notes Git repository.
+> 4. **1 Comprehensive Lab Topology Report** committed to my notes Git repository.

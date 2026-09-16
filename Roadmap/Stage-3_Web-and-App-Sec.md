@@ -20,17 +20,17 @@
 
 > [!NOTE]
 > ### 📝 Stage 3 Documentation Requirements
-> Every vulnerability you discover must be documented to professional reporting standards. Required artifacts:
+> Every vulnerability I discover must be documented to professional reporting standards. Required artifacts:
 > - **Bug reports** in standard format (title, severity, description, steps to reproduce, impact, remediation)
 > - **Burp request/response pairs** — saved HTTP interactions proving each vulnerability
 > - **PortSwigger lab solutions** — writeups for each completed lab explaining the vulnerability class
 > - **PoC screenshots and videos** — visual evidence for every finding
-> - **Git commits** — all reports and evidence committed to your repository
+> - **Git commits** — all reports and evidence committed to my repository
 >
-> _By the end of Phase 4, you should have a library of vulnerability reports ready for your portfolio._
+> _By the end of Stage 3, I should have a library of vulnerability reports ready for my portfolio._
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -43,36 +43,36 @@
 > | **Tier 2 (Secondary)** | [[OWASP_ZAP]] | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
 > | **Tier 2 (Secondary)** | [[wpscan]] & [[Nikto]] | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
 >
-> **Stage 3 Exit Gate:** You cannot pass Stage 3 until you can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
+> **Stage 3 Exit Gate:** I cannot pass Stage 3 until I can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
 
 ---
 
 ### 🗂️ Table of Contents
-- [Part 17: Web Application Hacking](#part-17-web-application-hacking)
+- [Module 14: Web Application Hacking](#part-17-web-application-hacking)
   - [Topic 1: Reconnaissance & Mapping](#stage-1-reconnaissance-mapping)
   - [Topic 2: Vulnerability Analysis & Probing](#stage-2-vulnerability-analysis-probing)
   - [Topic 3: Exploitation (The OWASP Top 10)](#stage-3-exploitation-the-owasp-top-10)
   - [Topic 4: Post-Exploitation & Persistence](#stage-4-post-exploitation-persistence)
   - [Topic 5: Defense & Mitigation (The Shield)](#stage-5-defense-mitigation-the-shield)
-  - [Lab Progression (Part 17: Web Application Hacking)](#lab-progression-part-17-web-application-hacking)
-- [Part 12: Session Hijacking & Token Attacks](#part-12-session-hijacking-token-attacks)
+  - [Lab Progression (Module 14: Web Application Hacking)](#lab-progression-part-17-web-application-hacking)
+- [Module 15: Session Hijacking & Token Attacks](#part-12-session-hijacking-token-attacks)
   - [Topic 1: Session Architecture & Vulnerability Analysis](#stage-1-session-architecture-vulnerability-analysis)
   - [Topic 2: Token Theft & Interception Vectors](#stage-2-token-theft-interception-vectors)
   - [Topic 3: Token Forgery & Replay](#stage-3-token-forgery-replay)
-- [Part 18: Web Server Hacking](#part-18-web-server-hacking)
+- [Module 16: Web Server Hacking](#part-18-web-server-hacking)
   - [Topic 1: Target Acquisition & Reconnaissance](#stage-1-target-acquisition-reconnaissance)
   - [Topic 2: Scanning & Service Enumeration](#stage-2-scanning-service-enumeration)
   - [Topic 3: Vulnerability Assessment & Exploitation](#stage-3-vulnerability-assessment-exploitation)
   - [Topic 4: Post-Exploitation & Persistence](#stage-4-post-exploitation-persistence)
-  - [Lab Progression (Part 18: Web Server Hacking)](#lab-progression-part-18-web-server-hacking)
-- [Part 19: API Security](#part-19-api-security)
+  - [Lab Progression (Module 16: Web Server Hacking)](#lab-progression-part-18-web-server-hacking)
+- [Module 17: API Security](#part-19-api-security)
   - [Topic 1: API Reconnaissance & Mapping](#stage-1-api-reconnaissance-mapping)
   - [Topic 2: OWASP API Security Top 10](#stage-2-owasp-api-security-top-10)
   - [Topic 3: Protocol-Specific API Attacks](#stage-3-protocol-specific-api-attacks)
   - [Topic 4: API Authentication & Token Attacks](#stage-4-api-authentication-token-attacks)
   - [Topic 5: Defense & Hardening](#stage-5-defense-hardening)
-  - [Lab Progression (Part 19: API Security)](#lab-progression-part-19-api-security)
-- [Part 20: Bug Bounty and Penetration Testing](#part-20-bug-bounty-and-penetration-testing)
+  - [Lab Progression (Module 17: API Security)](#lab-progression-part-19-api-security)
+- [Module 18: Bug Bounty Methodology](#part-20-bug-bounty-and-penetration-testing)
   - [Topic 1: Preparation & Scoping](#stage-1-preparation-scoping)
   - [Topic 2: Reconnaissance (The Wide Net)](#stage-2-reconnaissance-the-wide-net)
   - [Topic 3: Vulnerability Assessment (The Deep Dive)](#stage-3-vulnerability-assessment-the-deep-dive)
@@ -94,8 +94,8 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
-> - 🔴 `The Web Application Hacker's Handbook` — Primary companion — read the chapter matching your current PortSwigger module
+> **📚 Recommended Books for This Module**
+> - 🔴 `The Web Application Hacker's Handbook` — Primary companion — read the chapter matching my current PortSwigger module
 > - 🔴 `SQL Injection Attacks and Defense` — Deepest SQLi reference; read alongside PortSwigger SQLi Modules 6–18
 > - 🔴 `Burp Suite Compendium` / `The Power of Burp Suite` — Reference — deep Burp feature coverage
 > - 🟡 `Web Application Security - Andrew Hoffman` — Full — developer-code-level explanation of WHY each vulnerability exists
@@ -108,21 +108,21 @@
 
 
 > [!IMPORTANT]
-> **Phase 4 Resource Alignment**
+> **Stage 3 Resource Alignment**
 >
 > | Resource | Role |
 > |----------|------|
-> | **This roadmap (Phase 4)** | Curriculum — what to learn and in what order |
+> | **This roadmap (Stage 3)** | Curriculum — what to learn and in what order |
 > | **PortSwigger Web Security Academy** | Primary lab environment — do labs that match the current topic |
 > | **Burp Suite** | Primary tool for all web testing work |
 > | **OWASP Juice Shop / DVWA** | Secondary lab environments for free-form practice |
 > | **Web pentesting books/courses** | Reference only — use for a second explanation, not as a competing roadmap |
 
 > [!NOTE]
-> **Part 17 Vulnerability Learning Sequence** — work through topics in this order within Stage 3:
+> **Module 14 Vulnerability Learning Sequence** — work through topics in this order within Stage 3:
 >
 > ```text
-> HTTP/Web fundamentals (already in Phase 1 Part 3C — review if needed)
+> HTTP/Web fundamentals (already in Stage 1 Module 07 — review if needed)
 >         ↓
 > Recon & attack-surface mapping → Burp Suite setup
 >         ↓
@@ -155,7 +155,7 @@
 > Web cache poisoning / advanced web attacks
 > ```
 >
-> PortSwigger has labs for every one of these. Do the labs as you reach each topic — not all upfront.
+> PortSwigger has labs for every one of these. Do the labs as I reach each topic — not all upfront.
 
 
 <a id="stage-1-reconnaissance-mapping"></a>
@@ -270,7 +270,7 @@
 ---
 
 <a id="lab-progression-part-17-web-application-hacking"></a>
-### **Lab Progression (Part 17: Web Application Hacking)**
+### **Lab Progression (Module 14: Web Application Hacking)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -282,7 +282,7 @@
 | 6 | Complete 10 PentesterLab exercises (source-code-level web vulnerability analysis) | Exercise certificates + code review notes |
 | 7 | Solve 5 Root-Me web application challenges at intermediate difficulty | Challenge completion screenshots + methodology notes |
 
-**Platform Guide for Phase 4:**
+**Platform Guide for Stage 3:**
 
 | Platform | Best For | Cost |
 |----------|----------|------|
@@ -294,7 +294,7 @@
 | [TryHackMe](https://tryhackme.com) | Guided web hacking learning paths — good for structured beginners before PortSwigger | Free + Premium |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can perform a complete web application assessment covering OWASP Top 10, chain vulnerabilities for maximum impact, use Burp Suite professionally, and produce a client-ready web app pentest report.
+> **Move-On Gate:** I can perform a complete web application assessment covering OWASP Top 10, chain vulnerabilities for maximum impact, use Burp Suite professionally, and produce a client-ready web app pentest report.
 
 ---
 
@@ -310,13 +310,13 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `The Tangled Web` — Chapters on browser security models, cookies, origin boundaries, and session lifecycles
 > - 🟡 `The Web Application Hacker's Handbook (WAHH)` — Chapter 7: Attacking Session Management
 > - 🟢 `Real-World Bug Hunting` — Case studies on token leakage, OAuth account takeovers, and session fixation
 
 > [!IMPORTANT]
-> **Architectural Placement Note:** While legacy syllabi treat Session Hijacking as a generic network-sniffing concept, in modern networks (TLS ubiquitous, HSTS enforced) session attacks are almost exclusively application-layer exploits. This module directly builds on **Part 17: Web Application Hacking** (XSS, CSRF, Auth flaws) and prepares you for **Part 19: API Security** (OAuth2/OIDC token flows).
+> **Architectural Placement Note:** While legacy syllabi treat Session Hijacking as a generic network-sniffing concept, in modern networks (TLS ubiquitous, HSTS enforced) session attacks are almost exclusively application-layer exploits. This module directly builds on **Module 14: Web Application Hacking** (XSS, CSRF, Auth flaws) and prepares me for **Module 17: API Security** (OAuth2/OIDC token flows).
 
 ---
 
@@ -415,7 +415,7 @@
 ---
 
 <a id="lab-progression-part-12-session-hijacking"></a>
-### **Lab Progression (Part 12: Session Hijacking & Token Attacks)**
+### **Lab Progression (Module 15: Session Hijacking & Token Attacks)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -426,7 +426,7 @@
 | 5 | Intercept and exploit a flawed OAuth2 implementation (leaking authorization codes via open redirect) | End-to-end OAuth account takeover writeup |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can systematically assess session management mechanisms, identify and exploit session fixation, steal tokens via XSS/CORS flaws, execute JWT signature and algorithm bypasses using `jwt-tool`, and design hardened, token-bound defense architectures.
+> **Move-On Gate:** I can systematically assess session management mechanisms, identify and exploit session fixation, steal tokens via XSS/CORS flaws, execute JWT signature and algorithm bypasses using `jwt-tool`, and design hardened, token-bound defense architectures.
 
 ---
 
@@ -442,7 +442,7 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🟡 `Web Application Attacks` — Broad web attack catalog — covers server-side attack vectors beyond SQLi and XSS
 > - 🟢 `Web security exposed` — Reference — supplementary web server attack coverage
 > - 🟢 `WordPress Hacking and Security` — Reference — CMS-specific attack methodology for real-world scope targets
@@ -510,7 +510,7 @@
 
 - [ ] **Web Shell Deployment:** Upload **persistent web shells** (b374k, c99, webacoo) to writable web directories for backdoor access.
 
-- [ ] **Living off the Land:** Use **LOLBAS/GTFOBins** for post-exploitation execution and persistence. 📌 _See Part 7 Stage 2 for full LOLBAS/GTFOBins coverage._
+- [ ] **Living off the Land:** Use **LOLBAS/GTFOBins** for post-exploitation execution and persistence. 📌 _See Module 13 Topic 2 for full LOLBAS/GTFOBins coverage._
 
 - [ ] **Credential Harvesting:** Dump **database credentials, config files** (`web.config`, `wp-config.php`), **SSH keys** for lateral movement.
 
@@ -519,7 +519,7 @@
 ---
 
 <a id="lab-progression-part-18-web-server-hacking"></a>
-### **Lab Progression (Part 18: Web Server Hacking)**
+### **Lab Progression (Module 16: Web Server Hacking)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -527,10 +527,10 @@
 | 2 | Gain shell via file upload or RCE on a lab web server | Web shell deployment report |
 | 3 | Escalate from web shell to root/SYSTEM on the host | Full attack chain document |
 | 4 | Exploit a misconfigured web server (default creds, PUT method, WebDAV) | Misconfiguration exploitation report |
-| 5 | Harden a web server against all attacks you performed | Hardening checklist + before/after comparison |
+| 5 | Harden a web server against all attacks I performed | Hardening checklist + before/after comparison |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can identify web server technologies, exploit known service vulnerabilities, escalate privileges from web shell to root/SYSTEM, and produce hardening recommendations based on your findings.
+> **Move-On Gate:** I can identify web server technologies, exploit known service vulnerabilities, escalate privileges from web shell to root/SYSTEM, and produce hardening recommendations based on my findings.
 
 ---
 
@@ -546,7 +546,7 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Hacking APIs Breaking Web Application Programming Interfaces - Corey` — Full book — the best dedicated API security resource; maps directly to this Part
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG API test cases; use IDs when writing reports
 
@@ -603,7 +603,7 @@
 
 - [ ] **GraphQL Attacks & Schema Extraction:**
   - Execute **introspection queries** (`__schema`, `__type`) to recover the full type system, fields, queries, and mutations.
-  - If introspection is disabled, use **field suggestion enumeration** (e.g., Clairvoyance) exploiting server error feedback ("Did you mean ...?").
+  - If introspection is disabled, use **field suggestion enumeration** (e.g., Clairvoyance) exploiting server error feedback ("Did I mean ...?").
   - Test for **batching & alias abuse** to bypass rate limits (sending hundreds of queries in a single HTTP request).
   - Abuse **nested circular queries** (e.g., `author { posts { author { posts { ... } } } }`) to trigger server CPU exhaustion and Denial of Service.
   - Exploit **Broken Object Level Authorization (BOLA)** on sensitive GraphQL mutations (updating user profile, assigning roles) where authorization checks are missing.
@@ -634,7 +634,7 @@
 ### **Topic 5: Defense & Hardening** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Know what defenders implement so you can test it properly.
+> **Goal:** Know what defenders implement so I can test it properly.
 
 - [ ] **API Gateway Controls:** Understand **rate limiting, quota enforcement, request validation, JWT verification, IP allowlisting** at the gateway layer.
 
@@ -645,7 +645,7 @@
 ---
 
 <a id="lab-progression-part-19-api-security"></a>
-### **Lab Progression (Part 19: API Security)**
+### **Lab Progression (Module 17: API Security)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -656,7 +656,7 @@
 | 5 | Audit a GraphQL API (introspection dump, batching abuse, nested query DoS, IDOR via node IDs) | GraphQL security assessment report |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can discover undocumented API endpoints, test all OWASP API Top 10 categories, exploit JWT/OAuth flaws, attack REST/GraphQL/gRPC APIs, and produce a professional API security assessment report.
+> **Move-On Gate:** I can discover undocumented API endpoints, test all OWASP API Top 10 categories, exploit JWT/OAuth flaws, attack REST/GraphQL/gRPC APIs, and produce a professional API security assessment report.
 
 ---
 
@@ -672,9 +672,9 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `zseano's methodology` — Full (short) — practical bug bounty workflow from an experienced hunter
-> - 🔴 `From Hacking to Report Writing` — Full — bridges exploitation to professional report writing; read before Part 39
+> - 🔴 `From Hacking to Report Writing` — Full — bridges exploitation to professional report writing; read before Module 26
 > - 🟡 `Bug Bounty Hunting For Web Security` — Full — platform-specific methodology for HackerOne, Bugcrowd etc.
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG test case IDs for reporting (e.g. WSTG-INPV-05)
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology doc to use during assessments
@@ -688,7 +688,7 @@
 
 - [ ] **Legal Check:** Read and sign the `Penetration Testing Rules of Engagement` or the Bug Bounty Policy (Safe Harbor).
 
-- [ ] **Scope Validation:** Confirm IP ranges and domains. Ensure you are not attacking "Out of Scope" assets.
+- [ ] **Scope Validation:** Confirm IP ranges and domains. Ensure I am not attacking "Out of Scope" assets.
 
 - [ ] **Framework Selection:** Decide which **testing methodology** governs the engagement:
   - **OWASP WSTG (Web Security Testing Guide)** — the methodology for *how to test* web applications; test cases are referenced by ID (e.g., WSTG-INPV-01 for SQL injection)
@@ -735,7 +735,7 @@
 - [ ] **Input Fuzzing:** Test all input fields for `SQL Injection` (WSTG-INPV-05), `Cross-Site Scripting` (WSTG-CLNT-01), `Command Injection` (WSTG-INPV-12), `Server-Side Template Injection` (WSTG-INPV-18), `HTTP Parameter Pollution`, and `Mass Assignment` vulnerabilities.
 
   > [!NOTE]
-  > **Do NOT test for Buffer Overflow in web application input fields.** Web applications run on managed-memory, interpreted runtimes (PHP, Python, Ruby, Node.js, Java). Buffer overflows are memory-corruption vulnerabilities in compiled binary applications — testing a PHP login form for buffer overflows is technically incorrect and will waste time. Buffer overflows belong in Phase 7 (Binary Exploitation). In web app testing, focus on injection and logic flaws.
+  > **Do NOT test for Buffer Overflow in web application input fields.** Web applications run on managed-memory, interpreted runtimes (PHP, Python, Ruby, Node.js, Java). Buffer overflows are memory-corruption vulnerabilities in compiled binary applications — testing a PHP login form for buffer overflows is technically incorrect and will waste time. Buffer overflows belong in Shelf 06 (Binary Exploitation). In web app testing, focus on injection and logic flaws.
 
 - [ ] **Access Control:** Test for `IDOR` (Insecure Direct Object Reference) and verify `Authentication vs Authorization` logic.
 
@@ -791,7 +791,7 @@
 
 ---
 
-### 🏆 Phase 4 Capstone Project
+### 🏆 Stage 3 Capstone Project
 
 **Find and Document 5 Web Vulnerabilities Across Multiple Targets**
 
@@ -804,24 +804,24 @@
 - [ ] 5 vulnerability reports following responsible disclosure format
 - [ ] PoC evidence (Burp exports, screenshots, curl commands)
 - [ ] Remediation guide with before/after code examples
-- [ ] All reports committed to your Git repository
+- [ ] All reports committed to my Git repository
 
 > [!IMPORTANT]
-> **Capstone Gate:** Your 5 reports must each contain reproducible steps, accurate CVSS scores, and actionable remediation guidance.
+> **Capstone Gate:** My 5 reports must each contain reproducible steps, accurate CVSS scores, and actionable remediation guidance.
 
 ---
 
-### 🧭 Phase 4 Reflection & Competency Check
+### 🧭 Stage 3 Reflection & Competency Check
 
 - [ ] **Reflection:** Which vulnerability class was easiest to find but hardest to explain clearly?
 
-- [ ] **Reflection:** Where did your first proof of concept need restraint to stay non-destructive?
-- [ ] **Competency:** Can you map web and API findings to root cause, impact, and remediation?
-- [ ] **Competency:** Can you reproduce each finding from a clean browser/session using only your report?
-- [ ] **Competency:** Can you write reports that developers can fix without asking for missing steps?
+- [ ] **Reflection:** Where did my first proof of concept need restraint to stay non-destructive?
+- [ ] **Competency:** Can I map web and API findings to root cause, impact, and remediation?
+- [ ] **Competency:** Can I reproduce each finding from a clean browser/session using only my report?
+- [ ] **Competency:** Can I write reports that developers can fix without asking for missing steps?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when your web findings are reproducible, responsibly scoped, accurately scored, and paired with concrete fixes.
+> **Stage 3 Completion Gate:** Move on only when my web findings are reproducible, responsibly scoped, accurately scored, and paired with concrete fixes.
 
 ---
 
@@ -831,10 +831,10 @@
 
 <a id="phase-4-mini-projects"></a>
 
-## 🛠️ Phase 4 Mini Projects
+## 🛠️ Stage 3 Mini Projects
 
 > [!TIP]
-> **Why these projects are here:** Phase 4 covers web application hacking, web server exploitation, API security, and bug bounty methodology. All 9 projects below map directly to Parts 17–20 of this phase. They are not shortcuts — build each one *after* completing its corresponding Part, so you understand the vulnerability class before you write a tool to detect it.
+> **Why these projects are here:** Stage 3 covers web application hacking, web server exploitation, API security, and bug bounty methodology. All 9 projects below map directly to Modules 14–18 of this stage. They are not shortcuts — build each one *after* completing its corresponding Module, so I understand the vulnerability class before writing a tool to detect it.
 
 > [!NOTE]
 > **How to use this section:** Projects 15–22 are individual vulnerability checkers. Project 23 (Web Vulnerability Scanner) is the capstone — it integrates all the others into a single tool. Do not start Project 23 until all preceding projects are complete and working. All code must be committed to Git with proper READMEs that include: what vulnerability it targets, how it works, what it *cannot* detect, and ethical usage requirements.
@@ -843,11 +843,11 @@
 
 ### Project 15 — Website Security Header Checker
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Stage 5: Defense & Mitigation
+**Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Stage 5: Defense & Mitigation
 
 **What it is:** A tool that sends an HTTP(S) request to a target URL and analyzes the response headers for the presence and correctness of security headers: `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, and `Cross-Origin-Resource-Policy`. Grades each header (present/misconfigured/missing) and outputs an overall security score.
 
-**What you need before building it:**
+**What I need before building it:**
 - HTTP request-response cycle: headers are sent by the server, parsed by the browser
 - What each header does and what its *absence* enables:
   - Missing `CSP` → XSS can execute arbitrary scripts
@@ -855,10 +855,10 @@
   - Missing `X-Frame-Options` or `CSP frame-ancestors` → clickjacking is possible
   - Missing `X-Content-Type-Options: nosniff` → MIME-sniffing attacks possible
 - `requests` library (Python) for HTTP
-- OWASP Secure Headers Project as your reference for correct values
+- OWASP Secure Headers Project as my reference for correct values
 
 **Why build it:**
-Security headers are the first passive defense layer of any web application, and the majority of real-world sites fail basic header audits. Building this checker forces you to internalize what each header *prevents* — not just memorize their names. This knowledge transfers directly to code review, penetration testing, and secure development. It also gives you a tool that produces immediate, demonstrable value on any website — useful for bug bounty first steps.
+Security headers are the first passive defense layer of any web application, and the majority of real-world sites fail basic header audits. Building this checker forces me to internalize what each header *prevents* — not just memorize their names. This knowledge transfers directly to code review, penetration testing, and secure development. It also gives me a tool that produces immediate, demonstrable value on any website — useful for bug bounty first steps.
 
 **Deliverable:** Python CLI — `check <url>`. Output: table of headers, presence status, and what each missing header risks. Include an overall letter grade (A–F). README must explain what clickjacking is and which header prevents it.
 
@@ -866,11 +866,11 @@ Security headers are the first passive defense layer of any web application, and
 
 ### Project 16 — SSL/TLS Certificate Checker
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Part 18 (Web Server Hacking) → Stage 2: Scanning & Service Enumeration
+**Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Module 16 (Web Server Hacking) → Stage 2: Scanning & Service Enumeration
 
 **What it is:** A tool that connects to a target hostname, retrieves the TLS certificate chain, and checks: certificate expiry date and validity window, hostname match (CN/SAN verification), certificate chain completeness, issuer and signature algorithm (flag SHA-1 signatures), TLS protocol version (flag TLS 1.0/1.1 and SSLv3), and cipher suite strength (flag export ciphers, RC4, DES).
 
-**What you need before building it:**
+**What I need before building it:**
 - TLS handshake mechanics: ClientHello → ServerHello → Certificate → Key Exchange → Finished
 - Certificate structure: Subject, Issuer, SAN (Subject Alternative Names), validity period, signature algorithm
 - Python `ssl` module: `ssl.create_default_context()`, `ssl.SSLSocket.getpeercert()`
@@ -878,7 +878,7 @@ Security headers are the first passive defense layer of any web application, and
 - Know what `ssl.PROTOCOL_TLS_CLIENT` does vs constructing a context manually
 
 **Why build it:**
-Certificate misconfiguration is a frequent finding in professional audits and bug bounty programs. Expired certificates cause service outages. Weak cipher suites are exploitable. TLS 1.0/1.1 vulnerabilities (BEAST, POODLE) are well-documented. Building this tool means you understand TLS not just as "the green padlock" but as a protocol with version numbers, cipher negotiation, and a chain of trust that must be validated properly. This directly prepares you for understanding certificate-based authentication, MTLS, and PKI in Phase 6.
+Certificate misconfiguration is a frequent finding in professional audits and bug bounty programs. Expired certificates cause service outages. Weak cipher suites are exploitable. TLS 1.0/1.1 vulnerabilities (BEAST, POODLE) are well-documented. Building this tool means I understand TLS not just as "the green padlock" but as a protocol with version numbers, cipher negotiation, and a chain of trust that must be validated properly. This directly prepares me for understanding certificate-based authentication, MTLS, and PKI in Stage 4.
 
 **Deliverable:** Python CLI — `check <hostname>`. Output: certificate details table with expiry, issuer, SAN list, protocol version, cipher suite, and flagged issues. README must explain what an expired certificate means for a production service and why SHA-1 signatures are deprecated.
 
@@ -886,11 +886,11 @@ Certificate misconfiguration is a frequent finding in professional audits and bu
 
 ### Project 17 — SQL Injection Detection Tool
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — specifically A03:2021 Injection
+**Maps to:** Module 14 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — specifically A03:2021 Injection
 
 **What it is:** An automated SQL injection tester for authorized web applications. Identifies injectable parameters (URL query strings, POST body fields), tests each parameter with error-based, boolean-based, and time-based payloads, analyzes responses for SQL error messages or behavioral anomalies, and generates a finding report with reproduction steps.
 
-**What you need before building it:**
+**What I need before building it:**
 - SQL syntax basics: `SELECT`, `WHERE`, `UNION`, `--` (comment), `'` (string delimiter)
 - The 3 main SQLi types:
   - **Error-based:** inject `'` → server returns a database error message containing SQL syntax
@@ -900,7 +900,7 @@ Certificate misconfiguration is a frequent finding in professional audits and bu
 - Database-specific error signatures: MySQL, PostgreSQL, MSSQL, SQLite each have distinct error strings
 
 **Why build it:**
-SQL injection has been in the OWASP Top 10 every year since its inception. It caused the Adobe breach (153M records), LinkedIn breach (117M), and hundreds of others. Building a detector forces you to think like an attacker — what does putting `'` in an input field actually do to a SQL query? What does a time delay reveal when there's no visible output? The understanding you gain here is what separates a developer who knows SQLi exists from one who can identify and fix it in production code.
+SQL injection has been in the OWASP Top 10 every year since its inception. It caused the Adobe breach (153M records), LinkedIn breach (117M), and hundreds of others. Building a detector forces me to think like an attacker — what does putting `'` in an input field actually do to a SQL query? What does a time delay reveal when there's no visible output? The understanding you gain here is what separates a developer who knows SQLi exists from one who can identify and fix it in production code.
 
 **Deliverable:** Python CLI — `scan <url> --params auto`. Inject payloads into detected parameters, output findings as a structured report with: parameter name, injection type, payload used, evidence. README must include a lab setup section using DVWA or Juice Shop (never test on live sites without permission).
 
@@ -908,11 +908,11 @@ SQL injection has been in the OWASP Top 10 every year since its inception. It ca
 
 ### Project 18 — XSS Scanner
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (client-side)
+**Maps to:** Module 14 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (client-side)
 
 **What it is:** A reflected XSS detection tool that: extracts injectable parameters from a target URL (query strings, form inputs), injects a set of XSS probe payloads, analyzes the HTML response to check if the payload appears unescaped in the output, and reports confirmed findings. Optionally uses a headless browser (Playwright) to detect DOM-based XSS.
 
-**What you need before building it:**
+**What I need before building it:**
 - How browsers parse HTML and when script tags execute
 - The 3 XSS types:
   - **Reflected:** payload in URL → reflected in immediate response → executes in victim's browser
@@ -923,19 +923,19 @@ SQL injection has been in the OWASP Top 10 every year since its inception. It ca
 - `BeautifulSoup` for HTML response parsing
 
 **Why build it:**
-XSS enables session hijacking (steal `document.cookie`), credential phishing (inject fake login forms), defacement, and malware distribution. Detecting it requires understanding how browsers interpret HTML differently depending on context (HTML body vs attribute vs JavaScript string). Building this scanner forces you to internalize exactly why output encoding — not input filtering — is the correct defense. Every output in a web app has a context, and that context determines the correct encoding function.
+XSS enables session hijacking (steal `document.cookie`), credential phishing (inject fake login forms), defacement, and malware distribution. Detecting it requires understanding how browsers interpret HTML differently depending on context (HTML body vs attribute vs JavaScript string). Building this scanner forces me to internalize exactly why output encoding — not input filtering — is the correct defense. Every output in a web app has a context, and that context determines the correct encoding function.
 
-**Deliverable:** Python CLI — `scan <url>`. Output: list of reflected parameters with payload evidence. README must explain the difference between reflected and stored XSS and why your tool can only detect reflected.
+**Deliverable:** Python CLI — `scan <url>`. Output: list of reflected parameters with payload evidence. README must explain the difference between reflected and stored XSS and why my tool can only detect reflected.
 
 ---
 
 ### Project 19 — Phishing URL Detector
 
-**Maps to:** Part 10 (Social Engineering) → Stage 2: The Digital Assault (Remote Vectors) + Part 17 Stage 3: OWASP A09 Security Logging and Monitoring Failures
+**Maps to:** Module 24 (Social Engineering) → Stage 2: The Digital Assault (Remote Vectors) + Module 14 Topic 3: OWASP A09 Security Logging and Monitoring Failures
 
 **What it is:** A URL analysis tool that scores a given URL's likelihood of being a phishing link based on: lexical features (URL length, number of dots, presence of IP address, suspicious keywords like `paypal-secure`, `login-verify`), homoglyph detection (lookalike characters: `рaypal.com` using Cyrillic `р`), domain age via WHOIS (newly registered domains are high risk), entropy of the subdomain, and reputation check via VirusTotal API and Google Safe Browsing API.
 
-**What you need before building it:**
+**What I need before building it:**
 - URL structure: scheme, subdomain, domain, TLD, path, query, fragment — know what each part is
 - Unicode homoglyphs: `а` (Cyrillic) looks identical to `a` (Latin) — phishers exploit this
 - Levenshtein distance for typosquatting detection (e.g., `gooogle.com` vs `google.com`)
@@ -945,7 +945,7 @@ XSS enables session hijacking (steal `document.cookie`), credential phishing (in
 - Shannon entropy calculation for detecting algorithmically generated subdomains (DGA)
 
 **Why build it:**
-Phishing is the #1 initial access vector in real-world attacks — responsible for over 80% of reported security incidents according to Verizon DBIR. This is also where security meets machine learning: production phishing detectors at Google, Microsoft, and Cloudflare use ML models trained on millions of URLs. Building the feature-extraction and rule-based version teaches you what features matter and *why*, which is the foundation for building or evaluating ML-based versions later. It also gives you hands-on experience with real threat intelligence APIs.
+Phishing is the #1 initial access vector in real-world attacks — responsible for over 80% of reported security incidents according to Verizon DBIR. This is also where security meets machine learning: production phishing detectors at Google, Microsoft, and Cloudflare use ML models trained on millions of URLs. Building the feature-extraction and rule-based version teaches me what features matter and *why*, which is the foundation for building or evaluating ML-based versions later. It also gives me hands-on experience with real threat intelligence APIs.
 
 **Deliverable:** Python CLI — `analyze <url>`. Output: feature breakdown table with scores, overall risk verdict (Likely Phishing / Suspicious / Likely Safe), and evidence. README must explain what a homoglyph attack is with a real example.
 
@@ -953,11 +953,11 @@ Phishing is the #1 initial access vector in real-world attacks — responsible f
 
 ### Project 20 — Command Injection Detector
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (OS command)
+**Maps to:** Module 14 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (OS command)
 
 **What it is:** A tool that tests authorized web application endpoints for OS command injection by injecting shell metacharacters and command chaining operators into parameters, analyzing responses for command output or timing anomalies, and reporting confirmed injection points with payload evidence.
 
-**What you need before building it:**
+**What I need before building it:**
 - Linux/Unix shell operators: `;` (sequential execution), `|` (pipe), `&&` (AND), `||` (OR), `` ` `` (backtick subshell), `$()` (subshell)
 - Windows command chaining: `&`, `&&`, `|`, `||`, `%0A` (URL-encoded newline)
 - Blind command injection: when there's no visible output, use time-based payloads (`; sleep 5`) or out-of-band (DNS/HTTP callback to a server you control)
@@ -973,18 +973,18 @@ Command injection is the highest-severity web vulnerability class — successful
 
 ### Project 21 — SSRF Detection Tool
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A10:2021 Server-Side Request Forgery
+**Maps to:** Module 14 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A10:2021 Server-Side Request Forgery
 
 **What it is:** A tool that tests authorized web applications for Server-Side Request Forgery by submitting internal network addresses and cloud metadata endpoints as URL parameters, detecting whether the server fetches those URLs (via response content analysis or out-of-band callback), and reporting confirmed SSRF with potential impact analysis.
 
-**What you need before building it:**
+**What I need before building it:**
 - What SSRF is: an attacker controls a URL that the *server* fetches — the server becomes a proxy for attacking internal resources
 - Internal network targets: `http://127.0.0.1/`, `http://localhost/`, `http://169.254.169.254/` (AWS EC2 metadata), `http://192.168.x.x/`, `http://[::1]/`
 - Cloud metadata endpoints:
   - AWS: `http://169.254.169.254/latest/meta-data/iam/security-credentials/`
   - GCP: `http://metadata.internal/computeMetadata/v1/`
   - Azure: `http://169.254.169.254/metadata/instance`
-- Out-of-band detection: set up a webhook (Webhook.site, Interactsh, or self-hosted) and use your webhook URL as the payload — if the server calls your webhook, SSRF is confirmed
+- Out-of-band detection: set up a webhook (Webhook.site, Interactsh, or self-hosted) and use my webhook URL as the payload — if the server calls my webhook, SSRF is confirmed
 - URL parser bypass techniques: `http://evil.com@127.0.0.1/`, DNS rebinding concepts
 
 **Why build it:**
@@ -996,11 +996,11 @@ SSRF became a critical vulnerability class with cloud adoption. The 2019 Capital
 
 ### Project 22 — Directory Brute-Force Tool
 
-**Maps to:** Part 17 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping — specifically content discovery
+**Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping — specifically content discovery
 
 **What it is:** A web directory and file enumeration tool that sends HTTP requests for each entry in a wordlist, analyzes response codes and content lengths to identify valid paths, filters false positives (servers that return 200 for all requests), and reports discovered directories and files with their HTTP status and size.
 
-**What you need before building it:**
+**What I need before building it:**
 - HTTP status codes: 200 (found), 301/302 (redirect — still interesting), 403 (forbidden — path exists, just restricted), 404 (not found), 500 (server error — may indicate the path processes something)
 - False positive filtering: some servers return 200 for every path (catch-all) — detect this by comparing content-length variance across responses
 - Wordlists: SecLists `Discovery/Web-Content/` — `common.txt` for quick sweeps, `raft-large-files.txt` for thorough enumeration
@@ -1008,7 +1008,7 @@ SSRF became a critical vulnerability class with cloud adoption. The 2019 Capital
 - Rate limiting and backoff: don't DoS the target or trigger WAF rate limits
 
 **Why build it:**
-Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup.zip` files, `/phpMyAdmin`, and `/wp-login.php` endpoints are found through directory brute-forcing. These are consistently among the most impactful bug bounty findings and real breach vectors. Building the tool teaches you *why* wordlist composition matters (what paths to test), how HTTP response analysis distinguishes existing paths from non-existent ones, and why false-positive filtering is non-trivial. It combines Phase 3 recon techniques with Phase 4 HTTP knowledge.
+Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup.zip` files, `/phpMyAdmin`, and `/wp-login.php` endpoints are found through directory brute-forcing. These are consistently among the most impactful bug bounty findings and real breach vectors. Building the tool teaches me *why* wordlist composition matters (what paths to test), how HTTP response analysis distinguishes existing paths from non-existent ones, and why false-positive filtering is non-trivial. It combines Stage 2 recon techniques with Stage 3 HTTP knowledge.
 
 **Deliverable:** Python CLI — `scan <url> --wordlist <path> --threads <n> --extensions php,html,txt`. Output: table of discovered paths with status codes and content lengths, false-positive-filtered. README must explain what finding an exposed `.git` directory means for a target's security.
 
@@ -1016,11 +1016,11 @@ Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup
 
 ### Project 23 — Web Vulnerability Scanner (Capstone)
 
-**Maps to:** Part 20 (Bug Bounty & Penetration Testing) → Stage 3: Vulnerability Assessment (The Deep Dive) — entire Phase 4 capstone
+**Maps to:** Module 18 (Bug Bounty Methodology) → Topic 3: Vulnerability Assessment — entire Stage 3 capstone
 
-**What it is:** An automated web security assessment tool that orchestrates all preceding Phase 4 projects as modules in a single unified workflow. Given a target URL and authorization, it: runs security header checks (Project 15), TLS certificate inspection (Project 16), SQL injection testing (Project 17), XSS scanning (Project 18), command injection testing (Project 20), SSRF testing (Project 21), and directory brute-forcing (Project 22) — then aggregates all findings into a single structured report with severity ratings, reproduction steps, and remediation guidance.
+**What it is:** An automated web security assessment tool that orchestrates all preceding Stage 3 projects as modules in a single unified workflow. Given a target URL and authorization, it: runs security header checks (Project 15), TLS certificate inspection (Project 16), SQL injection testing (Project 17), XSS scanning (Project 18), command injection testing (Project 20), SSRF testing (Project 21), and directory brute-forcing (Project 22) — then aggregates all findings into a single structured report with severity ratings, reproduction steps, and remediation guidance.
 
-**What you need before building it:**
+**What I need before building it:**
 - All Projects 15–22 must be complete and working as standalone tools
 - Plugin/module architecture: each project becomes an importable module with a consistent interface — `run(target, options) → [Finding]`
 - Unified finding schema: `{module, severity, title, url, parameter, payload, evidence, remediation}`
@@ -1030,9 +1030,9 @@ Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup
 - Scope enforcement: the tool must accept a scope definition and refuse to scan out-of-scope targets
 
 **Why build it:**
-This is the project you show to employers. It doesn't introduce new vulnerability concepts — it demonstrates you can *architect systems*, think about software design (plugin interfaces, unified schemas, concurrent execution), and deliver a professional output (structured report). Recruiters and interviewers don't just see a web scanner — they see evidence that you can integrate multiple domains of knowledge into a cohesive product. A polished version of this with a sample report is your Phase 4 portfolio centerpiece.
+This is the project you show to employers. It doesn't introduce new vulnerability concepts — it demonstrates I can *architect systems*, think about software design (plugin interfaces, unified schemas, concurrent execution), and deliver a professional output (structured report). Recruiters and interviewers don't just see a web scanner — they see evidence that I can integrate multiple domains of knowledge into a cohesive product. A polished version of this with a sample report is my Stage 3 portfolio centerpiece.
 
-It also teaches a critical professional lesson: automated scanners miss things. Your README must document what this scanner *cannot* detect (stored XSS, CSRF, business logic flaws, authentication bypass, insecure direct object references) and why manual testing is still required. That intellectual honesty is what makes a security engineer trustworthy.
+It also teaches a critical professional lesson: automated scanners miss things. My README must document what this scanner *cannot* detect (stored XSS, CSRF, business logic flaws, authentication bypass, insecure direct object references) and why manual testing is still required. That intellectual honesty is what makes a security engineer trustworthy.
 
 **Deliverable:**
 - Python package with a CLI entry point: `webscan <url> --scope <domain> --output <report.html>`
@@ -1043,7 +1043,7 @@ It also teaches a critical professional lesson: automated scanners miss things. 
 ---
 
 > [!IMPORTANT]
-> **Phase 4 Project Completion Gate:** Project 23 (the capstone) must produce a report that a security professional could read and act on without asking follow-up questions. If your findings lack reproduction steps, payload evidence, or remediation guidance — the project is not done. Polish the report before moving to Phase 5.
+> **Stage 3 Project Completion Gate:** Project 23 (the capstone) must produce a report that a security professional could read and act on without asking follow-up questions. If my findings lack reproduction steps, payload evidence, or remediation guidance — the project is not done. Polish the report before moving to Stage 4.
 
 ---
 
@@ -1060,7 +1060,7 @@ It also teaches a critical professional lesson: automated scanners miss things. 
 ### Side-Track A: Detection Engineering & SOC Operations
 
 
-_Understand defensive detection to know what to evade. This Part covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in Part 13B._
+_Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Shelf_Post-Hire#shelf-16-security-operations-expansion|Shelf 16 (Security Operations Expansion)]]._
 
 <a id="stage-1-defensive-architecture"></a>
 ### **Topic 1: Defensive Architecture** — `🧠 Conceptual`
@@ -1109,7 +1109,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 - [ ] **Threat Intelligence Integration:** Consume **OSINT feeds, MISP, AlienVault OTX, commercial threat intel** to enrich **IP/domain/file lookups** in SIEM.
 
 > [!IMPORTANT]
-> **Stage Gate — Stages 1–4 (Detection Engineering):** Before proceeding to Stage 5, you must demonstrate:
+> **Stage Gate — Stages 1–4 (Detection Engineering):** Before proceeding to Stage 5, I must demonstrate:
 > - [ ] Written at least 1 working Sigma rule that fires on a specific MITRE ATT&CK technique in a live SIEM
 > - [ ] Identified 3 LOLBin execution patterns (e.g., certutil download, mshta execution, bitsadmin transfer) and named the event log source for each
 > - [ ] Documented what anti-forensics evidence looks like in a Windows Event Log (e.g., event 1102 log cleared, event 4719 audit policy changed)
@@ -1154,7 +1154,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 - [ ] **SIEM Query Language Fluency:** Compare **SPL (Splunk)**, **KQL (Microsoft Sentinel/Defender)**, and **Lucene/EQL (Elastic/OpenSearch)** syntax for the same detection logic — write the same alert (e.g., "failed logins > 10 in 5 minutes from same source") in all three languages. Maintain a personal cheat sheet mapping equivalent operators across platforms.
 
 > [!IMPORTANT]
-> **Stage Gate — Stage 6 (SOC/SIEM):** Before proceeding to Stage 7 (Threat Hunting), you must demonstrate:
+> **Stage Gate — Stage 6 (SOC/SIEM):** Before proceeding to Stage 7 (Threat Hunting), I must demonstrate:
 > - [ ] Deployed a working SIEM (Splunk Free, Wazuh, ELK, or Security Onion) ingesting logs from at least 3 sources (e.g., Windows Event, Sysmon, Linux auth, DNS)
 > - [ ] Written the same alert rule in at least 2 SIEM query languages (SPL, KQL, or Lucene)
 > - [ ] Investigated a real alert end-to-end: triage → validate → document → close — without walkthrough assistance
@@ -1201,7 +1201,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 - [ ] **Forensic Preservation:** During response, **preserve evidence** (memory dumps, disk images, logs) for **investigation and legal proceedings**.
 
 > [!IMPORTANT]
-> **Stage Gate — Stage 8 (Incident Response):** Before proceeding to Stage 9 (Forensics), you must demonstrate:
+> **Stage Gate — Stage 8 (Incident Response):** Before proceeding to Stage 9 (Forensics), I must demonstrate:
 > - [ ] Produced a structured incident timeline for a simulated incident containing: first indicator, initial compromise, lateral movement, data access/impact, and containment actions — with timestamps and evidence sources for each entry
 > - [ ] Written a containment playbook for at least 1 attack scenario (ransomware or credential theft) covering: isolation steps, evidence preservation order, communication contacts, and rollback criteria
 > - [ ] Explained the distinction between containment and eradication — and why premature eradication destroys forensic evidence
@@ -1250,14 +1250,14 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 ---
 
-**Move-On Gate (Part 13A):** Produce a detection coverage matrix mapped to MITRE ATT&CK tactics covering Stages 1–10.
+**Move-On Gate (Side-Track A: Detection Engineering):** Produce a detection coverage matrix mapped to MITRE ATT&CK tactics covering Stages 1–10.
 
 > [!IMPORTANT]
-> **Stage Gate — Stage 10 (Blue Team Counter-Measures):** Before proceeding to Part 13B, you must demonstrate all of:
-> - [ ] Identified 3 MITRE ATT&CK techniques that your current lab SIEM would NOT detect and explained why (telemetry gap, logic gap, or tuning issue)
+> **Stage Gate — Stage 10 (Blue Team Counter-Measures):** Before proceeding to subsequent modules, I must demonstrate all of:
+> - [ ] Identified 3 MITRE ATT&CK techniques that my current lab SIEM would NOT detect and explained why (telemetry gap, logic gap, or tuning issue)
 > - [ ] Written 1 detection rule that specifically targets a living-off-the-land technique (PowerShell, certutil, wmic, mshta, or bitsadmin)
-> - [ ] Explained how an attacker using only signed Windows binaries would evade your current detection setup — and proposed a countermeasure
-> - [ ] Produced a MITRE ATT&CK Navigator layer showing which techniques your lab rules cover (green) and which are uncovered (red)
+> - [ ] Explained how an attacker using only signed Windows binaries would evade my current detection setup — and proposed a countermeasure
+> - [ ] Produced a MITRE ATT&CK Navigator layer showing which techniques my lab rules cover (green) and which are uncovered (red)
 
 ---
 
@@ -1328,19 +1328,19 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 - [ ] **Intelligence Gathering:** Analyze logs and activity from deception tools to inform `Basics and Concepts of Threat Hunting`.
 
-- [ ] **Canary Tokens:** Deploy [canarytokens.org](https://canarytokens.org) tokens across your environment. Understand the three primary token types:
+- [ ] **Canary Tokens:** Deploy [canarytokens.org](https://canarytokens.org) tokens across my environment. Understand the three primary token types:
   - **DNS canary tokens** — embed in files/configs; fire on DNS lookup when a file is opened on an internet-connected host
   - **HTTP/URL canary tokens** — embed in documents, email signatures, API docs; fire on HTTP GET when accessed
   - **File-open canary tokens** (Word, PDF, folder) — fire when a document is opened, leaking attacker IP and user-agent
   - Deploy tokens in: fake credentials files, decoy API key configs, unused service accounts, document shares, internal wikis
 
 - [ ] **Canary Token Lab (Hands-On — 10 minutes):** Complete this exercise before reading further:
-  1. Go to [canarytokens.org/generate](https://canarytokens.org/generate) and generate a **DNS token**. Enter your email for alerts.
-  2. Copy the generated DNS hostname into a file on your lab machine named `aws_credentials.txt` as a fake value: `aws_secret_access_key = AKIA[paste-token-hostname-here]`
+  1. Go to [canarytokens.org/generate](https://canarytokens.org/generate) and generate a **DNS token**. Enter my email for alerts.
+  2. Copy the generated DNS hostname into a file on my lab machine named `aws_credentials.txt` as a fake value: `aws_secret_access_key = AKIA[paste-token-hostname-here]`
   3. Open the file from a terminal (`cat aws_credentials.txt`) — observe whether the DNS token fires. (It will not fire from `cat` alone since no DNS resolution occurs. This is intentional — understand why.)
   4. Now generate an **HTTP token** and embed the URL in a fake config file. Use `curl` to trigger it manually.
-  5. Check the canarytokens.org dashboard — observe the activation log showing your IP, user-agent, and timestamp.
-  6. **Offensive takeaway:** Knowing token trigger mechanics tells you which file access patterns to avoid on an engagement. A file opened with `cat` does not beacon; a Word document opened in Microsoft Office on an internet-connected host does.
+  5. Check the canarytokens.org dashboard — observe the activation log showing my IP, user-agent, and timestamp.
+  6. **Offensive takeaway:** Knowing token trigger mechanics tells me which file access patterns to avoid on an engagement. A file opened with `cat` does not beacon; a Word document opened in Microsoft Office on an internet-connected host does.
   - Deliverable: screenshot of canary token activation log with attacker IP, user-agent, and timestamp annotated.
 
 - [ ] **Honeyfiles and Honeycredentials:** Plant decoy files that look genuinely valuable to a lateral-moving attacker:
@@ -1422,7 +1422,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 ---
 
 <a id="lab-progression-part-14-ids-firewalls-and-honeypots"></a>
-### **Lab Progression (Part 14: IDS, Firewalls, and Honeypots)**
+### **Lab Progression (Side-Track B: IDS, Firewalls & Honeypots)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -1433,7 +1433,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 | 5 | Build a complete perimeter defense lab (firewall + IDS + honeypot) | Integrated defense architecture document |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can deploy and configure IDS/IPS, write custom detection rules, deploy honeypots for deception, and tune detection to minimize false positives while catching evasion attempts.
+> **Move-On Gate:** I can deploy and configure IDS/IPS, write custom detection rules, deploy honeypots for deception, and tune detection to minimize false positives while catching evasion attempts.
 
 <a id="toc-part-15-osint--threat-intelligence"></a>
 <a id="part-15-cyber-threat-intelligence-cti-attack-surface-management"></a>
@@ -1448,7 +1448,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 
 > [!NOTE]
-> **Defensive Scope Alignment:** Offensive reconnaissance, active scanning, and target footprinting are covered in **Phase 2 (Part 4)**. Part 15 focuses strictly on defensive **Cyber Threat Intelligence (CTI)**, External Attack Surface Management (EASM), threat actor profiling, and operationalizing intelligence into detection telemetry.
+> **Defensive Scope Alignment:** Offensive reconnaissance, active scanning, and target footprinting are covered in **Stage 2 (Module 08)**. Side-Track C focuses strictly on defensive **Cyber Threat Intelligence (CTI)**, External Attack Surface Management (EASM), threat actor profiling, and operationalizing intelligence into detection telemetry.
 
 <a id="stage-1-external-attack-surface-management-easm-feeds"></a>
 <a id="stage-1-passive-reconnaissance-data-collection"></a>
@@ -1503,7 +1503,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
   - **Indicator enrichment:** Use MISP modules (VirusTotal, Shodan, PassiveTotal, CIRCL HASHLOOKUP) to automatically enrich submitted indicators. Understand enrichment confidence and staleness.
   - **Threat actor tagging:** Apply MITRE ATT&CK Galaxy cluster tags to events and attributes. Tag threat actors (e.g., `misp-galaxy:threat-actor="Lazarus Group"`), malware families (`misp-galaxy:malware="Emotet"`), and attack patterns.
   - **Warninglists and Correlation:** Enable MISP warninglists to suppress false positives (CDN IPs, public resolvers). Understand how MISP's correlation engine links related indicators across events automatically.
-  - **MISP → SIEM pipeline:** Export indicators in MISP native format or via its API to your SIEM lookup tables. See Stage 5 for the full pipeline exercise.
+  - **MISP → SIEM pipeline:** Export indicators in MISP native format or via its API to my SIEM lookup tables. See Stage 5 for the full pipeline exercise.
 
 - [ ] **OpenCTI Platform:** Deploy **OpenCTI** with Redis, Elasticsearch/OpenSearch, and RabbitMQ to model complex threat knowledge using the **STIX 2.1 graph standard**.
 
@@ -1535,23 +1535,23 @@ _Understand defensive detection to know what to evade. This Part covers core det
 > [!TIP]
 > **Goal:** Close the gap between *collecting* threat intelligence and *acting on it*. A threat report with IOCs and TTPs has zero value if it sits in a PDF. This stage converts intel into SIEM rules, hunting queries, and detection coverage.
 
-- [ ] **IOC → SIEM Pipeline:** Take a published threat report (e.g., [CISA advisories](https://www.cisa.gov/alerts-advisories), [Mandiant APT reports](https://www.mandiant.com/resources/reports), [Sekoia.io blog](https://blog.sekoia.io)) and extract IOCs (IPs, domains, hashes, registry keys, mutexes). Import them into your SIEM/MISP as custom indicators. Write SIEM queries that alert on these IOCs in real-time. Verify the alert fires against test traffic before marking the IOC as operational.
+- [ ] **IOC → SIEM Pipeline:** Take a published threat report (e.g., [CISA advisories](https://www.cisa.gov/alerts-advisories), [Mandiant APT reports](https://www.mandiant.com/resources/reports), [Sekoia.io blog](https://blog.sekoia.io)) and extract IOCs (IPs, domains, hashes, registry keys, mutexes). Import them into my SIEM/MISP as custom indicators. Write SIEM queries that alert on these IOCs in real-time. Verify the alert fires against test traffic before marking the IOC as operational.
 
-- [ ] **TTP → Detection Rules:** Take a published APT campaign report (e.g., Lazarus Group, Sandworm, APT41). Map 5 TTPs from the report to MITRE ATT&CK technique IDs. For each TTP, write a Sigma rule targeting the log source that would catch the behavior (e.g., T1059.001 PowerShell → process creation log with `powershell.exe -EncodedCommand`). Test each rule in your SIEM by executing the matching behavior in a controlled lab VM. Commit all rules to your Git repository.
+- [ ] **TTP → Detection Rules:** Take a published APT campaign report (e.g., Lazarus Group, Sandworm, APT41). Map 5 TTPs from the report to MITRE ATT&CK technique IDs. For each TTP, write a Sigma rule targeting the log source that would catch the behavior (e.g., T1059.001 PowerShell → process creation log with `powershell.exe -EncodedCommand`). Test each rule in my SIEM by executing the matching behavior in a controlled lab VM. Commit all rules to my Git repository.
 
-- [ ] **Threat Hunting from Intel:** Select one APT report and build a hunting hypothesis: "If this threat actor operated in our environment, what evidence would exist in which log sources?" Build a hunting query for each hypothesis in your SIEM query language (SPL/KQL/EQL). Run the query against your lab data and document: query logic, expected output, actual output, and whether the hunt was productive.
+- [ ] **Threat Hunting from Intel:** Select one APT report and build a hunting hypothesis: "If this threat actor operated in our environment, what evidence would exist in which log sources?" Build a hunting query for each hypothesis in my SIEM query language (SPL/KQL/EQL). Run the query against my lab data and document: query logic, expected output, actual output, and whether the hunt was productive.
 
-- [ ] **MISP → SIEM Integration:** Configure MISP to automatically push new indicators to your SIEM (via MISP feeds or MISP Warninglists export → SIEM lookup table). Validate that a new IOC added to MISP generates an alert in your SIEM within 15 minutes. This is the core of an automated threat intel pipeline.
+- [ ] **MISP → SIEM Integration:** Configure MISP to automatically push new indicators to my SIEM (via MISP feeds or MISP Warninglists export → SIEM lookup table). Validate that a new IOC added to MISP generates an alert in my SIEM within 15 minutes. This is the core of an automated threat intel pipeline.
 
-- [ ] **Intel-Driven Rule Review:** After writing 10 detection rules over the course of Phase 3, re-review each rule against a new threat report. Ask: "Would this rule catch the TTP described in this report?" If not — update the rule. Detection rule maintenance is as important as rule creation.
+- [ ] **Intel-Driven Rule Review:** After writing 10 detection rules over the course of defensive study, re-review each rule against a new threat report. Ask: "Would this rule catch the TTP described in this report?" If not — update the rule. Detection rule maintenance is as important as rule creation.
 
 > [!IMPORTANT]
-> **Operationalization Gate:** You are ready to proceed when you can take a raw APT report, extract structured IOCs, write Sigma rules for 3+ TTPs, import IOCs into your SIEM, verify alerts fire, and run a threat hunt query with documented results. If you can only collect intel but not act on it, you are not yet a threat intelligence practitioner.
+> **Operationalization Gate:** I am ready to proceed when I can take a raw APT report, extract structured IOCs, write Sigma rules for 3+ TTPs, import IOCs into my SIEM, verify alerts fire, and run a threat hunt query with documented results. If I can only collect intel but not act on it, I am not yet a threat intelligence practitioner.
 
 ---
 
 <a id="lab-progression-part-15-osint-threat-intelligence"></a>
-### **Lab Progression (Part 15: OSINT & Threat Intelligence)**
+### **Lab Progression (Side-Track C: Threat Intelligence & OSINT)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -1563,7 +1563,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 | 6 | Take one APT report → extract IOCs → write 3 Sigma rules → verify they fire in SIEM | Sigma rule set + SIEM alert screenshots |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 15):** You can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences. **You must also complete Stage 5 operationalization:** take a raw APT report, extract structured IOCs, import them into your SIEM, write Sigma rules for at least 3 TTPs, verify the alerts fire in your lab, and execute a documented threat hunt query with recorded results. A practitioner who can collect intel but not act on it has not completed this part.
+> **Move-On Gate (Side-Track C):** I can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences. **I must also complete Stage 5 operationalization:** take a raw APT report, extract structured IOCs, import them into my SIEM, write Sigma rules for at least 3 TTPs, verify the alerts fire in my lab, and execute a documented threat hunt query with recorded results. A practitioner who can collect intel but not act on it has not completed this part.
 
 
 ---
@@ -1571,20 +1571,20 @@ _Understand defensive detection to know what to evade. This Part covers core det
 <a id="grc-fundamentals-sidebar-early-supplement-for-defensive-careers"></a>
 ### **GRC Fundamentals Sidebar** _(Early Supplement for Defensive Careers)_
 
-> **Why Here:** SOC analysts, detection engineers, and blue team professionals encounter governance and compliance obligations on Day 1 of employment — not after years of technical specialization. You need to understand what constitutes a reportable incident, what frameworks drive your employer's security program, and how risk language works before you respond to your first real alert. Full GRC depth (audit mechanics, risk quantification, regulatory testing, vendor risk) is in Part 35 (Phase 8). This sidebar gives you the operational minimum.
+> **Why Here:** SOC analysts, detection engineers, and blue team professionals encounter governance and compliance obligations on Day 1 of employment — not after years of technical specialization. I need to understand what constitutes a reportable incident, what frameworks drive my employer's security program, and how risk language works before I respond to my first real alert. Full GRC depth (audit mechanics, risk quantification, regulatory testing, vendor risk) is in Shelf 11 (GRC). This sidebar gives me the operational minimum.
 
 ---
 
 **Stage G1: NIST Cybersecurity Framework (CSF) — Operational Context**
 
 - [ ] **The 5 CSF Functions:** Memorize and internalize the **Identify → Protect → Detect → Respond → Recover** cycle. Understand that every SOC alert and every defensive tool maps to one or more of these functions:
-  - **Identify (ID):** Asset inventory, risk assessment, supply chain risk — know what you have before you can protect it
+  - **Identify (ID):** Asset inventory, risk assessment, supply chain risk — know what I have before I can protect it
   - **Protect (PR):** Access control, awareness training, data security, maintenance, protective technology
   - **Detect (DE):** Continuous monitoring, anomaly detection, detection processes — this is where SIEM and EDR live
-  - **Respond (RS):** Response planning, communications, analysis, mitigation, improvements — your IR playbooks
+  - **Respond (RS):** Response planning, communications, analysis, mitigation, improvements — my IR playbooks
   - **Recover (RC):** Recovery planning, improvements, communications — restoring operations after an incident
 
-- [ ] **CSF as a Communication Tool:** When your CISO says "we need to improve our Detect posture," they mean improving SIEM coverage, detection rules, and threat hunting. CSF is the language your leadership uses to talk about security investment. Understand it so you can contribute meaningfully to those conversations.
+- [ ] **CSF as a Communication Tool:** When my CISO says "we need to improve our Detect posture," they mean improving SIEM coverage, detection rules, and threat hunting. CSF is the language my leadership uses to talk about security investment. Understand it so I can contribute meaningfully to those conversations.
 
 - [ ] **NIST CSF 2.0 (Govern Function):** NIST CSF 2.0 added a 6th function — **Govern (GV)** — covering organizational context, risk strategy, roles, policies, and supply chain risk. This function sits above all others and drives how the other 5 are implemented.
 
@@ -1593,7 +1593,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
 **Stage G2: Regulatory Obligations — What Defenders Must Know**
 
 > [!WARNING]
-> Failing to meet mandatory breach notification timelines can result in regulatory fines, personal liability for CISOs, and public disclosure. Know these timelines before you respond to your first incident.
+> Failing to meet mandatory breach notification timelines can result in regulatory fines, personal liability for CISOs, and public disclosure. Know these timelines before I respond to my first incident.
 
 - [ ] **GDPR (General Data Protection Regulation — EU):**
   - Applies to any organization processing data of EU residents, regardless of where the org is based
@@ -1630,7 +1630,7 @@ _Understand defensive detection to know what to evade. This Part covers core det
   - **Impact:** The consequence if exploitation succeeds (e.g., data breach, system unavailability, financial loss, reputational damage)
   - **Likelihood:** How probable is the threat-vulnerability combination being realized? (1–5 scale or qualitative: Low/Medium/High/Critical)
 
-- [ ] **Risk vs. Vulnerability:** A vulnerability without a plausible threat or material impact is **low risk**. A critical vulnerability on an internet-exposed system with known active exploitation is **critical risk**. CVSS scores measure vulnerability severity — not organizational risk. Always translate CVSS to risk by considering your environment.
+- [ ] **Risk vs. Vulnerability:** A vulnerability without a plausible threat or material impact is **low risk**. A critical vulnerability on an internet-exposed system with known active exploitation is **critical risk**. CVSS scores measure vulnerability severity — not organizational risk. Always translate CVSS to risk by considering my environment.
 
 - [ ] **Risk Acceptance vs. Risk Treatment:** Four options for handling identified risk:
   - **Mitigate:** Implement a control to reduce the likelihood or impact
@@ -1678,54 +1678,54 @@ _Understand defensive detection to know what to evade. This Part covers core det
   | US Defense Supply Chain | CMMC (Cybersecurity Maturity Model Certification) | DoD |
   | Indian Data Processing | DPDP Act 2023 | Data Protection Board of India |
 
-- [ ] **What Auditors Look For (Basics):** Compliance audits typically check for: documented policies, evidence that controls are operating, access control logs, vulnerability scan results, patch management records, incident response plan existence (and evidence of testing), and security awareness training completion records. Your SIEM and incident documentation are primary audit evidence sources.
+- [ ] **What Auditors Look For (Basics):** Compliance audits typically check for: documented policies, evidence that controls are operating, access control logs, vulnerability scan results, patch management records, incident response plan existence (and evidence of testing), and security awareness training completion records. My SIEM and incident documentation are primary audit evidence sources.
 
 - [ ] **SOC 2 Type I vs. Type II:** SOC 2 is an auditing standard for service organizations. **Type I** evaluates whether controls are designed correctly at a point in time. **Type II** evaluates whether controls operated effectively over a period (usually 6–12 months). Customers ask for SOC 2 Type II reports to verify vendor security posture.
 
 ---
 
-> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#shelf-11-governance-risk--compliance-grc|Shelf 11: GRC]] (Phase 8). This sidebar gives you the minimum needed to function effectively in a defensive role from Day 1._
+> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#shelf-11-governance-risk--compliance-grc|Shelf 11: GRC]]. This sidebar gives me the minimum needed to function effectively in a defensive role from Day 1._
 
 
 
 ---
 
-### 🏆 Phase 3 Capstone Project
+### 🏆 Defensive Operations Capstone Project
 
 **Deploy a SIEM, Investigate Simulated Attacks, and Build a Detection Library**
 
-- [ ] **Deploy a SIEM** (Splunk Free, ELK, or Wazuh) in your lab and ingest logs from your Phase 1 lab environment
+- [ ] **Deploy a SIEM** (Splunk Free, ELK, or Wazuh) in my lab and ingest logs from my Stage 1 lab environment
 - [ ] **Write 5 custom detection rules** (Sigma format) covering different MITRE ATT&CK tactics
-- [ ] **Simulate 3 attacks** using Atomic Red Team and investigate each using only your SIEM
+- [ ] **Simulate 3 attacks** using Atomic Red Team and investigate each using only my SIEM
 - [ ] **Build an investigation timeline** for each simulated incident
 
 **Deliverables:**
-- [ ] Detection coverage matrix mapping your 5 rules to MITRE ATT&CK techniques
+- [ ] Detection coverage matrix mapping my 5 rules to MITRE ATT&CK techniques
 - [ ] 3 investigation reports (timeline, evidence, root cause, recommendations)
 - [ ] SIEM configuration guide (reproducible deployment steps)
-- [ ] All Sigma rules and queries committed to your Git repository
+- [ ] All Sigma rules and queries committed to my Git repository
 
 > [!IMPORTANT]
-> **Capstone Gate:** Your SIEM must be operational, your detection rules must fire on the simulated attacks, and your investigation reports must follow a structured IR format.
+> **Capstone Gate:** My SIEM must be operational, my detection rules must fire on the simulated attacks, and my investigation reports must follow a structured IR format.
 
 ---
 
-### 🧭 Phase 3 Reflection & Competency Check
+### 🧭 Defensive Operations Reflection & Competency Check
 
 - [ ] **Reflection:** Which detections were noisy, missing, or too fragile?
-- [ ] **Reflection:** What evidence changed your initial incident hypothesis?
-- [ ] **Competency:** Can you ingest logs, write rules, test them, and tune false positives?
-- [ ] **Competency:** Can you build an incident timeline from multiple data sources?
-- [ ] **Competency:** Can you explain detection gaps in terms of telemetry, logic, and attacker behavior?
+- [ ] **Reflection:** What evidence changed my initial incident hypothesis?
+- [ ] **Competency:** Can I ingest logs, write rules, test them, and tune false positives?
+- [ ] **Competency:** Can I build an incident timeline from multiple data sources?
+- [ ] **Competency:** Can I explain detection gaps in terms of telemetry, logic, and attacker behavior?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when you can investigate simulated attacks from evidence, improve detections, and write analyst notes that another defender can act on.
+> **Defensive Operations Completion Gate:** Move on only when I can investigate simulated attacks from evidence, improve detections, and write analyst notes that another defender can act on.
 
 ---
 
 > [!NOTE]
-> **✅ Phase 3 ends here.**
-> Part 16 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#module-22-adversary-emulation--purple-teaming|Stage 4: Enterprise]].
+> **✅ Defensive Operations side-tracks conclude here.**
+> Module 22 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#module-22-adversary-emulation--purple-teaming|Stage 4: Enterprise]].
 >
 > 
 
@@ -1733,31 +1733,31 @@ _Understand defensive detection to know what to evade. This Part covers core det
 
 <a id="phase-3-mini-projects"></a>
 
-## 🛠️ Phase 3 Mini Projects
+## 🛠️ Defensive Operations Mini Projects
 
 > [!TIP]
-> **Why this project is here:** Phase 3 is about defense, detection, and understanding what malicious behavior looks like from the defender's perspective. The Keylogger Detector belongs here because it requires process monitoring, behavioral analysis, and understanding of OS-level keyboard hooks — all detection engineering skills. It is explicitly a defensive tool: you're detecting an attacker's technique, not performing it.
+> **Why this project is here:** Defensive operations cover defense, detection, and understanding what malicious behavior looks like from the defender's perspective. The Keylogger Detector belongs here because it requires process monitoring, behavioral analysis, and understanding of OS-level keyboard hooks — all detection engineering skills. It is explicitly a defensive tool: you're detecting an attacker's technique, not performing it.
 
 ---
 
 ### Project 9 — Keylogger Detector
 
-**Maps to:** Part 13A (Detection Engineering & SOC Operations) → Stage 2: Offensive Indicators & TTPs + Stage 5: EDR/XDR/MDR Basics
+**Maps to:** Side-Track A (Detection Engineering & SOC Operations) → Stage 2: Offensive Indicators & TTPs + Stage 5: EDR/XDR/MDR Basics
 
 **What it is:** A host-based monitoring tool that scans running processes for behavioral indicators associated with keylogging software. Checks include: processes with suspicious names or paths, processes accessing `/dev/input/` devices (Linux) or holding `SetWindowsHookEx` hooks (Windows), processes with high keyboard I/O relative to visible UI, and processes spawned from unusual parent processes. Generates an alert report listing suspicious findings with severity and recommended action.
 
-**What you need before building it:**
-- Phase 3 Part 13A completed — you need detection engineering fundamentals before building a detector
+**What I need before building it:**
+- Side-Track A completed — I need detection engineering fundamentals before building a detector
 - OS-level process enumeration: `psutil` (Python, cross-platform), `/proc/<pid>/` filesystem (Linux), WMI (Windows)
 - Linux keyboard input: `/dev/input/eventX` devices — a process with a file descriptor open to a keyboard input device when it has no visible window is suspicious
 - Windows hooks: `SetWindowsHookEx` with `WH_KEYBOARD_LL` is the standard keylogging API — legitimate software uses it too (accessibility tools, password managers), so allowlisting is essential
 - Allowlisting: build a baseline of known-legitimate processes that access input devices (e.g., `xorg`, `gnome-shell`, screen readers)
-- Understanding of false positives: every detection tool produces them — document your FP rate and tuning decisions
+- Understanding of false positives: every detection tool produces them — document my FP rate and tuning decisions
 
 **Why build it:**
-Keyloggers are one of the most effective and oldest credential-theft tools. Building a detector forces you to think exactly like an EDR/XDR engineer: what behavior is suspicious, what is legitimate, how do you distinguish them, and what is your false-positive tolerance? This is the same problem that CrowdStrike Falcon, SentinelOne, and Carbon Black solve at enterprise scale. Understanding it at the process level makes those tools more than black boxes to you.
+Keyloggers are one of the most effective and oldest credential-theft tools. Building a detector forces me to think exactly like an EDR/XDR engineer: what behavior is suspicious, what is legitimate, how do I distinguish them, and what is my false-positive tolerance? This is the same problem that CrowdStrike Falcon, SentinelOne, and Carbon Black solve at enterprise scale. Understanding it at the process level makes those tools more than black boxes to me.
 
-It also reinforces a key Phase 3 lesson: detection is not binary. A process accessing keyboard input might be a keylogger or a screen reader. Your tool must reason about *context* — process name, parent process, network connections, user session — not just individual indicators. That contextual reasoning is threat hunting.
+It also reinforces a key defensive lesson: detection is not binary. A process accessing keyboard input might be a keylogger or a screen reader. My tool must reason about *context* — process name, parent process, network connections, user session — not just individual indicators. That contextual reasoning is threat hunting.
 
 **Deliverable:** Python script that:
 - Enumerates running processes with `psutil`
@@ -1770,14 +1770,14 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 ---
 
 > [!IMPORTANT]
-> **Phase 3 Project Completion Gate:** Your Keylogger Detector README must demonstrate you understand detection trade-offs — not just "run this and see." You should be able to explain a scenario where your tool generates a false positive and what the next investigative step would be.
+> **Defensive Mini-Project Completion Gate:** My Keylogger Detector README must demonstrate I understand detection trade-offs — not just "run this and see." I should be able to explain a scenario where my tool generates a false positive and what the next investigative step would be.
 
 ---
 
 > [!TIP]
 > ### 🎮 Concurrent CTF Practice — Stage 3
 >
-> Web security is learned by doing. Every concept maps to a PortSwigger lab and an HTB/THM box. Do them as you study each topic, not after.
+> Web security is learned by doing. Every concept maps to a PortSwigger lab and an HTB/THM box. Do them as I study each topic, not after.
 >
 > | Module | Platform | Lab / Box | Why |
 > |---|---|---|---|
@@ -1796,7 +1796,7 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 ## 🏁 Stage Gate 2 — Web Application Security Gate
 
 > [!IMPORTANT]
-> **Stage 2 Exit Gate:** Before moving to Enterprise Infrastructure (Stage 4), you must demonstrate:
+> **Stage 2 Exit Gate:** Before moving to Enterprise Infrastructure (Stage 4), I must demonstrate:
 > - 3+ detailed PortSwigger Web Security Academy practitioner lab completions across SQLi, SSRF, and JWT.
 > - 1 unassisted web-focused machine rooted on Hack The Box / Proving Grounds.
 > - Demonstrated ability to intercept, decode, tamper, and exploit API logic flaws cold in Burp Suite.

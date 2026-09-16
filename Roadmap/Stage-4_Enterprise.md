@@ -26,10 +26,10 @@
 > - **Purple team ATT&CK heatmap** — technique coverage matrix showing detection gaps
 > - **Git commits** — all configs, exports, and reports committed
 >
-> _By the end of Phase 6, you should have enterprise attack documentation rivaling junior consultant deliverables._
+> _By the end of Stage 4, I should have enterprise attack documentation rivaling junior consultant deliverables._
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -43,7 +43,7 @@
 > | **Tier 2 (Secondary)** | [[Kerbrute]] | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
 > | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. |
 >
-> **Stage 4 Exit Gate:** You cannot pass Stage 4 until you can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
+> **Stage 4 Exit Gate:** I cannot pass Stage 4 until I can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
 
 ---
 
@@ -128,10 +128,10 @@
 
 
 > [!IMPORTANT]
-> **Prerequisite Patch Required Before Part 23:** Before starting AD attacks, complete Phase 1 **Stage 5** (Active Directory Concepts) and **Stage 6** (Windows Identity & Kerberos Foundations) in Part 1C. Do not skip these — Kerberoasting and delegation attacks are incomprehensible without understanding the Kerberos ticket lifecycle first. This is a targeted patch, not a full Phase 1 restart.
+> **Prerequisite Patch Required Before Module 19:** Before starting AD attacks, complete Stage 1 **Module 03 Topics 5 & 6** (Active Directory Concepts, Windows Identity & Kerberos Foundations). Do not skip these — Kerberoasting and delegation attacks are incomprehensible without understanding the Kerberos ticket lifecycle first. This is a targeted patch, not a full Stage 1 restart.
 
 > [!NOTE]
-> **Part 23 Internal Learning Sequence** — on-prem AD first, then Entra ID:
+> **Module 19 Internal Learning Sequence** — on-prem AD first, then Entra ID:
 >
 > ```text
 > AD architecture: forest / domain / trust relationships
@@ -167,7 +167,7 @@
 > Federation, conditional access, service principals, managed identities
 > ```
 >
-> **Do not attempt Entra ID / cloud identity before you understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
+> **Do not attempt Entra ID / cloud identity before I understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
 
 
 <a id="stage-1-discovery-enumeration"></a>
@@ -265,7 +265,7 @@
 ---
 
 <a id="lab-progression-part-23-active-directory-entra-id"></a>
-### **Lab Progression (Part 23: Active Directory & Entra ID)**
+### **Lab Progression (Module 19: Active Directory & Entra ID)**
 
 > [!TIP]
 > **Goal:** Build and attack identity infrastructure with evidence and rollback.
@@ -298,7 +298,7 @@
 > [!IMPORTANT]
 > **Cloud Lab Setup Requirements — Read Before Starting**
 >
-> Cloud attack techniques CANNOT be practiced without a real cloud account. Unlike Phase 2 Linux labs (which run locally), cloud labs require live infrastructure. Before starting this part:
+> Cloud attack techniques CANNOT be practiced without a real cloud account. Unlike Stage 2 Linux labs (which run locally), cloud labs require live infrastructure. Before starting this part:
 >
 > **Account Setup:**
 > - [ ] Create a dedicated **AWS Free Tier account** (separate from any personal/work account) at aws.amazon.com/free — Free Tier covers most EC2, S3, IAM labs for 12 months
@@ -322,7 +322,7 @@
 > | **flaws2.cloud** | Scott Piper (AWS) | IAM escalation CTF (attacker + defender paths) | flaws2.cloud |
 >
 > > [!WARNING]
-> > **Never practice cloud attack techniques against accounts you do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
+> > **Never practice cloud attack techniques against accounts I do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
 
 <a id="stage-1-architecture-governance"></a>
 ### **Topic 1: Architecture & Governance** — `🧠 Conceptual`
@@ -333,13 +333,13 @@
 
 - [ ] **Model Selection:** Select the correct `Cloud Models` (`Public`, `Private`, `Hybrid`) based on data sensitivity.
 
-- [ ] **Responsibility Mapping:** Apply the **Shared Responsibility Model** based on the service type (`IaaS`, `PaaS`, `SaaS`) to identify what you must secure vs. the provider.
+- [ ] **Responsibility Mapping:** Apply the **Shared Responsibility Model** based on the service type (`IaaS`, `PaaS`, `SaaS`) to identify what I must secure vs. the provider.
 
 - [ ] **Environment Setup:** Initialize the tenant in a `Common Cloud Environment` (`AWS`, `GCP`, or `Azure`) with a secure root account setup.
 
-- [ ] **IAM Architecture Review:** Understand the **IAM hierarchy** for your target cloud — AWS (root → organizations → accounts → users/roles/policies), Azure (Entra tenant → subscriptions → resource groups → resources), GCP (org → folders → projects → service accounts). Know which identity types are exploitable at each level.
+- [ ] **IAM Architecture Review:** Understand the **IAM hierarchy** for my target cloud — AWS (root → organizations → accounts → users/roles/policies), Azure (Entra tenant → subscriptions → resource groups → resources), GCP (org → folders → projects → service accounts). Know which identity types are exploitable at each level.
 
-- [ ] **Security Posture Baseline:** Run **ScoutSuite** (`scout aws --report-dir ./report`) or **Prowler** (`prowler aws`) to generate a baseline cloud security posture assessment across IAM, S3, networking, logging, and encryption. Read the full output — these tools reveal the attack surface before you start.
+- [ ] **Security Posture Baseline:** Run **ScoutSuite** (`scout aws --report-dir ./report`) or **Prowler** (`prowler aws`) to generate a baseline cloud security posture assessment across IAM, S3, networking, logging, and encryption. Read the full output — these tools reveal the attack surface before I start.
 
 - [ ] **Resource Tagging & Environment Hygiene:** Understand how **resource tagging** (Owner, Environment, CostCenter) enables defenders to identify unauthorized resources. From an attacker's perspective: resources without standard tags are likely shadow IT or misconfigurations worth targeting.
 
@@ -389,7 +389,7 @@
 ### **Topic 4: Automation & Scripting** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Use automation to enumerate, audit, and monitor cloud environments — understand what defenders see so you know what to avoid generating.
+> **Goal:** Use automation to enumerate, audit, and monitor cloud environments — understand what defenders see so I know what to avoid generating.
 
 - [ ] **Cloud Automation:** Use **Python (Boto3), Terraform, CloudFormation** to audit security groups and IAM roles automatically.
 
@@ -404,8 +404,8 @@
 - [ ] **Cross-Account Audit Automation:** Use **Prowler's multi-account mode** or write Boto3 scripts using `sts:AssumeRole` to enumerate security posture across all accounts in an AWS Organization from a single auditor role. Understand how cross-account role trust policies create lateral movement paths.
 
 > [!IMPORTANT]
-> **⚠️ Stage 4 Intermediate Checkpoint (Part 24: Cloud Computing) — NOT the Part Exit Gate**
-> You must still complete **Stages 5 and 6** before leaving Part 24. This checkpoint verifies Stage 1–4 readiness only. You are ready to continue to Stage 5 when you can: (1) run ScoutSuite or Prowler against a lab AWS account and interpret the findings report; (2) enumerate all S3 buckets, their ACLs, bucket policies, and CORS configurations using the AWS CLI; (3) use trufflehog to scan an S3 bucket for secrets; (4) run checkov against a Terraform template and explain each HIGH finding; (5) query CloudTrail to identify at least one suspicious API event in a lab environment. If you cannot do all five without looking up the commands, revisit Stages 2–4 before proceeding. **Then continue to Stage 5 (Cloud Attack Vectors) and Stage 6 (IAM & PAM).**
+> **⚠️ Stage 4 Intermediate Checkpoint (Module 20: Cloud Computing)**
+> I must still complete **Topics 5 and 6** before leaving Module 20. This checkpoint verifies Stage 1–4 readiness only. I am ready to continue to Stage 5 when I can: (1) run ScoutSuite or Prowler against a lab AWS account and interpret the findings report; (2) enumerate all S3 buckets, their ACLs, bucket policies, and CORS configurations using the AWS CLI; (3) use trufflehog to scan an S3 bucket for secrets; (4) run checkov against a Terraform template and explain each HIGH finding; (5) query CloudTrail to identify at least one suspicious API event in a lab environment. If I cannot do all five without looking up the commands, revisit Stages 2–4 before proceeding. **Then continue to Stage 5 (Cloud Attack Vectors) and Stage 6 (IAM & PAM).**
 
 ---
 
@@ -428,7 +428,7 @@
 
 - [ ] **Serverless Attacks:** Exploit **Lambda/Cloud Functions environment variables, excessive execution permissions, event injection, and cold-start persistence**.
 
-- [ ] **Container Escapes:** Break out of **Docker, Kubernetes pods** via misconfigurations. 📌 _See Part 25 Stage 1 for full container escape techniques and Part 25 Stage 2 for Kubernetes-specific attacks._
+- [ ] **Container Escapes:** Break out of **Docker, Kubernetes pods** via misconfigurations. 📌 _See Module 21 Topic 1 for full container escape techniques and Module 21 Topic 2 for Kubernetes-specific attacks._
 
 - [ ] **Multi-Tenancy & Supply Chain:** Understand **cross-tenant data leakage, shared VPC routing oversights, and CI/CD runner poisoning**.
 
@@ -453,7 +453,7 @@
 - [ ] **Identity Governance:** Understand **access reviews, entitlement management, separation of duties (SoD)**, and how **identity lifecycle gaps** (orphaned accounts, excessive standing privileges, stale service principals) create attack opportunities.
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 24: Cloud Computing):** You are ready to proceed to Part 25 when you can: (1) execute an IAM privilege escalation path in a CloudGoat lab from low-privilege user to admin using only misconfigured policies; (2) identify a Conditional Access bypass condition in a lab Azure tenant and explain why it exists; (3) explain the difference between a SAML token, an OAuth access token, and a Kerberos TGT — and what happens when each is stolen.
+> **Move-On Gate (Module 20: Cloud Computing):** I am ready to proceed to Module 21 when I can: (1) execute an IAM privilege escalation path in a CloudGoat lab from low-privilege user to admin using only misconfigured policies; (2) identify a Conditional Access bypass condition in a lab Azure tenant and explain why it exists; (3) explain the difference between a SAML token, an OAuth access token, and a Kerberos TGT — and what happens when each is stolen.
 
 ---
 
@@ -566,7 +566,7 @@
 ---
 
 <a id="lab-progression-part-25-container-orchestration-security"></a>
-### **Lab Progression (Part 25: Container & Orchestration Security)**
+### **Lab Progression (Module 21: Container & Orchestration Security)**
 
 > [!TIP]
 > **Goal:** Practice container and Kubernetes security with real clusters, not diagrams.
@@ -624,11 +624,10 @@
 
 
 > [!NOTE]
-> **Navigational Note — Why Part 16 Is Here:** Part 16 is the **Phase 6 Capstone** — it synthesizes all content from Parts 23–26 (Active Directory, Cloud, Containers, OT) into a unified adversary emulation exercise. It is numbered 16 because it was originally placed sequentially after Phase 3's Part 15 (OSINT & Threat Intelligence) in the roadmap's initial design. It belongs contextually in Phase 6 as the synthesis capstone of Parts 23–26. When you see cross-references to "Part 16" elsewhere in the roadmap, they refer to this section in Phase 6.
-
+> **Scope & Placement:** Module 22 (Adversary Emulation & Purple Teaming) synthesizes enterprise attack paths from Modules 19–21 (Active Directory, Cloud, Containers) into unified emulation campaigns.
 
 > [!WARNING]
-> **Prerequisites:** This Part requires both offensive (Phase 2) AND defensive (Phase 3) maturity plus enterprise infrastructure knowledge from the Parts above (AD, Cloud, Containers, OT). Complete all prior Phase 6 content before attempting this. Purple teaming is the culmination of offense-defense integration at enterprise scale.
+> **Prerequisites:** This module requires offensive maturity (Stage 2) plus enterprise infrastructure knowledge from Modules 19–21. Complete prior Stage 4 content before attempting purple teaming campaigns.
 
 <a id="stage-1-mitre-attck-framework-mastery"></a>
 ### **Topic 1: MITRE ATT&CK Framework Mastery** — `🧠 Conceptual`
@@ -703,7 +702,7 @@
 - [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
 
 <a id="lab-progression-part-16-adversary-emulation-purple-teaming"></a>
-### **Lab Progression (Part 16: Adversary Emulation & Purple Teaming)**
+### **Lab Progression (Module 22: Adversary Emulation & Purple Teaming)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -714,7 +713,7 @@
 | 5 | Conduct a full purple team exercise with metrics | MTTD/MTTR report + improvement recommendations |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can execute adversary emulation plans, measure detection coverage, calculate MTTD/MTTR, and produce actionable purple team reports demonstrating security posture improvement.
+> **Move-On Gate:** I can execute adversary emulation plans, measure detection coverage, calculate MTTD/MTTR, and produce actionable purple team reports demonstrating security posture improvement.
 
 ---
 
@@ -742,15 +741,15 @@
 ### **Topic 1: The Environment & Fundamentals (The Setup)** — `🧠🔬 Mixed`
 
 > [!TIP]
-> **Goal:** Understand the battlefield. You cannot spoof what you cannot map.
+> **Goal:** Understand the battlefield. I cannot spoof what I cannot map.
 
 - [ ] **Protocol Hierarchy & Trust:** Differentiate between **MAC Addresses** (Layer 2 - Local Trust) and **IP Addresses** (Layer 3 - Routing). Spoofing relies on exploiting the trust mismatch between these layers.
 
 - [ ] **Secure vs. Insecure Protocols:** Identify targets using cleartext protocols like **HTTP, FTP, Telnet, DNS**. These are trivial to sniff. Encrypted protocols like **TLS/HTTPS** and **SSH** require advanced downgrade attacks or decryption to bypass.
 
-- [ ] **The Switch vs. Hub Reality:** Modern networks use switches which segment traffic by MAC. You cannot passively sniff; you must **ARP spoof, MAC flood**, or **VLAN hop** to bypass segmentation.
+- [ ] **The Switch vs. Hub Reality:** Modern networks use switches which segment traffic by MAC. I cannot passively sniff; I must **ARP spoof, MAC flood**, or **VLAN hop** to bypass segmentation.
 
-- [ ] **Interface Configuration:** Configure NIC to **Promiscuous Mode** (tcpdump, Wireshark) to capture all traffic, not just destined to your MAC; practice with **monitor mode** on wireless cards.
+- [ ] **Interface Configuration:** Configure NIC to **Promiscuous Mode** (tcpdump, Wireshark) to capture all traffic, not just destined to my MAC; practice with **monitor mode** on wireless cards.
 
 - [ ] **Handshake & Session Logic:** Study **TCP/TLS handshakes** (SYN/ACK, ClientHello/ServerHello) to identify session boundaries; understand **sequence numbers, window size, timestamps** for **replay and hijack** timing.
 
@@ -780,11 +779,11 @@
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
 
-- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking your MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[[Ettercap]]**.
+- [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking my MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[[Ettercap]]**.
 
 - [ ] **DNS Spoofing:** Respond to **DNS queries faster than the legitimate server**; redirect victims to malicious login pages for **credential harvesting** or **malware distribution**.
 
-- [ ] **DHCP Starvation & Rogue DHCP:** Exhaust legitimate DHCP pools and serve your own **gateway/DNS** to all clients; enables **MITM and traffic redirection**.
+- [ ] **DHCP Starvation & Rogue DHCP:** Exhaust legitimate DHCP pools and serve my own **gateway/DNS** to all clients; enables **MITM and traffic redirection**.
 
 - [ ] **MAC Spoofing:** Change burned-in MAC to bypass **MAC filtering, NAC (Network Access Control), DHCP reservations**; use **macchanger** (Linux) or **SetMACAddress** (Windows).
 
@@ -801,7 +800,7 @@
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
 
-- [ ] **MITM Positioning:** Establish yourself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [[Burp_Suite]]** to intercept and modify traffic in real-time.
+- [ ] **MITM Positioning:** Establish myself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [[Burp_Suite]]** to intercept and modify traffic in real-time.
 
 - [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
 
@@ -809,7 +808,7 @@
 
 - [ ] **Replay Attacks:** Capture valid **authentication tokens, API requests, or RF signals** and retransmit later to bypass time-based controls; works for **garage door openers, payment terminals, VoIP**.
 
-- [ ] **Rogue Access Point / Evil Twin:** Deploy **fake Wi-Fi AP** with legitimate SSID + stronger signal; force users to connect and route all traffic through your box for **MITM harvesting**.
+- [ ] **Rogue Access Point / Evil Twin:** Deploy **fake Wi-Fi AP** with legitimate SSID + stronger signal; force users to connect and route all traffic through my box for **MITM harvesting**.
 
 - [ ] **Traffic Injection & Modification:** Inject malicious **JavaScript, HTML, iframes** into unencrypted HTTP responses; modify **DNS responses** to redirect to attacker servers.
 
@@ -831,7 +830,7 @@
 
 <a id="lab-progression-part-9-sniffing-spoofing"></a>
 
-### **Lab Progression (Part 9: Sniffing & Spoofing)**
+### **Lab Progression (Module 23: Sniffing & Spoofing)**
 
 | Level | Task                                                                       | Deliverable                               |
 | ----- | -------------------------------------------------------------------------- | ----------------------------------------- |
@@ -842,7 +841,7 @@
 | 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture             | End-to-end MITM lab report                |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can perform a complete MITM attack chain in a lab, capture credentials from unencrypted and downgraded traffic, and explain exactly which defenses (DAI, HSTS, certificate pinning) would have prevented each technique.
+> **Move-On Gate:** I can perform a complete MITM attack chain in a lab, capture credentials from unencrypted and downgraded traffic, and explain exactly which defenses (DAI, HSTS, certificate pinning) would have prevented each technique.
 
 ---
 
@@ -863,7 +862,7 @@
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
-> - 🔴 `Social Engineering The Art of Human Hacking` — The definitive book on SE — read this fully during Part 10
+> - 🔴 `Social Engineering The Art of Human Hacking` — The definitive book on SE — read this fully during Module 24
 > - 🟡 `The Social Engineers Playbook` — Full (short) — practical tactical scripts and pretexts
 
 
@@ -875,7 +874,7 @@
 ### **Topic 0: The Psychology of Social Engineering (The Foundation)** — `🧠 Conceptual`
 
 > [!IMPORTANT]
-> **Read this before any other Stage in Part 10.** Social engineering is not a collection of clever tricks — it is applied psychology. Every phishing email, vishing call, and pretexting scenario works because it exploits specific, documented cognitive patterns. Understanding these patterns is what separates an operator who succeeds from one who improvises and fails. Defenders must also understand them to design effective awareness training.
+> **Read this before any other Topic in Module 24.** Social engineering is not a collection of clever tricks — it is applied psychology. Every phishing email, vishing call, and pretexting scenario works because it exploits specific, documented cognitive patterns. Understanding these patterns is what separates an operator who succeeds from one who improvises and fails. Defenders must also understand them to design effective awareness training.
 
 > [!TIP]
 > **Goal:** Understand the psychological machinery that makes humans predictable under social engineering pressure.
@@ -887,20 +886,20 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **1. Reciprocity:** People feel obligated to return favors. Attackers exploit this by sending small gifts, providing helpful information, or doing something "nice" before making a request. Example: Attacker sends a "free" IT tool or helps with a minor problem, then requests access credentials as a natural follow-up.
   - _Defensive awareness:_ Question why an unsolicited party is offering help. Favors from unknown parties are often hooks.
 
-- [ ] **2. Commitment & Consistency:** Once a person commits to something (even trivially), they are psychologically compelled to behave consistently with that commitment. Attackers use small initial requests ("Could you confirm your department?") to build toward larger ones. Example: Foot-in-the-door technique — escalating from harmless questions to credential requests.
-  - _Defensive awareness:_ Recognizing that you've agreed to small requests from someone does not obligate you to agree to larger, unusual ones.
+- [ ] **2. Commitment & Consistency:** Once a person commits to something (even trivially), they are psychologically compelled to behave consistently with that commitment. Attackers use small initial requests ("Could I confirm my department?") to build toward larger ones. Example: Foot-in-the-door technique — escalating from harmless questions to credential requests.
+  - _Defensive awareness:_ Recognizing that I've agreed to small requests from someone does not obligate you to agree to larger, unusual ones.
 
-- [ ] **3. Social Proof:** People look at what others are doing to determine correct behavior, especially in uncertain situations. Attackers fabricate social proof: "Everyone on your team has already verified their account" or "The CISO approved this procedure." Example: Mass-phishing emails claiming widespread adoption of a fake security update.
+- [ ] **3. Social Proof:** People look at what others are doing to determine correct behavior, especially in uncertain situations. Attackers fabricate social proof: "Everyone on my team has already verified their account" or "The CISO approved this procedure." Example: Mass-phishing emails claiming widespread adoption of a fake security update.
   - _Defensive awareness:_ Verify claims of "everyone is doing it" through independent channels — not through links or numbers provided by the requester.
 
-- [ ] **4. Authority:** People comply with perceived authority figures — especially in professional environments. Attackers impersonate executives (CEO fraud/BEC), IT helpdesk, auditors, law enforcement, or regulators. Example: "This is John from IT Security. We detected suspicious activity on your account. I need your current password to verify."
-  - _Defensive awareness:_ Real authority figures with legitimate needs never require your password. Verify identity through a known, independent channel before complying.
+- [ ] **4. Authority:** People comply with perceived authority figures — especially in professional environments. Attackers impersonate executives (CEO fraud/BEC), IT helpdesk, auditors, law enforcement, or regulators. Example: "This is John from IT Security. We detected suspicious activity on my account. I need my current password to verify."
+  - _Defensive awareness:_ Real authority figures with legitimate needs never require my password. Verify identity through a known, independent channel before complying.
 
 - [ ] **5. Liking:** People are more likely to comply with requests from people they like or who are similar to them. Attackers build rapport, mirror body language, reference shared interests, claim mutual connections, use flattery. Example: LinkedIn profile mining to find shared connections and mention them in a phishing email to build perceived familiarity.
   - _Defensive awareness:_ Likeability is not trust. A pleasant, familiar-seeming contact can be a well-prepared attacker.
 
-- [ ] **6. Scarcity:** Perceived scarcity creates urgency that bypasses rational decision-making. "This offer expires in 10 minutes," "Your account will be suspended in 24 hours," "Only you can fix this." Urgency is the primary switch that disables critical thinking. Example: Phishing emails with countdown timers or imminent threat messaging.
-  - _Defensive awareness:_ Real systems with legitimate urgency allow time for verification. Artificial urgency is a psychological weapon — slow down when you feel rushed.
+- [ ] **6. Scarcity:** Perceived scarcity creates urgency that bypasses rational decision-making. "This offer expires in 10 minutes," "My account will be suspended in 24 hours," "Only I can fix this." Urgency is the primary switch that disables critical thinking. Example: Phishing emails with countdown timers or imminent threat messaging.
+  - _Defensive awareness:_ Real systems with legitimate urgency allow time for verification. Artificial urgency is a psychological weapon — slow down when I feel rushed.
 
 ---
 
@@ -990,7 +989,7 @@ Robert Cialdini's research on influence identified six universal principles that
   - **Subdomain takeover for mail spoofing:** If a dangling CNAME on a target subdomain points to an unclaimed third-party service (SendGrid, Mailchimp, GitHub Pages), claim the service and send email from that subdomain. It passes SPF and DKIM because it is a legitimate sending service now controlled by you.
   - **Spoofed display names:** Many mail clients show only the display name, not the From address. `"CEO Name <attacker@random.com>"` passes all authentication controls and appears as CEO to a mobile viewer. Combine with similar-looking reply-to addresses.
   - **SPF softfail exploitation:** A `~all` SPF record (softfail) means DMARC still evaluates — but many recipients accept softfail-flagged mail if DMARC is absent or `p=none`.
-  - **Defensive counter-reference:** See Phase 3 Part 14 Stage 6 for the defender-side SPF/DKIM/DMARC configuration and detection.
+  - **Defensive counter-reference:** See Stage 3 Side-Track B for the defender-side SPF/DKIM/DMARC configuration and detection.
 
 ---
 
@@ -1045,7 +1044,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="lab-progression-part-10-social-engineering"></a>
 
-### **Lab Progression (Part 10: Social Engineering)**
+### **Lab Progression (Module 24: Social Engineering)**
 
 > [!TIP]
 > **Goal:** Learn social engineering defensively and ethically.
@@ -1076,7 +1075,7 @@ Robert Cialdini's research on influence identified six universal principles that
 > **Safety Gate:** Malware work is restricted to isolated local labs with snapshots, host-only networking, no shared clipboard, no mounted host folders, and no third-party targets. Before running any sample or payload, define expected behavior, logging sources, rollback steps, and containment checks.
 
 > [!NOTE]
-> **Scope of This Part — Read Carefully:** This Part teaches malware as a **survey course**, not an implementation course. At this stage you have not yet studied how malware works at the binary/code level — that knowledge comes in **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)**. Without that foundation, any malware you write will be a copy-paste artifact you cannot debug, fix, or adapt when it fails (and it will fail).
+> **Scope of This Module — Read Carefully:** Module 25 teaches malware as a **survey course**, not an implementation course. At this stage I have not yet studied low-level malware engineering at the binary level — that knowledge is built in Stage 5 (Module 27: Offensive Development) and Shelf 05 (Reverse Engineering). Without that foundation, any implant written would be an unmaintainable artifact.
 >
 > **What IS covered here (practitioner-level):**
 >
@@ -1085,10 +1084,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > - How AV/EDR detects malware conceptually (signature, heuristic, behavioral scanning)
 > - Document and cloud delivery vectors — the initial access tradecraft that red teamers use operationally
 >
-> **What Stages 2–5 teach (exposure-level, not implementation-level):**
-> Stages 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the level of _what they are and how they work conceptually_. They are not implementation labs. Each of those stages carries an explicit `[!WARNING]` marker. When you see that marker: understand the concept, understand what defenders see, move on. Do **not** attempt custom code implementation until you have completed **Part 28 (RE & Malware Analysis)** and **Part 42 (Offensive Development, Phase 7)**.
+> **What Topics 2–5 teach (exposure-level, not implementation-level):**
+> Topics 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the conceptual level. They are not implementation labs. When seeing those topics: understand the concept, understand what defenders see, and move on. Do **not** attempt custom binary implant development until completing **Stage 5: Module 27 (Offensive Development & Tooling)**.
 >
-> **Why this sequencing matters:** Students who attempt custom malware engineering before Part 28 produce tools they cannot debug, cannot evade EDR reliably, and cannot modify under time pressure. The correct sequence is: _understand the attack here (Part 8) → understand binaries and malware internals (Part 28) → build your own tooling (Part 42)._
+> **Why this sequencing matters:** The correct sequence is: _understand the attack here (Module 25) → understand binaries and malware internals (Shelf 05) → build custom tooling (Stage 5 Module 27)._
 
 <a id="stage-1-the-design-logic-architecture"></a>
 
@@ -1101,11 +1100,11 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Malware Taxonomy:** Understand the full taxonomy — **dropper, loader, stager, RAT, rootkit, worm, ransomware, wiper, infostealer, spyware, adware, botnet agent** — and how each category relates to the attack lifecycle phase it serves.
 
-- [ ] **C2 Protocol Selection:** Understand the trade-offs between **HTTP/S beaconing, DNS tunneling, ICMP covert channels, and legitimate SaaS API abuse** — not to implement them at this stage, but to understand why attackers choose one over another based on network visibility risk. Implementation comes in Part 42.
+- [ ] **C2 Protocol Selection:** Understand the trade-offs between **HTTP/S beaconing, DNS tunneling, ICMP covert channels, and legitimate SaaS API abuse** — not to implement them at this stage, but to understand why attackers choose one over another based on network visibility risk. Implementation comes in Stage 5: Module 27.
 
-- [ ] **Persistence Architecture:** Survey the persistence mechanisms available — **registry run keys, scheduled tasks, WMI subscriptions, DLL hijacking, boot sector** — understand their detection footprint differences conceptually. Implementation and lab practice comes in Part 7 (system hacking) and Part 42.
+- [ ] **Persistence Architecture:** Survey the persistence mechanisms available — **registry run keys, scheduled tasks, WMI subscriptions, DLL hijacking, boot sector** — understand their detection footprint differences conceptually. Implementation and lab practice comes in Module 13 (System Hacking) and Stage 5: Module 27.
 
-- [ ] **Kill Chain Mapping:** Use the **Cyber Kill Chain** or **MITRE ATT&CK** to map a hypothetical malware campaign from **Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives**. This mapping exercise trains your mind to think like an attacker planning a campaign, not just using a tool.
+- [ ] **Kill Chain Mapping:** Use the **Cyber Kill Chain** or **MITRE ATT&CK** to map a hypothetical malware campaign from **Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives**. This mapping exercise trains my mind to think like an attacker planning a campaign, not just using a tool.
 
 - [ ] **Diamond Model:** Apply the **Diamond Model** to a real APT's malware — adversary, capability, infrastructure, victim — to understand why the same malware capability looks different depending on the targeted victim sector.
 
@@ -1116,18 +1115,18 @@ Robert Cialdini's research on influence identified six universal principles that
 ### **Topic 2: The Payload & Mechanism — Exposure Survey** — `🧠🔬 Mixed`
 
 > [!WARNING]
-> **Exposure-Only Stage:** This stage describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until you have completed **Part 28 (Reverse Engineering & Malware Analysis, Phase 7)** and **Part 42 (Offensive Development, Phase 7)**. Your goal here is to understand _what_ these techniques do and _why_ defenders flag them — not to build them.
+> **Exposure-Only Stage:** This topic describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until completing **Stage 5: Module 27 (Offensive Development & Tooling)** and **Shelf 05 (Reverse Engineering)**. My goal here is to understand _what_ these techniques do and _why_ defenders flag them — not to build them.
 
 > [!TIP]
 > **Goal:** Understand how payloads execute and what defenders detect at each stage.
 
-- [ ] **Memory-Based Execution:** Understand that attackers inject code into running processes (shellcode injection, process hollowing, DLL injection) to avoid writing to disk and evade file-scanning AV. _Conceptual understanding only — implementation in Part 42._
+- [ ] **Memory-Based Execution:** Understand that attackers inject code into running processes (shellcode injection, process hollowing, DLL injection) to avoid writing to disk and evade file-scanning AV. _Conceptual understanding only — implementation in Stage 5: Module 27._
 
 - [ ] **Delivery Vectors:** Understand **phishing, drive-by download, watering hole, and supply chain injection** as the four primary delivery mechanisms; know what each one requires from the attacker and what it looks like to defenders. _Practical delivery lab in Stage 6 (document weaponization) below._
 
 - [ ] **Staged Payload Architecture:** Understand the difference between **stageless** (one-shot complete payload) and **staged** (stager fetches the full payload at runtime) delivery — know why staged reduces initial payload size but requires an active C2 listener. Use `msfvenom` to generate both and compare their byte sizes and detection rates against VirusTotal (educational only — never upload customer/lab-specific payloads).
 
-- [ ] **Framework-Managed C2:** Deploy **[[Sliver]]** or **Mythic** in your lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
+- [ ] **Framework-Managed C2:** Deploy **[[Sliver]]** or **Mythic** in my lab, generate an implant, and establish a callback — understand listener configuration, sleep/jitter tuning, and how traffic patterns affect detection. This is the operational-tool-based weaponization that is in scope at this stage.
 
 > **🔬 Observation Lab (Stage 2):** Run EICAR test file (`https://www.eicar.org/download/eicar.com`) through VirusTotal and note detection rate. Then generate an msfvenom stageless payload (`msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o stageless.exe`) and a staged payload (`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o staged.exe`). Compare: (1) file sizes, (2) VirusTotal detection rates for both. Record which AV engines flag them and whether detections are signature-based or heuristic. Never execute either payload outside a controlled lab VM with no network access.
 
@@ -1138,20 +1137,20 @@ Robert Cialdini's research on influence identified six universal principles that
 ### **Topic 3: Evasion & Defense Bypassing — Exposure Survey** — `🧠 Conceptual`
 
 > [!WARNING]
-> **Exposure-Only Stage:** This stage teaches _how_ AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Part 28 (Reverse Engineering & Malware Analysis)**. Practical evasion implementation is in **Part 42 (Offensive Development, Phase 7)**.
+> **Exposure-Only Stage:** This stage teaches _how_ AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Shelf 05 (Reverse Engineering)**. Practical evasion implementation is in **Stage 5: Module 27 (Offensive Development & Tooling)**.
 
 > [!TIP]
 > **Goal:** Understand how the defensive stack detects malware and what attackers do to evade each layer.
 
-> **Prerequisite Context:** This stage references AMSI, EDR, and ETW. Those systems are covered from the defender's perspective in **Phase 3 (Part 13A: Stages 3–5)**. If you have not completed Phase 3 yet, read those stages before studying evasion — evasion without understanding the detection model is guesswork.
+> **Prerequisite Context:** This stage references AMSI, EDR, and ETW. Those systems are covered from the defender's perspective in **Stage 3 Side-Track A (Detection Engineering)**. If I have not completed Stage 3 yet, review those topics before studying evasion — evasion without understanding the detection model is guesswork.
 
-- [ ] **Static Analysis Evasion:** Understand that AV signature detection works by matching known byte patterns — attackers evade it by changing the binary (packing, encoding, obfuscation). Know _that_ this works conceptually; implementing a custom packer requires PE format knowledge from Part 28.
+- [ ] **Static Analysis Evasion:** Understand that AV signature detection works by matching known byte patterns — attackers evade it by changing the binary (packing, encoding, obfuscation). Know _that_ this works conceptually; implementing a custom packer requires PE format knowledge from Shelf 05 (Reverse Engineering).
 
-- [ ] **Sandbox Detection:** Understand that sandboxes run samples in controlled VMs — attackers detect this by checking for VM artifacts (driver names, low CPU count, no mouse movement), then go dormant. Know the technique; study the implementation in Part 28.
+- [ ] **Sandbox Detection:** Understand that sandboxes run samples in controlled VMs — attackers detect this by checking for VM artifacts (driver names, low CPU count, no mouse movement), then go dormant. Know the technique; study the implementation in Shelf 05 (Reverse Engineering).
 
-- [ ] **EDR Userland Hooking Bypass:** Understand that EDR products hook Windows API functions at userland to intercept suspicious calls — attackers bypass this by calling syscalls directly or by unhooking. _Conceptual understanding only — syscall implementation in Part 42._
+- [ ] **EDR Userland Hooking Bypass:** Understand that EDR products hook Windows API functions at userland to intercept suspicious calls — attackers bypass this by calling syscalls directly or by unhooking. _Conceptual understanding only — syscall implementation in Stage 5: Module 27._
 
-- [ ] **Memory-Based Evasion Concepts:** Understand _what_ sleep obfuscation, call stack spoofing, and indirect syscalls do — each is a technique that makes a beacon harder to detect during memory scanning. Implementation and lab practice in Part 42.
+- [ ] **Memory-Based Evasion Concepts:** Understand _what_ sleep obfuscation, call stack spoofing, and indirect syscalls do — each is a technique that makes a beacon harder to detect during memory scanning. Implementation and lab practice in Stage 5: Module 27.
 
 > **🔬 Observation Lab (Stage 3):** In a Windows sandbox VM: (1) Run `Procmon` (Sysinternals), filter on `powershell.exe`. Execute `powershell -Command "Write-Host hello"` and observe the API calls. Now run `powershell -EncodedCommand` with a base64-encoded version of the same command. Compare the Procmon output — same result, different invocation path. This is the "encoded = suspicious" detection signal that AMSI catches. Document what `ScriptBlock Logging` Event ID 4104 shows for each.
 
@@ -1162,16 +1161,16 @@ Robert Cialdini's research on influence identified six universal principles that
 ### **Topic 4: Persistence & Escalation — Exposure Survey** — `🧠 Conceptual`
 
 > [!WARNING]
-> **Exposure-Only Stage:** Persistence mechanisms and privilege escalation are taught as canonical practitioner skills in **Part 7 (System Hacking, Phase 2)** already. This stage reviews them in the context of malware architecture — what a long-running implant uses to survive reboots and credential rotations. Rootkit-level persistence (BOOTKIT, UEFI implants, kernel drivers) requires kernel internals knowledge from Part 28. Do not attempt rootkit implementation at this stage.
+> **Exposure-Only Stage:** Persistence mechanisms and privilege escalation are taught as canonical practitioner skills in **Stage 2: Module 13 (System Hacking)** already. This stage reviews them in the context of malware architecture — what a long-running implant uses to survive reboots and credential rotations. Rootkit-level persistence (BOOTKIT, UEFI implants, kernel drivers) requires kernel internals knowledge from Stage 5 / Shelf 05. Do not attempt rootkit implementation at this stage.
 
 > [!TIP]
 > **Goal:** Understand what persistence mechanisms a malware implant uses and why each has a different detection footprint.
 
-- [ ] **Userland Persistence Review:** Map the common mechanisms — **registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, Startup folder, COM object hijacking** — to their Windows Event Log artifacts (which Event IDs indicate each mechanism was set). This is the defender-aware review; you practiced them in Part 7.
+- [ ] **Userland Persistence Review:** Map the common mechanisms — **registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, Startup folder, COM object hijacking** — to their Windows Event Log artifacts (which Event IDs indicate each mechanism was set). This is the defender-aware review; I practiced them in Module 13.
 
-- [ ] **Privileged Persistence Concepts:** Understand that kernel-level and UEFI-level persistence (bootkits, driver implants) exist and require privileged access plus deep OS internals knowledge — covered in Part 28. Recognizing their artifacts is the skill to acquire here.
+- [ ] **Privileged Persistence Concepts:** Understand that kernel-level and UEFI-level persistence (bootkits, driver implants) exist and require privileged access plus deep OS internals knowledge — covered in Shelf 05 and Shelf 20/21. Recognizing their artifacts is the skill to acquire here.
 
-- [ ] **Defense Disabling (Conceptual):** Understand that advanced malware terminates AV/EDR processes or disables tamper protection when running as SYSTEM — recognizing this behavior in logs is the defender-relevant skill; the implementation is in Part 42.
+- [ ] **Defense Disabling (Conceptual):** Understand that advanced malware terminates AV/EDR processes or disables tamper protection when running as SYSTEM — recognizing this behavior in logs is the defender-relevant skill; the implementation is in Stage 5: Module 27.
 
 > **🔬 Observation Lab (Stage 4):** In a Windows sandbox VM with Sysmon installed: (1) Create a scheduled task with `schtasks /create /sc onlogon /tn "Updater" /tr "calc.exe"`. (2) Open Event Viewer → Applications and Services Logs → Microsoft → Windows → TaskScheduler → Operational. Find the task creation event (Event ID 106). Document: what the event records, what fields an analyst would use to detect malicious scheduled tasks, and what `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` looks like in Autoruns. Delete the task when done.
 
@@ -1182,7 +1181,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ### **Topic 5: Counter-Forensics & Cleanup — Exposure Survey** — `🧠 Conceptual`
 
 > [!WARNING]
-> **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding _what_ forensic artifacts exist — that knowledge is in **Part 27 (Digital Forensics, Phase 7)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so you can look for its _absence_ during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
+> **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding _what_ forensic artifacts exist — that knowledge is in **Shelf 04 (Digital Forensics)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so I can look for its _absence_ during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
 
 > [!TIP]
 > **Goal:** Understand what artifacts malware and operators leave behind, and what attackers do to reduce their forensic footprint.
@@ -1193,7 +1192,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Anti-Forensics Counter-Detection:** Know the defender techniques that defeat anti-forensics: **Write-Protect + Memory Forensics (Volatility)**, **SIEM log forwarding**, **EDR telemetry that bypasses local log clearing**, **backup snapshot retention**, and **network forensic reconstruction from PCAP**.
 
-- [ ] **ROE Compliance:** In a red team engagement, anti-forensics and log cleanup are controlled by Rules of Engagement — know exactly what your RoE permits before touching any log or artifact, and never destroy data on production systems regardless of privilege level.
+- [ ] **ROE Compliance:** In a red team engagement, anti-forensics and log cleanup are controlled by Rules of Engagement — know exactly what my RoE permits before touching any log or artifact, and never destroy data on production systems regardless of privilege level.
 
 > **🔬 Observation Lab (Stage 5):** In a Windows sandbox VM: (1) Run `wevtutil cl Security` to clear the Security event log. Open Event Viewer and confirm the log is empty. Now check the same Security log — observe Event ID 1102 ("The audit log was cleared"). (2) Open PowerShell history file (`%APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`) and note what is logged. Delete one entry manually — run `Get-History` in a new session and compare. Document: which artifacts survived the clearance attempt and what a defender reviewing logs 5 minutes after the clear would still find.
 
@@ -1204,7 +1203,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ### **Topic 5b: Windows Persistence Analysis & Memory Forensics** — `🧠 Conceptual`
 
 > [!NOTE]
-> **Scope:** This is a conceptual exposure pass — you learn what the techniques are and what artifacts they leave so you can identify them on an engagement or in a blue-team investigation. Deep Volatility memory analysis and advanced rootkit internals are covered post-hire in Shelf S21 (Advanced Windows Internals).
+> **Scope:** This is a conceptual exposure pass — you learn what the techniques are and what artifacts they leave so I can identify them on an engagement or in a blue-team investigation. Deep Volatility memory analysis and advanced rootkit internals are covered post-hire in Shelf S21 (Advanced Windows Internals).
 
 > [!TIP]
 > **Goal:** Know every common Windows persistence location an attacker would use, the forensic artifact each produces, and the Volatility plugin or Sysinternals tool that surfaces it.
@@ -1240,7 +1239,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Memory Acquisition:** Understand the difference between live acquisition (`winpmem`, `DumpIt`, `RAMMap`) vs. crash dump (`%SystemRoot%\MEMORY.DMP`) vs. hibernation file (`hiberfil.sys`). Know that `hiberfil.sys` and `pagefile.sys` contain memory artifacts even without a live acquisition tool.
 
-- [ ] **Lab (Conceptual):** Download a pre-made memory image from [MemLabs](https://github.com/stuxnet999/MemLabs) or [Volatility Foundation samples](https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples). Run `windows.pslist`, `windows.malfind`, and `windows.netscan` on it. Document what looks suspicious and why. This is awareness-level — you are learning to read the output, not yet building full DFIR investigation workflows (that is Shelf S04 / Stage-5 parallel).
+- [ ] **Lab (Conceptual):** Download a pre-made memory image from [MemLabs](https://github.com/stuxnet999/MemLabs) or [Volatility Foundation samples](https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples). Run `windows.pslist`, `windows.malfind`, and `windows.netscan` on it. Document what looks suspicious and why. This is awareness-level — I am learning to read the output, not yet building full DFIR investigation workflows (that is Shelf S04 / Stage-5 parallel).
 
 ---
 
@@ -1249,9 +1248,9 @@ Robert Cialdini's research on influence identified six universal principles that
 ### **Topic 6: Document & Cloud Weaponization** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This is the **operational implementation stage** for Part 8 — the techniques here are in-scope for lab practice because they use documented attack patterns that do not require binary internals knowledge.
+> **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This is the **operational implementation topic** for Module 25 — the techniques here are in-scope for lab practice because they use documented attack patterns that do not require binary internals knowledge.
 
-> **Prerequisite:** Complete Part 7 (System Hacking), Part 9 (Sniffing & Spoofing), and Part 10 (Social Engineering) before this stage.
+> **Prerequisite:** Complete Module 13 (System Hacking), Module 23 (Sniffing & Spoofing), and Module 24 (Social Engineering) before this topic.
 
 **Office & Document Exploits:**
 
@@ -1273,7 +1272,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 **Cloud & SaaS Persistence:**
 
-- [ ] **OAuth Consent Phishing:** Steal **refresh tokens** via malicious app registration; understand **scopes** and consent screens. _(See also Part 19: API Security and Part 23: Entra ID for deeper OAuth coverage.)_
+- [ ] **OAuth Consent Phishing:** Steal **refresh tokens** via malicious app registration; understand **scopes** and consent screens. _(See also Module 17: API Security and Module 19: Entra ID for deeper OAuth coverage.)_
 
 - [ ] **Device Code & App Passwords:** Abuse **device code flow**, **legacy auth**, and **app passwords** for bypassing MFA.
 
@@ -1297,18 +1296,18 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Artifact Hygiene:** Track **recent documents, registry keys, LNK files**, and clear only when within ROE.
 
-### **Lab Progression (Part 8: Malware & Weaponization)**
+### **Lab Progression (Module 25: Malware & Weaponization)**
 
 | Level | Task                                                                                                       | Deliverable                                         |
 | ----- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | 1     | Generate 5 payload types with `msfvenom` (staged + stageless, EXE/DLL/PS1/ELF) and compare detection rates | VirusTotal screenshots + payload comparison report  |
-| 2     | Deploy Sliver or Mythic in your lab, generate an implant, establish callback, and configure sleep/jitter   | C2 lab setup guide + beacon screenshot              |
+| 2     | Deploy Sliver or Mythic in my lab, generate an implant, establish callback, and configure sleep/jitter   | C2 lab setup guide + beacon screenshot              |
 | 3     | Build an HTML smuggler that delivers a test payload (EICAR) through a simulated email gateway              | HTML smuggler code + gateway bypass evidence        |
-| 4     | Weaponize a OneNote file with an embedded script that calls back to your Sliver listener                   | Weaponized `.one` file + callback screenshot        |
-| 5     | Map your lab campaign to MITRE ATT&CK — from delivery through C2 establishment                             | ATT&CK navigator layer JSON + technique annotations |
+| 4     | Weaponize a OneNote file with an embedded script that calls back to my Sliver listener                   | Weaponized `.one` file + callback screenshot        |
+| 5     | Map my lab campaign to MITRE ATT&CK — from delivery through C2 establishment                             | ATT&CK navigator layer JSON + technique annotations |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 8):** You can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. You are not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes after Part 28 and in Part 42.
+> **Move-On Gate (Module 25):** I can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. I am not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes in Shelf 05 and Stage 5: Module 27.
 
 ---
 
@@ -1328,12 +1327,12 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
-> - 🔴 `The Pentester Blueprint` — 🥇 Full book — pentest career methodology, report writing, and professional conduct; read fully before starting Part 39
+> - 🔴 `The Pentester Blueprint` — 🥇 Full book — pentest career methodology, report writing, and professional conduct; read fully before starting Module 26
 > - 🔴 `From Hacking to Report Writing` — Full — report structure, evidence packaging, and finding articulation
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology for web pentest engagements
 
 
-> **Why This Exists:** Knowing how to exploit is useless if you can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. While its reporting templates (PTES, CVSS v3.1/v4.0, remediation matrices) are introduced in Phase 2 for documenting your first rooted lab machines, here in Phase 10 you master the end-to-end commercial engagement lifecycle: formal legal scoping, threat modeling, executive debriefing, and enterprise deliverable packaging.
+> **Why This Exists:** Knowing how to exploit is useless if I can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. While its reporting templates (PTES, CVSS v3.1/v4.0, remediation matrices) are introduced in Stage 2 for documenting my first rooted lab machines, here in Stage 4 (Module 26) I master the end-to-end commercial engagement lifecycle: formal legal scoping, threat modeling, executive debriefing, and enterprise deliverable packaging.
 
 <a id="stage-1-industry-standard-engagement-frameworks"></a>
 
@@ -1352,7 +1351,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **OSSTMM (Open Source Security Testing Methodology Manual):** Understand the **RAV (Risk Assessment Value)** scoring model and the concept of **attack surface measurement** — useful for mature clients who want quantified security metrics beyond CVSS.
 
-- [ ] **Methodology Selection:** Know when to invoke each — PTES for comprehensive red team ops, NIST 800-115 for compliance-driven audits, OWASP WSTG for web-focused engagements, MASTG for mobile; document your methodology selection in every report.
+- [ ] **Methodology Selection:** Know when to invoke each — PTES for comprehensive red team ops, NIST 800-115 for compliance-driven audits, OWASP WSTG for web-focused engagements, MASTG for mobile; document my methodology selection in every report.
 
 ---
 
@@ -1384,15 +1383,15 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Apply structured threat identification before testing begins — not after.
 
-- [ ] **STRIDE Threat Model:** Decompose target system components into **processes, data stores, data flows, and external entities**; apply Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege to each element; generate a ranked threat list that scopes the test. _(See also: Part 43 Stage 1 — STRIDE applied to architecture design rather than test scoping.)_
+- [ ] **STRIDE Threat Model:** Decompose target system components into **processes, data stores, data flows, and external entities**; apply Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege to each element; generate a ranked threat list that scopes the test. _(See also: Shelf 15 Topic 1 — STRIDE applied to architecture design rather than test scoping.)_
 
-- [ ] **PASTA (Process for Attack Simulation and Threat Analysis):** Apply the **7-stage business-centric model** — define objectives → technical scope → application decomposition → threat analysis → vulnerability analysis → attack enumeration → risk/impact analysis; produces a business-risk-aligned test plan. _(See also: Part 35 Stage 3 — PASTA applied in GRC risk management context.)_
+- [ ] **PASTA (Process for Attack Simulation and Threat Analysis):** Apply the **7-stage business-centric model** — define objectives → technical scope → application decomposition → threat analysis → vulnerability analysis → attack enumeration → risk/impact analysis; produces a business-risk-aligned test plan. _(See also: Shelf 11 Topic 3 — PASTA applied in GRC risk management context.)_
 
 - [ ] **Attack Trees:** Build **hierarchical attack tree diagrams** rooted at the attack goal with sub-goals as branches; use AND/OR nodes to model alternative paths; identify which branches are highest probability × highest impact for prioritized testing.
 
 - [ ] **Data Flow Diagram (DFD) Trust Boundaries:** Draw Level 0–2 DFDs to identify **trust boundaries, data stores, external entities, and inter-process data flows**; every trust boundary crossing is an attack surface that must be tested.
 
-- [ ] **MITRE ATT&CK as Pre-Test Input:** Use ATT&CK to **pre-identify likely adversary TTPs** based on target industry, known threat actor profiles, and previously disclosed incidents in the sector; build your test plan around these TTPs.
+- [ ] **MITRE ATT&CK as Pre-Test Input:** Use ATT&CK to **pre-identify likely adversary TTPs** based on target industry, known threat actor profiles, and previously disclosed incidents in the sector; build my test plan around these TTPs.
 
 - [ ] **LINDDUN (Privacy Threat Model):** Apply LINDDUN (Linkability, Identifiability, Non-repudiation, Detectability, Disclosure of information, Unawareness, Non-compliance) for privacy-focused assessments — required for GDPR/HIPAA compliance-mapped tests.
 
@@ -1407,7 +1406,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **CVSS v3.1 Base Metrics:** Master all **8 base metrics** (Attack Vector, Attack Complexity, Privileges Required, User Interaction, Scope, Confidentiality/Integrity/Availability Impact); calculate scores manually before using calculators to build intuition.
 
-- [ ] **CVSS v4.0 Changes:** Understand the **new Supplemental Metrics group** (Automatable, Recovery, Value Density, Response Effort, Provider Urgency) and the replacement of Temporal Metrics with **Threat Metrics (Exploit Maturity)**; know which scoring version your client's compliance framework requires.
+- [ ] **CVSS v4.0 Changes:** Understand the **new Supplemental Metrics group** (Automatable, Recovery, Value Density, Response Effort, Provider Urgency) and the replacement of Temporal Metrics with **Threat Metrics (Exploit Maturity)**; know which scoring version my client's compliance framework requires.
 
 - [ ] **EPSS (Exploit Prediction Scoring System):** Use **EPSS probability scores** alongside CVSS to distinguish actively exploited vulnerabilities from theoretical ones; a CVSS 9.8 with 0.1% EPSS differs operationally from a CVSS 7.5 with 95% EPSS.
 
@@ -1436,7 +1435,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Remediation Specificity:** Write remediation as **executable technical steps** — e.g., "Apply parameterized queries using `mysqli_prepare()` with bound parameters" not "fix SQL injection"; include patch version numbers, configuration file paths, and code snippets; vague remediation = finding stays open.
 
-- [ ] **Proof-of-Concept Discipline:** PoCs must be **reproducible, minimally invasive, and clearly annotated** — include exact HTTP request/response, commands run, and observed vs. expected behavior; redact real credentials and PII captured; test PoC steps against your own notes before submission.
+- [ ] **Proof-of-Concept Discipline:** PoCs must be **reproducible, minimally invasive, and clearly annotated** — include exact HTTP request/response, commands run, and observed vs. expected behavior; redact real credentials and PII captured; test PoC steps against my own notes before submission.
 
 - [ ] **Remediation Roadmap Tiering:** Tier findings into **Immediate (< 7 days — critical/exploited), Short-term (< 30 days — high), Medium-term (< 90 days — medium), Long-term / Strategic (low + systemic architectural issues)**; include effort estimates and responsible team assignments.
 
@@ -1444,7 +1443,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Report Versioning & Delivery:** Maintain **draft → client review → final** versioning; deliver reports in **password-protected PDF** with restricted printing/copying; PGP-encrypt email attachments; define report retention and destruction policy in the SoW.
 
-### **Lab Progression (Part 39: Penetration Testing Methodologies & Report Writing)**
+### **Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)**
 
 | Level | Task                                                                                                                  | Deliverable                                                   |
 | ----- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -1453,7 +1452,7 @@ Robert Cialdini's research on influence identified six universal principles that
 | 3     | Write a full pentest report (executive summary + 3 findings with PoC + remediation roadmap) for an enterprise lab engagement | Professional pentest report in PDF format, password-protected |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 39):** You can select and apply the correct engagement methodology (PTES, NIST 800-115, WSTG), produce an SoW and RoE document, perform STRIDE threat modeling, calculate CVSS scores manually, and write a complete pentest report with executive summary, technical findings, and remediation roadmap.
+> **Move-On Gate (Module 26):** I can select and apply the correct engagement methodology (PTES, NIST 800-115, WSTG), produce an SoW and RoE document, perform STRIDE threat modeling, calculate CVSS scores manually, and write a complete pentest report with executive summary, technical findings, and remediation roadmap.
 
 ---
 
@@ -1478,14 +1477,14 @@ Robert Cialdini's research on influence identified six universal principles that
 > | 21 Containers | HackTheBox | **Unobtainium** · **Registry** | Container escape + Kubernetes privilege escalation |
 > | 22–26 Full chain | HackTheBox Pro Labs | **Dante** (OSCP prep) | Full network penetration test simulation |
 >
-> **Rule:** For every AD box: export your BloodHound graph, annotate the attack path, commit it to Git. That is a portfolio artifact.
+> **Rule:** For every AD box: export my BloodHound graph, annotate the attack path, commit it to Git. That is a portfolio artifact.
 
 <a id="stage-gate-3"></a>
 
 ## 🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting
 
 > [!IMPORTANT]
-> **Stage 4 Exit Gate:** Before moving to Advanced Offensive Development (Stage 5), you must prove:
+> **Stage 4 Exit Gate:** Before moving to Advanced Offensive Development (Stage 5), I must prove:
 > - Full end-to-end compromise of a multi-forest Active Directory lab (Kerberoasting/AS-REP roasting -> DCSync -> Golden Ticket).
 > - BloodHound visualization and execution of shortest attack path committed to Git.
 > - One complete, client-ready, professional penetration test report following PTES/CVSS standards.

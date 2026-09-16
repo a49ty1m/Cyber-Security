@@ -22,7 +22,7 @@
 >
 > ### 📝 Stage 2 Documentation Requirements
 >
-> Every attack you execute must be documented. Required artifacts:
+> Every attack I execute must be documented. Required artifacts:
 >
 > - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
 > - **Tool output** — [[Nmap]] scans, Burp captures, [[Metasploit_Framework|Metasploit]] session logs saved to files
@@ -30,10 +30,10 @@
 > - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
 > - **Git commits** — commit after every lab session with descriptive messages
 >
-> _By the end of Phase 2, you should have 10+ documented attack chains in your repository._
+> _By the end of Stage 2, I should have 10+ documented attack chains in my repository._
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Phase)
+> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -46,7 +46,7 @@
 > | **Tier 2 (Secondary)** | [[Hydra]] & [[John_the_Ripper]] | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
 > | **Tier 2 (Secondary)** | [[LinPEAS]] & [[WinPEAS]] | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
 >
-> **Stage 2 Exit Gate:** You cannot pass Stage 2 until you can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
+> **Stage 2 Exit Gate:** I cannot pass Stage 2 until I can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
 
 ---
 
@@ -120,16 +120,16 @@
 > **Why this order?**
 >
 > ```text
-> What exists?               → Part 4 (Recon)
-> Where is it?               → Part 5 (Scanning)
-> What services are running? → Part 6 (Enumeration)
-> What databases expose?     → Part 6B (Database Security)
-> Can I use credentials?     → Part 31 (Password Cracking)
-> Can I gain/escalate?       → Part 7 (System Hacking)
+> What exists?               → Module 08 (Recon)
+> Where is it?               → Module 09 (Scanning)
+> What services are running? → Module 10 (Enumeration)
+> What databases expose?     → Module 11 (Database Security)
+> Can I use credentials?     → Module 12 (Password Cracking)
+> Can I gain/escalate?       → Module 13 (System Hacking)
 > ```
 
 > [!NOTE]
-> **Phase 2A Exit Gate — do NOT enter Phase 2B until you can demonstrate all of these:**
+> **Stage 2 Progress Check — do NOT proceed until I can demonstrate all of these:**
 >
 > - Perform reconnaissance and enumeration **without jumping to Metasploit immediately**
 > - Identify open ports, running services, and software versions on a target
@@ -139,7 +139,7 @@
 > - Establish a persistence mechanism
 > - Document the full attack chain in a structured report
 >
-> **Evidence required before moving to Phase 2B:**
+> **Evidence required before completing Stage 2:**
 >
 > - Attack chain diagram committed to Git
 > - Lab notes (target → recon → exploitation → post-exploitation → findings)
@@ -159,12 +159,12 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `The Hacker Playbook 2` — Chapter 1: Recon section — real-world attacker passive + active OSINT methodology
 > - 🔴 `Red Team Field Manual v3` — ⚡ Keep open always as command reference
 > - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Recon chapters — structured methodology for the full recon pipeline
-> - 🟡 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reconnaissance chapter — how defenders see your recon footprint (OPSEC awareness)
-> - 🟢 `Python for OSINT Tooling` — Full book — build your own OSINT automation tools in Python
+> - 🟡 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reconnaissance chapter — how defenders see my recon footprint (OPSEC awareness)
+> - 🟢 `Python for OSINT Tooling` — Full book — build my own OSINT automation tools in Python
 
 
 <a id="part-4-stage-1-ghost-phase"></a>
@@ -204,7 +204,7 @@
 
 - [x] **External Intel Scouring:** Query **VirusTotal, urlscan, any.run, Joe Sandbox, and urlvoid** for existing malware samples or documented domain behavior.
 
-- [ ] **Third-Party Scans:** Use **Shodan & Censys** to find open ports, outdated services, and geographical distribution without scanning the target yourself.
+- [ ] **Third-Party Scans:** Use **Shodan & Censys** to find open ports, outdated services, and geographical distribution without scanning the target myself.
 
 - [ ] **Subdomain & DNS Enumeration:** Use **Sublist3r/Amass** for subdomains and check **DNS records** (MX, TXT, NS) to map mail providers and third-party integrations.
 
@@ -247,9 +247,9 @@
 
 - [ ] **Traffic Analysis:** If vantage is gained, use **[[Wireshark]]** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
 
-- [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down your operation immediately.
+- [ ] **Defensive Profiling:** Identify the presence of **IDS/IPS, SIEM, SOAR, and EDR/DLP**. If found, slow down my operation immediately.
 
-- [ ] **Unintended Binary Research:** Map the target's OS to potential **LOLBAS, GTFOBins, or WADCOMS** vectors for later movement. _(See Part 7, Phase 2 for canonical LOLBAS/GTFOBins coverage.)_
+- [ ] **Unintended Binary Research:** Map the target's OS to potential **LOLBAS, GTFOBins, or WADCOMS** vectors for later movement. _(See Module 13 for canonical LOLBAS/GTFOBins coverage.)_
 
 - [ ] **Version-to-CVE Correlation:** Cluster hosts by **banners/JA3/favicons** and map exposed versions to **CVE** candidates before exploitation.
 
@@ -289,7 +289,7 @@
 
 - [ ] **Breach Corpus Searching:** Query **Dehashed, Have I Been Pwned, Shodan**, and **breach databases** for **employee emails, leaked credentials, domain info**.
 
-- [ ] **Threat Actor Profiling:** Identify relevant **APT groups, cybercrime forums, adversary tradecraft** that target your industry.
+- [ ] **Threat Actor Profiling:** Identify relevant **APT groups, cybercrime forums, adversary tradecraft** that target my industry.
 
 - [ ] **Ransomware Gang Sites:** Monitor **ransomware operator sites** for **leaked data, victim announcements, negotiation demands**.
 
@@ -302,7 +302,7 @@
 ### **Topic 7: Satellite & Geospatial Intelligence** _(Optional — Skip unless physical pentest is in scope)_ — `🧠🔬 Mixed`
 
 > [!WARNING]
-> **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if you are conducting an authorized physical penetration test where facility layout matters.
+> **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if I am conducting an authorized physical penetration test where facility layout matters.
 >
 > For standard corporate network/web pentesting and Red Team engagements, skip this stage entirely and proceed to **Stage 8: Strategy & Attack Mapping**. Do not schedule dedicated study time here.
 
@@ -319,7 +319,7 @@
 
 - [ ] **Security Architecture Classification:** Determine if they are utilizing **Zero Trust** or standard **MFA & 2FA**.
 
-- [ ] **Framework Alignment:** Map your findings against the **Cyber Kill Chain, Diamond Model, or MITRE ATT&CK**.
+- [ ] **Framework Alignment:** Map my findings against the **Cyber Kill Chain, Diamond Model, or MITRE ATT&CK**.
 
 - [ ] **Vulnerability Finalization:** Decide the entry vector based on recon: **SQL Injection, MITM, or Brute Force**.
 
@@ -327,7 +327,7 @@
 
 <a id="part-4-lab-progression"></a>
 
-### **Lab Progression (Part 4: Footprinting and Reconnaissance)**
+### **Lab Progression (Module 08: Footprinting & Reconnaissance)**
 
 | Level | Task                                                                    | Deliverable                                                     |
 | ----- | ----------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -338,7 +338,7 @@
 | 5     | Perform active recon on a home lab target (traceroute, banner grabbing) | Active recon report                                             |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can produce a complete reconnaissance report on an unfamiliar target using both passive and active techniques, identify the technology stack, and prioritize attack surface areas.
+> **Move-On Gate:** I can produce a complete reconnaissance report on an unfamiliar target using both passive and active techniques, identify the technology stack, and prioritize attack surface areas.
 
 ---
 
@@ -355,7 +355,7 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Red Team Field Manual v3` — ⚡ Keep open during all scanning labs
 > - 🟡 `Ethical Hacking A Hands-on Introduction to Breaking In` — Scanning & fingerprinting chapters — hands-on Nmap and service enumeration
 > - 🟡 `The Power of Scapy V2` — Full (short reference) — custom packet crafting for advanced scanning
@@ -389,7 +389,7 @@
 > [!TIP]
 > **Goal:** Determine exactly what applications are running and how they communicate.
 
-- [ ] **Stealth SYN Scanning:** Use `nmap -sS` to identify open ports without completing the three-way **Handshake**, minimizing your footprint in application logs.
+- [ ] **Stealth SYN Scanning:** Use `nmap -sS` to identify open ports without completing the three-way **Handshake**, minimizing my footprint in application logs.
 
 - [ ] **Version & OS Fingerprinting:** Deploy `nmap -sV` for service banners and `nmap -O` to analyze TCP/IP stack responses for **Operating System Hardening** clues.
 
@@ -410,7 +410,7 @@
 ### **Topic 3: Defense & Configuration Assessment (The "Armor Check")** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Identify security controls that will attempt to block or alert on your presence.
+> **Goal:** Identify security controls that will attempt to block or alert on my presence.
 
 - [ ] **Firewall & ACL Enumeration:** Detect the presence of a **Firewall & Nextgen Firewall** or **Host Based Firewalls** by analyzing filtered ports and **ACL** (Access Control List) behavior.
 
@@ -431,9 +431,9 @@
 
 - [ ] **Scripted Vulnerability Probing:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for known **Zero Day** or common exploits in identified versions.
 
-- [ ] **Attack Surface Selection:** Match findings to your known **Common Attacks**—e.g., **SQL Injection** for web servers or **Buffer Overflows** for legacy binaries.
+- [ ] **Attack Surface Selection:** Match findings to my known **Common Attacks**—e.g., **SQL Injection** for web servers or **Buffer Overflows** for legacy binaries.
 
-- [ ] **Traffic Intelligence:** Finalize your plan by inspecting **Packet Captures** for cleartext protocols or weak encryption that allows for **MITM** or **Replay Attacks**.
+- [ ] **Traffic Intelligence:** Finalize my plan by inspecting **Packet Captures** for cleartext protocols or weak encryption that allows for **MITM** or **Replay Attacks**.
 
 - [ ] **Cluster & Correlate:** Group hosts by **banners/JA3/favicons** and map versions to likely **CVEs** before exploitation.
 
@@ -454,7 +454,7 @@
 
 - [ ] **ACK Scanning:** Use `-sA` to map **firewall rule sets** without attempting to establish connections.
 
-- [ ] **Idle/Zombie Scanning:** Use `-sI` with a **zombie host** to perform **blind port scans** that don't directly originate from your IP.
+- [ ] **Idle/Zombie Scanning:** Use `-sI` with a **zombie host** to perform **blind port scans** that don't directly originate from my IP.
 
 - [ ] **Source Port Spoofing:** Use `--source-port 53/80` to impersonate **DNS/HTTP traffic** and bypass port-based **ACL rules**.
 
@@ -483,7 +483,7 @@
 
 <a id="lab-progression-part-5-scanning"></a>
 
-### **Lab Progression (Part 5: Scanning)**
+### **Lab Progression (Module 09: Scanning)**
 
 | Level | Task                                                          | Deliverable                     |
 | ----- | ------------------------------------------------------------- | ------------------------------- |
@@ -494,7 +494,7 @@
 | 5     | Compare scan results with and without IDS evasion techniques  | Evasion effectiveness report    |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can discover all live hosts and open ports on a /24 subnet, identify service versions and OS types, and adapt scan techniques to evade basic IDS detection.
+> **Move-On Gate:** I can discover all live hosts and open ports on a /24 subnet, identify service versions and OS types, and adapt scan techniques to evade basic IDS detection.
 
 ---
 
@@ -511,14 +511,14 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Hacking Exposed` — Service-specific chapters (SMB, SNMP, LDAP, RPC) — classic enumeration playbook, still directly applicable
 > - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Enumeration chapters (SMB, LDAP, SNMP) — structured per-protocol coverage and what data each leaks
 > - 🟢 `Cyberjutsu Cybersecurity for the Modern Ninja` — Enumeration section — attacker-focused methodology in clear tactical language
 
 
 > [!NOTE]
-> **Note:** Part 5 (Scanning) covers host discovery, port scanning, and defense identification. Part 6 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If you haven't completed Part 5, do so first.
+> **Note:** Module 09 (Scanning) covers host discovery, port scanning, and defense identification. Module 10 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If I haven't completed Module 09, do so first.
 
 <a id="stage-1-service-enumeration-banner-grabbing"></a>
 
@@ -615,7 +615,7 @@
 
 <a id="lab-progression-part-6-enumeration"></a>
 
-### **Lab Progression (Part 6: Enumeration)**
+### **Lab Progression (Module 10: Enumeration)**
 
 | Level | Task                                                         | Deliverable                                    |
 | ----- | ------------------------------------------------------------ | ---------------------------------------------- |
@@ -626,7 +626,7 @@
 | 5     | Build a complete attack surface map from enumeration data    | Attack profile document with prioritized paths |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can enumerate services, users, shares, and misconfigurations across SMB, LDAP, SNMP, DNS, and web services, and produce a prioritized attack surface map.
+> **Move-On Gate:** I can enumerate services, users, shares, and misconfigurations across SMB, LDAP, SNMP, DNS, and web services, and produce a prioritized attack surface map.
 
 ---
 
@@ -642,16 +642,16 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
-> - 🔴 `Web Application Hacking Advanced SQL Injection and Data Store Attacks` — DB internals chapters only now; save injection chapters for Phase 4
+> **📚 Recommended Books for This Module**
+> - 🔴 `Web Application Hacking Advanced SQL Injection and Data Store Attacks` — DB internals chapters only now; save injection chapters for Stage 3
 > - 🟡 `Database Security Problems and Solutions` — Full (reference) — attacker-focused DB misconfiguration and exploitation techniques
 
 
 > [!NOTE]
-> **Navigational Note — Why Part 6B Is Here:** Part 6B was added to Phase 2 during the roadmap's v2.0 audit because database exploitation surfaces appear across Phases 2, 4, 6, and 7 but had no dedicated systematic module. SQLi (Part 17, Phase 4) covers injection attacks against web applications that query databases — it does NOT cover direct database engine exploitation. Part 6B fills that gap. Complete this before Part 31 and Part 7.
+> **Navigational Note — Scope:** Module 11 focuses on direct database engine exploitation, authentication bypass, and privilege escalation (UDF, xp_cmdshell, misconfigurations). Application-layer SQL Injection is taught in [[Stage-3_Web-and-App-Sec#module-14-web-application-hacking|Stage 3: Module 14]].
 
 > [!IMPORTANT]
-> **Prerequisites:** Part 6 (Enumeration) — specifically Stage 4 (Database & Application Enumeration). You should already be able to identify running database services and version-fingerprint them. This Part teaches you what to do after enumeration.
+> **Prerequisites:** Module 10 (Enumeration) — specifically Topic 4 (Database & Application Enumeration). I should already be able to identify running database services and version-fingerprint them before starting this module.
 
 <a id="part-6b-stage-1-database-enumeration-fingerprinting"></a>
 
@@ -802,7 +802,7 @@
   redis-cli -h <target> SAVE
   ```
 
-- [ ] **SSH Key Injection:** If Redis runs as a user with an SSH directory, inject your public key into `authorized_keys` via `CONFIG SET dir` + `CONFIG SET dbfilename authorized_keys` + `SET sshkey "$(cat ~/.ssh/id_rsa.pub)"` + `SAVE`.
+- [ ] **SSH Key Injection:** If Redis runs as a user with an SSH directory, inject my public key into `authorized_keys` via `CONFIG SET dir` + `CONFIG SET dbfilename authorized_keys` + `SET sshkey "$(cat ~/.ssh/id_rsa.pub)"` + `SAVE`.
 
 - [ ] **Module Loading RCE:** Redis 4.0+ supports `MODULE LOAD /path/to/malicious.so` for arbitrary code execution.
 
@@ -854,7 +854,7 @@
 
 <a id="part-6b-lab-progression"></a>
 
-### **Lab Progression (Part 6B: Database Security)**
+### **Lab Progression (Module 11: Database Security)**
 
 | Level | Task                                                                         | Deliverable                                                   |
 | ----- | ---------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -865,7 +865,7 @@
 | 5     | Full DB attack chain on HackTheBox/VulnHub machine with exposed DB service   | Pentest-style report: enumeration → exploitation → escalation |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can enumerate database services, identify engine and version, test default credentials, achieve OS command execution on at least one DB engine (MySQL or MSSQL), and explain the defensive controls that would prevent each attack. Document every command and finding.
+> **Move-On Gate:** I can enumerate database services, identify engine and version, test default credentials, achieve OS command execution on at least one DB engine (MySQL or MSSQL), and explain the defensive controls that would prevent each attack. Document every command and finding.
 
 ---
 
@@ -881,21 +881,21 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Cryptography and hashing chapter — ground-truth explanation of how hashes work and why cracking is possible
 > - 🟡 `Reverse Engineering and Password Breaking` — Full (short) — direct coverage of hash formats and cracking methodology
 > - 🟢 `Computer & Internet Security A Hands on Approach 2nd Ed` — Authentication chapters — explains salting, key derivation, and why bcrypt/Argon2 resist cracking
 
 
 > [!NOTE]
-> **Navigational Note — Why Part 31 Is Here:** Part 31 is numbered non-sequentially (Parts 4–6, then 31, then 7–...) because it was added to Phase 2 after the original numbering scheme was established. It sits here — between Part 6 (Enumeration) and Part 7 (System Hacking) — because password cracking is a **direct prerequisite for Part 7**: you cannot use Pass-the-Hash, Kerberoasting, or credential-based lateral movement without first understanding hash types, cracking methodology, and offline attack mechanics. Parts 8–30 do not exist in Phase 2 — they are in later phases. Continue to Part 7 after completing this.
+> **Navigational Note — Placement:** Module 12 (Password Cracking & Hash Analysis) sits directly between Module 10 (Enumeration) and Module 13 (System Hacking) because password cracking is a **direct prerequisite for System Hacking**: I cannot effectively use Pass-the-Hash, hash cracking, or credential reuse without first mastering hash identification and offline cracking mechanics. Proceed to Module 13 after completing this.
 
 <a id="stage-1-hash-identification-acquisition"></a>
 
 ### **Topic 1: Hash Identification & Acquisition** — `🔬 Practical`
 
 > [!TIP]
-> **Goal:** Identify what you have before cracking.
+> **Goal:** Identify what I have before cracking.
 
 - [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
 
@@ -962,7 +962,7 @@
 
 - [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
 
-> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Stage-4_Enterprise#module-19-active-directory--entra-id|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Shelf_Post-Hire#shelf-01-wireless-network-security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Part 7: System Hacking** (credential-based lateral movement). Complete this Part before Phase 5–6.
+> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Stage-4_Enterprise#module-19-active-directory--entra-id|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Shelf_Post-Hire#shelf-01-wireless-network-security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Module 13: System Hacking** (credential-based lateral movement). Complete this module before Stage 4.
 
 ---
 
@@ -979,7 +979,7 @@
 
 
 > [!NOTE]
-> **📚 Recommended Books for This Part**
+> **📚 Recommended Books for This Module**
 > - 🔴 `The Hacker Playbook 3 (Red Team Edition)` — Primary companion — initial access, privesc, persistence — read chapters in parallel with labs
 > - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Shellcode, stack/heap overflows — the foundational exploitation textbook; understand WHY exploits work
 > - 🔴 `Red Team Field Manual v3` — ⚡ Keep open always as command reference
@@ -1050,7 +1050,7 @@
 
 **Network Interception & MITM:**
 
-> **📌 Cross-Reference:** ARP spoofing, DNS spoofing, SSL stripping, and MITM techniques are taught in detail in **Part 9: Sniffing & Spoofing** (Phases 3–4). WiFi evil twin attacks are covered in **Part 21: Wireless Pentesting**. The techniques here focus on using these as delivery mechanisms for social engineering — review Part 9 first.
+> **📌 Cross-Reference:** ARP spoofing, DNS spoofing, SSL stripping, and MITM techniques are taught in detail in **Module 23: Sniffing & Spoofing** (Stage 4). WiFi evil twin attacks are covered in **Shelf 01: Wireless Network Security**. The techniques here focus on using these as delivery mechanisms for social engineering — review Module 23 first.
 
 - [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[[tcpdump]]/Wireshark**.
 
@@ -1066,7 +1066,7 @@
 **Windows Privilege Escalation:**
 
 > [!IMPORTANT]
-> **Why This Needs Its Own Methodology:** Windows is the dominant enterprise OS. Every red team engagement involves Windows privilege escalation. The six bullets below from the original stub are insufficient — work through each vector with a dedicated lab VM (TryHackMe "Windows PrivEsc" room, HackTheBox Blue/Optimum/Bastard, or build your own intentional misfig VM). **winPEAS** and **PowerUp** automate discovery — but you must understand every finding manually before relying on automation.
+> **Why This Needs Its Own Methodology:** Windows is the dominant enterprise OS. Every red team engagement involves Windows privilege escalation. The six bullets below from the original stub are insufficient — work through each vector with a dedicated lab VM (TryHackMe "Windows PrivEsc" room, HackTheBox Blue/Optimum/Bastard, or build my own intentional misfig VM). **winPEAS** and **PowerUp** automate discovery — but I must understand every finding manually before relying on automation.
 
 **Step 0 — Enumeration (Always First):**
 
@@ -1085,11 +1085,11 @@
 
 **Vector 1: Service Misconfigurations**
 
-- [ ] **Unquoted Service Paths:** When a service binary path contains spaces and is unquoted (e.g., `C:\Program Files\Vuln App\service.exe`), Windows will try `C:\Program.exe` first. If you can write to any parent directory, drop a malicious `Program.exe` to escalate.
+- [ ] **Unquoted Service Paths:** When a service binary path contains spaces and is unquoted (e.g., `C:\Program Files\Vuln App\service.exe`), Windows will try `C:\Program.exe` first. If I can write to any parent directory, drop a malicious `Program.exe` to escalate.
   - Discovery: `wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows"`
   - Also: PowerUp `Get-UnquotedService`
 
-- [ ] **Weak Service Binary Permissions:** If you can overwrite the service binary itself, replace it with a payload.
+- [ ] **Weak Service Binary Permissions:** If I can overwrite the service binary itself, replace it with a payload.
   - Discovery: `icacls "C:\path\to\service.exe"` — look for `(W)` or `(F)` for current user or Everyone group
 
 - [ ] **Weak Service Registry Permissions:** Registry key controlling a service's image path. If writable, change the binary path.
@@ -1097,7 +1097,7 @@
 
 **Vector 2: DLL Hijacking**
 
-- [ ] **DLL Search Order Abuse:** When an application loads a DLL by name without an absolute path, Windows searches: application directory → `%SYSTEMROOT%\System32` → `%SYSTEMROOT%` → directories in `%PATH%`. If you can write to a directory searched before the legitimate DLL location, drop a malicious DLL with the same name.
+- [ ] **DLL Search Order Abuse:** When an application loads a DLL by name without an absolute path, Windows searches: application directory → `%SYSTEMROOT%\System32` → `%SYSTEMROOT%` → directories in `%PATH%`. If I can write to a directory searched before the legitimate DLL location, drop a malicious DLL with the same name.
   - Discovery: **[[Procmon]]** (Sysinternals) — filter by `Result = NAME NOT FOUND` + `Path ends with .dll` while running the target application to find missing DLLs
 
 - [ ] **DLL Proxying:** Place a malicious DLL that loads the real DLL and also executes a payload — allows transparent hijack without breaking application functionality.
@@ -1159,13 +1159,13 @@
 
 **Vector 6: Scheduled Task Exploitation**
 
-- [ ] **Writable Task Binary:** If a scheduled task runs as SYSTEM but the binary it executes is writable by your user, replace the binary.
+- [ ] **Writable Task Binary:** If a scheduled task runs as SYSTEM but the binary it executes is writable by my user, replace the binary.
   - Discovery: `schtasks /query /fo LIST /v | findstr /i "Task To Run\|Run As User\|Status"`
   - Then: `icacls "C:\path\to\task\binary.exe"` — check write permission
 
 - [ ] **Task XML Privilege Escalation:** Some tasks stored in `C:\Windows\System32\Tasks\` have weak ACLs — check the task XML directly for the `<RunAs>` element.
 
-- [ ] **Writable Task Directory:** If the task binary isn't present but you can write to its expected path, create the binary there — it will run as SYSTEM on the next scheduled execution.
+- [ ] **Writable Task Directory:** If the task binary isn't present but I can write to its expected path, create the binary there — it will run as SYSTEM on the next scheduled execution.
 
 **Vector 7: Credential Hunting**
 
@@ -1204,7 +1204,7 @@
   - `SeDebugPrivilege`: Allows process debugging — attach to and dump `lsass.exe` memory or inject shellcode into any SYSTEM process.
   - `SeBackupPrivilege` / `SeRestorePrivilege`: Bypass NTFS file system ACLs to read SAM/SYSTEM hives or `NTDS.dit`.
   - `SeTakeOwnershipPrivilege`: Take ownership of protected system binaries, edit ACLs via `icacls`, and replace binaries with payloads.
-  - `SeLoadDriverPrivilege`: Load vulnerable signed third-party drivers to execute ring-0 kernel code (BYOVD - Bring Your Own Vulnerable Driver).
+  - `SeLoadDriverPrivilege`: Load vulnerable signed third-party drivers to execute ring-0 kernel code (BYOVD - Bring My Own Vulnerable Driver).
 
 - [ ] **Impersonation Tooling & Evolution:**
   - **PrintSpoofer & PipePotato:** Abuses the Windows Print Spooler service via named pipe impersonation (`PrintSpoofer.exe -i -c cmd.exe`). Works reliably on Windows 10, 11, Server 2016, and Server 2019.
@@ -1225,7 +1225,7 @@
 | Steel Mountain  | TryHackMe   | HFS → PowerUp → unquoted path            | Guided Windows privesc walkthrough |
 | Alfred          | TryHackMe   | Jenkins → token impersonation            | JuicyPotato/Incognito              |
 | Retro           | HackTheBox  | CVE research + credential hunting        | Manual credential discovery        |
-| AccessChk       | Personal VM | Custom misconfigs                        | Build your own vuln lab            |
+| AccessChk       | Personal VM | Custom misconfigs                        | Build my own vuln lab            |
 
 **Active Directory Attacks:**
 
@@ -1246,7 +1246,7 @@
 **Linux Privilege Escalation:**
 
 > [!IMPORTANT]
-> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build your own with intentional misconfigs). **[[LinPEAS]]** and **Linux Smart Enumeration (lse.sh)** automate discovery — but you must understand every finding manually before relying on automation.
+> **Why This Needs Its Own Methodology:** Linux privesc is the most consistently tested domain on OSCP, HTB, and real-world Linux engagements. The five bullets below are not enough. Work through each vector with a dedicated lab VM (try Tryhackme "Linux PrivEsc" room, HackTheBox Jarvis/Sunday, or build my own with intentional misconfigs). **[[LinPEAS]]** and **Linux Smart Enumeration (lse.sh)** automate discovery — but I must understand every finding manually before relying on automation.
 
 **Step 0 — Enumeration (Always First):**
 
@@ -1284,9 +1284,9 @@
 
 - [ ] **Discovery:** `cat /etc/crontab`, `ls -la /etc/cron.*`, `crontab -l`, `find / -name "*cron*" 2>/dev/null`, `systemctl list-timers` (systemd). Also monitor `/var/log/syslog` or `/var/log/cron` to identify jobs not visible in standard config files.
 
-- [ ] **Writable Script Hijack:** If a root-owned cron job executes a script that you can write to, replace or append to the script with a reverse shell or setuid bash copy.
+- [ ] **Writable Script Hijack:** If a root-owned cron job executes a script that I can write to, replace or append to the script with a reverse shell or setuid bash copy.
 
-- [ ] **Writable Directory in PATH:** If a root cron job calls a binary using a relative name and the cron `PATH` variable includes a directory you can write to, place a malicious binary with the same name in that directory.
+- [ ] **Writable Directory in PATH:** If a root cron job calls a binary using a relative name and the cron `PATH` variable includes a directory I can write to, place a malicious binary with the same name in that directory.
 
 - [ ] **Wildcard Injection (cron + tar):** `tar czf /backup.tar.gz /tmp/*` run by root — create files named `--checkpoint=1` and `--checkpoint-action=exec=sh evil.sh` in `/tmp` to inject arbitrary command execution.
 
@@ -1310,7 +1310,7 @@
 
 - [ ] **Writable /etc/shadow:** Direct password change for root or any account.
 
-- [ ] **Writable /etc/sudoers or /etc/sudoers.d/:** Add `ALL=(ALL:ALL) NOPASSWD: ALL` for your user.
+- [ ] **Writable /etc/sudoers or /etc/sudoers.d/:** Add `ALL=(ALL:ALL) NOPASSWD: ALL` for my user.
 
 - [ ] **NFS Root Squash Disabled:** If `/etc/exports` contains a share with `no_root_squash`, mount it from attacker machine as root, create a SUID binary, and execute on target.
 
@@ -1318,7 +1318,7 @@
 
 - [ ] **When to Use:** Kernel exploits are noisy, risky (system crash), and should be the last vector tried — after all misconfiguration-based vectors are exhausted.
 
-- [ ] **Identification:** `uname -a` → kernel version → check **linux-exploit-suggester-2** and **searchsploit** for matching CVEs. Verify exploit is tested for your exact distribution and version.
+- [ ] **Identification:** `uname -a` → kernel version → check **linux-exploit-suggester-2** and **searchsploit** for matching CVEs. Verify exploit is tested for my exact distribution and version.
 
 - [ ] **Known Exploits:** Dirty COW (CVE-2016-5195), Dirty Pipe (CVE-2022-0847), DirtyCred (CVE-2022-2588), OverlayFS (CVE-2023-0386), Looney Tunables (CVE-2023-4911). Understand each mechanism rather than running blind.
 
@@ -1357,11 +1357,11 @@
 | HackTheBox  | Jarvis, Sunday, Shocker | SUID, sudo misconfiguration          |
 | HackTheBox  | Cronos                  | Cron job hijacking                   |
 | VulnHub     | Lin.Security            | Comprehensive multipath              |
-| Local Build | Custom misconfig VM     | Build your own with 8 vectors above  |
+| Local Build | Custom misconfig VM     | Build my own with 8 vectors above  |
 
 **Container & K8s Breakout:**
 
-> **📌 Cross-Reference:** Container and Kubernetes security is taught in depth in **Part 25: Container & Orchestration Security** (Phase 6). The techniques below provide awareness for system hackers; Part 25 covers the full container attack surface.
+> **📌 Cross-Reference:** Container and Kubernetes security is taught in depth in **Module 21: Container & Orchestration Security** (Stage 4). The techniques below provide awareness for system hackers; Module 21 covers the full container attack surface.
 
 - [ ] **Mounted docker.sock:** Escape **container to host** via **Docker socket abuse**.
 
@@ -1402,7 +1402,7 @@
 
 **Credential Harvesting & Local Authentication Abuse:**
 
-- [ ] **Pass-the-Hash (Workgroup):** Capture **local NTLM hashes** (via SAM or LSASS) and authenticate against adjacent workgroup hosts without cracking passwords. *(Note: Kerberos Pass-the-Ticket and Golden/Silver Tickets are explicitly taught in Phase 6).*
+- [ ] **Pass-the-Hash (Workgroup):** Capture **local NTLM hashes** (via SAM or LSASS) and authenticate against adjacent workgroup hosts without cracking passwords. *(Note: Kerberos Pass-the-Ticket and Golden/Silver Tickets are explicitly taught in Stage 4: Module 19).*
 
 - [ ] **LSASS Dumping:** Extract **plaintext credentials and NTLM hashes** via **mimikatz, procdump, comsvcs.dll**, or PowerShell reflection. Understand Credential Guard and PPL protections.
 
@@ -1420,7 +1420,7 @@
 
 - [ ] **SSH & Account Backdoors:** Append attacker public keys to `~/.ssh/authorized_keys` or create backdoor local administrator/sudo users (`net user /add` or `useradd -ou 0 -g 0`).
 
-- [ ] **Web Shell Placement:** Upload lightweight web shells (PHP, ASP.NET, JSP) to writable web roots for out-of-band foothold retention. *(Note: Kernel rootkits and UEFI bootkits are advanced low-level techniques covered in Phase 7).*
+- [ ] **Web Shell Placement:** Upload lightweight web shells (PHP, ASP.NET, JSP) to writable web roots for out-of-band foothold retention. *(Note: Kernel rootkits and UEFI bootkits are advanced low-level techniques covered in Stage 5 and Shelf).*
 
 **🐧 Linux Persistence Analysis:**
 
@@ -1502,7 +1502,7 @@
 
 - [ ] **Windows Credential Guard & RunAsPPL Bypass (Awareness):** Enterprise environments deploy these as primary mitigations against LSASS credential dumping. Understand both before attempting credential extraction on a modern Windows target:
   - **Windows Credential Guard** (enabled via Hyper-V VBS): Isolates NTLM hashes and Kerberos TGTs in a UEFI-secured Virtual Trust Level (VTL1) enclave. Standard LSASS dumps via mimikatz/procdump fail — the credential material is not in the LSASS process memory accessible from VTL0. Detection: `(Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\LSA').LsaCfgFlags` — value 1 or 2 means enabled. If Credential Guard is active, pivot to alternative credential sources (DPAPI blobs, cached credentials, Kerberos relay).
-  - **RunAsPPL (Protected Process Light):** Registry: `HKLM\SYSTEM\CurrentControlSet\Control\LSA\RunAsPPL = 1`. Makes LSASS a protected process — standard user-land handles are denied even with SeDebugPrivilege. Bypass techniques: PPL driver abuse (load a legitimately signed but vulnerable kernel driver to strip PPL protection — PPLdump/ProtectedProcesses), direct syscall LSASS access via LSA callbacks, or `comsvcs.dll MiniDump` method which may still succeed on older platforms. Deeper bypass techniques live in Phase 7 Part 42.
+  - **RunAsPPL (Protected Process Light):** Registry: `HKLM\SYSTEM\CurrentControlSet\Control\LSA\RunAsPPL = 1`. Makes LSASS a protected process — standard user-land handles are denied even with SeDebugPrivilege. Bypass techniques: PPL driver abuse (load a legitimately signed but vulnerable kernel driver to strip PPL protection — PPLdump/ProtectedProcesses), direct syscall LSASS access via LSA callbacks, or `comsvcs.dll MiniDump` method which may still succeed on older platforms. Deeper bypass techniques live in Stage 5: Module 27.
   - **Operational check before dumping:** Always verify Credential Guard and PPL status before attempting LSASS. A failed dump with no bypass plan wastes time and generates high-confidence EDR telemetry.
 
 - [ ] **AppLocker / WDAC Bypass via LOLBAS:** Application whitelisting (AppLocker via GPO, WDAC via Intune/GPO) restricts executable paths but can be bypassed via trusted Windows binaries:
@@ -1510,7 +1510,7 @@
   - **WDAC bypass techniques:** WDAC is harder — it operates at kernel level and blocks drivers. Bypass requires abusing WDAC policy exceptions: script enforcement gaps in certain PowerShell language modes, using `rundll32.exe` with allowed DLLs, or targeting allowed installer paths via custom MSI.
   - **Detection:** Check AppLocker policy with `Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections`. Check WDAC with `Get-CIPolicy -FilePath "$env:SystemRoot\System32\CodeIntegrity\CIPolicies\Active\*"`.
   - **LOLBAS reference:** [lolbas-project.github.io](https://lolbas-project.github.io) — filter by "Execute" function type for current bypass candidates.
-  - **Canonical coverage:** Full LOLBAS/GTFOBins methodology is in Phase 7 Part 42 (Offensive Development). This entry focuses on awareness and immediate tactical applicability.
+  - **Canonical coverage:** Full LOLBAS/GTFOBins methodology is in Stage 5 Module 27 (Offensive Development). This entry focuses on awareness and immediate tactical applicability.
 
 **Anti-Forensics:**
 
@@ -1592,7 +1592,7 @@
 
 <a id="lab-progression-part-7-system-hacking-initial-compromise"></a>
 
-### **Lab Progression (Part 7: System Hacking & Initial Compromise)**
+### **Lab Progression (Module 13: System Hacking & Initial Compromise)**
 
 > [!TIP]
 > **Goal:** Practice compromise only in controlled environments and produce professional evidence.
@@ -1602,9 +1602,9 @@
 - [ ] **Post-Exploitation Timeline:** Build an operator timeline and defender timeline for one lab compromise.
 - [ ] **Detection Pairing:** For every exploit path, identify Windows Event Logs, Sysmon, auditd, network, or SIEM artifacts.
   > [!IMPORTANT]
-  > **Move-On Gate — Part 7: System Hacking & Initial Compromise**
+  > **Move-On Gate — Module 13: System Hacking & Initial Compromise**
   >
-  > You are not ready to move to Phase 2B until you can demonstrate ALL of the following without referencing a walkthrough:
+  > I am not ready to complete Stage 2 until I can demonstrate ALL of the following without referencing a walkthrough:
   >
   > **Initial Access**
   >
@@ -1624,7 +1624,7 @@
   > **Persistence & Lateral Movement**
   >
   > - [ ] Demonstrate 2 Windows persistence mechanisms (registry RunKey, scheduled task, service installation) and identify their Event Log artifacts (Event ID 4688, 7045, 4698)
-  > - [ ] Demonstrate host-to-host lateral movement or pivoting in a workgroup/local network lab (e.g., local administrator credential reuse via SMB/WinRM Pass-the-Hash, SSH key harvesting/pivoting, or network tunneling via Chisel/SSH to access an internal subnet). *(Note: Active Directory Kerberos Pass-the-Ticket is strictly tested in Phase 6).*
+  > - [ ] Demonstrate host-to-host lateral movement or pivoting in a workgroup/local network lab (e.g., local administrator credential reuse via SMB/WinRM Pass-the-Hash, SSH key harvesting/pivoting, or network tunneling via Chisel/SSH to access an internal subnet). *(Note: Active Directory Kerberos Pass-the-Ticket is strictly tested in Stage 4: Module 19).*
   >
   > **Defense Evasion**
   >
@@ -1632,35 +1632,21 @@
   >
   > **Reporting**
   >
-  > - [ ] Submit 3 full lab attack reports using the Part 39 structure (scope → recon → exploitation → post-exploitation → impact → remediation)
+  > - [ ] Submit 3 full lab attack reports using the Module 26 structure (scope → recon → exploitation → post-exploitation → impact → remediation)
   > - [ ] Each report must have a defender timeline paired with the operator timeline
 
 <a id="toc-part-8-malware--weaponization"></a>
 
 ---
 
-## 🔹 Phase 2B: Advanced Offensive Operations
+## 🔹 Architecture Alignment Note: Network & Weaponization Tracks
 
-> _Parts 8–11 — Master weaponization, deception, disruption, and network sniffing. These build on the access gained in Phase 2A._
-
-> [!WARNING]
-> **Phase 2B Scope Control — Red Team Track**
->
-> Do **NOT** treat all of Phase 2B as a prerequisite before Phase 4 (Web). Study core Phase 2B concepts now, then proceed to Phase 4. Return to the deferred Phase 2B topics after completing Phases 4 and 6, when the context makes them far more valuable.
->
-> | Part                                 | Priority | Action                                                                 |
-> | ------------------------------------ | -------- | ---------------------------------------------------------------------- |
-> | **Part 9** — Sniffing & Spoofing     | Core     | Do now — directly supports network understanding                       |
-> | **Part 10** — Social Engineering     | Core     | Do now — recon/phishing concepts apply immediately                     |
-> | **Part 8** — Malware & Weaponization | Deferred | Do **after Phase 6** — full malware engineering is in Phase 7 Part 42  |
-> | **Part 11** — Denial of Service      | Archive  | **Read passively only. No lab time.** No pentest engagement authorizes active DoS on a production network. Conceptual awareness is sufficient. |
->
-> **What to defer until after Phase 4 & 6:**
->
-> - Advanced malware development / weaponization (Part 8 deep dive → Part 42 is the real home for this)
-> - Sophisticated AV/EDR evasion techniques
-> - Advanced C2 infrastructure design
-> - DoS attack execution against complex targets
+> [!NOTE]
+> **Curriculum Alignment:** Advanced operational topics previously grouped under secondary offensive operations have been cleanly integrated into their operational homes:
+> - **Sniffing & Spoofing (ARP/DNS/MITM):** [[Stage-4_Enterprise#module-23-sniffing--spoofing|Stage 4: Module 23]]
+> - **Social Engineering (Phishing/Pretexting):** [[Stage-4_Enterprise#module-24-social-engineering|Stage 4: Module 24]]
+> - **Malware & Weaponization (Payload Generation):** [[Stage-4_Enterprise#module-25-malware--weaponization-conceptual|Stage 4: Module 25]] & [[Stage-5_Specialized#module-27-offensive-development--tooling|Stage 5: Module 27]]
+> - **Denial of Service & Resilience:** [[Shelf_Post-Hire#shelf-17-denial-of-service--availability-resilience|Shelf 17]]
 
 ---
 
@@ -1676,7 +1662,7 @@
 > [!TIP]
 > ### 🎮 Concurrent CTF Practice — Stage 2
 >
-> Practice must run concurrently with every module — not after you "finish" the theory.
+> Practice must run concurrently with every module — not after I "finish" the theory.
 >
 > | Module | Platform | Box / Room | Why |
 > |---|---|---|---|
@@ -1689,14 +1675,156 @@
 > | 13 System Hacking | HackTheBox | **Blue** (EternalBlue) · **Optimum** · **Jarvis** | Real boxes requiring privesc |
 > | General | [Proving Grounds Play](https://www.offensive-security.com/labs/) | Any Easy-rated box | Free OSCP-style practice |
 >
-> **Rule:** Every box you root gets a written writeup committed to your notes repo. No writeup = learning didn't happen.
+> **Rule:** Every box I root gets a written writeup committed to my notes repo. No writeup = learning didn't happen.
+
+### 🏆 Stage 2 Capstone Project
+
+**Complete a Full Penetration Test on a Deliberately Vulnerable Lab**
+
+Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or my own Stage 1 lab):
+
+- [ ] **Perform full recon** (passive + active footprinting, scanning, enumeration)
+- [ ] **Achieve initial access** on at least 2 machines using different vectors
+- [ ] **Escalate privileges** to root/SYSTEM on each machine
+- [ ] **Demonstrate lateral movement** between at least 2 systems
+- [ ] **Document the full kill chain** from recon to impact
+
+**Deliverables:**
+
+- [ ] Professional penetration test report using PTES template (executive summary, methodology, findings, remediation)
+- [ ] Attack chain diagram showing the complete path from initial access to domain compromise
+- [ ] All evidence (screenshots, tool output, scripts) organized in my Git repository
+
+> [!IMPORTANT]
+> **Capstone Gate:** My report must be structured professionally enough to present to a client. A reader should understand every step without needing to ask questions.
+
+---
+
+### 🧭 Stage 2 Reflection & Competency Check
+
+- [ ] **Reflection:** Which stage of the attack chain required the most iteration: recon, enumeration, exploitation, privilege escalation, or lateral movement?
+- [ ] **Reflection:** What would a defender have seen at each major step?
+- [ ] **Competency:** Can I perform recon and enumeration without jumping prematurely to exploitation?
+- [ ] **Competency:** Can I prove every finding with evidence and explain business impact without exaggeration?
+- [ ] **Competency:** Can I produce a complete attack chain diagram and client-ready report from raw notes?
+
+> [!IMPORTANT]
+> **Stage 2 Completion Gate:** Move on only when I can complete an authorized lab penetration test end-to-end, document it professionally, and explain both attacker actions and defender visibility.
+
+---
+
+<a id="toc-part-32-physical-penetration-testing"></a>
+
+---
+
+<a id="stage-2-mini-projects"></a>
+
+## 🛠️ Stage 2 Mini Projects
+
+> [!TIP]
+> **Why these projects are here:** Stage 2 covers the full offensive lifecycle — recon, scanning, enumeration, and exploitation. These 4 projects map directly to Modules 08, 09, 10, and vulnerability assessment. Build each one _after_ completing its corresponding Module, not before. They are hands-on reinforcements of what I studied, not shortcuts around it.
+
+> [!NOTE]
+> **How to use this section:** Each project below maps to a specific Stage 2 Module. All code must be committed to my Git repository. README must cover: what the tool does, what protocols it uses, ethical usage requirements (authorized targets only), and sample output.
+
+---
+
+### Project 10 — Port Scanner
+
+**Maps to:** Module 09 (Scanning) → Topic 2: Port, Service & Protocol Enumeration
+
+**What it is:** A TCP/UDP port scanner that discovers open ports on a target host, attempts banner grabbing to identify services, supports concurrent scanning (threading or asyncio), and outputs results in a structured format. Should support SYN scan (raw sockets, requires root) and TCP connect scan (no root required).
+
+**What I need before building it:**
+
+- TCP 3-way handshake mechanics: SYN → SYN-ACK → ACK (open), SYN → RST (closed), no response (filtered)
+- Raw socket programming in Python (`socket` module)
+- Threading or `asyncio` — scanning 65,535 ports sequentially takes minutes; concurrent scanning takes seconds
+- Service identification via banner grabbing (send a probe, read the response header)
+- Study Nmap source behavior before implementing — understand _why_ a SYN scan is stealthier than a full connect scan
+
+**Why build it:**
+Nmap already exists. The reason I build my own is to understand _why_ port scanning works at the socket level — what does a TCP RST response mean vs a timeout vs a ICMP unreachable? What does a firewall returning RST vs dropping silently tell me? Building this makes every Nmap flag I use afterward meaningful rather than cargo-culted. This is the foundational recon tool that every subsequent project in this stage depends on.
+
+**Deliverable:** Python CLI — `scan <target> --ports <range> --mode <connect|syn> --threads <n>`. Output: table of open ports with service guesses. README must document the ethical usage requirements and explain the SYN vs connect scan distinction.
+
+---
+
+### Project 11 — Network Packet Sniffer
+
+**Maps to:** Module 23 (Sniffing & Spoofing) & Stage 2 Reconnaissance
+
+**What it is:** A packet capture and analysis tool that captures live network traffic, parses packet headers (Ethernet, IP, TCP, UDP), extracts application-layer data for unencrypted protocols (HTTP, DNS), and displays a real-time stream of summarized traffic. Must run on a designated lab interface only.
+
+**What I need before building it:**
+
+- OSI model internals: know what each layer encapsulates
+- Ethernet frame structure, IP header fields (TTL, flags, fragmentation), TCP header (sequence numbers, flags, window size)
+- `scapy` (Python) — the standard library for packet crafting and capture
+- Requires root/administrator privileges — document this clearly
+- DNS query/response format (question section, answer section, record types)
+- HTTP request structure (method, path, headers, body)
+
+**Why build it:**
+Every network security tool — from Wireshark to IDS/IPS systems — is built on the same packet capture foundation. Understanding how to capture and parse raw packets is essential for network forensics, building detection rules, and understanding what protocol-level data an attacker can see on an unencrypted network. This project also makes TLS's value immediately tangible: after parsing HTTP in plaintext, I understand exactly what TLS hides.
+
+**Deliverable:** Python tool using `scapy` that captures on a specified interface (`--iface eth0`), filters by protocol (`--filter tcp/udp/dns/http`), and displays structured output. README must include sample output and note that this must only run in my own lab environment.
+
+---
+
+### Project 13 — Subdomain Scanner
+
+**Maps to:** Module 08 (Footprinting & Reconnaissance) → Topic 2 & Topic 3: Infrastructure Mapping
+
+**What it is:** A subdomain enumeration tool that combines: wordlist-based DNS brute-forcing (active), Certificate Transparency log querying via the crt.sh API (passive — no direct target traffic), and DNS record analysis (A, CNAME, MX). Must implement concurrent DNS resolution and rate limiting.
+
+**What I need before building it:**
+
+- DNS resolution mechanics: how a resolver walks the hierarchy (root → TLD → authoritative)
+- DNS record types: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), TXT (verification/SPF)
+- Certificate Transparency: every TLS certificate issued is logged publicly — `crt.sh` exposes this via API, enabling passive subdomain discovery without touching the target
+- `dnspython` or `aiodns` for async DNS resolution
+- SecLists subdomain wordlists (the `Discovery/DNS/` directory)
+
+**Why build it:**
+The most critical vulnerabilities in a real engagement are often not found on `www.target.com` but on `dev.target.com`, `staging.target.com`, `admin-legacy.target.com`, or `vpn.target.com` — subdomains that exist because developers need them and forget to secure them. Subdomain scanning teaches me to think about the _entire attack surface_ of an organization rather than just its primary domain. The crt.sh passive technique is particularly valuable: it finds subdomains without generating a single packet to the target.
+
+**Deliverable:** Python CLI — `scan <domain> --wordlist <path> --passive --threads <n>`. Output: list of discovered subdomains with resolved IPs. README must distinguish passive vs active discovery and explain Certificate Transparency.
+
+---
+
+### Project 14 — Vulnerability Scanner
+
+**Maps to:** Module 09 (Scanning) & Module 10 (Enumeration) → Service Enumeration & Vulnerability Mapping
+
+**What it is:** A network vulnerability scanner that: uses port scanning (Project 10) as its discovery layer, performs service version fingerprinting via banner grabbing, queries the NIST NVD API to find CVEs associated with identified service versions, scores each finding using CVSS, and generates a structured report. Must only target authorized systems.
+
+**What I need before building it:**
+
+- Project 10 (Port Scanner) completed and working — this scanner uses it as a dependency
+- Service version extraction: banner grabbing returns strings like `Apache httpd 2.4.49` — you parse the service name and version
+- NIST NVD API: free, no authentication required for basic queries — `https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=<service+version>`
+- CVSS scoring: understand what Base Score, Attack Vector, Attack Complexity, and Privileges Required mean
+- Report generation: at minimum a structured Markdown or JSON report; optionally HTML
+
+**Why build it:**
+This is the Stage 2 capstone project — it combines everything from recon (port scanning) through enumeration (service fingerprinting) into a vulnerability assessment output. It demonstrates I understand the full discovery-to-finding lifecycle that underpins every professional penetration test and vulnerability management program. Tools like Nessus and OpenVAS follow this exact model: discover → fingerprint → correlate CVEs → score → report. Building it myself means I understand what these tools do under the hood, not just how to click their interfaces.
+
+**Deliverable:** Python CLI — `scan <target> --ports <range>`. Output: structured report listing open ports, identified services, associated CVEs, and CVSS scores. README must explain the CVE/CVSS scoring model and include a sample report.
+
+---
+
+> [!IMPORTANT]
+> **Stage 2 Project Completion Gate:** Each of these tools must only ever target systems you own or have explicit written authorization to test. My README files must include this disclaimer. A tool without an ethics section in its documentation is a tool that cannot be shown to an employer.
+
+---
 
 <a id="stage-gate-1"></a>
 
 ## 🏁 Stage Gate 1 — Host Dominance & Privilege Escalation
 
 > [!IMPORTANT]
-> **Stage 1 Exit Gate:** You cannot pass Stage 2 into Web & Application Security until you can:
+> **Stage 1 Exit Gate:** I cannot pass Stage 2 into Web & Application Security until I can:
 > - Root an unassisted intermediate target box on Hack The Box / Proving Grounds.
 > - Extract hashes from SAM / `/etc/shadow` and crack them using targeted Hashcat rules.
 > - Demonstrate cold privilege escalation on **both Linux** (SUID, sudo, cron) and **Windows** (Token impersonation / Potato, Unquoted service path, DLL hijacking).

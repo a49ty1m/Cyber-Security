@@ -219,7 +219,7 @@
 
 ## 📦 Shelf — Self Post-Hire
 
-> These aren't "later in the sequence" — they're off the sequence entirely until you have a job. No number means no claim on your time right now.
+> These aren't "later in the sequence" — they're off the sequence entirely until I have a job. No number means no claim on my time right now.
 
 | # | Module | Focus Area |
 |:-:|--------|------------|
@@ -240,6 +240,10 @@
 | S15 | [[Shelf_Post-Hire#shelf-15-security-architecture--engineering\|Security Architecture & Engineering]] | Zero Trust, threat modeling, STRIDE |
 | S16 | [[Shelf_Post-Hire#shelf-16-security-operations-expansion\|Security Operations Expansion]] | SOAR, DLP, Insider threat |
 | S17 | [[Shelf_Post-Hire#shelf-17-denial-of-service--availability-resilience\|Denial of Service & Resilience]] | Layer 4/7 mechanisms, Anycast, DDoS mitigation |
+| S18 | [[Shelf_Post-Hire#shelf-18-automotive-security\|Automotive Security]] | CAN Bus, ECU, UDS, OBD-II, AUTOSAR SecOC |
+| S19 | [[Shelf_Post-Hire#shelf-19-telecom-security\|Telecom Security]] | GSM/4G/5G, SS7, Diameter, IMSI Catcher, SIM internals |
+| S20 | [[Shelf_Post-Hire#shelf-20-advanced-linux-internals\|Advanced Linux Internals]] | Kernel modules, eBPF, container escape, LKM rootkits |
+| S21 | [[Shelf_Post-Hire#shelf-21-advanced-windows-internals\|Advanced Windows Internals]] | Token security, PPL, memory forensics, DKOM |
 
 ---
 
@@ -250,10 +254,10 @@
 > One question answered every morning: **"What is my current module and what am I proving today?"**
 
 **1. Engineering Foundation**
-Read the protocol or mechanism for your current topic. Write structured notes. Understand *why* it works before touching a tool.
+Read the protocol or mechanism for my current topic. Write structured notes. Understand *why* it works before touching a tool.
 
 **2. Lab Execution**
-Terminal open. Wireshark running. Execute commands, capture output, break things. Never run a tool you cannot explain at the packet or system level.
+Terminal open. Wireshark running. Execute commands, capture output, break things. Never run a tool I cannot explain at the packet or system level.
 
 **3. Artifact & Proof**
 Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descriptive message. Check the Move-On Gate in the stage file.
@@ -261,10 +265,10 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 ### Hard Rules
 
 1. **Never start with passive reading.** Peak energy belongs to the terminal, not a PDF.
-2. **Never run a tool blindly.** If you can't explain what a flag does at the packet level — stop, read, then run.
+2. **Never run a tool blindly.** If I can't explain what a flag does at the packet level — stop, read, then run.
 3. **No writeup = learning didn't happen.** Every lab session gets a committed markdown file.
-4. **Respect the Stage Gates.** Do not proceed until you can demonstrate the skill without notes.
-5. **Git commit after every session.** If you haven't committed in 2 weeks, you're drifting.
+4. **Respect the Stage Gates.** Do not proceed until I can demonstrate the skill without notes.
+5. **Git commit after every session.** If I haven't committed in 2 weeks, I'm drifting.
 
 ### Programming Track *(Weekends Only)*
 

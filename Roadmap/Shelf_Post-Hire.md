@@ -8,11 +8,11 @@
 ---
 
 > [!CAUTION]
-> **POST-HIRE ONLY — Do NOT include in your pre-employment critical path.**
+> **POST-HIRE ONLY — Do NOT include in my pre-employment critical path.**
 >
-> These topics are specialized tracks, compliance domains, or niche disciplines. Studying these pre-employment dilutes your focus from mastering the core offensive pipeline (Linux, Windows, Networking, Web, Active Directory, and Tooling).
+> These topics are specialized tracks, compliance domains, or niche disciplines. Studying these pre-employment dilutes my focus from mastering the core offensive pipeline (Linux, Windows, Networking, Web, Active Directory, and Tooling).
 > 
-> Return to these modules only after securing your target offensive security role or when an employer engagement explicitly mandates them.
+> Return to these modules only after securing my target offensive security role or when an employer engagement explicitly mandates them.
 
 ---
 
@@ -26,14 +26,14 @@
 > **📚 Recommended Books for This Part**
 > - 🔴 `Wireless Hacking` — Full — core wireless attack methodology (WPA2 cracking, PMKID, Evil AP setup)
 > - 🟡 `Wireless Network Security` — Reference — defensive perspective; informs OPSEC and detection awareness
-> - 🔴 `Wireless Hacking Cheat Sheet v1.1` — ⚡ Keep open during all Part 21 labs
+> - 🔴 `Wireless Hacking Cheat Sheet v1.1` — ⚡ Keep open during all Shelf 01 labs
 > - 🟢 `Wifi & Security` / `WiFi hacking article` — Supplementary reference PDFs
 
 
 > [!IMPORTANT]
-> **Hardware Acquisition Checklist — Purchase Before Starting Phase 5**
+> **Hardware Acquisition Checklist — Purchase Before Starting Wireless & Mobile Labs (Shelves 01 & 02)**
 >
-> Phase 5 requires physical hardware for wireless and mobile labs. A student with no hardware can read the content but cannot execute any technique. Budget and acquire the following before starting:
+> Wireless and mobile labs require physical hardware. A student with no hardware can read the content but cannot execute any technique. Budget and acquire the following before starting:
 >
 > | Hardware | Required For | Why Needed | Approx. Cost |
 > |---|---|---|---|
@@ -42,14 +42,14 @@
 > | **Proxmark3 Easy or RDV4** | RFID/NFC labs (Stage 6) | Read/write/clone RFID/NFC cards | $80–200 |
 > | **Flipper Zero** (optional) | Sub-GHz, IR, RFID/NFC, BadUSB | Versatile multi-protocol tool; optional but highly useful | $170 |
 > | **HackRF One** (optional, Stage 8) | SDR analysis — OPTIONAL specialization | Required only if pursuing Stage 8 (marked optional) | $300 |
-> | **Android test device (rooted)** | Mobile dynamic analysis (Part 22) | Rooted device needed for Frida, Objection, Burp cert install | $50–150 (used) |
+> | **Android test device (rooted)** | Mobile dynamic analysis (Shelf 02) | Rooted device needed for Frida, Objection, Burp cert install | $50–150 (used) |
 > | **Wireless AP (WPA3-capable)** | WPA3 evil twin testing | Must support WPA3-SAE for Stage 2 | $50–100 |
 >
-> **Mobile Lab Setup Time:** First-time setup of a rooted Android device, Frida installation, Burp certificate pinning, and objection deployment typically takes **1–3 weeks**. Budget this into your Phase 5 timeline.
+> **Mobile Lab Setup Time:** First-time setup of a rooted Android device, Frida installation, Burp certificate pinning, and objection deployment typically takes **1–3 weeks**. Budget this into my mobile lab timeline.
 >
 > **Budget Estimate:** Minimum functional kit (Alfa adapter + test Android device) ≈ $85–200. Full kit with Proxmark3 + Flipper Zero ≈ $350–500.
 
-> **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use your own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
+> **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use my own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
 <a id="stage-1-rf-reconnaissance-setup"></a>
 ### **Topic 1: RF Reconnaissance & Setup** — `🔬 Practical`
@@ -162,7 +162,7 @@
 ### **Topic 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
-> **Optional Specialization:** GPS spoofing and satellite security require expensive specialized hardware (USRP B200/B210 starts at $800+), operate in legally restricted frequency bands (GPS jamming is a federal felony in the US), and serve a very narrow career path (drone security research, maritime/aviation security testing, critical infrastructure GPS dependency analysis). If this aligns with your career goal, complete this stage fully. If not, read for awareness and proceed to Stage 9 (Defense) or Part 22 (Mobile). **Do not let this stage block your progress.**
+> **Optional Specialization:** GPS spoofing and satellite security require expensive specialized hardware (USRP B200/B210 starts at $800+), operate in legally restricted frequency bands (GPS jamming is a federal felony in the US), and serve a very narrow career path (drone security research, maritime/aviation security testing, critical infrastructure GPS dependency analysis). If this aligns with my career goal, complete this stage fully. If not, read for awareness and proceed to Stage 9 (Defense) or Shelf 02 (Mobile). **Do not let this topic block my progress.**
 
 > [!TIP]
 > **Goal:** Manipulate location services and navigation.
@@ -184,7 +184,7 @@
 ### **Topic 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
-> **Optional Specialization:** Software-Defined Radio analysis requires hardware (HackRF One ~$300, USRP ~$800+) and strong RF/signal processing background. It is primarily used in RF security research, telecom security, and critical infrastructure assessments. For general pentesting and red teaming careers, SDR is awareness-level knowledge. If you are targeting RF security or telecom roles, complete this stage in full. Otherwise, read for awareness and proceed.
+> **Optional Specialization:** Software-Defined Radio analysis requires hardware (HackRF One ~$300, USRP ~$800+) and strong RF/signal processing background. It is primarily used in RF security research, telecom security, and critical infrastructure assessments. For general pentesting and red teaming careers, SDR is awareness-level knowledge. If I am targeting RF security or telecom roles, complete this stage in full. Otherwise, read for awareness and proceed.
 
 > [!TIP]
 > **Goal:** Understand software-defined radio and RF reconnaissance.
@@ -236,14 +236,14 @@
 > - 🔴 `Hacking and securing ios applications` — Full — iOS binary analysis, Jailbreak exploitation, runtime hooking
 > - 🟡 `Cybersecurity for Mobile Devices` — Reference — broad mobile security coverage
 > - 🟢 `Best of Mobile Hacking` — Reference — supplementary attack techniques
-> - 🟢 `Hacking Android Smartphones with NFC Tags` / `Bluetooth Low Energy Hacking` — Reference only if your labs include BLE/NFC vectors
+> - 🟢 `Hacking Android Smartphones with NFC Tags` / `Bluetooth Low Energy Hacking` — Reference only if my labs include BLE/NFC vectors
 
 
 <a id="stage-0-mobile-architecture-foundations"></a>
 ### **Topic 0: Mobile Architecture Foundations** — `🧠 Conceptual`
 
 > [!TIP]
-> **Goal:** Understand Android and iOS architecture and security models before attempting exploitation. If you completed the awareness-level coverage in Part 1 Stage 6, this stage provides the full depth.
+> **Goal:** Understand Android and iOS architecture and security models before attempting exploitation. If I completed the awareness-level coverage in Stage 1 (Fundamentals), this topic provides the full depth.
 
 **Android Architecture:**
 
@@ -363,20 +363,20 @@
 
 ---
 
-### **Lab Progression (Part 21: Wireless Pentesting)**
+### **Lab Progression (Shelf 01: Wireless Network Security)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
-| 1 | Capture a WPA2 4-way handshake from your own AP using Aircrack-ng and crack it with a wordlist | Handshake capture file + successful crack report |
-| 2 | Execute an evil twin attack with [[Bettercap]]/hostapd-mana and capture credentials in your lab | MITM attack walkthrough with evidence screenshots |
+| 1 | Capture a WPA2 4-way handshake from my own AP using Aircrack-ng and crack it with a wordlist | Handshake capture file + successful crack report |
+| 2 | Execute an evil twin attack with [[Bettercap]]/hostapd-mana and capture credentials in my lab | MITM attack walkthrough with evidence screenshots |
 | 3 | Perform BLE enumeration and GATT service analysis of an IoT device using Bettercap or GATTacker | BLE security audit report with service map |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 21):** Crack a WPA2 handshake, execute an evil twin attack, and enumerate BLE services — all in your own lab with your own equipment.
+> **Move-On Gate (Shelf 01):** Crack a WPA2 handshake, execute an evil twin attack, and enumerate BLE services — all in my own lab with my own equipment.
 
 ---
 
-### **Lab Progression (Part 22: Mobile Pentesting)**
+### **Lab Progression (Shelf 02: Mobile Platform Pentesting)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -385,59 +385,59 @@
 | 3 | Complete a full mobile pentest (static + dynamic + network + local storage) on a vulnerable app | Professional mobile assessment report following OWASP MSTG |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 22):** Complete a full mobile app assessment (static + dynamic + network + storage) and produce a professional report following OWASP MSTG methodology.
+> **Move-On Gate (Shelf 02):** Complete a full mobile app assessment (static + dynamic + network + storage) and produce a professional report following OWASP MSTG methodology.
 
 ---
 
-### 🏆 Phase 5 Capstone Project
+### 🏆 Wireless & Mobile Capstone Project
 
 **Conduct a Wireless Security Audit and Mobile App Assessment**
 
-- [ ] **Wireless audit:** Assess your own lab AP — capture handshakes, test evil twin, evaluate encryption settings
+- [ ] **Wireless audit:** Assess my own lab AP — capture handshakes, test evil twin, evaluate encryption settings
 - [ ] **Mobile assessment:** Perform static + dynamic + network analysis on a vulnerable app (DIVA or InsecureBankv2)
 - [ ] **Document both assessments** as professional reports
 
 **Deliverables:**
 - [ ] Wireless security audit report (methodology, findings, risk ratings, remediation)
 - [ ] Mobile application security assessment report following OWASP MSTG
-- [ ] All capture files, scripts, and evidence committed to your Git repository
+- [ ] All capture files, scripts, and evidence committed to my Git repository
 
 > [!IMPORTANT]
 > **Capstone Gate:** Both reports must follow professional assessment methodologies and contain reproducible findings with evidence.
 
 ---
 
-### 🧭 Phase 5 Reflection & Competency Check
+### 🧭 Wireless & Mobile Reflection & Competency Check
 
 - [ ] **Reflection:** Which constraints made wireless or mobile testing harder: hardware, tooling, OS versions, or evidence capture?
-- [ ] **Reflection:** What did your reports communicate well, and what would a client still ask you to clarify?
-- [ ] **Competency:** Can you safely capture, analyze, and explain wireless evidence from your own lab?
-- [ ] **Competency:** Can you perform static, dynamic, network, and local-storage analysis on a test mobile app?
-- [ ] **Competency:** Can you separate exploitable findings from platform behavior and false positives?
+- [ ] **Reflection:** What did my reports communicate well, and what would a client still ask you to clarify?
+- [ ] **Competency:** Can I safely capture, analyze, and explain wireless evidence from my own lab?
+- [ ] **Competency:** Can I perform static, dynamic, network, and local-storage analysis on a test mobile app?
+- [ ] **Competency:** Can I separate exploitable findings from platform behavior and false positives?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when your wireless and mobile reports contain reproducible evidence, clear risk ratings, and practical remediation guidance.
+> **Wireless & Mobile Completion Gate:** Move on only when my wireless and mobile reports contain reproducible evidence, clear risk ratings, and practical remediation guidance.
 
 ---
 
 <a id="phase-5-mini-projects"></a>
 
-## 🛠️ Phase 5 Mini Projects
+## 🛠️ Wireless & Mobile Mini Projects
 
 > [!TIP]
-> **Why this project is here:** Phase 5 is dedicated to wireless and mobile security. The Wi-Fi Network Scanner belongs here because it requires 802.11 protocol knowledge, monitor mode, and beacon frame analysis — all concepts introduced in Part 21. Build it after completing Part 21 Stage 1 (RF Reconnaissance & Setup).
+> **Why this project is here:** Shelves 01 and 02 are dedicated to wireless and mobile security. The Wi-Fi Network Scanner belongs here because it requires 802.11 protocol knowledge, monitor mode, and beacon frame analysis — all concepts introduced in Shelf 01. Build it after completing Shelf 01 Topic 1 (RF Reconnaissance & Setup).
 
 ---
 
 ### Project 12 — Wi-Fi Network Scanner
 
-**Maps to:** Part 21 (Wireless Pentesting) → Stage 1: RF Reconnaissance & Setup
+**Maps to:** Shelf 01 (Wireless Network Security) → Topic 1: RF Reconnaissance & Setup
 
 **What it is:** A wireless network discovery tool that places a wireless adapter into monitor mode, passively captures 802.11 beacon frames and probe responses, and displays a real-time table of discovered networks showing: SSID, BSSID (MAC address of AP), channel, signal strength (RSSI in dBm), encryption type (Open, WEP, WPA, WPA2, WPA3), and observed clients. Optionally captures probe requests from clients to identify devices looking for known networks.
 
-**What you need before building it:**
+**What I need before building it:**
 - 802.11 frame types: management frames (beacon, probe request/response, association) vs data frames vs control frames
-- Monitor mode: a wireless adapter in monitor mode captures all 802.11 frames in range, not just those addressed to your device (unlike normal managed mode)
+- Monitor mode: a wireless adapter in monitor mode captures all 802.11 frames in range, not just those addressed to my device (unlike normal managed mode)
 - Linux wireless tools: `airmon-ng` (enable monitor mode), `iwconfig`/`iw` (interface management)
 - `scapy` with 802.11 support: `from scapy.all import *; sniff(iface='wlan0mon', prn=handler, store=False)`
 - Beacon frame structure: the `Dot11Beacon` layer in scapy — contains SSID (in `Dot11Elt` with ID=0), channel, supported rates, RSN (WPA2/WPA3 info element)
@@ -445,9 +445,9 @@
 - Encryption detection: parse RSN Information Element (IE) for WPA2/WPA3, check for WPA IE for WPA, check `capability` field for WEP
 
 **Why build it:**
-Wi-Fi is a chronically underestimated attack surface. Building a scanner forces you to confront how much information access points broadcast to the world without any authentication: their SSID, supported security protocols, vendor OUI (from BSSID), channel, and supported rates. Capturing probe requests reveals what networks a device's "remembered networks" list contains — a privacy leak exploitable by evil twin attacks.
+Wi-Fi is a chronically underestimated attack surface. Building a scanner forces me to confront how much information access points broadcast to the world without any authentication: their SSID, supported security protocols, vendor OUI (from BSSID), channel, and supported rates. Capturing probe requests reveals what networks a device's "remembered networks" list contains — a privacy leak exploitable by evil twin attacks.
 
-This project also teaches a key wireless security lesson: WPA2-Personal (password-based) is only as strong as the password. The PMKID attack (discovered in 2018) allows capturing enough information to attempt offline password cracking without ever connecting to the network — information your scanner can passively collect in seconds. After building this, you understand *why* WPA3 exists and what it actually fixes.
+This project also teaches a key wireless security lesson: WPA2-Personal (password-based) is only as strong as the password. The PMKID attack (discovered in 2018) allows capturing enough information to attempt offline password cracking without ever connecting to the network — information my scanner can passively collect in seconds. After building this, I understand *why* WPA3 exists and what it actually fixes.
 
 **Deliverable:** Python script using `scapy` that:
 - Checks for a wireless interface in monitor mode (exit with clear instructions if not)
@@ -458,12 +458,12 @@ This project also teaches a key wireless security lesson: WPA2-Personal (passwor
 README must explain: what monitor mode is, why root is required, how to enable monitor mode (`airmon-ng start wlan0`), and what PMKID is and why it allows offline cracking without a 4-way handshake capture.
 
 > [!CAUTION]
-> This tool must only be used in your own lab environment or networks you own. Capturing wireless traffic from networks you do not own is illegal in most jurisdictions under computer misuse and wiretapping laws. Document this disclaimer prominently in your README.
+> This tool must only be used in my own lab environment or networks I own. Capturing wireless traffic from networks you do not own is illegal in most jurisdictions under computer misuse and wiretapping laws. Document this disclaimer prominently in my README.
 
 ---
 
 > [!IMPORTANT]
-> **Phase 5 Project Completion Gate:** Your Wi-Fi scanner must correctly identify encryption types and display real captured data from your own lab network. The README must explain *why* PMKID changed the wireless attack landscape in 2018 — not just what it is, but what it enabled that wasn't possible before.
+> **Wireless Project Completion Gate:** My Wi-Fi scanner must correctly identify encryption types and display real captured data from my own lab network. The README must explain *why* PMKID changed the wireless attack landscape in 2018 — not just what it is, but what it enabled that wasn't possible before.
 
 ---
 
@@ -479,11 +479,11 @@ README must explain: what monitor mode is, why root is required, how to enable m
 >
 > OT/ICS/SCADA security is a **separate career field** targeting industrial control systems in energy, utilities, manufacturing, water treatment, and critical infrastructure. It requires specialized knowledge of industrial protocols (Modbus, DNP3, Profinet), PLC/HMI architecture, and operational safety constraints that are entirely distinct from enterprise IT security.
 >
-> **Skip this Part if:** Your target is general penetration testing, enterprise red teaming, cloud security, or AI security. Do NOT let OT/ICS block your progress to Phase 7.
+> **Skip this Shelf if:** My target is general penetration testing, enterprise red teaming, cloud security, or AI security. Do NOT let OT/ICS block my progress to Stage 5.
 >
-> **Complete this Part only if:** You are explicitly targeting ICS/OT pentesting roles (energy sector, industrial consultancies), critical infrastructure defense, or SCADA security engineering. These roles have specific hiring pipelines and certifications (GICSP, ICS-CERT training) that are separate from the standard Red Team track.
+> **Complete this Shelf only if:** I am explicitly targeting ICS/OT pentesting roles (energy sector, industrial consultancies), critical infrastructure defense, or SCADA security engineering. These roles have specific hiring pipelines and certifications (GICSP, ICS-CERT training) that are separate from the standard Red Team track.
 >
-> This content is available here for completeness. Treat it as post-hire optional alongside Phase 5 and Phase 8.
+> This content is available here for completeness. Treat it as post-hire optional.
 
 
 
@@ -562,7 +562,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-26-oticscada-security"></a>
-### **Lab Progression (Part 26: OT/ICS/SCADA Security)**
+### **Lab Progression (Shelf 03: OT/ICS/SCADA Security)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with industrial control system attacks and defenses.
@@ -574,11 +574,11 @@ README must explain: what monitor mode is, why root is required, how to enable m
 | 3 | Design ICS network segmentation using Purdue Model zones and data diodes | ICS security architecture document with network diagram |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can enumerate OT protocols, explain the Purdue Model, and demonstrate safe ICS network segmentation.
+> **Move-On Gate:** I can enumerate OT protocols, explain the Purdue Model, and demonstrate safe ICS network segmentation.
 
 ---
 
-### 🏆 Phase 6 Capstone Project
+### 🏆 OT/ICS Security Capstone Project
 
 **Build an AD Forest, Attack It End-to-End, Secure It, Then Validate with Purple Teaming**
 
@@ -593,23 +593,23 @@ README must explain: what monitor mode is, why root is required, how to enable m
 - [ ] Hardening guide documenting every security control implemented
 - [ ] ATT&CK heatmap and detection coverage matrix for the emulated techniques
 - [ ] Before/after comparison showing which attacks were mitigated or detected
-- [ ] All documentation committed to your Git repository
+- [ ] All documentation committed to my Git repository
 
 > [!IMPORTANT]
-> **Capstone Gate:** Your report must show a complete attack chain, a complete remediation path, and purple-team validation. The before/after comparison must demonstrate measurable security improvement.
+> **Capstone Gate:** My report must show a complete attack chain, a complete remediation path, and purple-team validation. The before/after comparison must demonstrate measurable security improvement.
 
 ---
 
-### 🧭 Phase 6 Reflection & Competency Check
+### 🧭 OT/ICS Security Reflection & Competency Check
 
-- [ ] **Reflection:** Which enterprise surface created the most risk in your lab: identity, cloud, containers, OT/ICS, or detection gaps?
-- [ ] **Reflection:** What changed after remediation, and how did you measure the improvement?
-- [ ] **Competency:** Can you attack and harden AD/Entra ID paths with clear evidence?
-- [ ] **Competency:** Can you explain cloud, container, and network misconfigurations in terms of blast radius?
-- [ ] **Competency:** Can you run a purple team exercise that maps techniques to telemetry, detections, and remediation?
+- [ ] **Reflection:** Which enterprise surface created the most risk in my lab: identity, cloud, containers, OT/ICS, or detection gaps?
+- [ ] **Reflection:** What changed after remediation, and how did I measure the improvement?
+- [ ] **Competency:** Can I attack and harden AD/Entra ID paths with clear evidence?
+- [ ] **Competency:** Can I explain cloud, container, and network misconfigurations in terms of blast radius?
+- [ ] **Competency:** Can I run a purple team exercise that maps techniques to telemetry, detections, and remediation?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when you can demonstrate a full enterprise attack path, document remediation, and prove measurable detection or control improvement.
+> **OT/ICS Completion Gate:** Move on only when I can demonstrate a full enterprise attack path, document remediation, and prove measurable detection or control improvement.
 
 ---
 
@@ -625,7 +625,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **📚 Recommended Books for This Part**
 > - 🔴 `The Art of Memory Forensics` — Primary companion — the definitive memory forensics reference; mandatory reading
 > - 🟡 `Hacking Exposed Computer Forensics Secrets & Solutions 2nd` — Full — disk and network forensics methodology
-> - 🔴 `SANS DFIR Cheatsheets and Notebooks` — ⚡ Keep open during all Part 27 labs as quick reference
+> - 🔴 `SANS DFIR Cheatsheets and Notebooks` — ⚡ Keep open during all Shelf 04 labs as quick reference
 > - 🟡 `Effective Threat Investigation` — Full — structured threat investigation methodology and evidence chaining
 > - 🟢 `Smartphone Forensics Cheatsheet by SANS` — Reference — mobile evidence acquisition quick ref
 
@@ -680,10 +680,10 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 - [ ] **Memory Timeline:** Extract **process creation times, loaded module timestamps, command history (consoles plugin)**, and **clipboard contents** to reconstruct attacker actions in volatile memory.
 
-- [ ] **Named Practice Targets:** Begin with the **[MemLabs](https://github.com/stuxnet999/MemLabs)** challenge series (github.com/stuxnet999/MemLabs) using Volatility 3. Complete Labs 1–3 before moving to CyberDefenders memory forensics challenges. MemLabs images have known solutions publicly available — attempt the analysis independently first, then compare your approach to the published writeup to identify gaps in your methodology.
+- [ ] **Named Practice Targets:** Begin with the **[MemLabs](https://github.com/stuxnet999/MemLabs)** challenge series (github.com/stuxnet999/MemLabs) using Volatility 3. Complete Labs 1–3 before moving to CyberDefenders memory forensics challenges. MemLabs images have known solutions publicly available — attempt the analysis independently first, then compare my approach to the published writeup to identify gaps in my methodology.
 
 > [!IMPORTANT]
-> **Intermediate Gate — Memory Forensics:** Before proceeding to Stage 4 (Network Forensics), you must be able to: (1) acquire a memory image from a live or offline system using WinPMEM/LiME; (2) load it into Volatility 3 with the correct symbol table; (3) identify at least one suspicious process using pslist/pstree/malfind; (4) extract network connections and at least one credential artifact. If you cannot do these four things without referencing a tutorial step-by-step, repeat Stage 3 before continuing.
+> **Intermediate Gate — Memory Forensics:** Before proceeding to Stage 4 (Network Forensics), I must be able to: (1) acquire a memory image from a live or offline system using WinPMEM/LiME; (2) load it into Volatility 3 with the correct symbol table; (3) identify at least one suspicious process using pslist/pstree/malfind; (4) extract network connections and at least one credential artifact. If I cannot do these four things without referencing a tutorial step-by-step, repeat Stage 3 before continuing.
 
 ---
 
@@ -702,7 +702,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 - [ ] **TLS Forensics:** Analyze **JA3/JA4 fingerprints, certificate details, SNI values** to identify **malicious encrypted traffic** without decryption.
 
 > [!IMPORTANT]
-> **Intermediate Gate — Network Forensics:** Before proceeding to Stage 5 (Cloud & Mobile Forensics), you must be able to: (1) open a PCAP in Wireshark and apply protocol and string filters to isolate specific traffic; (2) identify at least one C2 beaconing pattern by regularity of interval connections; (3) reconstruct a file transfer or credential from a cleartext protocol capture; (4) identify DNS tunneling indicators from query patterns. Run Lab Level 4 (PCAP analysis for C2 and exfiltration) before moving on.
+> **Intermediate Gate — Network Forensics:** Before proceeding to Stage 5 (Cloud & Mobile Forensics), I must be able to: (1) open a PCAP in Wireshark and apply protocol and string filters to isolate specific traffic; (2) identify at least one C2 beaconing pattern by regularity of interval connections; (3) reconstruct a file transfer or credential from a cleartext protocol capture; (4) identify DNS tunneling indicators from query patterns. Run Lab Level 4 (PCAP analysis for C2 and exfiltration) before moving on.
 
 ---
 
@@ -730,7 +730,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!TIP]
 > **Goal:** Understand the "How" and tell the story.
 
-- [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs. 📌 _Full reverse engineering methodology is covered in Part 28._
+- [ ] **Malware Analysis:** Use **static/dynamic analysis, sandbox detonation, reverse engineering** to understand malware behavior and IOCs. 📌 _Full reverse engineering methodology is covered in Shelf 05._
 
 - [ ] **Timeline Construction:** Build **complete attack timeline** from artifacts (file timestamps, logs, registry, prefetch, memory, network) using **[[Plaso]]/log2timeline, Timeline Explorer**.
 
@@ -757,7 +757,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-27-digital-forensics"></a>
-### **Lab Progression (Part 27: Digital Forensics)**
+### **Lab Progression (Shelf 04: Digital Forensics)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -765,10 +765,10 @@ README must explain: what monitor mode is, why root is required, how to enable m
 | 2 | Analyze a memory dump with Volatility 3 (identify injected process) | Process analysis report with IOCs |
 | 3 | Reconstruct attack timeline from Windows Event Logs + Prefetch + Shimcache | Timeline spreadsheet with evidence citations |
 | 4 | Analyze a PCAP for C2 beaconing and data exfiltration patterns | Network forensics report |
-| 5 | Complete a CyberDefenders DFIR challenge end-to-end | Full forensic report using Part 39 template |
+| 5 | Complete a CyberDefenders DFIR challenge end-to-end | Full forensic report using Module 26 template |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can acquire forensic images without evidence corruption, analyze memory dumps for malware artifacts, reconstruct attack timelines from multiple evidence sources, and produce court-admissible forensic reports.
+> **Move-On Gate:** I can acquire forensic images without evidence corruption, analyze memory dumps for malware artifacts, reconstruct attack timelines from multiple evidence sources, and produce court-admissible forensic reports.
 
 ---
 
@@ -785,9 +785,9 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
-> - 🔴 `Reversing Secrets of Reverse Engineering - Eldad Eilam` — Primary companion — the foundational RE textbook; read early in Part 28
+> - 🔴 `Reversing Secrets of Reverse Engineering - Eldad Eilam` — Primary companion — the foundational RE textbook; read early in Shelf 05
 > - 🟢 `Best of Reverse Engineering` / `Reverse Engineering Hacking and Cracking` — Supplementary RE techniques
-> - 🟡 `The Android Malware Handbook (2023)` — Full — mobile malware RE; use if Part 28 covers mobile malware variants
+> - 🟡 `The Android Malware Handbook (2023)` — Full — mobile malware RE; use if Shelf 05 covers mobile malware variants
 > - 🟡 `Designing BSD rootkit` — Full — rootkit internals, evasion, and persistence mechanisms
 > - 🟢 `The Rootkit Arsenal Escape and Evasion in the Dark Corners` — Reference — deepest rootkit engineering reference; read after basic RE is solid
 
@@ -833,7 +833,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 - [ ] **Network Traffic Analysis:** Capture **C2 communications, DNS queries, HTTP beacons, exfiltration attempts** using **Wireshark, mitmproxy, INetSim** during detonation.
 
 > [!IMPORTANT]
-> **Intermediate Gate — Dynamic Analysis:** Before proceeding to Stage 3 (Anti-Reverse Engineering & Evasion Techniques), you must demonstrate debugger capability: (1) set a breakpoint on a specific function in x64dbg or GDB and inspect register state at that point; (2) step through a loop and observe how a variable changes; (3) patch a conditional jump (`JZ`/`JNZ`) in a toy binary to force the alternate branch; (4) dump a decrypted string from memory that is not visible in static analysis. Stage 3 (anti-debugging, anti-VM, unpacking) requires this foundation — students who skip to Stage 3 without debugger proficiency will not be able to bypass anti-analysis techniques they haven't learned to interact with.
+> **Intermediate Gate — Dynamic Analysis:** Before proceeding to Stage 3 (Anti-Reverse Engineering & Evasion Techniques), I must demonstrate debugger capability: (1) set a breakpoint on a specific function in x64dbg or GDB and inspect register state at that point; (2) step through a loop and observe how a variable changes; (3) patch a conditional jump (`JZ`/`JNZ`) in a toy binary to force the alternate branch; (4) dump a decrypted string from memory that is not visible in static analysis. Stage 3 (anti-debugging, anti-VM, unpacking) requires this foundation — students who skip to Stage 3 without debugger proficiency will not be able to bypass anti-analysis techniques they haven't learned to interact with.
 
 ---
 
@@ -894,7 +894,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-28-reverse-engineering-malware-analysis"></a>
-### **Lab Progression (Part 28: Reverse Engineering & Malware Analysis)**
+### **Lab Progression (Shelf 05: Reverse Engineering & Malware Analysis)**
 
 > [!TIP]
 > **Goal:** Build reverse-engineering muscle memory in a safe malware-analysis environment.
@@ -920,13 +920,13 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
-> - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Primary companion — shellcode, stack overflows, heap exploitation; read fully in Part 29
+> - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Primary companion — shellcode, stack overflows, heap exploitation; read fully in Shelf 06
 > - 🟡 `Exploit Development on Linux Platform` — Full — Linux-specific exploit writing and shellcode injection
 > - 🟡 `Exploit Development Wintel Platform` — Full — Windows-specific exploit development (SEH, ROP chains)
-> - 🟢 `Build Your Own EXPLOITS` — Full — practical exploit building projects from concept to working PoC
+> - 🟢 `Build My Own EXPLOITS` — Full — practical exploit building projects from concept to working PoC
 
 
-> **Prerequisite Gate:** Complete Part 1 Stages 3–4 (Memory Management, Data Representation), Part 1 Stage 7 (C fundamentals), and Part 42 (Offensive Development — exploit writing, shellcode, assembly) before starting this Part. Modern exploitation builds directly on these foundations.
+> **Prerequisite Gate:** Complete Stage 1 (Memory Management, Data Representation), C fundamentals, and Stage 5: Module 27 (Offensive Development — exploit writing, shellcode, assembly) before starting this Shelf. Modern exploitation builds directly on these foundations.
 
 <a id="stage-1-recon-triage-tooling"></a>
 ### **Topic 1: Recon, Triage & Tooling** — `🔬 Practical`
@@ -1009,7 +1009,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-29-modern-exploitation"></a>
-### **Lab Progression (Part 29: Modern Exploitation)**
+### **Lab Progression (Shelf 06: Modern Exploitation)**
 
 > [!TIP]
 > **Goal:** Approach exploitation with prerequisites, safety controls, and repeatable labs.
@@ -1134,7 +1134,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-30-hardware-hacking-embedded-systems"></a>
-### **Lab Progression (Part 30: Hardware Hacking & Embedded Systems)**
+### **Lab Progression (Shelf 07: Hardware Hacking & Embedded Systems)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with hardware and embedded system attacks.
@@ -1146,7 +1146,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 | 3 | Perform side-channel power analysis using ChipWhisperer on a target implementing AES | Side-channel attack report with key recovery evidence |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can extract and analyze firmware, gain debug shell access, and explain side-channel attack fundamentals.
+> **Move-On Gate:** I can extract and analyze firmware, gain debug shell access, and explain side-channel attack fundamentals.
 
 ---
 
@@ -1249,7 +1249,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-32-physical-penetration-testing"></a>
-### **Lab Progression (Part 32: Physical Penetration Testing)**
+### **Lab Progression (Shelf 08: Physical Penetration Testing)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with physical security assessment techniques.
@@ -1261,7 +1261,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 | 3 | Build and deploy a Rubber Ducky/Bash Bunny payload that establishes a reverse shell within 10 seconds | HID attack payload with demo video and detection guidance |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can pick a standard pin tumbler lock, clone a low-frequency RFID badge, and craft a working HID payload.
+> **Move-On Gate:** I can pick a standard pin tumbler lock, clone a low-frequency RFID badge, and craft a working HID payload.
 
 ---
 
@@ -1374,7 +1374,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-33-voip-telecommunications-security"></a>
-### **Lab Progression (Part 33: VoIP & Telecommunications Security)**
+### **Lab Progression (Shelf 09: VoIP & Telecommunications Security)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with VoIP and telecommunications attacks.
@@ -1386,7 +1386,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 | 3 | Harden the lab PBX with SRTP, TLS, and SBC rules; verify that previous attacks no longer work | VoIP hardening report with before/after comparison |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can enumerate SIP infrastructure, capture and replay VoIP calls, and harden a PBX with SRTP/TLS.
+> **Move-On Gate:** I can enumerate SIP infrastructure, capture and replay VoIP calls, and harden a PBX with SRTP/TLS.
 
 ---
 
@@ -1491,7 +1491,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ---
 
 <a id="lab-progression-part-34-blockchain-web3-security"></a>
-### **Lab Progression (Part 34: Blockchain & Web3 Security)**
+### **Lab Progression (Shelf 10: Blockchain & Web3 Security)**
 
 > [!TIP]
 > **Goal:** Gain hands-on experience with smart contract auditing and Web3 attacks.
@@ -1503,11 +1503,11 @@ README must explain: what monitor mode is, why root is required, how to enable m
 | 3 | Write a Foundry test that demonstrates a flash loan attack against a vulnerable DeFi protocol on a mainnet fork | Flash loan exploit PoC with Foundry test code and impact analysis |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can identify common Solidity vulnerabilities, write Foundry exploit tests, and produce a professional smart contract audit report.
+> **Move-On Gate:** I can identify common Solidity vulnerabilities, write Foundry exploit tests, and produce a professional smart contract audit report.
 
 ---
 
-### 🏆 Phase 7 Capstone Project
+### 🏆 Advanced Exploitation & Low-Level Capstone Project
 
 **Perform Malware Analysis on a Real-World Sample OR Write an Exploit for a Known CVE**
 
@@ -1528,23 +1528,23 @@ Choose one track:
 
 **Deliverables:**
 - [ ] Professional malware report with IOCs OR exploit writeup with PoC code
-- [ ] All analysis artifacts committed to your Git repository
+- [ ] All analysis artifacts committed to my Git repository
 
 > [!IMPORTANT]
-> **Capstone Gate:** Your deliverable must be technical enough to submit to a threat intel team (Track A) or a security research publication (Track B).
+> **Capstone Gate:** My deliverable must be technical enough to submit to a threat intel team (Track A) or a security research publication (Track B).
 
 ---
 
-### 🧭 Phase 7 Reflection & Competency Check
+### 🧭 Advanced Exploitation & Low-Level Reflection & Competency Check
 
 - [ ] **Reflection:** Which advanced domain deserves continued depth, and which optional domains should you intentionally skip for now?
-- [ ] **Reflection:** Where did you rely on tooling without fully understanding the underlying artifact, binary, or exploit primitive?
-- [ ] **Competency:** Can you produce either a defensible malware analysis report or a working exploit writeup with controlled proof?
-- [ ] **Competency:** Can you explain limitations, assumptions, and safety boundaries for your research?
-- [ ] **Competency:** Can another technical reviewer reproduce your analysis from your notes and artifacts?
+- [ ] **Reflection:** Where did I rely on tooling without fully understanding the underlying artifact, binary, or exploit primitive?
+- [ ] **Competency:** Can I produce either a defensible malware analysis report or a working exploit writeup with controlled proof?
+- [ ] **Competency:** Can I explain limitations, assumptions, and safety boundaries for my research?
+- [ ] **Competency:** Can another technical reviewer reproduce my analysis from my notes and artifacts?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when your advanced work is deep, reproducible, ethically scoped, and polished enough for expert review.
+> **Advanced Exploitation Completion Gate:** Move on only when my advanced work is deep, reproducible, ethically scoped, and polished enough for expert review.
 
 ---
 
@@ -1666,12 +1666,12 @@ Choose one track:
 ---
 
 <a id="lab-progression-part-35-governance-risk-compliance"></a>
-### **Lab Progression (Part 35: Governance, Risk & Compliance)**
+### **Lab Progression (Shelf 11: Governance, Risk & Compliance)**
 
 > [!TIP]
 > **Goal:** Make GRC practical by producing audit-ready artifacts.
 
-- [ ] **Risk Register Lab:** Build a risk register for your home lab or a sample SaaS system with likelihood, impact, owner, treatment, and due date.
+- [ ] **Risk Register Lab:** Build a risk register for my home lab or a sample SaaS system with likelihood, impact, owner, treatment, and due date.
 - [ ] **Policy Lab:** Write one access-control policy and one incident-response policy with scope, roles, exceptions, and review cadence.
 - [ ] **Control Mapping Lab:** Map 10 technical controls to NIST CSF, CIS Controls, or ISO 27001 Annex A.
 - [ ] **Vendor Risk Lab:** Create a lightweight vendor security questionnaire and score a fictional third-party service.
@@ -1710,7 +1710,7 @@ Choose one track:
 > [!TIP]
 > **Goal:** Exploit weaknesses in open-source package ecosystems.
 
-- [ ] **Dependency Confusion:** Register **public packages with the same name** as internal private packages; force targets to download your malicious version when their registry falls back to public PyPI/npm.
+- [ ] **Dependency Confusion:** Register **public packages with the same name** as internal private packages; force targets to download my malicious version when their registry falls back to public PyPI/npm.
 
 - [ ] **Typosquatting:** Publish packages with **names one keystroke away** from popular packages (`reqeusts`, `colourama`, `crypt0`) to catch developer typos during `pip install`.
 
@@ -1901,7 +1901,7 @@ Choose one track:
 ### **Secure Coding & Pipeline Lab Progression**
 
 > [!TIP]
-> **Goal:** Prove you can prevent vulnerabilities, not only scan for them.
+> **Goal:** Prove I can prevent vulnerabilities, not only scan for them.
 
 - [ ] **Secure Coding Fix Lab:** Take a small vulnerable app and fix SQL injection, XSS, command injection, path traversal, insecure deserialization, weak auth, and insecure direct object reference patterns.
 - [ ] **Code Review Lab:** Review one intentionally vulnerable repository and produce findings with file/line references, exploitability notes, and safe remediation.
@@ -1929,7 +1929,7 @@ Choose one track:
 > - 🟡 `Security for Software Engineers` — Reference — secure coding patterns across languages
 
 
-> **Why This Exists:** Automated SAST tools (Part 37) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. You cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
+> **Why This Exists:** Automated SAST tools (Shelf 13) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. I cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
 
 <a id="stage-1-code-review-workflow"></a>
 ### **Topic 1: Code Review Workflow & Entry Point Mapping** — `🧠🔬 Mixed`
@@ -1976,7 +1976,7 @@ Choose one track:
 ### **Topic 2: Language-Specific Vulnerability Patterns** — `🧠🔬 Mixed`
 
 > [!TIP]
-> **Goal:** Know which dangerous functions and patterns appear in each major language/framework so you can grep for them efficiently.
+> **Goal:** Know which dangerous functions and patterns appear in each major language/framework so I can grep for them efficiently.
 
 **PHP:**
 - [ ] `include($user_input)` / `require($user_input)` — **Local/Remote File Inclusion** (LFI/RFI); any user-controlled path is dangerous
@@ -2020,7 +2020,7 @@ Choose one track:
 ### **Topic 3: Semgrep & Custom Rule Writing** — `🔬 Practical`
 
 > [!NOTE]
-> **Part 37 vs Part 37B — Same Tool, Different Purpose:** Part 37 Stage 2 used Semgrep as a **CI/CD pipeline tool** — running pre-built rulesets automatically on every commit to catch regressions at scale. This stage teaches **Semgrep rule writing for manual code auditing** — a fundamentally different skill. Here you write custom rules targeting your specific codebase, tune for zero false positives, and use taint tracking to trace sources to sinks. If you ran `semgrep --config=auto` in Part 37 and thought you were done: you weren't. Rule authorship is the skill that separates automated scanning from genuine code review.
+> **Shelf 13 vs Shelf 14 — Same Tool, Different Purpose:** Shelf 13 used Semgrep as a **CI/CD pipeline tool** — running pre-built rulesets automatically on every commit to catch regressions at scale. This topic teaches **Semgrep rule writing for manual code auditing** — a fundamentally different skill. Here I write custom rules targeting my specific codebase, tune for zero false positives, and use taint tracking to trace sources to sinks.
 
 > [!TIP]
 > **Goal:** Automate pattern matching for language-specific vulnerability patterns using Semgrep rules — the industry standard for lightweight, accurate code auditing.
@@ -2058,18 +2058,18 @@ Choose one track:
 ---
 
 <a id="lab-progression-part-37b"></a>
-### **Lab Progression (Part 37B: Secure Code Review)**
+### **Lab Progression (Shelf 14: Secure Code Review Methodology)**
 
 | Level | Task | Deliverable |
 |---|---|---|
 | 1 | Clone DVWA or WebGoat; identify 5 vulnerable functions by reading source code only (no exploitation) | Vulnerability list with file/line references and CWE IDs |
 | 2 | Run `semgrep --config=auto` against a small Python/PHP project; triage all findings (true positive, false positive, needs-context) | Triaged findings report with rationale for each decision |
-| 3 | Write 3 custom Semgrep rules targeting patterns not covered by default rulesets in your target language | 3 working Semgrep `.yaml` rule files with test cases |
+| 3 | Write 3 custom Semgrep rules targeting patterns not covered by default rulesets in my target language | 3 working Semgrep `.yaml` rule files with test cases |
 | 4 | Review one GitHub open-source project (~5k–20k lines); produce a findings report with file:line references, exploitability rating, and remediation code | Professional code review report |
 | 5 | Attempt code review challenge on HackTheBox or PortSwigger Academy (source code review labs) | Lab completion + write-up |
 
 > [!IMPORTANT]
-> **Move-On Gate (Part 37B):** Given an unfamiliar 500-line Python or PHP file with 3 planted vulnerabilities, you can identify all 3 within 30 minutes using a structured source-to-sink methodology without running the application. You can write a Semgrep rule that correctly identifies the vulnerability class and produces zero false positives on a safe variant.
+> **Move-On Gate (Shelf 14):** Given an unfamiliar 500-line Python or PHP file with 3 planted vulnerabilities, I can identify all 3 within 30 minutes using a structured source-to-sink methodology without running the application. I can write a Semgrep rule that correctly identifies the vulnerability class and produces zero false positives on a safe variant.
 
 ---
 
@@ -2091,7 +2091,7 @@ Choose one track:
 > - 🟢 `Cybersecurity First Principles A Reboot of Strategy and Tactics` — Full — strategic security architecture thinking
 
 
-> **Numbering Note:** Part 43 is numbered non-sequentially. It belongs here in Phase 8 because security architecture and engineering requires GRC context (Part 35), supply chain awareness (Part 36), and DevSecOps experience (Parts 37/37B) as prerequisites. It does not follow Part 42 in the learning sequence — Part 42 is in Phase 7 (Offensive Development & Tooling).
+> **Scope & Context:** Shelf 15 (Security Architecture & Engineering) synthesizes threat modeling, secure system design, Zero Trust architecture, and enterprise controls.
 
 _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fills the identified gap in security architecture training. A security professional who can only break systems but not design secure ones is incomplete._
 
@@ -2122,7 +2122,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **ZTNA / SASE Product Landscape:**
 
-  ZTNA (Zero Trust Network Access) replaces VPN with identity-aware, least-privilege application access. SASE (Secure Access Service Edge) bundles ZTNA, SWG, CASB, FWaaS, and SD-WAN into a cloud-delivered platform. As a security architect or pentester, you will encounter these in every large enterprise.
+  ZTNA (Zero Trust Network Access) replaces VPN with identity-aware, least-privilege application access. SASE (Secure Access Service Edge) bundles ZTNA, SWG, CASB, FWaaS, and SD-WAN into a cloud-delivered platform. As a security architect or pentester, I will encounter these in every large enterprise.
 
   | Product | Vendor | Type | Architecture |
   |---------|--------|------|-------------|
@@ -2135,7 +2135,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
   - [ ] **How ZTNA Replaces VPN:** Traditional VPN grants network access (wide blast radius on credential theft). ZTNA grants *application* access — the user's device never joins the corporate network. A compromised ZTNA session can access one app, not the entire network. Understand: connector-based ZTNA (Zscaler ZPA) vs. reverse-proxy ZTNA (Cloudflare Access).
 
   - [ ] **Pentesting ZTNA Environments:** ZTNA changes the attack surface:
-    - Initial access via phishing still works — you get identity, not network
+    - Initial access via phishing still works — I get identity, not network
     - Lateral movement is constrained — no network access means no ARP poisoning, no LLMNR poisoning
     - Focus shifts to: OAuth token theft, SSO session hijacking, ZTNA connector compromise (connector is on the internal network — compromise it for internal access)
     - Cloud CASB bypass: traffic to unapproved cloud apps via split tunnelling gaps
@@ -2195,7 +2195,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 - [ ] **DR Testing:** Plan and execute **tabletop exercises, simulation tests, and full failover tests** on a regular schedule.
 
 <a id="lab-progression-part-43-security-architecture-engineering"></a>
-### **Lab Progression (Part 43: Security Architecture & Engineering)**
+### **Lab Progression (Shelf 15: Security Architecture & Engineering)**
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -2207,11 +2207,11 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 | 6 | Design and deploy a complete monitoring stack (SIEM + EDR + NDR + SOAR + log pipeline) in a lab | End-to-end detection architecture document with data flow diagram |
 
 > [!IMPORTANT]
-> **Move-On Gate:** You can design a secure network architecture from scratch, apply Zero Trust principles, create data classification and encryption strategies, and develop DR/BCP plans with realistic RPO/RTO targets.
+> **Move-On Gate:** I can design a secure network architecture from scratch, apply Zero Trust principles, create data classification and encryption strategies, and develop DR/BCP plans with realistic RPO/RTO targets.
 
 ---
 
-### 🏆 Phase 8 Capstone Project
+### 🏆 Security Architecture & Governance Capstone Project
 
 **Design a Zero Trust Architecture and Create a Compliance Mapping**
 
@@ -2225,23 +2225,23 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 - [ ] NIST CSF compliance matrix (spreadsheet or markdown table)
 - [ ] Detection stack architecture document showing tool integration
 - [ ] DR/BCP plan with RTOs and RPOs
-- [ ] All documentation committed to your Git repository
+- [ ] All documentation committed to my Git repository
 
 > [!IMPORTANT]
-> **Capstone Gate:** Your architecture must be defensible in a design review. Each decision must have a documented rationale.
+> **Capstone Gate:** My architecture must be defensible in a design review. Each decision must have a documented rationale.
 
 ---
 
-### 🧭 Phase 8 Reflection & Competency Check
+### 🧭 Security Architecture & Governance Reflection & Competency Check
 
 - [ ] **Reflection:** Which design decision involved the hardest tradeoff between security, usability, cost, and operations?
 - [ ] **Reflection:** Which compliance requirement changed the technical architecture most?
-- [ ] **Competency:** Can you defend your architecture using threats, controls, and business constraints?
-- [ ] **Competency:** Can you map controls to a framework without turning the exercise into checkbox compliance?
-- [ ] **Competency:** Can you explain CI/CD, supply chain, monitoring, and recovery controls as one coherent system?
+- [ ] **Competency:** Can I defend my architecture using threats, controls, and business constraints?
+- [ ] **Competency:** Can I map controls to a framework without turning the exercise into checkbox compliance?
+- [ ] **Competency:** Can I explain CI/CD, supply chain, monitoring, and recovery controls as one coherent system?
 
 > [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when your architecture decisions are documented, reviewable, mapped to risk, and practical to operate.
+> **Security Architecture Completion Gate:** Move on only when my architecture decisions are documented, reviewable, mapped to risk, and practical to operate.
 
 ---
 
@@ -2255,7 +2255,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 ## Shelf 16: Security Operations Expansion
 
 
-_Continuation of Part 13A. These stages cover operational security tools and programs that build on the detection engineering foundation. Complete Part 13A before starting this section._
+_Extension of Stage 3 detection concepts. These topics cover operational security tools and programs that build on the detection engineering foundation._
 
 <a id="stage-11-security-orchestration-automation-response-soar"></a>
 ### **Topic 11: Security Orchestration, Automation & Response (SOAR)** — `🔬 Practical`
@@ -2332,7 +2332,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 ---
 
 <a id="lab-progression-parts-13a-13b-combined"></a>
-### **Lab Progression (Parts 13A + 13B Combined)**
+### **Lab Progression (Shelf 16: Security Operations Expansion)**
 
 > [!TIP]
 > **Goal:** Build working detection and security operations capabilities, not just vocabulary.
@@ -2342,9 +2342,9 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 - [ ] **Detection Rule Lab:** Write 5 Sigma/YARA/Suricata/Zeek/osquery rules and test them against lab activity.
 - [ ] **Incident Timeline Lab:** Reconstruct 2 incidents from logs and produce analyst notes with evidence and containment actions.
 - [ ] **SOAR Playbook Lab:** Build one automated phishing triage playbook (extract IOCs → check reputation → quarantine) using Shuffle, Tines, or n8n.
-- [ ] **IR Playbook Execution Lab:** Build and run a complete Incident Response playbook for a **ransomware scenario** in your home lab: (1) detect the ransomware beacon via SIEM alert; (2) isolate the infected VM from the network segment; (3) preserve a forensic memory dump and disk image before remediation; (4) identify the initial access vector from logs; (5) eradicate the payload and restore from a clean snapshot; (6) write a post-incident report with a timeline, root cause, and control improvement recommendations. Use a scenario from **[Blue Team Labs Online](https://blueteamlabs.online)**, **[LetsDefend](https://letsdefend.io)**, or **[CyberDefenders](https://cyberdefenders.org)** as your scenario source if you don't want to stage your own.
+- [ ] **IR Playbook Execution Lab:** Build and run a complete Incident Response playbook for a **ransomware scenario** in my home lab: (1) detect the ransomware beacon via SIEM alert; (2) isolate the infected VM from the network segment; (3) preserve a forensic memory dump and disk image before remediation; (4) identify the initial access vector from logs; (5) eradicate the payload and restore from a clean snapshot; (6) write a post-incident report with a timeline, root cause, and control improvement recommendations. Use a scenario from **[Blue Team Labs Online](https://blueteamlabs.online)**, **[LetsDefend](https://letsdefend.io)**, or **[CyberDefenders](https://cyberdefenders.org)** as my scenario source if I don't want to stage my own.
 
-**Platform Guide for Phase 3:**
+**Platform Guide for SecOps:**
 
 | Platform | Best For | Cost |
 |----------|----------|------|
@@ -2357,7 +2357,7 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 
 > [!IMPORTANT]
-> **Stage Gate — Part 13B Completion (Stages 11–14):** Before proceeding to Part 14 (IDS, Firewalls, Honeypots), you must demonstrate all of:
+> **Shelf Gate — Shelf 16 Completion:** Before completing this module, I must demonstrate all of:
 > - [ ] **SOAR:** Built at least 1 automated playbook in Shuffle, Tines, or n8n that executes a real response action (IP reputation check, email quarantine, or ticket creation) when triggered by a SIEM alert
 > - [ ] **DLP:** Created a DLP policy in a lab environment (or documented one for a simulated scenario) with at least 3 detection rules targeting different data types (PII, source code, credentials) with appropriate response actions
 > - [ ] **Vulnerability Management:** Run an authenticated Nessus/OpenVAS scan against a lab VM and produced a prioritized remediation report using EPSS or CISA KEV to justify priority order — not just raw CVSS scores
@@ -2420,142 +2420,239 @@ _Continuation of Part 13A. These stages cover operational security tools and pro
 
 ---
 
-### 🏆 Phase 2 Capstone Project
-
-**Complete a Full Penetration Test on a Deliberately Vulnerable Lab**
-
-Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or your own Phase 1 lab):
-
-- [ ] **Perform full recon** (passive + active footprinting, scanning, enumeration)
-- [ ] **Achieve initial access** on at least 2 machines using different vectors
-- [ ] **Escalate privileges** to root/SYSTEM on each machine
-- [ ] **Demonstrate lateral movement** between at least 2 systems
-- [ ] **Document the full kill chain** from recon to impact
-
-**Deliverables:**
-
-- [ ] Professional penetration test report using PTES template (executive summary, methodology, findings, remediation)
-- [ ] Attack chain diagram showing the complete path from initial access to domain compromise
-- [ ] All evidence (screenshots, tool output, scripts) organized in your Git repository
-
-> [!IMPORTANT]
-> **Capstone Gate:** Your report must be structured professionally enough to present to a client. A reader should understand every step without needing to ask questions.
 
 ---
 
-### 🧭 Phase 2 Reflection & Competency Check
+## Shelf 18: Automotive Security
 
-- [ ] **Reflection:** Which stage of the attack chain required the most iteration: recon, enumeration, exploitation, privilege escalation, or lateral movement?
-- [ ] **Reflection:** What would a defender have seen at each major step?
-- [ ] **Competency:** Can you perform recon and enumeration without jumping prematurely to exploitation?
-- [ ] **Competency:** Can you prove every finding with evidence and explain business impact without exaggeration?
-- [ ] **Competency:** Can you produce a complete attack chain diagram and client-ready report from raw notes?
+> [!CAUTION]
+> **Authorized Research Only:** Automotive security research must be performed exclusively on hardware you own (purchased ECUs, development boards, decommissioned vehicles) or in certified automotive security lab environments. Never test on a vehicle being operated on public roads.
 
-> [!IMPORTANT]
-> **Phase Completion Gate:** Move on only when you can complete an authorized lab penetration test end-to-end, document it professionally, and explain both attacker actions and defender visibility.
+> **When to study:** Post-hire or when pursuing embedded/IoT security, automotive OEM red team roles, or ICS security.
 
 ---
 
-<a id="toc-part-32-physical-penetration-testing"></a>
-
----
-
-<a id="phase-2-mini-projects"></a>
-
-## 🛠️ Phase 2 Mini Projects
+### **Topic 1: Automotive Architecture & Attack Surface** — `🧠 Conceptual`
 
 > [!TIP]
-> **Why these projects are here:** Phase 2 covers the full offensive lifecycle — recon, scanning, enumeration, and exploitation. These 4 projects map directly to Parts 4, 5, 6, and the vulnerability assessment stage. Build each one _after_ completing its corresponding Part, not before. They are hands-on reinforcements of what you studied, not shortcuts around it.
+> **Goal:** Understand the internal computing architecture of modern vehicles before approaching any offensive or defensive work.
+
+- [ ] **CAN Bus Protocol (ISO 11898):** Master the Controller Area Network — the primary communication backbone of virtually every modern vehicle. Understand frame structure (Arbitration ID, RTR bit, DLC, Data field), bus arbitration (CSMA/CA), and why there is zero authentication by design.
+
+- [ ] **Vehicle Network Topology:** Learn the segmented architecture: powertrain CAN, chassis CAN, infotainment/body CAN, LIN bus (single-wire, low-speed), FlexRay (fault-tolerant, time-triggered), and Automotive Ethernet (100BASE-T1, SOME/IP for high-bandwidth domains).
+
+- [ ] **ECU Architecture:** Understand Electronic Control Unit hardware — microcontrollers (NXP S32, Renesas RH850), flash memory, EEPROM for configuration, boot ROM, external interfaces (JTAG, SWD, UART debug console).
+
+- [ ] **Automotive Attack Surface Map:** OBD-II port (always-on CAN access), Bluetooth/Wi-Fi/cellular (remote entry), USB media interfaces (firmware parsing), TPMS sensors (passive RF), key fob RF (rolling codes vs fixed codes), OTA update mechanisms.
+
+---
+
+### **Topic 2: CAN Bus Analysis & Exploitation** — `🔬 Practical`
+
+> [!TIP]
+> **Goal:** Capture, decode, fuzz, and inject CAN frames against a known-safe target (vehicle bench or simulator).
+
+- [ ] **Hardware Setup:** USB-to-CAN adapters (PCAN-USB, CANtact, Canable), OBD-II pass-through cables, CAN bus termination (120 Ω at each end of bus segment). Set up `can-utils` on Linux (`candump`, `cansend`, `cangen`, `cansniffer`).
+
+- [ ] **Passive Bus Observation:** Run `candump can0` on a bench or OBD-II attached laptop. Identify repeating frame patterns, correlate Arbitration IDs with physical actions (door unlock, throttle, brake, indicator).
+
+- [ ] **CAN Frame Fuzzing:** Use `cangen` or `caringcarla` to send randomized/malformed frames. Observe ECU responses — some respond with error frames (passive, bus-off states). Understand CAN error confinement and bus-off recovery.
+
+- [ ] **UDS Protocol (ISO 14229):** Learn Unified Diagnostic Services — the diagnostic layer sitting above CAN. Key services: `0x10` (DiagnosticSessionControl), `0x11` (ECUReset), `0x27` (SecurityAccess — seed-key challenge), `0x34/0x36/0x37` (RequestDownload, TransferData, RequestTransferExit for firmware flashing).
+
+- [ ] **ECU Firmware Extraction:** Via JTAG/SWD debug interface exposure on PCB, or via OBD-II using UDS `0x34` read memory services. Use OpenOCD, J-Link, or SEGGER for JTAG.
+
+---
+
+### **Topic 3: Defensive Architecture & Secure-by-Design** — `🧠 Conceptual`
+
+- [ ] **Automotive Cybersecurity Standards:** ISO/SAE 21434 (cybersecurity engineering lifecycle), UNECE WP.29 Regulation 155 (cyber requirements for vehicle type approval), AUTOSAR SecOC (Secure On-board Communication — message authentication on CAN using CMAC).
+
+- [ ] **Intrusion Detection for CAN:** Anomaly-based IDS using statistical baselines (message frequency, ID distribution), signature-based (known malicious frame patterns), whitelist-based (only authorized Arbitration IDs on each bus segment).
+
+- [ ] **OTA Security Architecture:** Secure boot chain (HSM, code signing with ECC), encrypted and signed firmware packages, rollback prevention, secure update session management.
+
+| Tool | Purpose |
+|:-----|:--------|
+| `can-utils` (candump, cansend) | Linux CAN socket interface — capture and inject frames |
+| CANtact / PCAN-USB | USB-to-CAN hardware interface |
+| Caringcarla / Python-can | Python CAN bus automation and fuzzing |
+| OpenOCD | JTAG/SWD ECU debugging and memory extraction |
+| UDS-scan tools | UDS service scanning and ECU diagnostics |
+| Wireshark (with AUTOSAR dissector) | SOME/IP and Automotive Ethernet analysis |
+
+---
+
+## Shelf 19: Telecom Security
 
 > [!NOTE]
-> **How to use this section:** Each project below maps to a specific Phase 2 Part. All code must be committed to your Git repository. README must cover: what the tool does, what protocols it uses, ethical usage requirements (authorized targets only), and sample output.
+> **Scope:** Cellular network architecture, signaling protocol vulnerabilities, and telecom-specific attack surfaces. Distinct from Shelf 09 (VoIP/SIP) which covers IP-based voice infrastructure. This shelf covers the cellular network stack — GSM/4G LTE/5G NR, SS7, Diameter, and carrier-grade infrastructure.
+
+> **When to study:** Post-hire or when targeting telecom operators, mobile network operators (MNOs), IoT cellular backends, or roles in carrier-grade security.
 
 ---
 
-### Project 10 — Port Scanner
+### **Topic 1: Cellular Network Architecture** — `🧠 Conceptual`
 
-**Maps to:** Part 5 (Scanning) → Stage 2: Port, Service & Protocol Enumeration
+> [!TIP]
+> **Goal:** Understand the end-to-end architecture of cellular networks across generations before approaching protocol attacks.
 
-**What it is:** A TCP/UDP port scanner that discovers open ports on a target host, attempts banner grabbing to identify services, supports concurrent scanning (threading or asyncio), and outputs results in a structured format. Should support SYN scan (raw sockets, requires root) and TCP connect scan (no root required).
+- [ ] **GSM (2G) Architecture:** Understand the network components — Base Station Subsystem (BSS: BTS + BSC), Network Switching Subsystem (NSS: MSC, HLR, VLR, AuC, EIR), and the A/Abis/Ater interfaces. GSM uses TDMA/FDMA air interface, weak A5/1 cipher, and no mutual authentication (only network authenticates subscriber — classic IMSI catcher attack surface).
 
-**What you need before building it:**
+- [ ] **UMTS/3G Enhancements:** Introduction of USIM and mutual authentication via the AKA (Authentication and Key Agreement) protocol — both the network and the subscriber authenticate each other. IMS (IP Multimedia Subsystem) introduction. Retained SS7 for inter-carrier interconnect.
 
-- TCP 3-way handshake mechanics: SYN → SYN-ACK → ACK (open), SYN → RST (closed), no response (filtered)
-- Raw socket programming in Python (`socket` module)
-- Threading or `asyncio` — scanning 65,535 ports sequentially takes minutes; concurrent scanning takes seconds
-- Service identification via banner grabbing (send a probe, read the response header)
-- Study Nmap source behavior before implementing — understand _why_ a SYN scan is stealthier than a full connect scan
+- [ ] **LTE/4G Architecture:** Evolved Packet Core (EPC) with Mobility Management Entity (MME), Serving Gateway (S-GW), PDN Gateway (P-GW), HSS (Home Subscriber Server). eNodeB air interface. All-IP signaling via Diameter protocol (replacing SS7 for LTE). S1, S6a, S11, S5/S8, X2 interfaces.
 
-**Why build it:**
-Nmap already exists. The reason you build your own is to understand _why_ port scanning works at the socket level — what does a TCP RST response mean vs a timeout vs a ICMP unreachable? What does a firewall returning RST vs dropping silently tell you? Building this makes every Nmap flag you use afterward meaningful rather than cargo-culted. This is the foundational recon tool that every subsequent project in this phase depends on.
-
-**Deliverable:** Python CLI — `scan <target> --ports <range> --mode <connect|syn> --threads <n>`. Output: table of open ports with service guesses. README must document the ethical usage requirements and explain the SYN vs connect scan distinction.
+- [ ] **5G NR Architecture:** Service-Based Architecture (SBA) — network functions (AMF, SMF, UPF, UDM, AUSF, NRF) communicate via HTTP/2 + JSON (SBI). N1–N9 reference points. Network slicing, Non-Standalone (NSA) using 4G anchor, Standalone (SA) 5G core. SUPI/SUCI privacy (concealed IMSI using ECIES).
 
 ---
 
-### Project 11 — Network Packet Sniffer
+### **Topic 2: SS7 & Diameter Protocol Attacks** — `🔬 Practical`
 
-**Maps to:** Part 9 (Sniffing & Spoofing) → Stage 2: Sniffing & Passive Reconnaissance
+> [!CAUTION]
+> **Legal Barrier:** Direct SS7/Diameter attacks against live carrier networks require explicit carrier authorization and are criminal offenses without it. Practice in simulator environments only (SigPloit test environments, OpenBTS, osmocomBB research stacks).
 
-**What it is:** A packet capture and analysis tool that captures live network traffic, parses packet headers (Ethernet, IP, TCP, UDP), extracts application-layer data for unencrypted protocols (HTTP, DNS), and displays a real-time stream of summarized traffic. Must run on a designated lab interface only.
+- [ ] **SS7 Protocol Stack:** MAP (Mobile Application Part), ISUP (ISDN User Part), SCCP routing, MTP Layers 1–3. Understand Point Codes (OPC/DPC), Global Title addressing, and how inter-carrier interconnect trust model was designed with no authentication — any SS7 peer is implicitly trusted.
 
-**What you need before building it:**
+- [ ] **Classic SS7 Attack Classes:**
+  - **Location tracking:** SendRoutingInfo + ProvideSubscriberInfo MAP queries to locate a subscriber by MSISDN.
+  - **Call/SMS interception:** ManipulateRegisterSS (Supplementary Services) to forward calls to an attacker-controlled number.
+  - **IMSI harvesting:** AnyTimeInterrogation service provides IMSI from MSISDN.
 
-- OSI model internals: know what each layer encapsulates
-- Ethernet frame structure, IP header fields (TTL, flags, fragmentation), TCP header (sequence numbers, flags, window size)
-- `scapy` (Python) — the standard library for packet crafting and capture
-- Requires root/administrator privileges — document this clearly
-- DNS query/response format (question section, answer section, record types)
-- HTTP request structure (method, path, headers, body)
+- [ ] **Diameter Attack Surface (LTE):** Diameter lacks SS7's MTP-layer authentication improvements. Attack classes parallel SS7: subscriber information disclosure, location tracking, and fraudulent roaming entries via Update-Location-Request (ULR) message injection.
 
-**Why build it:**
-Every network security tool — from Wireshark to IDS/IPS systems — is built on the same packet capture foundation. Understanding how to capture and parse raw packets is essential for network forensics, building detection rules, and understanding what protocol-level data an attacker can see on an unencrypted network. This project also makes TLS's value immediately tangible: after parsing HTTP in plaintext, you understand exactly what TLS hides.
-
-**Deliverable:** Python tool using `scapy` that captures on a specified interface (`--iface eth0`), filters by protocol (`--filter tcp/udp/dns/http`), and displays structured output. README must include sample output and note that this must only run in your own lab environment.
+- [ ] **Research Tools:** SigPloit (Python-based SS7/Diameter security testing framework), Wireshark with M3UA/SCCP/MAP dissectors for protocol analysis, osmocomBB for GSM air interface research.
 
 ---
 
-### Project 13 — Subdomain Scanner
+### **Topic 3: SIM, IMSI Catchers & Air Interface** — `🧠 Conceptual`
 
-**Maps to:** Part 4 (Footprinting & Reconnaissance) → Stage 2: Semi-Passive Infrastructure Mapping + Stage 3: Active Footprinting
+- [ ] **SIM/USIM Internals:** UICC architecture, EF files (IMSI in EF_IMSI, network keys), SIM Toolkit (STK) applets, SIM cloning conditions (2G A5/1 rainbow tables), eSIM (eUICC) profile management via SGP.22 spec.
 
-**What it is:** A subdomain enumeration tool that combines: wordlist-based DNS brute-forcing (active), Certificate Transparency log querying via the crt.sh API (passive — no direct target traffic), and DNS record analysis (A, CNAME, MX). Must implement concurrent DNS resolution and rate limiting.
+- [ ] **IMSI Catchers (Stingrays):** False Base Station attack — rogue BTS broadcasts stronger signal, forces 2G downgrade (protocol downgrade attack), strips encryption (`A5/0` null cipher), captures IMSI/TMSI, enables call/SMS interception. Detection: RF anomaly detection, SnoopSnitch, Android IMSI Catcher Detector.
 
-**What you need before building it:**
+- [ ] **5G Security Improvements:** SUCI (Subscription Concealed Identifier) — IMSI encrypted with home network public key (ECIES) before air interface transmission, preventing passive IMSI harvesting. Null encryption prohibition in NAS layer. Bidirectional authentication mandatory.
 
-- DNS resolution mechanics: how a resolver walks the hierarchy (root → TLD → authoritative)
-- DNS record types: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), TXT (verification/SPF)
-- Certificate Transparency: every TLS certificate issued is logged publicly — `crt.sh` exposes this via API, enabling passive subdomain discovery without touching the target
-- `dnspython` or `aiodns` for async DNS resolution
-- SecLists subdomain wordlists (the `Discovery/DNS/` directory)
-
-**Why build it:**
-The most critical vulnerabilities in a real engagement are often not found on `www.target.com` but on `dev.target.com`, `staging.target.com`, `admin-legacy.target.com`, or `vpn.target.com` — subdomains that exist because developers need them and forget to secure them. Subdomain scanning teaches you to think about the _entire attack surface_ of an organization rather than just its primary domain. The crt.sh passive technique is particularly valuable: it finds subdomains without generating a single packet to the target.
-
-**Deliverable:** Python CLI — `scan <domain> --wordlist <path> --passive --threads <n>`. Output: list of discovered subdomains with resolved IPs. README must distinguish passive vs active discovery and explain Certificate Transparency.
+| Tool | Purpose |
+|:-----|:--------|
+| SigPloit | SS7 / Diameter / GTP security testing framework |
+| Wireshark (M3UA, MAP, Diameter dissectors) | Telecom protocol capture and analysis |
+| osmocomBB | Open-source GSM baseband for air interface research |
+| SnoopSnitch | Android IMSI catcher and SS7 attack detector |
+| gr-gsm / GNU Radio | GSM air interface signal capture and decoding |
 
 ---
 
-### Project 14 — Vulnerability Scanner
+## Shelf 20: Advanced Linux Internals
 
-**Maps to:** Part 5 (Scanning) → Stage 4: Vulnerability Association & Attack Mapping + Part 6 (Enumeration) → Stage 1: Service Enumeration & Banner Grabbing
+> [!NOTE]
+> **Prerequisites:** Solid completion of Stage 1: Module 02 (Linux Administration) and Stage 2: Modules 08–13. This shelf goes substantially deeper into kernel internals, exploitation-grade concepts, and advanced persistence mechanisms that require the offensive baseline to be in place first.
 
-**What it is:** A network vulnerability scanner that: uses port scanning (Project 10) as its discovery layer, performs service version fingerprinting via banner grabbing, queries the NIST NVD API to find CVEs associated with identified service versions, scores each finding using CVSS, and generates a structured report. Must only target authorized systems.
-
-**What you need before building it:**
-
-- Project 10 (Port Scanner) completed and working — this scanner uses it as a dependency
-- Service version extraction: banner grabbing returns strings like `Apache httpd 2.4.49` — you parse the service name and version
-- NIST NVD API: free, no authentication required for basic queries — `https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=<service+version>`
-- CVSS scoring: understand what Base Score, Attack Vector, Attack Complexity, and Privileges Required mean
-- Report generation: at minimum a structured Markdown or JSON report; optionally HTML
-
-**Why build it:**
-This is the Phase 2 capstone project — it combines everything from recon (port scanning) through enumeration (service fingerprinting) into a vulnerability assessment output. It demonstrates you understand the full discovery-to-finding lifecycle that underpins every professional penetration test and vulnerability management program. Tools like Nessus and OpenVAS follow this exact model: discover → fingerprint → correlate CVEs → score → report. Building it yourself means you understand what these tools do under the hood, not just how to click their interfaces.
-
-**Deliverable:** Python CLI — `scan <target> --ports <range>`. Output: structured report listing open ports, identified services, associated CVEs, and CVSS scores. README must explain the CVE/CVSS scoring model and include a sample report.
+> **When to study:** When moving into kernel exploitation, rootkit development, container escape research, or Linux-focused EDR evasion.
 
 ---
 
-> [!IMPORTANT]
-> **Phase 2 Project Completion Gate:** Each of these tools must only ever target systems you own or have explicit written authorization to test. Your README files must include this disclaimer. A tool without an ethics section in its documentation is a tool that cannot be shown to an employer.
+### **Topic 1: Linux Kernel Architecture Deep-Dive** — `🧠 Conceptual`
+
+> [!TIP]
+> **Goal:** Understand the Linux kernel at an architectural level sufficient to analyze exploits, write kernel modules, and understand EDR telemetry.
+
+- [ ] **Kernel Space vs User Space:** Virtual address space layout (KASLR, KPTI, SMEP, SMAP, KAISER), kernel virtual memory map, vmalloc, kmalloc, slab allocator (SLUB). Understand what `copy_to_user` / `copy_from_user` does and why it matters for kernel exploitation.
+
+- [ ] **System Call Interface:** How a `syscall` instruction transitions to ring 0 — syscall entry point (`entry_SYSCALL_64`), syscall table (`sys_call_table`), argument passing via registers (rdi, rsi, rdx, r10, r8, r9). `strace` at the assembly level.
+
+- [ ] **VFS (Virtual Filesystem Switch):** inode → dentry → file → super_block data structures. How VFS abstracts ext4, tmpfs, procfs, sysfs, devfs. Relevance for rootkits: hooking `file_operations` dispatch tables or `inode_operations` to hide files.
+
+- [ ] **Kernel Modules (LKM):** Writing, compiling, and loading kernel modules (`insmod`, `rmmod`, `modprobe`). Module signing requirements (Secure Boot). Understanding `module_init`, `module_exit`, `EXPORT_SYMBOL`. Safety: modules run in ring 0 — a bug is a kernel panic.
+
+- [ ] **Kernel Debugging:** QEMU + GDB remote debugging, `kgdb`, `kdump` crash analysis with `crash` tool, `dmesg` and `ftrace` for dynamic instrumentation.
+
+---
+
+### **Topic 2: Container Escape & Namespace Internals** — `🔬 Practical`
+
+- [ ] **Linux Namespaces in Depth:** PID namespace (process visibility isolation), Mount namespace (filesystem view), Network namespace (interface/routing isolation), User namespace (UID/GID remapping — privileged outside, unprivileged inside), IPC namespace, Cgroup namespace, Time namespace (kernel 5.6+).
+
+- [ ] **cgroup v1 vs v2 Security Differences:** cgroup v1 writeable release_agent path (classic container escape vector CVE-2022-0492), cgroup v2 unified hierarchy and stricter delegation model. `runc` CVE-2019-5736 (file descriptor overwrite to escape).
+
+- [ ] **Privileged Container Escape:** Abusing `--privileged` Docker containers — full `/dev` access, `SYS_ADMIN` capability, host mount namespace visibility. Standard escape: mount host filesystem, write SSH key or cronjob, chroot.
+
+- [ ] **Capabilitiy Exploitation:** Dangerous Linux capabilities — `CAP_SYS_PTRACE` (debug any process in namespace), `CAP_NET_ADMIN` (raw socket, routing manipulation), `CAP_SYS_ADMIN` (mount, device access, cgroup manipulation), `CAP_DAC_READ_SEARCH` (bypass DAC — read any file).
+
+---
+
+### **Topic 3: Linux Persistence & Rootkit Concepts** — `🧠🔬 Mixed`
+
+- [ ] **Advanced Persistence Mechanisms:** LD_PRELOAD hooking (shared library injection into dynamic linker), `ld.so.preload` system-wide hooking, systemd generator abuse, `udev` rule persistence, `/etc/profile.d/` and PAM module injection.
+
+- [ ] **Kernel Rootkit Techniques (Conceptual):** Syscall table hooking (blocked by kernel module signing + Secure Boot), DKOM (Direct Kernel Object Manipulation) to hide processes by unlinking from task_struct list, `/proc` hiding via VFS hook, netfilter hook for packet filtering bypass.
+
+- [ ] **eBPF Security Relevance:** eBPF programs attached to kprobes, tracepoints, and network sockets — used by modern EDRs (Falco, Cilium, Tetragon) for process/network/file telemetry. Offensive research: malicious eBPF for rootkit-grade stealth without kernel module signing requirements.
+
+| Tool | Purpose |
+|:-----|:--------|
+| `strace` / `ltrace` | Syscall and library call tracing |
+| `ftrace` / `bpftrace` | Kernel function tracing and eBPF scripting |
+| QEMU + GDB | Kernel debugging and exploit development environment |
+| `crash` (kernel crash analysis) | Post-mortem kernel dump analysis |
+| `capsh` / `getcap` / `setcap` | Linux capability inspection and modification |
+| `deepce` / `cdk-go` | Container escape enumeration and exploitation |
+
+---
+
+## Shelf 21: Advanced Windows Internals
+
+> [!NOTE]
+> **Prerequisites:** Solid completion of Stage 1: Module 03 (Windows Administration), Stage 4: Module 19 (Active Directory), and Stage 5: Module 27 (Offensive Development). This shelf goes deep into Windows kernel internals, token security, and memory forensics at a level that presupposes comfort with the Windows security model.
+
+> **When to study:** When moving into Windows kernel exploitation, advanced EDR evasion, memory forensics investigation, or Windows-focused red team tradecraft.
+
+---
+
+### **Topic 1: Windows Kernel Architecture Deep-Dive** — `🧠 Conceptual`
+
+> [!TIP]
+> **Goal:** Understand Windows kernel internals at a depth sufficient for exploit analysis, EDR evasion research, and memory forensics.
+
+- [ ] **Windows Executive & Kernel Layers:** HAL → Kernel (`ntoskrnl.exe`) → Executive subsystems (I/O Manager, Memory Manager, Process Manager, Security Reference Monitor, Object Manager, PnP Manager). Difference between `ntoskrnl.exe`, `ntkrnlpa.exe`, `ntkrnlmp.exe` variants.
+
+- [ ] **Windows Object Model:** Every resource (processes, threads, files, registry keys, events, mutants) is an object managed by the Object Manager. Object header (`_OBJECT_HEADER`), type object (`_OBJECT_TYPE`), handle tables. Relevant to forensics: finding hidden objects, handle leaks, and parsing object directories.
+
+- [ ] **Virtual Memory Architecture:** VAD (Virtual Address Descriptor) tree — user-mode memory allocation tracking. Kernel memory pools (Paged Pool, NonPaged Pool, Session Pool). KASLR on Windows, page table internals, PTE (Page Table Entry) manipulation for hiding memory regions.
+
+- [ ] **Windows Security Architecture:** Security Reference Monitor (SRM) — access check algorithm (`SeAccessCheck`), Access Control Lists (DACLs/SACLs), mandatory integrity labels (Untrusted, Low, Medium, High, System), protected processes (`PS_PROTECTED_PROCESS`), PPL (Protected Process Light).
+
+---
+
+### **Topic 2: Token Security & Advanced Privilege Escalation** — `🔬 Practical`
+
+- [ ] **Access Token Internals:** `_TOKEN` structure fields — User SID, Group SIDs, Privileges bitmap, Integrity Level, DefaultDACL, TokenSource. Primary vs Impersonation tokens. Impersonation levels: Anonymous, Identification, Impersonation, Delegation.
+
+- [ ] **Privilege Token Abuse (Advanced):** `SeDebugPrivilege` — allows `OpenProcess` with `PROCESS_ALL_ACCESS` on any process including LSASS and protected processes. `SeTcbPrivilege` — "act as part of the operating system", enables `LogonUser` impersonation of any account. `SeLoadDriverPrivilege` — load arbitrary kernel drivers (elevation path to kernel via vulnerable signed driver).
+
+- [ ] **Token Impersonation Techniques:** `ImpersonateLoggedOnUser`, `ImpersonateNamedPipeClient`, `DuplicateTokenEx`, `CreateProcessWithTokenW`. Potato attacks (JuicyPotato, PrintSpoofer, GodPotato) — coerce `NT AUTHORITY\SYSTEM` token via named pipe impersonation triggered by privileged COM/RPC services.
+
+- [ ] **Protected Processes & AntiCheat/EDR Circumvention Concepts:** How PPL works — `SignatureLevel` and `SectionSignatureLevel` in `_PS_PROTECTION`. Direct Kernel Object Manipulation (DKOM) to downgrade PPL (requires kernel driver). Process hollowing against PPL processes (blocked without kernel access).
+
+---
+
+### **Topic 3: Windows Memory Forensics** — `🧠🔬 Mixed`
+
+- [ ] **Memory Acquisition:** `WinPmem` (kernel driver-based physical memory acquisition), `DumpIt`, hibernation file (`hiberfil.sys`) analysis, VMware/Hyper-V snapshot extraction (`.vmem`, `.vmsn`). Raw vs crash dump vs complete memory dump formats.
+
+- [ ] **Volatility 3 on Windows Targets:** `windows.pslist` vs `windows.pstree` vs `windows.psscan` (PSScan bypasses DKOM process hiding by scanning physical pages for `_EPROCESS` pool tags). `windows.dlllist`, `windows.dumpfiles`, `windows.malfind` (injected code detection via VAD + PE header presence mismatch), `windows.handles`, `windows.netscan`, `windows.registry.printkey`.
+
+- [ ] **Code Injection Detection in Memory:** Classic injection signatures — PE header (`MZ` / `4D5A`) in a VAD region marked `PAGE_EXECUTE_READWRITE` without a file-backed mapping (indication of reflective DLL injection, shellcode staging, or process hollowing). Malfind false positive analysis.
+
+- [ ] **Malware Persistence Artifacts in Memory:** Identifying rootkit hooks — SSDT (System Service Descriptor Table) hooks, IRP (I/O Request Packet) dispatch table hooks in driver objects, DKOM modifications (process FLINK/BLINK list unlinking). Comparing against known-good baselines.
+
+| Tool | Purpose |
+|:-----|:--------|
+| Volatility 3 | Windows and Linux memory forensics framework |
+| WinPmem / DumpIt | Physical memory acquisition |
+| Sysinternals (Process Explorer, Handle, VMMap) | Live Windows internals inspection |
+| WinDbg / kd (Kernel Debugger) | Windows kernel and user-mode debugging |
+| `x64dbg` | User-mode Windows debugger for malware analysis |
+| PE-bear / PE-sieve | PE structure analysis and hollowing detection |
+
+---

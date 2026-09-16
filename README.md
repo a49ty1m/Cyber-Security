@@ -17,7 +17,7 @@
 
 **Author:** Aditya Mishra  
 **Started:** October 2025  
-**Core Directive:** Understand systems deeply enough to break them, analyze them, and remediate them at the packet and kernel level. Never run a tool you cannot explain.
+**Core Directive:** Understand systems deeply enough to break them, analyze them, and remediate them at the packet and kernel level. Never run a tool I cannot explain.
 
 > *"The goal is not to memorize tools — it's to understand systems deeply enough to break them and, more importantly, to fix them."*
 
@@ -34,7 +34,7 @@ This repository is an **active cyber-security engineering system** built around 
 | 🗺️ **Master Roadmap** | 5 sequential execution stages covering 30 core modules + proof gates | [Roadmap/README.md](Roadmap/README.md) |
 | 🛠️ **Tool Mastery Directory** | 88 comprehensive tool checklists arranged into a 4-tier operational hierarchy | [Roadmap/Tools/README.md](Roadmap/Tools/README.md) |
 | 🧪 **Hands-On Labs** | Network exploitation, web security, Linux privilege escalation, and AD testing | [Lab/README.md](Lab/README.md) |
-| 📦 **Post-Hire Shelf** | 17 situational specializations (ICS/SCADA, Mobile, Web3, Forensics, Hardware) | [Roadmap/Shelf_Post-Hire.md](Roadmap/Shelf_Post-Hire.md) |
+| 📦 **Post-Hire Shelf** | 21 situational specializations (ICS/SCADA, Mobile, Web3, Forensics, Hardware, Automotive, Telecom, Advanced Internals) | [Roadmap/Shelf_Post-Hire.md](Roadmap/Shelf_Post-Hire.md) |
 | 📚 **Literature Mapping** | Exhaustive topic-by-topic cross-reference to primary security textbooks | [Roadmap/book_to_phase_map.md](Roadmap/book_to_phase_map.md) |
 
 ---
@@ -50,7 +50,7 @@ The curriculum follows a strict, dependency-driven execution order. Do not skip 
 | 🟣 **[Stage 3: Web & App Sec](Roadmap/Stage-3_Web-and-App-Sec.md)** | OWASP Top 10, modern web attacks, session hijacking, Web server hacking, API security, Bug bounty methodology, SOC/IDS/CTI | `14–18` | **Stage Gate 2** (3+ HTB/THM writeups, full OWASP coverage, Linux+Windows privesc) |
 | 🏢 **[Stage 4: Enterprise](Roadmap/Stage-4_Enterprise.md)** | Active Directory, Kerberos attacks, Cloud IAM, Kubernetes/Containers, Adversary Emulation, MITM, Social Engineering, Reporting | `19–26` | **Stage Gate 3** (End-to-end AD domain compromise, BloodHound graph analysis, 1 full report) |
 | 🔬 **[Stage 5: Specialized](Roadmap/Stage-5_Specialized.md)** | Offensive C/C++ Dev, Custom C2 implants, AI/LLM Red Teaming, Red Team operations, Portfolio & CVE discovery | `27–30` | **Final Gate** (Custom C2 in lab, published AI security research, 3+ professional reports) |
-| 📦 **[Post-Hire Shelf](Roadmap/Shelf_Post-Hire.md)** | Off-sequence electives (Wireless, Mobile, ICS/SCADA, Digital Forensics, Exploit Dev, GRC, Hardware Hacking) | `S01–S17` | *Unclaimed until operational on the job* |
+| 📦 **[Post-Hire Shelf](Roadmap/Shelf_Post-Hire.md)** | Off-sequence electives (Wireless, Mobile, ICS/SCADA, Digital Forensics, Exploit Dev, GRC, Hardware Hacking, Automotive, Telecom, Advanced Internals) | `S01–S21` | *Unclaimed until operational on the job* |
 
 ---
 
@@ -110,7 +110,7 @@ Cyber-Security/
 │   ├── Stage-3_Web-and-App-Sec.md            # Modules 14–18: Web/API Security & Defensive Tracks
 │   ├── Stage-4_Enterprise.md                 # Modules 19–26: Active Directory, Cloud, Containers
 │   ├── Stage-5_Specialized.md                # Modules 27–30: Exploit Dev, AI Red Team, Tradecraft
-│   ├── Shelf_Post-Hire.md                    # Modules S01–S17: Post-hire specialization library
+│   ├── Shelf_Post-Hire.md                    # Modules S01–S21: Post-hire specialization library
 │   ├── book_to_phase_map.md                  # Comprehensive textbook-to-stage study crosswalk
 │   ├── Prompt_to_Learn.md                    # Self-prompting and active recall framework
 │   └── Tools/                                # 88 Tool Mastery Guides (Tiers 1–4)
