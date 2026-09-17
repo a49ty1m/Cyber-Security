@@ -206,25 +206,25 @@
 
 - [x] **Architecture Types:** Distinguish between **x86** (32-bit) and **x64** (64-bit) addressing and how they handle memory instructions differently.
 
-- [ ] **RAM (Random Access Memory):** Understand RAM as **volatile** working memory — loses content on power loss. RAM holds live credentials, keys, and TLS session state, making it a high-value forensic target. *Security angle: cold boot attacks (freeze DIMMs to read residual charge); live acquisition with `winpmem`/`LiME`. Mitigations: AMD SME/SEV, Intel TME.*
+- [x] **RAM (Random Access Memory):** Understand RAM as **volatile** working memory — loses content on power loss. RAM holds live credentials, keys, and TLS session state, making it a high-value forensic target. *Security angle: cold boot attacks (freeze DIMMs to read residual charge); live acquisition with `winpmem`/`LiME`. Mitigations: AMD SME/SEV, Intel TME.*
 
-- [ ] **Instruction Sets:** Develop a working familiarity with **Assembly** language (**MOV**, **PUSH**, **POP**, **CALL**, **JMP**).
+- [x] **Instruction Sets:** Develop a working familiarity with **Assembly** language (**MOV**, **PUSH**, **POP**, **CALL**, **JMP**).
 
-- [ ] **CPU Cache Hierarchy (L1/L2/L3):** Understand the three levels — L1 (per-core, ~32–64 KB), L2 (per-core, ~256 KB–1 MB), L3 (shared, several MB) — and that data moves in 64-byte **cache lines**. *Security angle: Spectre/Meltdown exploit cache-timing side channels (`rdtsc`); attack families: Flush+Reload, Prime+Probe, Evict+Time.*
+- [x] **CPU Cache Hierarchy (L1/L2/L3):** Understand the three levels — L1 (per-core, ~32–64 KB), L2 (per-core, ~256 KB–1 MB), L3 (shared, several MB) — and that data moves in 64-byte **cache lines**. *Security angle: Spectre/Meltdown exploit cache-timing side channels (`rdtsc`); attack families: Flush+Reload, Prime+Probe, Evict+Time.*
 
-- [ ] **The Boot Chain:** Master the sequence from **UEFI/Secure Boot** $\rightarrow$ **Bootloader** $\rightarrow$ **Kernel Load** $\rightarrow$ **Init/Systemd**.
+- [x] **The Boot Chain:** Master the sequence from **UEFI/Secure Boot** $\rightarrow$ **Bootloader** $\rightarrow$ **Kernel Load** $\rightarrow$ **Init/Systemd**.
 
-- [ ] **TPM (Trusted Platform Module):** Understand TPM 2.0 as a hardware crypto co-processor for **key storage**, **remote attestation**, and **sealing** (binding data to a specific boot state via PCR hash chains). BitLocker seals the volume key to PCR values — tamper the boot chain and it demands a recovery key. *Security angle: PCIe bus sniffing on discrete TPMs (patched); CVE-2023-1017/1018 (buffer overflows in TPM2.0 reference impl).*
+- [x] **TPM (Trusted Platform Module):** Understand TPM 2.0 as a hardware crypto co-processor for **key storage**, **remote attestation**, and **sealing** (binding data to a specific boot state via PCR hash chains). BitLocker seals the volume key to PCR values — tamper the boot chain and it demands a recovery key. *Security angle: PCIe bus sniffing on discrete TPMs (patched); CVE-2023-1017/1018 (buffer overflows in TPM2.0 reference impl).*
 
-- [ ] **PCIe (Peripheral Component Interconnect Express):** High-speed serial bus (x1/x4/x8/x16 lanes) connecting CPU to GPUs, NVMe, NICs. PCIe devices have **DMA capability** — they can read/write RAM directly without the CPU. *Security angle: Thunderbolt PCIe tunneling = DMA access before OS loads (Evil Maid, PCILeech); mitigation: IOMMU (Intel VT-d / AMD-Vi), disabled by default on consumer systems.*
+- [x] **PCIe (Peripheral Component Interconnect Express):** High-speed serial bus (x1/x4/x8/x16 lanes) connecting CPU to GPUs, NVMe, NICs. PCIe devices have **DMA capability** — they can read/write RAM directly without the CPU. *Security angle: Thunderbolt PCIe tunneling = DMA access before OS loads (Evil Maid, PCILeech); mitigation: IOMMU (Intel VT-d / AMD-Vi), disabled by default on consumer systems.*
 
-- [ ] **USB Architecture & Attack Surface:** Understand the host/device/hub hierarchy and USB descriptors (device, configuration, interface) — the OS trusts declared device class without authentication. *Security angle: BadUSB (reflash controller firmware to HID keyboard), Rubber Ducky, Juice Jacking, USBKill. Mitigations: USBGuard (Linux), Windows USB Device Control.*
+- [x] **USB Architecture & Attack Surface:** Understand the host/device/hub hierarchy and USB descriptors (device, configuration, interface) — the OS trusts declared device class without authentication. *Security angle: BadUSB (reflash controller firmware to HID keyboard), Rubber Ducky, Juice Jacking, USBKill. Mitigations: USBGuard (Linux), Windows USB Device Control.*
 
-- [ ] **Hardware I/O & DMA:** Understand how **Direct Memory Access (DMA)** allows peripherals to read/write system RAM by bypassing the CPU.
+- [x] **Hardware I/O & DMA:** Understand how **Direct Memory Access (DMA)** allows peripherals to read/write system RAM by bypassing the CPU.
 
-- [ ] **Embedded Controllers (EC) & BMC/IPMI:** Laptop ECs (ITE IT8xxx) manage power, fans, and keyboard — run own firmware, survive OS reinstalls. Server equivalent is the **BMC** running IPMI/Redfish for out-of-band remote management. *Security angle: EC persistence (ThinkPwn); IPMI attack surface — default creds (`ADMIN`/`ADMIN`), RAKP hash disclosure (offline-crackable), cipher 0 bypass. Compromised BMC = persistence that survives reimaging.*
+- [x] **Embedded Controllers (EC) & BMC/IPMI:** Laptop ECs (ITE IT8xxx) manage power, fans, and keyboard — run own firmware, survive OS reinstalls. Server equivalent is the **BMC** running IPMI/Redfish for out-of-band remote management. *Security angle: EC persistence (ThinkPwn); IPMI attack surface — default creds (`ADMIN`/`ADMIN`), RAKP hash disclosure (offline-crackable), cipher 0 bypass. Compromised BMC = persistence that survives reimaging.*
 
-- [ ] **Storage Forensics:** Understand the physical data storage on **HDDs vs. SSDs** and why "deleting" is not "wiping" in a forensics context.
+- [x] **Storage Forensics:** Understand the physical data storage on **HDDs vs. SSDs** and why "deleting" is not "wiping" in a forensics context.
 
 ---
 
@@ -338,7 +338,7 @@
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
 
 > [!NOTE]
-> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Shelf_Post-Hire#shelf-02-mobile-platform-pentesting|Shelf 02: Mobile Platform Pentesting]]** (Shelf 02). Do not attempt until completing Stages 2–4.
+> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Shelf_Post-Hire#Shelf 02: Mobile Platform Pentesting|Shelf 02: Mobile Platform Pentesting]]** (Shelf 02). Do not attempt until completing Stages 2–4.
 
 ---
 

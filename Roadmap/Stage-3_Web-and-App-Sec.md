@@ -1130,7 +1130,7 @@ It also teaches a critical professional lesson: automated scanners miss things. 
 ### Side-Track A: Detection Engineering & SOC Operations
 
 
-_Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Shelf_Post-Hire#shelf-16-security-operations-expansion|Shelf 16 (Security Operations Expansion)]]._
+_Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Shelf_Post-Hire#Shelf 16: Security Operations Expansion|Shelf 16 (Security Operations Expansion)]]._
 
 <a id="stage-1-defensive-architecture"></a>
 ### **Topic 1: Defensive Architecture** — `🧠 Conceptual`
@@ -1754,7 +1754,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#shelf-11-governance-risk--compliance-grc|Shelf 11: GRC]]. This sidebar gives me the minimum needed to function effectively in a defensive role from Day 1._
+> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#Shelf 11: Governance, Risk & Compliance (GRC)|Shelf 11: GRC]]. This sidebar gives me the minimum needed to function effectively in a defensive role from Day 1._
 
 
 
@@ -1799,7 +1799,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!NOTE]
 > **✅ Defensive Operations side-tracks conclude here.**
-> Module 22 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#module-22-adversary-emulation--purple-teaming|Stage 4: Enterprise]].
+> Module 22 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming|Stage 4: Enterprise]].
 >
 > 
 

@@ -658,7 +658,7 @@
 
 
 > [!NOTE]
-> **Navigational Note — Scope:** Module 11 focuses on direct database engine exploitation, authentication bypass, and privilege escalation (UDF, xp_cmdshell, misconfigurations). Application-layer SQL Injection is taught in [[Stage-3_Web-and-App-Sec#module-14-web-application-hacking|Stage 3: Module 14]].
+> **Navigational Note — Scope:** Module 11 focuses on direct database engine exploitation, authentication bypass, and privilege escalation (UDF, xp_cmdshell, misconfigurations). Application-layer SQL Injection is taught in [[Stage-3_Web-and-App-Sec#Module 14: Web Application Hacking|Stage 3: Module 14]].
 
 > [!IMPORTANT]
 > **Prerequisites:** Module 10 (Enumeration) — specifically Topic 4 (Database & Application Enumeration). I should already be able to identify running database services and version-fingerprint them before starting this module.
@@ -972,7 +972,7 @@
 
 - [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
 
-> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Stage-4_Enterprise#module-19-active-directory--entra-id|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Shelf_Post-Hire#shelf-01-wireless-network-security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Module 13: System Hacking** (credential-based lateral movement). Complete this module before Stage 4.
+> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Stage-4_Enterprise#Module 19: Active Directory & Entra ID|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Shelf_Post-Hire#Shelf 01: Wireless Network Security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Module 13: System Hacking** (credential-based lateral movement). Complete this module before Stage 4.
 
 ---
 
@@ -1653,10 +1653,10 @@
 
 > [!NOTE]
 > **Curriculum Alignment:** Advanced operational topics previously grouped under secondary offensive operations have been cleanly integrated into their operational homes:
-> - **Sniffing & Spoofing (ARP/DNS/MITM):** [[Stage-4_Enterprise#module-23-sniffing--spoofing|Stage 4: Module 23]]
-> - **Social Engineering (Phishing/Pretexting):** [[Stage-4_Enterprise#module-24-social-engineering|Stage 4: Module 24]]
-> - **Malware & Weaponization (Payload Generation):** [[Stage-4_Enterprise#module-25-malware--weaponization-conceptual|Stage 4: Module 25]] & [[Stage-5_Specialized#module-27-offensive-development--tooling|Stage 5: Module 27]]
-> - **Denial of Service & Resilience:** [[Shelf_Post-Hire#shelf-17-denial-of-service--availability-resilience|Shelf 17]]
+> - **Sniffing & Spoofing (ARP/DNS/MITM):** [[Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23]]
+> - **Social Engineering (Phishing/Pretexting):** [[Stage-4_Enterprise#Module 24: Social Engineering|Stage 4: Module 24]]
+> - **Malware & Weaponization (Payload Generation):** [[Stage-4_Enterprise#Module 25: Malware & Weaponization (Conceptual)|Stage 4: Module 25]] & [[Stage-5_Specialized#Module 27: Offensive Development & Tooling|Stage 5: Module 27]]
+> - **Denial of Service & Resilience:** [[Shelf_Post-Hire#Shelf 17: Denial of Service & Availability Resilience|Shelf 17]]
 
 ---
 

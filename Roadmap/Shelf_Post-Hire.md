@@ -2414,7 +2414,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 ---
 
 > [!NOTE]
-> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[[Stage-3_Web-and-App-Sec#module-15-session-hijacking--token-attacks|Stage 3: Module 15]]** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[[Stage-4_Enterprise#module-23-sniffing--spoofing|Stage 4: Module 23 (Sniffing & Spoofing)]]**.
+> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[[Stage-3_Web-and-App-Sec#Module 15: Session Hijacking & Token Attacks|Stage 3: Module 15]]** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[[Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23 (Sniffing & Spoofing)]]**.
 
 ---
 
