@@ -24,22 +24,6 @@
 
 ---
 
-## ❌ SKIP ENTIRELY — Zero ROI for Your Track
-
-These exist in your library but have no practical value for Red Team / Offensive Security.
-Do not open at any point in your roadmap.
-
-| Category | Examples |
-|---|---|
-| **Too Old (pre-2010)** | All Hakin9 issues 2005–2009, Python 2.x books, Classic Shell Scripting |
-| **Academic/Theoretical CS** | Automata theory, Type Theory, Graph Transformations, Lambda Calculus, Complexity books |
-| **Beginner Hacking Fluff** | "Computer Hacking Beginners Guide", "Hacking for Dummies", "Hacking Made Easy", "Getting Started Becoming a Master Hacker" |
-| **Completely Off-Track** | React, Kotlin, JavaScript, Java, VBA, Excel Macros, Game Dev, ML/AI (non-security) |
-| **Irrelevant Certs** | CISA (audit focus), CCNA Cloud (networking vendor cert, not offensive security) |
-| **Hacker Culture** | "Hackers Heroes of the Computer Revolution", "Hacker Culture", "Hacker States" — interesting but zero skill ROI |
-
----
-
 ## ✅ STAGE 1: Foundation
 > Stage 1 is substantially complete. Use these as **gap-patching references only** — do NOT restart Stage 1.
 
