@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # Stage 5 — Specialized
 
@@ -14,7 +13,6 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 27–30**
->
 > - **⏱️ Estimated Time:** ~15–22 weeks of consistent daily sessions
 > - **🎯 Modules:** `27` Offensive Development & Tooling (+ RE & Fuzzing in parallel) · `28` AI & LLM Red Teaming (+ Modern Attack Surfaces in parallel) · `29` Red Team Operations & Tradecraft (+ Defensive Awareness & Intelligence in parallel) · `30` Proof of Work & Career Portfolio
 > - **🔴 Final Gate:** Custom C2 running in lab · published AI security research · 3+ professional reports · OSCP
@@ -22,10 +20,7 @@
 
 ---
 
-<a id="table-of-contents"></a>
-
 ### 🗂️ Table of Contents
-
 
 - [[#Module 27: Offensive Development & Tooling|Module 27: Offensive Development & Tooling]]
   - [[#C Language — Systems Programming & Exploit Foundations|C Language — Systems Programming & Exploit Foundations]]
@@ -88,9 +83,6 @@
 
 ---
 
-<a id="module-27-offensive-development--tooling"></a>
-<a id="part-42-offensive-development-tooling"></a>
-
 ## Module 27: Offensive Development & Tooling
 
 > [!IMPORTANT]
@@ -98,8 +90,6 @@
 
 > [!TIP]
 > **Goal:** Build the C and C++ foundations required for shellcode writing, exploit development, Windows API exploitation, and reverse engineering of compiled binaries. These are not general-purpose programming languages at this stage — they are the substrate of offensive development and RE.
-
-<a id="c-language-systems-programming-exploit-foundations"></a>
 
 ### C Language — Systems Programming & Exploit Foundations
 
@@ -129,8 +119,6 @@
 
 ---
 
-<a id="c-reverse-engineering-context"></a>
-
 ### C++ — Reverse Engineering Context
 
 - [ ] **Object Model & Memory Layout:** Understand how C++ objects are laid out in memory: the this pointer, member variables at fixed offsets, vtable pointer at offset 0 for polymorphic objects. Know why `sizeof(MyClass)` may surprise you (padding, vtable pointer).
@@ -147,8 +135,6 @@
 
 ---
 
-<a id="move-on-gate-topic-7b"></a>
-
 ### Move-On Gate (Topic 7B)
 
 > [!IMPORTANT]
@@ -160,9 +146,6 @@
 
 ---
 
-<a id="toc-part-42-offensive-development--tooling"></a>
-<a id="part-42-offensive-development-tooling"></a>
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Black Hat Python 2nd Edition` — Primary companion — C2 building, RAT development, evasion, and custom offensive tooling
@@ -172,7 +155,6 @@
 
 > **Prerequisite Placement Note:** Module 27 (Offensive Development & Tooling) is positioned here at the entrance of Stage 5 (immediately following the C/C++ systems foundation) because it forms the mandatory offensive development foundation required for advanced tradecraft and exploit prototyping.
 
-<a id="stage-1-exploit-development-foundation"></a>
 ### Topic 1: Exploit Development Foundation — 🔬 Practical
 
 - [ ] **Exploit Prototyping:** Use Python with **pwntools, [[Impacket]]** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
@@ -187,7 +169,6 @@
 
 - [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
 
-<a id="stage-2-windows-offensive-development"></a>
 ### Topic 2: Windows Offensive Development — 🔬 Practical
 
 - [ ] **Win32 API Exploitation:** Use **CreateProcess, VirtualAlloc, WriteProcessMemory, CreateRemoteThread** for **process injection, DLL loading, and token manipulation**.
@@ -206,14 +187,12 @@
 
 - [ ] **Offensive PowerShell:** Master **download cradles, constrained language mode escape, script block logging evasion**, and **AMSI bypass in PowerShell**.
 
-<a id="stage-3-linux-offensive-development"></a>
 ### Topic 3: Linux Offensive Development — 🔬 Practical
 
 - [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
 
 - [ ] **ELF Binary Manipulation:** Understand **ELF format, GOT/PLT, dynamic linking** for binary patching and implant injection.
 
-<a id="stage-4-c2-implant-development"></a>
 ### Topic 4: C2 & Implant Development — 🔬 Practical
 
 - [ ] **C2 Architecture:** Design **client-server implant architecture** with **modular payloads, encrypted channels, and sleep obfuscation**.
@@ -224,7 +203,6 @@
 
 - [ ] **Evasion Integration:** Combine **sleep obfuscation, call stack spoofing, indirect syscalls, and API unhooking** into implant design.
 
-<a id="lab-progression-part-42-offensive-development-tooling"></a>
 ### Lab Progression (Module 27: Offensive Development & Tooling)
 
 | Level | Task | Deliverable |
@@ -239,8 +217,6 @@
 > **Move-On Gate:** I can write working exploits, develop custom shellcode, build basic C2 implants, modify existing offensive tools to evade detection, and bypass AMSI/ETW in a controlled lab environment.
 
 ---
-
-<a id="module-27-security-automation"></a>
 
 ### Security Automation — 🔬 Practical
 
@@ -299,18 +275,15 @@
 > [!IMPORTANT]
 > **Security Automation Move-On Gate:** I have at least 3 working automation tools committed to my GitHub. Each has a README, usage examples, and documented output. They solve a real problem you encountered during Stages 1–4. This is portfolio material.
 
----<a id="module-28-ai--llm-red-teaming"></a>
-<a id="part-38-ai-llm-red-teaming"></a>
+---
 
 ## Module 28: AI & LLM Red Teaming
 
 > [!IMPORTANT]
 > **⛔ Stage 5 Entry Gate (AI Security) — Verify BOTH prerequisites before Topic 1**
->
 > **Prerequisite 1 — Traditional Security (Required):**
 > - [ ] Phases 1–8 are complete (foundations, offensive core, web, infrastructure, advanced specializations, GRC, DevSecOps)
 > - [ ] I have completed at least one full attack chain in a lab environment (recon → initial access → privilege escalation → lateral movement)
->
 > **Prerequisite 2 — Python ML (Required for Stages 7–10):**
 > - [ ] I am comfortable with `numpy` array manipulation, `pandas` DataFrames, and `matplotlib` visualization
 > - [ ] I understand what a neural network forward pass does (input → weights → activation → output) and what a loss function measures
@@ -319,7 +292,6 @@
 
 ---
 
-<a id="stage-1-ai-fundamentals-for-security-practitioners"></a>
 ### Topic 1: AI Fundamentals for Security Practitioners — 🧠 Conceptual
 
 > [!TIP]
@@ -345,7 +317,6 @@
 
 ---
 
-<a id="stage-2-attack-surface-frameworks"></a>
 ### Topic 2: Attack Surface & Frameworks — 🧠 Conceptual
 
 > [!TIP]
@@ -359,7 +330,6 @@
 
 ---
 
-<a id="stage-3-adversarial-techniques-llm01llm06"></a>
 ### Topic 3: Adversarial Techniques (LLM01/LLM06) — 🔬 Practical
 
 > [!TIP]
@@ -383,7 +353,6 @@
 > [!NOTE]
 > **Reminder — Python ML Prerequisite:** Stages 7–10 require the ML skills verified in the Stage 5 Entry Gate above. If I skipped that check or flagged a gap, resolve it before starting Stage 7 — not now, but before I reach it.
 
-<a id="stage-4-rag-data-supply-chain-attacks"></a>
 ### Topic 4: RAG & Data Supply Chain Attacks — 🔬 Practical
 
 > [!TIP]
@@ -397,7 +366,6 @@
 
 ---
 
-<a id="stage-5-language-model-specific-attacks"></a>
 ### Topic 5: Language Model Specific Attacks — 🔬 Practical
 
 > [!TIP]
@@ -415,7 +383,6 @@
 
 ---
 
-<a id="stage-6-multi-model-agent-attacks"></a>
 ### Topic 6: Multi-Model & Agent Attacks — 🔬 Practical
 
 > [!TIP]
@@ -433,7 +400,6 @@
 
 ---
 
-<a id="stage-7-adversarial-examples-ml-robustness"></a>
 ### Topic 7: Adversarial Examples & ML Robustness — 🔬 Practical
 
 > [!TIP]
@@ -451,7 +417,6 @@
 
 ---
 
-<a id="stage-8-model-extraction-inversion"></a>
 ### Topic 8: Model Extraction & Inversion — 🔬 Practical
 
 > [!TIP]
@@ -467,7 +432,6 @@
 
 ---
 
-<a id="stage-9-dataset-poisoning-backdoors"></a>
 ### Topic 9: Dataset Poisoning & Backdoors — 🧠🔬 Mixed
 
 > [!TIP]
@@ -485,7 +449,6 @@
 
 ---
 
-<a id="stage-10-privacy-attacks-pii-leakage"></a>
 ### Topic 10: Privacy Attacks & PII Leakage — 🔬 Practical
 
 > [!TIP]
@@ -511,7 +474,6 @@
 > - [ ] I have written a membership inference experiment: given a trained model and a set of examples, I can estimate which examples were in the training set using confidence scores
 > - [ ] I can explain how label flipping and backdoor attacks differ in mechanism, detectability, and defense
 
-<a id="stage-11-ai-augmented-red-team-workflow"></a>
 ### Topic 11: AI-Augmented Red Team Workflow — 🔬 Practical
 
 > [!TIP]
@@ -531,7 +493,6 @@
 
 ---
 
-<a id="stage-12-agentic-ai-autonomous-attack-infrastructure"></a>
 ### Topic 12: Agentic AI & Autonomous Attack Infrastructure — 🔬 Practical
 
 > [!TIP]
@@ -565,7 +526,6 @@
 
 ---
 
-<a id="stage-13-tooling-evaluation"></a>
 ### Topic 13: Tooling & Evaluation — 🔬 Practical
 
 > [!TIP]
@@ -579,7 +539,6 @@
 
 ---
 
-<a id="stage-14-defense-responsible-ai"></a>
 ### Topic 14: Defense & Responsible AI — 🧠 Conceptual
 
 > [!TIP]
@@ -601,7 +560,6 @@
 
 ---
 
-<a id="stage-15-shadow-ai-organizational-ai-risk"></a>
 ### Topic 15: Shadow AI & Organizational AI Risk — 🧠 Conceptual
 
 > [!TIP]
@@ -619,7 +577,6 @@
 
 ---
 
-<a id="stage-16-defensive-ai-operations"></a>
 ### Topic 16: Defensive AI Operations — 🧠🔬 Mixed
 
 > [!TIP]
@@ -646,7 +603,6 @@
 > - [ ] I have deployed at least 1 defensive AI detection: a deepfake detection check, ML-enhanced log anomaly model, or AI phishing classifier — and I can measure its false positive rate against benign data
 > - [ ] I can explain 3 forensic artifacts that an LLM-powered attack campaign would leave behind (API call logs, embedding store queries, model version history) and describe how you would collect them during a DFIR engagement
 
-<a id="stage-17-ai-security-projects-portfolio"></a>
 ### Topic 17: AI Security Projects & Portfolio — 🔬 Practical
 
 > [!TIP]
@@ -664,7 +620,6 @@
 
 ---
 
-<a id="stage-18-ai-security-career-targeting"></a>
 ### Topic 18: AI Security Career Targeting — 🧠 Conceptual
 
 > [!TIP]
@@ -680,8 +635,6 @@
 
 ---
 
-<a id="lab-progression-module-28-ai-llm-red-teaming"></a>
-
 ### Lab Progression (Module 28: AI & LLM Red Teaming)
 
 | Level | Task | Deliverable |
@@ -694,8 +647,6 @@
 > **Move-On Gate (Module 28):** Execute prompt injection attacks across multiple models, demonstrate RAG poisoning in a lab, and publish an AI security tool to GitHub with documentation.
 
 ---
-
-<a id="ai-red-teaming-capstone-project"></a>
 
 ### 🏆 AI Red Teaming Capstone Project
 
@@ -717,8 +668,6 @@
 
 ---
 
-<a id="ai-red-teaming-reflection-competency-check"></a>
-
 ### 🧭 AI Red Teaming Reflection & Competency Check
 
 - [ ] **Reflection:** Which AI risk depended most on traditional security fundamentals rather than model behavior?
@@ -730,8 +679,7 @@
 > [!IMPORTANT]
 > **AI Red Teaming Completion Gate:** Move on only when my AI security assessment is reproducible, evidence-backed, and grounded in both AI-specific and traditional security controls.
 
----<a id="module-29-red-team-operations--tradecraft"></a>
-<a id="part-40-red-team-operations-tradecraft"></a>
+---
 
 ## Module 29: Red Team Operations & Tradecraft
 
@@ -743,9 +691,6 @@
 > - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reference — structured red team operation planning
 
 > **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator. Building on the foundational scoping and reporting frameworks of Module 26, Module 29 focuses on executing stealthy, multi-stage adversary simulations.
-
-<a id="strategy-core-operations"></a>
-<a id="stage-1-campaign-planning-infrastructure"></a>
 
 ### Topic 1: Campaign Planning & Infrastructure — 🔬 Practical
 
@@ -762,8 +707,6 @@
 
 ---
 
-<a id="stage-2-initial-access-payload-delivery"></a>
-
 ### Topic 2: Initial Access & Payload Delivery — 🔬 Practical
 
 > [!TIP]
@@ -772,8 +715,6 @@
 - [ ] **Initial Access Tradecraft:** Master **phishing (spearphishing with pretexting, HTML smuggling, macro-free Office exploitation)**, **external service exploitation**, and **supply chain vectors**. Build payloads that survive email gateways, sandboxes, and EDR.
 
 ---
-
-<a id="stage-3-opsec-persistence-lateral-movement"></a>
 
 ### Topic 3: OPSEC, Persistence & Lateral Movement — 🔬 Practical
 
@@ -788,8 +729,6 @@
 
 ---
 
-<a id="stage-4-data-exfiltration-impact"></a>
-
 ### Topic 4: Data Exfiltration & Impact — 🔬 Practical
 
 > [!TIP]
@@ -799,8 +738,6 @@
 
 ---
 
-<a id="stage-5-deconfliction-reporting-wrap-up"></a>
-
 ### Topic 5: Deconfliction, Reporting & Wrap-Up — 🧠🔬 Mixed
 
 > [!TIP]
@@ -809,8 +746,6 @@
 - [ ] **Campaign Reporting:** Write **red team reports** distinct from pentest reports — focus on **attack narrative (timeline of actions), detection opportunities missed by defenders, and organizational resilience assessment**. Include **detection timeline analysis** showing what the blue team saw vs what they missed.
 
 - [ ] **Deconfliction & Safety:** Maintain a **real-time deconfliction log** with the client's point of contact. Know when to **pause, abort, or escalate** — finding real compromises during a red team engagement requires immediate deconfliction. Never cause unintended business impact.
-
-<a id="lab-progression-module-29-red-team-operations-tradecraft"></a>
 
 ### Lab Progression (Module 29: Red Team Operations & Tradecraft)
 
@@ -825,13 +760,7 @@
 
 ---
 
-<a id="toc-part-41-proof-of-work--career-portfolio"></a>
-<a id="part-41-proof-of-work-career-portfolio"></a>
-
 ---
-
-<a id="module-30-proof-of-work--career-portfolio"></a>
-<a id="part-41-proof-of-work-career-portfolio"></a>
 
 ## Module 30: Proof of Work & Career Portfolio
 
@@ -842,8 +771,6 @@
 > - 🟢 `The Threat Detection Report 2023` — Reference — current threat landscape context for interview discussions
 
 > **Core Principle:** Theory without evidence is worthless. Every technical skill in this roadmap must be validated through _unfakeable_ proof of work — tools you've built, reports you've written, certifications you've earned, and bugs you've found. This section ties it all together.
-
-<a id="stage-1-certification-roadmap"></a>
 
 ### Topic 1: Certification Roadmap — 🧠 Conceptual
 
@@ -884,8 +811,6 @@
 
 ---
 
-<a id="stage-2-technical-portfolio-github-presence"></a>
-
 ### Topic 2: Technical Portfolio & GitHub Presence — 🔬 Practical
 
 > [!TIP]
@@ -907,8 +832,6 @@
 
 ---
 
-<a id="stage-3-technical-writing-content"></a>
-
 ### Topic 3: Technical Writing & Content — 🧠🔬 Mixed
 
 > [!TIP]
@@ -925,8 +848,6 @@
 - [ ] **LinkedIn Technical Content:** Post **regular technical insights, tool reviews, and industry commentary** — LinkedIn is the primary hiring platform for security roles; build a professional narrative.
 
 ---
-
-<a id="stage-4-bug-bounties-community-engagement"></a>
 
 ### Topic 4: Bug Bounties & Community Engagement — 🔬 Practical
 
@@ -946,8 +867,6 @@
 - [ ] **Mentorship & Teaching:** Contribute to the community by **mentoring junior practitioners, answering StackOverflow/Reddit questions, creating educational content** — teaching deepens understanding and builds network.
 
 ---
-
-<a id="stage-5-career-positioning-job-search-strategy"></a>
 
 ### Topic 5: Career Positioning & Job Search Strategy — 🧠 Conceptual
 
@@ -970,8 +889,6 @@
 - [ ] **Continuous Skill Maintenance:** Security is a **continuous learning field** — maintain certifications (OSCP requires CPEs), continue bug bounty hunting, publish new research, attend conferences, and stay current with emerging threats and tools.
 
 ---
-
-<a id="stage-5b-technical-interview-preparation"></a>
 
 ### Topic 5B: Technical Interview Preparation — 🧠🔬 Mixed
 
@@ -996,7 +913,6 @@
   - **System design prep:** "System Design Interview" by Alex Xu (Chapters 1, 5, 10) for the patterns; apply security overlays from my own knowledge.
   - **Behavioral prep:** "The STAR Interview" by Misha Yurchenko for structure; adapt examples from my own pentest/CTF/bug bounty work.
 
-<a id="stage-6-soft-skills-professional-communication"></a>
 ### Topic 6: Soft Skills & Professional Communication — 🧠 Conceptual
 
 > [!TIP]
@@ -1018,8 +934,6 @@
 
 ---
 
-<a id="lab-progression-module-30-proof-of-work-career-portfolio"></a>
-
 ### Lab Progression (Module 30: Proof of Work & Career Portfolio)
 
 | Level | Task                                                                                                         | Deliverable                                                |
@@ -1032,8 +946,6 @@
 > **Move-On Gate (Module 30):** Produce one pentest report with three executive summaries (CISO, engineering lead, compliance officer) for the same set of findings, and have a live portfolio with working tools, published writeups, and at least one industry-recognized certification.
 
 ---
-
-<a id="stage-5-capstone-project"></a>
 
 ### 🏆 Stage 5 Capstone Project
 
@@ -1058,8 +970,6 @@
 
 ---
 
-<a id="stage-5-reflection-competency-check"></a>
-
 ### 🧭 Stage 5 Reflection & Competency Check
 
 - [ ] **Reflection:** What story does my portfolio tell about my strongest security direction?
@@ -1071,17 +981,14 @@
 > [!IMPORTANT]
 > **Roadmap Completion Gate:** I am done when my portfolio is coherent, current, ethically publishable, and aligned with the roles I am applying for.
 
----<a id="tool-priority-reference"></a>
+---
 
 ## 🛠️ Tool Priority Reference
 
 > **How to Use This Section:** This is my master toolkit map — 38 tools, ordered by priority across 4 tiers. Tiers are about **frequency of use in real engagements**, not difficulty. A Tier 1 tool is on my screen in every lab and engagement. A Tier 4 tool is situational and domain-specific.
->
 > Every tool has a dedicated mastery checklist in the `Tools/` directory. Study them in priority order. Don't go deep on Ghidra before I're fluent with Nmap.
 
 ---
-
-<a id="tier-1-core-pentest-essentials"></a>
 
 ### 🔴 Tier 1 — Core Pentest Essentials
 
@@ -1109,8 +1016,6 @@
 
 ---
 
-<a id="tier-2-important-frequent-use"></a>
-
 ### 🔶 Tier 2 — Important, Frequent Use
 
 *12 tools. Critical for Active Directory attacks, network analysis, red teaming, and web specialization. I will use these in most serious engagements — just not on every single target like Tier 1.*
@@ -1135,8 +1040,6 @@
 
 ---
 
-<a id="tier-3-specialized-situational"></a>
-
 ### 🔷 Tier 3 — Specialized / Situational
 
 *12 tools. Essential within their specific domain, but not universally needed. Pick the sub-group that matches my track.*
@@ -1160,8 +1063,6 @@
 
 ---
 
-<a id="tier-4-niche-concept-focused"></a>
-
 ### 🔹 Tier 4 — Niche / Concept-Focused
 
 *11 tools. Know what each does and when to call for it. Deep practice is optional unless DoS testing or low-level malware analysis is my specific role.*
@@ -1183,8 +1084,6 @@
 > **Tier 4 is conceptual.** I should be able to explain what each tool does and run a basic test — that's it. I do not need to master these to be a working penetration tester.
 
 ---
-
-<a id="tool-selection-decision-tree"></a>
 
 ### 📐 Tool Selection Decision Tree
 
@@ -1258,8 +1157,6 @@ WHAT DO YOU NEED TO DO?
 
 ---
 
-<a id="suggested-study-order"></a>
-
 ### 🗓️ Suggested Study Order
 
 *Start from Block 1. Complete each block before moving to the next.*
@@ -1279,7 +1176,7 @@ WHAT DO YOU NEED TO DO?
 | 11 | 23–26 | Ghidra · x64dbg · PEStudio · strings · DiE · Procmon | Malware analysis track (skip if not my focus) |
 | 12 | 27+ | Tier 4 tools as needed | Situational — study when a lab or role specifically requires them |
 
----<a id="final-gate"></a>
+---
 
 ## 🏁 Final Gate — Mastery & Career Validation
 

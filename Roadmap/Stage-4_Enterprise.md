@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # Stage 4 — Enterprise
 
@@ -14,7 +13,6 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 19–26**
->
 > - **⏱️ Estimated Time:** ~10–13 weeks of consistent daily sessions
 > - **🎯 Modules:** `19` Active Directory & Entra ID · `20` Cloud Security · `21` Containers & Kubernetes · `22` Adversary Emulation & Purple Teaming · `23` Sniffing & Spoofing · `24` Social Engineering · `25` Malware & Weaponization (conceptual) · `26` Pentest Reporting
 > - **🔴 Gate:** AD domain attacked end-to-end · BloodHound exports in Git · 1 professional report — before moving to Stage 5
@@ -30,14 +28,11 @@
 > - **Terraform/CloudFormation configs** — infrastructure-as-code for lab environments committed to Git
 > - **Purple team ATT&CK heatmap** — technique coverage matrix showing detection gaps
 > - **Git commits** — all configs, exports, and reports committed
->
 > _By the end of Stage 4, I should have enterprise attack documentation rivaling junior consultant deliverables._
 
 > [!IMPORTANT]
-> <a id="mandatory-tools"></a>
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
->
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
 > | **Tier 1 (Mandatory)** | [[BloodHound]] & SharpHound | AD/Azure graph collection, Cypher query analysis, ACL abuse pathing (`ShortestPath to Domain Admins`). |
@@ -49,15 +44,11 @@
 > | **Tier 2 (Secondary)** | [[Evil-WinRM]] | WinRM remote shell execution, DLL payload loading, pass-the-hash administrative control. |
 > | **Tier 2 (Secondary)** | [[Kerbrute]] | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
 > | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. |
->
 > **Stage 4 Exit Gate:** I cannot pass Stage 4 until I can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
 
 ---
 
-<a id="table-of-contents"></a>
-
 ### 🗂️ Table of Contents
-
 
 - [[#Module 19: Active Directory & Entra ID|Module 19: Active Directory & Entra ID]]
   - [[#Topic 1: Discovery & Enumeration — 🔬 Practical|Topic 1: Discovery & Enumeration]]
@@ -123,12 +114,7 @@
 
 ---
 
-<a id="part-23-active-directory-entra-id"></a>
-
 ---
-
-<a id="module-19-active-directory--entra-id"></a>
-<a id="part-23-active-directory-entra-id"></a>
 
 ## Module 19: Active Directory & Entra ID
 
@@ -144,7 +130,6 @@
 
 > [!NOTE]
 > **Module 19 Internal Learning Sequence** — on-prem AD first, then Entra ID:
->
 > ```text
 > AD architecture: forest / domain / trust relationships
 >         ↓
@@ -178,10 +163,8 @@
 >         ↓
 > Federation, conditional access, service principals, managed identities
 > ```
->
 > **Do not attempt Entra ID / cloud identity before I understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
 
-<a id="stage-1-discovery-enumeration"></a>
 ### Topic 1: Discovery & Enumeration — 🔬 Practical
 
 > [!TIP]
@@ -197,7 +180,6 @@
 
 ---
 
-<a id="stage-2-credential-auth-attacks"></a>
 ### Topic 2: Credential & Auth Attacks — 🔬 Practical
 
 > [!TIP]
@@ -213,7 +195,6 @@
 
 ---
 
-<a id="stage-3-delegation-acl-and-adcs-abuse"></a>
 ### Topic 3: Delegation, ACL, and ADCS Abuse — 🔬 Practical
 
 > [!TIP]
@@ -237,7 +218,6 @@
 
 ---
 
-<a id="stage-4-lateral-movement-persistence"></a>
 ### Topic 4: Lateral Movement & Persistence — 🔬 Practical
 
 > [!TIP]
@@ -259,7 +239,6 @@
 
 ---
 
-<a id="stage-5-entra-id-azure-ad-hybrid-attacks"></a>
 ### Topic 5: Entra ID (Azure AD) & Hybrid Attacks — 🧠🔬 Mixed
 
 > [!TIP]
@@ -275,7 +254,6 @@
 
 ---
 
-<a id="lab-progression-part-23-active-directory-entra-id"></a>
 ### Lab Progression (Module 19: Active Directory & Entra ID)
 
 > [!TIP]
@@ -289,13 +267,7 @@
 > [!IMPORTANT]
 > **Move-On Gate:** Produce an AD/Entra attack-path report with screenshots, graph evidence, event IDs, and hardening steps.
 
-<a id="toc-part-24-cloud-computing"></a>
-<a id="part-24-cloud-computing"></a>
-
 ---
-
-<a id="module-20-cloud-computing"></a>
-<a id="part-24-cloud-computing"></a>
 
 ## Module 20: Cloud Computing
 
@@ -306,22 +278,17 @@
 
 > [!IMPORTANT]
 > **Cloud Lab Setup Requirements — Read Before Starting**
->
 > Cloud attack techniques CANNOT be practiced without a real cloud account. Unlike Stage 2 Linux labs (which run locally), cloud labs require live infrastructure. Before starting this part:
->
 > **Account Setup:**
 > - [ ] Create a dedicated **AWS Free Tier account** (separate from any personal/work account) at aws.amazon.com/free — Free Tier covers most EC2, S3, IAM labs for 12 months
 > - [ ] Create a dedicated **Azure Free Account** (separate from any personal/work account) — $200 credit for 30 days + 12 months of free services
 > - [ ] (Optional) Create a **GCP Free Account** — $300 credit for 90 days
->
 > **Cost Controls (Mandatory — Set Before Any Lab Work):**
 > - [ ] **AWS Billing Alert:** Go to CloudWatch → Alarms → Billing → create alert at $5/month threshold; also enable Cost Explorer
 > - [ ] **Azure Budget Alert:** Go to Cost Management → Budgets → set $5/month alert
 > - [ ] Never leave EC2 instances, RDS databases, or NAT Gateways running when not actively using them
 > - [ ] Use `aws ec2 stop-instances` or the console to stop (not just terminate) instances to avoid data loss; terminate when done with the lab
->
 > **Intentionally-Vulnerable Cloud Lab Environments:**
->
 > | Platform | Provider | What It Teaches | Setup |
 > |---|---|---|---|
 > | **CloudGoat** | Rhino Security Labs | AWS IAM privilege escalation, SSRF, Lambda exploitation, S3 misconfigs | `pip install cloudgoat` then `cloudgoat config` |
@@ -329,11 +296,9 @@
 > | **GCPGoat** | INE Security | GCP service account abuse, Cloud Run, storage | GitHub: ine-labs/GCPGoat |
 > | **flaws.cloud** | Scott Piper (AWS) | S3 misconfiguration CTF walkthrough | flaws.cloud |
 > | **flaws2.cloud** | Scott Piper (AWS) | IAM escalation CTF (attacker + defender paths) | flaws2.cloud |
->
 > > [!WARNING]
 > > **Never practice cloud attack techniques against accounts I do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
 
-<a id="stage-1-architecture-governance"></a>
 ### Topic 1: Architecture & Governance — 🧠 Conceptual
 
 > [!TIP]
@@ -353,7 +318,6 @@
 
 ---
 
-<a id="stage-2-storage-data-security"></a>
 ### Topic 2: Storage & Data Security — 🔬 Practical
 
 > [!TIP]
@@ -373,7 +337,6 @@
 
 ---
 
-<a id="stage-3-modern-infrastructure-deployment"></a>
 ### Topic 3: Modern Infrastructure & Deployment — 🧠🔬 Mixed
 
 > [!TIP]
@@ -393,7 +356,6 @@
 
 ---
 
-<a id="stage-4-automation-scripting"></a>
 ### Topic 4: Automation & Scripting — 🔬 Practical
 
 > [!TIP]
@@ -417,7 +379,6 @@
 
 ---
 
-<a id="stage-5-cloud-specific-attack-vectors"></a>
 ### Topic 5: Cloud-Specific Attack Vectors — 🔬 Practical
 
 > [!TIP]
@@ -442,7 +403,6 @@
 
 ---
 
-<a id="stage-6-iam-pam-attack-surface"></a>
 ### Topic 6: IAM & PAM Attack Surface — 🔬 Practical
 
 > [!TIP]
@@ -465,17 +425,10 @@
 
 ---
 
-<a id="toc-part-25-container--orchestration-security"></a>
-<a id="part-25-container-orchestration-security"></a>
-
 ---
-
-<a id="module-21-container--orchestration-security"></a>
-<a id="part-25-container-orchestration-security"></a>
 
 ## Module 21: Container & Orchestration Security
 
-<a id="stage-1-container-fundamentals-attacks"></a>
 ### Topic 1: Container Fundamentals & Attacks — 🔬 Practical
 
 > [!TIP]
@@ -498,7 +451,6 @@
 
 ---
 
-<a id="stage-2-kubernetes-security"></a>
 ### Topic 2: Kubernetes Security — 🔬 Practical
 
 > [!TIP]
@@ -518,7 +470,6 @@
 
 ---
 
-<a id="stage-3-container-runtime-security"></a>
 ### Topic 3: Container Runtime Security — 🧠🔬 Mixed
 
 > [!TIP]
@@ -536,7 +487,6 @@
 
 ---
 
-<a id="stage-4-secrets-configuration-management"></a>
 ### Topic 4: Secrets & Configuration Management — 🔬 Practical
 
 > [!TIP]
@@ -554,7 +504,6 @@
 
 ---
 
-<a id="stage-5-cicd-workflow-automation-attacks"></a>
 ### Topic 5: CI/CD & Workflow Automation Attacks — 🔬 Practical
 
 > [!TIP]
@@ -572,7 +521,6 @@
 
 ---
 
-<a id="lab-progression-part-25-container-orchestration-security"></a>
 ### Lab Progression (Module 21: Container & Orchestration Security)
 
 > [!TIP]
@@ -584,8 +532,6 @@
 - [ ] **Secrets Lab:** Demonstrate unsafe secret exposure, then fix it using Kubernetes secrets, external secret managers, or workload identity.
 
 ---
-
-<a id="stage-6-hypervisor-security"></a>
 
 ### Topic 6: Hypervisor Security — 🧠 Conceptual
 
@@ -620,12 +566,7 @@
 > [!IMPORTANT]
 > **Move-On Gate:** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes. Additionally, document: (1) two ESXi attack vectors and their mitigations, (2) how VMDK credential extraction works and what prevents it.
 
-<a id="part-16-adversary-emulation-purple-teaming"></a>
-
 ---
-
-<a id="module-22-adversary-emulation--purple-teaming"></a>
-<a id="part-16-adversary-emulation-purple-teaming"></a>
 
 ## Module 22: Adversary Emulation & Purple Teaming
 
@@ -635,7 +576,6 @@
 > [!WARNING]
 > **Prerequisites:** This module requires offensive maturity (Stage 2) plus enterprise infrastructure knowledge from Modules 19–21. Complete prior Stage 4 content before attempting purple teaming campaigns.
 
-<a id="stage-1-mitre-attck-framework-mastery"></a>
 ### Topic 1: MITRE ATT&CK Framework Mastery — 🧠 Conceptual
 
 > [!TIP]
@@ -653,7 +593,6 @@
 
 ---
 
-<a id="stage-2-apt-threat-actor-emulation"></a>
 ### Topic 2: APT & Threat Actor Emulation — 🔬 Practical
 
 > [!TIP]
@@ -673,7 +612,6 @@
 
 ---
 
-<a id="stage-3-purple-team-exercises"></a>
 ### Topic 3: Purple Team Exercises — 🧠🔬 Mixed
 
 > [!TIP]
@@ -691,7 +629,6 @@
 
 ---
 
-<a id="stage-4-metrics-reporting"></a>
 ### Topic 4: Metrics & Reporting — 🧠 Conceptual
 
 > [!TIP]
@@ -707,7 +644,6 @@
 
 - [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
 
-<a id="lab-progression-part-16-adversary-emulation-purple-teaming"></a>
 ### Lab Progression (Module 22: Adversary Emulation & Purple Teaming)
 
 | Level | Task | Deliverable |
@@ -723,13 +659,7 @@
 
 ---
 
-<a id="toc-part-26-oticsscada-security"></a>
-<a id="part-26-oticsscada-security"></a>
-
 ---
-
-<a id="module-23-sniffing--spoofing"></a>
-<a id="part-9-sniffing-spoofing"></a>
 
 ## Module 23: Sniffing & Spoofing
 
@@ -738,8 +668,6 @@
 > - 🔴 `The Power of Scapy V2` — ARP spoofing, packet injection chapters — tool mastery for MitM and packet manipulation
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all capture and analysis labs
 > - 🟢 `Hacking and Network Defense` — Sniffing chapter — defender detection of sniffing activity (informs OPSEC)
-
-<a id="stage-1-the-environment-fundamentals-the-setup"></a>
 
 ### Topic 1: The Environment & Fundamentals (The Setup) — 🧠🔬 Mixed
 
@@ -758,8 +686,6 @@
 
 ---
 
-<a id="stage-2-sniffing-passive-reconnaissance-the-ear"></a>
-
 ### Topic 2: Sniffing & Passive Reconnaissance (The Ear) — 🔬 Practical
 
 > [!TIP]
@@ -774,8 +700,6 @@
 - [ ] **Stream Reassembly:** Use **tcpflow, Wireshark Follow TCP Stream** to reassemble files, images, emails, or form submissions from fragmented packets.
 
 ---
-
-<a id="stage-3-spoofing-active-deception-the-lie"></a>
 
 ### Topic 3: Spoofing & Active Deception (The Lie) — 🔬 Practical
 
@@ -796,8 +720,6 @@
 
 ---
 
-<a id="stage-4-man-in-the-middle-exploitation-the-kill"></a>
-
 ### Topic 4: Man-in-the-Middle & Exploitation (The Kill) — 🔬 Practical
 
 > [!TIP]
@@ -817,8 +739,6 @@
 
 ---
 
-<a id="stage-5-defenses-mitigation-the-shield"></a>
-
 ### Topic 5: Defenses & Mitigation (The Shield) — 🧠 Conceptual
 
 - [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
@@ -830,8 +750,6 @@
 - [ ] **Detection Systems:** **IDS/IPS** flag high ARP packet volume, **MITM tools (ettercap signatures)**, SSL downgrade attempts; **Netflow/sFlow** detects unusual traffic patterns.
 
 - [ ] **User Awareness:** Train users to verify **SSL certificates**, recognize **phishing login pages**, and use **password managers** to avoid clipboard paste attacks.
-
-<a id="lab-progression-part-9-sniffing-spoofing"></a>
 
 ### Lab Progression (Module 23: Sniffing & Spoofing)
 
@@ -848,12 +766,7 @@
 
 ------
 
-<a id="toc-part-10-social-engineering"></a>
-
 ---
-
-<a id="module-24-social-engineering"></a>
-<a id="part-10-social-engineering"></a>
 
 ## Module 24: Social Engineering
 
@@ -863,9 +776,6 @@
 > - 🟡 `The Social Engineers Playbook` — Full (short) — practical tactical scripts and pretexts
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
-
-<a id="stage-0-the-psychology-of-social-engineering"></a>
-<a id="stage-0-the-psychology-of-social-engineering-the-foundation"></a>
 
 ### Topic 0: The Psychology of Social Engineering (The Foundation) — 🧠 Conceptual
 
@@ -942,8 +852,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-1-intelligence-reconnaissance-the-setup"></a>
-
 ### Topic 1: Intelligence & Reconnaissance (The Setup) — 🔬 Practical
 
 > [!TIP]
@@ -958,8 +866,6 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Social Media Profiling:** Mine **LinkedIn, Twitter, GitHub, Glassdoor** for **personal details, relationships, job changes** to craft personalized lures.
 
 ---
-
-<a id="stage-2-the-digital-assault-remote-vectors"></a>
 
 ### Topic 2: The Digital Assault (Remote Vectors) — 🧠🔬 Mixed
 
@@ -989,8 +895,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-3-the-human-element-direct-interaction"></a>
-
 ### Topic 3: The Human Element (Direct Interaction) — 🧠 Conceptual
 
 > [!TIP]
@@ -1003,8 +907,6 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Reciprocity & Obligation:** Provide small **favors (tech help, free tools)** to create sense of obligation; ask for credentials or access in return.
 
 ---
-
-<a id="stage-4-the-physical-breach-boots-on-the-ground"></a>
 
 ### Topic 4: The Physical Breach (Boots on the Ground) — 🧠🔬 Mixed
 
@@ -1021,8 +923,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-5-defense-awareness-the-shield"></a>
-
 ### Topic 5: Defense & Awareness (The Shield) — 🧠 Conceptual
 
 > [!TIP]
@@ -1038,8 +938,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **MFA Resilience:** Teach differences between **phishing-resistant MFA (FIDO2/Passkeys)** vs **phishable MFA (SMS/Push/OTP)**; test and mitigate **MFA fatigue** scenarios.
 
-<a id="lab-progression-part-10-social-engineering"></a>
-
 ### Lab Progression (Module 24: Social Engineering)
 
 > [!TIP]
@@ -1052,13 +950,9 @@ Robert Cialdini's research on influence identified six universal principles that
   > [!IMPORTANT]
   > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
 
----<a id="toc-part-11-denial-of-service"></a>
-<a id="part-11-denial-of-service"></a>
-
 ---
 
-<a id="module-25-malware--weaponization-conceptual"></a>
-<a id="part-8-malware-weaponization"></a>
+---
 
 ## Module 25: Malware & Weaponization (Conceptual)
 
@@ -1066,20 +960,14 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!NOTE]
 > **Scope of This Module — Read Carefully:** Module 25 teaches malware as a **survey course**, not an implementation course. At this stage I have not yet studied low-level malware engineering at the binary level — that knowledge is built in Stage 5 (Module 27: Offensive Development) and Shelf 05 (Reverse Engineering). Without that foundation, any implant written would be an unmaintainable artifact.
->
 > **What IS covered here (practitioner-level):**
->
 > - Malware taxonomy and attack lifecycle (categories, architecture decisions, C2 design thinking)
 > - Tool-based weaponization: `msfvenom`, Metasploit payload generation, framework-managed C2 (Sliver, Mythic)
 > - How AV/EDR detects malware conceptually (signature, heuristic, behavioral scanning)
 > - Document and cloud delivery vectors — the initial access tradecraft that red teamers use operationally
->
 > **What Topics 2–5 teach (exposure-level, not implementation-level):**
 > Topics 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the conceptual level. They are not implementation labs. When seeing those topics: understand the concept, understand what defenders see, and move on. Do **not** attempt custom binary implant development until completing **Stage 5: Module 27 (Offensive Development & Tooling)**.
->
 > **Why this sequencing matters:** The correct sequence is: _understand the attack here (Module 25) → understand binaries and malware internals (Shelf 05) → build custom tooling (Stage 5 Module 27)._
-
-<a id="stage-1-the-design-logic-architecture"></a>
 
 ### Topic 1: The Design & Logic (Architecture) — 🧠 Conceptual
 
@@ -1100,8 +988,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-2-the-payload-mechanism-weaponization"></a>
-
 ### Topic 2: The Payload & Mechanism — Exposure Survey — 🧠🔬 Mixed
 
 > [!WARNING]
@@ -1121,8 +1007,6 @@ Robert Cialdini's research on influence identified six universal principles that
 > **🔬 Observation Lab (Stage 2):** Run EICAR test file (`https://www.eicar.org/download/eicar.com`) through VirusTotal and note detection rate. Then generate an msfvenom stageless payload (`msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o stageless.exe`) and a staged payload (`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -o staged.exe`). Compare: (1) file sizes, (2) VirusTotal detection rates for both. Record which AV engines flag them and whether detections are signature-based or heuristic. Never execute either payload outside a controlled lab VM with no network access.
 
 ---
-
-<a id="stage-3-evasion-defense-bypassing-invisibility"></a>
 
 ### Topic 3: Evasion & Defense Bypassing — Exposure Survey — 🧠 Conceptual
 
@@ -1146,8 +1030,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-4-persistence-escalation-entrenchment"></a>
-
 ### Topic 4: Persistence & Escalation — Exposure Survey — 🧠 Conceptual
 
 > [!WARNING]
@@ -1165,8 +1047,6 @@ Robert Cialdini's research on influence identified six universal principles that
 > **🔬 Observation Lab (Stage 4):** In a Windows sandbox VM with Sysmon installed: (1) Create a scheduled task with `schtasks /create /sc onlogon /tn "Updater" /tr "calc.exe"`. (2) Open Event Viewer → Applications and Services Logs → Microsoft → Windows → TaskScheduler → Operational. Find the task creation event (Event ID 106). Document: what the event records, what fields an analyst would use to detect malicious scheduled tasks, and what `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` looks like in Autoruns. Delete the task when done.
 
 ---
-
-<a id="stage-5-counter-forensics-professionalism-the-cleanup"></a>
 
 ### Topic 5: Counter-Forensics & Cleanup — Exposure Survey — 🧠 Conceptual
 
@@ -1187,8 +1067,6 @@ Robert Cialdini's research on influence identified six universal principles that
 > **🔬 Observation Lab (Stage 5):** In a Windows sandbox VM: (1) Run `wevtutil cl Security` to clear the Security event log. Open Event Viewer and confirm the log is empty. Now check the same Security log — observe Event ID 1102 ("The audit log was cleared"). (2) Open PowerShell history file (`%APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`) and note what is logged. Delete one entry manually — run `Get-History` in a new session and compare. Document: which artifacts survived the clearance attempt and what a defender reviewing logs 5 minutes after the clear would still find.
 
 ---
-
-<a id="stage-5b-windows-persistence-memory-forensics"></a>
 
 ### Topic 5b: Windows Persistence Analysis & Memory Forensics — 🧠 Conceptual
 
@@ -1232,8 +1110,6 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Lab (Conceptual):** Download a pre-made memory image from [MemLabs](https://github.com/stuxnet999/MemLabs) or [Volatility Foundation samples](https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples). Run `windows.pslist`, `windows.malfind`, and `windows.netscan` on it. Document what looks suspicious and why. This is awareness-level — I am learning to read the output, not yet building full DFIR investigation workflows (that is Shelf S04 / Stage-5 parallel).
 
 ---
-
-<a id="topic-6-document-cloud-weaponization"></a>
 
 ### Topic 6: Document & Cloud Weaponization — 🔬 Practical
 
@@ -1286,8 +1162,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Artifact Hygiene:** Track **recent documents, registry keys, LNK files**, and clear only when within ROE.
 
-<a id="lab-progression-module-25-malware-weaponization"></a>
-
 ### Lab Progression (Module 25: Malware & Weaponization)
 
 | Level | Task                                                                                                       | Deliverable                                         |
@@ -1301,13 +1175,9 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!IMPORTANT]
 > **Move-On Gate (Module 25):** I can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. I am not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes in Shelf 05 and Stage 5: Module 27.
 
----<a id="toc-part-9-sniffing--spoofing"></a>
-<a id="part-9-sniffing-spoofing"></a>
-
 ---
 
-<a id="module-26-pentest-methodologies--report-writing"></a>
-<a id="part-39-penetration-testing-methodologies-report-writing"></a>
+---
 
 ## Module 26: Pentest Methodologies & Report Writing
 
@@ -1318,8 +1188,6 @@ Robert Cialdini's research on influence identified six universal principles that
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology for web pentest engagements
 
 > **Why This Exists:** Knowing how to exploit is useless if I can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. While its reporting templates (PTES, CVSS v3.1/v4.0, remediation matrices) are introduced in Stage 2 for documenting my first rooted lab machines, here in Stage 4 (Module 26) I master the end-to-end commercial engagement lifecycle: formal legal scoping, threat modeling, executive debriefing, and enterprise deliverable packaging.
-
-<a id="stage-1-industry-standard-engagement-frameworks"></a>
 
 ### Topic 1: Industry-Standard Engagement Frameworks — 🧠 Conceptual
 
@@ -1340,8 +1208,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-2-scoping-legal-frameworks-engagement-management"></a>
-
 ### Topic 2: Scoping, Legal Frameworks & Engagement Management — 🧠 Conceptual
 
 > [!TIP]
@@ -1360,8 +1226,6 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Engagement Communication Cadence:** Define **weekly status calls, critical finding escalation (phone within 1 hour), interim report delivery, and final debrief meeting** structure; never let a critical finding sit unannounced for 24+ hours.
 
 ---
-
-<a id="stage-3-structured-threat-modeling"></a>
 
 ### Topic 3: Structured Threat Modeling — 🧠 Conceptual
 
@@ -1382,8 +1246,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="stage-4-vulnerability-scoring-risk-prioritization"></a>
-
 ### Topic 4: Vulnerability Scoring & Risk Prioritization — 🧠 Conceptual
 
 > [!TIP]
@@ -1402,8 +1264,6 @@ Robert Cialdini's research on influence identified six universal principles that
 - [ ] **Finding Deduplication:** When a single root cause produces multiple manifestations (e.g., 50 instances of the same SQLi pattern), report as **one finding with representative samples** and a count — not 50 separate findings that inflate severity perception and waste remediation effort.
 
 ---
-
-<a id="stage-5-professional-report-writing"></a>
 
 ### Topic 5: Professional Report Writing — 🧠🔬 Mixed
 
@@ -1428,8 +1288,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 - [ ] **Report Versioning & Delivery:** Maintain **draft → client review → final** versioning; deliver reports in **password-protected PDF** with restricted printing/copying; PGP-encrypt email attachments; define report retention and destruction policy in the SoW.
 
-<a id="lab-progression-module-26-penetration-testing-methodologies-report-writing"></a>
-
 ### Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)
 
 | Level | Task                                                                                                                  | Deliverable                                                   |
@@ -1443,18 +1301,12 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-<a id="toc-part-40-red-team-operations--tradecraft"></a>
-<a id="part-40-red-team-operations-tradecraft"></a>
-
 ---
 
 > [!TIP]
-> <a id="ctf-practice"></a>
 
 ### 🎮 Concurrent CTF Practice — Stage 4
->
 > Enterprise environments require enterprise practice. Standard HTB/THM boxes are no longer enough — you need pro labs.
->
 > | Module | Platform | Lab / Box | Why |
 > |---|---|---|---|
 > | 19 Active Directory | HackTheBox | **Forest** · **Monteverde** · **Cascade** | Kerberoasting, AS-REP, ACL abuse, Pass-the-Hash |
@@ -1464,10 +1316,7 @@ Robert Cialdini's research on influence identified six universal principles that
 > | 20 Cloud | [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) | All scenarios | Rhino Security's vulnerable-by-design AWS env |
 > | 21 Containers | HackTheBox | **Unobtainium** · **Registry** | Container escape + Kubernetes privilege escalation |
 > | 22–26 Full chain | HackTheBox Pro Labs | **Dante** (OSCP prep) | Full network penetration test simulation |
->
 > **Rule:** For every AD box: export my BloodHound graph, annotate the attack path, commit it to Git. That is a portfolio artifact.
-
-<a id="stage-gate-3"></a>
 
 ## 🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting
 

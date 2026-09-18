@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # 🛡️ Cybersecurity Master Roadmap
 
@@ -34,8 +33,6 @@
 |  5  | [[#🛠️ Lab Setup\|🛠️ Lab Setup Baseline]]                                          | Hardware specs, hypervisor baselines, target environments, and practice platforms    |
 
 ---
-
-<a id="execution-order"></a>
 
 ## 🎯 Execution Order — 5 Stages
 
@@ -86,15 +83,11 @@
 
 ---
 
-<a id="topics-mapping"></a>
-
 ## 🗺️ Topics — Mapped to Execution Order
 
 > Comprehensive topic breakdown mapped directly to the execution order across all 5 stages.
 
 ---
-
-<a id="topic-stage-1"></a>
 
 ### 🔵 STAGE 1 — FOUNDATION
 *Modules 01–07 · ~2–3 months*
@@ -131,8 +124,6 @@
 
 ---
 
-<a id="topic-stage-2"></a>
-
 ### 🟠 STAGE 2 — OFFENSE I
 *Modules 08–13 · ~5–6 weeks*
 
@@ -159,8 +150,6 @@
 
 ---
 
-<a id="topic-stage-3"></a>
-
 ### 🟣 STAGE 3 — WEB & APP SEC
 *Modules 14–18 · ~8–10 weeks*
 
@@ -184,8 +173,6 @@
 | | [[Stage-3_Web-and-App-Sec#Side-Track C: Cyber Threat Intelligence (CTI) & Attack Surface Management\|Side-Track C: CTI & Attack Surface Management]] *(Parallel Track)* | **Threat Intel & EASM** | External Attack Surface Management, Threat actor profiling, IOCs & IOAs, Threat intelligence feeds, CTI platforms, MITRE ATT&CK & Diamond Model analysis, Intel operationalization | MISP, OpenCTI, Maltego, SpiderFoot |
 
 ---
-
-<a id="topic-stage-4"></a>
 
 ### 🏢 STAGE 4 — ENTERPRISE
 *Modules 19–26 · ~10–13 weeks*
@@ -218,8 +205,6 @@
 
 ---
 
-<a id="topic-stage-5"></a>
-
 ### 🔬 STAGE 5 — SPECIALIZED
 *Modules 27–30 · ~15–22 weeks*
 
@@ -248,8 +233,6 @@
 | | | **Portfolio & Career Strategy** | Research Papers, Blog Posts, CVE Write-ups, Open Source Tool authoring & maintenance, Industry Certifications (OSCP, CPTS, CRTO, CISSP), Technical Interview & Whiteboard Defense preparation | GitHub, Medium / Substack, GitBook, LinkedIn |
 
 ---
-
-<a id="shelf"></a>
 
 ## 📦 Shelf — Post-Hire Electives
 
@@ -280,8 +263,6 @@
 | S21 | [[Shelf_Post-Hire#Shelf 21: Advanced Windows Internals\|Advanced Windows Internals]] | Token security, PPL, memory forensics, DKOM |
 
 ---
-
-<a id="daily-protocol"></a>
 
 ## ⏱️ Daily Protocol
 
@@ -316,8 +297,6 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 
 ---
 
-<a id="lab-setup"></a>
-
 ## 🛠️ Lab Setup
 
 | Component | Minimum | Recommended |
@@ -339,5 +318,5 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 
 | 🏠 Root Portfolio | 🔵 Start Stage 1 | 🛠️ Tool Mastery Hub | ⬆ Return to Top |
 |:---:|:---:|:---:|:---:|
-| [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Stage 1: Foundation ➔]] | [[Tools/README\|88 Tool Mastery Guides]] | [⬆ Back to Top](#top) |
+| [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Stage 1: Foundation ➔]] | [[Tools/README\|88 Tool Mastery Guides]] | [[#🛡️ Cybersecurity Master Roadmap|⬆ Back to Top]] |
 

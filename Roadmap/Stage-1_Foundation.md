@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # Stage 1 — Foundation
 
@@ -14,7 +13,6 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 01–07**
->
 > - **⏱️ Estimated Time:** ~2–3 months of consistent daily sessions
 > - **🎯 Modules:** `01` Hardware & Architecture · `02` Linux · `03` Windows · `04` Networking · `05` Cryptography · `06` Authentication & Identity · `07` Web Technology Fundamentals
 > - **📅 Programming Track:** Weekend-only — Python, Bash, PowerShell throughout this stage
@@ -22,43 +20,32 @@
 > - **🎯 Primary Focus:** Master the TCP/IP stack, Linux & Windows administration, networking protocols, cryptographic primitives, authentication standards (JWT, OAuth, SAML), and web technology fundamentals (HTTP, CORS, CSP, REST).
 
 > [!NOTE]
->
 > ### 📝 Stage 1 Documentation Requirements
->
 > Every topic I complete in this stage must be documented and committed to my private Git repository. Required artifacts:
->
 > - **Markdown lab notes** for every lab completed (structured: objective → steps → output → lessons learned)
 > - **Network diagrams** (draw.io/Excalidraw) of my home lab topology
 > - **Screenshots** of completed labs, tool output, and configuration changes
 > - **Shell command logs** — save terminal history for key sessions
 > - **Git commits** — commit after every lab session with descriptive messages
->
 > _This documentation becomes the foundation of my Stage 5 (Module 30) portfolio. Start building it now, not later._
 
 ---
 
 > [!IMPORTANT]
->
-> <a id="pacing-checkpoints"></a>
 
 ### 🧱 Stage 1 Pacing Checkpoints
->
 > Stage 1 is intentionally broad. Treat it as seven smaller milestones instead of one giant block:
->
 > 1. **Lab setup complete:** Hypervisor installed, baseline VMs created, Git documentation repository active.
 > 2. **Computer fundamentals complete:** Hardware, OS internals, memory, data representation, and basic scripting understood.
 > 3. **Linux administration complete:** Users, permissions, services, networking, logs, storage, and hardening practiced.
 > 4. **Windows administration complete:** Users, NTFS permissions, Event Viewer, PowerShell, registry, and AD basics practiced.
 > 5. **Networking complete:** OSI/TCP-IP, subnetting, routing, DNS, DHCP, HTTP/S, packet capture, and troubleshooting demonstrated.
 > 6. **Cryptography complete:** Hashing, symmetric/asymmetric crypto, TLS, PKI, certificates, password storage, and common failure modes demonstrated.
->
 > Do not wait for the final capstone to feel progress. Commit evidence at each checkpoint.
 
 > [!IMPORTANT]
-> <a id="mandatory-tools"></a>
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
->
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
 > | **Tier 1 (Mandatory)** | [Linux CLI & Bash](#stage-7a-programming-scripting-fundamentals) | Process control (`ps`, `lsof`, `kill`), file manipulation (`awk`, `sed`, `grep`), basic administrative shell scripting. |
@@ -71,10 +58,7 @@
 
 ---
 
-<a id="table-of-contents"></a>
-
 ### 🗂️ Table of Contents
-
 
 - [[#🛠️ Lab Baseline Setup|🛠️ Lab Baseline Setup]]
 - [[#Module 01: Fundamentals|Module 01: Fundamentals]]
@@ -152,9 +136,6 @@
 
 ---
 
-<a id="lab-baseline-setup"></a>
-<a id="career-foundation-lab-setup"></a>
-
 ## 🛠️ Lab Baseline Setup
 
 > [!NOTE]
@@ -168,9 +149,6 @@
 
 ---
 
-<a id="module-01-fundamentals"></a>
-<a id="part-1-fundamentals"></a>
-
 ## Module 01: Fundamentals
 
 > [!NOTE]
@@ -179,7 +157,6 @@
 > - 🟡 `Security in Computing 5th Edition` — Authoritative reference for security concepts
 > - 🟢 `The Linux Command Line - A Complete Introduction` — Quick command reference for CLI fundamentals
 
-<a id="stage-1-hardware-cpu-pre-boot-environment"></a>
 ### Topic 1: Hardware, CPU & Pre-Boot Environment — 🧠 Conceptual
 
 > [!TIP]
@@ -213,8 +190,6 @@
 
 ---
 
-<a id="stage-2-operating-system-internals"></a>
-
 ### Topic 2: Operating System Internals — 🧠 Conceptual
 
 > [!TIP]
@@ -236,8 +211,6 @@
 
 ---
 
-<a id="stage-3-memory-management"></a>
-
 ### Topic 3: Memory Management — 🧠 Conceptual
 
 > [!TIP]
@@ -255,8 +228,6 @@
 
 ---
 
-<a id="stage-4-data-representation-logic"></a>
-
 ### Topic 4: Data Representation & Logic — 🧠 Conceptual
 
 > [!TIP]
@@ -269,8 +240,6 @@
 - [ ] **File Headers:** Identify file types (EXE, ELF, JPG) by their **"Magic Bytes"** instead of extensions.
 
 ---
-
-<a id="stage-5-wireless-physical-connections"></a>
 
 ### Topic 5: Wireless & Physical Connections — 🧠 Conceptual
 
@@ -311,8 +280,6 @@
 
 ---
 
-<a id="stage-6-mobile-platform-awareness"></a>
-
 ### Topic 6: Mobile Platform Awareness — 🧠 Conceptual
 
 > [!TIP]
@@ -327,13 +294,10 @@
 
 ---
 
-<a id="stage-7a-programming-scripting-fundamentals"></a>
-
 ### Topic 7A: Programming & Scripting Fundamentals — 🔬 Practical
 
 > [!TIP]
 > **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Stage 1. **C and C++ are deferred to Stage 5 (Module 27)**, where binary analysis context makes them immediately applicable.
->
 > **C & C++ programming lives in Stage 5 (Module 27) and Shelf 05.** Do not attempt C or C++ now. They require debugger experience and binary analysis context to learn meaningfully.
 
 ---
@@ -742,9 +706,7 @@
 
 ---
 
-<a id="stage-completion-criteria"></a>
-
-## Stage Completion Criteria
+### Stage Completion Criteria
 
 Before moving to the next stage, I should be able to:
 
@@ -758,14 +720,11 @@ Before moving to the next stage, I should be able to:
 - [ ] Understand how programming knowledge supports penetration testing, malware analysis, reverse engineering, digital forensics, and detection engineering.
 
 > **📌 Cross-Reference:** Offensive programming is covered in dedicated Parts:
->
 > - **Module 27: Offensive Development & Tooling** (Stage 5) — Exploit prototyping with pwntools, custom C2 implant logic, buffer overflow exploits, shellcode writing, Win32 API process injection, DLL loading, token manipulation, .NET offensive tooling (P/Invoke, D/Invoke, SharpHound, Rubeus), AMSI/ETW bypass, in-memory execution, offensive PowerShell (download cradles, constrained language mode escape).
 > - **Shelf 06: Modern Exploitation** — Advanced memory exploitation, kernel exploits, browser exploitation.
 > - **Module 25: Malware & Weaponization** (Stage 4) — Document weaponization (VBA macros, DDE template abuse, OneNote/PDF weaponization), email client abuse, OAuth consent phishing, cloud persistence, data exfiltration, and covert channels.
 
 ---
-
-<a id="stage-7b-c-cpp-programming"></a>
 
 ### Topic 7B: C & C++ Programming ← Deferred to Stage 5 (Module 27) — 🔬 Practical
 
@@ -774,9 +733,7 @@ Before moving to the next stage, I should be able to:
 > - I need to have seen a stack frame in a debugger before C memory layout makes sense.
 > - I need to have read disassembly before C++ vtables mean anything.
 > - I need to have written at least one exploit before custom shellcode has purpose.
->
 > **Return here when reaching Stage 5, before starting Module 27 (Offensive Development) and Shelf 05 (Reverse Engineering).** At that point, C and C++ become immediately applicable rather than abstract theory.
->
 > **Stage 5 location:** Stage-5_Specialized.md — C/C++ Foundation before Module 27.
 
 _The full curriculum below is what I will complete when I return. Read it now for scope awareness, then close this section and proceed to Module 02._
@@ -971,13 +928,7 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 
 ---
 
-<a id="toc-part-1b-linux-administration"></a>
-<a id="part-1b-linux-administration"></a>
-
 ---
-
-<a id="module-02-linux-administration"></a>
-<a id="part-1b-linux-administration"></a>
 
 ## Module 02: Linux Administration
 
@@ -989,8 +940,6 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 > - 🟢 `Using And Administering Linux Volume 3 Zero To SysAdmin Network` — Network services on Linux
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Stage._
-
-<a id="stage-1-user-access-management-linux"></a>
 
 ### Topic 1: User & Access Management (Linux) — 🔬 Practical
 
@@ -1006,8 +955,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **ACLs:** Configure **POSIX ACLs** with **getfacl/setfacl** for fine-grained access control beyond standard permissions.
 
-<a id="stage-2-service-process-management-linux"></a>
-
 ### Topic 2: Service & Process Management (Linux) — 🔬 Practical
 
 - [ ] **systemd:** Manage services with **systemctl** (start, stop, enable, disable, status, mask). Understand **unit files**, **targets**, and **dependencies**.
@@ -1019,8 +966,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 - [ ] **Package Management:** Install, update, and remove software with **apt (Debian/Ubuntu)** and **dnf/yum (RHEL/Fedora)**. Understand **repositories, GPG signing, and dependency resolution**.
 
 - [ ] **Boot Process:** Understand **GRUB2 → systemd → target** boot sequence, **runlevels/targets**, and **single-user mode** for recovery.
-
-<a id="stage-3-networking-linux"></a>
 
 ### Topic 3: Networking (Linux) — 🔬 Practical
 
@@ -1034,8 +979,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **SSH Hardening:** Configure **/etc/ssh/sshd_config** — disable root login, enforce key-based auth, change default port, configure **fail2ban**, and understand **SSH tunneling (local, remote, dynamic)**.
 
-<a id="stage-4-log-analysis-monitoring-linux"></a>
-
 ### Topic 4: Log Analysis & Monitoring (Linux) — 🔬 Practical
 
 - [ ] **journalctl:** Query systemd journal logs — filter by **unit, priority, time range, boot**. Understand **persistent vs. volatile** journaling.
@@ -1048,8 +991,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **Monitoring Tools:** Use **uptime, free, df, du, iostat, vmstat** for system health monitoring. Understand when to investigate further.
 
-<a id="stage-5-storage-filesystem-linux"></a>
-
 ### Topic 5: Storage & Filesystem (Linux) — 🔬 Practical
 
 - [ ] **Disk Management:** Use **fdisk, parted, lsblk, blkid** to manage partitions. Understand **MBR vs. GPT**.
@@ -1060,8 +1001,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **Disk Encryption:** Encrypt partitions with **LUKS (cryptsetup)**. Understand **dm-crypt**, key slots, and unlock-at-boot configuration.
 
-<a id="stage-6-security-hardening-linux"></a>
-
 ### Topic 6: Security Hardening (Linux) — 🔬 Practical
 
 - [ ] **SELinux:** Understand **enforcing, permissive, disabled** modes. Use **getenforce, setenforce, sestatus**. Read **audit.log** denials and create custom policies with **audit2allow**.
@@ -1071,8 +1010,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 - [ ] **System Auditing:** Configure **auditd** rules to monitor file access, user commands, and privilege escalation. Use **ausearch** and **aureport**.
 
 - [ ] **Kernel Hardening:** Understand **sysctl** parameters (**net.ipv4.ip_forward**, **kernel.randomize_va_space**, **fs.protected_hardlinks**) and how to persist them.
-
-<a id="lab-progression-linux"></a>
 
 ### Lab Progression (Linux)
 
@@ -1091,13 +1028,7 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ---
 
-<a id="toc-part-1c-windows-administration"></a>
-<a id="part-1c-windows-administration"></a>
-
 ---
-
-<a id="module-03-windows-administration"></a>
-<a id="part-1c-windows-administration"></a>
 
 ## Module 03: Windows Administration
 
@@ -1107,8 +1038,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 > - 🟡 `Windows PowerShell Cookbook` — PowerShell command reference for admin tasks
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Module 19), Cloud (Module 20), and Defensive modules._
-
-<a id="stage-1-user-access-management-windows"></a>
 
 ### Topic 1: User & Access Management (Windows) — 🔬 Practical
 
@@ -1122,8 +1051,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 - [ ] **Local Security Policy:** Configure **password policy, account lockout policy, user rights assignments** via **secpol.msc** and **gpedit.msc**.
 
-<a id="stage-2-system-management-windows"></a>
-
 ### Topic 2: System Management (Windows) — 🔬 Practical
 
 - [ ] **Windows Services:** Manage services with **services.msc** and **sc.exe/Get-Service**. Understand **service accounts (LocalSystem, LocalService, NetworkService)**, startup types, and recovery options.
@@ -1135,8 +1062,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **Windows Firewall:** Configure **inbound/outbound rules** with **Windows Defender Firewall with Advanced Security (wf.msc)** and **netsh**. Understand **profiles (Domain, Private, Public)**.
 
 - [ ] **Windows Update:** Understand **WSUS, Windows Update for Business**, and **patch management** concepts. Know how to check update history and roll back problematic updates.
-
-<a id="stage-3-event-viewer-auditing-windows"></a>
 
 ### Topic 3: Event Viewer & Auditing (Windows) — 🔬 Practical
 
@@ -1159,8 +1084,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 - [ ] **PowerShell Logging:** Enable **Script Block Logging (Event ID 4104)**, **Module Logging**, and **Transcription Logging**. Understand why these are critical for detecting fileless attacks.
 
-<a id="stage-4-powershell-administration-windows"></a>
-
 ### Topic 4: PowerShell Administration (Windows) — 🔬 Practical
 
 - [ ] **Core Cmdlets:** Master **Get-Process, Get-Service, Get-EventLog, Get-WinEvent, Get-ChildItem, Get-Content, Set-Item, New-Item, Remove-Item, Test-NetConnection**.
@@ -1172,8 +1095,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **WMI/CIM:** Query system information with **Get-CimInstance** (Win32_Process, Win32_Service, Win32_OperatingSystem). Understand WMI as both an administration and attack tool.
 
 - [ ] **Active Directory Basics:** Use **RSAT tools** and **Active Directory PowerShell module** (Get-ADUser, Get-ADGroup, Get-ADComputer). Understand **OU structure, GPO basics, DNS integration with AD**.
-
-<a id="stage-5-active-directory-concepts-prerequisite-for-part-23"></a>
 
 ### Topic 5: Active Directory Concepts (Prerequisite for Module 19) — 🧠 Conceptual
 
@@ -1187,8 +1108,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 > [!NOTE]
 > **Stage 5 → Stage 6 Transition:** Stage 5 gives me the conceptual map of Active Directory — the structure, objects, and administrative mechanisms. Stage 6 gives me the protocol mechanics — _why_ these structures exist and _how_ authentication flows through them. The overlap you may notice on account types and trust architecture is intentional: Stage 5 names them, Stage 6 explains how they are exploited. Both topics are required before Stage 4 Module 19 (Active Directory attacks). Do not skip Topic 6 even if Topic 5 felt complete.
-
-<a id="stage-6-windows-identity-kerberos-foundations"></a>
 
 ### Topic 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19) — 🧠 Conceptual
 
@@ -1258,8 +1177,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 > [!TIP]
 > **Lab Exercise:** Build a Windows Server 2022 Domain Controller lab (if not already done from Stage 3–5 labs). Run `ldapsearch -x -H ldap://DC_IP -b "DC=corp,DC=local"` from a Linux host. Run `klist` on a domain-joined Windows machine after logon to see my TGT. Run `setspn -T corp.local -Q */*` to list all SPNs. These three commands will make everything above concrete.
 
-<a id="lab-progression-windows"></a>
-
 ### Lab Progression (Windows)
 
 | Level | Task                                                                                     | Deliverable                                           |
@@ -1277,8 +1194,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ---
 
-<a id="macos-security-awareness-supplemental"></a>
-
 ### macOS Security Awareness (Supplemental)
 
 > macOS endpoints are present in most enterprises, especially in development, design, and executive teams. This sidebar provides enough context to avoid a knowledge gap when encountering macOS in the field. Full macOS exploitation is an advanced specialization.
@@ -1295,13 +1210,7 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ---
 
-<a id="toc-part-2-networking-fundamentals"></a>
-<a id="part-2-networking-fundamentals"></a>
-
 ---
-
-<a id="module-04-networking-fundamentals"></a>
-<a id="part-2-networking-fundamentals"></a>
 
 ## Module 04: Networking Fundamentals
 
@@ -1310,8 +1219,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 > - 🔴 `Data Communications and Networking with TCPIP Protocol Suite - Behrouz A. Forouzan (2022)` — The definitive networking reference; read per-chapter as needed (TCP, DNS, subnetting)
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet analysis labs
 > - 🟢 `Computer Networking Principles, Protocols, and Practice` — Lighter alternative for readable second opinions
-
-<a id="layer-1-physical-the-hardware-surface"></a>
 
 ### Layer 1: Physical (The Hardware Surface) — 🧠 Conceptual
 
@@ -1386,8 +1293,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **Physical Tampering:** Master detection of splitters, taps, and modifications.
 
 ---
-
-<a id="layer-2-data-link-the-local-target"></a>
 
 ### Layer 2: Data Link (The Local Target) — 🧠 Conceptual
 
@@ -1521,8 +1426,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ---
 
-<a id="layer-3-network-the-routing-logic"></a>
-
 ### Layer 3: Network (The Routing Logic) — 🧠 Conceptual
 
 **IP Addressing & Subnetting:**
@@ -1631,8 +1534,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ---
 
-<a id="layer-4-transport-the-reliability-layer"></a>
-
 ### Layer 4: Transport (The Reliability Layer) — 🧠 Conceptual
 
 **TCP Protocol Mechanics:**
@@ -1708,8 +1609,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **IDS/IPS Evasion:** Master **packet fragmentation, timing delays, and payload obfuscation**.
 
 ---
-
-<a id="layers-5-7-application-session-the-payload"></a>
 
 ### Layers 5-7: Application & Session (The Payload) — 🧠 Conceptual
 
@@ -1977,8 +1876,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ---
 
-<a id="lab-progression-professional-development-2026-red-team-focus"></a>
-
 ### Lab Progression & Professional Development (2026 Red Team Focus)
 
 > [!TIP]
@@ -2039,8 +1936,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] Scaling: Add a **load balancer** and spread traffic across multiple instances.
 
 ---
-
-<a id="automation-programmability"></a>
 
 ### Automation & Programmability
 
@@ -2137,8 +2032,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **Scripting Use Cases:** Automate **config backups, bulk changes, compliance checks, inventory collection**.
 
 ---
-
-<a id="part-2-stage-pcap-analysis"></a>
 
 ### PCAP Analysis — Systematic Methodology
 
@@ -2237,13 +2130,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ---
 
-<a id="toc-part-3-cryptography"></a>
-<a id="part-3-cryptography"></a>
-
 ---
-
-<a id="module-05-cryptography"></a>
-<a id="part-3-cryptography"></a>
 
 ## Module 05: Cryptography
 
@@ -2251,8 +2138,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > **📚 Recommended Books for This Module**
 > - 🔴 `Security in Computing 5th Edition` — Crypto primitives, hashing, PKI reference chapters
 > - 🟡 `Foundations of Information Security - Jason Andress` — Readable crypto foundations without academic abstraction
-
-<a id="stage-1-core-concepts-algorithms"></a>
 
 ### Topic 1: Core Concepts & Algorithms — 🧠 Conceptual
 
@@ -2312,8 +2197,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
   - Why this matters: developers frequently mistake Base64-encoded data for encrypted data, store Base64-encoded passwords thinking they are "hashed," or confuse a fast hash (SHA-256) with a password KDF (Argon2).
 
 ---
-
-<a id="stage-2-secure-communication-data-in-transit"></a>
 
 ### Topic 2: Secure Communication (Data in Transit) — 🧠 Conceptual
 
@@ -2376,8 +2259,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ---
 
-<a id="stage-3-identity-trust-pki"></a>
-
 ### Topic 3: Identity & Trust (PKI) — 🧠 Conceptual
 
 > [!TIP]
@@ -2438,8 +2319,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ---
 
-<a id="stage-4-data-at-rest-password-security"></a>
-
 ### Topic 4: Data at Rest & Password Security — 🧠 Conceptual
 
 > [!TIP]
@@ -2460,8 +2339,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 - [ ] **Key Rotation Lifecycle:** Automatic rotation (e.g., AWS KMS annual) creates a new backing key version — old versions kept for decryption, new data uses new version. Full re-encryption rotation decrypts and re-encrypts all data. *Critical distinction: automatic rotation protects future data after compromise; it does NOT protect already-encrypted data.*
 
 ---
-
-<a id="stage-5-cryptographic-attacks-weaknesses"></a>
 
 ### Topic 5: Cryptographic Attacks & Weaknesses — 🧠 Conceptual
 
@@ -2503,8 +2380,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ---
 
-<a id="stage-6-post-quantum-cryptography"></a>
-
 ### Topic 6: Post-Quantum Cryptography (PQC) — 🧠 Conceptual
 
 > [!TIP]
@@ -2531,8 +2406,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
   - **ZKP-based authentication:** Prove knowledge of a password without sending the password — no secret transmitted, no hash to steal.
   - **Security relevance:** ZKP systems introduce new attack surfaces (circuit under-constrained bugs, trusted setup compromise in pairing-based SNARKs). Full ZKP security is covered in Shelf 10 (Blockchain & Web3 Security). Awareness here is sufficient for Stage 1.
 
-<a id="lab-progression-cryptography"></a>
-
 ### Lab Progression (Cryptography)
 
 > [!TIP]
@@ -2551,13 +2424,7 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ---
 
-<a id="toc-part-3b-authentication-standards-primer"></a>
-<a id="part-3b-authentication-standards-primer"></a>
-
 ---
-
-<a id="module-06-authentication-standards"></a>
-<a id="part-3b-authentication-standards-primer"></a>
 
 ## Module 06: Authentication Standards
 
@@ -2565,8 +2432,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > **Why This Exists Here:** Modules 15, 17, 19, and 25 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before I hit the attack techniques. Deep exploitation and protocol abuse are covered in Module 17 (API Security, Stage 3) and Module 19 (Entra ID, Stage 4). This module is concepts only.
 
 _Purpose: Understand how modern applications establish and maintain identity. Understand what tokens ARE, how they are issued, and how they are validated — before I learn to forge or steal them._
-
-<a id="auth-primer-stage-1-session-based-auth"></a>
 
 ### Topic 1: Session-Based Authentication — 🧠 Conceptual
 
@@ -2586,8 +2451,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 - [ ] **Common Weaknesses:** Sequential/predictable IDs, server-side session stores without TTL, session not invalidated on logout, session not rotated on privilege change, session transmitted over HTTP.
 
 ---
-
-<a id="auth-primer-stage-2-token-based-auth"></a>
 
 ### Topic 2: Token-Based Authentication & JWT — 🧠 Conceptual
 
@@ -2624,8 +2487,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 ---
 
-<a id="auth-primer-stage-3-oauth2"></a>
-
 ### Topic 3: OAuth 2.0 — Delegated Authorization — 🧠 Conceptual
 
 > [!TIP]
@@ -2660,8 +2521,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 ---
 
-<a id="auth-primer-stage-4-oidc"></a>
-
 ### Topic 4: OpenID Connect (OIDC) — Federated Identity — 🧠 Conceptual
 
 > [!TIP]
@@ -2688,8 +2547,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 ---
 
-<a id="auth-primer-stage-5-api-auth-patterns"></a>
-
 ### Topic 5: API Authentication Patterns — 🧠 Conceptual
 
 > [!TIP]
@@ -2706,8 +2563,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 - [ ] **Service Account Keys vs OIDC Workload Identity:** Understand that cloud service accounts can authenticate via static key files (risky — key can be stolen from disk, memory, or source) or via workload identity federation (ephemeral tokens, no long-lived secrets). Understand why static service account keys are a critical finding in cloud security assessments.
 
 ---
-
-<a id="auth-primer-stage-6-mfa-types"></a>
 
 ### Topic 6: Multi-Factor Authentication (MFA) Types & Weaknesses — 🧠 Conceptual
 
@@ -2734,8 +2589,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > [!NOTE]
 > **Cross-Reference:** MFA bypass attacks (Evilginx2, push bombing, device code phishing) are covered in **Module 13** (System Hacking), **Module 20/25** (Cloud & Weaponization), and **Module 19** (Entra ID MFA conditional access bypass). The mechanism explains above make those attack descriptions immediately actionable.
 
-<a id="auth-primer-lab-progression"></a>
-
 ### Lab Progression (Module 06: Authentication Standards)
 
 | Level | Task                                                                                                                                                | Deliverable                                     |
@@ -2753,8 +2606,6 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > **Next Step — Theory to Practice:** Module 06 is the concepts layer. **Module 07 & Module 15** are where I apply these concepts live: intercepting session cookies in Burp Suite, analyzing JWT security attributes, and testing cookie flags against OWASP Juice Shop. Complete Module 06 first, then subsequent modules will feel like applying knowledge I already have rather than learning new material.
 
 ---
-
-<a id="stage-1-capstone-project"></a>
 
 ### 🏆 Stage 1 Capstone Project
 
@@ -2780,8 +2631,6 @@ Using my virtualization platform, build a lab environment containing:
 
 ---
 
-<a id="stage-1-reflection-competency-check"></a>
-
 ### 🧭 Stage 1 Reflection & Competency Check
 
 - [ ] **Reflection:** What foundational concept felt weakest: OS internals, Linux, Windows, networking, programming, or cryptography?
@@ -2795,14 +2644,7 @@ Using my virtualization platform, build a lab environment containing:
 
 ---
 
-<a id="toc-part-4-footprinting-and-reconnaissance"></a>
-
-<a id="part-3c-web-technology-fundamentals"></a>
-
 ---
-
-<a id="module-07-web-technology-fundamentals"></a>
-<a id="part-3c-web-technology-fundamentals"></a>
 
 ## Module 07: Web Technology Fundamentals
 
@@ -2824,10 +2666,7 @@ _Understand the web from the ground up — how browsers communicate with servers
 > - [ ] Install **[Burp Suite Community Edition](https://portswigger.net/burp/communitydownload)** and configure my browser to proxy through `127.0.0.1:8080`. Intercept one HTTP request before reading any further.
 > - [ ] Install **Docker** (`sudo apt install docker.io`) and run OWASP Juice Shop: `docker run -d -p 3000:3000 bkimminich/juice-shop`. Verify I can access `http://localhost:3000`.
 > - [ ] Install the **Wappalyzer** browser extension (Firefox/Chrome) to fingerprint technology stacks on any site.
->
 > These tools are not optional. Every lab in Module 07 requires Burp Suite. I am not learning concepts to describe them — I am learning to observe them in live traffic.
-
-<a id="stage-1-http-the-protocol-of-the-web"></a>
 
 ### Topic 1: HTTP — The Protocol of the Web — 🧠 Conceptual
 
@@ -2864,8 +2703,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 - [ ] **MQTT (Message Queuing Telemetry Transport):** Lightweight **pub/sub** IoT messaging protocol. Broker (Mosquitto, HiveMQ, AWS IoT Core) routes messages by topic. Runs TCP 1883 (plaintext) or TCP 8883 (TLS). *Security angle: many brokers allow anonymous connect with no TLS — `mosquitto_sub -h <target> -t '#' -v` dumps all device telemetry; wildcard publish = command injection to field devices. Tools: `mqtt-pwn`, MQTT Explorer. Full exploitation: Stage-5 Module 28.*
 
 ---
-
-<a id="stage-2-cookies-sessions-tokens"></a>
 
 ### Topic 2: Cookies, Sessions & Tokens — 🧠 Conceptual
 
@@ -2909,8 +2746,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 ---
 
-<a id="stage-3-same-origin-policy-cors-web-security-headers"></a>
-
 ### Topic 3: Same-Origin Policy, CORS & Web Security Headers — 🧠 Conceptual
 
 > [!TIP]
@@ -2947,8 +2782,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 ---
 
-<a id="stage-4-web-authentication-patterns"></a>
-
 ### Topic 4: Web Authentication Patterns — 🧠 Conceptual
 
 > [!TIP]
@@ -2972,8 +2805,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 - [ ] **Password Storage (Server Side):** bcrypt, scrypt, and Argon2id password hashing — including salt, work factor, and rainbow table resistance — are covered in full in **Module 05 Topic 4: Data at Rest & Password Security**. Review that section for the complete treatment.
 
 ---
-
-<a id="stage-5-rest-apis-json-modern-web-architecture"></a>
 
 ### Topic 5: REST APIs, JSON & Modern Web Architecture — 🧠 Conceptual
 
@@ -3010,8 +2841,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 ---
 
-<a id="lab-progression-web-technology-fundamentals"></a>
-
 ### Lab Progression (Module 07: Web Technology Fundamentals)
 
 > [!TIP]
@@ -3030,8 +2859,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 ---
 
-<a id="phase-1-mini-projects"></a>
-
 ## 🛠️ Stage 1 Mini Projects
 
 > [!TIP]
@@ -3041,8 +2868,6 @@ _Understand the web from the ground up — how browsers communicate with servers
 > **How to use this section:** Each project lists the Stage 1 Module it belongs to, what prerequisite knowledge is needed, and what I should be able to explain after completing it. All code must be committed to my Git repository with a proper README covering: what the tool does, the vulnerability/concept it demonstrates, and how to run it.
 
 ---
-
-<a id="project-1-password-strength-checker"></a>
 
 ### Project 1 — Password Strength Checker
 
@@ -3062,8 +2887,6 @@ It forces me to internalize the *math* behind password strength — not just "us
 
 ---
 
-<a id="project-2-password-generator"></a>
-
 ### Project 2 — Password Generator
 
 **Maps to:** Module 05 (Cryptography) → Topic 4: Data at Rest & Password Security
@@ -3082,8 +2905,6 @@ This teaches the single most important distinction a security-aware developer mu
 
 ---
 
-<a id="project-3-caesar-cipher-encryption-tool"></a>
-
 ### Project 3 — Caesar Cipher Encryption Tool
 
 **Maps to:** Module 05 (Cryptography) → Topic 1: Core Concepts & Algorithms
@@ -3101,8 +2922,6 @@ Caesar cipher is *intentionally broken* — that's the point. Building it and th
 **Deliverable:** Python CLI that encrypts, decrypts, and brute-forces Caesar-encrypted text. README must document the brute-force output and explain why this cipher fails.
 
 ---
-
-<a id="project-4-aes-file-encryptor"></a>
 
 ### Project 4 — AES File Encryptor
 
@@ -3124,8 +2943,6 @@ AES-GCM is the standard for symmetric encryption in TLS 1.3, disk encryption, an
 
 ---
 
-<a id="project-5-rsa-key-pair-generator"></a>
-
 ### Project 5 — RSA Key Pair Generator
 
 **Maps to:** Module 05 (Cryptography) → Topic 2: Secure Communication + Topic 3: Identity & Trust (PKI)
@@ -3145,8 +2962,6 @@ RSA is the foundation of TLS certificates, SSH keys, code signing, and JWT RS256
 
 ---
 
-<a id="project-6-file-encryption-decryption-tool-hybrid"></a>
-
 ### Project 6 — File Encryption & Decryption Tool (Hybrid)
 
 **Maps to:** Module 05 (Cryptography) → Topic 2: Secure Communication (Capstone of the crypto section)
@@ -3164,8 +2979,6 @@ This is the capstone of all Stage 1 crypto projects. It mirrors the architecture
 **Deliverable:** Python CLI with `encrypt <file> --pubkey public.pem` and `decrypt <file.enc> --privkey private.pem`. README must contain a diagram showing the hybrid model: `AES_key → RSA_encrypt(pubkey) → stored; File → AES_GCM(AES_key) → stored`.
 
 ---
-
-<a id="project-7-password-manager"></a>
 
 ### Project 7 — Password Manager
 
@@ -3185,8 +2998,6 @@ A password manager is one of the highest-impact security tools in daily use, and
 **Deliverable:** Python CLI with commands: `add`, `get`, `list`, `delete`, `lock`. Vault stored as an encrypted JSON file. README must explain *why* Argon2 is used instead of SHA-256 with a concrete timing comparison.
 
 ---
-
-<a id="project-8-login-system-with-multi-factor-authentication-totp"></a>
 
 ### Project 8 — Login System with Multi-Factor Authentication (TOTP)
 
@@ -3214,24 +3025,18 @@ Authentication is the #1 attack surface in web applications. Building it myself 
 ---
 
 > [!TIP]
-> <a id="ctf-practice"></a>
 
 ### 🎮 Concurrent CTF Practice — Stage 1
->
 > Don't wait until Module 30 to touch CTF platforms. Start now, in parallel with my module work.
->
 > | Platform | What to do during Stage 1 | Why |
 > |---|---|---|
 > | [TryHackMe](https://tryhackme.com) | Complete the **Pre-Security** and **Linux Fundamentals** (Parts 1–3) learning paths | Reinforces Modules 02–04 with guided labs |
 > | [OverTheWire: Bandit](https://overthewire.org/wargames/bandit) | Work through Bandit levels 0–20 | Builds Linux CLI muscle memory I will need constantly |
 > | [PortSwigger Web Security Academy](https://portswigger.net/web-security) | Read the **HTTP** and **Web app** intro sections | Sets you up for Stage 3 — no exploitation yet |
 > | [PicoCTF](https://picoctf.org) | Solve 5–10 beginner challenges (General Skills, Cryptography) | Reinforces Module 05 Cryptography and scripting |
->
 > **Rule:** 1 CTF challenge per day minimum. Document every solve: what the challenge was, my approach, what I learned.
 
 ---
-
-<a id="foundation-proof-gate"></a>
 
 ## 🏁 Foundation Proof Gate
 

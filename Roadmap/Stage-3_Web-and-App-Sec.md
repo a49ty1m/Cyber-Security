@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # Stage 3 — Web & App Sec
 
@@ -14,7 +13,6 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 14–18**
->
 > - **⏱️ Estimated Time:** ~8–10 weeks of consistent daily sessions
 > - **🎯 Modules:** `14`–`16` Web Application & Server Hacking · `17` API Security · `18` Bug Bounty Methodology
 > - **🟡 Parallel (absorb only, never block):** Detection Awareness · IDS/Honeypots · OSINT/CTI
@@ -31,14 +29,11 @@
 > - **PortSwigger lab solutions** — writeups for each completed lab explaining the vulnerability class
 > - **PoC screenshots and videos** — visual evidence for every finding
 > - **Git commits** — all reports and evidence committed to my repository
->
 > _By the end of Stage 3, I should have a library of vulnerability reports ready for my portfolio._
 
 > [!IMPORTANT]
-> <a id="mandatory-tools"></a>
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
->
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
 > | **Tier 1 (Mandatory)** | [[Burp_Suite]] (Community or Pro) | HTTP/S proxying, Repeater parameter manipulation, Intruder fuzzing, match & replace rules, Autorize plugin (IDOR). |
@@ -49,15 +44,11 @@
 > | **Tier 2 (Secondary)** | [[Nuclei]] | Template-based vulnerability scanning, custom YAML template writing for known CVEs. |
 > | **Tier 2 (Secondary)** | [[OWASP_ZAP]] | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
 > | **Tier 2 (Secondary)** | [[wpscan]] & [[Nikto]] | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
->
 > **Stage 3 Exit Gate:** I cannot pass Stage 3 until I can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
 
 ---
 
-<a id="table-of-contents"></a>
-
 ### 🗂️ Table of Contents
-
 
 - [[#Module 14: Web Application Hacking|Module 14: Web Application Hacking]]
   - [[#Topic 1: Reconnaissance & Mapping — 🔬 Practical|Topic 1: Reconnaissance & Mapping]]
@@ -142,12 +133,7 @@
 
 ---
 
-<a id="part-17-web-application-hacking"></a>
-
 ---
-
-<a id="module-14-web-application-hacking"></a>
-<a id="part-17-web-application-hacking"></a>
 
 ## Module 14: Web Application Hacking
 
@@ -166,7 +152,6 @@
 
 > [!IMPORTANT]
 > **Stage 3 Resource Alignment**
->
 > | Resource | Role |
 > |----------|------|
 > | **This roadmap (Stage 3)** | Curriculum — what to learn and in what order |
@@ -177,7 +162,6 @@
 
 > [!NOTE]
 > **Module 14 Vulnerability Learning Sequence** — work through topics in this order within Stage 3:
->
 > ```text
 > HTTP/Web fundamentals (already in Stage 1 Module 07 — review if needed)
 >         ↓
@@ -211,10 +195,8 @@
 >         ↓
 > Web cache poisoning / advanced web attacks
 > ```
->
 > PortSwigger has labs for every one of these. Do the labs as I reach each topic — not all upfront.
 
-<a id="stage-1-reconnaissance-mapping"></a>
 ### Topic 1: Reconnaissance & Mapping — 🔬 Practical
 
 > [!TIP]
@@ -232,7 +214,6 @@
 
 ---
 
-<a id="stage-2-vulnerability-analysis-probing"></a>
 ### Topic 2: Vulnerability Analysis & Probing — 🔬 Practical
 
 > [!TIP]
@@ -250,7 +231,6 @@
 
 ---
 
-<a id="stage-3-exploitation-the-owasp-top-10"></a>
 ### Topic 3: Exploitation (The OWASP Top 10 & Modern Web Attacks) — 🔬 Practical
 
 > [!TIP]
@@ -291,7 +271,6 @@
 
 ---
 
-<a id="stage-4-post-exploitation-persistence"></a>
 ### Topic 4: Post-Exploitation & Persistence — 🔬 Practical
 
 > [!TIP]
@@ -307,7 +286,6 @@
 
 ---
 
-<a id="stage-5-defense-mitigation-the-shield"></a>
 ### Topic 5: Defense & Mitigation (The Shield) — 🧠 Conceptual
 
 > [!TIP]
@@ -325,7 +303,6 @@
 
 ---
 
-<a id="lab-progression-part-17-web-application-hacking"></a>
 ### Lab Progression (Module 14: Web Application Hacking)
 
 | Level | Task | Deliverable |
@@ -354,13 +331,7 @@
 
 ---
 
-<a id="toc-part-12-session-hijacking-token-attacks"></a>
-<a id="part-12-session-hijacking-token-attacks"></a>
-
 ---
-
-<a id="module-15-session-hijacking--token-attacks"></a>
-<a id="part-12-session-hijacking"></a>
 
 ## Module 15: Session Hijacking & Token Attacks
 
@@ -375,7 +346,6 @@
 
 ---
 
-<a id="stage-1-session-architecture-vulnerability-analysis"></a>
 ### Topic 1: Session Architecture & Vulnerability Analysis — 🔬 Practical
 
 > [!TIP]
@@ -401,7 +371,6 @@
 
 ---
 
-<a id="stage-2-token-theft-interception-vectors"></a>
 ### Topic 2: Token Theft & Interception Vectors — 🔬 Practical
 
 > [!TIP]
@@ -429,7 +398,6 @@
 
 ---
 
-<a id="stage-3-token-forgery-replay"></a>
 ### Topic 3: Token Forgery & Replay — 🔬 Practical
 
 > [!TIP]
@@ -448,7 +416,6 @@
 
 ---
 
-<a id="stage-4-defense-mitigation-the-shield"></a>
 ### Topic 4: Defense & Mitigation (The Shield) — 🧠 Conceptual
 
 > [!TIP]
@@ -469,7 +436,6 @@
 
 ---
 
-<a id="lab-progression-part-12-session-hijacking"></a>
 ### Lab Progression (Module 15: Session Hijacking & Token Attacks)
 
 | Level | Task | Deliverable |
@@ -485,13 +451,7 @@
 
 ---
 
-<a id="toc-part-18-web-server-hacking"></a>
-<a id="part-18-web-server-hacking"></a>
-
 ---
-
-<a id="module-16-web-server-hacking"></a>
-<a id="part-18-web-server-hacking"></a>
 
 ## Module 16: Web Server Hacking
 
@@ -501,7 +461,6 @@
 > - 🟢 `Web security exposed` — Reference — supplementary web server attack coverage
 > - 🟢 `WordPress Hacking and Security` — Reference — CMS-specific attack methodology for real-world scope targets
 
-<a id="stage-1-target-acquisition-reconnaissance"></a>
 ### Topic 1: Target Acquisition & Reconnaissance — 🔬 Practical
 
 > [!TIP]
@@ -515,7 +474,6 @@
 
 ---
 
-<a id="stage-2-scanning-service-enumeration"></a>
 ### Topic 2: Scanning & Service Enumeration — 🔬 Practical
 
 > [!TIP]
@@ -533,7 +491,6 @@
 
 ---
 
-<a id="stage-3-vulnerability-assessment-exploitation"></a>
 ### Topic 3: Vulnerability Assessment & Exploitation — 🔬 Practical
 
 > [!TIP]
@@ -553,7 +510,6 @@
 
 ---
 
-<a id="stage-4-post-exploitation-persistence"></a>
 ### Topic 4: Post-Exploitation & Persistence — 🔬 Practical
 
 > [!TIP]
@@ -571,7 +527,6 @@
 
 ---
 
-<a id="lab-progression-part-18-web-server-hacking"></a>
 ### Lab Progression (Module 16: Web Server Hacking)
 
 | Level | Task | Deliverable |
@@ -587,13 +542,7 @@
 
 ---
 
-<a id="toc-part-19-api-security"></a>
-<a id="part-19-api-security"></a>
-
 ---
-
-<a id="module-17-api-security"></a>
-<a id="part-19-api-security"></a>
 
 ## Module 17: API Security
 
@@ -602,7 +551,6 @@
 > - 🔴 `Hacking APIs Breaking Web Application Programming Interfaces - Corey` — Full book — the best dedicated API security resource; maps directly to this Part
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG API test cases; use IDs when writing reports
 
-<a id="stage-1-api-reconnaissance-mapping"></a>
 ### Topic 1: API Reconnaissance & Mapping — 🔬 Practical
 
 > [!TIP]
@@ -618,7 +566,6 @@
 
 ---
 
-<a id="stage-2-owasp-api-security-top-10"></a>
 ### Topic 2: OWASP API Security Top 10 — 🧠🔬 Mixed
 
 > [!TIP]
@@ -646,7 +593,6 @@
 
 ---
 
-<a id="stage-3-protocol-specific-api-attacks"></a>
 ### Topic 3: Protocol-Specific API Attacks — 🔬 Practical
 
 > [!TIP]
@@ -665,7 +611,6 @@
 
 ---
 
-<a id="stage-4-api-authentication-token-attacks"></a>
 ### Topic 4: API Authentication & Token Attacks — 🔬 Practical
 
 > [!TIP]
@@ -681,7 +626,6 @@
 
 ---
 
-<a id="stage-5-defense-hardening"></a>
 ### Topic 5: Defense & Hardening — 🧠 Conceptual
 
 > [!TIP]
@@ -695,7 +639,6 @@
 
 ---
 
-<a id="lab-progression-part-19-api-security"></a>
 ### Lab Progression (Module 17: API Security)
 
 | Level | Task | Deliverable |
@@ -711,13 +654,7 @@
 
 ---
 
-<a id="toc-part-20-bug-bounty-and-penetration-testing"></a>
-<a id="part-20-bug-bounty-and-penetration-testing"></a>
-
 ---
-
-<a id="module-18-bug-bounty-methodology"></a>
-<a id="part-20-bug-bounty-methodology"></a>
 
 ## Module 18: Bug Bounty Methodology
 
@@ -729,7 +666,6 @@
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG test case IDs for reporting (e.g. WSTG-INPV-05)
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology doc to use during assessments
 
-<a id="stage-1-preparation-scoping"></a>
 ### Topic 1: Preparation & Scoping — 🧠🔬 Mixed
 
 > [!TIP]
@@ -749,7 +685,6 @@
 
 ---
 
-<a id="stage-2-reconnaissance-the-wide-net"></a>
 ### Topic 2: Reconnaissance (The Wide Net) — 🔬 Practical
 
 > [!TIP]
@@ -775,7 +710,6 @@
 
 ---
 
-<a id="stage-3-vulnerability-assessment-the-deep-dive"></a>
 ### Topic 3: Vulnerability Assessment (The Deep Dive) — 🔬 Practical
 
 > [!TIP]
@@ -792,7 +726,6 @@
 
 ---
 
-<a id="stage-4-exploitation-validation"></a>
 ### Topic 4: Exploitation & Validation — 🔬 Practical
 
 > [!TIP]
@@ -806,7 +739,6 @@
 
 ---
 
-<a id="stage-5-reporting-triage"></a>
 ### Topic 5: Reporting & Triage — 🧠🔬 Mixed
 
 > [!TIP]
@@ -822,7 +754,6 @@
 
 ---
 
-<a id="stage-6-professional-development"></a>
 ### Topic 6: Professional Development — 🧠🔬 Mixed
 
 > [!TIP]
@@ -839,8 +770,6 @@
 - [ ] **Continuous Learning:** Stay updated on **latest vulnerabilities, techniques, tools** through blogs, research papers, trainings.
 
 ---
-
-<a id="stage-3-capstone-project"></a>
 
 ### 🏆 Stage 3 Capstone Project
 
@@ -862,8 +791,6 @@
 
 ---
 
-<a id="stage-3-reflection-competency-check"></a>
-
 ### 🧭 Stage 3 Reflection & Competency Check
 
 - [ ] **Reflection:** Which vulnerability class was easiest to find but hardest to explain clearly?
@@ -878,11 +805,7 @@
 
 ---
 
-<a id="toc-part-21-wireless-pentesting"></a>
-
 ---
-
-<a id="phase-4-mini-projects"></a>
 
 ## 🛠️ Stage 3 Mini Projects
 
@@ -893,8 +816,6 @@
 > **How to use this section:** Projects 15–22 are individual vulnerability checkers. Project 23 (Web Vulnerability Scanner) is the capstone — it integrates all the others into a single tool. Do not start Project 23 until all preceding projects are complete and working. All code must be committed to Git with proper READMEs that include: what vulnerability it targets, how it works, what it *cannot* detect, and ethical usage requirements.
 
 ---
-
-<a id="project-15-website-security-header-checker"></a>
 
 ### Project 15 — Website Security Header Checker
 
@@ -919,8 +840,6 @@ Security headers are the first passive defense layer of any web application, and
 
 ---
 
-<a id="project-16-ssltls-certificate-checker"></a>
-
 ### Project 16 — SSL/TLS Certificate Checker
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping + Module 16 (Web Server Hacking) → Stage 2: Scanning & Service Enumeration
@@ -940,8 +859,6 @@ Certificate misconfiguration is a frequent finding in professional audits and bu
 **Deliverable:** Python CLI — `check <hostname>`. Output: certificate details table with expiry, issuer, SAN list, protocol version, cipher suite, and flagged issues. README must explain what an expired certificate means for a production service and why SHA-1 signatures are deprecated.
 
 ---
-
-<a id="project-17-sql-injection-detection-tool"></a>
 
 ### Project 17 — SQL Injection Detection Tool
 
@@ -964,8 +881,6 @@ SQL injection has been in the OWASP Top 10 every year since its inception. It ca
 **Deliverable:** Python CLI — `scan <url> --params auto`. Inject payloads into detected parameters, output findings as a structured report with: parameter name, injection type, payload used, evidence. README must include a lab setup section using DVWA or Juice Shop (never test on live sites without permission).
 
 ---
-
-<a id="project-18-xss-scanner"></a>
 
 ### Project 18 — XSS Scanner
 
@@ -990,8 +905,6 @@ XSS enables session hijacking (steal `document.cookie`), credential phishing (in
 
 ---
 
-<a id="project-19-phishing-url-detector"></a>
-
 ### Project 19 — Phishing URL Detector
 
 **Maps to:** Module 24 (Social Engineering) → Stage 2: The Digital Assault (Remote Vectors) + Module 14 Topic 3: OWASP A09 Security Logging and Monitoring Failures
@@ -1014,8 +927,6 @@ Phishing is the #1 initial access vector in real-world attacks — responsible f
 
 ---
 
-<a id="project-20-command-injection-detector"></a>
-
 ### Project 20 — Command Injection Detector
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 3: Exploitation (OWASP Top 10) — A03:2021 Injection (OS command)
@@ -1035,8 +946,6 @@ Command injection is the highest-severity web vulnerability class — successful
 **Deliverable:** Python CLI — `scan <url> --params <param1,param2>`. Inject payloads, detect command output or timing anomalies, output findings. README must include a vulnerable test case setup using DVWA and explain why `shell=False` with explicit argument lists prevents injection.
 
 ---
-
-<a id="project-21-ssrf-detection-tool"></a>
 
 ### Project 21 — SSRF Detection Tool
 
@@ -1061,8 +970,6 @@ SSRF became a critical vulnerability class with cloud adoption. The 2019 Capital
 
 ---
 
-<a id="project-22-directory-brute-force-tool"></a>
-
 ### Project 22 — Directory Brute-Force Tool
 
 **Maps to:** Module 14 (Web Application Hacking) → Stage 1: Reconnaissance & Mapping — specifically content discovery
@@ -1082,8 +989,6 @@ Exposed `.git` directories (leaking full source code), `/admin` panels, `/backup
 **Deliverable:** Python CLI — `scan <url> --wordlist <path> --threads <n> --extensions php,html,txt`. Output: table of discovered paths with status codes and content lengths, false-positive-filtered. README must explain what finding an exposed `.git` directory means for a target's security.
 
 ---
-
-<a id="project-23-web-vulnerability-scanner-capstone"></a>
 
 ### Project 23 — Web Vulnerability Scanner (Capstone)
 
@@ -1118,21 +1023,15 @@ It also teaches a critical professional lesson: automated scanners miss things. 
 
 ---
 
-<a id="side-track"></a>
-
 ## 🛡️ Parallel Side-Track: Defensive Awareness & Threat Intelligence
 *(Absorb only — run in parallel during Stage 3 lab downtime. Never block the offensive critical path.)*
 
 ---
 
-<a id="side-track-a-detection-engineering--soc-operations"></a>
-<a id="part-13a-detection-engineering-soc-operations"></a>
-
 ### Side-Track A: Detection Engineering & SOC Operations
 
 _Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Shelf_Post-Hire#Shelf 16: Security Operations Expansion|Shelf 16 (Security Operations Expansion)]]._
 
-<a id="stage-1-defensive-architecture"></a>
 ### Topic 1: Defensive Architecture — 🧠 Conceptual
 
 - [ ] **Defense-In-Depth:** Layer **EDR, SIEM, CASB, firewall, WAF, IDS/IPS, DNS filtering** with **proper tuning** to reduce false positives and enable hunting.
@@ -1143,7 +1042,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-2-offensive-indicators-ttps"></a>
 ### Topic 2: Offensive Indicators & TTPs — 🧠 Conceptual
 
 - [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [[Metasploit_Framework|Metasploit]], custom).
@@ -1154,7 +1052,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-3-evasion-detection-hardening"></a>
 ### Topic 3: Evasion Detection & Hardening — 🔬 Practical
 
 - [ ] **Living-off-the-Land Detection:** Monitor **native binary execution** (PowerShell, WMI, certutil, mshta, bitsadmin) with **process whitelisting, memory pattern analysis, and behavioral indicators**.
@@ -1167,7 +1064,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-4-detection-engineering-response"></a>
 ### Topic 4: Detection Engineering & Response — 🔬 Practical
 
 - [ ] **Detection Rules:** Write **Sigma, Snort/Suricata, Yara, osquery** rules targeting **adversary TTPs** from reconnaissance to exfiltration.
@@ -1187,7 +1083,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-5-edrxdrmdr-basics"></a>
 ### Topic 5: EDR/XDR/MDR Basics — 🧠 Conceptual
 
 > [!TIP]
@@ -1205,7 +1100,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-6-soc-siem-fundamentals"></a>
 ### Topic 6: SOC & SIEM Fundamentals — 🔬 Practical
 
 > [!TIP]
@@ -1232,7 +1126,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-7-threat-hunting-methodology"></a>
 ### Topic 7: Threat Hunting Methodology — 🔬 Practical
 
 > [!TIP]
@@ -1252,7 +1145,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-8-incident-response-basics"></a>
 ### Topic 8: Incident Response Basics — 🧠🔬 Mixed
 
 > [!TIP]
@@ -1278,7 +1170,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-9-forensic-fundamentals"></a>
 ### Topic 9: Forensic Fundamentals — 🔬 Practical
 
 > [!TIP]
@@ -1296,7 +1187,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-10-blue-team-evasion-counter-measures"></a>
 ### Topic 10: Blue Team Evasion Counter-Measures — 🧠 Conceptual
 
 > [!TIP]
@@ -1331,17 +1221,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="toc-part-13b-security-operations-expansion"></a>
-<a id="part-13b-security-operations-expansion"></a>
-
 ---
-
-<a id="side-track-b-ids-firewalls-and-honeypots"></a>
-<a id="part-14-ids-firewalls-and-honeypots"></a>
 
 ### Side-Track B: IDS, Firewalls, and Honeypots
 
-<a id="stage-1-foundational-strategy-networking"></a>
 ### Topic 1: Foundational Strategy & Networking — 🧠 Conceptual
 
 > [!TIP]
@@ -1355,7 +1238,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-2-deploying-firewalls-the-shield"></a>
 ### Topic 2: Deploying Firewalls (The Shield) — 🔬 Practical
 
 > [!TIP]
@@ -1369,7 +1251,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-3-implementing-idsips-the-watchers"></a>
 ### Topic 3: Implementing IDS/IPS (The Watchers) — 🔬 Practical
 
 > [!TIP]
@@ -1385,7 +1266,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-4-utilizing-deception-the-traps"></a>
 ### Topic 4: Utilizing Deception (The Traps) — 🔬 Practical
 
 > [!TIP]
@@ -1432,7 +1312,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-5-operations-continuous-improvement"></a>
 ### Topic 5: Operations & Continuous Improvement — 🧠 Conceptual
 
 > [!TIP]
@@ -1450,7 +1329,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-6-email-security-architecture"></a>
 ### Topic 6: Email Security Architecture — 🔬 Practical
 
 > [!TIP]
@@ -1470,7 +1348,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-7-dns-security-operations"></a>
 ### Topic 7: DNS Security Operations — 🔬 Practical
 
 > [!TIP]
@@ -1490,7 +1367,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="lab-progression-part-14-ids-firewalls-and-honeypots"></a>
 ### Lab Progression (Side-Track B: IDS, Firewalls & Honeypots)
 
 | Level | Task | Deliverable |
@@ -1504,22 +1380,13 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!IMPORTANT]
 > **Move-On Gate:** I can deploy and configure IDS/IPS, write custom detection rules, deploy honeypots for deception, and tune detection to minimize false positives while catching evasion attempts.
 
-<a id="toc-part-15-osint--threat-intelligence"></a>
-<a id="part-15-cyber-threat-intelligence-cti-attack-surface-management"></a>
-<a id="part-15-osint-threat-intelligence"></a>
-
 ---
-
-<a id="side-track-c-cyber-threat-intelligence-cti--attack-surface-management"></a>
-<a id="part-15-osint-threat-intelligence"></a>
 
 ### Side-Track C: Cyber Threat Intelligence (CTI) & Attack Surface Management
 
 > [!NOTE]
 > **Defensive Scope Alignment:** Offensive reconnaissance, active scanning, and target footprinting are covered in **Stage 2 (Module 08)**. Side-Track C focuses strictly on defensive **Cyber Threat Intelligence (CTI)**, External Attack Surface Management (EASM), threat actor profiling, and operationalizing intelligence into detection telemetry.
 
-<a id="stage-1-external-attack-surface-management-easm-feeds"></a>
-<a id="stage-1-passive-reconnaissance-data-collection"></a>
 ### Topic 1: External Attack Surface Management (EASM) & Threat Feeds — 🔬 Practical
 
 > [!TIP]
@@ -1537,8 +1404,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-2-threat-intelligence-analysis-actor-profiling"></a>
-<a id="stage-2-threat-intelligence-analysis"></a>
 ### Topic 2: Threat Intelligence Analysis & Actor Profiling — 🧠 Conceptual
 
 > [!TIP]
@@ -1556,8 +1421,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-3-cti-platforms-automation-misp-opencti"></a>
-<a id="stage-3-osint-automation-tooling"></a>
 ### Topic 3: CTI Platforms & Automation (MISP / OpenCTI) — 🔬 Practical
 
 > [!TIP]
@@ -1579,7 +1442,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-4-threat-intelligence-dissemination"></a>
 ### Topic 4: Threat Intelligence Dissemination — 🧠 Conceptual
 
 > [!TIP]
@@ -1597,7 +1459,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="stage-5-threat-intel-operationalization"></a>
 ### Topic 5: Threat Intel Operationalization — 🔬 Practical
 
 > [!TIP]
@@ -1618,7 +1479,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="lab-progression-part-15-osint-threat-intelligence"></a>
 ### Lab Progression (Side-Track C: Threat Intelligence & OSINT)
 
 | Level | Task | Deliverable |
@@ -1635,7 +1495,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="grc-fundamentals-sidebar-early-supplement-for-defensive-careers"></a>
 ### GRC Fundamentals Sidebar (Early Supplement for Defensive Careers)
 
 > **Why Here:** SOC analysts, detection engineers, and blue team professionals encounter governance and compliance obligations on Day 1 of employment — not after years of technical specialization. I need to understand what constitutes a reportable incident, what frameworks drive my employer's security program, and how risk language works before I respond to my first real alert. Full GRC depth (audit mechanics, risk quantification, regulatory testing, vendor risk) is in Shelf 11 (GRC). This sidebar gives me the operational minimum.
@@ -1755,8 +1614,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="defensive-operations-capstone-project"></a>
-
 ### 🏆 Defensive Operations Capstone Project
 
 **Deploy a SIEM, Investigate Simulated Attacks, and Build a Detection Library**
@@ -1777,8 +1634,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-<a id="defensive-operations-reflection-competency-check"></a>
-
 ### 🧭 Defensive Operations Reflection & Competency Check
 
 - [ ] **Reflection:** Which detections were noisy, missing, or too fragile?
@@ -1795,12 +1650,8 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!NOTE]
 > **✅ Defensive Operations side-tracks conclude here.**
 > Module 22 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming|Stage 4: Enterprise]].
->
->
 
 ---
-
-<a id="phase-3-mini-projects"></a>
 
 ## 🛠️ Defensive Operations Mini Projects
 
@@ -1808,8 +1659,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > **Why this project is here:** Defensive operations cover defense, detection, and understanding what malicious behavior looks like from the defender's perspective. The Keylogger Detector belongs here because it requires process monitoring, behavioral analysis, and understanding of OS-level keyboard hooks — all detection engineering skills. It is explicitly a defensive tool: you're detecting an attacker's technique, not performing it.
 
 ---
-
-<a id="project-9-keylogger-detector"></a>
 
 ### Project 9 — Keylogger Detector
 
@@ -1846,12 +1695,9 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 ---
 
 > [!TIP]
-> <a id="ctf-practice"></a>
 
 ### 🎮 Concurrent CTF Practice — Stage 3
->
 > Web security is learned by doing. Every concept maps to a PortSwigger lab and an HTB/THM box. Do them as I study each topic, not after.
->
 > | Module | Platform | Lab / Box | Why |
 > |---|---|---|---|
 > | 14–16 Web Vulns | [PortSwigger Web Security Academy](https://portswigger.net/web-security) | All **Apprentice** labs across SQLi, XSS, CSRF, SSRF, XXE, IDOR, Path Traversal | Covers every OWASP Top 10 item hands-on |
@@ -1861,10 +1707,7 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 > | 17 API Security | [DVWA](https://dvwa.co.uk) / [crAPI](https://github.com/OWASP/crAPI) | Deploy locally and work through all labs | Dedicated API vulnerability practice |
 > | 18 Bug Bounty | [PentesterLab](https://pentesterlab.com) | White Badge + Green Badge exercises | Bug class recognition in real code |
 > | 18 Bug Bounty | [HackerOne](https://www.hackerone.com) / [Bugcrowd](https://www.bugcrowd.com) | Join 1 public program and submit 1 report | Real-world recon + reporting practice |
->
 > **Rule:** For every PortSwigger lab you complete, write one paragraph explaining the root cause, not just the steps.
-
-<a id="stage-gate-2"></a>
 
 ## 🏁 Stage Gate 2 — Web Application Security Gate
 

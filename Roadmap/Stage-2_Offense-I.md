@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # Stage 2 — Offense I
 
@@ -14,7 +13,6 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 08–13**
->
 > - **⏱️ Estimated Time:** ~5–6 weeks of consistent daily sessions
 > - **🎯 Modules:** `08` Footprinting & Recon · `09` Scanning · `10` Enumeration · `11` Database Security · `12` Password Cracking & Hash Analysis · `13` System Hacking & Initial Compromise
 > - **🔴 Gate:** Root a box · dump & crack a hash · escalate privesc — before moving to Stage 3
@@ -23,24 +21,18 @@
 ---
 
 > [!NOTE]
->
 > ### 📝 Stage 2 Documentation Requirements
->
 > Every attack I execute must be documented. Required artifacts:
->
 > - **Pentest notes** in structured markdown (target → recon → exploitation → post-exploitation → findings)
 > - **Tool output** — [[Nmap]] scans, Burp captures, [[Metasploit_Framework|Metasploit]] session logs saved to files
 > - **Attack chain diagrams** showing the kill chain for each compromise
 > - **3 HTB/VulnHub writeups** — full writeups committed to Git (private until published)
 > - **Git commits** — commit after every lab session with descriptive messages
->
 > _By the end of Stage 2, I should have 10+ documented attack chains in my repository._
 
 > [!IMPORTANT]
-> <a id="mandatory-tools"></a>
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
->
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
 > | **Tier 1 (Mandatory)** | [[Nmap]] | Host discovery, port scanning, service banner grabbing, NSE script auditing (`-sC -sV`). |
@@ -51,15 +43,11 @@
 > | **Tier 2 (Secondary)** | [[theHarvester]] & [[Amass]] | Passive OSINT, subdomain enumeration, organization surface mapping. |
 > | **Tier 2 (Secondary)** | [[Hydra]] & [[John_the_Ripper]] | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
 > | **Tier 2 (Secondary)** | [[LinPEAS]] & [[WinPEAS]] | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
->
 > **Stage 2 Exit Gate:** I cannot pass Stage 2 until I can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
 
 ---
 
-<a id="table-of-contents"></a>
-
 ### 🗂️ Table of Contents
-
 
 - [[#🔹 Stage 2 Execution Pipeline|🔹 Stage 2 Execution Pipeline]]
 - [[#Module 08: Footprinting & Reconnaissance|Module 08: Footprinting & Reconnaissance]]
@@ -120,15 +108,12 @@
 
 ---
 
-<a id="stage-2-execution-pipeline"></a>
-
 ## 🔹 Stage 2 Execution Pipeline
 
 > _Modules 08–13 — Learn to find, probe, crack, and compromise targets. This is the core recon-to-shell pipeline._
 
 > [!IMPORTANT]
 > **Stage 2 Module Execution Order** — Follow this linear module sequence:
->
 > | Step | Module | Focus |
 > | :--: | ------ | ----- |
 > | 1 | **[Module 08](#module-08-footprinting--reconnaissance)** | Footprinting & Reconnaissance |
@@ -137,9 +122,7 @@
 > | 4 | **[Module 11](#module-11-database-security)** | Database Security |
 > | 5 | **[Module 12](#module-12-password-cracking--hash-analysis)** | Password Cracking & Hash Analysis |
 > | 6 | **[Module 13](#module-13-system-hacking--initial-compromise)** | System Hacking & Initial Compromise |
->
 > **Why this order?**
->
 > ```text
 > What exists?               → Module 08 (Recon)
 > Where is it?               → Module 09 (Scanning)
@@ -151,7 +134,6 @@
 
 > [!NOTE]
 > **Stage 2 Progress Check — do NOT proceed until I can demonstrate all of these:**
->
 > - Perform reconnaissance and enumeration **without jumping to Metasploit immediately**
 > - Identify open ports, running services, and software versions on a target
 > - Crack a captured hash using a wordlist and rules
@@ -159,21 +141,14 @@
 > - Escalate privileges on both **Linux** (SUID, sudo misconfig, cron, PATH injection) and **Windows** (unquoted service paths, SeImpersonate, token impersonation)
 > - Establish a persistence mechanism
 > - Document the full attack chain in a structured report
->
 > **Evidence required before completing Stage 2:**
->
 > - Attack chain diagram committed to Git
 > - Lab notes (target → recon → exploitation → post-exploitation → findings)
 > - At least 1 completed HTB/THM machine writeup covering the full chain
 
 ---
 
-<a id="part-4-footprinting-and-reconnaissance"></a>
-
 ---
-
-<a id="module-08-footprinting--reconnaissance"></a>
-<a id="part-4-footprinting-and-reconnaissance"></a>
 
 ## Module 08: Footprinting & Reconnaissance
 
@@ -184,8 +159,6 @@
 > - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Recon chapters — structured methodology for the full recon pipeline
 > - 🟡 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reconnaissance chapter — how defenders see my recon footprint (OPSEC awareness)
 > - 🟢 `Python for OSINT Tooling` — Full book — build my own OSINT automation tools in Python
-
-<a id="part-4-stage-1-ghost-phase"></a>
 
 ### Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling) — 🧠🔬 Mixed
 
@@ -212,8 +185,6 @@
 
 ---
 
-<a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
-
 ### Topic 2: Semi-Passive Infrastructure Mapping — 🔬 Practical
 
 > [!TIP]
@@ -231,8 +202,6 @@
 
 - [ ] **VHost & Favicon Hunts:** Bruteforce **vhosts/domains** and use **favicon hash**/HTTP header diffs to find hidden apps.
 ---
-
-<a id="part-4-stage-3-active-footprinting-network-interrogation"></a>
 
 ### Topic 3: Active Footprinting & Network Interrogation — 🔬 Practical
 
@@ -255,8 +224,6 @@
 
 ---
 
-<a id="part-4-stage-4-advanced-fingerprinting-logic-analysis"></a>
-
 ### Topic 4: Advanced Fingerprinting & Logic Analysis — 🔬 Practical
 
 > [!TIP]
@@ -271,8 +238,6 @@
 - [ ] **Version-to-CVE Correlation:** Cluster hosts by **banners/JA3/favicons** and map exposed versions to **CVE** candidates before exploitation.
 
 ---
-
-<a id="part-4-stage-5-ipv6-protocol-enumeration"></a>
 
 ### Topic 5: IPv6 & Protocol Enumeration — 🧠🔬 Mixed
 
@@ -295,8 +260,6 @@
 
 ---
 
-<a id="part-4-stage-6-dark-web-breach-intelligence"></a>
-
 ### Topic 6: Dark Web & Breach Intelligence — 🔬 Practical
 
 > [!TIP]
@@ -314,20 +277,15 @@
 
 ---
 
-<a id="part-4-stage-7-satellite-geospatial-intelligence"></a>
-
 ### Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope) — 🧠🔬 Mixed
 
 > [!WARNING]
 > **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if I am conducting an authorized physical penetration test where facility layout matters.
->
 > For standard corporate network/web pentesting and Red Team engagements, skip this stage entirely and proceed to **Stage 8: Strategy & Attack Mapping**. Do not schedule dedicated study time here.
 
 - [ ] _[Optional]_ For authorized physical pentest scopes only: Use **Google Earth Pro, Sentinel Hub, ipinfo.io, bgp.he.net** to map physical facility layout, data center locations, and IP infrastructure before an on-site engagement.
 
 ---
-
-<a id="part-4-stage-8-strategy-attack-mapping"></a>
 
 ### Topic 8: Strategy & Attack Mapping — 🧠 Conceptual
 
@@ -341,8 +299,6 @@
 - [ ] **Vulnerability Finalization:** Decide the entry vector based on recon: **SQL Injection, MITM, or Brute Force**.
 
 ---
-
-<a id="part-4-lab-progression"></a>
 
 ### Lab Progression (Module 08: Footprinting & Reconnaissance)
 
@@ -359,13 +315,7 @@
 
 ---
 
-<a id="toc-part-5-scanning"></a>
-<a id="part-5-scanning"></a>
-
 ---
-
-<a id="module-09-scanning"></a>
-<a id="part-5-scanning"></a>
 
 ## Module 09: Scanning
 
@@ -376,8 +326,6 @@
 > - 🟡 `The Power of Scapy V2` — Full (short reference) — custom packet crafting for advanced scanning
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet capture analysis labs
 > - 🟢 `Hacking and Network Defense` — Network scanning chapter — how scan traffic appears in defender logs
-
-<a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
 
 ### Topic 1: Host Discovery & Network Topology (The "Roll Call") — 🔬 Practical
 
@@ -395,8 +343,6 @@
 - [ ] **IPv6 Discovery:** Include **NDP/`nmap -6`** sweeps for dual-stack assets and SLAAC-derived hosts.
 
 ---
-
-<a id="stage-2-port-service-protocol-enumeration-the-door-check"></a>
 
 ### Topic 2: Port, Service & Protocol Enumeration (The "Door Check") — 🔬 Practical
 
@@ -419,8 +365,6 @@
 
 ---
 
-<a id="stage-3-defense-configuration-assessment-the-armor-check"></a>
-
 ### Topic 3: Defense & Configuration Assessment (The "Armor Check") — 🔬 Practical
 
 > [!TIP]
@@ -436,8 +380,6 @@
 
 ---
 
-<a id="stage-4-vulnerability-association-attack-mapping"></a>
-
 ### Topic 4: Vulnerability Association & Attack Mapping — 🧠🔬 Mixed
 
 > [!TIP]
@@ -452,8 +394,6 @@
 - [ ] **Cluster & Correlate:** Group hosts by **banners/JA3/favicons** and map versions to likely **CVEs** before exploitation.
 
 ---
-
-<a id="stage-5-stealth-evasion-techniques"></a>
 
 ### Topic 5: Stealth & Evasion Techniques — 🔬 Practical
 
@@ -476,8 +416,6 @@
 
 ---
 
-<a id="stage-6-advanced-scanning-techniques"></a>
-
 ### Topic 6: Advanced Scanning Techniques — 🔬 Practical
 
 > [!TIP]
@@ -495,8 +433,6 @@
 
 - [ ] **Proxychains & Proxy Pivoting:** Route scans through **VPNs, proxies, compromised hosts** to obscure source IP and bypass **geographic restrictions**.
 
-<a id="lab-progression-part-5-scanning"></a>
-
 ### Lab Progression (Module 09: Scanning)
 
 | Level | Task                                                          | Deliverable                     |
@@ -512,13 +448,7 @@
 
 ---
 
-<a id="toc-part-6-enumeration"></a>
-<a id="part-6-enumeration"></a>
-
 ---
-
-<a id="module-10-enumeration"></a>
-<a id="part-6-enumeration"></a>
 
 ## Module 10: Enumeration
 
@@ -530,8 +460,6 @@
 
 > [!NOTE]
 > **Note:** Module 09 (Scanning) covers host discovery, port scanning, and defense identification. Module 10 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If I haven't completed Module 09, do so first.
-
-<a id="stage-1-service-enumeration-banner-grabbing"></a>
 
 ### Topic 1: Service Enumeration & Banner Grabbing — 🔬 Practical
 
@@ -552,8 +480,6 @@
 
 ---
 
-<a id="stage-2-directory-identity-enumeration"></a>
-
 ### Topic 2: Directory & Identity Enumeration — 🔬 Practical
 
 > [!TIP]
@@ -571,8 +497,6 @@
 
 ---
 
-<a id="stage-3-dns-infrastructure-enumeration"></a>
-
 ### Topic 3: DNS & Infrastructure Enumeration — 🔬 Practical
 
 > [!TIP]
@@ -587,8 +511,6 @@
 - [ ] **Reverse DNS Sweeps:** Perform **PTR record lookups** across discovered IP ranges to reveal **hostnames, naming conventions, and hidden services**.
 
 ---
-
-<a id="stage-4-database-application-enumeration"></a>
 
 ### Topic 4: Database & Application Enumeration — 🔬 Practical
 
@@ -607,8 +529,6 @@
 
 ---
 
-<a id="stage-5-attack-surface-consolidation-enumeration-opsec"></a>
-
 ### Topic 5: Attack Surface Consolidation & Enumeration OpSec — 🧠🔬 Mixed
 
 > [!TIP]
@@ -623,8 +543,6 @@
 - [ ] **Timing Discipline:** Spread enumeration queries over time; avoid **rapid-fire LDAP/SMB/SNMP queries** that trigger **anomaly-based detection**.
 
 - [ ] **Documentation:** Record all findings with **timestamps, source IPs, and tool commands** used — this feeds directly into **reporting and evidence collection**.
-
-<a id="lab-progression-part-6-enumeration"></a>
 
 ### Lab Progression (Module 10: Enumeration)
 
@@ -641,12 +559,7 @@
 
 ---
 
-<a id="part-6b-database-security"></a>
-
 ---
-
-<a id="module-11-database-security"></a>
-<a id="part-6b-database-security"></a>
 
 ## Module 11: Database Security
 
@@ -660,8 +573,6 @@
 
 > [!IMPORTANT]
 > **Prerequisites:** Module 10 (Enumeration) — specifically Topic 4 (Database & Application Enumeration). I should already be able to identify running database services and version-fingerprint them before starting this module.
-
-<a id="part-6b-stage-1-database-enumeration-fingerprinting"></a>
 
 ### Topic 1: Database Enumeration & Fingerprinting — 🔬 Practical
 
@@ -724,8 +635,6 @@
 
 ---
 
-<a id="part-6b-stage-2-relational-database-exploitation"></a>
-
 ### Topic 2: Relational Database Exploitation — 🔬 Practical
 
 > [!TIP]
@@ -780,8 +689,6 @@
 
 ---
 
-<a id="part-6b-stage-3-nosql-modern-database-attacks"></a>
-
 ### Topic 3: NoSQL & Modern Database Attacks — 🔬 Practical
 
 > [!TIP]
@@ -820,8 +727,6 @@
 
 ---
 
-<a id="part-6b-stage-4-database-privilege-escalation"></a>
-
 ### Topic 4: Database Privilege Escalation — 🔬 Practical
 
 > [!TIP]
@@ -837,8 +742,6 @@
 - [ ] **Cross-Database Escalation (MSSQL):** A `db_owner` in a TRUSTWORTHY database can escalate to `sysadmin`: `EXECUTE AS USER = 'dbo'; EXEC master..xp_cmdshell 'whoami';`
 
 ---
-
-<a id="part-6b-stage-5-database-auditing-defence"></a>
 
 ### Topic 5: Database Auditing & Defence — 🧠🔬 Mixed
 
@@ -860,8 +763,6 @@
   - MySQL: `general_log = ON`; `audit_log` plugin for compliance
   - PostgreSQL: `log_statement = 'all'` or `pgaudit` extension
 
-<a id="part-6b-lab-progression"></a>
-
 ### Lab Progression (Module 11: Database Security)
 
 | Level | Task                                                                         | Deliverable                                                   |
@@ -877,12 +778,7 @@
 
 ---
 
-<a id="part-31-password-cracking-hash-analysis"></a>
-
 ---
-
-<a id="module-12-password-cracking--hash-analysis"></a>
-<a id="part-31-password-cracking-hash-analysis"></a>
 
 ## Module 12: Password Cracking & Hash Analysis
 
@@ -894,8 +790,6 @@
 
 > [!NOTE]
 > **Navigational Note — Placement:** Module 12 (Password Cracking & Hash Analysis) sits directly between Module 10 (Enumeration) and Module 13 (System Hacking) because password cracking is a **direct prerequisite for System Hacking**: I cannot effectively use Pass-the-Hash, hash cracking, or credential reuse without first mastering hash identification and offline cracking mechanics. Proceed to Module 13 after completing this.
-
-<a id="stage-1-hash-identification-acquisition"></a>
 
 ### Topic 1: Hash Identification & Acquisition — 🔬 Practical
 
@@ -909,8 +803,6 @@
 - [ ] **Common Hash Types:** Master identifying and handling **NTLM, NTLMv1/v2, NetNTLM, MD5, SHA-1, SHA-256, bcrypt, Argon2, PBKDF2, WPA2-PMKID, Kerberos (5/17/18/23)**.
 
 ---
-
-<a id="stage-2-cracking-methodology-tools"></a>
 
 ### Topic 2: Cracking Methodology & Tools — 🔬 Practical
 
@@ -933,8 +825,6 @@
 
 ---
 
-<a id="stage-3-protocol-specific-cracking"></a>
-
 ### Topic 3: Protocol-Specific Cracking — 🔬 Practical
 
 > [!TIP]
@@ -951,8 +841,6 @@
 - [ ] **Office / PDF / ZIP:** Extract hashes with **office2john, pdf2john, zip2john**; crack with JtR or hashcat for document password recovery.
 
 ---
-
-<a id="stage-4-wordlist-intelligence-curation"></a>
 
 ### Topic 4: Wordlist & Intelligence Curation — 🔬 Practical
 
@@ -971,13 +859,7 @@
 
 ---
 
-<a id="toc-part-7-system-hacking--initial-compromise"></a>
-<a id="part-7-system-hacking-initial-compromise"></a>
-
 ---
-
-<a id="module-13-system-hacking--initial-compromise"></a>
-<a id="part-7-system-hacking-initial-compromise"></a>
 
 ## Module 13: System Hacking & Initial Compromise
 
@@ -990,8 +872,6 @@
 > - 🟡 `Gray Hat Hacking The Ethical Hacker's Handbook 2022` — System exploitation, modern privesc techniques
 > - 🟢 `Exploitation Techniques and Tools` — Technique catalog — use as lookup when encountering a specific technique in labs
 > - 🟢 `Exploit Development on Linux Platform` — Full — Linux-specific exploitation fundamentals
-
-<a id="stage-1-the-breach-initial-access-exploitation"></a>
 
 ### Topic 1: The Breach (Initial Access & Exploitation) — 🔬 Practical
 
@@ -1057,8 +937,6 @@
 - [ ] **NGO Interception:** Capture traffic at **network gateways/bridges** with **[[tcpdump]]/Wireshark**.
 
 ---
-
-<a id="stage-2-the-ascension-privilege-escalation"></a>
 
 ### Topic 2: The Ascension (Privilege Escalation) — 🔬 Practical
 
@@ -1395,8 +1273,6 @@
 
 ---
 
-<a id="stage-3-the-stronghold-persistence-lateral-movement"></a>
-
 ### Topic 3: The Stronghold (Persistence & Lateral Movement) — 🔬 Practical
 
 > [!TIP]
@@ -1474,8 +1350,6 @@
 
 ---
 
-<a id="stage-4-the-shadow-defense-evasion-anti-forensics"></a>
-
 ### Topic 4: The Shadow (Defense Evasion & Anti-Forensics) — 🧠🔬 Mixed
 
 > [!TIP]
@@ -1527,8 +1401,6 @@
 
 ---
 
-<a id="stage-5-data-exfiltration-impact"></a>
-
 ### Topic 5: Data Exfiltration & Impact — 🔬 Practical
 
 > [!TIP]
@@ -1555,8 +1427,6 @@
 - [ ] **Service Disruption:** Corrupt **databases, config files** to trigger **outages and chaos**.
 
 ---
-
-<a id="stage-6-the-professional-governance-reporting"></a>
 
 ### Topic 6: The Professional (Governance & Reporting) — 🧠🔬 Mixed
 
@@ -1591,8 +1461,6 @@
 
 - [ ] **Metrics & KPIs:** Highlight **MTTD (Mean Time to Detect), MTTC (Mean Time to Contain), detection gaps**.
 
-<a id="lab-progression-part-7-system-hacking-initial-compromise"></a>
-
 ### Lab Progression (Module 13: System Hacking & Initial Compromise)
 
 > [!TIP]
@@ -1604,39 +1472,24 @@
 - [ ] **Detection Pairing:** For every exploit path, identify Windows Event Logs, Sysmon, auditd, network, or SIEM artifacts.
   > [!IMPORTANT]
   > **Move-On Gate — Module 13: System Hacking & Initial Compromise**
-  >
   > I am not ready to complete Stage 2 until I can demonstrate ALL of the following without referencing a walkthrough:
-  >
   > **Initial Access**
-  >
   > - [ ] Exploit at least 3 different standalone host initial access vectors (e.g., exposed vulnerable network service like vsftpd/Samba/Apache, default/weak credentials on SSH/SMB/RDP, unauthenticated service abuse like Redis/NFS/MySQL, or a staged client script payload) on lab targets and produce a working interactive shell
   > - [ ] Enumerate a target using only `nmap`, directory bruteforcing (`gobuster`/`ffuf`), and manual inspection without automated vulnerability scanners (`OpenVAS`/`Nessus`) or automated exploit frameworks as a first pass
-  >
   > **Windows Privilege Escalation**
-  >
   > - [ ] Achieve SYSTEM from a low-privilege foothold using at least 2 different vectors from the 9-vector methodology above (e.g., Potato token impersonation like SweetPotato/GodPotato for `SeImpersonatePrivilege`, unquoted service path, weak service binary permissions, AlwaysInstallElevated MSI abuse, or modern UAC bypass)
   > - [ ] Run `winPEAS` and manually interpret every orange/red finding without relying on auto-exploitation
-  >
   > **Linux Privilege Escalation**
-  >
   > - [ ] Achieve root from a low-privilege foothold using at least 3 different vectors from the 9-vector methodology above (SUID/SGID, sudo misconfigurations, cron job/timer abuse, Linux capabilities, writable system/library files, NFS root squashing, kernel exploits, credential/config file leaks, or PAM module abuse)
   > - [ ] Complete at least 1 of: TryHackMe "Linux PrivEsc" room, HackTheBox Jarvis, or HackTheBox Cronos — with a written walkthrough
-  >
   > **Persistence & Lateral Movement**
-  >
   > - [ ] Demonstrate 2 Windows persistence mechanisms (registry RunKey, scheduled task, service installation) and identify their Event Log artifacts (Event ID 4688, 7045, 4698)
   > - [ ] Demonstrate host-to-host lateral movement or pivoting in a workgroup/local network lab (e.g., local administrator credential reuse via SMB/WinRM Pass-the-Hash, SSH key harvesting/pivoting, or network tunneling via Chisel/SSH to access an internal subnet). *(Note: Active Directory Kerberos Pass-the-Ticket is strictly tested in Stage 4: Module 19).*
-  >
   > **Defense Evasion**
-  >
   > - [ ] Identify what EDR/AV telemetry each technique generates (Sysmon Event ID 1 process creation, Event ID 10 process access) and document a detection gap for at least 1 technique
-  >
   > **Reporting**
-  >
   > - [ ] Submit 3 full lab attack reports using the Module 26 structure (scope → recon → exploitation → post-exploitation → impact → remediation)
   > - [ ] Each report must have a defender timeline paired with the operator timeline
-
-<a id="toc-part-8-malware--weaponization"></a>
 
 ---
 
@@ -1651,17 +1504,12 @@
 
 ------
 
-<a id="part-8-malware-weaponization"></a>
-
 ---
 
 > [!TIP]
-> <a id="ctf-practice"></a>
 
 ### 🎮 Concurrent CTF Practice — Stage 2
->
 > Practice must run concurrently with every module — not after I "finish" the theory.
->
 > | Module | Platform | Box / Room | Why |
 > |---|---|---|---|
 > | 08–10 Recon & Enum | TryHackMe | **Relevant** room · **Passive Recon** · **Active Recon** | Hands-on with theHarvester, Nmap, Gobuster |
@@ -1672,10 +1520,7 @@
 > | 13 System Hacking | TryHackMe | **Linux PrivEsc** + **Windows PrivEsc** rooms | Structured coverage of every vector |
 > | 13 System Hacking | HackTheBox | **Blue** (EternalBlue) · **Optimum** · **Jarvis** | Real boxes requiring privesc |
 > | General | [Proving Grounds Play](https://www.offensive-security.com/labs/) | Any Easy-rated box | Free OSCP-style practice |
->
 > **Rule:** Every box I root gets a written writeup committed to my notes repo. No writeup = learning didn't happen.
-
-<a id="stage-2-capstone-project"></a>
 
 ### 🏆 Stage 2 Capstone Project
 
@@ -1700,8 +1545,6 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or my
 
 ---
 
-<a id="stage-2-reflection-competency-check"></a>
-
 ### 🧭 Stage 2 Reflection & Competency Check
 
 - [ ] **Reflection:** Which stage of the attack chain required the most iteration: recon, enumeration, exploitation, privilege escalation, or lateral movement?
@@ -1715,11 +1558,7 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or my
 
 ---
 
-<a id="toc-part-32-physical-penetration-testing"></a>
-
 ---
-
-<a id="stage-2-mini-projects"></a>
 
 ## 🛠️ Stage 2 Mini Projects
 
@@ -1730,8 +1569,6 @@ Select a multi-machine vulnerable environment (HTB Pro Lab, VulnHub chain, or my
 > **How to use this section:** Each project below maps to a specific Stage 2 Module. All code must be committed to my Git repository. README must cover: what the tool does, what protocols it uses, ethical usage requirements (authorized targets only), and sample output.
 
 ---
-
-<a id="project-10-port-scanner"></a>
 
 ### Project 10 — Port Scanner
 
@@ -1753,8 +1590,6 @@ Nmap already exists. The reason I build my own is to understand _why_ port scann
 **Deliverable:** Python CLI — `scan <target> --ports <range> --mode <connect|syn> --threads <n>`. Output: table of open ports with service guesses. README must document the ethical usage requirements and explain the SYN vs connect scan distinction.
 
 ---
-
-<a id="project-11-network-packet-sniffer"></a>
 
 ### Project 11 — Network Packet Sniffer
 
@@ -1778,8 +1613,6 @@ Every network security tool — from Wireshark to IDS/IPS systems — is built o
 
 ---
 
-<a id="project-13-subdomain-scanner"></a>
-
 ### Project 13 — Subdomain Scanner
 
 **Maps to:** Module 08 (Footprinting & Reconnaissance) → Topic 2 & Topic 3: Infrastructure Mapping
@@ -1800,8 +1633,6 @@ The most critical vulnerabilities in a real engagement are often not found on `w
 **Deliverable:** Python CLI — `scan <domain> --wordlist <path> --passive --threads <n>`. Output: list of discovered subdomains with resolved IPs. README must distinguish passive vs active discovery and explain Certificate Transparency.
 
 ---
-
-<a id="project-14-vulnerability-scanner"></a>
 
 ### Project 14 — Vulnerability Scanner
 
@@ -1828,8 +1659,6 @@ This is the Stage 2 capstone project — it combines everything from recon (port
 > **Stage 2 Project Completion Gate:** Each of these tools must only ever target systems you own or have explicit written authorization to test. My README files must include this disclaimer. A tool without an ethics section in its documentation is a tool that cannot be shown to an employer.
 
 ---
-
-<a id="stage-gate-1"></a>
 
 ## 🏁 Stage Gate 1 — Host Dominance & Privilege Escalation
 

@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # 📦 Shelf: Post-Hire & Elective Specializations
 
@@ -14,15 +13,10 @@
 
 > [!CAUTION]
 > **POST-HIRE ONLY — Do NOT include in my pre-employment critical path.**
->
 > These topics are specialized tracks, compliance domains, or niche disciplines. Studying these pre-employment dilutes my focus from mastering the core offensive pipeline (Linux, Windows, Networking, Web, Active Directory, and Tooling).
->
 > Return to these modules only after securing my target offensive security role or when an employer engagement explicitly mandates them.
 
 ---
-
-<a id="shelf-01-wireless-network-security"></a>
-<a id="part-21"></a>
 
 ## Shelf 01: Wireless Network Security
 
@@ -35,9 +29,7 @@
 
 > [!IMPORTANT]
 > **Hardware Acquisition Checklist — Purchase Before Starting Wireless & Mobile Labs (Shelves 01 & 02)**
->
 > Wireless and mobile labs require physical hardware. A student with no hardware can read the content but cannot execute any technique. Budget and acquire the following before starting:
->
 > | Hardware | Required For | Why Needed | Approx. Cost |
 > |---|---|---|---|
 > | **Alfa AWUS036ACH** (802.11ac) | WiFi monitor mode + packet injection | Most built-in laptop adapters cannot enter monitor mode or inject packets | $35–50 |
@@ -47,14 +39,11 @@
 > | **HackRF One** (optional, Stage 8) | SDR analysis — OPTIONAL specialization | Required only if pursuing Stage 8 (marked optional) | $300 |
 > | **Android test device (rooted)** | Mobile dynamic analysis (Shelf 02) | Rooted device needed for Frida, Objection, Burp cert install | $50–150 (used) |
 > | **Wireless AP (WPA3-capable)** | WPA3 evil twin testing | Must support WPA3-SAE for Stage 2 | $50–100 |
->
 > **Mobile Lab Setup Time:** First-time setup of a rooted Android device, Frida installation, Burp certificate pinning, and objection deployment typically takes **1–3 weeks**. Budget this into my mobile lab timeline.
->
 > **Budget Estimate:** Minimum functional kit (Alfa adapter + test Android device) ≈ $85–200. Full kit with Proxmark3 + Flipper Zero ≈ $350–500.
 
 > **Safety Gate:** RF testing must stay inside legal spectrum rules and authorized lab targets. Use my own access points, Faraday isolation where appropriate, low power settings, and written permission. GPS jamming/spoofing and unauthorized wireless interference can create real-world safety issues.
 
-<a id="stage-1-rf-reconnaissance-setup"></a>
 ### **Topic 1: RF Reconnaissance & Setup** — `🔬 Practical`
 
 > [!TIP]
@@ -68,7 +57,6 @@
 
 ---
 
-<a id="stage-2-access-point-assault-the-breaching-of-keys"></a>
 ### **Topic 2: Access Point Assault (The Breaching of Keys)** — `🔬 Practical`
 
 > [!TIP]
@@ -82,7 +70,6 @@
 
 ---
 
-<a id="stage-3-enterprise-client-attacks-the-man-in-the-middle"></a>
 ### **Topic 3: Enterprise & Client Attacks (The Man-in-the-Middle)** — `🔬 Practical`
 
 > [!TIP]
@@ -100,7 +87,6 @@
 
 ---
 
-<a id="stage-4-bluetooth-ble-attacks"></a>
 ### **Topic 4: Bluetooth & BLE Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -120,7 +106,6 @@
 
 ---
 
-<a id="stage-5-zigbee-z-wave-iot-attacks"></a>
 ### **Topic 5: Zigbee, Z-Wave & IoT Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -140,7 +125,6 @@
 
 ---
 
-<a id="stage-6-nfc-rfid-attacks"></a>
 ### **Topic 6: NFC & RFID Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -159,8 +143,6 @@
 - [ ] **ISO7816 Smartcard Attacks:** Understand **smartcard protocols** and exploit **weak implementations, timing attacks, power analysis**.
 
 ---
-
-<a id="stage-7-gps-satellite-spoofing"></a>
 
 ### **Topic 7: GPS & Satellite Spoofing [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
@@ -182,8 +164,6 @@
 
 ---
 
-<a id="stage-8-sdr-spectrum-analysis"></a>
-
 ### **Topic 8: SDR & Spectrum Analysis [OPTIONAL SPECIALIZATION]** — `🔬 Practical`
 
 > [!NOTE]
@@ -204,7 +184,6 @@
 
 ---
 
-<a id="stage-9-defense-hardening-the-shield"></a>
 ### **Topic 9: Defense & Hardening (The Shield)** — `🧠 Conceptual`
 
 > [!TIP]
@@ -222,13 +201,7 @@
 
 ---
 
-<a id="toc-part-22-mobile-platform-pentesting"></a>
-<a id="part-22-mobile-platform-pentesting"></a>
-
 ---
-
-<a id="shelf-02-mobile-platform-pentesting"></a>
-<a id="part-22"></a>
 
 ## Shelf 02: Mobile Platform Pentesting
 
@@ -240,7 +213,6 @@
 > - 🟢 `Best of Mobile Hacking` — Reference — supplementary attack techniques
 > - 🟢 `Hacking Android Smartphones with NFC Tags` / `Bluetooth Low Energy Hacking` — Reference only if my labs include BLE/NFC vectors
 
-<a id="stage-0-mobile-architecture-foundations"></a>
 ### **Topic 0: Mobile Architecture Foundations** — `🧠 Conceptual`
 
 > [!TIP]
@@ -276,7 +248,6 @@
 
 ---
 
-<a id="stage-1-lab-setup-reconnaissance"></a>
 ### **Topic 1: Lab Setup & Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
@@ -290,7 +261,6 @@
 
 ---
 
-<a id="stage-2-static-analysis-code-review"></a>
 ### **Topic 2: Static Analysis (Code Review)** — `🔬 Practical`
 
 > [!TIP]
@@ -304,7 +274,6 @@
 
 ---
 
-<a id="stage-3-dynamic-analysis-runtime-manipulation"></a>
 ### **Topic 3: Dynamic Analysis (Runtime Manipulation)** — `🔬 Practical`
 
 > [!TIP]
@@ -318,7 +287,6 @@
 
 ---
 
-<a id="stage-4-network-api-attacks"></a>
 ### **Topic 4: Network & API Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -332,7 +300,6 @@
 
 ---
 
-<a id="stage-5-local-data-storage-defense"></a>
 ### **Topic 5: Local Data Storage & Defense** — `🔬 Practical`
 
 > [!TIP]
@@ -346,7 +313,6 @@
 
 ---
 
-<a id="stage-6-defense-secure-development"></a>
 ### **Topic 6: Defense & Secure Development** — `🧠 Conceptual`
 
 > [!TIP]
@@ -421,8 +387,6 @@
 
 ---
 
-<a id="phase-5-mini-projects"></a>
-
 ## 🛠️ Wireless & Mobile Mini Projects
 
 > [!TIP]
@@ -468,23 +432,15 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="shelf-03-otics-scada-security"></a>
-<a id="part-26"></a>
-
 ## Shelf 03: OT/ICS/SCADA Security
 
 > [!CAUTION]
 > **OPTIONAL SPECIALIZATION — NOT PART OF THE RED TEAM CRITICAL PATH.**
->
 > OT/ICS/SCADA security is a **separate career field** targeting industrial control systems in energy, utilities, manufacturing, water treatment, and critical infrastructure. It requires specialized knowledge of industrial protocols (Modbus, DNP3, Profinet), PLC/HMI architecture, and operational safety constraints that are entirely distinct from enterprise IT security.
->
 > **Skip this Shelf if:** My target is general penetration testing, enterprise red teaming, cloud security, or AI security. Do NOT let OT/ICS block my progress to Stage 5.
->
 > **Complete this Shelf only if:** I am explicitly targeting ICS/OT pentesting roles (energy sector, industrial consultancies), critical infrastructure defense, or SCADA security engineering. These roles have specific hiring pipelines and certifications (GICSP, ICS-CERT training) that are separate from the standard Red Team track.
->
 > This content is available here for completeness. Treat it as post-hire optional.
 
-<a id="stage-1-industrial-protocol-fundamentals"></a>
 ### **Topic 1: Industrial Protocol Fundamentals** — `🧠 Conceptual`
 
 > [!TIP]
@@ -502,7 +458,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-plc-hmi-exploitation"></a>
 ### **Topic 2: PLC & HMI Exploitation** — `🔬 Practical`
 
 > [!TIP]
@@ -520,7 +475,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-safety-system-attacks"></a>
 ### **Topic 3: Safety System Attacks** — `🧠 Conceptual`
 
 > [!TIP]
@@ -538,7 +492,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-ot-network-segmentation-defense"></a>
 ### **Topic 4: OT Network Segmentation & Defense** — `🧠 Conceptual`
 
 > [!TIP]
@@ -558,7 +511,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-26-oticscada-security"></a>
 ### **Lab Progression (Shelf 03: OT/ICS/SCADA Security)**
 
 > [!TIP]
@@ -608,8 +560,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!IMPORTANT]
 > **OT/ICS Completion Gate:** Move on only when I can demonstrate a full enterprise attack path, document remediation, and prove measurable detection or control improvement.
 
----<a id="shelf-04-digital-forensics"></a>
-<a id="part-27"></a>
+---
 
 ## Shelf 04: Digital Forensics
 
@@ -621,7 +572,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > - 🟡 `Effective Threat Investigation` — Full — structured threat investigation methodology and evidence chaining
 > - 🟢 `Smartphone Forensics Cheatsheet by SANS` — Reference — mobile evidence acquisition quick ref
 
-<a id="stage-1-preparation-first-response"></a>
 ### **Topic 1: Preparation & First Response** — `🔬 Practical`
 
 > [!TIP]
@@ -637,7 +587,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-evidence-analysis-the-deep-dive"></a>
 ### **Topic 2: Evidence Analysis (The Deep Dive)** — `🔬 Practical`
 
 > [!TIP]
@@ -651,7 +600,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-memory-forensics"></a>
 ### **Topic 3: Memory Forensics** — `🔬 Practical`
 
 > [!TIP]
@@ -678,7 +626,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-network-forensics"></a>
 ### **Topic 4: Network Forensics** — `🔬 Practical`
 
 > [!TIP]
@@ -697,7 +644,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-cloud-mobile-forensics"></a>
 ### **Topic 5: Cloud & Mobile Forensics** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -715,7 +661,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-6-advanced-analysis-reporting"></a>
 ### **Topic 6: Advanced Analysis & Reporting** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -731,7 +676,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-7-legal-reporting"></a>
 ### **Topic 7: Legal & Reporting** — `🧠 Conceptual`
 
 > [!TIP]
@@ -747,7 +691,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-27-digital-forensics"></a>
 ### **Lab Progression (Shelf 04: Digital Forensics)**
 
 | Level | Task | Deliverable |
@@ -763,13 +706,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="toc-part-28-reverse-engineering--malware-analysis"></a>
-<a id="part-28-reverse-engineering-malware-analysis"></a>
-
 ---
-
-<a id="shelf-05-reverse-engineering--malware-analysis"></a>
-<a id="part-28"></a>
 
 ## Shelf 05: Reverse Engineering & Malware Analysis
 
@@ -781,7 +718,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > - 🟡 `Designing BSD rootkit` — Full — rootkit internals, evasion, and persistence mechanisms
 > - 🟢 `The Rootkit Arsenal Escape and Evasion in the Dark Corners` — Reference — deepest rootkit engineering reference; read after basic RE is solid
 
-<a id="stage-1-static-analysis-foundations"></a>
 ### **Topic 1: Static Analysis Foundations** — `🔬 Practical`
 
 > [!TIP]
@@ -803,7 +739,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-dynamic-analysis-debugging"></a>
 ### **Topic 2: Dynamic Analysis & Debugging** — `🔬 Practical`
 
 > [!TIP]
@@ -826,7 +761,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-anti-reverse-engineering-evasion-techniques"></a>
 ### **Topic 3: Anti-Reverse Engineering & Evasion Techniques** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -844,7 +778,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-malware-classification-threat-intelligence"></a>
 ### **Topic 4: Malware Classification & Threat Intelligence** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -862,7 +795,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-advanced-re-automation"></a>
 ### **Topic 5: Advanced RE & Automation** — `🔬 Practical`
 
 > [!TIP]
@@ -882,7 +814,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-28-reverse-engineering-malware-analysis"></a>
 ### **Lab Progression (Shelf 05: Reverse Engineering & Malware Analysis)**
 
 > [!TIP]
@@ -896,13 +827,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!IMPORTANT]
 > **Move-On Gate:** Produce one malware-analysis-style report with IOCs, behavior summary, ATT&CK mapping, and detection logic.
 
-<a id="toc-part-29-modern-exploitation"></a>
-<a id="part-29-modern-exploitation"></a>
-
 ---
-
-<a id="shelf-06-modern-exploitation"></a>
-<a id="part-29"></a>
 
 ## Shelf 06: Modern Exploitation
 
@@ -915,7 +840,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 > **Prerequisite Gate:** Complete Stage 1 (Memory Management, Data Representation), C fundamentals, and Stage 5: Module 27 (Offensive Development — exploit writing, shellcode, assembly) before starting this Shelf. Modern exploitation builds directly on these foundations.
 
-<a id="stage-1-recon-triage-tooling"></a>
 ### **Topic 1: Recon, Triage & Tooling** — `🔬 Practical`
 
 > [!TIP]
@@ -929,7 +853,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-memory-exploitation-userland"></a>
 ### **Topic 2: Memory Exploitation (Userland)** — `🔬 Practical`
 
 > [!TIP]
@@ -949,7 +872,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-advanced-targets"></a>
 ### **Topic 3: Advanced Targets** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -965,7 +887,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-exploit-delivery-opsec"></a>
 ### **Topic 4: Exploit Delivery & OPSEC** — `🔬 Practical`
 
 > [!TIP]
@@ -981,7 +902,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-post-exploitation-hardening-safety"></a>
 ### **Topic 5: Post-Exploitation Hardening & Safety** — `🧠 Conceptual`
 
 > [!TIP]
@@ -995,7 +915,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-29-modern-exploitation"></a>
 ### **Lab Progression (Shelf 06: Modern Exploitation)**
 
 > [!TIP]
@@ -1008,16 +927,10 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!IMPORTANT]
 > **Move-On Gate:** Produce one exploit writeup with root cause, crash analysis, exploit reliability notes, and mitigation guidance.
 
-<a id="toc-part-30-hardware-hacking--embedded-systems"></a>
-
 ---
-
-<a id="shelf-07-hardware-hacking--embedded-systems"></a>
-<a id="part-30"></a>
 
 ## Shelf 07: Hardware Hacking & Embedded Systems
 
-<a id="stage-1-hardware-reconnaissance"></a>
 ### **Topic 1: Hardware Reconnaissance** — `🔬 Practical`
 
 > [!TIP]
@@ -1035,7 +948,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-firmware-analysis"></a>
 ### **Topic 2: Firmware Analysis** — `🔬 Practical`
 
 > [!TIP]
@@ -1061,7 +973,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-runtime-exploitation"></a>
 ### **Topic 3: Runtime Exploitation** — `🔬 Practical`
 
 > [!TIP]
@@ -1081,7 +992,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-side-channel-physical-attacks"></a>
 ### **Topic 4: Side-Channel & Physical Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1099,7 +1009,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-iot-embedded-defense"></a>
 ### **Topic 5: IoT & Embedded Defense** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1119,7 +1028,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-30-hardware-hacking-embedded-systems"></a>
 ### **Lab Progression (Shelf 07: Hardware Hacking & Embedded Systems)**
 
 > [!TIP]
@@ -1136,18 +1044,12 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="toc-part-31-password-cracking--hash-analysis"></a>
-
 ---
-
-<a id="shelf-08-physical-penetration-testing"></a>
-<a id="part-32"></a>
 
 ## Shelf 08: Physical Penetration Testing
 
 > **Safety Gate:** Physical testing requires written authorization, named locations, dates/times, emergency contacts, stop conditions, and a get-out-of-jail letter. Do not practice bypasses on real facilities, campuses, offices, hotels, apartments, or transit systems.
 
-<a id="stage-1-pre-engagement-reconnaissance"></a>
 ### **Topic 1: Pre-Engagement & Reconnaissance** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1163,7 +1065,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-entry-access-control-bypass"></a>
 ### **Topic 2: Entry & Access Control Bypass** — `🔬 Practical`
 
 > [!TIP]
@@ -1183,7 +1084,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-hid-usb-payload-attacks"></a>
 ### **Topic 3: HID & USB Payload Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -1201,7 +1101,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-on-site-operations-data-collection"></a>
 ### **Topic 4: On-Site Operations & Data Collection** — `🔬 Practical`
 
 > [!TIP]
@@ -1217,7 +1116,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-reporting-physical-findings"></a>
 ### **Topic 5: Reporting Physical Findings** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1231,7 +1129,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-32-physical-penetration-testing"></a>
 ### **Lab Progression (Shelf 08: Physical Penetration Testing)**
 
 > [!TIP]
@@ -1248,16 +1145,10 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="toc-part-33-voip--telecommunications-security"></a>
-
 ---
-
-<a id="shelf-09-voip--telecommunications-security"></a>
-<a id="part-33"></a>
 
 ## Shelf 09: VoIP & Telecommunications Security
 
-<a id="stage-1-voip-protocol-fundamentals"></a>
 ### **Topic 1: VoIP Protocol Fundamentals** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1273,7 +1164,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-voip-reconnaissance-enumeration"></a>
 ### **Topic 2: VoIP Reconnaissance & Enumeration** — `🔬 Practical`
 
 > [!TIP]
@@ -1289,7 +1179,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-voip-attacks"></a>
 ### **Topic 3: VoIP Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -1309,7 +1198,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-ss7-telecom-signaling-attacks"></a>
 ### **Topic 4: SS7 & Telecom Signaling Attacks** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1327,7 +1215,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-5g-security"></a>
 ### **Topic 5: 5G Security** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1341,7 +1228,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-6-defense-hardening"></a>
 ### **Topic 6: Defense & Hardening** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1355,7 +1241,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-33-voip-telecommunications-security"></a>
 ### **Lab Progression (Shelf 09: VoIP & Telecommunications Security)**
 
 > [!TIP]
@@ -1372,16 +1257,10 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="toc-part-34-blockchain--web3-security"></a>
-
 ---
-
-<a id="shelf-10-blockchain--web3-security"></a>
-<a id="part-34"></a>
 
 ## Shelf 10: Blockchain & Web3 Security
 
-<a id="stage-1-blockchain-fundamentals-for-security"></a>
 ### **Topic 1: Blockchain Fundamentals for Security** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1397,7 +1276,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-2-smart-contract-vulnerabilities"></a>
 ### **Topic 2: Smart Contract Vulnerabilities** — `🔬 Practical`
 
 > [!TIP]
@@ -1419,7 +1297,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-3-smart-contract-auditing-methodology"></a>
 ### **Topic 3: Smart Contract Auditing Methodology** — `🔬 Practical`
 
 > [!TIP]
@@ -1437,7 +1314,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-4-web3-infrastructure-attacks"></a>
 ### **Topic 4: Web3 Infrastructure Attacks** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1455,7 +1331,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="stage-5-defense-secure-development"></a>
 ### **Topic 5: Defense & Secure Development** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1471,7 +1346,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ---
 
-<a id="lab-progression-part-34-blockchain-web3-security"></a>
 ### **Lab Progression (Shelf 10: Blockchain & Web3 Security)**
 
 > [!TIP]
@@ -1529,12 +1403,7 @@ Choose one track:
 
 ---
 
-<a id="toc-part-35-governance-risk--compliance-grc"></a>
-
 ---
-
-<a id="shelf-11-governance-risk--compliance-grc"></a>
-<a id="part-35"></a>
 
 ## Shelf 11: Governance, Risk & Compliance (GRC)
 
@@ -1544,7 +1413,6 @@ Choose one track:
 > - 🔴 `Foundations of Information Security - Jason Andress` — Security policy and risk management fundamentals
 > - 🟢 `The Practical Guide to HIPAA Privacy and Security Compliance 2nd` — Reference — compliance framework depth for healthcare/regulated environments
 
-<a id="stage-1-security-frameworks-standards"></a>
 ### **Topic 1: Security Frameworks & Standards** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1562,7 +1430,6 @@ Choose one track:
 
 ---
 
-<a id="stage-2-industry-regulations-legal-requirements"></a>
 ### **Topic 2: Industry Regulations & Legal Requirements** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1606,7 +1473,6 @@ Choose one track:
 
 ---
 
-<a id="stage-3-risk-management-assessment"></a>
 ### **Topic 3: Risk Management & Assessment** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1624,7 +1490,6 @@ Choose one track:
 
 ---
 
-<a id="stage-4-audit-scope-compliance-testing"></a>
 ### **Topic 4: Audit, Scope & Compliance Testing** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1644,7 +1509,6 @@ Choose one track:
 
 ---
 
-<a id="lab-progression-part-35-governance-risk-compliance"></a>
 ### **Lab Progression (Shelf 11: Governance, Risk & Compliance)**
 
 > [!TIP]
@@ -1658,17 +1522,10 @@ Choose one track:
 > [!IMPORTANT]
 > **Move-On Gate:** Produce an audit evidence pack with policy, risk register, control mapping, and remediation plan.
 
-<a id="toc-part-36-supply-chain-security"></a>
-<a id="part-36-supply-chain-security"></a>
-
 ---
-
-<a id="shelf-12-supply-chain-security"></a>
-<a id="part-36"></a>
 
 ## Shelf 12: Supply Chain Security
 
-<a id="stage-1-understanding-the-attack-surface"></a>
 ### **Topic 1: Understanding the Attack Surface** — `🧠 Conceptual`
 
 > [!TIP]
@@ -1682,7 +1539,6 @@ Choose one track:
 
 ---
 
-<a id="stage-2-dependency-package-attacks"></a>
 ### **Topic 2: Dependency & Package Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -1700,7 +1556,6 @@ Choose one track:
 
 ---
 
-<a id="stage-3-build-system-cicd-attacks"></a>
 ### **Topic 3: Build System & CI/CD Attacks** — `🔬 Practical`
 
 > [!TIP]
@@ -1718,7 +1573,6 @@ Choose one track:
 
 ---
 
-<a id="stage-4-open-source-third-party-risk"></a>
 ### **Topic 4: Open-Source & Third-Party Risk** — `🔬 Practical`
 
 > [!TIP]
@@ -1734,7 +1588,6 @@ Choose one track:
 
 ---
 
-<a id="stage-5-defense-verification"></a>
 ### **Topic 5: Defense & Verification** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1750,13 +1603,7 @@ Choose one track:
 
 ---
 
-<a id="toc-part-37-devsecops--secure-sdlc"></a>
-<a id="part-37-devsecops-secure-sdlc"></a>
-
 ---
-
-<a id="shelf-13-devsecops--secure-sdlc"></a>
-<a id="part-37"></a>
 
 ## Shelf 13: DevSecOps & Secure SDLC
 
@@ -1765,7 +1612,6 @@ Choose one track:
 > - 🔴 `Security for Software Engineers` — Full — secure SDLC, threat modeling, SAST/DAST concepts; maps directly to this Part
 > - 🟡 `Web Application Security - Andrew Hoffman` — Reference — secure code patterns from an AppSec engineer perspective
 
-<a id="stage-1-security-in-the-development-lifecycle"></a>
 ### **Topic 1: Security in the Development Lifecycle** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1808,7 +1654,6 @@ Choose one track:
 
 ---
 
-<a id="stage-2-static-analysis-sast"></a>
 ### **Topic 2: Static Analysis (SAST)** — `🔬 Practical`
 
 > [!TIP]
@@ -1824,7 +1669,6 @@ Choose one track:
 
 ---
 
-<a id="stage-3-dynamic-analysis-dast-iast"></a>
 ### **Topic 3: Dynamic Analysis (DAST & IAST)** — `🔬 Practical`
 
 > [!TIP]
@@ -1840,7 +1684,6 @@ Choose one track:
 
 ---
 
-<a id="stage-4-software-composition-analysis-sca"></a>
 ### **Topic 4: Software Composition Analysis (SCA)** — `🔬 Practical`
 
 > [!TIP]
@@ -1854,7 +1697,6 @@ Choose one track:
 
 ---
 
-<a id="stage-5-secrets-detection-pipeline-security"></a>
 ### **Topic 5: Secrets Detection & Pipeline Security** — `🔬 Practical`
 
 > [!TIP]
@@ -1873,7 +1715,6 @@ Choose one track:
 
 - [ ] **IaC Security:** Scan **Terraform, CloudFormation, Helm charts** with **Checkov, tfsec, kics** for **open security groups, public storage, missing encryption, IAM over-permission**.
 
-<a id="secure-coding-pipeline-lab-progression"></a>
 ### **Secure Coding & Pipeline Lab Progression**
 
 > [!TIP]
@@ -1889,12 +1730,7 @@ Choose one track:
 
 ---
 
-<a id="part-37b-secure-code-review-methodology"></a>
-
 ---
-
-<a id="shelf-14-secure-code-review-methodology"></a>
-<a id="part-37b"></a>
 
 ## Shelf 14: Secure Code Review Methodology
 
@@ -1905,7 +1741,6 @@ Choose one track:
 
 > **Why This Exists:** Automated SAST tools (Shelf 13) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. I cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
 
-<a id="stage-1-code-review-workflow"></a>
 ### **Topic 1: Code Review Workflow & Entry Point Mapping** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1946,7 +1781,6 @@ Choose one track:
 
 ---
 
-<a id="stage-2-language-specific-patterns"></a>
 ### **Topic 2: Language-Specific Vulnerability Patterns** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -1990,7 +1824,6 @@ Choose one track:
 
 ---
 
-<a id="stage-3-semgrep-custom-rules"></a>
 ### **Topic 3: Semgrep & Custom Rule Writing** — `🔬 Practical`
 
 > [!NOTE]
@@ -2031,7 +1864,6 @@ Choose one track:
 
 ---
 
-<a id="lab-progression-part-37b"></a>
 ### **Lab Progression (Shelf 14: Secure Code Review Methodology)**
 
 | Level | Task | Deliverable |
@@ -2047,13 +1879,7 @@ Choose one track:
 
 ---
 
-<a id="toc-part-43-security-architecture--engineering"></a>
-<a id="part-43-security-architecture-engineering"></a>
-
 ---
-
-<a id="shelf-15-security-architecture--engineering"></a>
-<a id="part-43"></a>
 
 ## Shelf 15: Security Architecture & Engineering
 
@@ -2067,7 +1893,6 @@ Choose one track:
 
 _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fills the identified gap in security architecture training. A security professional who can only break systems but not design secure ones is incomplete._
 
-<a id="stage-1-security-design-principles"></a>
 ### **Topic 1: Security Design Principles** — `🧠 Conceptual`
 
 - [ ] **Defense-in-Depth as Architecture:** Design layered defenses where no single control failure compromises the system. Map controls to **preventative, detective, corrective, and compensating** categories.
@@ -2078,7 +1903,6 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Security by Design:** Integrate security from **requirements through deployment**, not as a bolt-on. Understand **NIST Secure Software Development Framework (SSDF)** and **OWASP SAMM**.
 
-<a id="stage-2-zero-trust-architecture"></a>
 ### **Topic 2: Zero Trust Architecture** — `🧠 Conceptual`
 
 - [ ] **Zero Trust Principles:** Understand **"never trust, always verify"** across **identity, device, network, application, and data** pillars.
@@ -2111,7 +1935,6 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
     - Focus shifts to: OAuth token theft, SSO session hijacking, ZTNA connector compromise (connector is on the internal network — compromise it for internal access)
     - Cloud CASB bypass: traffic to unapproved cloud apps via split tunnelling gaps
 
-<a id="stage-3-network-security-architecture"></a>
 ### **Topic 3: Network Security Architecture** — `🧠 Conceptual`
 
 - [ ] **Network Segmentation Design:** Design **DMZ, internal zones, management zones, database zones** with proper **firewall rules and ACLs** between them.
@@ -2143,7 +1966,6 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
   - [ ] **Pentester's perspective:** CNAPP creates a centralised alert correlation target. Offensive actions that individually look benign (enumerate S3, assume role, access parameter store) may be stitched together by Wiz/Lacework into a high-confidence attack path alert. Understand CNAPP detection logic when planning cloud red team operations.
 
-<a id="stage-4-data-security-architecture"></a>
 ### **Topic 4: Data Security Architecture** — `🧠 Conceptual`
 
 - [ ] **Data Classification:** Implement **classification schemes** (Public, Internal, Confidential, Restricted) with **automated labeling** and **DLP policy enforcement**.
@@ -2154,7 +1976,6 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **Privacy Engineering:** Implement **data anonymization, pseudonymization, tokenization** for GDPR/DPDP Act compliance. Understand **Privacy by Design** principles.
 
-<a id="stage-5-disaster-recovery-business-continuity"></a>
 ### **Topic 5: Disaster Recovery & Business Continuity** — `🧠 Conceptual`
 
 - [ ] **DR/BCP Fundamentals:** Understand **RPO (Recovery Point Objective)** and **RTO (Recovery Time Objective)** and how they drive architecture decisions.
@@ -2165,7 +1986,6 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 - [ ] **DR Testing:** Plan and execute **tabletop exercises, simulation tests, and full failover tests** on a regular schedule.
 
-<a id="lab-progression-part-43-security-architecture-engineering"></a>
 ### **Lab Progression (Shelf 15: Security Architecture & Engineering)**
 
 | Level | Task | Deliverable |
@@ -2216,18 +2036,12 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 ---
 
-<a id="toc-part-38-ai--llm-red-teaming"></a>
-
 ---
-
-<a id="shelf-16-security-operations-expansion"></a>
-<a id="part-13b"></a>
 
 ## Shelf 16: Security Operations Expansion
 
 _Extension of Stage 3 detection concepts. These topics cover operational security tools and programs that build on the detection engineering foundation._
 
-<a id="stage-11-security-orchestration-automation-response-soar"></a>
 ### **Topic 11: Security Orchestration, Automation & Response (SOAR)** — `🔬 Practical`
 
 > [!TIP]
@@ -2245,7 +2059,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 
 ---
 
-<a id="stage-12-data-loss-prevention-dlp-fundamentals"></a>
 ### **Topic 12: Data Loss Prevention (DLP) Fundamentals** — `🧠🔬 Mixed`
 
 > [!TIP]
@@ -2263,7 +2076,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 
 ---
 
-<a id="stage-13-vulnerability-management-program"></a>
 ### **Topic 13: Vulnerability Management Program** — `🔬 Practical`
 
 > [!TIP]
@@ -2283,7 +2095,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 
 ---
 
-<a id="stage-14-insider-threat-detection"></a>
 ### **Topic 14: Insider Threat Detection** — `🧠 Conceptual`
 
 > [!TIP]
@@ -2301,7 +2112,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 
 ---
 
-<a id="lab-progression-parts-13a-13b-combined"></a>
 ### **Lab Progression (Shelf 16: Security Operations Expansion)**
 
 > [!TIP]
@@ -2331,22 +2141,13 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 > - [ ] **Vulnerability Management:** Run an authenticated Nessus/OpenVAS scan against a lab VM and produced a prioritized remediation report using EPSS or CISA KEV to justify priority order — not just raw CVSS scores
 > - [ ] **Insider Threat:** Written a UEBA detection hypothesis for at least 1 insider threat scenario (bulk download before resignation, after-hours access to sensitive files) and named the data sources required to execute it
 
-<a id="toc-part-14-ids-firewalls-and-honeypots"></a>
-<a id="part-14-ids-firewalls-and-honeypots"></a>
-
 ---
-
-<a id="shelf-17-denial-of-service--availability-resilience"></a>
-<a id="part-11"></a>
 
 ## Shelf 17: Denial of Service & Availability Resilience
 
 > [!CAUTION]
 > **Defensive & Resilience Scope:** DoS/DDoS is studied here strictly for architectural awareness, traffic analysis, and availability engineering. Authorized penetration tests and professional red teaming engagements do not perform destructive denial-of-service attacks on client networks.
->
 > **Focus:** Understand how protocol exhaustion and volumetric reflection work at Layers 3/4 and Layer 7, and master the defensive mitigations (Anycast, SYN cookies, rate limiting, edge scrubbing).
-
-<a id="stage-1-objective-strategy-the-planning"></a>
 
 ### **Topic 1: Threat Model & Mechanics** — `🧠 Conceptual`
 
@@ -2360,8 +2161,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 - [ ] **Application-Layer Disruption (L7):** Target resource-intensive endpoints — **Slowloris** (holding HTTP connections open with slow headers), HTTP/2 Rapid Reset (stream cancellation abuse), expensive database search queries, and unauthenticated regex evaluation (ReDoS).
 
 ---
-
-<a id="stage-2-defense-mitigation-the-shield"></a>
 
 ### **Topic 2: Defense & Engineering Resilience** — `🧠 Conceptual`
 

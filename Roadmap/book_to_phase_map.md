@@ -1,4 +1,3 @@
-<a id="top"></a>
 
 # 📚 Book → Roadmap Stage & Module Mapping (smilo's Library)
 
@@ -410,4 +409,4 @@ Pin these to your taskbar and keep them open:
 
 ### 🧭 Navigation
 
-🏠 [[README\|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [⬆ Return to Top](#top)
+🏠 [[README\|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[#📚 Book → Roadmap Stage & Module Mapping (smilo's Library)|⬆ Return to Top]]
