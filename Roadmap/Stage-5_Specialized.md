@@ -91,7 +91,6 @@
 
 ## Module 27: Offensive Development & Tooling
 
-
 > [!IMPORTANT]
 > **Start here — before Module 27.** This is the C & C++ systems programming foundation deferred from Stage 1. C and C++ require debugger experience and binary analysis context to learn meaningfully. I now have that context. Complete this foundation before starting Module 27 (Offensive Development) or Shelf 05 (Reverse Engineering).
 
@@ -161,8 +160,6 @@
 
 <a id="toc-part-42-offensive-development--tooling"></a>
 <a id="part-42-offensive-development-tooling"></a>
-
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -300,17 +297,10 @@
 > [!IMPORTANT]
 > **Security Automation Move-On Gate:** I have at least 3 working automation tools committed to my GitHub. Each has a README, usage examples, and documented output. They solve a real problem you encountered during Stages 1–4. This is portfolio material.
 
----
-
-
-
----
-
-<a id="module-28-ai--llm-red-teaming"></a>
+---<a id="module-28-ai--llm-red-teaming"></a>
 <a id="part-38-ai-llm-red-teaming"></a>
 
 ## Module 28: AI & LLM Red Teaming
-
 
 > [!IMPORTANT]
 > **⛔ Stage 5 Entry Gate (AI Security) — Verify BOTH prerequisites before Topic 1**
@@ -565,7 +555,6 @@
 
   **Lab:** Build a local MCP server with `@modelcontextprotocol/sdk`, expose 2–3 tools (file read, HTTP GET, shell). Write a LangChain or Claude agent that uses it. Then poison one tool response with an injection payload and observe whether the agent executes the injected instruction.
 
-
 - [ ] **Adversarial Testing Against Live LLMs:** Practice offensive testing against **production LLMs** (within authorized scope/bug bounty programs) — attempt prompt injection, context manipulation, and tool abuse against real deployed systems.
 
 - [ ] **AI-Specific CTFs:** Participate in **AI/LLM-focused Capture The Flag competitions** (e.g., Gandalf AI CTF, HackAPrompt, CTFd-based AI challenges) to build speed and creativity against novel AI attack scenarios.
@@ -658,7 +647,6 @@
 <a id="stage-17-ai-security-projects-portfolio"></a>
 ### **Topic 17: AI Security Projects & Portfolio** — `🔬 Practical`
 
-
 > [!TIP]
 > **Goal:** Prove production capability through real, complex, integrated AI-security projects.
 
@@ -740,15 +728,10 @@
 > [!IMPORTANT]
 > **AI Red Teaming Completion Gate:** Move on only when my AI security assessment is reproducible, evidence-backed, and grounded in both AI-specific and traditional security controls.
 
----
-
----
-
-<a id="module-29-red-team-operations--tradecraft"></a>
+---<a id="module-29-red-team-operations--tradecraft"></a>
 <a id="part-40-red-team-operations-tradecraft"></a>
 
 ## Module 29: Red Team Operations & Tradecraft
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -756,7 +739,6 @@
 > - 🟡 `The Red Report 2023` — Full — current attacker TTP trends and attacker behavior data from real incidents
 > - 🟡 `Threat Intelligence Handbook` — Full — CTI methodology for adversary profiling and red team planning
 > - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reference — structured red team operation planning
-
 
 > **Why This Exists:** Penetration testing finds vulnerabilities. Red teaming tests the organization's ability to detect, respond, and contain a determined adversary. This Part covers the operational tradecraft, C2 infrastructure, and campaign management that separates a pentester from a red team operator. Building on the foundational scoping and reporting frameworks of Module 26, Module 29 focuses on executing stealthy, multi-stage adversary simulations.
 
@@ -844,7 +826,6 @@
 <a id="toc-part-41-proof-of-work--career-portfolio"></a>
 <a id="part-41-proof-of-work-career-portfolio"></a>
 
-
 ---
 
 <a id="module-30-proof-of-work--career-portfolio"></a>
@@ -852,13 +833,11 @@
 
 ## Module 30: Proof of Work & Career Portfolio
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🟡 `cyber security interview questions` — Reference — preparation for technical interviews
 > - 🟡 `Cybersecurity First Principles A Reboot of Strategy and Tactics` — Reference — strategic framing for senior-level interviews and portfolio positioning
 > - 🟢 `The Threat Detection Report 2023` — Reference — current threat landscape context for interview discussions
-
 
 > **Core Principle:** Theory without evidence is worthless. Every technical skill in this roadmap must be validated through _unfakeable_ proof of work — tools you've built, reports you've written, certifications you've earned, and bugs you've found. This section ties it all together.
 
@@ -1021,7 +1000,6 @@
 > [!TIP]
 > **Goal:** Bridge the gap between technical skill and professional impact. These skills separate mid-level practitioners from senior leaders.
 
-
 - [ ] **Executive Summary Writing:** For every lab report and pentest deliverable, write a **1-page executive summary** that a non-technical CFO or CISO could understand. Practice: take my most technical finding and explain the **business impact, risk level, and recommended action** without using jargon.
 
 - [ ] **Stakeholder Presentation:** Practice **presenting findings to hostile audiences** — developers who disagree with my findings, managers who don't want to fund remediation, and executives who want a one-sentence answer. Build a **5-slide template**: (1) What we tested, (2) What we found, (3) What could happen, (4) What to fix, (5) What it costs.
@@ -1091,11 +1069,7 @@
 > [!IMPORTANT]
 > **Roadmap Completion Gate:** I am done when my portfolio is coherent, current, ethically publishable, and aligned with the roles I am applying for.
 
----
-
----
-
-<a id="tool-priority-reference"></a>
+---<a id="tool-priority-reference"></a>
 
 ## 🛠️ Tool Priority Reference
 
@@ -1303,12 +1277,7 @@ WHAT DO YOU NEED TO DO?
 | 11 | 23–26 | Ghidra · x64dbg · PEStudio · strings · DiE · Procmon | Malware analysis track (skip if not my focus) |
 | 12 | 27+ | Tier 4 tools as needed | Situational — study when a lab or role specifically requires them |
 
----
-
-
----
-
-<a id="final-gate"></a>
+---<a id="final-gate"></a>
 
 ## 🏁 Final Gate — Mastery & Career Validation
 

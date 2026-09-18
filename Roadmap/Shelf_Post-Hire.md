@@ -16,7 +16,7 @@
 > **POST-HIRE ONLY — Do NOT include in my pre-employment critical path.**
 >
 > These topics are specialized tracks, compliance domains, or niche disciplines. Studying these pre-employment dilutes my focus from mastering the core offensive pipeline (Linux, Windows, Networking, Web, Active Directory, and Tooling).
-> 
+>
 > Return to these modules only after securing my target offensive security role or when an employer engagement explicitly mandates them.
 
 ---
@@ -26,14 +26,12 @@
 
 ## Shelf 01: Wireless Network Security
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Wireless Hacking` — Full — core wireless attack methodology (WPA2 cracking, PMKID, Evil AP setup)
 > - 🟡 `Wireless Network Security` — Reference — defensive perspective; informs OPSEC and detection awareness
 > - 🔴 `Wireless Hacking Cheat Sheet v1.1` — ⚡ Keep open during all Shelf 01 labs
 > - 🟢 `Wifi & Security` / `WiFi hacking article` — Supplementary reference PDFs
-
 
 > [!IMPORTANT]
 > **Hardware Acquisition Checklist — Purchase Before Starting Wireless & Mobile Labs (Shelves 01 & 02)**
@@ -234,7 +232,6 @@
 
 ## Shelf 02: Mobile Platform Pentesting
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Hacking android` — Full — Android attack surface, APK analysis, and exploitation
@@ -242,7 +239,6 @@
 > - 🟡 `Cybersecurity for Mobile Devices` — Reference — broad mobile security coverage
 > - 🟢 `Best of Mobile Hacking` — Reference — supplementary attack techniques
 > - 🟢 `Hacking Android Smartphones with NFC Tags` / `Bluetooth Low Energy Hacking` — Reference only if my labs include BLE/NFC vectors
-
 
 <a id="stage-0-mobile-architecture-foundations"></a>
 ### **Topic 0: Mobile Architecture Foundations** — `🧠 Conceptual`
@@ -477,8 +473,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ## Shelf 03: OT/ICS/SCADA Security
 
-
-
 > [!CAUTION]
 > **OPTIONAL SPECIALIZATION — NOT PART OF THE RED TEAM CRITICAL PATH.**
 >
@@ -489,8 +483,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Complete this Shelf only if:** I am explicitly targeting ICS/OT pentesting roles (energy sector, industrial consultancies), critical infrastructure defense, or SCADA security engineering. These roles have specific hiring pipelines and certifications (GICSP, ICS-CERT training) that are separate from the standard Red Team track.
 >
 > This content is available here for completeness. Treat it as post-hire optional.
-
-
 
 <a id="stage-1-industrial-protocol-fundamentals"></a>
 ### **Topic 1: Industrial Protocol Fundamentals** — `🧠 Conceptual`
@@ -616,15 +608,10 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > [!IMPORTANT]
 > **OT/ICS Completion Gate:** Move on only when I can demonstrate a full enterprise attack path, document remediation, and prove measurable detection or control improvement.
 
----
-
----
-
-<a id="shelf-04-digital-forensics"></a>
+---<a id="shelf-04-digital-forensics"></a>
 <a id="part-27"></a>
 
 ## Shelf 04: Digital Forensics
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Part**
@@ -633,7 +620,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > - 🔴 `SANS DFIR Cheatsheets and Notebooks` — ⚡ Keep open during all Shelf 04 labs as quick reference
 > - 🟡 `Effective Threat Investigation` — Full — structured threat investigation methodology and evidence chaining
 > - 🟢 `Smartphone Forensics Cheatsheet by SANS` — Reference — mobile evidence acquisition quick ref
-
 
 <a id="stage-1-preparation-first-response"></a>
 ### **Topic 1: Preparation & First Response** — `🔬 Practical`
@@ -787,7 +773,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ## Shelf 05: Reverse Engineering & Malware Analysis
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Reversing Secrets of Reverse Engineering - Eldad Eilam` — Primary companion — the foundational RE textbook; read early in Shelf 05
@@ -795,7 +780,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > - 🟡 `The Android Malware Handbook (2023)` — Full — mobile malware RE; use if Shelf 05 covers mobile malware variants
 > - 🟡 `Designing BSD rootkit` — Full — rootkit internals, evasion, and persistence mechanisms
 > - 🟢 `The Rootkit Arsenal Escape and Evasion in the Dark Corners` — Reference — deepest rootkit engineering reference; read after basic RE is solid
-
 
 <a id="stage-1-static-analysis-foundations"></a>
 ### **Topic 1: Static Analysis Foundations** — `🔬 Practical`
@@ -922,14 +906,12 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 ## Shelf 06: Modern Exploitation
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Primary companion — shellcode, stack overflows, heap exploitation; read fully in Shelf 06
 > - 🟡 `Exploit Development on Linux Platform` — Full — Linux-specific exploit writing and shellcode injection
 > - 🟡 `Exploit Development Wintel Platform` — Full — Windows-specific exploit development (SEH, ROP chains)
 > - 🟢 `Build My Own EXPLOITS` — Full — practical exploit building projects from concept to working PoC
-
 
 > **Prerequisite Gate:** Complete Stage 1 (Memory Management, Data Representation), C fundamentals, and Stage 5: Module 27 (Offensive Development — exploit writing, shellcode, assembly) before starting this Shelf. Modern exploitation builds directly on these foundations.
 
@@ -1034,7 +1016,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 <a id="part-30"></a>
 
 ## Shelf 07: Hardware Hacking & Embedded Systems
-
 
 <a id="stage-1-hardware-reconnaissance"></a>
 ### **Topic 1: Hardware Reconnaissance** — `🔬 Practical`
@@ -1157,15 +1138,12 @@ README must explain: what monitor mode is, why root is required, how to enable m
 
 <a id="toc-part-31-password-cracking--hash-analysis"></a>
 
-
-
 ---
 
 <a id="shelf-08-physical-penetration-testing"></a>
 <a id="part-32"></a>
 
 ## Shelf 08: Physical Penetration Testing
-
 
 > **Safety Gate:** Physical testing requires written authorization, named locations, dates/times, emergency contacts, stop conditions, and a get-out-of-jail letter. Do not practice bypasses on real facilities, campuses, offices, hotels, apartments, or transit systems.
 
@@ -1278,7 +1256,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 <a id="part-33"></a>
 
 ## Shelf 09: VoIP & Telecommunications Security
-
 
 <a id="stage-1-voip-protocol-fundamentals"></a>
 ### **Topic 1: VoIP Protocol Fundamentals** — `🧠 Conceptual`
@@ -1403,7 +1380,6 @@ README must explain: what monitor mode is, why root is required, how to enable m
 <a id="part-34"></a>
 
 ## Shelf 10: Blockchain & Web3 Security
-
 
 <a id="stage-1-blockchain-fundamentals-for-security"></a>
 ### **Topic 1: Blockchain Fundamentals for Security** — `🧠 Conceptual`
@@ -1562,13 +1538,11 @@ Choose one track:
 
 ## Shelf 11: Governance, Risk & Compliance (GRC)
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🟡 `CISSP Study Guide 4th Edition` — Reference — broad governance, risk, and compliance framework coverage
 > - 🔴 `Foundations of Information Security - Jason Andress` — Security policy and risk management fundamentals
 > - 🟢 `The Practical Guide to HIPAA Privacy and Security Compliance 2nd` — Reference — compliance framework depth for healthcare/regulated environments
-
 
 <a id="stage-1-security-frameworks-standards"></a>
 ### **Topic 1: Security Frameworks & Standards** — `🧠 Conceptual`
@@ -1694,7 +1668,6 @@ Choose one track:
 
 ## Shelf 12: Supply Chain Security
 
-
 <a id="stage-1-understanding-the-attack-surface"></a>
 ### **Topic 1: Understanding the Attack Surface** — `🧠 Conceptual`
 
@@ -1787,12 +1760,10 @@ Choose one track:
 
 ## Shelf 13: DevSecOps & Secure SDLC
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Security for Software Engineers` — Full — secure SDLC, threat modeling, SAST/DAST concepts; maps directly to this Part
 > - 🟡 `Web Application Security - Andrew Hoffman` — Reference — secure code patterns from an AppSec engineer perspective
-
 
 <a id="stage-1-security-in-the-development-lifecycle"></a>
 ### **Topic 1: Security in the Development Lifecycle** — `🧠🔬 Mixed`
@@ -1927,12 +1898,10 @@ Choose one track:
 
 ## Shelf 14: Secure Code Review Methodology
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Web Application Security - Andrew Hoffman` — Primary — identifies vulnerable patterns (SQL sinks, XSS outputs, insecure deserialization) in code
 > - 🟡 `Security for Software Engineers` — Reference — secure coding patterns across languages
-
 
 > **Why This Exists:** Automated SAST tools (Shelf 13) find obvious patterns. Manual code review finds business logic flaws, subtle injection paths, and authentication bypasses that scanners miss entirely. Every AppSec engineer, bug bounty hunter targeting open-source programs, and red teamer reviewing client source code needs this methodology. I cannot triage and improve SAST results without understanding what the scanner is looking for and why it misses things.
 
@@ -2088,18 +2057,15 @@ Choose one track:
 
 ## Shelf 15: Security Architecture & Engineering
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🟡 `CISSP Study Guide 4th Edition` — Reference — security architecture domains (network, identity, cryptography, physical)
 > - 🟡 `Foundations of Information Security - Jason Andress` — Architecture and design security principles
 > - 🟢 `Cybersecurity First Principles A Reboot of Strategy and Tactics` — Full — strategic security architecture thinking
 
-
 > **Scope & Context:** Shelf 15 (Security Architecture & Engineering) synthesizes threat modeling, secure system design, Zero Trust architecture, and enterprise controls.
 
 _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fills the identified gap in security architecture training. A security professional who can only break systems but not design secure ones is incomplete._
-
 
 <a id="stage-1-security-design-principles"></a>
 ### **Topic 1: Security Design Principles** — `🧠 Conceptual`
@@ -2259,7 +2225,6 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
 ## Shelf 16: Security Operations Expansion
 
-
 _Extension of Stage 3 detection concepts. These topics cover operational security tools and programs that build on the detection engineering foundation._
 
 <a id="stage-11-security-orchestration-automation-response-soar"></a>
@@ -2359,8 +2324,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 | [Hack The Box Sherlocks](https://hackthebox.com) | DFIR forensics investigations in realistic enterprise scenarios | Free + VIP |
 | [Splunk Free / Security Onion / Wazuh](https://wazuh.com) | Self-hosted SIEM/EDR lab environments for detection engineering practice | Free (self-hosted) |
 
-
-
 > [!IMPORTANT]
 > **Shelf Gate — Shelf 16 Completion:** Before completing this module, I must demonstrate all of:
 > - [ ] **SOAR:** Built at least 1 automated playbook in Shuffle, Tines, or n8n that executes a real response action (IP reputation check, email quarantine, or ticket creation) when triggered by a SIEM alert
@@ -2377,7 +2340,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 <a id="part-11"></a>
 
 ## Shelf 17: Denial of Service & Availability Resilience
-
 
 > [!CAUTION]
 > **Defensive & Resilience Scope:** DoS/DDoS is studied here strictly for architectural awareness, traffic analysis, and availability engineering. Authorized penetration tests and professional red teaming engagements do not perform destructive denial-of-service attacks on client networks.
@@ -2421,12 +2383,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 > [!NOTE]
 > **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[[Stage-3_Web-and-App-Sec#Module 15: Session Hijacking & Token Attacks|Stage 3: Module 15]]** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[[Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23 (Sniffing & Spoofing)]]**.
 
----
-
----
-
-
----
+------
 
 ## Shelf 18: Automotive Security
 

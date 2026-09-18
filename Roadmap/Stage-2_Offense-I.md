@@ -167,14 +167,12 @@
 
 <a id="part-4-footprinting-and-reconnaissance"></a>
 
-
 ---
 
 <a id="module-08-footprinting--reconnaissance"></a>
 <a id="part-4-footprinting-and-reconnaissance"></a>
 
 ## Module 08: Footprinting & Reconnaissance
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -183,7 +181,6 @@
 > - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Recon chapters — structured methodology for the full recon pipeline
 > - 🟡 `Cybersecurity Attack-and-Defense Strategies 2nd` — Reconnaissance chapter — how defenders see my recon footprint (OPSEC awareness)
 > - 🟢 `Python for OSINT Tooling` — Full book — build my own OSINT automation tools in Python
-
 
 <a id="part-4-stage-1-ghost-phase"></a>
 
@@ -213,7 +210,6 @@
 ---
 
 <a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
-
 
 ### **Topic 2: Semi-Passive Infrastructure Mapping** — `🔬 Practical`
 
@@ -363,14 +359,12 @@
 <a id="toc-part-5-scanning"></a>
 <a id="part-5-scanning"></a>
 
-
 ---
 
 <a id="module-09-scanning"></a>
 <a id="part-5-scanning"></a>
 
 ## Module 09: Scanning
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -379,7 +373,6 @@
 > - 🟡 `The Power of Scapy V2` — Full (short reference) — custom packet crafting for advanced scanning
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet capture analysis labs
 > - 🟢 `Hacking and Network Defense` — Network scanning chapter — how scan traffic appears in defender logs
-
 
 <a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
 
@@ -519,7 +512,6 @@
 <a id="toc-part-6-enumeration"></a>
 <a id="part-6-enumeration"></a>
 
-
 ---
 
 <a id="module-10-enumeration"></a>
@@ -527,13 +519,11 @@
 
 ## Module 10: Enumeration
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Hacking Exposed` — Service-specific chapters (SMB, SNMP, LDAP, RPC) — classic enumeration playbook, still directly applicable
 > - 🟡 `Counter Hack Reloaded - Ed Skoudis & Tom Liston` — Enumeration chapters (SMB, LDAP, SNMP) — structured per-protocol coverage and what data each leaks
 > - 🟢 `Cyberjutsu Cybersecurity for the Modern Ninja` — Enumeration section — attacker-focused methodology in clear tactical language
-
 
 > [!NOTE]
 > **Note:** Module 09 (Scanning) covers host discovery, port scanning, and defense identification. Module 10 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If I haven't completed Module 09, do so first.
@@ -650,7 +640,6 @@
 
 <a id="part-6b-database-security"></a>
 
-
 ---
 
 <a id="module-11-database-security"></a>
@@ -658,12 +647,10 @@
 
 ## Module 11: Database Security
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Web Application Hacking Advanced SQL Injection and Data Store Attacks` — DB internals chapters only now; save injection chapters for Stage 3
 > - 🟡 `Database Security Problems and Solutions` — Full (reference) — attacker-focused DB misconfiguration and exploitation techniques
-
 
 > [!NOTE]
 > **Navigational Note — Scope:** Module 11 focuses on direct database engine exploitation, authentication bypass, and privilege escalation (UDF, xp_cmdshell, misconfigurations). Application-layer SQL Injection is taught in [[Stage-3_Web-and-App-Sec#Module 14: Web Application Hacking|Stage 3: Module 14]].
@@ -889,7 +876,6 @@
 
 <a id="part-31-password-cracking-hash-analysis"></a>
 
-
 ---
 
 <a id="module-12-password-cracking--hash-analysis"></a>
@@ -897,13 +883,11 @@
 
 ## Module 12: Password Cracking & Hash Analysis
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Hacking_ The Art Of Exploitation 2nd Edition` — Cryptography and hashing chapter — ground-truth explanation of how hashes work and why cracking is possible
 > - 🟡 `Reverse Engineering and Password Breaking` — Full (short) — direct coverage of hash formats and cracking methodology
 > - 🟢 `Computer & Internet Security A Hands on Approach 2nd Ed` — Authentication chapters — explains salting, key derivation, and why bcrypt/Argon2 resist cracking
-
 
 > [!NOTE]
 > **Navigational Note — Placement:** Module 12 (Password Cracking & Hash Analysis) sits directly between Module 10 (Enumeration) and Module 13 (System Hacking) because password cracking is a **direct prerequisite for System Hacking**: I cannot effectively use Pass-the-Hash, hash cracking, or credential reuse without first mastering hash identification and offline cracking mechanics. Proceed to Module 13 after completing this.
@@ -987,14 +971,12 @@
 <a id="toc-part-7-system-hacking--initial-compromise"></a>
 <a id="part-7-system-hacking-initial-compromise"></a>
 
-
 ---
 
 <a id="module-13-system-hacking--initial-compromise"></a>
 <a id="part-7-system-hacking-initial-compromise"></a>
 
 ## Module 13: System Hacking & Initial Compromise
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -1005,7 +987,6 @@
 > - 🟡 `Gray Hat Hacking The Ethical Hacker's Handbook 2022` — System exploitation, modern privesc techniques
 > - 🟢 `Exploitation Techniques and Tools` — Technique catalog — use as lookup when encountering a specific technique in labs
 > - 🟢 `Exploit Development on Linux Platform` — Full — Linux-specific exploitation fundamentals
-
 
 <a id="stage-1-the-breach-initial-access-exploitation"></a>
 
@@ -1458,7 +1439,6 @@
 
 - [ ] **Forensic Artifact Awareness:** Know what evidence each Linux persistence technique leaves: cron log entries, systemd journal records, SSH auth logs, auditd syscall logs, shell history files. Practice finding these artifacts on a compromised box and mapping them back to the attacker technique.
 
-
 **Lateral Movement, Pivoting & Egress Evasion:**
 
 - [ ] **SMB/WinRM:** Use **PsExec, Invoke-Command, Evil-WinRM, WMIexec** to execute **commands on adjacent machines**.
@@ -1666,14 +1646,9 @@
 > - **Malware & Weaponization (Payload Generation):** [[Stage-4_Enterprise#Module 25: Malware & Weaponization (Conceptual)|Stage 4: Module 25]] & [[Stage-5_Specialized#Module 27: Offensive Development & Tooling|Stage 5: Module 27]]
 > - **Denial of Service & Resilience:** [[Shelf_Post-Hire#Shelf 17: Denial of Service & Availability Resilience|Shelf 17]]
 
----
-
----
-
----
+------
 
 <a id="part-8-malware-weaponization"></a>
-
 
 ---
 

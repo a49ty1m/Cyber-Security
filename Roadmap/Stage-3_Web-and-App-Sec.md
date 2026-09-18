@@ -141,14 +141,12 @@
 
 <a id="part-17-web-application-hacking"></a>
 
-
 ---
 
 <a id="module-14-web-application-hacking"></a>
 <a id="part-17-web-application-hacking"></a>
 
 ## Module 14: Web Application Hacking
-
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -162,7 +160,6 @@
 > - 🟢 `White Hat Hacking complete guide to XSS Attacks` — Full (short) — structured XSS coverage
 > - 🟢 `SQL Injection Attacks` / `SQL Injection Strategies` / `SQL injection CyberSecurity` — Quick reference PDFs
 > - 🟢 `Web Application Hacking Advanced SQL Injection and Data Store Attacks` — Advanced DB-level exploitation post-PortSwigger SQLi
-
 
 > [!IMPORTANT]
 > **Stage 3 Resource Alignment**
@@ -213,7 +210,6 @@
 > ```
 >
 > PortSwigger has labs for every one of these. Do the labs as I reach each topic — not all upfront.
-
 
 <a id="stage-1-reconnaissance-mapping"></a>
 ### **Topic 1: Reconnaissance & Mapping** — `🔬 Practical`
@@ -365,7 +361,6 @@
 
 ## Module 15: Session Hijacking & Token Attacks
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `The Tangled Web` — Chapters on browser security models, cookies, origin boundaries, and session lifecycles
@@ -497,13 +492,11 @@
 
 ## Module 16: Web Server Hacking
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🟡 `Web Application Attacks` — Broad web attack catalog — covers server-side attack vectors beyond SQLi and XSS
 > - 🟢 `Web security exposed` — Reference — supplementary web server attack coverage
 > - 🟢 `WordPress Hacking and Security` — Reference — CMS-specific attack methodology for real-world scope targets
-
 
 <a id="stage-1-target-acquisition-reconnaissance"></a>
 ### **Topic 1: Target Acquisition & Reconnaissance** — `🔬 Practical`
@@ -601,12 +594,10 @@
 
 ## Module 17: API Security
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Hacking APIs Breaking Web Application Programming Interfaces - Corey` — Full book — the best dedicated API security resource; maps directly to this Part
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG API test cases; use IDs when writing reports
-
 
 <a id="stage-1-api-reconnaissance-mapping"></a>
 ### **Topic 1: API Reconnaissance & Mapping** — `🔬 Practical`
@@ -727,7 +718,6 @@
 
 ## Module 18: Bug Bounty Methodology
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `zseano's methodology` — Full (short) — practical bug bounty workflow from an experienced hunter
@@ -735,7 +725,6 @@
 > - 🟡 `Bug Bounty Hunting For Web Security` — Full — platform-specific methodology for HackerOne, Bugcrowd etc.
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG test case IDs for reporting (e.g. WSTG-INPV-05)
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology doc to use during assessments
-
 
 <a id="stage-1-preparation-scoping"></a>
 ### **Topic 1: Preparation & Scoping** — `🧠🔬 Mixed`
@@ -1138,7 +1127,6 @@ It also teaches a critical professional lesson: automated scanners miss things. 
 
 ### Side-Track A: Detection Engineering & SOC Operations
 
-
 _Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Shelf_Post-Hire#Shelf 16: Security Operations Expansion|Shelf 16 (Security Operations Expansion)]]._
 
 <a id="stage-1-defensive-architecture"></a>
@@ -1350,7 +1338,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ### Side-Track B: IDS, Firewalls, and Honeypots
 
-
 <a id="stage-1-foundational-strategy-networking"></a>
 ### **Topic 1: Foundational Strategy & Networking** — `🧠 Conceptual`
 
@@ -1525,7 +1512,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ### Side-Track C: Cyber Threat Intelligence (CTI) & Attack Surface Management
 
-
 > [!NOTE]
 > **Defensive Scope Alignment:** Offensive reconnaissance, active scanning, and target footprinting are covered in **Stage 2 (Module 08)**. Side-Track C focuses strictly on defensive **Cyber Threat Intelligence (CTI)**, External Attack Surface Management (EASM), threat actor profiling, and operationalizing intelligence into detection telemetry.
 
@@ -1643,7 +1629,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!IMPORTANT]
 > **Move-On Gate (Side-Track C):** I can gather, analyze, and disseminate threat intelligence using industry-standard tools and formats, and produce actionable intelligence reports for both technical and executive audiences. **I must also complete Stage 5 operationalization:** take a raw APT report, extract structured IOCs, import them into my SIEM, write Sigma rules for at least 3 TTPs, verify the alerts fire in my lab, and execute a documented threat hunt query with recorded results. A practitioner who can collect intel but not act on it has not completed this part.
-
 
 ---
 
@@ -1765,8 +1750,6 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#Shelf 11: Governance, Risk & Compliance (GRC)|Shelf 11: GRC]]. This sidebar gives me the minimum needed to function effectively in a defensive role from Day 1._
 
-
-
 ---
 
 <a id="defensive-operations-capstone-project"></a>
@@ -1810,7 +1793,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > **✅ Defensive Operations side-tracks conclude here.**
 > Module 22 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming|Stage 4: Enterprise]].
 >
-> 
+>
 
 ---
 

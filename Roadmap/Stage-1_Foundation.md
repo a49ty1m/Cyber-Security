@@ -170,16 +170,13 @@
 
 ## Module 01: Fundamentals
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Foundations of Information Security - Jason Andress` — CIA triad, auth, access control basics
 > - 🟡 `Security in Computing 5th Edition` — Authoritative reference for security concepts
 > - 🟢 `The Linux Command Line - A Complete Introduction` — Quick command reference for CLI fundamentals
 
-
 <a id="stage-1-hardware-cpu-pre-boot-environment"></a>
-
 ### **Topic 1: Hardware, CPU & Pre-Boot Environment** — `🧠 Conceptual`
 
 > [!TIP]
@@ -974,7 +971,6 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 <a id="toc-part-1b-linux-administration"></a>
 <a id="part-1b-linux-administration"></a>
 
-
 ---
 
 <a id="module-02-linux-administration"></a>
@@ -982,14 +978,12 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 
 ## Module 02: Linux Administration
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `The Linux Command Line - A Complete Introduction` — Primary CLI and admin reference
 > - 🟡 `Using And Administering Linux Volume 1 Zero To SysAdmin Getting Started` — systemctl, user management, /etc/ configs
 > - 🟡 `Using And Administering Linux Volume 2 Zero To SysAdmin Advanced` — Advanced admin and service configuration
 > - 🟢 `Using And Administering Linux Volume 3 Zero To SysAdmin Network` — Network services on Linux
-
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Stage._
 
@@ -1097,7 +1091,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 <a id="toc-part-1c-windows-administration"></a>
 <a id="part-1c-windows-administration"></a>
 
-
 ---
 
 <a id="module-03-windows-administration"></a>
@@ -1105,12 +1098,10 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ## Module 03: Windows Administration
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `EA - Windows Security Internals with PowerShell` — Deep Windows internals + PowerShell scripting (also critical in Stage 4)
 > - 🟡 `Windows PowerShell Cookbook` — PowerShell command reference for admin tasks
-
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Module 19), Cloud (Module 20), and Defensive modules._
 
@@ -1304,7 +1295,6 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 <a id="toc-part-2-networking-fundamentals"></a>
 <a id="part-2-networking-fundamentals"></a>
 
-
 ---
 
 <a id="module-04-networking-fundamentals"></a>
@@ -1312,13 +1302,11 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ## Module 04: Networking Fundamentals
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Data Communications and Networking with TCPIP Protocol Suite - Behrouz A. Forouzan (2022)` — The definitive networking reference; read per-chapter as needed (TCP, DNS, subnetting)
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet analysis labs
 > - 🟢 `Computer Networking Principles, Protocols, and Practice` — Lighter alternative for readable second opinions
-
 
 <a id="layer-1-physical-the-hardware-surface"></a>
 
@@ -2249,7 +2237,6 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 <a id="toc-part-3-cryptography"></a>
 <a id="part-3-cryptography"></a>
 
-
 ---
 
 <a id="module-05-cryptography"></a>
@@ -2257,12 +2244,10 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 ## Module 05: Cryptography
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `Security in Computing 5th Edition` — Crypto primitives, hashing, PKI reference chapters
 > - 🟡 `Foundations of Information Security - Jason Andress` — Readable crypto foundations without academic abstraction
-
 
 <a id="stage-1-core-concepts-algorithms"></a>
 
@@ -2566,14 +2551,12 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 <a id="toc-part-3b-authentication-standards-primer"></a>
 <a id="part-3b-authentication-standards-primer"></a>
 
-
 ---
 
 <a id="module-06-authentication-standards"></a>
 <a id="part-3b-authentication-standards-primer"></a>
 
 ## Module 06: Authentication Standards
-
 
 > [!IMPORTANT]
 > **Why This Exists Here:** Modules 15, 17, 19, and 25 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before I hit the attack techniques. Deep exploitation and protocol abuse are covered in Module 17 (API Security, Stage 3) and Module 19 (Entra ID, Stage 4). This module is concepts only.
@@ -2813,7 +2796,6 @@ Using my virtualization platform, build a lab environment containing:
 
 <a id="part-3c-web-technology-fundamentals"></a>
 
-
 ---
 
 <a id="module-07-web-technology-fundamentals"></a>
@@ -2821,12 +2803,10 @@ Using my virtualization platform, build a lab environment containing:
 
 ## Module 07: Web Technology Fundamentals
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Module**
 > - 🔴 `The Tangled Web` — Deep dive into how browsers and HTTP work; directly explains why web vulnerabilities exist
 > - 🟡 `Foundations of Information Security - Jason Andress` — Session, cookie, and auth fundamentals chapter
-
 
 > [!IMPORTANT]
 > **Why This Exists Here:** Stage 3 teaches session hijacking (Module 15), while Stage 2/4 teaches sniffing HTTP credentials (Module 23) and web-based pretexting (Module 24) — all requiring solid web fundamentals. I cannot understand session hijacking or web exploitation without first understanding what a session IS. This module bridges that gap. Complete it before proceeding to Stage 2.

@@ -122,7 +122,6 @@
 
 <a id="part-23-active-directory-entra-id"></a>
 
-
 ---
 
 <a id="module-19-active-directory--entra-id"></a>
@@ -130,14 +129,12 @@
 
 ## Module 19: Active Directory & Entra ID
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `EA - Windows Security Internals with PowerShell` — Primary companion — AD internals, attack paths (Kerberoasting, DCSync, Golden Ticket), PowerShell enumeration
 > - 🟡 `Windows PowerShell Cookbook` — Reference — PowerShell command reference for AD enumeration and post-exploitation
 > - 🟡 `Windows Server automation with PowerShell cookbook` — Reference — Group Policy, SYSVOL, service configs
 > - 🟢 `Cybersecurity Attack-and-Defense Strategies 2nd` — Enterprise attack chain coverage — red vs blue perspective on AD attacks
-
 
 > [!IMPORTANT]
 > **Prerequisite Patch Required Before Module 19:** Before starting AD attacks, complete Stage 1 **Module 03 Topics 5 & 6** (Active Directory Concepts, Windows Identity & Kerberos Foundations). Do not skip these — Kerberoasting and delegation attacks are incomprehensible without understanding the Kerberos ticket lifecycle first. This is a targeted patch, not a full Stage 1 restart.
@@ -180,7 +177,6 @@
 > ```
 >
 > **Do not attempt Entra ID / cloud identity before I understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
-
 
 <a id="stage-1-discovery-enumeration"></a>
 ### **Topic 1: Discovery & Enumeration** — `🔬 Practical`
@@ -300,12 +296,10 @@
 
 ## Module 20: Cloud Computing
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Cloud_Hacking (1)` — Full — cloud attack methodology overview (misconfigs, SSRF to metadata, IAM abuse)
 > - 🟢 `Trusted Cloud Computing` — Reference — cloud security architecture and defensive design context
-
 
 > [!IMPORTANT]
 > **Cloud Lab Setup Requirements — Read Before Starting**
@@ -338,7 +332,6 @@
 
 <a id="stage-1-architecture-governance"></a>
 ### **Topic 1: Architecture & Governance** — `🧠 Conceptual`
-
 
 > [!TIP]
 > **Goal:** Define the battlefield and the rules of engagement — understand the cloud responsibility model, IAM structure, and baseline security posture tools before touching any attack techniques.
@@ -478,7 +471,6 @@
 <a id="part-25-container-orchestration-security"></a>
 
 ## Module 21: Container & Orchestration Security
-
 
 <a id="stage-1-container-fundamentals-attacks"></a>
 ### **Topic 1: Container Fundamentals & Attacks** — `🔬 Practical`
@@ -634,7 +626,6 @@
 
 ## Module 22: Adversary Emulation & Purple Teaming
 
-
 > [!NOTE]
 > **Scope & Placement:** Module 22 (Adversary Emulation & Purple Teaming) synthesizes enterprise attack paths from Modules 19–21 (Active Directory, Cloud, Containers) into unified emulation campaigns.
 
@@ -732,7 +723,6 @@
 <a id="toc-part-26-oticsscada-security"></a>
 <a id="part-26-oticsscada-security"></a>
 
-
 ---
 
 <a id="module-23-sniffing--spoofing"></a>
@@ -740,13 +730,11 @@
 
 ## Module 23: Sniffing & Spoofing
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `The Power of Scapy V2` — ARP spoofing, packet injection chapters — tool mastery for MitM and packet manipulation
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all capture and analysis labs
 > - 🟢 `Hacking and Network Defense` — Sniffing chapter — defender detection of sniffing activity (informs OPSEC)
-
 
 <a id="stage-1-the-environment-fundamentals-the-setup"></a>
 
@@ -855,14 +843,9 @@
 > [!IMPORTANT]
 > **Move-On Gate:** I can perform a complete MITM attack chain in a lab, capture credentials from unencrypted and downgraded traffic, and explain exactly which defenses (DAI, HSTS, certificate pinning) would have prevented each technique.
 
----
-
----
-
----
+------
 
 <a id="toc-part-10-social-engineering"></a>
-
 
 ---
 
@@ -871,12 +854,10 @@
 
 ## Module 24: Social Engineering
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `Social Engineering The Art of Human Hacking` — The definitive book on SE — read this fully during Module 24
 > - 🟡 `The Social Engineers Playbook` — Full (short) — practical tactical scripts and pretexts
-
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
 
@@ -1068,13 +1049,8 @@ Robert Cialdini's research on influence identified six universal principles that
   > [!IMPORTANT]
   > **Move-On Gate:** Produce a social-engineering simulation plan with ROE, consent model, metrics, and debrief template.
 
----
-
----
-
-<a id="toc-part-11-denial-of-service"></a>
+---<a id="toc-part-11-denial-of-service"></a>
 <a id="part-11-denial-of-service"></a>
-
 
 ---
 
@@ -1082,7 +1058,6 @@ Robert Cialdini's research on influence identified six universal principles that
 <a id="part-8-malware-weaponization"></a>
 
 ## Module 25: Malware & Weaponization (Conceptual)
-
 
 > **Safety Gate:** Malware work is restricted to isolated local labs with snapshots, host-only networking, no shared clipboard, no mounted host folders, and no third-party targets. Before running any sample or payload, define expected behavior, logging sources, rollback steps, and containment checks.
 
@@ -1255,8 +1230,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ---
 
-
-
 <a id="topic-6-document-cloud-weaponization"></a>
 
 ### **Topic 6: Document & Cloud Weaponization** — `🔬 Practical`
@@ -1325,13 +1298,8 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!IMPORTANT]
 > **Move-On Gate (Module 25):** I can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. I am not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes in Shelf 05 and Stage 5: Module 27.
 
----
-
----
-
-<a id="toc-part-9-sniffing--spoofing"></a>
+---<a id="toc-part-9-sniffing--spoofing"></a>
 <a id="part-9-sniffing-spoofing"></a>
-
 
 ---
 
@@ -1340,13 +1308,11 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ## Module 26: Pentest Methodologies & Report Writing
 
-
 > [!NOTE]
 > **📚 Recommended Books for This Part**
 > - 🔴 `The Pentester Blueprint` — 🥇 Full book — pentest career methodology, report writing, and professional conduct; read fully before starting Module 26
 > - 🔴 `From Hacking to Report Writing` — Full — report structure, evidence packaging, and finding articulation
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology for web pentest engagements
-
 
 > **Why This Exists:** Knowing how to exploit is useless if I can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. While its reporting templates (PTES, CVSS v3.1/v4.0, remediation matrices) are introduced in Stage 2 for documenting my first rooted lab machines, here in Stage 4 (Module 26) I master the end-to-end commercial engagement lifecycle: formal legal scoping, threat modeling, executive debriefing, and enterprise deliverable packaging.
 
@@ -1476,7 +1442,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="toc-part-40-red-team-operations--tradecraft"></a>
 <a id="part-40-red-team-operations-tradecraft"></a>
-
 
 ---
 
