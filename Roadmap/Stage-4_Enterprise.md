@@ -8,7 +8,7 @@
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
 |:---:|:---:|:---:|:---|
-| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Mandatory Tools](#mandatory-tools) · [🎮 CTF Practice](#ctf-practice) · [🏁 Stage Gate 3](#stage-gate-3) |
+| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#🗂️ Table of Contents|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 4|🎮 CTF Practice]] · [[#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting|🏁 Stage Gate 3]] |
 
 ---
 
@@ -58,66 +58,69 @@
 
 ### 🗂️ Table of Contents
 
-- [Module 19: Active Directory & Entra ID](#part-23-active-directory-entra-id)
-  - [Topic 1: Discovery & Enumeration](#stage-1-discovery-enumeration)
-  - [Topic 2: Credential & Auth Attacks](#stage-2-credential-auth-attacks)
-  - [Topic 3: Delegation, ACL, and ADCS Abuse](#stage-3-delegation-acl-and-adcs-abuse)
-  - [Topic 4: Lateral Movement & Persistence](#stage-4-lateral-movement-persistence)
-  - [Topic 5: Entra ID (Azure AD) & Hybrid Attacks](#stage-5-entra-id-azure-ad-hybrid-attacks)
-  - [Lab Progression (Module 19: Active Directory & Entra ID)](#lab-progression-part-23-active-directory-entra-id)
-- [Module 20: Cloud Computing](#part-24-cloud-computing)
-  - [Topic 1: Architecture & Governance](#stage-1-architecture-governance)
-  - [Topic 2: Storage & Data Security](#stage-2-storage-data-security)
-  - [Topic 3: Modern Infrastructure & Deployment](#stage-3-modern-infrastructure-deployment)
-  - [Topic 4: Automation & Scripting](#stage-4-automation-scripting)
-  - [Topic 5: Cloud-Specific Attack Vectors](#stage-5-cloud-specific-attack-vectors)
-  - [Topic 6: IAM & PAM Attack Surface](#stage-6-iam-pam-attack-surface)
-- [Module 21: Container & Orchestration Security](#part-25-container-orchestration-security)
-  - [Topic 1: Container Fundamentals & Attacks](#stage-1-container-fundamentals-attacks)
-  - [Topic 2: Kubernetes Security](#stage-2-kubernetes-security)
-  - [Topic 3: Container Runtime Security](#stage-3-container-runtime-security)
-  - [Topic 4: Secrets & Configuration Management](#stage-4-secrets-configuration-management)
-  - [Topic 5: CI/CD & Workflow Automation Attacks](#stage-5-cicd-workflow-automation-attacks)
-  - [Lab Progression (Module 21: Container & Orchestration Security)](#lab-progression-part-25-container-orchestration-security)
-  - [Topic 6: Hypervisor Security](#stage-6-hypervisor-security)
-- [Module 22: Adversary Emulation & Purple Teaming](#part-16-adversary-emulation-purple-teaming)
-  - [Topic 1: MITRE ATT&CK Framework Mastery](#stage-1-mitre-attck-framework-mastery)
-  - [Topic 2: APT & Threat Actor Emulation](#stage-2-apt-threat-actor-emulation)
-  - [Topic 3: Purple Team Exercises](#stage-3-purple-team-exercises)
-  - [Topic 4: Metrics & Reporting](#stage-4-metrics-reporting)
-  - [Lab Progression (Module 22: Adversary Emulation & Purple Teaming)](#lab-progression-part-16-adversary-emulation-purple-teaming)
-- [Module 23: Sniffing & Spoofing](#part-9-sniffing-spoofing)
-  - [Topic 1: The Environment & Fundamentals (The Setup)](#stage-1-the-environment-fundamentals-the-setup)
-  - [Topic 2: Sniffing & Passive Reconnaissance (The Ear)](#stage-2-sniffing-passive-reconnaissance-the-ear)
-  - [Topic 3: Spoofing & Active Deception (The Lie)](#stage-3-spoofing-active-deception-the-lie)
-  - [Topic 4: Man-in-the-Middle & Exploitation (The Kill)](#stage-4-man-in-the-middle-exploitation-the-kill)
-  - [Topic 5: Defenses & Mitigation (The Shield)](#stage-5-defenses-mitigation-the-shield)
-  - [Lab Progression (Module 23: Sniffing & Spoofing)](#lab-progression-part-9-sniffing-spoofing)
-- [Module 24: Social Engineering](#part-10-social-engineering)
-  - [Topic 0: The Psychology of Social Engineering (The Foundation)](#stage-0-the-psychology-of-social-engineering-the-foundation)
-  - [Topic 1: Intelligence & Reconnaissance (The Setup)](#stage-1-intelligence-reconnaissance-the-setup)
-  - [Topic 2: The Digital Assault (Remote Vectors)](#stage-2-the-digital-assault-remote-vectors)
-  - [Topic 3: The Human Element (Direct Interaction)](#stage-3-the-human-element-direct-interaction)
-  - [Topic 4: The Physical Breach (Boots on the Ground)](#stage-4-the-physical-breach-boots-on-the-ground)
-  - [Topic 5: Defense & Awareness (The Shield)](#stage-5-defense-awareness-the-shield)
-  - [Lab Progression (Module 24: Social Engineering)](#lab-progression-part-10-social-engineering)
-- [Module 25: Malware & Weaponization (Conceptual)](#part-8-malware-weaponization)
-  - [Topic 1: The Design & Logic (Architecture)](#stage-1-the-design-logic-architecture)
-  - [Topic 2: The Payload & Mechanism — Exposure Survey](#stage-2-the-payload-mechanism-weaponization)
-  - [Topic 3: Evasion & Defense Bypassing — Exposure Survey](#stage-3-evasion-defense-bypassing-invisibility)
-  - [Topic 4: Persistence & Escalation — Exposure Survey](#stage-4-persistence-escalation-entrenchment)
-  - [Topic 5: Counter-Forensics & Cleanup — Exposure Survey](#stage-5-counter-forensics-professionalism-the-cleanup)
-  - [Topic 5b: Windows Persistence Analysis & Memory Forensics](#stage-5b-windows-persistence-memory-forensics)
-  - [Topic 6: Document & Cloud Weaponization](#topic-6-document-cloud-weaponization)
-  - [Lab Progression (Module 25: Malware & Weaponization)](#lab-progression-module-25-malware-weaponization)
-- [Module 26: Pentest Methodologies & Report Writing](#part-39-penetration-testing-methodologies-report-writing)
-  - [Topic 1: Industry-Standard Engagement Frameworks](#stage-1-industry-standard-engagement-frameworks)
-  - [Topic 2: Scoping, Legal Frameworks & Engagement Management](#stage-2-scoping-legal-frameworks-engagement-management)
-  - [Topic 3: Structured Threat Modeling](#stage-3-structured-threat-modeling)
-  - [Topic 4: Vulnerability Scoring & Risk Prioritization](#stage-4-vulnerability-scoring-risk-prioritization)
-  - [Topic 5: Professional Report Writing](#stage-5-professional-report-writing)
-  - [Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)](#lab-progression-module-26-penetration-testing-methodologies-report-writing)
-- [🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting](#stage-gate-3)
+
+- [[#Module 19: Active Directory & Entra ID|Module 19: Active Directory & Entra ID]]
+  - [[#Topic 1: Discovery & Enumeration — 🔬 Practical|Topic 1: Discovery & Enumeration]]
+  - [[#Topic 2: Credential & Auth Attacks — 🔬 Practical|Topic 2: Credential & Auth Attacks]]
+  - [[#Topic 3: Delegation, ACL, and ADCS Abuse — 🔬 Practical|Topic 3: Delegation, ACL, and ADCS Abuse]]
+  - [[#Topic 4: Lateral Movement & Persistence — 🔬 Practical|Topic 4: Lateral Movement & Persistence]]
+  - [[#Topic 5: Entra ID (Azure AD) & Hybrid Attacks — 🧠🔬 Mixed|Topic 5: Entra ID (Azure AD) & Hybrid Attacks]]
+  - [[#Lab Progression (Module 19: Active Directory & Entra ID)|Lab Progression (Module 19: Active Directory & Entra ID)]]
+- [[#Module 20: Cloud Computing|Module 20: Cloud Computing]]
+  - [[#Topic 1: Architecture & Governance — 🧠 Conceptual|Topic 1: Architecture & Governance]]
+  - [[#Topic 2: Storage & Data Security — 🔬 Practical|Topic 2: Storage & Data Security]]
+  - [[#Topic 3: Modern Infrastructure & Deployment — 🧠🔬 Mixed|Topic 3: Modern Infrastructure & Deployment]]
+  - [[#Topic 4: Automation & Scripting — 🔬 Practical|Topic 4: Automation & Scripting]]
+  - [[#Topic 5: Cloud-Specific Attack Vectors — 🔬 Practical|Topic 5: Cloud-Specific Attack Vectors]]
+  - [[#Topic 6: IAM & PAM Attack Surface — 🔬 Practical|Topic 6: IAM & PAM Attack Surface]]
+- [[#Module 21: Container & Orchestration Security|Module 21: Container & Orchestration Security]]
+  - [[#Topic 1: Container Fundamentals & Attacks — 🔬 Practical|Topic 1: Container Fundamentals & Attacks]]
+  - [[#Topic 2: Kubernetes Security — 🔬 Practical|Topic 2: Kubernetes Security]]
+  - [[#Topic 3: Container Runtime Security — 🧠🔬 Mixed|Topic 3: Container Runtime Security]]
+  - [[#Topic 4: Secrets & Configuration Management — 🔬 Practical|Topic 4: Secrets & Configuration Management]]
+  - [[#Topic 5: CI/CD & Workflow Automation Attacks — 🔬 Practical|Topic 5: CI/CD & Workflow Automation Attacks]]
+  - [[#Lab Progression (Module 21: Container & Orchestration Security)|Lab Progression (Module 21: Container & Orchestration Security)]]
+  - [[#Topic 6: Hypervisor Security — 🧠 Conceptual|Topic 6: Hypervisor Security]]
+- [[#Module 22: Adversary Emulation & Purple Teaming|Module 22: Adversary Emulation & Purple Teaming]]
+  - [[#Topic 1: MITRE ATT&CK Framework Mastery — 🧠 Conceptual|Topic 1: MITRE ATT&CK Framework Mastery]]
+  - [[#Topic 2: APT & Threat Actor Emulation — 🔬 Practical|Topic 2: APT & Threat Actor Emulation]]
+  - [[#Topic 3: Purple Team Exercises — 🧠🔬 Mixed|Topic 3: Purple Team Exercises]]
+  - [[#Topic 4: Metrics & Reporting — 🧠 Conceptual|Topic 4: Metrics & Reporting]]
+  - [[#Lab Progression (Module 22: Adversary Emulation & Purple Teaming)|Lab Progression (Module 22: Adversary Emulation & Purple Teaming)]]
+- [[#Module 23: Sniffing & Spoofing|Module 23: Sniffing & Spoofing]]
+  - [[#Topic 1: The Environment & Fundamentals (The Setup) — 🧠🔬 Mixed|Topic 1: The Environment & Fundamentals (The Setup)]]
+  - [[#Topic 2: Sniffing & Passive Reconnaissance (The Ear) — 🔬 Practical|Topic 2: Sniffing & Passive Reconnaissance (The Ear)]]
+  - [[#Topic 3: Spoofing & Active Deception (The Lie) — 🔬 Practical|Topic 3: Spoofing & Active Deception (The Lie)]]
+  - [[#Topic 4: Man-in-the-Middle & Exploitation (The Kill) — 🔬 Practical|Topic 4: Man-in-the-Middle & Exploitation (The Kill)]]
+  - [[#Topic 5: Defenses & Mitigation (The Shield) — 🧠 Conceptual|Topic 5: Defenses & Mitigation (The Shield)]]
+  - [[#Lab Progression (Module 23: Sniffing & Spoofing)|Lab Progression (Module 23: Sniffing & Spoofing)]]
+- [[#Module 24: Social Engineering|Module 24: Social Engineering]]
+  - [[#Topic 0: The Psychology of Social Engineering (The Foundation) — 🧠 Conceptual|Topic 0: The Psychology of Social Engineering (The Foundation)]]
+  - [[#Topic 1: Intelligence & Reconnaissance (The Setup) — 🔬 Practical|Topic 1: Intelligence & Reconnaissance (The Setup)]]
+  - [[#Topic 2: The Digital Assault (Remote Vectors) — 🧠🔬 Mixed|Topic 2: The Digital Assault (Remote Vectors)]]
+  - [[#Topic 3: The Human Element (Direct Interaction) — 🧠 Conceptual|Topic 3: The Human Element (Direct Interaction)]]
+  - [[#Topic 4: The Physical Breach (Boots on the Ground) — 🧠🔬 Mixed|Topic 4: The Physical Breach (Boots on the Ground)]]
+  - [[#Topic 5: Defense & Awareness (The Shield) — 🧠 Conceptual|Topic 5: Defense & Awareness (The Shield)]]
+  - [[#Lab Progression (Module 24: Social Engineering)|Lab Progression (Module 24: Social Engineering)]]
+- [[#Module 25: Malware & Weaponization (Conceptual)|Module 25: Malware & Weaponization (Conceptual)]]
+  - [[#Topic 1: The Design & Logic (Architecture) — 🧠 Conceptual|Topic 1: The Design & Logic (Architecture)]]
+  - [[#Topic 2: The Payload & Mechanism — Exposure Survey — 🧠🔬 Mixed|Topic 2: The Payload & Mechanism — Exposure Survey]]
+  - [[#Topic 3: Evasion & Defense Bypassing — Exposure Survey — 🧠 Conceptual|Topic 3: Evasion & Defense Bypassing — Exposure Survey]]
+  - [[#Topic 4: Persistence & Escalation — Exposure Survey — 🧠 Conceptual|Topic 4: Persistence & Escalation — Exposure Survey]]
+  - [[#Topic 5: Counter-Forensics & Cleanup — Exposure Survey — 🧠 Conceptual|Topic 5: Counter-Forensics & Cleanup — Exposure Survey]]
+  - [[#Topic 5b: Windows Persistence Analysis & Memory Forensics — 🧠 Conceptual|Topic 5b: Windows Persistence Analysis & Memory Forensics]]
+  - [[#Topic 6: Document & Cloud Weaponization — 🔬 Practical|Topic 6: Document & Cloud Weaponization]]
+  - [[#Lab Progression (Module 25: Malware & Weaponization)|Lab Progression (Module 25: Malware & Weaponization)]]
+- [[#Module 26: Pentest Methodologies & Report Writing|Module 26: Pentest Methodologies & Report Writing]]
+  - [[#Topic 1: Industry-Standard Engagement Frameworks — 🧠 Conceptual|Topic 1: Industry-Standard Engagement Frameworks]]
+  - [[#Topic 2: Scoping, Legal Frameworks & Engagement Management — 🧠 Conceptual|Topic 2: Scoping, Legal Frameworks & Engagement Management]]
+  - [[#Topic 3: Structured Threat Modeling — 🧠 Conceptual|Topic 3: Structured Threat Modeling]]
+  - [[#Topic 4: Vulnerability Scoring & Risk Prioritization — 🧠 Conceptual|Topic 4: Vulnerability Scoring & Risk Prioritization]]
+  - [[#Topic 5: Professional Report Writing — 🧠🔬 Mixed|Topic 5: Professional Report Writing]]
+  - [[#Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)|Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)]]
+  - [[#🎮 Concurrent CTF Practice — Stage 4|🎮 Concurrent CTF Practice — Stage 4]]
+- [[#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting|🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting]]
+
 ---
 
 <a id="part-23-active-directory-entra-id"></a>
@@ -179,7 +182,7 @@
 > **Do not attempt Entra ID / cloud identity before I understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
 
 <a id="stage-1-discovery-enumeration"></a>
-### **Topic 1: Discovery & Enumeration** — `🔬 Practical`
+### Topic 1: Discovery & Enumeration — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Map identity surfaces across on-prem AD and Entra ID (Azure AD).
@@ -195,7 +198,7 @@
 ---
 
 <a id="stage-2-credential-auth-attacks"></a>
-### **Topic 2: Credential & Auth Attacks** — `🔬 Practical`
+### Topic 2: Credential & Auth Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Steal or replay credentials to gain higher privilege.
@@ -211,7 +214,7 @@
 ---
 
 <a id="stage-3-delegation-acl-and-adcs-abuse"></a>
-### **Topic 3: Delegation, ACL, and ADCS Abuse** — `🔬 Practical`
+### Topic 3: Delegation, ACL, and ADCS Abuse — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Abuse trust relationships and misconfigurations for escalation.
@@ -235,7 +238,7 @@
 ---
 
 <a id="stage-4-lateral-movement-persistence"></a>
-### **Topic 4: Lateral Movement & Persistence** — `🔬 Practical`
+### Topic 4: Lateral Movement & Persistence — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Move horizontally and maintain footholds.
@@ -257,7 +260,7 @@
 ---
 
 <a id="stage-5-entra-id-azure-ad-hybrid-attacks"></a>
-### **Topic 5: Entra ID (Azure AD) & Hybrid Attacks** — `🧠🔬 Mixed`
+### Topic 5: Entra ID (Azure AD) & Hybrid Attacks — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Exploit cloud identity to pivot and persist.
@@ -273,7 +276,7 @@
 ---
 
 <a id="lab-progression-part-23-active-directory-entra-id"></a>
-### **Lab Progression (Module 19: Active Directory & Entra ID)**
+### Lab Progression (Module 19: Active Directory & Entra ID)
 
 > [!TIP]
 > **Goal:** Build and attack identity infrastructure with evidence and rollback.
@@ -331,7 +334,7 @@
 > > **Never practice cloud attack techniques against accounts I do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
 
 <a id="stage-1-architecture-governance"></a>
-### **Topic 1: Architecture & Governance** — `🧠 Conceptual`
+### Topic 1: Architecture & Governance — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Define the battlefield and the rules of engagement — understand the cloud responsibility model, IAM structure, and baseline security posture tools before touching any attack techniques.
@@ -351,7 +354,7 @@
 ---
 
 <a id="stage-2-storage-data-security"></a>
-### **Topic 2: Storage & Data Security** — `🔬 Practical`
+### Topic 2: Storage & Data Security — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Enumerate, audit, and exploit cloud storage misconfigurations — the most common source of cloud data breaches.
@@ -371,7 +374,7 @@
 ---
 
 <a id="stage-3-modern-infrastructure-deployment"></a>
-### **Topic 3: Modern Infrastructure & Deployment** — `🧠🔬 Mixed`
+### Topic 3: Modern Infrastructure & Deployment — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Audit and attack the compute layer and the deployment pipeline — misconfigurations here grant persistent, privileged access.
@@ -391,7 +394,7 @@
 ---
 
 <a id="stage-4-automation-scripting"></a>
-### **Topic 4: Automation & Scripting** — `🔬 Practical`
+### Topic 4: Automation & Scripting — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Use automation to enumerate, audit, and monitor cloud environments — understand what defenders see so I know what to avoid generating.
@@ -415,7 +418,7 @@
 ---
 
 <a id="stage-5-cloud-specific-attack-vectors"></a>
-### **Topic 5: Cloud-Specific Attack Vectors** — `🔬 Practical`
+### Topic 5: Cloud-Specific Attack Vectors — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Understand unique cloud threats.
@@ -440,7 +443,7 @@
 ---
 
 <a id="stage-6-iam-pam-attack-surface"></a>
-### **Topic 6: IAM & PAM Attack Surface** — `🔬 Practical`
+### Topic 6: IAM & PAM Attack Surface — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Master identity-based attack techniques in cloud and enterprise environments.
@@ -473,7 +476,7 @@
 ## Module 21: Container & Orchestration Security
 
 <a id="stage-1-container-fundamentals-attacks"></a>
-### **Topic 1: Container Fundamentals & Attacks** — `🔬 Practical`
+### Topic 1: Container Fundamentals & Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Understand containerization and its security implications.
@@ -496,7 +499,7 @@
 ---
 
 <a id="stage-2-kubernetes-security"></a>
-### **Topic 2: Kubernetes Security** — `🔬 Practical`
+### Topic 2: Kubernetes Security — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Attack and defend container orchestration platforms.
@@ -516,7 +519,7 @@
 ---
 
 <a id="stage-3-container-runtime-security"></a>
-### **Topic 3: Container Runtime Security** — `🧠🔬 Mixed`
+### Topic 3: Container Runtime Security — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Detect and prevent malicious container activity.
@@ -534,7 +537,7 @@
 ---
 
 <a id="stage-4-secrets-configuration-management"></a>
-### **Topic 4: Secrets & Configuration Management** — `🔬 Practical`
+### Topic 4: Secrets & Configuration Management — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Secure sensitive data in containerized environments.
@@ -552,7 +555,7 @@
 ---
 
 <a id="stage-5-cicd-workflow-automation-attacks"></a>
-### **Topic 5: CI/CD & Workflow Automation Attacks** — `🔬 Practical`
+### Topic 5: CI/CD & Workflow Automation Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Compromise the software supply chain and automation tier.
@@ -570,7 +573,7 @@
 ---
 
 <a id="lab-progression-part-25-container-orchestration-security"></a>
-### **Lab Progression (Module 21: Container & Orchestration Security)**
+### Lab Progression (Module 21: Container & Orchestration Security)
 
 > [!TIP]
 > **Goal:** Practice container and Kubernetes security with real clusters, not diagrams.
@@ -584,7 +587,7 @@
 
 <a id="stage-6-hypervisor-security"></a>
 
-### **Topic 6: Hypervisor Security** — `🧠 Conceptual`
+### Topic 6: Hypervisor Security — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the attack surface one layer below containers — the hypervisor. Container escape gets defender attention; hypervisor-level attacks are less understood and harder to detect. Enterprise pentests against virtualised infrastructure encounter these regularly.
@@ -633,7 +636,7 @@
 > **Prerequisites:** This module requires offensive maturity (Stage 2) plus enterprise infrastructure knowledge from Modules 19–21. Complete prior Stage 4 content before attempting purple teaming campaigns.
 
 <a id="stage-1-mitre-attck-framework-mastery"></a>
-### **Topic 1: MITRE ATT&CK Framework Mastery** — `🧠 Conceptual`
+### Topic 1: MITRE ATT&CK Framework Mastery — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the universal language of adversary behavior.
@@ -651,7 +654,7 @@
 ---
 
 <a id="stage-2-apt-threat-actor-emulation"></a>
-### **Topic 2: APT & Threat Actor Emulation** — `🔬 Practical`
+### Topic 2: APT & Threat Actor Emulation — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Replicate real-world adversary campaigns.
@@ -671,7 +674,7 @@
 ---
 
 <a id="stage-3-purple-team-exercises"></a>
-### **Topic 3: Purple Team Exercises** — `🧠🔬 Mixed`
+### Topic 3: Purple Team Exercises — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Collaborative offense-defense improvement.
@@ -689,7 +692,7 @@
 ---
 
 <a id="stage-4-metrics-reporting"></a>
-### **Topic 4: Metrics & Reporting** — `🧠 Conceptual`
+### Topic 4: Metrics & Reporting — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Quantify security posture improvement.
@@ -705,7 +708,7 @@
 - [ ] **Trend Analysis:** Compare **metrics across time** to demonstrate **security maturity improvement**.
 
 <a id="lab-progression-part-16-adversary-emulation-purple-teaming"></a>
-### **Lab Progression (Module 22: Adversary Emulation & Purple Teaming)**
+### Lab Progression (Module 22: Adversary Emulation & Purple Teaming)
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -738,7 +741,7 @@
 
 <a id="stage-1-the-environment-fundamentals-the-setup"></a>
 
-### **Topic 1: The Environment & Fundamentals (The Setup)** — `🧠🔬 Mixed`
+### Topic 1: The Environment & Fundamentals (The Setup) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Understand the battlefield. I cannot spoof what I cannot map.
@@ -757,7 +760,7 @@
 
 <a id="stage-2-sniffing-passive-reconnaissance-the-ear"></a>
 
-### **Topic 2: Sniffing & Passive Reconnaissance (The Ear)** — `🔬 Practical`
+### Topic 2: Sniffing & Passive Reconnaissance (The Ear) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Capture data without alerting the target. "Listen before act."
@@ -774,7 +777,7 @@
 
 <a id="stage-3-spoofing-active-deception-the-lie"></a>
 
-### **Topic 3: Spoofing & Active Deception (The Lie)** — `🔬 Practical`
+### Topic 3: Spoofing & Active Deception (The Lie) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
@@ -795,7 +798,7 @@
 
 <a id="stage-4-man-in-the-middle-exploitation-the-kill"></a>
 
-### **Topic 4: Man-in-the-Middle & Exploitation (The Kill)** — `🔬 Practical`
+### Topic 4: Man-in-the-Middle & Exploitation (The Kill) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
@@ -816,7 +819,7 @@
 
 <a id="stage-5-defenses-mitigation-the-shield"></a>
 
-### **Topic 5: Defenses & Mitigation (The Shield)** — `🧠 Conceptual`
+### Topic 5: Defenses & Mitigation (The Shield) — 🧠 Conceptual
 
 - [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
 
@@ -830,7 +833,7 @@
 
 <a id="lab-progression-part-9-sniffing-spoofing"></a>
 
-### **Lab Progression (Module 23: Sniffing & Spoofing)**
+### Lab Progression (Module 23: Sniffing & Spoofing)
 
 | Level | Task                                                                       | Deliverable                               |
 | ----- | -------------------------------------------------------------------------- | ----------------------------------------- |
@@ -864,7 +867,7 @@
 <a id="stage-0-the-psychology-of-social-engineering"></a>
 <a id="stage-0-the-psychology-of-social-engineering-the-foundation"></a>
 
-### **Topic 0: The Psychology of Social Engineering (The Foundation)** — `🧠 Conceptual`
+### Topic 0: The Psychology of Social Engineering (The Foundation) — 🧠 Conceptual
 
 > [!IMPORTANT]
 > **Read this before any other Topic in Module 24.** Social engineering is not a collection of clever tricks — it is applied psychology. Every phishing email, vishing call, and pretexting scenario works because it exploits specific, documented cognitive patterns. Understanding these patterns is what separates an operator who succeeds from one who improvises and fails. Defenders must also understand them to design effective awareness training.
@@ -941,7 +944,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-1-intelligence-reconnaissance-the-setup"></a>
 
-### **Topic 1: Intelligence & Reconnaissance (The Setup)** — `🔬 Practical`
+### Topic 1: Intelligence & Reconnaissance (The Setup) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Know the target better than they know themselves.
@@ -958,7 +961,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-2-the-digital-assault-remote-vectors"></a>
 
-### **Topic 2: The Digital Assault (Remote Vectors)** — `🧠🔬 Mixed`
+### Topic 2: The Digital Assault (Remote Vectors) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Compromise the target from a distance via electronic channels.
@@ -988,7 +991,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-3-the-human-element-direct-interaction"></a>
 
-### **Topic 3: The Human Element (Direct Interaction)** — `🧠 Conceptual`
+### Topic 3: The Human Element (Direct Interaction) — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Use psychology and social manipulation to bypass logic.
@@ -1003,7 +1006,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-4-the-physical-breach-boots-on-the-ground"></a>
 
-### **Topic 4: The Physical Breach (Boots on the Ground)** — `🧠🔬 Mixed`
+### Topic 4: The Physical Breach (Boots on the Ground) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Gain physical access to networks and facilities.
@@ -1020,7 +1023,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-5-defense-awareness-the-shield"></a>
 
-### **Topic 5: Defense & Awareness (The Shield)** — `🧠 Conceptual`
+### Topic 5: Defense & Awareness (The Shield) — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Prevent the human hack through training and controls.
@@ -1037,7 +1040,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="lab-progression-part-10-social-engineering"></a>
 
-### **Lab Progression (Module 24: Social Engineering)**
+### Lab Progression (Module 24: Social Engineering)
 
 > [!TIP]
 > **Goal:** Learn social engineering defensively and ethically.
@@ -1078,7 +1081,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-1-the-design-logic-architecture"></a>
 
-### **Topic 1: The Design & Logic (Architecture)** — `🧠 Conceptual`
+### Topic 1: The Design & Logic (Architecture) — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand how malware is architected at a design level — the decisions an attacker makes before writing a single line of code.
@@ -1099,7 +1102,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-2-the-payload-mechanism-weaponization"></a>
 
-### **Topic 2: The Payload & Mechanism — Exposure Survey** — `🧠🔬 Mixed`
+### Topic 2: The Payload & Mechanism — Exposure Survey — 🧠🔬 Mixed
 
 > [!WARNING]
 > **Exposure-Only Stage:** This topic describes weaponization techniques at a conceptual level. Do not attempt to implement custom payloads, shellcode injection, or custom C2 until completing **Stage 5: Module 27 (Offensive Development & Tooling)** and **Shelf 05 (Reverse Engineering)**. My goal here is to understand _what_ these techniques do and _why_ defenders flag them — not to build them.
@@ -1121,7 +1124,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-3-evasion-defense-bypassing-invisibility"></a>
 
-### **Topic 3: Evasion & Defense Bypassing — Exposure Survey** — `🧠 Conceptual`
+### Topic 3: Evasion & Defense Bypassing — Exposure Survey — 🧠 Conceptual
 
 > [!WARNING]
 > **Exposure-Only Stage:** This stage teaches _how_ AMSI bypass, EDR hook removal, and memory-based evasion work at a conceptual level. Do not attempt to implement these at this stage. Custom evasion requires understanding the Windows internals that these techniques exploit — that knowledge is in **Shelf 05 (Reverse Engineering)**. Practical evasion implementation is in **Stage 5: Module 27 (Offensive Development & Tooling)**.
@@ -1145,7 +1148,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-4-persistence-escalation-entrenchment"></a>
 
-### **Topic 4: Persistence & Escalation — Exposure Survey** — `🧠 Conceptual`
+### Topic 4: Persistence & Escalation — Exposure Survey — 🧠 Conceptual
 
 > [!WARNING]
 > **Exposure-Only Stage:** Persistence mechanisms and privilege escalation are taught as canonical practitioner skills in **Stage 2: Module 13 (System Hacking)** already. This stage reviews them in the context of malware architecture — what a long-running implant uses to survive reboots and credential rotations. Rootkit-level persistence (BOOTKIT, UEFI implants, kernel drivers) requires kernel internals knowledge from Stage 5 / Shelf 05. Do not attempt rootkit implementation at this stage.
@@ -1165,7 +1168,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-5-counter-forensics-professionalism-the-cleanup"></a>
 
-### **Topic 5: Counter-Forensics & Cleanup — Exposure Survey** — `🧠 Conceptual`
+### Topic 5: Counter-Forensics & Cleanup — Exposure Survey — 🧠 Conceptual
 
 > [!WARNING]
 > **Exposure-Only Stage:** Anti-forensics (log manipulation, timestamp modification, artifact scrubbing) are covered conceptually here. Implementing effective anti-forensics requires understanding _what_ forensic artifacts exist — that knowledge is in **Shelf 04 (Digital Forensics)**. The skill to develop here is recognizing what evidence an attacker would try to destroy, so I can look for its _absence_ during an investigation. Operationally, within a legitimate red team engagement, artifact cleanup must stay within Rules of Engagement and must never destroy evidence on production systems.
@@ -1187,7 +1190,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-5b-windows-persistence-memory-forensics"></a>
 
-### **Topic 5b: Windows Persistence Analysis & Memory Forensics** — `🧠 Conceptual`
+### Topic 5b: Windows Persistence Analysis & Memory Forensics — 🧠 Conceptual
 
 > [!NOTE]
 > **Scope:** This is a conceptual exposure pass — you learn what the techniques are and what artifacts they leave so I can identify them on an engagement or in a blue-team investigation. Deep Volatility memory analysis and advanced rootkit internals are covered post-hire in Shelf S21 (Advanced Windows Internals).
@@ -1232,7 +1235,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="topic-6-document-cloud-weaponization"></a>
 
-### **Topic 6: Document & Cloud Weaponization** — `🔬 Practical`
+### Topic 6: Document & Cloud Weaponization — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This is the **operational implementation topic** for Module 25 — the techniques here are in-scope for lab practice because they use documented attack patterns that do not require binary internals knowledge.
@@ -1285,7 +1288,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="lab-progression-module-25-malware-weaponization"></a>
 
-### **Lab Progression (Module 25: Malware & Weaponization)**
+### Lab Progression (Module 25: Malware & Weaponization)
 
 | Level | Task                                                                                                       | Deliverable                                         |
 | ----- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
@@ -1318,7 +1321,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-1-industry-standard-engagement-frameworks"></a>
 
-### **Topic 1: Industry-Standard Engagement Frameworks** — `🧠 Conceptual`
+### Topic 1: Industry-Standard Engagement Frameworks — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the structured methodologies that govern professional engagements.
@@ -1339,7 +1342,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-2-scoping-legal-frameworks-engagement-management"></a>
 
-### **Topic 2: Scoping, Legal Frameworks & Engagement Management** — `🧠 Conceptual`
+### Topic 2: Scoping, Legal Frameworks & Engagement Management — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Define engagement boundaries that protect the tester and client legally and operationally.
@@ -1360,7 +1363,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-3-structured-threat-modeling"></a>
 
-### **Topic 3: Structured Threat Modeling** — `🧠 Conceptual`
+### Topic 3: Structured Threat Modeling — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Apply structured threat identification before testing begins — not after.
@@ -1381,7 +1384,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-4-vulnerability-scoring-risk-prioritization"></a>
 
-### **Topic 4: Vulnerability Scoring & Risk Prioritization** — `🧠 Conceptual`
+### Topic 4: Vulnerability Scoring & Risk Prioritization — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Rate findings objectively and communicate risk in business terms — not just CVSS numbers.
@@ -1402,7 +1405,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="stage-5-professional-report-writing"></a>
 
-### **Topic 5: Professional Report Writing** — `🧠🔬 Mixed`
+### Topic 5: Professional Report Writing — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Deliver findings in a format that survives executive scrutiny and drives budgeted remediation.
@@ -1427,7 +1430,7 @@ Robert Cialdini's research on influence identified six universal principles that
 
 <a id="lab-progression-module-26-penetration-testing-methodologies-report-writing"></a>
 
-### **Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)**
+### Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)
 
 | Level | Task                                                                                                                  | Deliverable                                                   |
 | ----- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -1480,6 +1483,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [⬆ Return to Top](#top) |
+| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#Stage 4 — Enterprise|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-5_Specialized|Stage 5: Specialized]]` to open the next stage in a split tab, or hover to preview.

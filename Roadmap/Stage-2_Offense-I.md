@@ -8,7 +8,7 @@
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
 |:---:|:---:|:---:|:---|
-| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Mandatory Tools](#mandatory-tools) · [🎮 CTF Practice](#ctf-practice) · [🏁 Stage Gate 1](#stage-gate-1) |
+| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#🗂️ Table of Contents|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 2|🎮 CTF Practice]] · [[#🏁 Stage Gate 1 — Host Dominance & Privilege Escalation|🏁 Stage Gate 1]] |
 
 ---
 
@@ -60,61 +60,64 @@
 
 ### 🗂️ Table of Contents
 
-- [🔹 Stage 2 Execution Pipeline](#stage-2-execution-pipeline)
-- [Module 08: Footprinting & Reconnaissance](#part-4-footprinting-and-reconnaissance)
-  - [Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling)](#part-4-stage-1-ghost-phase)
-  - [Topic 2: Semi-Passive Infrastructure Mapping](#part-4-stage-2-semi-passive-infrastructure-mapping)
-  - [Topic 3: Active Footprinting & Network Interrogation](#part-4-stage-3-active-footprinting-network-interrogation)
-  - [Topic 4: Advanced Fingerprinting & Logic Analysis](#part-4-stage-4-advanced-fingerprinting-logic-analysis)
-  - [Topic 5: IPv6 & Protocol Enumeration](#part-4-stage-5-ipv6-protocol-enumeration)
-  - [Topic 6: Dark Web & Breach Intelligence](#part-4-stage-6-dark-web-breach-intelligence)
-  - [Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope)](#part-4-stage-7-satellite-geospatial-intelligence)
-  - [Topic 8: Strategy & Attack Mapping](#part-4-stage-8-strategy-attack-mapping)
-  - [Lab Progression (Module 08: Footprinting & Reconnaissance)](#part-4-lab-progression)
-- [Module 09: Scanning](#part-5-scanning)
-  - [Topic 1: Host Discovery & Network Topology (The "Roll Call")](#stage-1-host-discovery-network-topology-the-roll-call)
-  - [Topic 2: Port, Service & Protocol Enumeration (The "Door Check")](#stage-2-port-service-protocol-enumeration-the-door-check)
-  - [Topic 3: Defense & Configuration Assessment (The "Armor Check")](#stage-3-defense-configuration-assessment-the-armor-check)
-  - [Topic 4: Vulnerability Association & Attack Mapping](#stage-4-vulnerability-association-attack-mapping)
-  - [Topic 5: Stealth & Evasion Techniques](#stage-5-stealth-evasion-techniques)
-  - [Topic 6: Advanced Scanning Techniques](#stage-6-advanced-scanning-techniques)
-  - [Lab Progression (Module 09: Scanning)](#lab-progression-part-5-scanning)
-- [Module 10: Enumeration](#part-6-enumeration)
-  - [Topic 1: Service Enumeration & Banner Grabbing](#stage-1-service-enumeration-banner-grabbing)
-  - [Topic 2: Directory & Identity Enumeration](#stage-2-directory-identity-enumeration)
-  - [Topic 3: DNS & Infrastructure Enumeration](#stage-3-dns-infrastructure-enumeration)
-  - [Topic 4: Database & Application Enumeration](#stage-4-database-application-enumeration)
-  - [Topic 5: Attack Surface Consolidation & Enumeration OpSec](#stage-5-attack-surface-consolidation-enumeration-opsec)
-  - [Lab Progression (Module 10: Enumeration)](#lab-progression-part-6-enumeration)
-- [Module 11: Database Security](#part-6b-database-security)
-  - [Topic 1: Database Enumeration & Fingerprinting](#part-6b-stage-1-database-enumeration-fingerprinting)
-  - [Topic 2: Relational Database Exploitation](#part-6b-stage-2-relational-database-exploitation)
-  - [Topic 3: NoSQL & Modern Database Attacks](#part-6b-stage-3-nosql-modern-database-attacks)
-  - [Topic 4: Database Privilege Escalation](#part-6b-stage-4-database-privilege-escalation)
-  - [Topic 5: Database Auditing & Defence](#part-6b-stage-5-database-auditing-defence)
-  - [Lab Progression (Module 11: Database Security)](#part-6b-lab-progression)
-- [Module 12: Password Cracking & Hash Analysis](#part-31-password-cracking-hash-analysis)
-  - [Topic 1: Hash Identification & Acquisition](#stage-1-hash-identification-acquisition)
-  - [Topic 2: Cracking Methodology & Tools](#stage-2-cracking-methodology-tools)
-  - [Topic 3: Protocol-Specific Cracking](#stage-3-protocol-specific-cracking)
-  - [Topic 4: Wordlist & Intelligence Curation](#stage-4-wordlist-intelligence-curation)
-- [Module 13: System Hacking & Initial Compromise](#part-7-system-hacking-initial-compromise)
-  - [Topic 1: The Breach (Initial Access & Exploitation)](#stage-1-the-breach-initial-access-exploitation)
-  - [Topic 2: The Ascension (Privilege Escalation)](#stage-2-the-ascension-privilege-escalation)
-  - [Topic 3: The Stronghold (Persistence & Lateral Movement)](#stage-3-the-stronghold-persistence-lateral-movement)
-  - [Topic 4: The Shadow (Defense Evasion & Anti-Forensics)](#stage-4-the-shadow-defense-evasion-anti-forensics)
-  - [Topic 5: Data Exfiltration & Impact](#stage-5-data-exfiltration-impact)
-  - [Topic 6: The Professional (Governance & Reporting)](#stage-6-the-professional-governance-reporting)
-  - [Lab Progression (Module 13: System Hacking & Initial Compromise)](#lab-progression-part-7-system-hacking-initial-compromise)
-- [🔹 Architecture Alignment Note: Network & Weaponization Tracks](#toc-part-8-malware--weaponization)
-- [🏆 Stage 2 Capstone Project](#stage-2-capstone-project)
-- [🧭 Stage 2 Reflection & Competency Check](#stage-2-reflection-competency-check)
-- [🛠️ Stage 2 Mini Projects](#stage-2-mini-projects)
-  - [Project 10 — Port Scanner](#project-10-port-scanner)
-  - [Project 11 — Network Packet Sniffer](#project-11-network-packet-sniffer)
-  - [Project 13 — Subdomain Scanner](#project-13-subdomain-scanner)
-  - [Project 14 — Vulnerability Scanner](#project-14-vulnerability-scanner)
-- [🏁 Stage Gate 1 — Host Dominance & Privilege Escalation](#stage-gate-1)
+
+- [[#🔹 Stage 2 Execution Pipeline|🔹 Stage 2 Execution Pipeline]]
+- [[#Module 08: Footprinting & Reconnaissance|Module 08: Footprinting & Reconnaissance]]
+  - [[#Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling) — 🧠🔬 Mixed|Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling)]]
+  - [[#Topic 2: Semi-Passive Infrastructure Mapping — 🔬 Practical|Topic 2: Semi-Passive Infrastructure Mapping]]
+  - [[#Topic 3: Active Footprinting & Network Interrogation — 🔬 Practical|Topic 3: Active Footprinting & Network Interrogation]]
+  - [[#Topic 4: Advanced Fingerprinting & Logic Analysis — 🔬 Practical|Topic 4: Advanced Fingerprinting & Logic Analysis]]
+  - [[#Topic 5: IPv6 & Protocol Enumeration — 🧠🔬 Mixed|Topic 5: IPv6 & Protocol Enumeration]]
+  - [[#Topic 6: Dark Web & Breach Intelligence — 🔬 Practical|Topic 6: Dark Web & Breach Intelligence]]
+  - [[#Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope) — 🧠🔬 Mixed|Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope)]]
+  - [[#Topic 8: Strategy & Attack Mapping — 🧠 Conceptual|Topic 8: Strategy & Attack Mapping]]
+  - [[#Lab Progression (Module 08: Footprinting & Reconnaissance)|Lab Progression (Module 08: Footprinting & Reconnaissance)]]
+- [[#Module 09: Scanning|Module 09: Scanning]]
+  - [[#Topic 1: Host Discovery & Network Topology (The "Roll Call") — 🔬 Practical|Topic 1: Host Discovery & Network Topology (The "Roll Call")]]
+  - [[#Topic 2: Port, Service & Protocol Enumeration (The "Door Check") — 🔬 Practical|Topic 2: Port, Service & Protocol Enumeration (The "Door Check")]]
+  - [[#Topic 3: Defense & Configuration Assessment (The "Armor Check") — 🔬 Practical|Topic 3: Defense & Configuration Assessment (The "Armor Check")]]
+  - [[#Topic 4: Vulnerability Association & Attack Mapping — 🧠🔬 Mixed|Topic 4: Vulnerability Association & Attack Mapping]]
+  - [[#Topic 5: Stealth & Evasion Techniques — 🔬 Practical|Topic 5: Stealth & Evasion Techniques]]
+  - [[#Topic 6: Advanced Scanning Techniques — 🔬 Practical|Topic 6: Advanced Scanning Techniques]]
+  - [[#Lab Progression (Module 09: Scanning)|Lab Progression (Module 09: Scanning)]]
+- [[#Module 10: Enumeration|Module 10: Enumeration]]
+  - [[#Topic 1: Service Enumeration & Banner Grabbing — 🔬 Practical|Topic 1: Service Enumeration & Banner Grabbing]]
+  - [[#Topic 2: Directory & Identity Enumeration — 🔬 Practical|Topic 2: Directory & Identity Enumeration]]
+  - [[#Topic 3: DNS & Infrastructure Enumeration — 🔬 Practical|Topic 3: DNS & Infrastructure Enumeration]]
+  - [[#Topic 4: Database & Application Enumeration — 🔬 Practical|Topic 4: Database & Application Enumeration]]
+  - [[#Topic 5: Attack Surface Consolidation & Enumeration OpSec — 🧠🔬 Mixed|Topic 5: Attack Surface Consolidation & Enumeration OpSec]]
+  - [[#Lab Progression (Module 10: Enumeration)|Lab Progression (Module 10: Enumeration)]]
+- [[#Module 11: Database Security|Module 11: Database Security]]
+  - [[#Topic 1: Database Enumeration & Fingerprinting — 🔬 Practical|Topic 1: Database Enumeration & Fingerprinting]]
+  - [[#Topic 2: Relational Database Exploitation — 🔬 Practical|Topic 2: Relational Database Exploitation]]
+  - [[#Topic 3: NoSQL & Modern Database Attacks — 🔬 Practical|Topic 3: NoSQL & Modern Database Attacks]]
+  - [[#Topic 4: Database Privilege Escalation — 🔬 Practical|Topic 4: Database Privilege Escalation]]
+  - [[#Topic 5: Database Auditing & Defence — 🧠🔬 Mixed|Topic 5: Database Auditing & Defence]]
+  - [[#Lab Progression (Module 11: Database Security)|Lab Progression (Module 11: Database Security)]]
+- [[#Module 12: Password Cracking & Hash Analysis|Module 12: Password Cracking & Hash Analysis]]
+  - [[#Topic 1: Hash Identification & Acquisition — 🔬 Practical|Topic 1: Hash Identification & Acquisition]]
+  - [[#Topic 2: Cracking Methodology & Tools — 🔬 Practical|Topic 2: Cracking Methodology & Tools]]
+  - [[#Topic 3: Protocol-Specific Cracking — 🔬 Practical|Topic 3: Protocol-Specific Cracking]]
+  - [[#Topic 4: Wordlist & Intelligence Curation — 🔬 Practical|Topic 4: Wordlist & Intelligence Curation]]
+- [[#Module 13: System Hacking & Initial Compromise|Module 13: System Hacking & Initial Compromise]]
+  - [[#Topic 1: The Breach (Initial Access & Exploitation) — 🔬 Practical|Topic 1: The Breach (Initial Access & Exploitation)]]
+  - [[#Topic 2: The Ascension (Privilege Escalation) — 🔬 Practical|Topic 2: The Ascension (Privilege Escalation)]]
+  - [[#Topic 3: The Stronghold (Persistence & Lateral Movement) — 🔬 Practical|Topic 3: The Stronghold (Persistence & Lateral Movement)]]
+  - [[#Topic 4: The Shadow (Defense Evasion & Anti-Forensics) — 🧠🔬 Mixed|Topic 4: The Shadow (Defense Evasion & Anti-Forensics)]]
+  - [[#Topic 5: Data Exfiltration & Impact — 🔬 Practical|Topic 5: Data Exfiltration & Impact]]
+  - [[#Topic 6: The Professional (Governance & Reporting) — 🧠🔬 Mixed|Topic 6: The Professional (Governance & Reporting)]]
+  - [[#Lab Progression (Module 13: System Hacking & Initial Compromise)|Lab Progression (Module 13: System Hacking & Initial Compromise)]]
+- [[#🔹 Architecture Alignment Note: Network & Weaponization Tracks|🔹 Architecture Alignment Note: Network & Weaponization Tracks]]
+  - [[#🎮 Concurrent CTF Practice — Stage 2|🎮 Concurrent CTF Practice — Stage 2]]
+  - [[#🏆 Stage 2 Capstone Project|🏆 Stage 2 Capstone Project]]
+  - [[#🧭 Stage 2 Reflection & Competency Check|🧭 Stage 2 Reflection & Competency Check]]
+- [[#🛠️ Stage 2 Mini Projects|🛠️ Stage 2 Mini Projects]]
+  - [[#Project 10 — Port Scanner|Project 10 — Port Scanner]]
+  - [[#Project 11 — Network Packet Sniffer|Project 11 — Network Packet Sniffer]]
+  - [[#Project 13 — Subdomain Scanner|Project 13 — Subdomain Scanner]]
+  - [[#Project 14 — Vulnerability Scanner|Project 14 — Vulnerability Scanner]]
+- [[#🏁 Stage Gate 1 — Host Dominance & Privilege Escalation|🏁 Stage Gate 1 — Host Dominance & Privilege Escalation]]
+
 ---
 
 <a id="stage-2-execution-pipeline"></a>
@@ -184,7 +187,7 @@
 
 <a id="part-4-stage-1-ghost-phase"></a>
 
-### **Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling)** — `🧠🔬 Mixed`
+### Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Maximum data acquisition with zero target interaction.
@@ -211,7 +214,7 @@
 
 <a id="part-4-stage-2-semi-passive-infrastructure-mapping"></a>
 
-### **Topic 2: Semi-Passive Infrastructure Mapping** — `🔬 Practical`
+### Topic 2: Semi-Passive Infrastructure Mapping — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Querying third-party aggregators to see what the world already knows about them.
@@ -231,7 +234,7 @@
 
 <a id="part-4-stage-3-active-footprinting-network-interrogation"></a>
 
-### **Topic 3: Active Footprinting & Network Interrogation** — `🔬 Practical`
+### Topic 3: Active Footprinting & Network Interrogation — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Direct contact to map the live network fabric. Risk of detection is now ACTIVE.
@@ -254,7 +257,7 @@
 
 <a id="part-4-stage-4-advanced-fingerprinting-logic-analysis"></a>
 
-### **Topic 4: Advanced Fingerprinting & Logic Analysis** — `🔬 Practical`
+### Topic 4: Advanced Fingerprinting & Logic Analysis — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Understand the defensive "brain" of the target.
@@ -271,7 +274,7 @@
 
 <a id="part-4-stage-5-ipv6-protocol-enumeration"></a>
 
-### **Topic 5: IPv6 & Protocol Enumeration** — `🧠🔬 Mixed`
+### Topic 5: IPv6 & Protocol Enumeration — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Discover targets using newer protocols and dual-stack networks.
@@ -294,7 +297,7 @@
 
 <a id="part-4-stage-6-dark-web-breach-intelligence"></a>
 
-### **Topic 6: Dark Web & Breach Intelligence** — `🔬 Practical`
+### Topic 6: Dark Web & Breach Intelligence — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Uncover intelligence from dark web and historical breaches.
@@ -313,7 +316,7 @@
 
 <a id="part-4-stage-7-satellite-geospatial-intelligence"></a>
 
-### **Topic 7: Satellite & Geospatial Intelligence** _(Optional — Skip unless physical pentest is in scope)_ — `🧠🔬 Mixed`
+### Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope) — 🧠🔬 Mixed
 
 > [!WARNING]
 > **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if I am conducting an authorized physical penetration test where facility layout matters.
@@ -326,7 +329,7 @@
 
 <a id="part-4-stage-8-strategy-attack-mapping"></a>
 
-### **Topic 8: Strategy & Attack Mapping** — `🧠 Conceptual`
+### Topic 8: Strategy & Attack Mapping — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Convert raw data into an execution plan.
@@ -341,7 +344,7 @@
 
 <a id="part-4-lab-progression"></a>
 
-### **Lab Progression (Module 08: Footprinting & Reconnaissance)**
+### Lab Progression (Module 08: Footprinting & Reconnaissance)
 
 | Level | Task                                                                    | Deliverable                                                     |
 | ----- | ----------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -376,7 +379,7 @@
 
 <a id="stage-1-host-discovery-network-topology-the-roll-call"></a>
 
-### **Topic 1: Host Discovery & Network Topology (The "Roll Call")** — `🔬 Practical`
+### Topic 1: Host Discovery & Network Topology (The "Roll Call") — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Identify live assets without wasting time on dead IPs or triggering ICMP alarms.
@@ -395,7 +398,7 @@
 
 <a id="stage-2-port-service-protocol-enumeration-the-door-check"></a>
 
-### **Topic 2: Port, Service & Protocol Enumeration (The "Door Check")** — `🔬 Practical`
+### Topic 2: Port, Service & Protocol Enumeration (The "Door Check") — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Determine exactly what applications are running and how they communicate.
@@ -418,7 +421,7 @@
 
 <a id="stage-3-defense-configuration-assessment-the-armor-check"></a>
 
-### **Topic 3: Defense & Configuration Assessment (The "Armor Check")** — `🔬 Practical`
+### Topic 3: Defense & Configuration Assessment (The "Armor Check") — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Identify security controls that will attempt to block or alert on my presence.
@@ -435,7 +438,7 @@
 
 <a id="stage-4-vulnerability-association-attack-mapping"></a>
 
-### **Topic 4: Vulnerability Association & Attack Mapping** — `🧠🔬 Mixed`
+### Topic 4: Vulnerability Association & Attack Mapping — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Convert raw scan data into actionable exploitation vectors.
@@ -452,7 +455,7 @@
 
 <a id="stage-5-stealth-evasion-techniques"></a>
 
-### **Topic 5: Stealth & Evasion Techniques** — `🔬 Practical`
+### Topic 5: Stealth & Evasion Techniques — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Scan without detection by firewalls, IDS, and EDR.
@@ -475,7 +478,7 @@
 
 <a id="stage-6-advanced-scanning-techniques"></a>
 
-### **Topic 6: Advanced Scanning Techniques** — `🔬 Practical`
+### Topic 6: Advanced Scanning Techniques — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Optimize scanning efficiency and discover hidden services.
@@ -494,7 +497,7 @@
 
 <a id="lab-progression-part-5-scanning"></a>
 
-### **Lab Progression (Module 09: Scanning)**
+### Lab Progression (Module 09: Scanning)
 
 | Level | Task                                                          | Deliverable                     |
 | ----- | ------------------------------------------------------------- | ------------------------------- |
@@ -530,7 +533,7 @@
 
 <a id="stage-1-service-enumeration-banner-grabbing"></a>
 
-### **Topic 1: Service Enumeration & Banner Grabbing** — `🔬 Practical`
+### Topic 1: Service Enumeration & Banner Grabbing — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
@@ -551,7 +554,7 @@
 
 <a id="stage-2-directory-identity-enumeration"></a>
 
-### **Topic 2: Directory & Identity Enumeration** — `🔬 Practical`
+### Topic 2: Directory & Identity Enumeration — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Map users, groups, and organizational structure from directory services.
@@ -570,7 +573,7 @@
 
 <a id="stage-3-dns-infrastructure-enumeration"></a>
 
-### **Topic 3: DNS & Infrastructure Enumeration** — `🔬 Practical`
+### Topic 3: DNS & Infrastructure Enumeration — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Extract naming, network, and infrastructure intelligence from DNS.
@@ -587,7 +590,7 @@
 
 <a id="stage-4-database-application-enumeration"></a>
 
-### **Topic 4: Database & Application Enumeration** — `🔬 Practical`
+### Topic 4: Database & Application Enumeration — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Extract schemas, credentials, and data from discovered database and application services.
@@ -606,7 +609,7 @@
 
 <a id="stage-5-attack-surface-consolidation-enumeration-opsec"></a>
 
-### **Topic 5: Attack Surface Consolidation & Enumeration OpSec** — `🧠🔬 Mixed`
+### Topic 5: Attack Surface Consolidation & Enumeration OpSec — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Consolidate findings into an attack plan while maintaining stealth.
@@ -623,7 +626,7 @@
 
 <a id="lab-progression-part-6-enumeration"></a>
 
-### **Lab Progression (Module 10: Enumeration)**
+### Lab Progression (Module 10: Enumeration)
 
 | Level | Task                                                         | Deliverable                                    |
 | ----- | ------------------------------------------------------------ | ---------------------------------------------- |
@@ -660,7 +663,7 @@
 
 <a id="part-6b-stage-1-database-enumeration-fingerprinting"></a>
 
-### **Topic 1: Database Enumeration & Fingerprinting** — `🔬 Practical`
+### Topic 1: Database Enumeration & Fingerprinting — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Identify database engine, version, authentication mechanism, and attack surface before attempting exploitation.
@@ -723,7 +726,7 @@
 
 <a id="part-6b-stage-2-relational-database-exploitation"></a>
 
-### **Topic 2: Relational Database Exploitation** — `🔬 Practical`
+### Topic 2: Relational Database Exploitation — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Escalate from database access to OS command execution and credential extraction.
@@ -779,7 +782,7 @@
 
 <a id="part-6b-stage-3-nosql-modern-database-attacks"></a>
 
-### **Topic 3: NoSQL & Modern Database Attacks** — `🔬 Practical`
+### Topic 3: NoSQL & Modern Database Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Attack non-relational databases — different injection syntax, different attack surfaces, different default security postures.
@@ -819,7 +822,7 @@
 
 <a id="part-6b-stage-4-database-privilege-escalation"></a>
 
-### **Topic 4: Database Privilege Escalation** — `🔬 Practical`
+### Topic 4: Database Privilege Escalation — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Move from low-privileged DB access to OS command execution and system-level access.
@@ -837,7 +840,7 @@
 
 <a id="part-6b-stage-5-database-auditing-defence"></a>
 
-### **Topic 5: Database Auditing & Defence** — `🧠🔬 Mixed`
+### Topic 5: Database Auditing & Defence — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Understand the defender-side mitigations that block the attacks above.
@@ -859,7 +862,7 @@
 
 <a id="part-6b-lab-progression"></a>
 
-### **Lab Progression (Module 11: Database Security)**
+### Lab Progression (Module 11: Database Security)
 
 | Level | Task                                                                         | Deliverable                                                   |
 | ----- | ---------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -894,7 +897,7 @@
 
 <a id="stage-1-hash-identification-acquisition"></a>
 
-### **Topic 1: Hash Identification & Acquisition** — `🔬 Practical`
+### Topic 1: Hash Identification & Acquisition — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Identify what I have before cracking.
@@ -909,7 +912,7 @@
 
 <a id="stage-2-cracking-methodology-tools"></a>
 
-### **Topic 2: Cracking Methodology & Tools** — `🔬 Practical`
+### Topic 2: Cracking Methodology & Tools — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Apply the right technique to each hash type.
@@ -932,7 +935,7 @@
 
 <a id="stage-3-protocol-specific-cracking"></a>
 
-### **Topic 3: Protocol-Specific Cracking** — `🔬 Practical`
+### Topic 3: Protocol-Specific Cracking — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Crack hashes captured from real network protocols.
@@ -951,7 +954,7 @@
 
 <a id="stage-4-wordlist-intelligence-curation"></a>
 
-### **Topic 4: Wordlist & Intelligence Curation** — `🔬 Practical`
+### Topic 4: Wordlist & Intelligence Curation — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Build targeted wordlists that outperform generic lists.
@@ -990,7 +993,7 @@
 
 <a id="stage-1-the-breach-initial-access-exploitation"></a>
 
-### **Topic 1: The Breach (Initial Access & Exploitation)** — `🔬 Practical`
+### Topic 1: The Breach (Initial Access & Exploitation) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold.
@@ -1057,7 +1060,7 @@
 
 <a id="stage-2-the-ascension-privilege-escalation"></a>
 
-### **Topic 2: The Ascension (Privilege Escalation)** — `🔬 Practical`
+### Topic 2: The Ascension (Privilege Escalation) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Move from low-level foothold to administrative control by exploiting system logic.
@@ -1394,7 +1397,7 @@
 
 <a id="stage-3-the-stronghold-persistence-lateral-movement"></a>
 
-### **Topic 3: The Stronghold (Persistence & Lateral Movement)** — `🔬 Practical`
+### Topic 3: The Stronghold (Persistence & Lateral Movement) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Establish permanent presence and move horizontally across network.
@@ -1473,7 +1476,7 @@
 
 <a id="stage-4-the-shadow-defense-evasion-anti-forensics"></a>
 
-### **Topic 4: The Shadow (Defense Evasion & Anti-Forensics)** — `🧠🔬 Mixed`
+### Topic 4: The Shadow (Defense Evasion & Anti-Forensics) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Blind the Blue Team and minimize evidence of compromise.
@@ -1526,7 +1529,7 @@
 
 <a id="stage-5-data-exfiltration-impact"></a>
 
-### **Topic 5: Data Exfiltration & Impact** — `🔬 Practical`
+### Topic 5: Data Exfiltration & Impact — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Extract sensitive data and demonstrate business impact.
@@ -1555,7 +1558,7 @@
 
 <a id="stage-6-the-professional-governance-reporting"></a>
 
-### **Topic 6: The Professional (Governance & Reporting)** — `🧠🔬 Mixed`
+### Topic 6: The Professional (Governance & Reporting) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Execute within legal/ethical boundaries and deliver findings professionally.
@@ -1590,7 +1593,7 @@
 
 <a id="lab-progression-part-7-system-hacking-initial-compromise"></a>
 
-### **Lab Progression (Module 13: System Hacking & Initial Compromise)**
+### Lab Progression (Module 13: System Hacking & Initial Compromise)
 
 > [!TIP]
 > **Goal:** Practice compromise only in controlled environments and produce professional evidence.
@@ -1843,6 +1846,6 @@ This is the Stage 2 capstone project — it combines everything from recon (port
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [⬆ Return to Top](#top) |
+| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#Stage 2 — Offense I|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]]` to open the next stage in a split tab, or hover to preview.

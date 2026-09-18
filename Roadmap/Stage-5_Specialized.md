@@ -8,7 +8,7 @@
 
 | ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | 📑 Quick Jump |
 |:---:|:---:|:---:|:---|
-| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Tool Priority Reference](#tool-priority-reference) · [🏁 Final Gate](#final-gate) |
+| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#🗂️ Table of Contents|🗂️ Table of Contents]] · [[#🛠️ Tool Priority Reference|🛠️ Tool Priority Reference]] · [[#🏁 Final Gate — Mastery & Career Validation|🏁 Final Gate]] |
 
 ---
 
@@ -26,64 +26,66 @@
 
 ### 🗂️ Table of Contents
 
-- [Module 27: Offensive Development & Tooling](#part-42-offensive-development-tooling)
-  - [C Language — Systems Programming & Exploit Foundations](#c-language-systems-programming-exploit-foundations)
-  - [C++ — Reverse Engineering Context](#c-reverse-engineering-context)
-  - [Move-On Gate (Topic 7B)](#move-on-gate-topic-7b)
-  - [Topic 1: Exploit Development Foundation](#stage-1-exploit-development-foundation)
-  - [Topic 2: Windows Offensive Development](#stage-2-windows-offensive-development)
-  - [Topic 3: Linux Offensive Development](#stage-3-linux-offensive-development)
-  - [Topic 4: C2 & Implant Development](#stage-4-c2-implant-development)
-  - [Lab Progression (Module 27: Offensive Development & Tooling)](#lab-progression-part-42-offensive-development-tooling)
-  - [Security Automation](#module-27-security-automation)
-- [Module 28: AI & LLM Red Teaming](#part-38-ai-llm-red-teaming)
-  - [Topic 1: AI Fundamentals for Security Practitioners](#stage-1-ai-fundamentals-for-security-practitioners)
-  - [Topic 2: Attack Surface & Frameworks](#stage-2-attack-surface-frameworks)
-  - [Topic 3: Adversarial Techniques (LLM01/LLM06)](#stage-3-adversarial-techniques-llm01llm06)
-  - [Topic 4: RAG & Data Supply Chain Attacks](#stage-4-rag-data-supply-chain-attacks)
-  - [Topic 5: Language Model Specific Attacks](#stage-5-language-model-specific-attacks)
-  - [Topic 6: Multi-Model & Agent Attacks](#stage-6-multi-model-agent-attacks)
-  - [Topic 7: Adversarial Examples & ML Robustness](#stage-7-adversarial-examples-ml-robustness)
-  - [Topic 8: Model Extraction & Inversion](#stage-8-model-extraction-inversion)
-  - [Topic 9: Dataset Poisoning & Backdoors](#stage-9-dataset-poisoning-backdoors)
-  - [Topic 10: Privacy Attacks & PII Leakage](#stage-10-privacy-attacks-pii-leakage)
-  - [Topic 11: AI-Augmented Red Team Workflow](#stage-11-ai-augmented-red-team-workflow)
-  - [Topic 12: Agentic AI & Autonomous Attack Infrastructure](#stage-12-agentic-ai-autonomous-attack-infrastructure)
-  - [Topic 13: Tooling & Evaluation](#stage-13-tooling-evaluation)
-  - [Topic 14: Defense & Responsible AI](#stage-14-defense-responsible-ai)
-  - [Topic 15: Shadow AI & Organizational AI Risk](#stage-15-shadow-ai-organizational-ai-risk)
-  - [Topic 16: Defensive AI Operations](#stage-16-defensive-ai-operations)
-  - [Topic 17: AI Security Projects & Portfolio](#stage-17-ai-security-projects-portfolio)
-  - [Topic 18: AI Security Career Targeting](#stage-18-ai-security-career-targeting)
-  - [Lab Progression (Module 28: AI & LLM Red Teaming)](#lab-progression-module-28-ai-llm-red-teaming)
-  - [🏆 AI Red Teaming Capstone Project](#ai-red-teaming-capstone-project)
-  - [🧭 AI Red Teaming Reflection & Competency Check](#ai-red-teaming-reflection-competency-check)
-- [Module 29: Red Team Operations & Tradecraft](#part-40-red-team-operations-tradecraft)
-  - [Topic 1: Campaign Planning & Infrastructure](#stage-1-campaign-planning-infrastructure)
-  - [Topic 2: Initial Access & Payload Delivery](#stage-2-initial-access-payload-delivery)
-  - [Topic 3: OPSEC, Persistence & Lateral Movement](#stage-3-opsec-persistence-lateral-movement)
-  - [Topic 4: Data Exfiltration & Impact](#stage-4-data-exfiltration-impact)
-  - [Topic 5: Deconfliction, Reporting & Wrap-Up](#stage-5-deconfliction-reporting-wrap-up)
-  - [Lab Progression (Module 29: Red Team Operations & Tradecraft)](#lab-progression-module-29-red-team-operations-tradecraft)
-- [Module 30: Proof of Work & Career Portfolio](#part-41-proof-of-work-career-portfolio)
-  - [Topic 1: Certification Roadmap](#stage-1-certification-roadmap)
-  - [Topic 2: Technical Portfolio & GitHub Presence](#stage-2-technical-portfolio-github-presence)
-  - [Topic 3: Technical Writing & Content](#stage-3-technical-writing-content)
-  - [Topic 4: Bug Bounties & Community Engagement](#stage-4-bug-bounties-community-engagement)
-  - [Topic 5: Career Positioning & Job Search Strategy](#stage-5-career-positioning-job-search-strategy)
-  - [Topic 5B: Technical Interview Preparation](#stage-5b-technical-interview-preparation)
-  - [Topic 6: Soft Skills & Professional Communication](#stage-6-soft-skills-professional-communication)
-  - [Lab Progression (Module 30: Proof of Work & Career Portfolio)](#lab-progression-module-30-proof-of-work-career-portfolio)
-  - [🏆 Stage 5 Capstone Project](#stage-5-capstone-project)
-  - [🧭 Stage 5 Reflection & Competency Check](#stage-5-reflection-competency-check)
-- [🛠️ Tool Priority Reference](#tool-priority-reference)
-  - [🔴 Tier 1 — Core Pentest Essentials](#tier-1-core-pentest-essentials)
-  - [🔶 Tier 2 — Important, Frequent Use](#tier-2-important-frequent-use)
-  - [🔷 Tier 3 — Specialized / Situational](#tier-3-specialized-situational)
-  - [🔹 Tier 4 — Niche / Concept-Focused](#tier-4-niche-concept-focused)
-  - [📐 Tool Selection Decision Tree](#tool-selection-decision-tree)
-  - [🗓️ Suggested Study Order](#suggested-study-order)
-- [🏁 Final Gate — Mastery & Career Validation](#final-gate)
+
+- [[#Module 27: Offensive Development & Tooling|Module 27: Offensive Development & Tooling]]
+  - [[#C Language — Systems Programming & Exploit Foundations|C Language — Systems Programming & Exploit Foundations]]
+  - [[#C++ — Reverse Engineering Context|C++ — Reverse Engineering Context]]
+  - [[#Move-On Gate (Topic 7B)|Move-On Gate (Topic 7B)]]
+  - [[#Topic 1: Exploit Development Foundation — 🔬 Practical|Topic 1: Exploit Development Foundation]]
+  - [[#Topic 2: Windows Offensive Development — 🔬 Practical|Topic 2: Windows Offensive Development]]
+  - [[#Topic 3: Linux Offensive Development — 🔬 Practical|Topic 3: Linux Offensive Development]]
+  - [[#Topic 4: C2 & Implant Development — 🔬 Practical|Topic 4: C2 & Implant Development]]
+  - [[#Lab Progression (Module 27: Offensive Development & Tooling)|Lab Progression (Module 27: Offensive Development & Tooling)]]
+  - [[#Security Automation — 🔬 Practical|Security Automation]]
+- [[#Module 28: AI & LLM Red Teaming|Module 28: AI & LLM Red Teaming]]
+  - [[#Topic 1: AI Fundamentals for Security Practitioners — 🧠 Conceptual|Topic 1: AI Fundamentals for Security Practitioners]]
+  - [[#Topic 2: Attack Surface & Frameworks — 🧠 Conceptual|Topic 2: Attack Surface & Frameworks]]
+  - [[#Topic 3: Adversarial Techniques (LLM01/LLM06) — 🔬 Practical|Topic 3: Adversarial Techniques (LLM01/LLM06)]]
+  - [[#Topic 4: RAG & Data Supply Chain Attacks — 🔬 Practical|Topic 4: RAG & Data Supply Chain Attacks]]
+  - [[#Topic 5: Language Model Specific Attacks — 🔬 Practical|Topic 5: Language Model Specific Attacks]]
+  - [[#Topic 6: Multi-Model & Agent Attacks — 🔬 Practical|Topic 6: Multi-Model & Agent Attacks]]
+  - [[#Topic 7: Adversarial Examples & ML Robustness — 🔬 Practical|Topic 7: Adversarial Examples & ML Robustness]]
+  - [[#Topic 8: Model Extraction & Inversion — 🔬 Practical|Topic 8: Model Extraction & Inversion]]
+  - [[#Topic 9: Dataset Poisoning & Backdoors — 🧠🔬 Mixed|Topic 9: Dataset Poisoning & Backdoors]]
+  - [[#Topic 10: Privacy Attacks & PII Leakage — 🔬 Practical|Topic 10: Privacy Attacks & PII Leakage]]
+  - [[#Topic 11: AI-Augmented Red Team Workflow — 🔬 Practical|Topic 11: AI-Augmented Red Team Workflow]]
+  - [[#Topic 12: Agentic AI & Autonomous Attack Infrastructure — 🔬 Practical|Topic 12: Agentic AI & Autonomous Attack Infrastructure]]
+  - [[#Topic 13: Tooling & Evaluation — 🔬 Practical|Topic 13: Tooling & Evaluation]]
+  - [[#Topic 14: Defense & Responsible AI — 🧠 Conceptual|Topic 14: Defense & Responsible AI]]
+  - [[#Topic 15: Shadow AI & Organizational AI Risk — 🧠 Conceptual|Topic 15: Shadow AI & Organizational AI Risk]]
+  - [[#Topic 16: Defensive AI Operations — 🧠🔬 Mixed|Topic 16: Defensive AI Operations]]
+  - [[#Topic 17: AI Security Projects & Portfolio — 🔬 Practical|Topic 17: AI Security Projects & Portfolio]]
+  - [[#Topic 18: AI Security Career Targeting — 🧠 Conceptual|Topic 18: AI Security Career Targeting]]
+  - [[#Lab Progression (Module 28: AI & LLM Red Teaming)|Lab Progression (Module 28: AI & LLM Red Teaming)]]
+  - [[#🏆 AI Red Teaming Capstone Project|🏆 AI Red Teaming Capstone Project]]
+  - [[#🧭 AI Red Teaming Reflection & Competency Check|🧭 AI Red Teaming Reflection & Competency Check]]
+- [[#Module 29: Red Team Operations & Tradecraft|Module 29: Red Team Operations & Tradecraft]]
+  - [[#Topic 1: Campaign Planning & Infrastructure — 🔬 Practical|Topic 1: Campaign Planning & Infrastructure]]
+  - [[#Topic 2: Initial Access & Payload Delivery — 🔬 Practical|Topic 2: Initial Access & Payload Delivery]]
+  - [[#Topic 3: OPSEC, Persistence & Lateral Movement — 🔬 Practical|Topic 3: OPSEC, Persistence & Lateral Movement]]
+  - [[#Topic 4: Data Exfiltration & Impact — 🔬 Practical|Topic 4: Data Exfiltration & Impact]]
+  - [[#Topic 5: Deconfliction, Reporting & Wrap-Up — 🧠🔬 Mixed|Topic 5: Deconfliction, Reporting & Wrap-Up]]
+  - [[#Lab Progression (Module 29: Red Team Operations & Tradecraft)|Lab Progression (Module 29: Red Team Operations & Tradecraft)]]
+- [[#Module 30: Proof of Work & Career Portfolio|Module 30: Proof of Work & Career Portfolio]]
+  - [[#Topic 1: Certification Roadmap — 🧠 Conceptual|Topic 1: Certification Roadmap]]
+  - [[#Topic 2: Technical Portfolio & GitHub Presence — 🔬 Practical|Topic 2: Technical Portfolio & GitHub Presence]]
+  - [[#Topic 3: Technical Writing & Content — 🧠🔬 Mixed|Topic 3: Technical Writing & Content]]
+  - [[#Topic 4: Bug Bounties & Community Engagement — 🔬 Practical|Topic 4: Bug Bounties & Community Engagement]]
+  - [[#Topic 5: Career Positioning & Job Search Strategy — 🧠 Conceptual|Topic 5: Career Positioning & Job Search Strategy]]
+  - [[#Topic 5B: Technical Interview Preparation — 🧠🔬 Mixed|Topic 5B: Technical Interview Preparation]]
+  - [[#Topic 6: Soft Skills & Professional Communication — 🧠 Conceptual|Topic 6: Soft Skills & Professional Communication]]
+  - [[#Lab Progression (Module 30: Proof of Work & Career Portfolio)|Lab Progression (Module 30: Proof of Work & Career Portfolio)]]
+  - [[#🏆 Stage 5 Capstone Project|🏆 Stage 5 Capstone Project]]
+  - [[#🧭 Stage 5 Reflection & Competency Check|🧭 Stage 5 Reflection & Competency Check]]
+- [[#🛠️ Tool Priority Reference|🛠️ Tool Priority Reference]]
+  - [[#🔴 Tier 1 — Core Pentest Essentials|🔴 Tier 1 — Core Pentest Essentials]]
+  - [[#🔶 Tier 2 — Important, Frequent Use|🔶 Tier 2 — Important, Frequent Use]]
+  - [[#🔷 Tier 3 — Specialized / Situational|🔷 Tier 3 — Specialized / Situational]]
+  - [[#🔹 Tier 4 — Niche / Concept-Focused|🔹 Tier 4 — Niche / Concept-Focused]]
+  - [[#📐 Tool Selection Decision Tree|📐 Tool Selection Decision Tree]]
+  - [[#🗓️ Suggested Study Order|🗓️ Suggested Study Order]]
+- [[#🏁 Final Gate — Mastery & Career Validation|🏁 Final Gate — Mastery & Career Validation]]
+
 ---
 
 <a id="module-27-offensive-development--tooling"></a>
@@ -99,7 +101,7 @@
 
 <a id="c-language-systems-programming-exploit-foundations"></a>
 
-### **C Language — Systems Programming & Exploit Foundations**
+### C Language — Systems Programming & Exploit Foundations
 
 - [ ] **Memory Model & Pointers:** Understand the difference between stack and heap allocation. Master pointer arithmetic, pointer-to-pointer, function pointers, void pointers. Know why `int *p = &x` vs `int *p = malloc(sizeof(int))` have different lifetime semantics.
 
@@ -129,7 +131,7 @@
 
 <a id="c-reverse-engineering-context"></a>
 
-### **C++ — Reverse Engineering Context**
+### C++ — Reverse Engineering Context
 
 - [ ] **Object Model & Memory Layout:** Understand how C++ objects are laid out in memory: the this pointer, member variables at fixed offsets, vtable pointer at offset 0 for polymorphic objects. Know why `sizeof(MyClass)` may surprise you (padding, vtable pointer).
 
@@ -147,7 +149,7 @@
 
 <a id="move-on-gate-topic-7b"></a>
 
-### **Move-On Gate (Topic 7B)**
+### Move-On Gate (Topic 7B)
 
 > [!IMPORTANT]
 > I am ready to proceed to Module 27 (Offensive Development) when:
@@ -171,7 +173,7 @@
 > **Prerequisite Placement Note:** Module 27 (Offensive Development & Tooling) is positioned here at the entrance of Stage 5 (immediately following the C/C++ systems foundation) because it forms the mandatory offensive development foundation required for advanced tradecraft and exploit prototyping.
 
 <a id="stage-1-exploit-development-foundation"></a>
-### **Topic 1: Exploit Development Foundation** — `🔬 Practical`
+### Topic 1: Exploit Development Foundation — 🔬 Practical
 
 - [ ] **Exploit Prototyping:** Use Python with **pwntools, [[Impacket]]** for **rapid PoC development**, **fuzzing harnesses**, and **custom C2 implant logic**.
 
@@ -186,7 +188,7 @@
 - [ ] **Disassembly Reading:** Confidently read **disassembled output** in **Ghidra, IDA Pro, radare2** to identify vulnerabilities and understand compiled logic.
 
 <a id="stage-2-windows-offensive-development"></a>
-### **Topic 2: Windows Offensive Development** — `🔬 Practical`
+### Topic 2: Windows Offensive Development — 🔬 Practical
 
 - [ ] **Win32 API Exploitation:** Use **CreateProcess, VirtualAlloc, WriteProcessMemory, CreateRemoteThread** for **process injection, DLL loading, and token manipulation**.
 
@@ -205,14 +207,14 @@
 - [ ] **Offensive PowerShell:** Master **download cradles, constrained language mode escape, script block logging evasion**, and **AMSI bypass in PowerShell**.
 
 <a id="stage-3-linux-offensive-development"></a>
-### **Topic 3: Linux Offensive Development** — `🔬 Practical`
+### Topic 3: Linux Offensive Development — 🔬 Practical
 
 - [ ] **Linux C Development:** Interact with **POSIX APIs, /proc filesystem, ptrace**, and **LD_PRELOAD hooking** for rootkit/implant development.
 
 - [ ] **ELF Binary Manipulation:** Understand **ELF format, GOT/PLT, dynamic linking** for binary patching and implant injection.
 
 <a id="stage-4-c2-implant-development"></a>
-### **Topic 4: C2 & Implant Development** — `🔬 Practical`
+### Topic 4: C2 & Implant Development — 🔬 Practical
 
 - [ ] **C2 Architecture:** Design **client-server implant architecture** with **modular payloads, encrypted channels, and sleep obfuscation**.
 
@@ -223,7 +225,7 @@
 - [ ] **Evasion Integration:** Combine **sleep obfuscation, call stack spoofing, indirect syscalls, and API unhooking** into implant design.
 
 <a id="lab-progression-part-42-offensive-development-tooling"></a>
-### **Lab Progression (Module 27: Offensive Development & Tooling)**
+### Lab Progression (Module 27: Offensive Development & Tooling)
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -240,7 +242,7 @@
 
 <a id="module-27-security-automation"></a>
 
-### **Security Automation** — `🔬 Practical`
+### Security Automation — 🔬 Practical
 
 > [!NOTE]
 > **Why this is its own section:** Security Automation is a first-class discipline that appears as sub-bullets across multiple modules but is never consolidated. This section names it explicitly so it appears in searches, indexes, and my notes. The skill is: writing code that replaces or accelerates repetitive security tasks — so my time goes to judgment, not toil.
@@ -318,7 +320,7 @@
 ---
 
 <a id="stage-1-ai-fundamentals-for-security-practitioners"></a>
-### **Topic 1: AI Fundamentals for Security Practitioners** — `🧠 Conceptual`
+### Topic 1: AI Fundamentals for Security Practitioners — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the raw mechanics of AI/ML models to attack and defend them effectively.
@@ -344,7 +346,7 @@
 ---
 
 <a id="stage-2-attack-surface-frameworks"></a>
-### **Topic 2: Attack Surface & Frameworks** — `🧠 Conceptual`
+### Topic 2: Attack Surface & Frameworks — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Map the AI/LLM attack surface using structured threat models.
@@ -358,7 +360,7 @@
 ---
 
 <a id="stage-3-adversarial-techniques-llm01llm06"></a>
-### **Topic 3: Adversarial Techniques (LLM01/LLM06)** — `🔬 Practical`
+### Topic 3: Adversarial Techniques (LLM01/LLM06) — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Break safety controls and force unintended actions.
@@ -382,7 +384,7 @@
 > **Reminder — Python ML Prerequisite:** Stages 7–10 require the ML skills verified in the Stage 5 Entry Gate above. If I skipped that check or flagged a gap, resolve it before starting Stage 7 — not now, but before I reach it.
 
 <a id="stage-4-rag-data-supply-chain-attacks"></a>
-### **Topic 4: RAG & Data Supply Chain Attacks** — `🔬 Practical`
+### Topic 4: RAG & Data Supply Chain Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Poison or subvert the knowledge base feeding the model.
@@ -396,7 +398,7 @@
 ---
 
 <a id="stage-5-language-model-specific-attacks"></a>
-### **Topic 5: Language Model Specific Attacks** — `🔬 Practical`
+### Topic 5: Language Model Specific Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Exploit LLM architecture and fine-tuning vulnerabilities.
@@ -414,7 +416,7 @@
 ---
 
 <a id="stage-6-multi-model-agent-attacks"></a>
-### **Topic 6: Multi-Model & Agent Attacks** — `🔬 Practical`
+### Topic 6: Multi-Model & Agent Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Exploit weaknesses in agentic and multi-model systems.
@@ -432,7 +434,7 @@
 ---
 
 <a id="stage-7-adversarial-examples-ml-robustness"></a>
-### **Topic 7: Adversarial Examples & ML Robustness** — `🔬 Practical`
+### Topic 7: Adversarial Examples & ML Robustness — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Craft inputs that cause model misclassification or unexpected behavior.
@@ -450,7 +452,7 @@
 ---
 
 <a id="stage-8-model-extraction-inversion"></a>
-### **Topic 8: Model Extraction & Inversion** — `🔬 Practical`
+### Topic 8: Model Extraction & Inversion — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Steal or reverse-engineer the model's behavior and weights.
@@ -466,7 +468,7 @@
 ---
 
 <a id="stage-9-dataset-poisoning-backdoors"></a>
-### **Topic 9: Dataset Poisoning & Backdoors** — `🧠🔬 Mixed`
+### Topic 9: Dataset Poisoning & Backdoors — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Corrupt training pipelines to install persistent behavior changes.
@@ -484,7 +486,7 @@
 ---
 
 <a id="stage-10-privacy-attacks-pii-leakage"></a>
-### **Topic 10: Privacy Attacks & PII Leakage** — `🔬 Practical`
+### Topic 10: Privacy Attacks & PII Leakage — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Extract private information embedded in models.
@@ -510,7 +512,7 @@
 > - [ ] I can explain how label flipping and backdoor attacks differ in mechanism, detectability, and defense
 
 <a id="stage-11-ai-augmented-red-team-workflow"></a>
-### **Topic 11: AI-Augmented Red Team Workflow** — `🔬 Practical`
+### Topic 11: AI-Augmented Red Team Workflow — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Force-multiply my existing red team toolkit with AI-native tooling.
@@ -530,7 +532,7 @@
 ---
 
 <a id="stage-12-agentic-ai-autonomous-attack-infrastructure"></a>
-### **Topic 12: Agentic AI & Autonomous Attack Infrastructure** — `🔬 Practical`
+### Topic 12: Agentic AI & Autonomous Attack Infrastructure — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Build autonomous agents that execute security tasks end-to-end.
@@ -564,7 +566,7 @@
 ---
 
 <a id="stage-13-tooling-evaluation"></a>
-### **Topic 13: Tooling & Evaluation** — `🔬 Practical`
+### Topic 13: Tooling & Evaluation — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Automate and measure AI red team coverage.
@@ -578,7 +580,7 @@
 ---
 
 <a id="stage-14-defense-responsible-ai"></a>
-### **Topic 14: Defense & Responsible AI** — `🧠 Conceptual`
+### Topic 14: Defense & Responsible AI — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Harden AI systems against attacks and ensure ethical deployment.
@@ -600,7 +602,7 @@
 ---
 
 <a id="stage-15-shadow-ai-organizational-ai-risk"></a>
-### **Topic 15: Shadow AI & Organizational AI Risk** — `🧠 Conceptual`
+### Topic 15: Shadow AI & Organizational AI Risk — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand and prevent unauthorized AI usage that creates organizational exposure.
@@ -618,7 +620,7 @@
 ---
 
 <a id="stage-16-defensive-ai-operations"></a>
-### **Topic 16: Defensive AI Operations** — `🧠🔬 Mixed`
+### Topic 16: Defensive AI Operations — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Deploy AI-powered defensive capabilities and detect AI-generated threats.
@@ -645,7 +647,7 @@
 > - [ ] I can explain 3 forensic artifacts that an LLM-powered attack campaign would leave behind (API call logs, embedding store queries, model version history) and describe how you would collect them during a DFIR engagement
 
 <a id="stage-17-ai-security-projects-portfolio"></a>
-### **Topic 17: AI Security Projects & Portfolio** — `🔬 Practical`
+### Topic 17: AI Security Projects & Portfolio — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Prove production capability through real, complex, integrated AI-security projects.
@@ -663,7 +665,7 @@
 ---
 
 <a id="stage-18-ai-security-career-targeting"></a>
-### **Topic 18: AI Security Career Targeting** — `🧠 Conceptual`
+### Topic 18: AI Security Career Targeting — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Position myself specifically for AI-native security roles.
@@ -680,7 +682,7 @@
 
 <a id="lab-progression-module-28-ai-llm-red-teaming"></a>
 
-### **Lab Progression (Module 28: AI & LLM Red Teaming)**
+### Lab Progression (Module 28: AI & LLM Red Teaming)
 
 | Level | Task | Deliverable |
 |-------|------|-------------|
@@ -745,7 +747,7 @@
 <a id="strategy-core-operations"></a>
 <a id="stage-1-campaign-planning-infrastructure"></a>
 
-### **Topic 1: Campaign Planning & Infrastructure** — `🔬 Practical`
+### Topic 1: Campaign Planning & Infrastructure — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Define the operation's objectives, rules of engagement, and build the technical infrastructure before any offensive action begins.
@@ -762,7 +764,7 @@
 
 <a id="stage-2-initial-access-payload-delivery"></a>
 
-### **Topic 2: Initial Access & Payload Delivery** — `🔬 Practical`
+### Topic 2: Initial Access & Payload Delivery — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Gain a foothold using tradecraft that survives email gateways, sandboxes, and EDR — and leaves minimal forensic trace.
@@ -773,7 +775,7 @@
 
 <a id="stage-3-opsec-persistence-lateral-movement"></a>
 
-### **Topic 3: OPSEC, Persistence & Lateral Movement** — `🔬 Practical`
+### Topic 3: OPSEC, Persistence & Lateral Movement — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Maintain stealth while expanding access — blend with normal traffic, establish redundant persistence, and move laterally without triggering detection.
@@ -788,7 +790,7 @@
 
 <a id="stage-4-data-exfiltration-impact"></a>
 
-### **Topic 4: Data Exfiltration & Impact** — `🔬 Practical`
+### Topic 4: Data Exfiltration & Impact — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Reach the campaign objective — exfiltrate data or demonstrate impact — without triggering DLP or anomaly-based detection.
@@ -799,7 +801,7 @@
 
 <a id="stage-5-deconfliction-reporting-wrap-up"></a>
 
-### **Topic 5: Deconfliction, Reporting & Wrap-Up** — `🧠🔬 Mixed`
+### Topic 5: Deconfliction, Reporting & Wrap-Up — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Close the operation safely, hand off findings, and produce a campaign report that improves the client's detection capability.
@@ -810,7 +812,7 @@
 
 <a id="lab-progression-module-29-red-team-operations-tradecraft"></a>
 
-### **Lab Progression (Module 29: Red Team Operations & Tradecraft)**
+### Lab Progression (Module 29: Red Team Operations & Tradecraft)
 
 | Level | Task                                                                                                                       | Deliverable                                                            |
 | ----- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -843,7 +845,7 @@
 
 <a id="stage-1-certification-roadmap"></a>
 
-### **Topic 1: Certification Roadmap** — `🧠 Conceptual`
+### Topic 1: Certification Roadmap — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Validate skills through industry-recognized, hands-on certifications.
@@ -884,7 +886,7 @@
 
 <a id="stage-2-technical-portfolio-github-presence"></a>
 
-### **Topic 2: Technical Portfolio & GitHub Presence** — `🔬 Practical`
+### Topic 2: Technical Portfolio & GitHub Presence — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Build a public portfolio that proves I can build, not just study.
@@ -907,7 +909,7 @@
 
 <a id="stage-3-technical-writing-content"></a>
 
-### **Topic 3: Technical Writing & Content** — `🧠🔬 Mixed`
+### Topic 3: Technical Writing & Content — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Demonstrate depth of understanding through published analysis.
@@ -926,7 +928,7 @@
 
 <a id="stage-4-bug-bounties-community-engagement"></a>
 
-### **Topic 4: Bug Bounties & Community Engagement** — `🔬 Practical`
+### Topic 4: Bug Bounties & Community Engagement — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Validate offensive skills against real-world targets and build reputation.
@@ -947,7 +949,7 @@
 
 <a id="stage-5-career-positioning-job-search-strategy"></a>
 
-### **Topic 5: Career Positioning & Job Search Strategy** — `🧠 Conceptual`
+### Topic 5: Career Positioning & Job Search Strategy — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Convert skills and proof into career opportunities.
@@ -971,7 +973,7 @@
 
 <a id="stage-5b-technical-interview-preparation"></a>
 
-### **Topic 5B: Technical Interview Preparation** — `🧠🔬 Mixed`
+### Topic 5B: Technical Interview Preparation — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Convert technical competence into hired. Hiring managers are skilled at identifying candidates who know tools but cannot think under pressure. Stage 5B closes the gap between "I can do this in a lab" and "I can demonstrate this in 45 minutes with someone watching."
@@ -995,7 +997,7 @@
   - **Behavioral prep:** "The STAR Interview" by Misha Yurchenko for structure; adapt examples from my own pentest/CTF/bug bounty work.
 
 <a id="stage-6-soft-skills-professional-communication"></a>
-### **Topic 6: Soft Skills & Professional Communication** — `🧠 Conceptual`
+### Topic 6: Soft Skills & Professional Communication — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Bridge the gap between technical skill and professional impact. These skills separate mid-level practitioners from senior leaders.
@@ -1018,7 +1020,7 @@
 
 <a id="lab-progression-module-30-proof-of-work-career-portfolio"></a>
 
-### **Lab Progression (Module 30: Proof of Work & Career Portfolio)**
+### Lab Progression (Module 30: Proof of Work & Career Portfolio)
 
 | Level | Task                                                                                                         | Deliverable                                                |
 | ----- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
@@ -1294,6 +1296,6 @@ WHAT DO YOU NEED TO DO?
 
 | ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [⬆ Return to Top](#top) |
+| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#Stage 5 — Specialized|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Shelf_Post-Hire|Shelf: Post-Hire]]` to explore situational post-hire electives, or hover to preview.
