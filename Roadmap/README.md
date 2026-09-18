@@ -20,18 +20,18 @@
 
 ## 📑 Table of Contents
 
-| # | Section | Focus & Scope |
-|:-:|:--------|:--------------|
-| 1 | [🎯 Execution Order — 5 Stages](#execution-order) ← **Start here** | Sequential 30-module curriculum, depth rankings, stage gates, and time estimates |
-| 2 | [🗺️ Topics — Mapped to Execution Order](#topics-mapping) | Comprehensive topic breakdowns across all technical security domains |
-|   | ↳ [🔵 Stage 1: Foundation](#topic-stage-1) | Architecture, Linux & Windows Admin, Networking, Cryptography, Auth, Web |
-|   | ↳ [🟠 Stage 2: Offense I](#topic-stage-2) | Footprinting, Scanning, Enumeration, DB Exploitation, Cracking, PrivEsc |
-|   | ↳ [🟣 Stage 3: Web & App Sec](#topic-stage-3) | OWASP Top 10, Modern Web Attacks, API Security, Bug Bounty, SOC/CTI tracks |
-|   | ↳ [🏢 Stage 4: Enterprise](#topic-stage-4) | Active Directory, Kerberos, Cloud IAM, Containers, Adversary Emulation, Reporting |
-|   | ↳ [🔬 Stage 5: Specialized](#topic-stage-5) | Custom C2 Implants, Exploit Dev, AI Red Teaming, Campaign Tradecraft, Portfolio |
-| 3 | [📦 Shelf — Post-Hire Electives](#shelf) | 21 off-sequence situational tracks (Mobile, ICS/SCADA, Forensics, Hardware, Telecom) |
-| 4 | [⏱️ Daily Protocol & Hard Rules](#daily-protocol) | 3-step loop (Engineering Foundation ➔ Lab Execution ➔ Proof) & Weekend Scripting |
-| 5 | [🛠️ Lab Setup Baseline](#lab-setup) | Hardware specs, hypervisor baselines, target environments, and practice platforms |
+|  #  | Section                                                                             | Focus & Scope                                                                        |
+| :-: | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+|  1  | [[#🎯 Execution Order — 5 Stages\|🎯 Execution Order — 5 Stages]] ← **Start here**  | Sequential 30-module curriculum, depth rankings, stage gates, and time estimates     |
+|  2  | [[#🗺️ Topics — Mapped to Execution Order\|🗺️ Topics — Mapped to Execution Order]] | Comprehensive topic breakdowns across all technical security domains                 |
+|     | ↳ [[#🔵 STAGE 1 — FOUNDATION\|🔵 Stage 1: Foundation]]                              | Architecture, Linux & Windows Admin, Networking, Cryptography, Auth, Web             |
+|     | ↳ [[#🟠 STAGE 2 — OFFENSE I\|🟠 Stage 2: Offense I]]                                | Footprinting, Scanning, Enumeration, DB Exploitation, Cracking, PrivEsc              |
+|     | ↳ [[#🟣 STAGE 3 — WEB & APP SEC\|🟣 Stage 3: Web & App Sec]]                        | OWASP Top 10, Modern Web Attacks, API Security, Bug Bounty, SOC/CTI tracks           |
+|     | ↳ [[#🏢 STAGE 4 — ENTERPRISE\|🏢 Stage 4: Enterprise]]                              | Active Directory, Kerberos, Cloud IAM, Containers, Adversary Emulation, Reporting    |
+|     | ↳ [[#🔬 STAGE 5 — SPECIALIZED\|🔬 Stage 5: Specialized]]                            | Custom C2 Implants, Exploit Dev, AI Red Teaming, Campaign Tradecraft, Portfolio      |
+|  3  | [[#📦 Shelf — Post-Hire Electives\|📦 Shelf — Post-Hire Electives]]                 | 21 off-sequence situational tracks (Mobile, ICS/SCADA, Forensics, Hardware, Telecom) |
+|  4  | [[#⏱️ Daily Protocol\|⏱️ Daily Protocol & Hard Rules]]                              | 3-step loop (Engineering Foundation ➔ Lab Execution ➔ Proof) & Weekend Scripting     |
+|  5  | [[#🛠️ Lab Setup\|🛠️ Lab Setup Baseline]]                                          | Hardware specs, hypervisor baselines, target environments, and practice platforms    |
 
 ---
 
