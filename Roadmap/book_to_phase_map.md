@@ -1,4 +1,14 @@
+<a id="top"></a>
+
 # 📚 Book → Roadmap Stage & Module Mapping (smilo's Library)
+
+---
+
+### 🧭 Navigation
+
+🏠 [[README\|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[Stage-1_Foundation\|Stage 1]] · [[Stage-2_Offense-I\|Stage 2]] · [[Stage-3_Web-and-App-Sec\|Stage 3]] · [[Stage-4_Enterprise\|Stage 4]] · [[Stage-5_Specialized\|Stage 5]]
+
+---
 
 > **Usage Rule:** Open each book ONLY when you arrive at that Stage/Module. Do NOT read ahead.
 > These are **reference and depth books**, not replacements for your roadmap checklists.
@@ -395,3 +405,9 @@ Pin these to your taskbar and keep them open:
 | 🟡 | `XSS CheatSheet` | Stage 3 Module 14 alongside PortSwigger |
 | 🟡 | `SANS DFIR Cheatsheets` | Shelf Module S04 |
 | 🟢 | `Ctf CheatSheet` | Ongoing TryHackMe and HTB challenges |
+
+---
+
+### 🧭 Navigation
+
+🏠 [[README\|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [⬆ Return to Top](#top)

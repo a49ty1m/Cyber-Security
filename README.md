@@ -27,11 +27,22 @@
 
 This repository is an **active cyber-security engineering system** built around structured vulnerability research, rigorous methodology, and isolated lab environments. Every module pairs deep engineering fundamentals with hands-on lab tasks and verified command proofs.
 
+> [!TIP]
+> ### 💎 Best Navigated in Obsidian (Interactive Knowledge Graph & Seamless Traversal)
+> This entire engineering curriculum is specifically structured and optimized for **[Obsidian](https://obsidian.md/)**.
+> 
+> - **Interactive Bi-Directional Links:** The **Master Roadmap** (`Roadmap/`) and **Tool Mastery** (`Tools/`) guides leverage native Obsidian wikilinks (`[[Stage-1_Foundation]]`, `[[Nmap]]`, `[[Module#Topic]]`) enabling frictionless jumping across prerequisite concepts, tool mechanics, and proof gates.
+> - **Interactive Graph View:** Visualize relationships, attack vectors, and cross-stage dependencies visually on Obsidian's local and global graph.
+> - **Hover Previews:** Hover over any tool or stage link to inspect prerequisites, checklists, or command syntax without losing your place.
+> - **Native Callouts & Task Checklists:** Interactive checkboxes (`- [ ]`) and styled operational callouts (`[!IMPORTANT]`, `[!NOTE]`, `[!CAUTION]`) render natively for a focused study terminal.
+> 
+> ⚡ **Quick Setup:** Launch Obsidian ➔ Click **"Open folder as vault"** ➔ Select this repository's root `Cyber-Security/` folder.
+
 ### System Overview
 
 | Area | Scope & Breakdown | Primary Hub |
 |:-----|:------------------|:------------|
-| 🗺️ **Master Roadmap** | 5 sequential execution stages covering 30 core modules + proof gates | [Roadmap/README.md](Roadmap/README.md) |
+| 🗺️ **Master Roadmap** | 5 sequential execution stages covering 30 core modules + proof gates *(Optimized for Obsidian)* | [Roadmap/README.md](Roadmap/README.md) |
 | 🛠️ **Tool Mastery Directory** | 88 comprehensive tool checklists arranged into a 4-tier operational hierarchy | [Roadmap/Tools/README.md](Roadmap/Tools/README.md) |
 | 🧪 **Hands-On Labs** | Network exploitation, web security, Linux privilege escalation, and AD testing | [Lab/README.md](Lab/README.md) |
 | 📦 **Post-Hire Shelf** | 21 situational specializations (ICS/SCADA, Mobile, Web3, Forensics, Hardware, Automotive, Telecom, Advanced Internals) | [Roadmap/Shelf_Post-Hire.md](Roadmap/Shelf_Post-Hire.md) |

@@ -1,9 +1,14 @@
+<a id="top"></a>
+
 # Stage 5 — Specialized
 
 ---
 
-### 🧭 Navigation
-◀ [[Stage-4_Enterprise|Stage 4: Enterprise]] | 🏠 [[README|Master Roadmap]] | [[Shelf_Post-Hire|Shelf: Post-Hire]] ➔
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | 📑 Quick Jump |
+|:---:|:---:|:---:|:---|
+| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Tool Priority Reference](#tool-priority-reference) · [🏁 Final Gate](#final-gate) |
 
 ---
 
@@ -16,6 +21,8 @@
 > - **🎯 Primary Focus:** Custom C2 development, binary loaders, shellcode injection, AMSI/ETW evasion, reverse engineering, fuzzing & vulnerability research, AI & LLM red teaming, advanced red team campaign infrastructure, and public portfolio development.
 
 ---
+
+<a id="table-of-contents"></a>
 
 ### 🗂️ Table of Contents
 
@@ -1311,3 +1318,13 @@ WHAT DO YOU NEED TO DO?
 > - Publish original research, a detailed tool, or an AI jailbreak / red-teaming assessment report.
 > - 3+ comprehensive professional penetration testing / red team engagement reports in Git portfolio.
 > - OSCP / CRTO / practical offensive certification attained.
+
+---
+
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | ⬆ Top |
+|:---:|:---:|:---:|:---:|
+| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [⬆ Return to Top](#top) |
+
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Shelf_Post-Hire|Shelf: Post-Hire]]` to explore situational post-hire electives, or hover to preview.

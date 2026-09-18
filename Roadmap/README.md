@@ -1,6 +1,20 @@
+<a id="top"></a>
+
 # 🛡️ Cybersecurity Master Roadmap
 
 > **Career Target:** Penetration Testing → Red Team Operations → Advanced Offensive Security → AI Red Teaming
+
+---
+
+> [!TIP]
+> ### 💎 Best Navigated in Obsidian
+> This Master Roadmap and all Stage modules are deeply interconnected with **bi-directional Obsidian wikilinks** (`[[Stage-X#Heading|Title]]`). Open this repository as a vault in **[Obsidian](https://obsidian.md/)** for interactive link previews, graph analysis, and frictionless navigation.
+
+### 🧭 Stage Fast-Switch & Navigation Hub
+
+| 🏠 Root | 🔵 Stage 1 | 🟠 Stage 2 | 🟣 Stage 3 | 🏢 Stage 4 | 🔬 Stage 5 | 📦 Shelf | 🛠️ Tools |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Foundation]] | [[Stage-2_Offense-I\|Offense I]] | [[Stage-3_Web-and-App-Sec\|Web & App Sec]] | [[Stage-4_Enterprise\|Enterprise]] | [[Stage-5_Specialized\|Specialized]] | [[Shelf_Post-Hire\|Post-Hire]] | [[Tools/README\|Tools Hub]] |
 
 ---
 
@@ -298,4 +312,12 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 - Windows Server VM (AD target — module #19)
 - Ubuntu/Metasploitable VM (Linux target)
 - [TryHackMe](https://tryhackme.com) · [Hack The Box](https://hackthebox.com) · [PortSwigger Web Academy](https://portswigger.net/web-security)
+
+---
+
+### 🧭 Roadmap Navigation
+
+| 🏠 Root Portfolio | 🔵 Start Stage 1 | 🛠️ Tool Mastery Hub | ⬆ Return to Top |
+|:---:|:---:|:---:|:---:|
+| [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Stage 1: Foundation ➔]] | [[Tools/README\|88 Tool Mastery Guides]] | [⬆ Back to Top](#top) |
 

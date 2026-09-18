@@ -1,9 +1,14 @@
+<a id="top"></a>
+
 # 📦 Shelf: Post-Hire & Elective Specializations
 
 ---
 
-### 🧭 Navigation
-◀ [[Stage-5_Specialized|Stage 5: Specialized]] | 🏠 [[README|Master Roadmap]]
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Status |
+|:---:|:---:|:---|
+| [[Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[README\|Master Roadmap]] | Post-Hire & Elective Specializations (S01–S21) |
 
 ---
 
@@ -2656,3 +2661,11 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 | PE-bear / PE-sieve | PE structure analysis and hollowing detection |
 
 ---
+
+### 🧭 Shelf Navigation
+
+| ◀ Return to Stage 5 | 🏠 Master Hub | ⬆ Top |
+|:---:|:---:|:---:|
+| [[Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[README\|Master Roadmap]] | [⬆ Return to Top](#top) |
+
+> 💡 **Obsidian Tip:** Use Obsidian's quick switcher (`Ctrl + O` or `Cmd + O`) to search and jump directly to any specific Shelf module.

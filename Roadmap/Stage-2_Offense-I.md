@@ -1,10 +1,14 @@
+<a id="top"></a>
+
 # Stage 2 — Offense I
 
 ---
 
-### 🧭 Navigation
+### 🧭 Stage Navigation
 
-◀ [[Stage-1_Foundation|Stage 1: Foundation]] | 🏠 [[README|Master Roadmap]] | [[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] ➔
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
+|:---:|:---:|:---:|:---|
+| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Mandatory Tools](#mandatory-tools) · [🎮 CTF Practice](#ctf-practice) · [🏁 Stage Gate 1](#stage-gate-1) |
 
 ---
 
@@ -33,7 +37,9 @@
 > _By the end of Stage 2, I should have 10+ documented attack chains in my repository._
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
+> <a id="mandatory-tools"></a>
+
+### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -49,6 +55,8 @@
 > **Stage 2 Exit Gate:** I cannot pass Stage 2 until I can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
 
 ---
+
+<a id="table-of-contents"></a>
 
 ### 🗂️ Table of Contents
 
@@ -1670,7 +1678,9 @@
 ---
 
 > [!TIP]
-> ### 🎮 Concurrent CTF Practice — Stage 2
+> <a id="ctf-practice"></a>
+
+### 🎮 Concurrent CTF Practice — Stage 2
 >
 > Practice must run concurrently with every module — not after I "finish" the theory.
 >
@@ -1851,3 +1861,13 @@ This is the Stage 2 capstone project — it combines everything from recon (port
 > - Extract hashes from SAM / `/etc/shadow` and crack them using targeted Hashcat rules.
 > - Demonstrate cold privilege escalation on **both Linux** (SUID, sudo, cron) and **Windows** (Token impersonation / Potato, Unquoted service path, DLL hijacking).
 > - Document the end-to-end compromise lifecycle in a professional writeup.
+
+---
+
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
+|:---:|:---:|:---:|:---:|
+| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [⬆ Return to Top](#top) |
+
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]]` to open the next stage in a split tab, or hover to preview.

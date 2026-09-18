@@ -1,9 +1,14 @@
+<a id="top"></a>
+
 # Stage 3 — Web & App Sec
 
 ---
 
-### 🧭 Navigation
-◀ [[Stage-2_Offense-I|Stage 2: Offense I]] | 🏠 [[README|Master Roadmap]] | [[Stage-4_Enterprise|Stage 4: Enterprise]] ➔
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
+|:---:|:---:|:---:|:---|
+| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Mandatory Tools](#mandatory-tools) · [🎮 CTF Practice](#ctf-practice) · [🏁 Stage Gate 2](#stage-gate-2) |
 
 ---
 
@@ -30,7 +35,9 @@
 > _By the end of Stage 3, I should have a library of vulnerability reports ready for my portfolio._
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
+> <a id="mandatory-tools"></a>
+
+### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -46,6 +53,8 @@
 > **Stage 3 Exit Gate:** I cannot pass Stage 3 until I can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
 
 ---
+
+<a id="table-of-contents"></a>
 
 ### 🗂️ Table of Contents
 
@@ -1851,7 +1860,9 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 ---
 
 > [!TIP]
-> ### 🎮 Concurrent CTF Practice — Stage 3
+> <a id="ctf-practice"></a>
+
+### 🎮 Concurrent CTF Practice — Stage 3
 >
 > Web security is learned by doing. Every concept maps to a PortSwigger lab and an HTB/THM box. Do them as I study each topic, not after.
 >
@@ -1876,3 +1887,13 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 > - 3+ detailed PortSwigger Web Security Academy practitioner lab completions across SQLi, SSRF, and JWT.
 > - 1 unassisted web-focused machine rooted on Hack The Box / Proving Grounds.
 > - Demonstrated ability to intercept, decode, tamper, and exploit API logic flaws cold in Burp Suite.
+
+---
+
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
+|:---:|:---:|:---:|:---:|
+| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [⬆ Return to Top](#top) |
+
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-4_Enterprise|Stage 4: Enterprise]]` to open the next stage in a split tab, or hover to preview.

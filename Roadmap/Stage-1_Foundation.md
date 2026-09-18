@@ -1,10 +1,14 @@
+<a id="top"></a>
+
 # Stage 1 — Foundation
 
 ---
 
-### 🧭 Navigation
+### 🧭 Stage Navigation
 
-🏠 [[README|Master Roadmap]] | [[Stage-2_Offense-I|Stage 2: Offense I]] ➔
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
+|:---:|:---:|:---:|:---|
+| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Mandatory Tools](#mandatory-tools) · [🧱 Pacing Checkpoints](#pacing-checkpoints) · [🎮 CTF Practice](#ctf-practice) · [🏁 Foundation Proof Gate](#foundation-proof-gate) |
 
 ---
 
@@ -16,31 +20,6 @@
 > - **📅 Programming Track:** Weekend-only — Python, Bash, PowerShell throughout this stage
 > - **🔴 Gate:** 10 PCAPs · admin baselines · 3 scripts · lab report — before moving to Stage 2
 > - **🎯 Primary Focus:** Master the TCP/IP stack, Linux & Windows administration, networking protocols, cryptographic primitives, authentication standards (JWT, OAuth, SAML), and web technology fundamentals (HTTP, CORS, CSP, REST).
-
-> [!IMPORTANT]
-> **Current Status: Substantially Complete → Entering Stage 2**
->
-> Stage 1 is largely done. Do NOT restart it. Use **just-in-time prerequisite patches** for specific gaps as they arise in later stages.
->
-> **What I can do confidently (do not re-study these):**
-> - Linux CLI navigation and common commands
-> - Basic Linux system investigation
-> - Windows administration and basic PowerShell
-> - TCP vs UDP, subnetting, DNS at a practical level
-> - HTTP requests, basic traffic capture, general networking
->
-> **Known gaps — patch only when a future topic requires them:**
->
-> | Gap | When to patch | Patch scope |
-> |-----|---------------|-------------|
-> | Wireshark / deep packet analysis | When Stage 2 Scanning or Stage 4 Sniffing requires it | 2–4 sessions on Wireshark filters and dissection |
-> | TLS internals | When Stage 3 HTTPS interception or Stage 4 requires it | TLS handshake + PKI fundamentals only |
-> | Linux service administration | When Stage 2 enumeration labs require it | `systemctl`, user management, `/etc/` configs |
-> | Kerberos / Windows identity | Before Stage 4 Module 19 (AD attacks) | Module 03 Topics 5 & 6 |
-> | Advanced PowerShell | During Stage 4 AD work | Targeted PS scripting for AD enumeration |
->
-> **My next action: proceed to [[Stage-2_Offense-I|Stage 2: Offense I]] → Module 08 (Footprinting & Reconnaissance).**
-
 
 > [!NOTE]
 >
@@ -60,7 +39,9 @@
 
 > [!IMPORTANT]
 >
-> ### 🧱 Stage 1 Pacing Checkpoints
+> <a id="pacing-checkpoints"></a>
+
+### 🧱 Stage 1 Pacing Checkpoints
 >
 > Stage 1 is intentionally broad. Treat it as seven smaller milestones instead of one giant block:
 >
@@ -74,7 +55,9 @@
 > Do not wait for the final capstone to feel progress. Commit evidence at each checkpoint.
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
+> <a id="mandatory-tools"></a>
+
+### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -87,6 +70,8 @@
 > **Stage Exit Tool Gate:** I cannot pass Stage 1 until I can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using `openssl s_client`.
 
 ---
+
+<a id="table-of-contents"></a>
 
 ### 🗂️ Table of Contents
 
@@ -3246,7 +3231,9 @@ Authentication is the #1 attack surface in web applications. Building it myself 
 ---
 
 > [!TIP]
-> ### 🎮 Concurrent CTF Practice — Stage 1
+> <a id="ctf-practice"></a>
+
+### 🎮 Concurrent CTF Practice — Stage 1
 >
 > Don't wait until Module 30 to touch CTF platforms. Start now, in parallel with my module work.
 >
@@ -3271,3 +3258,13 @@ Authentication is the #1 attack surface in web applications. Building it myself 
 > 2. **Baseline Hardened Configurations** for both Linux (SSH keys, firewall, disabled root) and Windows (Local Security Policy, disabled LLMNR/NBT-NS).
 > 3. **3 Custom Automation Scripts** written cold in Python, Bash, and PowerShell.
 > 4. **1 Comprehensive Lab Topology Report** committed to my notes Git repository.
+
+---
+
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
+|:---:|:---:|:---:|:---:|
+| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [⬆ Return to Top](#top) |
+
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-2_Offense-I|Stage 2: Offense I]]` to open the next stage in a split tab, or hover to preview.

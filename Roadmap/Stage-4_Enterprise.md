@@ -1,9 +1,14 @@
+<a id="top"></a>
+
 # Stage 4 — Enterprise
 
 ---
 
-### 🧭 Navigation
-◀ [[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] | 🏠 [[README|Master Roadmap]] | [[Stage-5_Specialized|Stage 5: Specialized]] ➔
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
+|:---:|:---:|:---:|:---|
+| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [🗂️ Table of Contents](#table-of-contents) · [🛠️ Mandatory Tools](#mandatory-tools) · [🎮 CTF Practice](#ctf-practice) · [🏁 Stage Gate 3](#stage-gate-3) |
 
 ---
 
@@ -29,7 +34,9 @@
 > _By the end of Stage 4, I should have enterprise attack documentation rivaling junior consultant deliverables._
 
 > [!IMPORTANT]
-> ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
+> <a id="mandatory-tools"></a>
+
+### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 >
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -46,6 +53,8 @@
 > **Stage 4 Exit Gate:** I cannot pass Stage 4 until I can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
 
 ---
+
+<a id="table-of-contents"></a>
 
 ### 🗂️ Table of Contents
 
@@ -1472,7 +1481,9 @@ Robert Cialdini's research on influence identified six universal principles that
 ---
 
 > [!TIP]
-> ### 🎮 Concurrent CTF Practice — Stage 4
+> <a id="ctf-practice"></a>
+
+### 🎮 Concurrent CTF Practice — Stage 4
 >
 > Enterprise environments require enterprise practice. Standard HTB/THM boxes are no longer enough — you need pro labs.
 >
@@ -1497,3 +1508,13 @@ Robert Cialdini's research on influence identified six universal principles that
 > - Full end-to-end compromise of a multi-forest Active Directory lab (Kerberoasting/AS-REP roasting -> DCSync -> Golden Ticket).
 > - BloodHound visualization and execution of shortest attack path committed to Git.
 > - One complete, client-ready, professional penetration test report following PTES/CVSS standards.
+
+---
+
+### 🧭 Stage Navigation
+
+| ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
+|:---:|:---:|:---:|:---:|
+| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [⬆ Return to Top](#top) |
+
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-5_Specialized|Stage 5: Specialized]]` to open the next stage in a split tab, or hover to preview.
