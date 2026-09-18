@@ -20,12 +20,18 @@
 
 ## 📑 Table of Contents
 
-| # | Section |
-|:-:|---------|
-| 1 | [Execution Order + Topics](#execution-order) ← **Start here** |
-| 2 | [Shelf — Self Post-Hire](#shelf) |
-| 3 | [Daily Protocol](#daily-protocol) |
-| 4 | [Lab Setup](#lab-setup) |
+| # | Section | Focus & Scope |
+|:-:|:--------|:--------------|
+| 1 | [🎯 Execution Order — 5 Stages](#execution-order) ← **Start here** | Sequential 30-module curriculum, depth rankings, stage gates, and time estimates |
+| 2 | [🗺️ Topics — Mapped to Execution Order](#topics-mapping) | Comprehensive topic breakdowns across all technical security domains |
+|   | ↳ [🔵 Stage 1: Foundation](#topic-stage-1) | Architecture, Linux & Windows Admin, Networking, Cryptography, Auth, Web |
+|   | ↳ [🟠 Stage 2: Offense I](#topic-stage-2) | Footprinting, Scanning, Enumeration, DB Exploitation, Cracking, PrivEsc |
+|   | ↳ [🟣 Stage 3: Web & App Sec](#topic-stage-3) | OWASP Top 10, Modern Web Attacks, API Security, Bug Bounty, SOC/CTI tracks |
+|   | ↳ [🏢 Stage 4: Enterprise](#topic-stage-4) | Active Directory, Kerberos, Cloud IAM, Containers, Adversary Emulation, Reporting |
+|   | ↳ [🔬 Stage 5: Specialized](#topic-stage-5) | Custom C2 Implants, Exploit Dev, AI Red Teaming, Campaign Tradecraft, Portfolio |
+| 3 | [📦 Shelf — Post-Hire Electives](#shelf) | 21 off-sequence situational tracks (Mobile, ICS/SCADA, Forensics, Hardware, Telecom) |
+| 4 | [⏱️ Daily Protocol & Hard Rules](#daily-protocol) | 3-step loop (Engineering Foundation ➔ Lab Execution ➔ Proof) & Weekend Scripting |
+| 5 | [🛠️ Lab Setup Baseline](#lab-setup) | Hardware specs, hypervisor baselines, target environments, and practice platforms |
 
 ---
 
@@ -80,11 +86,15 @@
 
 ---
 
+<a id="topics-mapping"></a>
+
 ## 🗺️ Topics — Mapped to Execution Order
 
 > Comprehensive topic breakdown mapped directly to the execution order across all 5 stages.
 
 ---
+
+<a id="topic-stage-1"></a>
 
 ### 🔵 STAGE 1 — FOUNDATION
 *Modules 01–07 · ~2–3 months*
@@ -121,6 +131,8 @@
 
 ---
 
+<a id="topic-stage-2"></a>
+
 ### 🟠 STAGE 2 — OFFENSE I
 *Modules 08–13 · ~5–6 weeks*
 
@@ -147,6 +159,8 @@
 
 ---
 
+<a id="topic-stage-3"></a>
+
 ### 🟣 STAGE 3 — WEB & APP SEC
 *Modules 14–18 · ~8–10 weeks*
 
@@ -170,6 +184,8 @@
 | | [[Stage-3_Web-and-App-Sec#Side-Track C: Cyber Threat Intelligence (CTI) & Attack Surface Management\|Side-Track C: CTI & Attack Surface Management]] *(Parallel Track)* | **Threat Intel & EASM** | External Attack Surface Management, Threat actor profiling, IOCs & IOAs, Threat intelligence feeds, CTI platforms, MITRE ATT&CK & Diamond Model analysis, Intel operationalization | MISP, OpenCTI, Maltego, SpiderFoot |
 
 ---
+
+<a id="topic-stage-4"></a>
 
 ### 🏢 STAGE 4 — ENTERPRISE
 *Modules 19–26 · ~10–13 weeks*
@@ -202,6 +218,8 @@
 
 ---
 
+<a id="topic-stage-5"></a>
+
 ### 🔬 STAGE 5 — SPECIALIZED
 *Modules 27–30 · ~15–22 weeks*
 
@@ -231,7 +249,9 @@
 
 ---
 
-## 📦 Shelf — Self Post-Hire
+<a id="shelf"></a>
+
+## 📦 Shelf — Post-Hire Electives
 
 > These aren't "later in the sequence" — they're off the sequence entirely until I have a job. No number means no claim on my time right now.
 
