@@ -7,7 +7,7 @@
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
 |:---:|:---:|:---:|:---|
-| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#🗂️ Table of Contents|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 3|🎮 CTF Practice]] · [[#🏁 Stage Gate 2 — Web Application Security Gate|🏁 Stage Gate 2]] |
+| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 3\|🎮 CTF Practice]] · [[#🏁 Stage Gate 2 — Web Application Security Gate\|🏁 Stage Gate 2]] |
 
 ---
 
@@ -197,10 +197,18 @@
 > ```
 > PortSwigger has labs for every one of these. Do the labs as I reach each topic — not all upfront.
 
+> [!TIP]
+> ⏱️ **Module 14 Total Time Budget: 2–3 weeks** — heaviest module in Stage 3
+> T1 (recon/mapping): 2 days | T2 (vuln analysis): 2 days | T3 (OWASP Top 10 exploitation): 1–1.5 weeks | T4 (post-exploitation): 2 days | T5 (defense): 1 day | PortSwigger labs: ongoing alongside each topic.
+> PortSwigger Web Security Academy is non-negotiable for this module. Every topic has a matching lab set. Do not just read the theory — complete the labs. A real web app pentest requires muscle memory in Burp Suite, not passive recognition of concepts.
+
 ### Topic 1: Reconnaissance & Mapping — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Understand the target application's structure and technologies.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: OSINT and discovery (Google Dorks for exposed admin panels, CT logs for subdomains via crt.sh, Shodan for server versions, Wayback Machine for historical endpoints), technology fingerprinting (Wappalyzer/WhatWeb/curl headers: Server, X-Powered-By, X-AspNet-Version). Day 2: Content discovery (Gobuster/ffuf with SecLists raft-medium-directories.txt and api/api-endpoints.txt, robots.txt/sitemap.xml/security.txt analysis, JS file endpoint extraction with LinkFinder or gau). Deliverable: produce a complete attack surface map for a PortSwigger lab or Juice Shop instance — all directories, endpoints, tech stack, and exposed information.
 
 - [ ] **OSINT & Discovery:** Perform **Reconnaissance** using **Google Dorks, Shodan, Certificate Transparency** to find subdomains, exposed admin panels, and developer info.
 
@@ -219,6 +227,9 @@
 > [!TIP]
 > **Goal:** Find potential entry points and weaknesses.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Input validation testing (inject single-quote, double-quote, comment markers, and template markers into every parameter and observe response differences — do not use automated scanners first; identify which input reaches the backend vs gets filtered client-side), path manipulation (LFI probes: ../../../etc/passwd, null byte, path normalization tricks like /./), logic testing (IDOR: increment/decrement IDs in requests; broken access: swap user tokens between authenticated sessions), TLS audit (sslyze/testssl.sh — check cipher suite strength, HSTS presence, certificate transparency). Deliverable: map every input point on a Juice Shop or PortSwigger target and categorize each by the vulnerability class it could be susceptible to.
+
 - [ ] **Input Validation Testing:** Test every input field for **SQL Injection, NoSQL Injection, Command Injection, LDAP Injection**.
 
 - [ ] **Path Manipulation:** Probe for **Directory/Path Traversal** using `../../../etc/passwd` and **LFI/RFI** vulnerabilities.
@@ -235,6 +246,9 @@
 
 > [!TIP]
 > **Goal:** Prove the vulnerability, chain attack primitives, and achieve demonstrable impact.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–1.5 weeks** — Work through the vulnerability learning sequence IN ORDER. Do not skip ahead. For each class: read the PortSwigger topic explanation (10 min), complete apprentice-level labs yourself without walkthroughs, then intermediate. Daily allocation: 1–2 vulnerability classes per day. Key milestones — Day 1–2: SQLi (error-based, blind boolean, time-based, union — all PortSwigger SQLi labs); Day 3: XSS (reflected/stored/DOM — CSP bypass, session token exfil via fetch); Day 4: SSRF (basic, blind, filter bypass, IMDS extraction — IMDSv2 PUT token requirement); Day 5: Race conditions (Turbo Intruder single-packet attack) and Request Smuggling (CL.TE, TE.CL); Day 6: CSRF/Auth/JWT attacks; Day 7: File upload, deserialization, SSTI, XXE, WebSocket CSWSH. Deliverable: complete every PortSwigger apprentice and practitioner lab for SQLi, XSS, SSRF, CSRF, JWT, and file upload.
 
 - [ ] **Injection Attacks:** Execute **SQL injection** (Union-based, Error-based, Blind Boolean/Time-based, Out-of-band); **OS command injection** for remote shells; **LDAP & XPath** injection.
 
@@ -276,6 +290,9 @@
 > [!TIP]
 > **Goal:** Maintain access and pivot deeper.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Web shell management (deploy PHP one-liners and full shells like b374k in writable web root directories; test command execution, file upload, directory traversal from the shell), database enumeration (use SQLi or shell-level mysql/psql access to extract schemas, credentials, and PII), cloud metadata pivoting (SSRF to 169.254.169.254 to extract IAM role credentials — understand IMDSv2 token requirement via PUT), data exfiltration (DNS exfil via Burp Collaborator, HTTPS covert channel via fetch to attacker endpoint). Deliverable: chain a file upload vulnerability to RCE via web shell on a lab target, then use shell access to dump the database and exfil one credential file.
+
 - [ ] **Web Shell Management:** Deploy **persistent web shells** (PHP, ASPX, JSP) in writable directories.
 
 - [ ] **Database Enumeration:** Extract **credentials, PII, business data** via SQL injection or direct access.
@@ -290,6 +307,9 @@
 
 > [!TIP]
 > **Goal:** Prevent and detect these attacks.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — WAF deployment (ModSecurity rule review: understand why rules trigger and how attackers bypass with encoding, case variation, and comment injection), secure coding countermeasures (parameterized queries vs prepared statements vs ORMs — which actually prevents SQLi and which does not; output encoding contexts — HTML vs JS vs URL vs CSS each require different encoding), security headers (CSP policy analysis: script-src self vs unsafe-inline vs nonce-based — what each blocks and what it does not; HSTS preload; X-Frame-Options vs CSP frame-ancestors). Deliverable: audit the security headers of 5 real websites using securityheaders.com and document what each is missing and why it matters.
 
 - [ ] **WAF Deployment:** Implement **Web Application Firewall** (ModSecurity, CloudFlare WAF, AWS WAF) with custom rules.
 
@@ -344,12 +364,20 @@
 > [!IMPORTANT]
 > **Architectural Placement Note:** While legacy syllabi treat Session Hijacking as a generic network-sniffing concept, in modern networks (TLS ubiquitous, HSTS enforced) session attacks are almost exclusively application-layer exploits. This module directly builds on **Module 14: Web Application Hacking** (XSS, CSRF, Auth flaws) and prepares me for **Module 17: API Security** (OAuth2/OIDC token flows).
 
+> [!TIP]
+> ⏱️ **Module 15 Total Time Budget: 1 week**
+> T1 (session architecture): 1–2 days | T2 (token theft/interception): 2 days | T3 (token forgery/replay): 2 days | T4 (defense): 1 day.
+> JWT attacks are the single most common finding in API and web app assessments right now. Master jwt-tool cold — algorithm confusion, key injection, weak secret cracking. If you cannot forge a JWT in under 5 minutes, you are not ready.
+
 ---
 
 ### Topic 1: Session Architecture & Vulnerability Analysis — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Deconstruct session state mechanisms, evaluate token entropy, and analyze browser security boundaries.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Stateful vs stateless sessions (server-side session ID backed by Redis/DB vs client-side JWT/PASETO — understand the trust model difference: server validates ID against store vs server verifies signature), cookie attribute profiling (inspect every Set-Cookie header: HttpOnly blocks JS document.cookie access, Secure enforces TLS-only, SameSite=Strict/Lax/None and the CSRF implications of each, Domain scope oversharing enables cookie tossing), token entropy analysis (Burp Sequencer — capture 200 session tokens, run FIPS 140-2 randomness test — identify if tokens are sequential or time-seeded). Deliverable: audit session token handling on DVWA or a PortSwigger lab and produce a 1-page session security assessment.
 
 - [ ] **Stateful vs Stateless Sessions:**
   - **Stateful (Server-Side):** Database/Redis-backed sessions indexed by an opaque session ID (`PHPSESSID`, `JSESSIONID`, `ASP.NET_SessionId`).
@@ -375,6 +403,9 @@
 
 > [!TIP]
 > **Goal:** Execute client-side and protocol-level attack chains to extract live authentication tokens.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — XSS token exfiltration (craft async fetch payload to Burp Collaborator to exfil document.cookie or localStorage.getItem — test against stored XSS in DVWA or PortSwigger Stored XSS labs; understand why HttpOnly blocks document.cookie but NOT localStorage), session fixation (identify apps that keep pre-auth session ID after login — force a session ID via URL parameter or subdomain Set-Cookie injection), CORS misconfiguration (detect reflected Access-Control-Allow-Origin with credentials: true — host exploit page that reads private API response). Deliverable: steal a session token via Stored XSS and async fetch exfil on a lab target and demonstrate authenticated session takeover using the stolen token.
 
 - [ ] **XSS-Based Token Exfiltration:**
   - Craft asynchronous fetch payloads to transmit stolen cookies or web storage tokens to an attacker-controlled endpoint:
@@ -403,6 +434,9 @@
 > [!TIP]
 > **Goal:** Exploit stateless token architectures (JWT/OAuth) to forge administrative identities and replay stolen credentials.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — JWT exploitation with jwt-tool (run full tamper battery: check none/None/NONE algorithm bypass, RS256 to HS256 key confusion using the server public key as HMAC secret, weak HMAC crack with hashcat mode 16500, jwk and jku header injection pointing to attacker JWKS; complete all PortSwigger JWT labs Apprentice through Expert), OAuth 2.0 attacks (test redirect_uri: add attacker domain, check if code is sent there; test state parameter CSRF; test refresh token replay after password reset). Deliverable: forge an admin JWT using the alg:none bypass AND the RS256-to-HS256 key confusion technique on PortSwigger JWT labs. Document exact header/payload modifications for each.
+
 - [ ] **JSON Web Token (JWT) Exploitation ([[jwt-tool]]):**
   - **Algorithm Confusion (`alg: none`):** Strip or alter the signature header to `none` / `None` / `NONE` to test if the backend accepts unsigned payloads.
   - **Key Confusion (RS256 ➔ HS256):** When a server uses asymmetric RS256, change the algorithm to symmetric HS256 and sign the token using the server's public key as the HMAC secret key.
@@ -420,6 +454,9 @@
 
 > [!TIP]
 > **Goal:** Architect resilient session handling mechanisms resilient against client and network interception.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Cryptographic token hygiene (128-bit minimum CSPRNG entropy, mandatory session ID rotation on privilege elevation, absolute timeout vs idle timeout differences), hardened cookie flags (__Host- and __Secure- prefixes: understand what each enforces beyond the standard Secure attribute; SameSite=Strict for sensitive operations vs Lax for general navigation), modern token binding (DPoP proof-of-possession: understand the nonce plus signature mechanism and why a stolen DPoP-bound token cannot be replayed from an attacker IP; Refresh Token Rotation with reuse detection). Deliverable: write a 1-page secure session handling standard for a hypothetical web application with rationale for each decision.
 
 - [ ] **Cryptographic Hygiene & Token Invalidation:**
   - Issue cryptographically secure pseudo-random tokens (minimum 128 bits of entropy).
@@ -461,10 +498,18 @@
 > - 🟢 `Web security exposed` — Reference — supplementary web server attack coverage
 > - 🟢 `WordPress Hacking and Security` — Reference — CMS-specific attack methodology for real-world scope targets
 
+> [!TIP]
+> ⏱️ **Module 16 Total Time Budget: 1 week**
+> T1 (target acquisition/recon): 1 day | T2 (scanning/service enum): 1 day | T3 (vuln assessment/exploitation): 2–3 days | T4 (post-exploitation): 1 day.
+> This module overlaps heavily with Module 13 (System Hacking) on the post-exploitation side. The web-specific angle here is the initial foothold via exposed web services — Apache Struts RCE, Tomcat admin console, WebDAV PUT, default credentials. The privesc vectors are the same ones from Module 13.
+
 ### Topic 1: Target Acquisition & Reconnaissance — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Identify the target server and gather intelligence.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — OSINT gathering (WHOIS, DNS history via securitytrails.com, CT logs for IP history, Shodan for server version over time, Wayback Machine for old admin panels and exposed config files), network position determination (traceroute and ASN lookup — is the target directly internet-facing, behind a CDN, behind a load balancer?), historical exposure analysis (Shodan history shows when a port was opened; Wayback Machine shows pages that existed before developers cleaned up). Deliverable: complete a pre-engagement OSINT profile for a bug bounty target including server history, DNS changes, and any historically exposed administrative interfaces.
 
 - [ ] **OSINT Gathering:** Conduct **Reconnaissance** using **WHOIS, DNS enumeration, Certificate Transparency** to identify IP ranges and domain information.
 
@@ -478,6 +523,9 @@
 
 > [!TIP]
 > **Goal:** Map out the server's attack surface.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Full port scan (nmap -sS -sV -sC -p- — not just top 1000 ports; web servers routinely run admin panels on 8080, 8443, 9090, 10000), banner grabbing (curl -I and nc to every open HTTP port — collect Server, X-Powered-By, X-AspNet-Version headers), HTTP method enumeration (OPTIONS to every directory: look for PUT, DELETE, TRACE enabled — WebDAV PUT equals file upload RCE), virtual host discovery (ffuf with Host header fuzzing: internal vhosts often expose dev/admin panels), TLS audit (testssl.sh — weak ciphers, SSLv3/TLS 1.0 fallback, BEAST/POODLE/Heartbleed). Deliverable: produce a full web server attack surface map from Nmap plus manual enumeration.
 
 - [ ] **Port Scanning:** Use `nmap -sS -sV -sC -p-` to discover **all open ports** and identify services (Apache, Nginx, IIS, Tomcat, SSH, FTP, DB).
 
@@ -495,6 +543,9 @@
 
 > [!TIP]
 > **Goal:** Find and exploit flaws to gain initial access.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Patch audit (identify server version, searchsploit/ExploitDB lookup, find public PoC, test in lab; classic targets: Apache Struts CVE-2017-5638, Apache Log4Shell CVE-2021-44228, IIS WebDAV misconfiguration, Tomcat manager deploy), web application attacks against hosted apps (SQLi, file upload, LFI on the web application running on the server — same Module 14 techniques applied here), service-level exploitation (vsftpd 2.3.4 backdoor, ProFTPd 1.3.3c mod_copy RCE, Shellshock on CGI endpoints), credential attacks (Hydra against SSH/FTP/Tomcat admin with common default lists, wpscan against WordPress admin). Deliverable: gain a shell on Metasploitable 2 or 3 via web server exploitation without using Metasploit automation and document every step manually.
 
 - [ ] **Patch Audit:** Check for **outdated software versions** against CVE databases; test for **known exploits** (Apache Struts, IIS 6.0, etc.).
 
@@ -514,6 +565,9 @@
 
 > [!TIP]
 > **Goal:** Escalate privileges and maintain control.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Privilege escalation from web shell (web process runs as www-data/apache/nginx — check sudo -l, SUID binaries, cron jobs as documented in Module 13 Linux privesc vectors), persistent web shell deployment (b374k or custom PHP shell in writable web root — understand why /tmp shells do not survive reboots but web root ones do), credential harvesting (grep config files: find /var/www -name wp-config.php or database.yml — these contain plaintext DB passwords), log clearing (truncate access.log and error.log — understand what IDS would have already shipped to SIEM before you cleared it). Deliverable: from a web shell on a lab target, escalate to root and harvest at least one set of credentials from config files.
 
 - [ ] **Privilege Escalation:** After gaining low-privilege shell, use **kernel exploits, SUID binaries, sudo misconfigs, service misconfigurations** for root/SYSTEM.
 
@@ -551,10 +605,18 @@
 > - 🔴 `Hacking APIs Breaking Web Application Programming Interfaces - Corey` — Full book — the best dedicated API security resource; maps directly to this Part
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG API test cases; use IDs when writing reports
 
+> [!TIP]
+> ⏱️ **Module 17 Total Time Budget: 1 week**
+> T1 (API recon/mapping): 1–2 days | T2 (OWASP API Top 10): 2 days | T3 (protocol-specific): 1 day | T4 (auth/token attacks): 1 day | T5 (defense/hardening): 1 day.
+> crAPI (Completely Ridiculous API) is the Juice Shop of API security — set it up locally and work through every OWASP API Top 10 challenge. If you cannot find BOLA on crAPI, you will not find it in a real engagement. API security is the fastest-growing bug bounty category right now.
+
 ### Topic 1: API Reconnaissance & Mapping — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Discover and map API attack surface.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — API discovery (JS source analysis with LinkFinder/gau — extract every endpoint from client bundles; Wayback Machine API path extraction; Google Dorks: site:target.com with api/v in the path; Shodan for exposed Swagger/OpenAPI), spec file harvesting (test /swagger.json, /api-docs, /openapi.yaml, /graphql — an exposed Swagger spec gives you the entire API surface in minutes), endpoint enumeration (ffuf and kiterunner with API-specific wordlists from SecLists Discovery/Web-Content/api/), technology fingerprinting (identify auth scheme from response headers: Bearer token, API key in header, Cookie). Deliverable: enumerate all API endpoints of crAPI or a PortSwigger API lab and produce a schema map before attempting any exploitation.
 
 - [ ] **API Discovery:** Find undocumented endpoints via **JS file analysis, Wayback Machine, Google Dorks (`site:target.com api`), Shodan**, and **Burp Suite passive crawling**.
 
@@ -570,6 +632,9 @@
 
 > [!TIP]
 > **Goal:** Methodically test each API-specific vulnerability class.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Work through all 10 API categories in order on crAPI: API1 BOLA (substitute user IDs in vehicle/community endpoints, access other users data), API2 broken auth (test token expiry, no logout invalidation, rate limit on login), API3 BOPLA mass assignment (send extra fields in PUT: admin:true, credit:99999), API4 resource consumption (missing pagination, request very large record sets), API5 BFLA (access /api/admin/ with regular user token), API6 business logic (coupon redemption race condition), API7 SSRF (supply internal URLs to external-facing API parameters), API8 misconfiguration (debug endpoints, verbose errors exposing stack traces), API9 inventory (test /api/v1/ and /api/v2/ for deprecated endpoints still active), API10 unsafe third-party consumption (trusted external data injection). Deliverable: complete all crAPI OWASP API Top 10 challenges with documented payloads for each.
 
 - [ ] **API1 — Broken Object Level Authorization (BOLA/IDOR):** Substitute **object IDs** (user, order, account) in requests to access **other users' resources** without authorization check.
 
@@ -598,6 +663,9 @@
 > [!TIP]
 > **Goal:** Attack REST, GraphQL, gRPC, and SOAP distinctly.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — GraphQL (introspection dump using the standard schema query — if blocked, use Clairvoyance field suggestion enumeration; batching/alias abuse to bypass rate limits sending 100 login mutations in one request; nested circular query DoS; BOLA on mutations), gRPC (grpcurl service list/describe to enumerate methods; test auth interceptor absence by calling without token; Evans for interactive shell), SOAP/XML (inject XXE payload in SOAP body with external entity referencing /etc/passwd, WS-Security header bypass). Deliverable: perform a full GraphQL introspection dump on a lab target, extract the full schema, and find one exploitable BOLA or BFLA mutation.
+
 - [ ] **GraphQL Attacks & Schema Extraction:**
   - Execute **introspection queries** (`__schema`, `__type`) to recover the full type system, fields, queries, and mutations.
   - If introspection is disabled, use **field suggestion enumeration** (e.g., Clairvoyance) exploiting server error feedback ("Did I mean ...?").
@@ -616,6 +684,9 @@
 > [!TIP]
 > **Goal:** Break API authentication mechanisms.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — JWT attacks (same as Module 15 T3 — alg:none, RS256 to HS256, kid injection, jku header pointing to attacker JWKS; use jwt-tool -T flag for all tamper modes in sequence), OAuth 2.0 (open redirect in redirect_uri: add attacker domain, check if server validates strictly or just prefix-matches; state parameter CSRF; token leakage via Referer), API key hunting (JS bundles grep for api_key/apikey; git history search for AWS AKIA prefix keys; response headers; error messages). Deliverable: find an exposed API key in a JS bundle or GitHub repo ethically via bug bounty or practice repo and document the discovery methodology.
+
 - [ ] **JWT Attacks:** Test **`alg:none` bypass, RS256→HS256 confusion, weak secret brute-force (hashcat mode 16500), kid injection, jku/x5u header injection** to forge arbitrary tokens.
 
 - [ ] **OAuth 2.0 Attacks:** Exploit **CSRF on authorization endpoint, open redirect in redirect_uri, state parameter bypass, token leakage via Referer header**.
@@ -630,6 +701,9 @@
 
 > [!TIP]
 > **Goal:** Know what defenders implement so I can test it properly.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — API gateway controls (rate limiting verification: does the limit reset per minute, per IP, or per token — test all three), input validation (verify schema enforcement is server-side, not just OpenAPI doc — send unexpected types, extra fields, negative numbers, Unicode fuzz), logging and monitoring (verify every API call produces a log entry with user context, IP, endpoint, status code — test what happens with missing auth header — is it logged or silently dropped). Deliverable: write a 1-page API security hardening checklist covering auth, rate limiting, input validation, and logging for a REST API.
 
 - [ ] **API Gateway Controls:** Understand **rate limiting, quota enforcement, request validation, JWT verification, IP allowlisting** at the gateway layer.
 
@@ -666,10 +740,18 @@
 > - 🟡 `Web security testing guide` — Reference — OWASP WSTG test case IDs for reporting (e.g. WSTG-INPV-05)
 > - 🟢 `Web Application Pentest Methodology` — Reference — structured methodology doc to use during assessments
 
+> [!TIP]
+> ⏱️ **Module 18 Total Time Budget: 1–2 weeks**
+> T1 (preparation/scoping): 1 day | T2 (recon): 1–2 days | T3 (vuln assessment): 2 days | T4 (exploitation/validation): 2 days | T5 (reporting/triage): 1 day | T6 (professional dev): 1 day.
+> Bug bounty is where you convert skill into money and reputation. The methodology here is not theory — it is a repeatable workflow. Most important habit: always read the scope first, always recon before touching anything, and always write up every finding even if you do not submit it.
+
 ### Topic 1: Preparation & Scoping — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Stay legal and define the target.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Legal check (read the entire program policy — Safe Harbor clause, Exclusions list, Disclosure rules; understand what out-of-scope means legally — testing an excluded asset can void Safe Harbor), scope validation (draw a scope boundary: in-scope domains, IPs, wildcard vs specific; note explicit exclusions), framework selection (OWASP WSTG for testing methodology — NOT OWASP Top 10 which is a classification list; PTES for engagement structure; understand the distinction cold — interviewers ask this). Deliverable: read the full policy of 3 live HackerOne programs, extract the scope boundaries, and identify any interesting wildcard subdomains or asset types included.
 
 - [ ] **Legal Check:** Read and sign the `Penetration Testing Rules of Engagement` or the Bug Bounty Policy (Safe Harbor).
 
@@ -689,6 +771,9 @@
 
 > [!TIP]
 > **Goal:** Find what others missed.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Subdomain enumeration (amass, subfinder, assetfinder — run all three and merge with sort -u; permutation with altdns/dnsx to discover staging and dev infrastructure), port scanning (naabu/masscan for speed, resolve live web services with httpx using title, tech-detect, status-code, and cdn flags — filter CDN-proxied hosts for direct-IP scanning), JS source analysis (katana spider and LinkFinder extract: every internal endpoint, API key, and route from client bundles; jsbeautifier for deobfuscation), hidden parameter discovery (arjun/x8 — discover undocumented query params that enable debug modes or admin features). Deliverable: run a full recon pipeline on one HackerOne in-scope wildcard domain and produce an asset inventory with at least 20 discovered subdomains, their tech stacks, and any interesting endpoints.
 
 - [ ] **Subdomain Enumeration & Asset Discovery:**
   - Enumerate root domains, ASN blocks, and CIDRs using `amass`, `subfinder`, and `assetfinder`.
@@ -715,6 +800,9 @@
 > [!TIP]
 > **Goal:** Find the flaw.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Input fuzzing (every input field: SQLi probe with single quote, XSS probe with script tag, SSTI probe with 7 multiplied by 7 expression, command injection probe, SSRF probe with internal IPs — test each in Burp Repeater manually before running Intruder), access control testing (IDOR: grab an authenticated request with your user ID, change it to another ID in Repeater — do you see their data? privilege escalation: authenticated as user, hit admin-only endpoint), configuration checks (exposed .git: /.git/HEAD returns ref: refs/heads/main — use git-dumper to extract full source; directory listing; default credentials on admin panels). Deliverable: find and document one valid bug on a live HackerOne/Bugcrowd program or a PortSwigger expert-level lab.
+
 - [ ] **Input Fuzzing:** Test all input fields for `SQL Injection` (WSTG-INPV-05), `Cross-Site Scripting` (WSTG-CLNT-01), `Command Injection` (WSTG-INPV-12), `Server-Side Template Injection` (WSTG-INPV-18), `HTTP Parameter Pollution`, and `Mass Assignment` vulnerabilities.
 
   > [!NOTE]
@@ -731,6 +819,9 @@
 > [!TIP]
 > **Goal:** Prove the risk without breaking the system.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — PoC development (non-destructive only: alert(document.domain) for XSS, whoami for RCE, read /etc/hostname for LFI, exfil your own account data for IDOR — never another user real data), false positive check (verify finding at least 3 times with different browsers/sessions; confirm it is not a test environment or WAF block being misread), impact escalation (chain findings: SSRF plus IMDS equals cloud credential theft; XSS plus CSRF equals account takeover; IDOR plus no auth equals mass data exposure — document the full chain in your PoC). Deliverable: write a complete PoC for one finding that includes curl commands or Burp requests that reproduce it end-to-end in under 2 minutes.
+
 - [ ] **PoC Development:** Create a non-destructive Proof of Concept. (e.g., `alert(1)` for XSS, `whoami` for RCE).
 
 - [ ] **False Positive Check:** Verify the finding is a `True Positive` before reporting.
@@ -743,6 +834,9 @@
 
 > [!TIP]
 > **Goal:** Get paid and drive remediation.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Impact assessment (translate technical finding to business risk: attacker can read all users order history vs IDOR on /api/orders — the first gets triaged, the second gets marked as informational), proof of concept structure (title that describes the impact not the technique; numbered reproduction steps; evidence with screenshots and raw Burp request; CVSS score calculated and justified), remediation guidance (specific code-level fix: use parameterized queries with example vs fix SQL injection — the first gets patched, the second gets reopened). Deliverable: write one complete HackerOne-format report for a finding from Topic 3 or 4 and review it against HackerOne disclosure standards.
 
 - [ ] **Impact Assessment:** Clearly explain **business risk** (data breach, financial loss, compliance violation) to management.
 
@@ -758,6 +852,9 @@
 
 > [!TIP]
 > **Goal:** Build skills and reputation.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Platform selection (HackerOne vs Bugcrowd vs Intigriti: start with programs that have high response rate, large scope, and private invites available; avoid no-monetary-reward programs until you need portfolio pieces), specialization targeting (identify which of your strongest skills — API, web, auth — and filter for programs with that scope), documentation system (create a personal finding tracker: target, date, vulnerability class, status, payout — this becomes your portfolio; commit all reports and PoCs to a private Git repo organized by program), community engagement (follow real hunters on Twitter: read their disclosed reports to learn what a good report looks like). Deliverable: set up your HackerOne profile, join 3 public programs, and start your personal finding tracker.
 
 - [ ] **Platform Selection:** Focus on **HackerOne, Bugcrowd, Synack, Intigriti** platforms with active programs.
 
@@ -1034,7 +1131,9 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ### Topic 1: Defensive Architecture — 🧠 Conceptual
 
-- [ ] **Defense-In-Depth:** Layer **EDR, SIEM, CASB, firewall, WAF, IDS/IPS, DNS filtering** with **proper tuning** to reduce false positives and enable hunting.
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Defense-in-depth mapping (EDR protects the endpoint process layer; SIEM aggregates and correlates logs across layers; CASB controls SaaS data flows; WAF filters HTTP at the edge; IDS/IPS detects and blocks network anomalies; DNS filtering prevents C2 resolution — know which layer catches which attack category), threat hunting basics (search for parent-child process anomalies: cmd.exe spawned by winword.exe is always suspicious; unsigned DLLs loaded by trusted processes; scheduled tasks created in the last 24 hours; registry Run keys modified today), incident response plan structure (Detection → Containment → Eradication → Recovery → Lessons Learned; each phase has a clear owner and a decision gate before proceeding). Deliverable: draw a defense-in-depth stack for a mid-size org and annotate which layer detects which MITRE ATT&CK tactic.
+
 
 - [ ] **Threat Hunting:** Proactively search for **suspicious patterns** (parent/child process anomalies, unsigned DLLs, scheduled task abuse, registry modifications) using **Sigma rules, YARA, KQL**.
 
@@ -1044,7 +1143,9 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ### Topic 2: Offensive Indicators & TTPs — 🧠 Conceptual
 
-- [ ] **IOC Identification:** Recognize **file hashes, domains, IPs, email patterns, behavioral signatures** that map to known attack frameworks (Cobalt Strike, [[Metasploit_Framework|Metasploit]], custom).
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — IOC identification (file hash: SHA-256 of malicious binary; domain: C2 callback domain; IP: C2 or staging server; behavioral signature: process hollowing into svchost.exe — know the IOC category determines how fast an attacker can rotate it), MITRE ATT&CK mapping (for each detected behavior, open navigator.attack.mitre.org and find the matching technique — this tells you what other techniques the same attacker likely used), artifact analysis (Prefetch: shows what executed and when; MFT: file creation/modification timeline; Windows Event Log 4624/4625: authentication events; registry HKCU Run: persistence; browser history: C2 domain research before the attack). Deliverable: take a publicly available threat report and extract all IOCs, map 3 behaviors to MITRE ATT&CK, and name the forensic artifact that would evidence each.
+
 
 - [ ] **MITRE ATT&CK Mapping:** Correlate **detected behaviors** to **tactics/techniques** to understand adversary intent and prioritize detection investment.
 
@@ -1054,7 +1155,9 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ### Topic 3: Evasion Detection & Hardening — 🔬 Practical
 
-- [ ] **Living-off-the-Land Detection:** Monitor **native binary execution** (PowerShell, WMI, certutil, mshta, bitsadmin) with **process whitelisting, memory pattern analysis, and behavioral indicators**.
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — LOLBin detection (enable Sysmon Event ID 1 process creation with full command line; enable PowerShell Script Block Logging Event ID 4104; alert on: powershell.exe -EncodedCommand, certutil -urlcache -split, mshta.exe executing VBScript, bitsadmin /transfer, regsvr32 /s /u /i:http — each of these is a legitimate Windows tool being weaponized), obfuscation analysis (entropy analysis: packed PE files have high Shannon entropy — >7.0 is suspicious; AMSI triggers on suspicious string patterns before script execution; behavioral sandboxing: run suspicious script in a VM with process monitoring), anti-forensics detection (wevtutil cl Security generates Event ID 1102 — alert on this; PowerShell history deletion generates ScriptBlock events if logging is enabled; immutable SIEM logs defeat local log clearing). Deliverable: set up Sysmon in a lab VM, run one LOLBin command, and verify Sysmon Event ID 1 captured the command line.
+
 
 - [ ] **Obfuscation Analysis:** Detect **encoded payloads, packed executables, script obfuscation** via **entropy analysis, dynamic detonation, behavioral sandboxing**.
 
@@ -1066,7 +1169,9 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ### Topic 4: Detection Engineering & Response — 🔬 Practical
 
-- [ ] **Detection Rules:** Write **Sigma, Snort/Suricata, Yara, osquery** rules targeting **adversary TTPs** from reconnaissance to exfiltration.
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Detection rules (Sigma: write a Sigma rule for T1053.005 Scheduled Task Creation targeting Event ID 4698; test with sigma-cli against your log samples; Snort/Suricata: write a rule that detects DNS queries with subdomains over 50 characters for DNS exfiltration detection; YARA: write a rule that matches a malicious PE by import hash or byte pattern; osquery: SQL query for processes with network connections that are not in a known-good whitelist), alert tuning (baseline normal traffic for 3 days before writing alerts; set alert threshold at 3 standard deviations above baseline; every alert should have a runbook linked before it goes to production), SOC playbooks (alert X → triage steps A B C → if positive, escalate to tier 2 → contain by isolating host → remediate by resetting credentials → document timeline). Deliverable: write a complete Sigma rule for one MITRE ATT&CK technique, test it in a lab SIEM, and document its true positive and false positive behavior.
+
 
 - [ ] **Alert Tuning:** Baseline **normal traffic/processes**, establish **alert thresholds**, reduce **false positives** to improve SOC efficiency.
 
@@ -1088,6 +1193,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Understand modern endpoint and extended detection capabilities.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — EDR architecture (agent installed on endpoint: hooks process creation, DLL loads, file writes, network connections, registry changes; telemetry ships to cloud backend for correlation; response: isolate host, kill process, delete file, collect forensic snapshot), EDR capabilities (behavioral analysis detects patterns regardless of signature: if notepad.exe spawns cmd.exe and makes an outbound connection, that is flagged regardless of whether the payload is known; AMSI integration: EDR receives every script before execution via AMSI interface), EDR evasion (process injection into already-running trusted processes hides the malicious thread within a legitimate process; direct syscalls bypass userland hooks; DLL side-loading: legitimate binary loads an attacker DLL from the same directory), XDR (correlates endpoint alert with network flow and identity event: login anomaly plus lateral movement network traffic plus process injection = high-confidence kill chain). Deliverable: research one commercially available EDR product, document its detection mechanisms, and identify 2 known evasion techniques with their detection countermeasures.
+
+
 - [ ] **EDR Architecture:** Understand **agent-based detection (process, file, registry, network), telemetry collection, cloud backend, response orchestration**.
 
 - [ ] **EDR Capabilities:** Know **behavioral analysis, memory scanning, AMSI integration, ETW collection, indicator of compromise (IOC) matching**.
@@ -1104,6 +1213,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Understand Security Operations Center workflow and SIEM correlation.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — SIEM basics (deploy Splunk Free or Wazuh in a VM; ingest Windows Event Logs, Sysmon, Linux auth logs; understand the pipeline: log collection agent → parsing → normalization → indexing → correlation → alert), log collection checklist (Windows: Event IDs 4624 logon, 4625 failed logon, 4688 process creation, 4698 scheduled task, 4719 audit policy change, 7045 service install; Sysmon: IDs 1 3 7 11; Linux: /var/log/auth.log for SSH and sudo), alert correlation (multi-stage detection: failed logon from external IP → then successful logon from same IP → then process creation 4688 = brute force to foothold; write this as a correlation rule with a time window), SOC workflow (Tier 1: triage alert, classify real/false positive; Tier 2: investigate, scope, contain; Tier 3: threat hunt, root cause, improve detection), SIEM query fluency (SPL: index=wineventlog EventCode=4625 | stats count by src_ip | where count > 10; KQL: SecurityEvent | where EventID==4625 | summarize count() by IpAddress | where count_ > 10). Deliverable: deploy a SIEM, ingest logs from 3 sources, and write an alert for brute-force login detection.
+
 
 - [ ] **SIEM Basics:** Understand **log aggregation, parsing, normalization, correlation, enrichment** using tools like **Splunk, ELK, ArcSight, QRadar**.
 
@@ -1131,6 +1244,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Learn proactive threat hunting to find advanced threats.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Hunting hypotheses (start from MITRE ATT&CK: pick T1053.005 Scheduled Task — hypothesis: are there scheduled tasks created in the last 30 days that run from user-writable paths or execute encoded commands?; pick T1021.002 SMB lateral movement — hypothesis: are there machines making SMB connections to other workstations? this is abnormal in most environments), data source selection (scheduled task hypothesis → Windows Event ID 4698 plus Sysmon Event 1 plus process creation command line; SMB hypothesis → network flow data plus Windows Event 4624 logon type 3), query construction (SPL: index=wineventlog EventCode=4698 | eval CommandLine=tostring(TaskContent) | search CommandLine=*Encoded* OR CommandLine=*hidden*; this finds tasks with obfuscated commands), pivot and correlate (found suspicious task created by user X → pivot to all actions by user X in last 30 days → found lateral movement → pivot to destination host), Jupyter notebook hunting (pull data via MSTICPy into pandas, apply z-score anomaly detection, visualize timeline). Deliverable: execute one complete threat hunt end-to-end: hypothesis → query → results → pivot → documented conclusion.
+
+
 - [ ] **Hunting Hypotheses:** Formulate hypotheses based on **MITRE ATT&CK, threat reports, prior compromises** (e.g., "Are scheduled tasks being abused?").
 
 - [ ] **Data Source Selection:** Choose **event logs, network traffic, process telemetry, file integrity monitoring** appropriate for hypothesis.
@@ -1149,6 +1266,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Understand the incident response lifecycle.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Detection and analysis (receive alert → triage: is this a true positive? scope: how many systems affected? classify: what is the incident type — malware, unauthorized access, data breach? declare incident if confirmed — do not investigate without declaring), containment strategy (short-term: isolate the affected host from the network immediately — do not power it off; long-term: reset all credentials that were accessible from the compromised host; patch the exploited vulnerability — do not patch before isolating), eradication (remove every persistence mechanism: check scheduled tasks, registry Run keys, new local admin accounts, installed services, WMI subscriptions — if you miss one, the attacker maintains access), recovery (rebuild from known-good image where possible; restore from backup that predates the compromise; verify integrity before reconnecting to the network), forensic preservation (collect before containing when possible: memory dump with winpmem before isolation; disk image with FTK Imager; export relevant event logs). Deliverable: produce a structured incident timeline for a simulated scenario with timestamps and evidence sources for each entry.
+
 
 - [ ] **Detection & Analysis:** Receive **alert/complaint → triage → determine if real incident → declare incident**.
 
@@ -1175,6 +1296,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Collect and analyze evidence of compromise.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Live response (order of volatility: CPU registers > RAM > running processes > network connections > disk — collect in this order before shutdown; Sysinternals: pslist, netstat, autoruns for running processes and connections; winpmem or DumpIt for memory capture), disk imaging (dd if=/dev/sda of=/mnt/external/image.raw bs=4M for Linux; FTK Imager for Windows GUI-based acquisition; verify hash before and after — SHA-256 must match for evidence integrity), timeline analysis (log2timeline/plaso: parse 30+ artifact types into a single timeline; filter with psort; look for activity clustering at the time of the incident), artifact examination (Prefetch at C:\Windows\Prefetch: shows last 8 execution times of each executable; Shimcache/Amcache: shows all executables that ran on the system even if Prefetch is cleared; LNK files: show recently accessed files; MFT: file creation/modification/deletion timestamps), memory analysis (Volatility: vol.py -f memory.raw --profile=Win10x64 pslist; malfind finds injected shellcode in process memory; cmdline shows what commands each process ran). Deliverable: use Volatility to analyze a publicly available memory dump and document: process list, network connections, and any injected code found.
+
+
 - [ ] **Live Response:** Collect **running processes, network connections, logged-in users, active services** before shutdown (loses volatile data).
 
 - [ ] **Disk Imaging:** Create **bit-for-bit copy** of drives for **offline analysis**, use tools like **dd, Acquire, [[FTK_Imager]]**.
@@ -1191,6 +1316,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Know how defenders detect and counter red team techniques.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Process whitelisting (AppLocker uses publisher, path, or hash rules; Device Guard WDAC is stronger — GPO-deployed; evasion: use a signed Microsoft binary like msbuild.exe to execute code — this is a LOLBin bypass that evades hash-based whitelisting), memory protection (DEP/NX prevents code execution in data pages — defeats basic shellcode injection; ASLR randomizes base addresses — requires info leak to bypass; CET prevents ROP by validating return addresses against a shadow stack), signing checks (code signing verification: only signed drivers load on 64-bit Windows by default; attackers steal or purchase code signing certs to legitimize malware), logging and audit (Sysmon Event ID 10: process access — detects LSASS memory reads via OpenProcess; ETW: kernel-level telemetry that EDRs consume to detect direct syscall patterns), behavioral blocking (Microsoft Defender ASR rules: block Office from creating child processes, block credential stealing from LSASS; these are specific ATT&CK-aligned rules that block common red team techniques). Deliverable: configure 3 ASR rules in a lab Windows VM and verify they block the targeted behavior.
+
 
 - [ ] **Process Whitelisting:** Defenders use **AppLocker, Device Guard** to allow only **approved executables**; evade via **living-off-the-land** or **trusted paths**.
 
@@ -1230,6 +1359,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Establish the theoretical base and network understanding.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Defense in depth (each layer assumes the layer above has already been bypassed: firewall at perimeter, IDS on internal segments, EDR on endpoints, SIEM correlating all layers; each layer must be independently effective), network segmentation (DMZ: public-facing servers isolated from internal network; internal segmentation: finance VLAN, dev VLAN, production VLAN cannot communicate directly; blast radius containment means a compromise in one segment cannot laterally move to another without crossing a security control), protocol knowledge (TCP 3-way handshake: SYN → SYN-ACK → ACK establishes session; TLS handshake: ClientHello → ServerHello → Certificate → key exchange; secure vs insecure: SSH=secure, Telnet=cleartext; HTTPS=secure, HTTP=cleartext; SFTP=secure, FTP=cleartext). Deliverable: draw a network architecture diagram showing DMZ, internal segments, and security control placement at each boundary.
+
+
 - [ ] **Defense in Depth:** Adopt the `Understand Concept of Defense in Depth` philosophy, using multiple layers of security controls.
 
 - [ ] **Network Segmentation:** Design the network with clear boundaries, utilizing `Perimeter vs DMZ vs Segmentation` to limit blast radius.
@@ -1243,6 +1376,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Implement access control and segmentation.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Perimeter defense (NGFW: stateful inspection plus application awareness plus IPS plus SSL inspection; configure default deny inbound with explicit allow for known services: 80, 443, 25; configure egress filtering: allow only expected outbound traffic — outbound port 4444 should never fire; ACL ordering: more specific rules first, default deny last), host-based firewall (Windows Defender Firewall: configure application-specific rules; iptables/nftables on Linux: iptables -A INPUT -p tcp --dport 22 -j ACCEPT; iptables -A INPUT -j DROP; verify with iptables -L -v), log analysis (firewall deny logs reveal scanning activity; allowed traffic with high data transfer to unknown external IPs suggests exfiltration; correlate firewall drops with IDS alerts for confirmation). Deliverable: configure a pfSense or iptables firewall in a lab with 5 specific allow rules and a default deny policy, then verify that blocked traffic generates log entries.
+
+
 - [ ] **Perimeter Defense:** Deploy a `Firewall & Nextgen Firewall` at the network edge, configuring `ACLs` for ingress and egress filtering.
 
 - [ ] **Endpoint Protection:** Enable and configure `Host Based Firewall` on servers and workstations for granular `Port Blocking`.
@@ -1255,6 +1392,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Detect and stop malicious traffic that bypasses firewalls.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Strategic deployment (NIDS: span port or network tap at network boundary; Suricata in IDS mode reads all traffic on the span and generates alerts; in IPS inline mode it can drop packets; place sensors at: internet edge, DMZ-internal boundary, inter-VLAN routing), host monitoring (HIPS/OSSEC/Wazuh: agent on each host monitors file integrity, process creation, log events; file integrity monitoring alerts when /etc/passwd or Windows System32 binaries change), rule tuning (Suricata: use emerging threats ruleset as baseline; tune false positives by adding threshold rules or modifying specific signatures; measure: 0 false positives per day is the goal for high-confidence rules), SIEM integration (forward Suricata alerts via EVE JSON to SIEM; correlate with authentication logs: Suricata exploit alert from IP X plus Event 4624 successful logon from IP X within 5 minutes = confirmed compromise). Deliverable: deploy Suricata in a lab, write one custom rule that triggers on a specific HTTP User-Agent string, and verify it fires.
+
 
 - [ ] **Strategic Deployment:** Place `NIDS` sensors at critical network choke points to monitor east-west and north-south traffic.
 
@@ -1270,6 +1411,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Deploy detection-layer deception that catches attackers operating quietly below IDS thresholds, while understanding how attackers evade it.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Honeypot deployment (Cowrie SSH honeypot: install, configure on port 22 or 2222, redirect real SSH to 2222 via iptables, let Cowrie listen on 22; all connection attempts are logged with commands entered; attackers attempting to brute-force SSH hit Cowrie first), canary tokens (canarytokens.org: generate a DNS token, embed in a fake aws_credentials.txt file, open the file from an internet-connected machine — the DNS beacon fires; generate an HTTP token, embed in a fake internal doc, share on a honeypot file share — access triggers the alert with attacker IP and user-agent), honeyfiles and honeycredentials (place credentials.txt containing fake credentials in common share locations; monitor for those credentials appearing in authentication logs — any use proves active compromise), attacker evasion awareness (honeypot fingerprinting: near-perfect uptime, blank service banners, file timestamps too recent — defenders counter by making deception realistic). Deliverable: deploy Cowrie in a lab, generate a canary token and embed it in a fake file, trigger both, and document the alert output.
+
 
 - [ ] **Honeypot Deployment:** Deploy `Honeypots` (both low and high interaction) in the DMZ and internal network to attract attackers. Use **Cowrie** (SSH/Telnet), **HoneyD**, or **T-Pot** (multi-protocol stack). Log every interaction and correlate to SIEM.
 
@@ -1317,6 +1462,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Integrate into daily security operations.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Incident response integration (during an active incident, IDS alerts provide the initial timeline: first malicious packet at timestamp X, lateral movement SMB traffic at Y, exfiltration DNS traffic at Z — the IDS timeline reconstructs the attack sequence; honeypot alerts indicate active reconnaissance or credential use; use all three during containment to understand scope), zero trust alignment (firewall policies should implement implicit deny by default and explicit allow for authenticated, device-verified sessions only; micro-segmentation using host-based firewall rules enforces this at the endpoint level), threat intelligence integration (feed IOC lists from MISP or commercial intel into your firewall blocklist and IDS rule updates; blocklisting known C2 IPs at the firewall stops callbacks even if an endpoint is compromised), red and purple team testing (run a simulated attack against your own controls annually; measure: did the firewall block the expected traffic? did the IDS alert on the expected patterns? if not, tune). Deliverable: run one simulated attack against your lab defenses and document which controls fired and which missed.
+
+
 - [ ] **Incident Response Integration:** Utilize these tools during **Incident Response Process** for rapid **threat identification and containment** of affected systems.
 
 - [ ] **Zero Trust Alignment:** Ensure firewall and IPS policies align with **Zero Trust** principles, verifying every connection attempt.
@@ -1333,6 +1482,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Secure the #1 initial access vector — email infrastructure.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Email authentication (SPF: dig TXT domain.com; v=spf1 include:mailprovider.com ~all — the ~all softfail still allows delivery and is exploitable; use -all hard fail for stricter enforcement; DKIM: email is signed with private key, recipient verifies with public key in DNS — modify email body and signature verification fails; DMARC: p=reject means unauthenticated email is rejected — p=none only monitors; validate with dmarcian or MXToolbox), SEG (Proofpoint or Defender for O365: attachment sandboxing detonates attachments in a VM before delivery; URL rewriting wraps all links through a proxy that checks at click time rather than delivery time; anti-phishing: display name spoofing alert fires when sender display name matches an exec but domain does not match), email DLP (DLP policy: if email contains PII pattern like SSN or credit card number, hold for review before delivery; test by sending a test pattern to an external address), mail flow analysis (Received headers trace the path from sender to recipient; Message-ID is unique per message and persists across forwarding — use for campaign tracking). Deliverable: configure SPF, DKIM, and DMARC for a test domain and validate all three with MXToolbox.
+
 
 - [ ] **Email Authentication (SPF/DKIM/DMARC):** Configure **SPF records** (authorized senders), **DKIM signing** (message integrity), and **DMARC policies** (alignment enforcement with p=reject). Validate with **dmarcian, MXToolbox, Google Postmaster**.
 
@@ -1352,6 +1505,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Detect and prevent DNS-based attacks and data exfiltration.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — DNSSEC (DNSKEY record holds the public key; RRSIG signs each DNS record set; DS record in the parent zone links to child zone’s DNSKEY; validation chain proves the response was not tampered — DNSSEC prevents cache poisoning but does not encrypt; validate with dig +dnssec domain.com), DoH and DoT (DoH on port 443 is indistinguishable from HTTPS traffic — traditional DNS monitoring goes blind; detect by blocking known DoH resolver IPs: 1.1.1.1 on port 443, 8.8.8.8 on port 443 at the firewall; endpoint policy: push internal DNS resolver via DHCP so clients use your monitored resolver), DNS sinkholing (configure internal resolver to return 0.0.0.0 for known malicious domains; any hit on the sinkhole IP in SIEM = infected host calling C2 — high-confidence alert), DNS exfiltration detection (dnscat2 sends data in subdomain labels: data.encoded.c2domain.com; alert on: subdomain label length >50, query rate >100/min to single domain, unusual TXT record requests). Deliverable: set up a DNS sinkhole in your lab for one malicious domain category and verify it redirects lookups and generates a log entry.
+
 
 - [ ] **DNSSEC:** Understand **DNSSEC signing, validation chain, DS/DNSKEY records**, and deployment challenges. Know how DNSSEC prevents **cache poisoning** but does not encrypt queries.
 
@@ -1392,6 +1549,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Monitor and inventory the organization's exposed attack surface from the outside and ingest threat indicator feeds.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Asset inventory and shadow IT discovery (run amass intel -org "Target Corp" to enumerate ASN and IP ranges; use Shodan to find exposed services on those ranges: shodan search org:"Target Corp"; identify services that should not be internet-facing: RDP, VNC, SMB, management interfaces), certificate transparency monitoring (certstream in Python: stream all newly issued certificates and filter for your domain pattern; any new cert for *.target.com or target-login.com is a potential phishing domain requiring investigation), brand protection (dnstwist target.com to enumerate typosquats; urlscan.io for visual comparison; report takedowns to registrars and hosting providers), dark web and breach intelligence (HIBP API: check if corporate email domains appear in breach databases; Dehashed for credential search; monitor paste sites for API keys or code snippets mentioning your company), threat feed ingestion (abuse.ch ThreatFox: API returns current C2 indicators; import into MISP or directly into SIEM lookup tables). Deliverable: run a complete EASM scan on a fictional company domain, document discovered assets, and ingest one threat feed into your SIEM.
+
+
 - [ ] **Asset Inventory & Shadow IT Discovery:** Map and continuously monitor organizational **ASN ranges, public IP allocations, and registered domains**; identify shadow IT assets and abandoned cloud infrastructure.
 
 - [ ] **Certificate Transparency (CT) Monitoring:** Monitor **Certificate Transparency logs in real-time** (via Certstream) to detect spoofed, typosquatted, or phishing domains newly provisioned against the company brand.
@@ -1409,6 +1570,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Convert raw indicators into actionable threat models and adversary profiles.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Pyramid of Pain (hashes: trivial for attacker to change by recompiling; IPs: easy to rotate; domains: slightly harder; tools: requires significant effort to replace custom tooling; TTPs: hardest — changing operational behavior requires retraining the entire team; detect TTPs, not just indicators), Diamond Model (Adversary → Capability → Infrastructure → Victim — correlate: APT29 uses specific C2 domains hosted on specific ASNs targeting specific government sectors — this tells you who else is likely targeted), threat actor profiling (read MITRE ATT&CK group pages for APT29, APT28, Lazarus; download Mandiant APT reports; identify: preferred initial access vector, C2 infrastructure characteristics, persistence mechanisms, target sectors), campaign tracking (same JARM TLS fingerprint across multiple C2 IPs = same threat actor; same code compilation timestamp pattern = same build environment; code reuse across malware families = same developer). Deliverable: produce a 1-page threat actor profile for one APT group from public sources covering initial access, C2, persistence, and target sectors.
+
+
 - [ ] **IOC vs TTP (The Pyramid of Pain):** Master **David Bianco's Pyramid of Pain** — understand why hash/IP blocking is trivial for adversaries to bypass, while detecting and mitigating **Tools and TTPs** forces high adversary rebuild costs.
 
 - [ ] **The Diamond Model of Intrusion Analysis:** Map attacks across the 4 core vertices: **Adversary, Capability, Infrastructure, and Victim**; correlate relationships between infrastructure and victimology.
@@ -1425,6 +1590,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Deploy and operate enterprise threat intelligence platforms to automate indicator ingestion, correlation, and decay.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — MISP platform operation (install via Docker or the official install script; subscribe to CIRCL default feeds in the Feeds menu; create an event: name it after a threat report, add attributes: IP type with value, domain type with value, hash type with SHA256 value; tag with MITRE ATT&CK galaxy cluster; share at community level; enable warninglists to suppress CDN IPs; test API with: curl -H "Authorization: YourKey" https://misp/events/index.json), enrichment modules (enable VirusTotal module in MISP settings; submit a hash and observe automatic enrichment; understand that enriched data ages and high-volume IOCs should have a decay model applied), MISP to SIEM pipeline (export active indicators via MISP feeds; configure Splunk or Wazuh to ingest via lookup table update; alert when any log matches an indicator), OpenCTI (STIX 2.1 object model: Observable → Indicator → Attack Pattern → Threat Actor; deploy with Docker Compose; import MISP feed as a connector). Deliverable: deploy MISP, subscribe to one feed, create one event from a threat report, and push one indicator to your SIEM lookup table.
+
 
 - [ ] **Threat Intelligence Platform (TIP) Architecture:** Understand the role of TIPs in enterprise SOCs: ingesting disparate feeds, normalizing formats, eliminating duplicates, scoring indicator confidence, and exporting actionable lists to defensive controls.
 
@@ -1447,6 +1616,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 > [!TIP]
 > **Goal:** Communicate intelligence effectively to stakeholders.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Intelligence report tiers (tactical: IOC list with hash, IP, domain — audience is the SIEM engineer who needs to configure blocklists and alerts; operational: TTP analysis with MITRE technique IDs and detection recommendations — audience is detection engineering team; strategic: threat trend summary with business risk framing — audience is CISO and board who need to make budget decisions), TLP classification (White: public; Green: share within community; Amber: share within org only; Red: eyes only for named recipients — apply these correctly to CTI reports or you create liability), STIX/TAXII (STIX 2.1: JSON format for expressing threat intelligence as structured objects; TAXII: HTTP-based protocol for sharing STIX objects between organizations — your MISP instance can act as a TAXII server), executive briefings (lead with business risk not technical detail: “Ransomware groups targeting our industry have encrypted 47 orgs in the last 90 days; our backup posture reduces recovery time but we have detection gaps in three areas”). Deliverable: write both a tactical and a strategic intelligence report on the same threat — document how the audience and framing differ.
+
+
 - [ ] **Intelligence Reports:** Create **tactical (IOCs), operational (TTPs), strategic (trends)** reports for different audiences.
 
 - [ ] **TLP Classification:** Apply **Traffic Light Protocol (White, Green, Amber, Red)** for information sharing sensitivity.
@@ -1463,6 +1636,10 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!TIP]
 > **Goal:** Close the gap between *collecting* threat intelligence and *acting on it*. A threat report with IOCs and TTPs has zero value if it sits in a PDF. This stage converts intel into SIEM rules, hunting queries, and detection coverage.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — IOC to SIEM pipeline (download a CISA advisory; extract all IPs, domains, file hashes; import into MISP as an event; configure your SIEM to query the MISP feed lookup table; write a SIEM alert that fires when any log entry matches an imported indicator; verify with a test DNS query for one of the extracted domains), TTP to detection rules (take Lazarus Group ATT&CK profile; pick T1059.001 PowerShell; write a Sigma rule: title: Lazarus PowerShell Execution, detection: EventID=4104 and ScriptBlockText contains EncodedCommand; test with sigma-cli convert and deploy to your SIEM; repeat for 3 TTPs), threat hunting from intel (hypothesis: if Lazarus operated in our environment, we would see BITS jobs created by Office processes; query: index=wineventlog EventCode=4688 ParentImage=*winword.exe* Image=*bitsadmin.exe*; run against lab data; document results even if negative — a negative hunt with documented methodology is still a valid deliverable). Deliverable: complete one full operationalization cycle: APT report → IOC import → SIEM alert → Sigma rule for 3 TTPs → threat hunt query → documented results.
+
 
 - [ ] **IOC → SIEM Pipeline:** Take a published threat report (e.g., [CISA advisories](https://www.cisa.gov/alerts-advisories), [Mandiant APT reports](https://www.mandiant.com/resources/reports), [Sekoia.io blog](https://blog.sekoia.io)) and extract IOCs (IPs, domains, hashes, registry keys, mutexes). Import them into my SIEM/MISP as custom indicators. Write SIEM queries that alert on these IOCs in real-time. Verify the alert fires against test traffic before marking the IOC as operational.
 

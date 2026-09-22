@@ -7,7 +7,7 @@
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
 |:---:|:---:|:---:|:---|
-| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#🗂️ Table of Contents|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 4|🎮 CTF Practice]] · [[#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting|🏁 Stage Gate 3]] |
+| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 4\|🎮 CTF Practice]] · [[#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting\|🏁 Stage Gate 3]] |
 
 ---
 
@@ -165,10 +165,19 @@
 > ```
 > **Do not attempt Entra ID / cloud identity before I understand on-prem Kerberos.** Hybrid identity attacks only make sense in context of the on-prem model.
 
+> [!TIP]
+> ⏱️ **Module 19 Total Time Budget: 2–3 weeks** — hardest module in Stage 4; core OSCP territory
+> T1 (discovery/enum): 2–3 days | T2 (credential/auth attacks): 3–4 days | T3 (delegation/ACL/ADCS): 3–4 days | T4 (lateral movement/persistence): 2–3 days | T5 (Entra ID/hybrid): 2 days.
+> Active Directory is the single most tested skill in offensive security interviews. If you can demonstrate BloodHound path execution, Kerberoasting, and DCSync on a real lab, you stand out. Compress nothing here.
+
 ### Topic 1: Discovery & Enumeration — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Map identity surfaces across on-prem AD and Entra ID (Azure AD).
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Domain recon (SharpHound/BloodHound-ce: run all collection methods, ingest data, identify shortest path to Domain Admin — this is the deliverable; ldapsearch and PowerView Get-DomainUser/Get-DomainGroup/Get-DomainController for manual enumeration), identity inventory (map all users, computers, service accounts, SPNs, and LAPS posture using Get-ADUser, Get-ADComputer, setspn -Q), policy and exposure audit (GPO enumeration: Get-GPO -All; unconstrained delegation: Get-ADComputer -Filter {TrustedForDelegation -eq $True}; LAPS check: Get-ADComputer -Properties ms-Mcs-AdmPwd), Entra ID recon (az ad user list, az ad sp list, ROADrecon for tenant app and conditional access enumeration). Deliverable: produce a BloodHound attack path graph from a lab domain showing the shortest path from a regular user to Domain Admin.
+
 
 - [ ] **Domain Recon:** Enumerate **domains/forests, trusts, sites, subnets, FSMO roles**; collect **OU/Group/ACL** data.
 
@@ -185,6 +194,10 @@
 > [!TIP]
 > **Goal:** Steal or replay credentials to gain higher privilege.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — Kerberoasting (GetUserSPNs.py or Rubeus kerberoast — request TGS for every SPN account; crack with hashcat mode 13100; prioritize high-privilege SPNs like SQLService, MSSQLSvc), AS-REP roasting (GetNPUsers.py against users without pre-auth required; crack with hashcat mode 18200), NTLM relay (Responder captures NTLMv2 hashes from unsolicited NBNS/LLMNR traffic; ntlmrelayx relays to SMB, LDAP, ADCS HTTP enrollment — which of these succeeds depends on SMB signing configuration), token abuse (Mimikatz sekurlsa::logonpasswords, sekurlsa::tickets, lsadump::dcsync; understand why LSASS dump triggers EDR and what alternatives exist), password spray (use safe lockout windows: spray one password per 30 min against all users; target legacy auth endpoints — OWA, SMTP, POP3 — that bypass MFA). Deliverable: Kerberoast at least one SPA and crack the hash; perform NTLM relay via Responder plus ntlmrelayx in a lab environment.
+
+
 - [ ] **Kerberoast / AS-REP Roast:** Extract **TGS/AS-REP** tickets for offline cracking; prioritize **high-priv SPNs**.
 
 - [ ] **NTLM Relay/SMB/HTTP:** Abuse **NTLM relays** against **SMB/LDAP/HTTP/ADCS HTTP endpoints**; combine with **mTLS gaps**.
@@ -199,6 +212,10 @@
 
 > [!TIP]
 > **Goal:** Abuse trust relationships and misconfigurations for escalation.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — Delegation abuse (Unconstrained: coerce DC authentication via SpoolSample/PetitPotam while monitoring with Rubeus monitor, harvest TGT from memory; Constrained: S4U2self to impersonate any user if SeTcbPrivilege or protocol transition allowed; RBCD: create machine account, set msDS-AllowedToActOnBehalfOfOtherIdentity via GenericWrite, S4U2proxy), ACL/ACE abuse (BloodHound identifies WriteOwner, WriteDACL, GenericAll, GenericWrite, ForceChangePassword paths — execute each step-by-step following BloodHound path, not guessing; shadow credentials via certipy shadow auto against computer accounts with GenericWrite), ADCS abuse (certipy find -vulnerable to enumerate; ESC1 to request admin certificate with attacker-controlled SAN; ESC8 to relay via PetitPotam to HTTP enrollment endpoint; certipy auth to convert PFX to TGT via PKINIT, then UnPAC-the-hash). Deliverable: exploit one ESC1 or ESC8 attack path on a GOAD or custom lab to obtain Domain Admin certificate.
+
 
 - [ ] **Delegation Abuse:** Exploit **Unconstrained Delegation** (harvesting TGTs from spooler abuse), **Constrained Delegation** (service/alt service S4U2self & S4U2proxy), and **Resource-Based Constrained Delegation (RBCD)** (configuring `msDS-AllowedToActOnBehalfOfOtherIdentity` via machine account creation).
 
@@ -223,6 +240,10 @@
 > [!TIP]
 > **Goal:** Move horizontally and maintain footholds.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Lateral movement (WinRM via evil-winrm with hash/ticket; SMB via impacket-smbexec or psexec; RDP with pass-the-hash where restricted admin mode is enabled; WMI via impacket-wmiexec; follow BloodHound CanPSRemote/CanRDP/ExecuteDCOM paths), GPO persistence (New-GPO + Set-GPRegistryValue to add logon script; requires GPO write permissions — BloodHound shows WriteDacl on GPO), DCSync (Mimikatz lsadump::dcsync /domain /user:krbtgt — requires Replicating Directory Changes All; impacket-secretsdump as alternative), Golden Ticket (Mimikatz kerberos::golden with krbtgt hash, domain SID, and target username — forges a TGT accepted by any DC in the domain), SID history injection for cross-forest attacks. Deliverable: perform lateral movement between two machines in a lab using Pass-the-Hash via impacket and establish persistence via a scheduled task GPO.
+
+
 - [ ] **Lateral Paths:** Use **WinRM/SMB/RDP/WMI/PowerShell Remoting**, **admin shares**, and **task/svc installs** guided by **BloodHound** paths.
 
 - [ ] **GPO Persistence:** Implant via **logon scripts, immediate scheduled tasks, startup items**; abuse **restricted groups** for re-add.
@@ -243,6 +264,10 @@
 
 > [!TIP]
 > **Goal:** Exploit cloud identity to pivot and persist.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Consent and OAuth abuse (register a malicious multi-tenant app in a lab Entra tenant; grant it Mail.Read and Files.ReadAll; send a consent phishing link to a test user; examine the refresh token obtained via device code flow), Conditional Access bypass (identify policies that exclude legacy auth — use SMTP/POP3/IMAP to authenticate without MFA), passwordless/passkeys attack surface (SSPR: if backup email/phone is attacker-controlled, account is compromised regardless of strong primary auth; FIDO2 registration: if initial registration is not MFA-gated, attacker can register their own key), cross-cloud pivot (Entra app with AWS OIDC federation trust: enumerate via az ad sp list — if trust exists, use Entra token to AssumeRoleWithWebIdentity in AWS). Deliverable: set up a lab Entra tenant, create a CA policy, and demonstrate one bypass condition with evidence.
+
 
 - [ ] **Consent & OAuth Abuse:** Steal or register **malicious multi-tenant apps**, abuse **illicit consent grants**, and persist via **refresh tokens**.
 
@@ -304,6 +329,10 @@
 > [!TIP]
 > **Goal:** Define the battlefield and the rules of engagement — understand the cloud responsibility model, IAM structure, and baseline security posture tools before touching any attack techniques.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Cloud model selection (IaaS: EC2/VMs — you own OS up; PaaS: Lambda/App Service — provider owns OS; SaaS: O365 — provider owns everything; the shared responsibility boundary defines what you test), IAM architecture review (AWS: root account → Organizations → accounts → users/roles/policies; Azure: Entra tenant → subscriptions → resource groups → resources; GCP: org → folders → projects → service accounts — know which identity types are exploitable at each level), security posture baseline (run ScoutSuite: scout aws ––report-dir ./report; Prowler: prowler aws; read the full output before starting any attack work), resource tagging (tags like Owner/Environment/CostCenter identify unauthorized resources — resources without standard tags are shadow IT worth targeting). Deliverable: run ScoutSuite or Prowler against a free-tier lab AWS account and document the top 5 findings by severity.
+
+
 - [ ] **Model Selection:** Select the correct `Cloud Models` (`Public`, `Private`, `Hybrid`) based on data sensitivity.
 
 - [ ] **Responsibility Mapping:** Apply the **Shared Responsibility Model** based on the service type (`IaaS`, `PaaS`, `SaaS`) to identify what I must secure vs. the provider.
@@ -322,6 +351,10 @@
 
 > [!TIP]
 > **Goal:** Enumerate, audit, and exploit cloud storage misconfigurations — the most common source of cloud data breaches.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — S3 bucket enumeration (aws s3api list-buckets; for each bucket: get-bucket-acl, get-bucket-policy, get-bucket-cors, get-public-access-block — look for AllUsers ACL grants or Principal:* in bucket policy), unauthenticated discovery (cloudbrute against organization name variants — company-backup, company-logs, company-dev), ACL and policy audit (AllUsers = fully public; AuthenticatedUsers = any AWS account — both are critical findings), CORS misconfiguration (AllowedOrigin:* with AllowCredentials enables cross-origin data theft from authenticated sessions — test with crafted Origin header), secrets scanning (trufflehog s3 ––bucket=name scans all objects for hardcoded credentials, API keys, private certs). Deliverable: complete flaws.cloud levels 1-3 which are all S3-based misconfigurations.
+
 
 - [ ] **Object Storage Security:** Audit `S3` buckets and `Common Cloud Storage` (Drive, Box) for public access and enforce encryption.
 
@@ -342,6 +375,10 @@
 > [!TIP]
 > **Goal:** Audit and attack the compute layer and the deployment pipeline — misconfigurations here grant persistent, privileged access.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — IaC security scanning (checkov -d ./terraform/ — identify open security groups, unencrypted S3, wildcard IAM policies; tfsec for Terraform-specific checks; cfn-nag for CloudFormation), Terraform state file exposure (terraform.tfstate contains plaintext resource metadata including IAM ARNs and sometimes credentials — check for state files in public S3 or committed to Git — use trufflehog for detection), CDK and serverless security (serverless.yml Lambda functions with * in IAM policies; API Gateway endpoints without auth; environment variables containing plaintext secrets — find these with grep or semgrep). Deliverable: run checkov against a sample insecure Terraform template and document every HIGH finding with remediation.
+
+
 - [ ] **Code-Defined Security:** Use `Infrastructure as Code` (IaC) to template firewalls and permissions, preventing human configuration errors.
 
 - [ ] **Serverless Hardening:** Secure `Serverless` functions by minimizing privileges and auditing dependencies for vulnerabilities.
@@ -360,6 +397,10 @@
 
 > [!TIP]
 > **Goal:** Use automation to enumerate, audit, and monitor cloud environments — understand what defenders see so I know what to avoid generating.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — AWS CLI enumeration checklist (aws iam list-users; aws iam list-roles; aws iam get-account-authorization-details dumps all policies, users, roles in one call; aws ec2 describe-instances; aws s3api list-buckets; aws lambda list-functions; for Azure: az account list; az role assignment list ––all; az vm list — run these in sequence as first step after any credential compromise), CloudTrail analysis (aws cloudtrail lookup-events ––lookup-attributes AttributeKey=EventName,AttributeValue=AssumeRole to trace lateral movement via role chaining; understand log retention gaps — events older than 90 days require S3 log archive access), Prowler multi-account mode (cross-account enumeration via sts:AssumeRole from auditor role — maps the full IAM attack surface across an AWS Organization). Deliverable: write a Boto3 script that enumerates all IAM users, their attached policies, and flags anyone with AdministratorAccess.
+
 
 - [ ] **Cloud Automation:** Use **Python (Boto3), Terraform, CloudFormation** to audit security groups and IAM roles automatically.
 
@@ -383,6 +424,10 @@
 
 > [!TIP]
 > **Goal:** Understand unique cloud threats.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — IAM exploitation and role chaining (pacu module iam__privesc_scan to identify privilege escalation paths; iam:PassRole to EC2/Lambda for escalation to higher-tier roles; iam:SetDefaultPolicyVersion to rollback to an overpermissive policy version), storage misconfigurations (already covered in T2 — extend to Azure blob container anonymous access and GCP bucket allUsers IAM binding), IMDS deep dive (IMDSv1: simple GET to 169.254.169.254/latest/meta-data/iam/security-credentials/role-name extracts temp STS keys; IMDSv2: requires PUT to get session token first, then GET with X-aws-ec2-metadata-token header — defeats blind SSRF that cannot set custom headers but not full SSRF or command injection on host), serverless attacks (Lambda environment variable extraction via SSRF to execution context, excessive Lambda execution role permissions, cold-start persistence via Lambda layers). Deliverable: complete CloudGoat iam_privesc_by_rollback or ecs_ecs_task_escape scenario and document the full attack path.
+
 
 - [ ] **IAM Exploitation & Role Chaining:**
   - Abuse **AssumeRole trust chains** across AWS accounts; enumerate trust policies using `pacu` or `enumerate-iam`.
@@ -408,6 +453,10 @@
 > [!TIP]
 > **Goal:** Master identity-based attack techniques in cloud and enterprise environments.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — IAM policy analysis (enumerate with pacu/enumerate-iam/ScoutSuite; identify wildcard permissions: iam:* or * on * resource — these are immediate findings; privilege escalation paths: lambda:CreateFunction + iam:PassRole = instant admin; iam:CreatePolicyVersion = rollback to permissive version), role chaining and federation abuse (AssumeRole chain across accounts; OIDC federation from Entra to AWS — if an Entra service principal has STS:AssumeRoleWithWebIdentity trust, a compromised Entra account can pivot to AWS; SAML assertion manipulation if IdP signing key is leaked), PAM architecture awareness (CyberArk vault admin compromise: account that manages the vault is the master key to all vaulted credentials; session proxy hijacking for recorded sessions; JIT access abuse: request privileged access, perform actions, expect access revoked automatically — understand how attackers use this window). Deliverable: complete flaws2.cloud attacker path which demonstrates IAM privilege escalation from low-privilege to admin.
+
+
 - [ ] **IAM Policy Analysis & CIEM:** Enumerate and analyze **IAM policies** using **Pacu, enumerate-iam, ScoutSuite, Prowler** to find **overprivileged roles, wildcard permissions (*)**, and privilege escalation paths across **AWS/Azure/GCP**. Implement **CIEM (Cloud Infrastructure Entitlement Management)** concepts to identify toxic combinations and unused excessive permissions.
 
 - [ ] **Role Chaining & Federation Abuse:** Exploit **AssumeRole chains, cross-account trust relationships, OIDC federation, SAML assertion manipulation** to escalate from low-privilege to administrative access.
@@ -429,10 +478,19 @@
 
 ## Module 21: Container & Orchestration Security
 
+> [!TIP]
+> ⏱️ **Module 21 Total Time Budget: 1 week**
+> T1 (container fundamentals/attacks): 2 days | T2 (Kubernetes security): 2 days | T3 (container runtime security): 1 day | T4 (secrets/config management): 1 day | T5 (CI/CD and workflow automation attacks): 1–2 days | T6 (hypervisor security): 1 day.
+> Container security is now a standard enterprise engagement scope. Know escape primitives cold: privileged mode, docker.sock mount, hostPID nsenter. Kubernetes RBAC misconfigurations are the cloud equivalent of AD ACL abuse.
+
 ### Topic 1: Container Fundamentals & Attacks — 🔬 Practical
 
 > [!TIP]
 > **Goal:** Understand containerization and its security implications.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Container anatomy (namespaces and cgroups: understand that a container is just a process group with namespace isolation — not a VM; capabilities: default containers drop most caps but retain NET_BIND_SERVICE, SETUID, SETGID — privileged mode enables all), image vulnerabilities (Trivy: trivy image alpine:latest; focus on CRITICAL and HIGH CVEs in base image layer), Dockerfile security audit (running as root: USER directive; secrets baked into ENV or COPY; FROM with no pinned digest — supply chain risk), container escape primitives (privileged mode: mount /dev/sda1 /mnt inside container; docker.sock mount: docker -H unix:///var/run/docker.sock run -v /:/host -it alpine chroot /host; hostPID nsenter: nsenter -t 1 -m -u -i -n -p –– /bin/bash; cgroup v1 release_agent: write command to notify_on_release). Deliverable: practice privileged container escape and docker.sock escape on a deliberately misconfigured lab container.
+
 
 - [ ] **Container Anatomy:** Master **namespaces (PID, NET, MNT, IPC, UTS, USER), cgroups (v1/v2 resource limits), capabilities (POSIX capabilities), seccomp profiles, AppArmor/SELinux** as isolation mechanisms.
 
@@ -456,6 +514,10 @@
 > [!TIP]
 > **Goal:** Attack and defend container orchestration platforms.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — K8s architecture (API server authenticates via certs/tokens; etcd stores all cluster state including secrets in base64 — direct etcd access without auth = full cluster compromise; kubelet listens on 10250 with optional anonymous auth enabled in older configs), RBAC exploitation (kubectl auth can-i ––list ––as system:serviceaccount:default:default to check default SA permissions; look for ClusterRoleBinding to cluster-admin for service accounts; wildcard verbs on core API resources), pod escape (hostPath mount to /: mount host filesystem and chroot; hostNetwork: access services on host network including metadata API; privileged pod = same as container escape T1), secrets extraction (kubectl get secrets ––all-namespaces -o yaml; etcdctl get / ––prefix for etcd direct access; environment variables in pod spec), API server abuse (anonymous auth: curl https://k8s-api:6443/api/v1/pods without token; kubeconfig exposure in git repos or CI environments). Deliverable: complete KubernetesGoat challenge set: RBAC misconfiguration, exposed dashboard, and privileged pod escape.
+
+
 - [ ] **K8s Architecture:** Understand **control plane (API server, etcd, scheduler)** vs **data plane (kubelet, kube-proxy)** components.
 
 - [ ] **RBAC Exploitation:** Abuse **overprivileged service accounts, role bindings, cluster-admin** for privilege escalation.
@@ -475,6 +537,10 @@
 > [!TIP]
 > **Goal:** Detect and prevent malicious container activity.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Runtime monitoring (Falco: deploy with Helm, review default rules, understand how Falco detects shell spawning inside containers, unexpected outbound connections, and sensitive file reads — these are the detection signals that catch container escapes), admission control (OPA/Gatekeeper: Rego policy that blocks privileged pods; Kyverno: simpler YAML-based policy for non-root enforcement and required labels), image signing (Cosign: sign images with keyless mode using OIDC identity; verify: cosign verify image ––certificate-identity=email ––certificate-oidc-issuer=issuer), seccomp profiles (syscall restriction: a container with seccomp=unconfined can call any kernel syscall including mount — default profile blocks 60+ dangerous syscalls). Deliverable: install Falco in a lab K8s cluster, trigger a shell-in-container event, and confirm detection in Falco alerts.
+
+
 - [ ] **Runtime Monitoring:** Deploy **Falco, Sysdig, Aqua** to detect **suspicious syscalls, process execution, network connections**.
 
 - [ ] **Admission Control:** Use **OPA (Open Policy Agent), Kyverno** to enforce **security policies at admission time**.
@@ -492,6 +558,10 @@
 > [!TIP]
 > **Goal:** Secure sensitive data in containerized environments.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Secret stores (HashiCorp Vault Agent Injector: sidecar that injects secrets into pod filesystem at runtime without them appearing in pod spec; AWS Secrets Manager with IRSA: Lambda/pod fetches secret using IAM role assigned via OIDC — no static credentials needed), Sealed Secrets (Bitnami: encrypt secrets in Git with cluster public key; only the cluster controller can decrypt — GitOps-safe), workload identity (AWS IRSA: pod-level IAM role via OIDC federation; GCP Workload Identity: GKE SA bound to GCP SA — no service account key files needed), secret rotation (Vault dynamic secrets: database credentials generated per-request with TTL — credential theft has a short exploitation window). Deliverable: demonstrate the difference between a K8s secret exposed in pod spec env vars vs the same secret fetched at runtime via Vault Agent — document what an attacker sees in each case via kubectl describe pod.
+
+
 - [ ] **Secret Stores:** Use **HashiCorp Vault, AWS Secrets Manager, Azure Key Vault** instead of K8s native secrets.
 
 - [ ] **Init Containers:** Fetch secrets at **pod startup** via init containers instead of baking into images.
@@ -508,6 +578,10 @@
 
 > [!TIP]
 > **Goal:** Compromise the software supply chain and automation tier.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Pipeline poisoning (GitHub Actions: pull_request_target trigger runs attacker-supplied code from fork with access to secrets — this is the most common GHA security mistake; inject malicious step by modifying workflow YAML in a PR; Jenkins: Groovy script console with admin access = RCE on Jenkins agent = access to all credentials in Credentials store), dependency confusion (publish a package to PyPI/NPM matching an internal private package name with a higher version — pip/npm resolves public over private; the package executes during install on developer workstations or CI), workflow automation takeover (n8n CVE-2026-21858 and similar SSRF-to-RCE in automation platforms; Zapier and Workato webhook abuse for lateral movement to connected cloud services), credential aggregation (automation platforms store cloud credentials, API keys, and OAuth tokens in integrations — admin access to n8n/Zapier = dump all credentials). Deliverable: set up a local Jenkins instance, demonstrate credential theft from Credentials store via Groovy console, and document the attack path.
+
 
 - [ ] **Pipeline Poisoning:** Inject malicious steps into **GitHub Actions/Jenkins** to alter builds, steal artifacts, or plant backdoors.
 
@@ -537,6 +611,10 @@
 
 > [!TIP]
 > **Goal:** Understand the attack surface one layer below containers — the hypervisor. Container escape gets defender attention; hypervisor-level attacks are less understood and harder to detect. Enterprise pentests against virtualised infrastructure encounter these regularly.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — VMware ESXi attack surface (SSH with default root credentials; vCenter RCE CVEs like CVE-2021-21985 — a compromised vCenter controls all managed ESXi hosts; VMDK credential extraction: mount VMDK offline with qemu-nbd or 7-zip, access NTDS.dit/SAM+SYSTEM — bypasses all runtime protections; snapshot credential theft: VM snapshot freezes LSASS memory and is accessible offline), Proxmox attack surface (API endpoint at https://host:8006/api2/json; pveum and qm CLI from Proxmox shell), VM escape CVE awareness (VENOM CVE-2015-3456: QEMU floppy controller buffer overflow; VMware Tools escalation history; VirtualBox shared folder and clipboard injection), nested virtualization security implications (hypervisor isolation breaks down in nested VMs; snapshot-based lab environments may expose host credentials through nested VM memory). Deliverable: document two ESXi attack vectors and their specific mitigations, and explain how VMDK credential extraction is detected or prevented.
+
 
 - [ ] **VMware ESXi Attack Surface:** ESXi is the dominant enterprise bare-metal hypervisor. Key attack vectors:
   - **Unauthenticated ESXi Shell Access:** Legacy ESXi deployments may have SSH enabled with default or weak credentials (`root` / empty). `esxcli` and `vim-cmd` provide full VM management from the shell.
@@ -576,10 +654,19 @@
 > [!WARNING]
 > **Prerequisites:** This module requires offensive maturity (Stage 2) plus enterprise infrastructure knowledge from Modules 19–21. Complete prior Stage 4 content before attempting purple teaming campaigns.
 
+> [!TIP]
+> ⏱️ **Module 22 Total Time Budget: 1 week**
+> T1 (MITRE ATT&CK mastery): 1–2 days | T2 (APT/threat actor emulation): 2 days | T3 (purple team exercises): 2 days | T4 (metrics/reporting): 1 day.
+> Purple teaming is how you demonstrate value beyond breaking things. Defenders who understand offensive tradecraft are rare and expensive. If you can run an emulation plan and produce a detection coverage matrix with MTTD/MTTR numbers, you are hireable in both red and blue team roles.
+
 ### Topic 1: MITRE ATT&CK Framework Mastery — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the universal language of adversary behavior.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Tactic familiarity (all 14 tactics in order: Reconnaissance → Resource Development → Initial Access → Execution → Persistence → Privilege Escalation → Defense Evasion → Credential Access → Discovery → Lateral Movement → Collection → Command and Control → Exfiltration → Impact — know what each phase accomplishes and which tool category belongs to it), technique deep-dive (use MITRE ATT&CK Navigator to build a heatmap for one APT group — color the techniques they use; this reveals their operational profile), sub-technique granularity (T1059 is Scripting; T1059.001 is PowerShell; T1059.003 is CMD; defenders create different detection rules for each — operators choose the sub-technique based on detection risk), data source mapping (every technique lists its detection data sources: process creation, network traffic, registry — map these to your SIEM event IDs). Deliverable: build an ATT&CK Navigator heatmap for APT29 and identify the three techniques with the lowest detection data source coverage.
+
 
 - [ ] **Tactic Familiarity:** Master all **14 tactics** (Initial Access → Impact) and their relationships in the attack lifecycle.
 
@@ -597,6 +684,10 @@
 
 > [!TIP]
 > **Goal:** Replicate real-world adversary campaigns.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — APT profiling (APT29 Cozy Bear: spearphishing with NOBELIUM toolset, OAuth consent phishing, Golden SAML; APT28 Fancy Bear: credential harvesting, Mimikatz, NTLMv2 relay; Lazarus Group: supply chain, RATs, cryptocurrency theft; FIN7: sophisticated phishing, custom malware, financial targets — understand each group's preferred initial access and lateral movement TTPs), campaign recreation (MITRE ATT&CK Adversary Emulation Plans: download APT29 or APT3 plan from attack.mitre.org/resources/adversary-emulation-plans; execute step by step in lab — each step maps to a specific ATT&CK technique), tool replication (Atomic Red Team: install, run Invoke-AtomicTest for specific techniques, observe what each generates in logs — this is how you build detection coverage data). Deliverable: execute 5 Atomic Red Team tests for different ATT&CK techniques and document what each generates in Windows Event Logs, Sysmon, and EDR telemetry.
+
 
 - [ ] **APT Profiling:** Study **APT groups** (APT28, APT29, Lazarus, FIN7) including **TTPs, tools, targeting, infrastructure**.
 
@@ -617,6 +708,10 @@
 > [!TIP]
 > **Goal:** Collaborative offense-defense improvement.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Joint planning (define exercise scope in writing: specific techniques from ATT&CK, target systems in lab, success criteria — e.g., technique X should generate alert Y within Z minutes; blue team commits to no prior notification of exact timing), live detection tuning (execute attack in lab while blue team watches their SIEM in real-time; when attack runs without triggering an alert, that is a detection gap — immediately document it and tune the rule), gap analysis (for each technique executed: was there an alert? was it high-fidelity or noisy? what would an attacker do to evade the rule? — this is the core deliverable), playbook development (for each detection: write the Sigma rule or SIEM query, the analyst triage steps, and the response procedure). Deliverable: run one purple team exercise covering at minimum 5 ATT&CK techniques; produce a detection coverage matrix with hit/miss results for each.
+
+
 - [ ] **Joint Planning:** Define **objectives, scope, techniques, success criteria** with both red and blue teams.
 
 - [ ] **Live Detection Tuning:** Execute **attacks in controlled environment** while defenders **tune detection rules in real-time**.
@@ -633,6 +728,10 @@
 
 > [!TIP]
 > **Goal:** Quantify security posture improvement.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Detection coverage percentage (count ATT&CK techniques with at least one detection rule vs total techniques in scope; even 30% coverage is notable in most orgs — document it honestly), MTTD/MTTR calculation (MTTD: time from attack execution to first alert; MTTR: time from first alert to containment action; measure both in each exercise and track over multiple rounds), false positive rate (ratio of total alerts to true positive alerts during exercise; a rule that fires 50 times per technique execution is useless — tune it), control effectiveness rating (for each technique: None = no detection, Partial = detects sometimes or with delay, Full = reliable and timely detection; this matrix becomes the purple team deliverable). Deliverable: produce a one-page purple team metrics summary from your exercise with detection coverage, MTTD, and control effectiveness ratings per technique.
+
 
 - [ ] **Detection Coverage:** Calculate **% of ATT&CK techniques** with detection coverage across the matrix.
 
@@ -669,10 +768,19 @@
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all capture and analysis labs
 > - 🟢 `Hacking and Network Defense` — Sniffing chapter — defender detection of sniffing activity (informs OPSEC)
 
+> [!TIP]
+> ⏱️ **Module 23 Total Time Budget: 1 week**
+> T1 (environment/fundamentals): 1 day | T2 (sniffing/passive recon): 1 day | T3 (spoofing/active deception): 1–2 days | T4 (MITM/exploitation): 2 days | T5 (defenses/mitigation): 1 day.
+> In modern TLS-everywhere networks, sniffing and spoofing are primarily useful for internal network assessments post-compromise. ARP spoofing plus MITM is a standard internal pentest technique to capture cleartext internal traffic or relay NTLM hashes. SSL stripping is mostly defeated by HSTS preloading but still works against internal HTTP services.
+
 ### Topic 1: The Environment & Fundamentals (The Setup) — 🧠🔬 Mixed
 
 > [!TIP]
 > **Goal:** Understand the battlefield. I cannot spoof what I cannot map.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Protocol hierarchy and trust model (MAC address is Layer 2 local trust — switches forward by MAC table; IP is Layer 3 routed — ARP bridges the gap between them; ARP has no authentication which is the attack surface), switch vs hub reality (modern networks use switches: you only see your own traffic passively; must ARP spoof or MAC flood to bypass segmentation), NIC configuration (tcpdump -i eth0 in promiscuous mode; airodump-ng in monitor mode for wireless; understand the difference: promiscuous mode sees all frames on the wire, monitor mode captures raw 802.11 frames), TCP/TLS handshake analysis (Wireshark: TCP SYN→SYN-ACK→ACK sequence; TLS ClientHello contains supported cipher suites and SNI; sequence numbers matter for session hijacking timing). Deliverable: set up Wireshark in a home lab and capture and decode a complete HTTP login session from packet to credentials.
+
 
 - [ ] **Protocol Hierarchy & Trust:** Differentiate between **MAC Addresses** (Layer 2 - Local Trust) and **IP Addresses** (Layer 3 - Routing). Spoofing relies on exploiting the trust mismatch between these layers.
 
@@ -691,6 +799,10 @@
 > [!TIP]
 > **Goal:** Capture data without alerting the target. "Listen before act."
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Passive packet capture (tcpdump -i eth0 -w capture.pcap; filter for broadcast/multicast: ARP, DHCP, mDNS identify active hosts and gateways without sending directed traffic; Wireshark follow TCP stream to reassemble HTTP sessions), wireless interception (airodump-ng ––bssid TARGET ––channel 6 ––write capture; wait for client to authenticate or send deauth to force reconnect; aircrack-ng on captured 4-way handshake), protocol analysis (Wireshark filters: http contains password, ftp.request.command == PASS, smtp contains AUTH; extract cleartext credentials, API keys, and session tokens from pcap; tcpflow for stream reassembly). Deliverable: capture a pcap in a lab network, extract at least one cleartext credential using Wireshark filters and follow-stream.
+
+
 - [ ] **Passive Packet Capture:** Use **tcpdump/Wireshark** to capture broadcast/multicast traffic (ARP, DHCP, mDNS) to identify active hosts, gateways, and services without sending directed traffic.
 
 - [ ] **Wireless Interception:** Set wireless NIC to **monitor mode**; capture **WPA2/WPA3 4-way handshakes, PMKID** for offline cracking; identify **SSID, client MAC, AP MAC** patterns.
@@ -705,6 +817,10 @@
 
 > [!TIP]
 > **Goal:** Inject false information into the network to redirect or manipulate traffic.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — ARP spoofing (arpspoof -i eth0 -t victim-ip gateway-ip and simultaneously arpspoof -i eth0 -t gateway-ip victim-ip; enable IP forwarding: echo 1 > /proc/sys/net/ipv4/ip_forward; Bettercap: bettercap -iface eth0, then set arp.spoof.targets, arp.spoof on), DNS spoofing (Bettercap dns.spoof module: set dns.spoof.domains target.com, dns.spoof.address attacker-ip; responds to DNS queries before legitimate resolver), DHCP starvation and rogue DHCP (Bettercap dhcp.server or yersinia -G: exhaust DHCP pool with rapid Discover requests, then serve own gateway/DNS), MAC spoofing (macchanger -r eth0 for random MAC; -m for specific MAC; bypass MAC filtering and DHCP reservations), SSL stripping (Bettercap https.proxy: downgrades HTTPS to HTTP by stripping redirect; defeated by HSTS preloading). Deliverable: perform a complete ARP spoof plus DNS redirect in a lab environment and capture credentials from a redirected HTTP login.
+
 
 - [ ] **ARP Spoofing:** Flood the network with **gratuitous ARP packets** linking my MAC to the **gateway IP**; forces the switch to route victim traffic through you; use **arpspoof, dsniff, b[[Ettercap]]**.
 
@@ -725,6 +841,10 @@
 > [!TIP]
 > **Goal:** Intercept, modify, and relay traffic to extract or manipulate data.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — MITM positioning (Bettercap: arp.spoof + net.sniff combination; mitmproxy: set as transparent proxy with iptables redirect; Burp Suite: upstream proxy for HTTPS interception), session hijacking (extract session cookies from HTTP headers in Wireshark or Bettercap net.sniff; inject into browser to impersonate without password), credential sniffing (Bettercap net.sniff filter for POST data containing password/pass/pwd keywords; FTP and Telnet credentials appear in plaintext in pcap), rogue AP evil twin (hostapd-wpe for WPA2-Enterprise identity harvesting; airbase-ng for open AP; route victim traffic through attacker box for full cleartext inspection), traffic injection (Bettercap inject.js module: inject JavaScript into HTTP responses; DNS modification: redirect to phishing page). Deliverable: complete full MITM chain: ARP spoof then credential capture from a lab target browsing HTTP sites.
+
+
 - [ ] **MITM Positioning:** Establish myself between victim and gateway via **ARP spoofing, DNS redirection, rogue DHCP, or rogue AP**; use **ettercap, mitmproxy, [[Burp_Suite]]** to intercept and modify traffic in real-time.
 
 - [ ] **Session Hijacking:** Extract **session cookies, JWT tokens, CSRF tokens** from sniffed **HTTP headers** and **POST bodies**; inject stolen tokens to impersonate user without password.
@@ -740,6 +860,10 @@
 ---
 
 ### Topic 5: Defenses & Mitigation (The Shield) — 🧠 Conceptual
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Encryption and VPN (TLS with HSTS preloading: once a browser sees an HSTS header, it will only connect via HTTPS for the preload period — SSL stripping cannot work against HSTS-preloaded domains; certificate pinning adds another layer by rejecting certs not matching the expected key), switch-level protection (Dynamic ARP Inspection: validates ARP packets against a DHCP snooping binding table — defeats ARP spoofing at the switch level; 802.1X NAC: devices must authenticate before getting network access — prevents rogue device connection), network segmentation (VLAN isolation limits ARP spoof blast radius to the VLAN; east-west TLS encryption between internal services defeats sniffing even inside the VLAN), detection (IDS signatures for high ARP packet volume, ettercap process signatures, SSL downgrade alerts; Netflow analysis detects unusual traffic patterns). Deliverable: for each attack in T2-T4, document the specific defense that would have blocked it.
+
 
 - [ ] **Encryption & VPN:** Force all traffic through **TLS/HTTPS, IPSec VPN, or VPN tunneling**; renders sniffed payloads unreadable; watch for **HSTS, certificate pinning** as anti-bypass measures.
 
@@ -777,6 +901,11 @@
 
 > **Safety Gate:** Social engineering practice must use consented simulations only. Do not target real people, employers, classmates, public organizations, or family accounts. Unauthorized phishing and impersonation are not "practice"; they are operational and legal exposure.
 
+> [!TIP]
+> ⏱️ **Module 24 Total Time Budget: 1 week**
+> T0 (psychology foundation): 1–2 days | T1 (intelligence/recon): 1 day | T2 (digital assault): 1–2 days | T3 (human element): 1 day | T4 (physical breach): 1 day | T5 (defense/awareness): 1 day.
+> Social engineering is the most underestimated skill in security. The best technical skills mean nothing if an attacker can call your helpdesk and reset a password. Understanding the psychology is equally important for defenders designing awareness programs as it is for attackers designing campaigns.
+
 ### Topic 0: The Psychology of Social Engineering (The Foundation) — 🧠 Conceptual
 
 > [!IMPORTANT]
@@ -784,6 +913,10 @@
 
 > [!TIP]
 > **Goal:** Understand the psychological machinery that makes humans predictable under social engineering pressure.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Cialdini's 6 principles (Reciprocity, Commitment, Social Proof, Authority, Liking, Scarcity — for each: understand the cognitive mechanism, identify an example phishing scenario that uses it, and write the defender awareness training point that counters it), cognitive biases (Urgency Bias disables System 2 thinking — organizational policy should require verification delays for unusual requests regardless of stated urgency; In-Group Bias means corporate jargon and name-dropping colleagues builds instant trust — LinkedIn/Glassdoor are the primary intel sources), pretext construction methodology (who am I? why am I contacting? what am I asking? why now? what objections arise? — practice a pretext out loud before deployment; a pretext that collapses under follow-up questions was never ready). Deliverable: write one complete pretext for an IT helpdesk vishing scenario — include the five pretext questions answered, the intelligence sources used, and the defensive awareness guidance that defeats it.
+
 
 **Cialdini's 6 Principles of Influence (The SE Attacker's Toolkit)**
 
@@ -857,6 +990,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Know the target better than they know themselves.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Digital recon (LinkedIn: extract org chart, reporting structure, technology keywords from job postings, employee names and emails with format enumeration; GitHub dorking: site:github.com target.com; Hunter.io for email format discovery; Maltego for relationship mapping), physical recon (dumpster diving requires authorization in engagement scope; observe badge access patterns, delivery procedures, physical security posture — document everything with notes, no photos without authorization), domain and infrastructure prep (register typo-squatting domains: dnstwist target.com to enumerate variations; set up GoPhish server with cloned login page — test before using), social media profiling (LinkedIn for professional details, Twitter/X for personal interests and travel, Glassdoor for internal culture and frustrations, GitHub for technical projects and email addresses). Deliverable: produce a complete OSINT profile for a fictional organization including email format, 5+ employee names/roles, technology stack from job postings, and one social media-derived personal detail about an executive.
+
+
 - [ ] **Digital Recon:** Execute **OSINT** using **Google Dorks, LinkedIn scraping, GitHub dorking** to extract employee names, emails, roles, tech stacks, and company structure.
 
 - [ ] **Physical Recon:** Perform **dumpster diving** to recover **org charts, vendor invoices, sticky notes** with passwords; observe **badge access patterns, delivery procedures**.
@@ -871,6 +1008,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Compromise the target from a distance via electronic channels.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — GoPhish campaign setup (configure SMTP relay, import target email list from OSINT, clone login page, set tracking pixel, launch campaign, analyze results: open rate, click rate, credential submission rate — all against test inboxes only), DMARC offensive analysis (dig TXT _dmarc.target.com: if absent or p=none, domain can be spoofed; check SPF softfail ~all; test homoglyph domains with dnstwist ––registered; subdomain takeover for mail spoofing via dangling CNAME), ClickFix simulation (design a fake browser error pop-up that instructs the user to paste a command — understand why this bypasses email gateway scanning: the payload is instruction text, not a file), deepfake vishing awareness (ElevenLabs voice cloning exists at consumer pricing; the defense is callback verification through an independent channel — never trust caller ID). Deliverable: run a GoPhish simulation against test inboxes you control, collect results, and write a 1-page phishing campaign analysis report.
+
 
 - [ ] **Mass Campaign:** Launch **broad phishing campaigns** with generic lures (password resets, package delivery) for large-scale **credential harvesting**.
 
@@ -900,6 +1041,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Use psychology and social manipulation to bypass logic.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Voice pretexting (practice your pretext out loud before calling; IT helpdesk impersonation: "Hi, I'm from IT, we detected suspicious activity on your account and need to verify your credentials" — understand which cognitive triggers this uses: authority + urgency + fear; record yourself and critique the delivery), authority and compliance trigger (people comply faster when the requester has plausible authority markers: title, confident tone, domain-specific jargon — a pretext that uses insider language is 3x more effective than a generic one), reciprocity and obligation (provide small value first: "I helped you reset your last ticket" or "I sent you the documentation you needed" — then request the favor). Deliverable: script a complete vishing pretext for an IT password reset scenario and write the awareness training that would defeat it.
+
+
 - [ ] **Voice Pretexting:** Call as **IT support, HR, vendor, auditor, law enforcement** using social engineering pretexts; use **authority, urgency, fear** to bypass critical thinking.
 
 - [ ] **Authority & Compliance Trigger:** Leverage **IT/Security/Auditor/Legal persona** to demand compliance; abuse **helpfulness bias** to force password resets or system access.
@@ -912,6 +1057,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Gain physical access to networks and facilities.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Tailgating (authorized employee follow-through using a large box or coffee cup trick; observe office security culture during pre-engagement recon — high-security offices have mantrap airlocks that prevent tailgating regardless of social skills), shoulder surfing (PIN observation at ATMs and key pads; screen reading in open office environments; defense is privacy screen filters and behavioral awareness), badge cloning (Proxmark3 reads HID/EM4100 RFID at close range — requires physical proximity; Flipper Zero for similar at shorter range — note this is hardware-dependent), physical device placement (USB drop: rubber ducky or bash bunny triggers on connection; rogue AP: nano WiFi router hidden under a desk; hardware keylogger: inline USB device between keyboard and computer). Deliverable: for each physical attack vector, document the specific physical security control that prevents it and how you would test for that control in a physical pentest scope.
+
 
 - [ ] **Tailgating:** Follow **authorized employees** into secure zones using badges/access cards; use **coffee cup hold, uniform/vendor persona** to bypass visual checks.
 
@@ -927,6 +1076,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Prevent the human hack through training and controls.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Authentication (FIDO2/Passkeys are phishing-resistant because the credential is cryptographically bound to the origin domain — a fake site cannot receive a FIDO2 response; SMS and push OTP MFA are phishable via real-time MITM proxy like Evilginx; MFA fatigue: send 50+ push notifications until user approves from frustration — mitigation is number matching), verification protocols (callback through an independent channel: look up the number yourself, do not call back a number provided by the caller — this single control defeats most vishing), physical security (no-tailgating + mantrap airlocks; visitor escort policy; clean desk policy — sticky notes with passwords are not a joke finding), security awareness training (simulated phishing with GoPhish; immediate feedback loop: if you clicked, you see training content immediately; reward reporting culture: users who report suspicious emails should get recognition, not punishment). Deliverable: design a 1-hour security awareness training module covering Cialdini's 6 principles with one example scenario per principle and one countermeasure.
+
 
 - [ ] **Authentication:** Enforce **MFA/2FA** (TOTP, hardware keys, push notifications) so password compromise alone doesn't grant access; watch for **MFA fatigue attacks**.
 
@@ -969,10 +1122,19 @@ Robert Cialdini's research on influence identified six universal principles that
 > Topics 2, 3, 4, and 5 describe techniques — shellcode injection, EDR bypass, anti-forensics — at the conceptual level. They are not implementation labs. When seeing those topics: understand the concept, understand what defenders see, and move on. Do **not** attempt custom binary implant development until completing **Stage 5: Module 27 (Offensive Development & Tooling)**.
 > **Why this sequencing matters:** The correct sequence is: _understand the attack here (Module 25) → understand binaries and malware internals (Shelf 05) → build custom tooling (Stage 5 Module 27)._
 
+> [!TIP]
+> ⏱️ **Module 25 Total Time Budget: 1 week** — exposure/awareness track; no live malware deliverables at this stage
+> T1 (design/architecture): 1 day | T2 (payload/mechanism survey): 1 day | T3 (evasion/defense bypass survey): 1 day | T4 (persistence/escalation survey): 1 day | T5 (counter-forensics survey): 1 day | T5b (Windows persistence/memory forensics): 1 day | T6 (document/cloud weaponization): 1–2 days.
+> This module is where you build threat actor empathy — you learn to think like an implant designer without actually building one yet. The operational techniques in T6 (HTML smuggling, weaponized OneNote, Sliver C2) are the exception: these are in-scope for lab practice now.
+
 ### Topic 1: The Design & Logic (Architecture) — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand how malware is architected at a design level — the decisions an attacker makes before writing a single line of code.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — CIA Triad targeting (Confidentiality: RAT/spyware/credential harvester; Integrity: wiper/data corruptor; Availability: ransomware/DDoS bot — objective drives every architecture decision), malware taxonomy (dropper fetches and executes; loader unpacks and maps; stager fetches full payload at runtime; RAT provides remote access; rootkit hides presence; ransomware encrypts and demands; infostealer harvests credentials/cookies; botnet agent accepts commands from C2 — know which category serves which attack lifecycle phase), C2 protocol selection (HTTP/S beaconing: looks like normal web traffic, most common; DNS tunneling: hard to block without breaking DNS; ICMP covert channel: low-bandwidth, often ignored by firewalls; SaaS API abuse: C2 over Slack/Telegram/GitHub issues — very hard to block without banning legitimate services), Kill Chain mapping (map a hypothetical ransomware campaign from Recon through Impact using MITRE ATT&CK, one technique per phase). Deliverable: map a complete ransomware kill chain to MITRE ATT&CK with one specific technique per tactic phase.
+
 
 - [ ] **Target the CIA Triad:** Define the malware's objective — does it attack **Confidentiality** (RAT, spyware, credential harvester), **Integrity** (wiper, data corruption), or **Availability** (ransomware, DDoS bot)? The objective drives every architectural decision.
 
@@ -996,6 +1158,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Understand how payloads execute and what defenders detect at each stage.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Memory-based execution concepts (shellcode injection: code written into another process memory and executed; process hollowing: legitimate process created suspended, memory replaced with malicious payload; DLL injection: DLL loaded into target process address space — conceptual understanding only; implementation in Stage 5 Module 27), delivery vectors (phishing: user opens attachment/clicks link; drive-by download: visiting a page triggers exploit of browser/plugin; watering hole: compromise a site the target regularly visits; supply chain: malicious package in a dependency), msfvenom stageless vs staged comparison (msfvenom -p windows/x64/meterpreter_reverse_tcp for stageless; msfvenom -p windows/x64/meterpreter/reverse_tcp for staged — compare file sizes and VirusTotal detection rates; record which engines trigger and whether signature or heuristic), Sliver/Mythic C2 deployment (deploy in lab, generate implant, establish callback, tune sleep/jitter to observe how beacon timing affects traffic analysis). Deliverable: generate stageless and staged msfvenom payloads, compare VirusTotal detection rates, document findings.
+
+
 - [ ] **Memory-Based Execution:** Understand that attackers inject code into running processes (shellcode injection, process hollowing, DLL injection) to avoid writing to disk and evade file-scanning AV. _Conceptual understanding only — implementation in Stage 5: Module 27._
 
 - [ ] **Delivery Vectors:** Understand **phishing, drive-by download, watering hole, and supply chain injection** as the four primary delivery mechanisms; know what each one requires from the attacker and what it looks like to defenders. _Practical delivery lab in Stage 6 (document weaponization) below._
@@ -1015,6 +1181,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Understand how the defensive stack detects malware and what attackers do to evade each layer.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Static analysis evasion concepts (AV signature: matches byte patterns — changing the binary via packing, encoding, or obfuscation defeats it; implementing a custom packer requires PE format knowledge from Shelf 05), sandbox detection concepts (VM artifact detection: low CPU count, no mouse movement, VMware driver names in registry; sandboxes run samples for a short window — attacker sleeps longer than sandbox timeout), EDR userland hooking bypass concepts (EDR hooks NtWriteVirtualMemory and similar NTAPI functions in ntdll.dll; direct syscall bypasses the hook; unhooking involves restoring the original bytes — implementation in Stage 5 Module 27), memory-based evasion concepts (sleep obfuscation XORs beacon memory during sleep to avoid memory scanner detection; indirect syscalls and call stack spoofing hide the true call origin). Observation lab: run Procmon and compare normal vs encoded PowerShell invocation — document ScriptBlock Logging Event ID 4104 output for each.
+
 
 > **Prerequisite Context:** This stage references AMSI, EDR, and ETW. Those systems are covered from the defender's perspective in **Stage 3 Side-Track A (Detection Engineering)**. If I have not completed Stage 3 yet, review those topics before studying evasion — evasion without understanding the detection model is guesswork.
 
@@ -1038,6 +1208,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Understand what persistence mechanisms a malware implant uses and why each has a different detection footprint.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Userland persistence review (registry Run keys: HKCU and HKLM CurrentVersion Run — Event ID 4657 on registry write, Sysmon Event ID 13; scheduled tasks: Event ID 4698 on creation, schtasks /query to enumerate; WMI subscriptions: EventFilter + CommandLineEventConsumer + FilterToConsumerBinding — no file write if fileless WMI, Sysmon Event ID 19/20/21; DLL hijacking: process loads DLL from writable path before legitimate location — Sysmon Event ID 7; Startup folder: Sysmon Event ID 11 on file creation), privileged persistence concepts (kernel drivers require code signing; UEFI implants survive OS reinstall; recognize their artifacts via secure boot attestation and TPM measurement), defense disabling concepts (SYSTEM-level processes can terminate EDR services or disable tamper protection — recognizing this behavior in event logs is the skill to acquire). Observation lab: create scheduled task, find Event ID 106, document detection artifacts.
+
+
 - [ ] **Userland Persistence Review:** Map the common mechanisms — **registry run keys, scheduled tasks, WMI subscriptions, DLL search order hijacking, Startup folder, COM object hijacking** — to their Windows Event Log artifacts (which Event IDs indicate each mechanism was set). This is the defender-aware review; I practiced them in Module 13.
 
 - [ ] **Privileged Persistence Concepts:** Understand that kernel-level and UEFI-level persistence (bootkits, driver implants) exist and require privileged access plus deep OS internals knowledge — covered in Shelf 05 and Shelf 20/21. Recognizing their artifacts is the skill to acquire here.
@@ -1055,6 +1229,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Understand what artifacts malware and operators leave behind, and what attackers do to reduce their forensic footprint.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Windows artifact landscape (Event Logs, Prefetch files, Shimcache, Amcache, LNK files, MFT records, browser history, registry hives — understand which survive a reboot, a log clear, and a disk wipe), log manipulation awareness (wevtutil cl Security clears the log but generates Event ID 1102 — the clearing event itself is the evidence; SIEMs receive log forwarding before clearing — local log clearing after SIEM ingestion accomplishes nothing), anti-forensics counter-detection (write-protect plus Volatility for memory forensics; SIEM forwarding makes local clearing irrelevant; EDR telemetry bypasses local log clearing; network forensic reconstruction from PCAP survives host-side cleanup), ROE compliance (never destroy production data regardless of privilege; log cleanup is explicitly scoped in the RoE before the engagement starts). Observation lab: run wevtutil cl Security, find Event ID 1102, document what a defender reviewing logs 5 minutes later would still find.
+
 
 - [ ] **Windows Artifact Landscape:** Know the key artifacts that survive after an attack — **Windows Event Logs, Prefetch files, Shimcache, Amcache, LNK files, MFT records, browser history, $MFT journal, registry hives** — and understand which artifacts survives a reboot, a log clear, or a disk wipe.
 
@@ -1115,6 +1293,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Weaponize documents, email clients, and cloud services for initial access, persistence, and exfiltration. This is the **operational implementation topic** for Module 25 — the techniques here are in-scope for lab practice because they use documented attack patterns that do not require binary internals knowledge.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — HTML smuggling (build an HTML file using Blob API and createObjectURL to reconstruct a payload inside the browser; test that standard email gateway file-type scanning does not flag it; this is the current primary delivery vector in many red team engagements), OneNote/PDF/ISO weaponization (embed a script in a OneNote page triggered by user click; ISO plus LNK plus script to bypass MOTW on unpatched Windows; understand the October 2022 MOTW patch status), Browser-in-the-Browser BitB attack (build a fake browser pop-up inside a legitimate page mimicking an SSO login dialog — no code execution needed, direct credential harvest), OAuth consent phishing (register a malicious Entra app, send consent link to test user, harvest refresh token with Mail.Read scope), cloud storage exfil (upload dummy data to Dropbox or OneDrive via API with a service account token — understand what CASB/DLP controls detect this vs miss). Deliverable: build an HTML smuggler that delivers an EICAR test file through a simulated email gateway and document the evasion mechanism.
+
 
 > **Prerequisite:** Complete Module 13 (System Hacking), Module 23 (Sniffing & Spoofing), and Module 24 (Social Engineering) before this topic.
 
@@ -1189,10 +1371,19 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > **Why This Exists:** Knowing how to exploit is useless if I can't structure an engagement professionally or communicate findings in a way that drives remediation. This part covers the "how to operate" layer that transforms technical skills into a professional practice. While its reporting templates (PTES, CVSS v3.1/v4.0, remediation matrices) are introduced in Stage 2 for documenting my first rooted lab machines, here in Stage 4 (Module 26) I master the end-to-end commercial engagement lifecycle: formal legal scoping, threat modeling, executive debriefing, and enterprise deliverable packaging.
 
+> [!TIP]
+> ⏱️ **Module 26 Total Time Budget: 1 week**
+> T1 (frameworks): 1 day | T2 (scoping/legal/engagement management): 1 day | T3 (threat modeling): 1 day | T4 (vuln scoring/risk): 1 day | T5 (report writing): 2–3 days.
+> Reporting is the skill that separates consultants who get hired again from ones who do not. A technically perfect pentest with a vague report drives zero remediation. Master the executive summary — a CFO should understand your top 3 risks after reading 1 page.
+
 ### Topic 1: Industry-Standard Engagement Frameworks — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the structured methodologies that govern professional engagements.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — PTES (7 phases: Pre-Engagement Interactions → Intelligence Gathering → Threat Modeling → Vulnerability Research → Exploitation → Post-Exploitation → Reporting; know what deliverables each phase produces and why skipping one breaks engagement quality), OWASP WSTG (test case IDs: WSTG-INFO-001 through WSTG-BUSL-009; map every web finding to a WSTG ID for compliance credibility), NIST SP 800-115 (federal methodology: examination, identification, validation; required for US government and regulated-industry engagements), OWASP MASTG (mobile: MASTG test cases for Android/iOS; MAS Checklist for compliance-grade mobile audits; MASVS security requirements), methodology selection (PTES for comprehensive red team, NIST 800-115 for compliance, OWASP WSTG for web-focused, MASTG for mobile — document selection in every report). Deliverable: create a methodology selection decision tree that maps engagement type to the correct framework with rationale.
+
 
 - [ ] **PTES (Penetration Testing Execution Standard):** Master all **7 phases** — Pre-Engagement Interactions, Intelligence Gathering, Threat Modeling, Vulnerability Research, Exploitation, Post-Exploitation, Reporting; know what deliverables each phase produces and why skipping a phase breaks engagement quality.
 
@@ -1213,6 +1404,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Define engagement boundaries that protect the tester and client legally and operationally.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — SoW construction (scope definition: IP ranges, domains, application URLs with version; deliverables with format and page estimate; timeline with milestones; liability cap language; IP ownership of testing artifacts — ambiguous scope equals legal exposure for the tester), RoE document (authorized IP ranges and domains; permitted testing hours; testing exclusions: life-safety systems, production databases; escalation contacts; emergency abort criteria; data handling requirements for captured credentials and PII), Get-Out-of-Jail letter (written authorization signed by someone with authority to authorize testing; verify signatory's authority; carry during physical tests), legal framework awareness (CFAA in US: unauthorized access is a federal crime regardless of intent; Computer Misuse Act 1990 in UK; IT Act 2000/2008 in India; cross-border engagements create dual-jurisdiction liability). Deliverable: draft a complete SoW and RoE document pair for a fictional engagement scenario.
+
+
 - [ ] **Statement of Work (SoW) Construction:** Draft and review SoW language covering **scope definition (IP ranges, domains, application URLs), deliverables, timelines, payment milestones, liability caps, and IP ownership** of testing artifacts; ambiguous scope = legal exposure.
 
 - [ ] **Rules of Engagement (RoE) Document:** Define in writing: **authorized IP ranges and domains, permitted testing hours (business hours vs. 24/7), testing exclusions (life-safety systems, production DBs), escalation contacts, emergency abort criteria, and data handling requirements**.
@@ -1231,6 +1426,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Apply structured threat identification before testing begins — not after.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — STRIDE (for each DFD element — process, data store, data flow, external entity — apply Spoofing/Tampering/Repudiation/Information Disclosure/Denial of Service/Elevation of Privilege; generate a ranked threat list that scopes the test), PASTA (7-stage business-centric model: define objectives, technical scope, application decomposition, threat analysis, vulnerability analysis, attack enumeration, risk/impact analysis; produces a business-risk-aligned test plan), attack trees (hierarchical diagram rooted at attack goal; AND/OR nodes for alternative paths; prioritize branches by probability times impact), DFD trust boundaries (Level 0-2 DFDs; every trust boundary crossing is an attack surface; DFDs are the most important artifact to produce before testing begins), MITRE ATT&CK as pre-test input (identify likely TTPs based on target industry and known threat actor profiles; build test plan around these TTPs rather than guessing). Deliverable: apply STRIDE to a target application DFD and produce a ranked threat list with at least 10 threats categorized by STRIDE class.
+
 
 - [ ] **STRIDE Threat Model:** Decompose target system components into **processes, data stores, data flows, and external entities**; apply Spoofing / Tampering / Repudiation / Information Disclosure / Denial of Service / Elevation of Privilege to each element; generate a ranked threat list that scopes the test. _(See also: Shelf 15 Topic 1 — STRIDE applied to architecture design rather than test scoping.)_
 
@@ -1251,6 +1450,10 @@ Robert Cialdini's research on influence identified six universal principles that
 > [!TIP]
 > **Goal:** Rate findings objectively and communicate risk in business terms — not just CVSS numbers.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — CVSS v3.1 base metrics (all 8: Attack Vector, Attack Complexity, Privileges Required, User Interaction, Scope, C/I/A Impact — calculate scores manually before using calculators; AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H is a 10.0 by definition — know why), CVSS v4.0 changes (Supplemental Metrics group: Automatable, Recovery, Value Density; Threat Metrics replace Temporal; know which version your client's compliance framework requires), EPSS (probability that a CVE will be exploited in the next 30 days; CVSS 9.8 with 0.1% EPSS is operationally different from CVSS 7.5 with 95% EPSS — use both in your report), business risk contextualization (Risk = Likelihood times Business Impact; map to regulatory fine potential, revenue exposure, reputational damage; a CVSS 5.4 on a public OAuth endpoint may carry more business risk than a CVSS 8.1 on an isolated dev server), vulnerability chaining (SSRF Medium + IMDS Low + overprivileged IAM Medium = Full Cloud Compromise Critical — document chains as unified findings). Deliverable: manually calculate CVSS v3.1 scores for 5 findings without using a calculator.
+
+
 - [ ] **CVSS v3.1 Base Metrics:** Master all **8 base metrics** (Attack Vector, Attack Complexity, Privileges Required, User Interaction, Scope, Confidentiality/Integrity/Availability Impact); calculate scores manually before using calculators to build intuition.
 
 - [ ] **CVSS v4.0 Changes:** Understand the **new Supplemental Metrics group** (Automatable, Recovery, Value Density, Response Effort, Provider Urgency) and the replacement of Temporal Metrics with **Threat Metrics (Exploit Maturity)**; know which scoring version my client's compliance framework requires.
@@ -1269,6 +1472,10 @@ Robert Cialdini's research on influence identified six universal principles that
 
 > [!TIP]
 > **Goal:** Deliver findings in a format that survives executive scrutiny and drives budgeted remediation.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Report architecture (Cover Page, Executive Summary, Engagement Overview with scope/methodology/timeline, Attack Narrative as a linear story from foothold to max impact, Findings by Severity with full template for each, Remediation Roadmap tiered by timeline, Appendices with evidence and methodology references), executive summary writing (1-2 pages for C-suite: overall security posture rating, total findings by severity, most critical business risks, top 3 priority actions — written for a CFO at 35,000 feet, not a sysadmin — no CVE numbers, no tool names), technical finding template (Title, Severity, CVSS v3.1 score, EPSS %, Affected Asset, Vulnerability Description, Business Impact, PoC with exact request/response, Remediation Guidance with specific code examples, References with CVE/CWE/OWASP ID), remediation specificity (write executable technical steps: apply parameterized queries using mysqli_prepare with bound parameters — not fix SQL injection; include patch version numbers and configuration file paths), report delivery (password-protected PDF, PGP-encrypted email attachment, define retention and destruction policy in SoW). Deliverable: write a complete pentest report for a fictional enterprise engagement: executive summary, 3 findings with full template, attack narrative, remediation roadmap tiered by timeline.
+
 
 - [ ] **Report Architecture:** Master the standard structure: **Cover Page → Executive Summary → Engagement Overview (scope, methodology, timeline) → Attack Narrative → Findings by Severity → Remediation Roadmap → Appendices (evidence, tooling, methodology references, CVSS breakdowns)**.
 

@@ -7,7 +7,7 @@
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
 |:---:|:---:|:---:|:---|
-| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#🗂️ Table of Contents|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)|🛠️ Mandatory Tools]] · [[#🧱 Stage 1 Pacing Checkpoints|🧱 Pacing Checkpoints]] · [[#🎮 Concurrent CTF Practice — Stage 1|🎮 CTF Practice]] · [[#🏁 Foundation Proof Gate|🏁 Foundation Proof Gate]] |
+| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🧱 Stage 1 Pacing Checkpoints\|🧱 Pacing Checkpoints]] · [[#🎮 Concurrent CTF Practice — Stage 1\|🎮 CTF Practice]] · [[#🏁 Foundation Proof Gate\|🏁 Foundation Proof Gate]] |
 
 ---
 
@@ -44,7 +44,6 @@
 > Do not wait for the final capstone to feel progress. Commit evidence at each checkpoint.
 
 > [!IMPORTANT]
-
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
 > | Priority | Tool | Purpose & Core Skills |
 > | :--- | :--- | :--- |
@@ -141,6 +140,9 @@
 > [!NOTE]
 > **Minimal Working Baseline:** Build this once, keep it reproducible, and start Module 01 immediately.
 
+> [!TIP]
+> ⏱️ **Time Bracket: 3–5 days** — Install hypervisor, create 3 VMs (Kali, Ubuntu Server, Windows), verify Wireshark packet capture on host-only interface, and initialize your Git documentation repo. Do not skip — every lab in Stage 1 depends on this being functional.
+
 - [ ] **Hypervisor:** VirtualBox (free, lightweight) or Proxmox / VMware Workstation. Nested virtualization enabled in BIOS.
 - [ ] **Attacker VM:** Kali Linux (64-bit, 4–8 GB RAM, 50 GB storage, host-only + NAT network adapter).
 - [ ] **Target VM Baseline:** Ubuntu Server 22.04 LTS + Windows 10/11 Enterprise evaluation VM (in isolated lab host-only subnet).
@@ -157,10 +159,17 @@
 > - 🟡 `Security in Computing 5th Edition` — Authoritative reference for security concepts
 > - 🟢 `The Linux Command Line - A Complete Introduction` — Quick command reference for CLI fundamentals
 
+> [!TIP]
+> ⏱️ **Module 01 Total Time Budget: 5–8 weeks**
+> Topics 1–6 (conceptual) = ~2 weeks. Topic 7A (programming, 4 languages) = 3–5 weeks. Programming is weekend-only per the roadmap; if daily, compress to 3 weeks. Do not skip any language — all four appear in Stage 2 onward.
+
 ### Topic 1: Hardware, CPU & Pre-Boot Environment — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Master the machine before the Operating System initializes.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–5 days** — Read all bullet points, create a labelled diagram of the boot chain (UEFI → Bootloader → Kernel → systemd), and write a 1-page summary of 3 security angles (cold-boot, PCIe DMA, USB BadUSB). Goal: be able to explain any item in this list verbally without notes.
 
 - [x] **CPU Operations:** Master the **Fetch-Decode-Execute** cycle to understand how code actually runs at the hardware level.
 
@@ -195,6 +204,9 @@
 > [!TIP]
 > **Goal:** Understand the resource manager and its internal logic.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — Read all items, then draw a diagram mapping Ring 0 vs Ring 3, annotate each item with its offensive/defensive implication. Write notes on Windows PEB and Linux namespace/cgroup structure. You cannot skip this — privilege escalation techniques in Stage 2 depend directly on this content.
+
 - [ ] **Privilege Levels:** Master the **"Ring" architecture**; specifically the separation between **Ring 0** (Kernel) and **Ring 3** (User).
 
 - [ ] **System Calls:** Trace syscall execution (e.g., **NtCreateFile** or **execve**) from user-space API calls through the Interrupt to the kernel handler.
@@ -216,6 +228,9 @@
 > [!TIP]
 > **Goal:** Understand how memory is organized and managed.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Read all items, draw the stack/heap layout for a sample function call, and understand the LIFO behaviour with a real assembly example. This content is prerequisite for buffer overflow labs in Stage 2.
+
 - [ ] **Virtual Memory:** Learn how the OS maps physical RAM to virtual addresses to provide process isolation.
 
 - [ ] **The Stack:** Master the **LIFO** (Last-In, First-Out) structure and the **Function Prologue/Epilogue** to understand how return addresses are stored.
@@ -233,6 +248,9 @@
 > [!TIP]
 > **Goal:** Master binary representation and Boolean logic fundamentals.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Practice converting numbers (decimal ↔ binary ↔ hex) until you can do it mentally for common values. Do 20 conversion drills. Learn to read "magic bytes" (ELF: \x7fELF, PE: MZ, JPEG: FF D8 FF). XOR is the most important operator for crypto — make sure you understand why.
+
 - [ ] **Number Systems:** Be able to convert between **Binary, Decimal, and Hexadecimal** mentally.
 
 - [ ] **Boolean Logic:** Master **AND, OR, NOT, and XOR** (the foundation of encryption and obfuscation).
@@ -245,6 +263,9 @@
 
 > [!TIP]
 > **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Shelf 01 (Wireless Network Security).
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Read all items as awareness-level content. You are not going deep into 802.11 attacks here (that’s Shelf 01). Focus on: understanding which standard is used where, what authentication each WiFi generation uses, and being able to name the protocol when you see it in a Wireshark capture. Write a 1-page cheatsheet of all the protocols listed and their security relevance.
 
 **WiFi Fundamentals:**
 
@@ -285,6 +306,9 @@
 > [!TIP]
 > **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Shelf 02 (Mobile Platform Pentesting).
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Read both bullet points, write 3 sentences each on Android vs iOS architecture differences and key security mechanisms. No labs here — this is pure awareness. Move on same day.
+
 - [ ] **Android vs iOS Architecture:** Understand at a high level that **Android** (APK format, Linux kernel, sandboxing, SELinux) and **iOS** (IPA format, Mach-O binaries, Secure Enclave, code signing) have fundamentally different security models.
 
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
@@ -300,9 +324,27 @@
 > **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Stage 1. **C and C++ are deferred to Stage 5 (Module 27)**, where binary analysis context makes them immediately applicable.
 > **C & C++ programming lives in Stage 5 (Module 27) and Shelf 05.** Do not attempt C or C++ now. They require debugger experience and binary analysis context to learn meaningfully.
 
+> [!NOTE]
+> ⏱️ **Topic 7A Total Time: 3–5 weeks (daily) or 6–8 weeks (weekends-only)**
+> Broken down by language:
+> - **Python:** 1.5–2 weeks — Core language + security libraries + 3 automation projects
+> - **JavaScript:** 1–1.5 weeks — Core JS + browser internals + security context (DOM XSS, CORS, JWT)
+> - **Bash:** 1 week — Shell fundamentals + CLI tool mastery + automation scripts
+> - **PowerShell:** 1 week — Language + Windows admin + AD automation + 2 projects
+>
+> Build foundation **competency**, not mastery. You need to be able to write scripts and read others’ code — not build production frameworks. Mastery comes during use in later stages.
+
 ---
 
 #### Python (Automation, Networking & Security Scripting)
+
+> [!NOTE]
+> ⏱️ **Python Time Bracket: 1.5–2 weeks**
+> Day 1–3: Core language fundamentals (variables, data types, control flow, functions, OOP, file I/O, exceptions).
+> Day 4–6: Networking programming (sockets, HTTP, REST APIs, asyncio).
+> Day 7–9: Security libraries in order — requests → scapy → cryptography → paramiko. Read docs, write small scripts for each.
+> Day 10–14: Build 3 of the automation projects listed (port scanner, log analyzer, API tool).
+> Milestone: Write a Python port scanner from scratch with banner grabbing — no tutorial, no copying.
 
 - [ ] **Core Language Fundamentals:** Master variables, data types, operators, strings, collections (lists, tuples, dictionaries, sets), control flow, loops, functions, modules, packages, decorators, generators, context managers, object-oriented programming, file handling, exception handling, virtual environments (venv), pip, and project structure.
 
@@ -357,6 +399,14 @@
 ---
 
 #### JavaScript & Node.js (Web, Browser & API Security)
+
+> [!NOTE]
+> ⏱️ **JavaScript Time Bracket: 1–1.5 weeks**
+> Day 1–2: Core language (closures, prototypes, async/await, event loop).
+> Day 3–4: Browser internals — cookies, localStorage, fetch, XHR, WebSockets, Service Workers, DevTools.
+> Day 5–6: Security context — DOM XSS, prototype pollution, CORS misconfiguration, CSP bypasses, JWT misuse. These items are not optional.
+> Day 7–10: Node.js basics + build 2 automation projects (web crawler + JWT analyzer).
+> Scope note: Do NOT try to master React/Angular/Vue frameworks now. Awareness-level only.
 
 > [!NOTE]
 > **JavaScript Scope in Stage 1:** The functional minimum for Stage 1 is: core language syntax, browser APIs, DOM basics, the fetch/axios communication layer, and the Security Context section (XSS, prototype pollution, CSRF, CORS misconfig). The Node.js/Express, Service Worker, SSE, and modern framework awareness content is intentionally brief and awareness-level — revisit it in Stage 3 with web application testing context where it becomes immediately applicable. Do not stall Stage 1 attempting to master React, Angular, or Express.js depth before moving forward.
@@ -453,6 +503,14 @@
 ---
 
 #### Bash (Linux Automation & Operations)
+
+> [!NOTE]
+> ⏱️ **Bash Time Bracket: 1 week**
+> Day 1–2: Shell fundamentals — variables, quoting, loops, conditionals, functions, pipes, redirects.
+> Day 3–4: CLI tool mastery — work through the File Processing, Filesystem, and Networking command lists. Run every command at least once in your lab.
+> Day 5–6: Write 3 automation scripts: a host enumeration script, a log analyzer, and a network recon wrapper for Nmap.
+> Day 7: Security automation — automate DNS enumeration, SSL cert inspection, and parsing recon results.
+> Milestone: You should be able to write a working bash script from scratch for any listed automation use case without looking up basic syntax.
 
 - [ ] **Shell Fundamentals:** Master variables, data types, quoting, command substitution, arithmetic operations, loops, conditionals, functions, arrays, pipes, redirection, file descriptors, environment variables, aliases, shell expansion, permissions, process management, exit codes, and shell scripting best practices.
 
@@ -580,6 +638,14 @@
 ---
 
 #### PowerShell (Windows Automation & Enterprise Administration)
+
+> [!NOTE]
+> ⏱️ **PowerShell Time Bracket: 1 week**
+> Day 1–2: Language fundamentals — cmdlets, pipeline, objects vs text, error handling, execution policies.
+> Day 3–4: Windows administration automation — process, service, event log, registry, scheduled tasks. Run every cmdlet group in a lab VM.
+> Day 5–6: Active Directory module — enumerate users, groups, computers, GPOs, ACLs. Write an AD inventory script.
+> Day 7: Enterprise automation — PowerShell Remoting (WinRM), Invoke-Command, remote event log collection.
+> Milestone: Write a PowerShell script that: lists all local admins, finds stale AD accounts (no login > 90 days), and exports the result to CSV.
 
 - [ ] **Language Fundamentals:** Master variables, data types, objects, pipelines, cmdlets, aliases, functions, modules, providers, scripting, execution policies, remoting, error handling, classes, background jobs, and PowerShell best practices.
 
@@ -939,9 +1005,16 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 > - 🟡 `Using And Administering Linux Volume 2 Zero To SysAdmin Advanced` — Advanced admin and service configuration
 > - 🟢 `Using And Administering Linux Volume 3 Zero To SysAdmin Network` — Network services on Linux
 
+> [!TIP]
+> ⏱️ **Module 02 Total Time Budget: 1.5–2 weeks**
+> 6 practical topics (2 days each) + 7 structured labs (3–4 days). Every single topic requires hands-on practice in a running Ubuntu VM. If you are only reading and not executing commands, you are not doing this module.
+
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Stage._
 
 ### Topic 1: User & Access Management (Linux) — 🔬 Practical
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Users/groups (useradd, usermod, /etc/passwd, /etc/shadow), password policy (chage, PAM). Day 2: File permissions (chmod octal + symbolic, SUID/SGID/sticky), sudo rules (visudo), ACLs (setfacl/getfacl). Deliverable: create 5 users with different permission profiles and verify access works as expected.
 
 - [ ] **User Accounts:** Create, modify, and delete users with **useradd/usermod/userdel**. Understand **/etc/passwd**, **/etc/shadow**, and **/etc/group** file structures.
 
@@ -957,6 +1030,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ### Topic 2: Service & Process Management (Linux) — 🔬 Practical
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: systemd (systemctl start/stop/enable/mask, unit files, targets). Day 2: Process management (ps, top, kill, nice, zombie processes), cron/systemd timers, and package management (apt/dnf). Boot sequence drill: trace GRUB2 → systemd → target from cold boot in your VM.
+
 - [ ] **systemd:** Manage services with **systemctl** (start, stop, enable, disable, status, mask). Understand **unit files**, **targets**, and **dependencies**.
 
 - [ ] **Process Management:** Use **ps, top, htop, kill, killall, nice, renice**. Understand **PID, PPID, process states, zombie processes**, and **signal handling**.
@@ -968,6 +1044,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 - [ ] **Boot Process:** Understand **GRUB2 → systemd → target** boot sequence, **runlevels/targets**, and **single-user mode** for recovery.
 
 ### Topic 3: Networking (Linux) — 🔬 Practical
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Interface config (ip addr, ip route, nmcli), DNS resolution (/etc/resolv.conf, dig, systemd-resolved), socket inspection (ss). Day 2: Firewall config (iptables/nftables/ufw) with working rules, SSH hardening (/etc/ssh/sshd_config: disable root login, key-only auth, fail2ban). Deliverable: working SSH key-only setup with firewall blocking all except port 22.
 
 - [ ] **Network Configuration:** Configure interfaces with **ip addr, ip link, ip route**. Understand **DHCP vs. static**, **/etc/netplan/**, **/etc/network/interfaces**, and **NetworkManager (nmcli)**.
 
@@ -981,6 +1060,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ### Topic 4: Log Analysis & Monitoring (Linux) — 🔬 Practical
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — journalctl (filter by unit, priority, time range), syslog (/var/log/auth.log, /var/log/syslog), logrotate config, dmesg reading, system health commands (uptime, free, df, iostat). Deliverable: find and annotate 3 suspicious events in /var/log/auth.log from your own SSH/sudo activity.
+
 - [ ] **journalctl:** Query systemd journal logs — filter by **unit, priority, time range, boot**. Understand **persistent vs. volatile** journaling.
 
 - [ ] **Syslog:** Understand **/var/log/syslog**, **/var/log/auth.log**, **/var/log/kern.log**, **/var/log/secure**. Configure **rsyslog** for remote forwarding.
@@ -993,6 +1075,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ### Topic 5: Storage & Filesystem (Linux) — 🔬 Practical
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Disk mgmt (fdisk, lsblk, blkid), filesystem creation (mkfs, mount, fstab), LVM (create PV/VG/LV, extend without downtime), LUKS encryption (cryptsetup luksFormat, luksOpen). Deliverable: create an LVM volume, add a LUKS-encrypted partition, and mount it at boot via /etc/crypttab and fstab.
+
 - [ ] **Disk Management:** Use **fdisk, parted, lsblk, blkid** to manage partitions. Understand **MBR vs. GPT**.
 
 - [ ] **Filesystem Operations:** Create filesystems with **mkfs**, mount with **mount/fstab**, understand **ext4, XFS, Btrfs** differences.
@@ -1002,6 +1087,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 - [ ] **Disk Encryption:** Encrypt partitions with **LUKS (cryptsetup)**. Understand **dm-crypt**, key slots, and unlock-at-boot configuration.
 
 ### Topic 6: Security Hardening (Linux) — 🔬 Practical
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: SELinux (getenforce, setenforce, audit.log denials, audit2allow) or AppArmor (aa-status, aa-genprof). Day 2: System auditing (auditd rules, ausearch, aureport) and kernel hardening (sysctl params: ASLR, ip_forward, protected_hardlinks). Deliverable: write a custom auditd rule, trigger it, find it in ausearch output.
 
 - [ ] **SELinux:** Understand **enforcing, permissive, disabled** modes. Use **getenforce, setenforce, sestatus**. Read **audit.log** denials and create custom policies with **audit2allow**.
 
@@ -1037,9 +1125,16 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 > - 🔴 `EA - Windows Security Internals with PowerShell` — Deep Windows internals + PowerShell scripting (also critical in Stage 4)
 > - 🟡 `Windows PowerShell Cookbook` — PowerShell command reference for admin tasks
 
+> [!TIP]
+> ⏱️ **Module 03 Total Time Budget: 1.5–2 weeks**
+> 6 practical topics + 7 structured labs. This module is heavier than it looks — Topic 6 (Kerberos) alone needs 3–4 days. Run a Windows Server 2022 VM for every topic. Do not do this module on a Linux-only machine.
+
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Module 19), Cloud (Module 20), and Defensive modules._
 
 ### Topic 1: User & Access Management (Windows) — 🔬 Practical
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Local users/groups (lusrmgr.msc, net user), NTFS permissions (inheritance, explicit vs inherited), share permissions (SMB, Everyone vs Authenticated Users), UAC integrity levels, and Local Security Policy. Deliverable: configure a shared folder with NTFS + share permissions and document effective access for 3 different user types.
 
 - [ ] **Local Users & Groups:** Create and manage local accounts with **lusrmgr.msc** and **net user/net localgroup** commands. Understand **built-in accounts (Administrator, Guest, SYSTEM)**.
 
@@ -1053,6 +1148,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ### Topic 2: System Management (Windows) — 🔬 Practical
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Windows services (services.msc, sc.exe, service accounts), Registry (hive navigation, Run/RunOnce keys, malware persistence patterns), Task Scheduler (SYSTEM-run tasks), Windows Firewall (wf.msc, netsh, profiles). Deliverable: identify all auto-start registry keys on your VM and document which could be used for persistence.
+
 - [ ] **Windows Services:** Manage services with **services.msc** and **sc.exe/Get-Service**. Understand **service accounts (LocalSystem, LocalService, NetworkService)**, startup types, and recovery options.
 
 - [ ] **Registry:** Navigate **HKLM, HKCU, HKCR, HKU** hives. Understand **Run/RunOnce keys**, **service configurations**, and how malware uses the registry for persistence.
@@ -1064,6 +1162,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **Windows Update:** Understand **WSUS, Windows Update for Business**, and **patch management** concepts. Know how to check update history and roll back problematic updates.
 
 ### Topic 3: Event Viewer & Auditing (Windows) — 🔬 Practical
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Event log structure (eventvwr.msc), all key Event IDs listed — generate each one yourself (failed logon, process creation, group membership change) and find it in the log. Day 2: Audit Policy (auditpol.exe), Sysmon install + config (SwiftOnSecurity template), PowerShell Script Block Logging. Deliverable: a Sysmon + audit policy baseline document.
 
 - [ ] **Event Log Structure:** Navigate **Application, System, Security, Setup** logs in **Event Viewer (eventvwr.msc)**. Understand **Event IDs, sources, levels (Information, Warning, Error, Critical)**.
 
@@ -1086,6 +1187,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ### Topic 4: PowerShell Administration (Windows) — 🔬 Practical
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Core cmdlets (Get-Process, Get-WinEvent, Get-CimInstance), pipeline/filtering, PowerShell Remoting (Enable-PSRemoting, Invoke-Command, double-hop auth), WMI/CIM queries (Win32_Process, Win32_Service), and AD module basics (Get-ADUser, Get-ADGroup). Deliverable: write a script that collects process list + open network connections and exports to CSV.
+
 - [ ] **Core Cmdlets:** Master **Get-Process, Get-Service, Get-EventLog, Get-WinEvent, Get-ChildItem, Get-Content, Set-Item, New-Item, Remove-Item, Test-NetConnection**.
 
 - [ ] **Pipeline & Filtering:** Use **Where-Object, Select-Object, Sort-Object, Group-Object, Measure-Object, ForEach-Object, Export-Csv, ConvertTo-Json**.
@@ -1097,6 +1201,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 - [ ] **Active Directory Basics:** Use **RSAT tools** and **Active Directory PowerShell module** (Get-ADUser, Get-ADGroup, Get-ADComputer). Understand **OU structure, GPO basics, DNS integration with AD**.
 
 ### Topic 5: Active Directory Concepts (Prerequisite for Module 19) — 🧠 Conceptual
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — AD architecture (domains, forests, OUs, trusts, replication, DC vs member server), GPO creation and linking (computer vs user config, gpupdate, rsop.msc, inheritance/blocking), DNS in AD (SRV records, forward/reverse zones, dynamic registration), DHCP authorization. Deliverable: draw a full AD topology diagram from scratch with domains, OUs, DCs, trust types.
 
 - [ ] **AD Architecture:** Understand **domains, forests, trusts, OUs, sites**, and **replication**. Know the difference between a **domain controller** and a **member server**.
 
@@ -1110,6 +1217,14 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 > **Stage 5 → Stage 6 Transition:** Stage 5 gives me the conceptual map of Active Directory — the structure, objects, and administrative mechanisms. Stage 6 gives me the protocol mechanics — _why_ these structures exist and _how_ authentication flows through them. The overlap you may notice on account types and trust architecture is intentional: Stage 5 names them, Stage 6 explains how they are exploited. Both topics are required before Stage 4 Module 19 (Active Directory attacks). Do not skip Topic 6 even if Topic 5 felt complete.
 
 ### Topic 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19) — 🧠 Conceptual
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — This is the hardest conceptual topic in Module 03. Do NOT rush it.
+> Day 1: Kerberos flow (AS-REQ → AS-REP → TGS-REQ → TGS-REP → AP-REQ). Draw it from memory.
+> Day 2: SPNs, LDAP directory structure, DN format, LDAP filters, anonymous bind risks.
+> Day 3: Forest/domain/trust architecture (types, direction, SID history), LSDOU policy processing, account types and privilege tiers.
+> Day 4: Delegation types (Unconstrained/Constrained/RBCD), AD ACLs (DACLs, dangerous ACE types), ADCS awareness, DPAPI, Windows Hello.
+> Deliverable: From a lab DC, run `klist`, `setspn -T domain -Q */*`, and `ldapsearch`. Annotate every field you see.
 
 > [!NOTE]
 > **Prerequisite: Stage 5 Required.** This stage explains the authentication protocols and cryptographic mechanisms behind the Active Directory concepts introduced in Stage 5. Where Stage 5 told you that SPNs, service accounts, and delegation exist — Stage 6 explains _how they work at the protocol level_ and _why that makes them exploitable_. Read Stage 5 first, then return here.
@@ -1220,7 +1335,15 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 > - 🟡 `Wireshark Cheat Sheet` — Keep open during all packet analysis labs
 > - 🟢 `Computer Networking Principles, Protocols, and Practice` — Lighter alternative for readable second opinions
 
+> [!TIP]
+> ⏱️ **Module 04 Total Time Budget: 2.5–4 weeks** — This is the biggest conceptual module in Stage 1.
+> L1 Physical: 3–4 days | L2 Data Link: 4–5 days | L3 Network: 5–6 days | L4 Transport: 3–4 days | L5–7 Application: 3–4 days | Labs + PCAP: 3–5 days.
+> Do NOT compress this module. Every layer has protocols that appear as attack surfaces in Stage 2 onward. Run Wireshark captures in parallel with each layer — don’t save packet capture work for the end.
+
 ### Layer 1: Physical (The Hardware Surface) — 🧠 Conceptual
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — Transmission media (UTP/STP/fiber, attenuation, crosstalk), wireless standards (NFC/Bluetooth/WiFi/cellular), hardware components (NICs, MAC addresses, promiscuous mode, transceivers), network topologies (star/ring/mesh), and architecture designs (2-tier, 3-tier, spine-leaf). Physical layer attacks (cable tapping, signal jamming, rogue APs). Deliverable: draw a 3-tier network topology diagram with labeled L1 components.
 
 **Transmission Media & Cabling:**
 
@@ -1295,6 +1418,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 ---
 
 ### Layer 2: Data Link (The Local Target) — 🧠 Conceptual
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 4–5 days** — MAC addressing (unicast/multicast/broadcast, frame structure, MTU), ARP (cache mechanics, DAI defense), VLAN tagging (802.1Q, VLAN hopping, double-tagging), switch architecture (CAM tables, MAC flooding, STP/BPDU), L2 security features (port security, DHCP snooping, DAI, IP Source Guard), and Rapid PVST+ (port states, PortFast, BPDU Guard). Deliverable: configure VLANs with inter-VLAN routing in your lab and capture an ARP exchange in Wireshark.
 
 **MAC Addressing & Frame Structure:**
 
@@ -1428,6 +1554,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ### Layer 3: Network (The Routing Logic) — 🧠 Conceptual
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 5–6 days** — This is the most important networking layer for security. Day 1–2: IPv4/IPv6 addressing, CIDR subnetting (calculate host ranges mentally for /24, /25, /26, /30), private/public space. Day 3: Routing (static, default route, longest-prefix match, OSPF basics). Day 4: BGP awareness (hijacking, RPKI), NAT/PAT mechanics. Day 5: ICMP (ping, traceroute, redirect, tunneling). Day 6: Gateway security (ICMP redirects, gateway impersonation, firewall positioning). Deliverable: subnet a /20 into 4 usable /22 subnets without a calculator and configure static routes between 3 subnets in your lab.
+
 **IP Addressing & Subnetting:**
 
 - [ ] **IPv4 Addressing:** Master **dotted-decimal notation** and **binary conversion** for IP blocks.
@@ -1536,6 +1665,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ### Layer 4: Transport (The Reliability Layer) — 🧠 Conceptual
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — Day 1: TCP header structure (flags, sequence numbers, acknowledgments), 3-way handshake, TCP state machine (LISTEN → SYN_SENT → ESTABLISHED → CLOSE_WAIT). Day 2: UDP protocol, common port memorization (SSH 22, DNS 53, HTTP 80, HTTPS 443, RDP 3389, LDAP 389, Kerberos 88, SMB 445). Day 3: Nmap scan types (-sS, -sT, -sU, -sA, -sF) — run each against your lab. Day 4: TCP/UDP attacks (SYN flood, sequence prediction, RST injection) and transport layer filtering (stateless vs stateful firewalls, IDS evasion). Deliverable: capture a full TCP 3-way handshake in Wireshark and label every flag.
+
 **TCP Protocol Mechanics:**
 
 - [ ] **TCP Header Structure:** Master **source/destination ports, sequence numbers, acknowledgments**.
@@ -1611,6 +1743,9 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 ---
 
 ### Layers 5-7: Application & Session (The Payload) — 🧠 Conceptual
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3–4 days** — Day 1: DNS (record types, query process, caching, poisoning, amplification, exfiltration, DNSSEC, tools: dig/nslookup/host) + DHCP (DORA sequence, starvation, rogue server). Day 2: NTP/SNMP/Syslog (architecture, vulnerabilities, community strings). Day 3: TLS/HTTPS (handshake, cipher suites, certificate validation, HSTS, SSL stripping, Heartbleed/POODLE awareness) + HTTP (methods, headers, status codes, REST). Day 4: VPN/tunneling protocols (IPsec, WireGuard, OpenVPN, GRE), authentication protocols (Kerberos, RADIUS, TACACS+, NTLM, OAuth). Deliverable: use `openssl s_client -connect example.com:443` and annotate the full TLS handshake output.
 
 **DNS Protocol & Exploitation:**
 
@@ -2139,10 +2274,18 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > - 🔴 `Security in Computing 5th Edition` — Crypto primitives, hashing, PKI reference chapters
 > - 🟡 `Foundations of Information Security - Jason Andress` — Readable crypto foundations without academic abstraction
 
+> [!TIP]
+> ⏱️ **Module 05 Total Time Budget: 1.5–2 weeks**
+> Topic 1 (algorithms): 2–3 days | Topic 2 (TLS): 2 days | Topic 3 (PKI): 2 days | Topic 4 (data at rest): 1–2 days | Topic 5 (attacks): 2 days | Topic 6 (PQC): 1 day | Labs: 2–3 days.
+> Crypto is conceptual-heavy but lab-reinforced. Don’t skip the labs — seeing AES-ECB mode encrypt an image and watching the pattern remain visible is worth more than reading about it for an hour.
+
 ### Topic 1: Core Concepts & Algorithms — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Build a working mental model of every cryptographic primitive used in security — symmetric ciphers, asymmetric key operations, hash functions, MACs, and key derivation. Stage 5 teaches how these break. You need this stage first or Stage 5 will be memorisation without understanding.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Day 1: Symmetric crypto (AES block cipher modes ECB/CBC/CTR/GCM — know what makes each fail), ChaCha20-Poly1305. Day 2: Asymmetric (RSA padding — PKCS#1v1.5 vs OAEP vs PSS, ECC/ECDSA/ECDHE, Curve25519). Day 3: Hash functions (SHA-2, SHA-3, BLAKE3 — know collision resistance vs preimage resistance), HMAC, KDFs (PBKDF2/bcrypt/scrypt/Argon2id), CSPRNG vs PRNG, encoding vs encryption vs hashing. Deliverable: explain from memory why ECB is insecure and why nonce reuse in GCM is catastrophic.
 
 - [ ] **CIA Alignment:** Map cryptographic tools to security goals: **Confidentiality** = encryption prevents unauthorised reading; **Integrity** = hashing/MAC detects modification; **Authenticity** = digital signatures prove origin; **Non-repudiation** = signed artefacts cannot be disowned. Not every algorithm provides all four — know which provides which.
 
@@ -2201,7 +2344,10 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### Topic 2: Secure Communication (Data in Transit) — 🧠 Conceptual
 
 > [!TIP]
-> **Goal:** Understand exactly how TLS secures a connection — every step of the handshake, every field in the cipher suite string, and why forward secrecy matters. This stage directly underpins my ability to analyse TLS captures (Module 04 PCAP lab), exploit TLS misconfigurations (Module 16), and understand downgrade attacks (Stage 5).
+> **Goal:** Understand exactly how TLS secures a connection — every step of the handshake, every field in the cipher suite string, and why forward secrecy matters.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: TLS 1.3 handshake step-by-step (ClientHello, ServerHello, KeyShare, {Certificate}, {CertificateVerify}, {Finished}), cipher suite anatomy (AEAD + KDF hash), Perfect Forward Secrecy (why ECDHE, why PFS), protocol version history (SSLv3 → TLS 1.3, what’s deprecated and why). Day 2: Certificate validation during handshake (chain to root, SAN check, OCSP), mTLS, DTLS, protocol hardening checklist (testssl.sh, sslyze). Deliverable: capture TLS 1.3 in Wireshark and annotate every handshake message.
 
 - [ ] **TLS 1.3 Handshake — Step by Step:**
   TLS 1.3 reduced the handshake from 2 round-trips (TLS 1.2) to 1 round-trip. Know every message:
@@ -2262,7 +2408,10 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### Topic 3: Identity & Trust (PKI) — 🧠 Conceptual
 
 > [!TIP]
-> **Goal:** Understand how the internet decides to trust a server's public key — and how that trust infrastructure is attacked. PKI underpins HTTPS, code signing, email encryption, VPN authentication, and Active Directory. Certificate-related misconfigurations appear in nearly every enterprise pentest (Module 19 ADCS attacks, Module 20 cloud IAM, Module 16 web server hacking).
+> **Goal:** Understand how the internet decides to trust a server’s public key — and how that trust infrastructure is attacked.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: X.509 certificate anatomy (Subject, Issuer, Validity, Key Usage, Extended Key Usage, Basic Constraints CA:true, SKI/AKI), certificate lifecycle (CSR → CA validation → issuance → deployment → renewal → revocation). Day 2: CA hierarchy (root/intermediate/leaf, chain of trust, trust stores), OCSP vs CRL vs OCSP Stapling, Certificate Transparency (crt.sh for recon), certificate pinning (HPKP deprecated, in-app pinning, SSL inspection bypass). PKI attack surface (ADCS ESC1–8, CA compromise, wildcard abuse). Deliverable: use crt.sh to enumerate subdomains for a target domain and run openssl s_client to inspect the full certificate chain.
 
 - [ ] **X.509 Certificate Anatomy — Read a Certificate Field by Field:**
   A certificate is a signed data structure that binds a public key to an identity. Open any certificate in a browser or with `openssl x509 -text -noout -in cert.pem` and locate:
@@ -2324,6 +2473,9 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > [!TIP]
 > **Goal:** Secure stored data.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Disk encryption (BitLocker, LUKS2, FileVault — understand key slot architecture and envelope encryption), password storage (Argon2id > bcrypt > scrypt > PBKDF2, salting mechanics, why fast hashes are wrong for passwords), key management (HSM, AWS KMS, Azure Key Vault, key rotation: automatic vs full re-encryption). Deliverable: compare crack times for unsalted SHA-256, bcrypt cost=12, and Argon2id using hashcat on a known wordlist. Document why work factor matters.
+
 - [ ] **Disk Encryption:** Deploy **BitLocker, LUKS, FileVault** for full-disk encryption.
 
 - [ ] **Password Storage:** Never store plaintext passwords; use **bcrypt, scrypt, Argon2** with **salting** to defeat rainbow tables.
@@ -2343,7 +2495,10 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ### Topic 5: Cryptographic Attacks & Weaknesses — 🧠 Conceptual
 
 > [!TIP]
-> **Goal:** Understand how crypto fails at the mechanism level — not just which algorithms are "weak", but WHY they break and what an attacker can do with the break. These attack classes appear repeatedly across Phases 4–7.
+> **Goal:** Understand how crypto fails at the mechanism level — not just which algorithms are “weak”, but WHY they break.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Weak algorithms (MD5/SHA-1 collision, DES key length, RC4 bias), padding oracle attacks (CBC+POODLE+BEAST+ASP.NET VIEWSTATE), length extension attacks (Merkle-Damgård — not HMAC), timing attacks (constant-time comparison). Day 2: ECB structural leakage, IV/nonce reuse (GCM catastrophe, CTR XOR, CBC predictable IV), key management failures (hardcoded keys, weak KDF), downgrade attacks (POODLE/DROWN), CRIME/BREACH, adversary models (ciphertext-only, known-plaintext, CPA, CCA). Deliverable: write a script that demonstrates padding oracle attack concept against a local toy CBC implementation.
 
 - [ ] **Weak Algorithms — What "Broken" Actually Means:**
   - **MD5:** Collision attacks are practical (two different inputs with identical MD5 hash in seconds). SHA-1 collided in SHAttered (2017). Never use either for integrity or digital signatures.
@@ -2384,6 +2539,9 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 
 > [!TIP]
 > **Goal:** Understand the quantum threat to current public-key cryptography and the NIST-standardised replacements being deployed in production now.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Why Shor’s Algorithm breaks RSA/ECC/DH (factoring + discrete log), why AES-256 survives (Grover halves key strength), “Harvest Now Decrypt Later” threat model, NIST PQC standards (ML-KEM/Kyber, ML-DSA/Dilithium, SLH-DSA), hybrid deployment (X25519MLKEM768 in Chrome/Firefox), crypto-agility principle, SIKE broken classically (2022 lesson), ZKP awareness. Deliverable: document the 3 NIST PQC standards with their use case and security assumption in your notes. Check `openssl s_client` against a modern server for X25519MLKEM768 in the KeyShare groups.
 
 - [ ] **Why Quantum Breaks Current Public-Key Crypto:** RSA/ECC/DH/DSA rely on factoring and discrete log hardness — **Shor's Algorithm** solves both in polynomial time on a CRQC. Symmetric algorithms are weakened but survive: Grover's Algorithm halves key strength, so AES-256 retains ~128-bit security post-quantum. AES-256 and SHA-384+ are safe; RSA/ECC/DH are not.
 
@@ -2431,12 +2589,20 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > [!IMPORTANT]
 > **Why This Exists Here:** Modules 15, 17, 19, and 25 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before I hit the attack techniques. Deep exploitation and protocol abuse are covered in Module 17 (API Security, Stage 3) and Module 19 (Entra ID, Stage 4). This module is concepts only.
 
+> [!TIP]
+> ⏱️ **Module 06 Total Time Budget: 1–1.5 weeks**
+> Topic 1 (sessions): 1 day | Topic 2 (JWT): 2 days | Topic 3 (OAuth): 2 days | Topic 4 (OIDC): 1–2 days | Topic 5 (API auth): 1 day | Topic 6 (MFA): 1–2 days | Labs: 2 days.
+> This is concepts-only. No deep exploitation yet. The payoff comes in Module 17 (Stage 3) where you attack OAuth flows and JWT implementations. Build the mental model here.
+
 _Purpose: Understand how modern applications establish and maintain identity. Understand what tokens ARE, how they are issued, and how they are validated — before I learn to forge or steal them._
 
 ### Topic 1: Session-Based Authentication — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the original web identity model — the one most legacy applications still use.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Session lifecycle (credential submit → session record → Set-Cookie → lookup), session ID security requirements (128-bit entropy, opaque, short-lived, TLS-only, invalidated on logout), cookie security attributes (HttpOnly, Secure, SameSite — know what each absence enables), session fixation vs session hijacking (difference + attack vector), common weaknesses (sequential IDs, no TTL, session not rotated on privilege change). Deliverable: inspect session cookies on 3 real websites using DevTools and evaluate their security attributes.
 
 - [ ] **How Sessions Work:** Understand the full lifecycle: user submits credentials → server validates → server creates session record in database or memory → server sets a `Set-Cookie: session_id=...` response header → browser stores and resends cookie on every subsequent request → server looks up session_id to identify user.
 
@@ -2456,6 +2622,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 > [!TIP]
 > **Goal:** Understand stateless authentication tokens — how they are structured, signed, validated, and abused.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Why tokens exist (stateless APIs), JWT structure (Header.Payload.Signature — all Base64url, payload is readable), JWT validation checklist (signature, algorithm, issuer, audience, expiry, nbf), signing algorithms (HS256/HS512 symmetric vs RS256/ES256 asymmetric). Day 2: JWT weaknesses (alg:none attack, RS256→HS256 confusion, weak secret brute-force, missing audience/issuer validation), opaque tokens vs JWTs (stateless vs round-trip, revocation trade-off). Deliverable: decode a real JWT from any login session on jwt.io and annotate every claim.
 
 - [ ] **Why Tokens:** Understand the architectural motivation — stateless APIs cannot use server-side session stores; the client must carry all identity information in a signed token.
 
@@ -2492,6 +2661,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > [!TIP]
 > **Goal:** Understand what OAuth is, what problem it solves, and how the authorization code flow works — before I attack it in Stage 3.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: OAuth 2.0 purpose (authorization delegation, not authentication), 4 roles (Resource Owner, Client, Authorization Server, Resource Server), Authorization Code Flow step-by-step (code → back-channel token exchange — trace every redirect), PKCE extension (code_verifier/code_challenge, why it replaces client_secret for public clients). Day 2: Common flows (Client Credentials for M2M, Device Code for TV/CLI, Implicit deprecated and why), OAuth scopes (offline_access grants refresh token), state parameter as anti-CSRF. Deliverable: draw the full Authorization Code + PKCE flow from memory with all 6 steps and all parameters.
+
 - [ ] **OAuth 2.0 Purpose:** Understand that OAuth 2.0 is an **authorization delegation framework** — it allows a user to grant an application (the client) access to a resource (e.g., their Google Drive) without sharing their password. The user delegates a limited set of permissions (scopes).
 
 - [ ] **Roles:** Know the four OAuth actors:
@@ -2526,6 +2698,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > [!TIP]
 > **Goal:** Understand how OIDC extends OAuth 2.0 to provide authentication (identity), not just authorization.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — OIDC vs OAuth 2.0 (authorization vs authentication distinction, openid scope, ID Token, /userinfo endpoint), ID token claims (sub, iss, aud, exp, iat, nonce — know what each does and why it’s there), IdP discovery (/.well-known/openid-configuration as recon target), SSO model (IdP session vs application session), SAML vs OIDC (XML/enterprise vs JSON/modern, both are SSO, both are attacked differently). Deliverable: fetch the openid-configuration document from Google (accounts.google.com/.well-known/openid-configuration) and annotate each field.
+
 - [ ] **OIDC vs OAuth 2.0:** Understand the critical distinction:
   - **OAuth 2.0** answers: _"Can this application access this resource on my behalf?"_ — it is about authorization
   - **OIDC** answers: _"Who is this user?"_ — it adds an authentication layer on top of OAuth 2.0
@@ -2552,6 +2727,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 > [!TIP]
 > **Goal:** Identify how different API authentication mechanisms work and where each fails.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — API keys (authenticates the app not the person, risks: client-side JS exposure, Git commits, URL logging), Basic Auth (Base64 ≠ encrypted, only safe over TLS, legacy), Bearer tokens (whoever holds it wins — stolen token = stolen identity for its lifetime), mTLS (client cert + TLS, M2M authentication, complex to operate), service account keys vs OIDC workload identity (static key = critical finding vs ephemeral token = best practice). Deliverable: find an API key exposed in a public GitHub repo using a GitHub dork (educational exercise only).
+
 - [ ] **API Keys:** Random strings passed in headers (`X-API-Key: ...`) or query parameters. Understand that API keys are **not user-authenticated** — they authenticate the application, not the person. Understand risks: keys embedded in client-side JS, mobile app binaries, or public Git repositories.
 
 - [ ] **Basic Authentication:** Base64-encoded `username:password` in the `Authorization: Basic` header. Understand that Base64 is not encryption — the credentials are trivially decoded. Only safe over TLS. Legacy — avoid in modern APIs.
@@ -2568,6 +2746,9 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 > [!TIP]
 > **Goal:** Understand MFA mechanisms and their security properties before encountering MFA bypass attacks.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — MFA factor categories (know/have/are), TOTP (RFC 6238: HMAC-SHA1 + 30s window, phishable via AiTM relay — Evilginx2/Modlishka defeat it), FIDO2/WebAuthn/Passkeys (phishing-resistant: origin binding means a proxy domain fails the challenge — the ONLY MFA that defeats AiTM), SMS OTP weaknesses (SIM swapping, SS7 interception, malware stealers), MFA Fatigue/Push Bombing (repeated Approve prompts — mitigated by number matching). Deliverable: set up a TOTP account (Google Authenticator), extract the TOTP secret QR code URI, and document the HMAC-SHA1 calculation that generates a code.
 
 - [ ] **MFA Factors:** Understand the three categories:
   - **Something I know:** Password, PIN, security question
@@ -2659,7 +2840,12 @@ Using my virtualization platform, build a lab environment containing:
 > [!NOTE]
 > **Prerequisite: Module 06 Required for Lab Work.** Module 07 (Cookies, Sessions & Tokens) applies the concepts taught in Module 06 (Authentication Standards). If I skipped Module 06, return to it before starting hands-on labs — cookie security attributes, session fixation mechanics, and JWT structure require that foundation.
 
-_Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the "what is being attacked" context that makes Stage 2 make sense._
+> [!TIP]
+> ⏱️ **Module 07 Total Time Budget: 1–1.5 weeks**
+> Topic 1 (HTTP): 2 days | Topic 2 (Cookies/Sessions/Tokens): 2 days | Topic 3 (SOP/CORS/Headers): 1–2 days | Topic 4 (Web Auth Patterns): 1 day | Topic 5 (REST/Modern Web): 2 days | Labs (Burp Suite + Juice Shop): 3–4 days.
+> The labs are non-negotiable. You cannot learn Burp Suite by reading about it. Intercept every request type, modify a cookie, replay a JWT, and test CSP headers before you call this module complete.
+
+_Understand the web from the ground up — how browsers communicate with servers, how state is maintained, how identity is established, and where attackers look for weaknesses. This is the “what is being attacked” context that makes Stage 2 make sense._
 
 > [!IMPORTANT]
 > **⚡ Pre-Flight Checklist — Complete BEFORE Stage 1:**
@@ -2672,6 +2858,9 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 > [!TIP]
 > **Goal:** Understand every component of an HTTP request and response before I attempt to intercept or manipulate one.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: HTTP request anatomy (request line, headers, body), HTTP methods (GET/POST/PUT/PATCH/DELETE/OPTIONS/HEAD — security implication of each), status codes (200/201/204/301-302/400/401/403/404/500 — what each reveals), HTTPS=HTTP+TLS (what TLS protects vs doesn’t). Day 2: HTTP headers as attack surface (Host header injection, X-Forwarded-For spoofing, Referer leakage, Content-Type sniffing), HTTP/2 and HTTP/3/QUIC (0-RTT replayability, proxy blind spots), SIP/VoIP and MQTT awareness. Deliverable: capture and fully annotate 10 different HTTP requests from real sites in Burp Suite.
 
 - [ ] **HTTP Request Anatomy:** Understand the structure of an HTTP request — **request line (method, URI, HTTP version)**, **headers (Host, User-Agent, Content-Type, Authorization, Cookie)**, and **body** (for POST/PUT). Know that HTTP is a **stateless, text-based, application-layer protocol** running over TCP (port 80) or TLS (port 443).
 
@@ -2708,6 +2897,9 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 > [!TIP]
 > **Goal:** Understand how web applications maintain state — because this is exactly what session hijacking attacks target.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — The statelessness problem (why cookies exist), cookie mechanics (Set-Cookie header, key-value pair, cookie attributes: Secure/HttpOnly/SameSite/Domain/Path/Max-Age — know what each absence enables an attacker to do), server-side session management (session record in DB/Redis, session ID lookup flow, attacker goal = steal or predict), session ID security requirements (128-bit, cryptographically random, HTTPS-only, HttpOnly, invalidated on logout), JWTs (Header.Payload.Signature, payload is readable, signature validates integrity, alg:none and weak secret flaws), token storage trade-offs (localStorage = XSS-vulnerable, HttpOnly cookies = CSRF-risk, best practice = HttpOnly + SameSite). Deliverable: inspect session cookies in Burp Suite on OWASP Juice Shop and document every attribute gap.
 
 - [ ] **The Statelessness Problem:** Understand that HTTP is inherently stateless — each request is independent. Web applications use cookies, sessions, or tokens to "remember" authenticated users across requests.
 
@@ -2751,6 +2943,9 @@ _Understand the web from the ground up — how browsers communicate with servers
 > [!TIP]
 > **Goal:** Understand the browser's core security boundary — and why attackers work so hard to bypass it.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Same-Origin Policy (scheme+hostname+port all must match, blocks JS from reading cross-origin responses, allows sending cross-origin requests), CORS (Access-Control-Allow-Origin, wildcard + credentials danger, OPTIONS preflight, Origin reflection misconfig), Security headers table (CSP/X-Frame-Options/HSTS/X-Content-Type-Options/Referrer-Policy/Permissions-Policy — know what each missing header enables), CSP deep-dive (default-src, nonce-based scripts, unsafe-inline/unsafe-eval weaknesses, bypass techniques: JSONP/open redirects/CDN). Deliverable: run securityheaders.com on 5 real websites and score their header configurations.
+
 - [ ] **Same-Origin Policy (SOP):** The SOP is the browser's foundational security boundary. It prevents JavaScript from one origin reading responses from a different origin. An **origin** is defined as: `scheme + hostname + port` (e.g., `https://example.com:443`). Any difference = different origin.
   - SOP **allows** cross-origin _requests_ to be sent (e.g., forms, image loads)
   - SOP **blocks** JavaScript from _reading_ cross-origin responses
@@ -2787,6 +2982,9 @@ _Understand the web from the ground up — how browsers communicate with servers
 > [!TIP]
 > **Goal:** Know how web applications prove identity — attackers break authentication by understanding exactly how these mechanisms work.
 
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — HTTP Basic Auth (Base64 is not encryption, cleartext over HTTP), form-based auth lifecycle (POST → bcrypt compare → session → cookie, attack vectors: credential stuffing/SQLi/timing), MFA factor categories and TOTP mechanics (HMAC-SHA1 + 30s window), OAuth 2.0 flow awareness (full treatment in Module 06 Topic 3), API keys/Bearer tokens (hardcoded in source, logged in URL, stolen = impersonation), password storage (full treatment in Module 05 Topic 4). Deliverable: log into OWASP Juice Shop and trace the full POST request → session cookie flow in Burp Suite.
+
 - [ ] **HTTP Basic Authentication:** Username:password encoded in Base64, sent in `Authorization: Basic` header. No encryption by default — completely insecure without HTTPS. Server validates against stored credentials.
 
 - [ ] **Form-Based Authentication (Username + Password):** The dominant web pattern:
@@ -2810,6 +3008,9 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 > [!TIP]
 > **Goal:** Understand the modern web architecture that most applications are built on — critical for Stage 2 enumeration and Stage 3 API security.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: REST API principles (CRUD operations, stateless request/response, resource URLs), JSON structure (objects, arrays, nesting, type confusion relevance), API versioning (/api/v1/ vs /api/v2/ — older versions = weaker controls), content negotiation (Content-Type/Accept header differences revealing different server behavior). Day 2: Modern web architecture patterns (SPAs, microservices, API gateways — bypass by targeting internal service endpoints directly, reverse proxies vs forward proxies, service mesh and mTLS east-west traffic, zero trust architecture and why inside ≠ trusted), proxy tools (Burp Suite/OWASP ZAP as HTTP MITM). Deliverable: write a Python script that authenticates to OWASP Juice Shop via the REST API and makes an authenticated API call.
 
 - [ ] **REST API Principles:** Representational State Transfer uses standard HTTP methods to perform CRUD operations on resources. Resources are identified by URLs. REST APIs are stateless — each request must contain full authentication context. Understand:
   - `GET /api/users/42` — retrieve user 42
