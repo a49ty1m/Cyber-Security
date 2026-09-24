@@ -7,9 +7,6 @@ mechanical understanding, defensive awareness, and lab execution
 capability. Explain the way a working practitioner mentors a junior,
 not the way a course does.
 
-## Topic
-[Write the subtopic here]
-
 ## Structure
 
 **1. The Core Mechanism (Under the Hood)**

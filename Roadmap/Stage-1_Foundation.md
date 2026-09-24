@@ -50,7 +50,7 @@
 > | **Tier 1 (Mandatory)** | [Linux CLI & Bash](#stage-7a-programming-scripting-fundamentals) | Process control (`ps`, `lsof`, `kill`), file manipulation (`awk`, `sed`, `grep`), basic administrative shell scripting. |
 > | **Tier 1 (Mandatory)** | [PowerShell](#stage-4-powershell-administration-windows) | Object-based administration (`Get-Process`, `Get-Service`, `Get-NetTCPConnection`), script pipeline basics. |
 > | **Tier 1 (Mandatory)** | [[Wireshark]] & [[tcpdump]] | Packet sniffing, protocol decoding (TCP 3-way handshake, DNS, ARP, HTTP/TLS), display & capture filter crafting. |
-> | **Tier 1 (Mandatory)** | [[OpenSSL|OpenSSL & cryptsetup]] | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
+> | **Tier 1 (Mandatory)** | [[OpenSSL]] | Generating key pairs, inspecting X.509 certs, testing TLS ciphers (`s_client`), LUKS full-disk encryption. |
 > | **Tier 2 (Secondary)** | [[iperf3]] | Network throughput, latency, and bandwidth bottleneck benchmarking across lab subnets. |
 > | **Tier 2 (Secondary)** | [[Scapy]] | Crafting custom Layer 2/3/4 packets in Python to test protocol boundaries and firewalls. |
 > **Stage Exit Tool Gate:** I cannot pass Stage 1 until I can capture live network traffic with `tcpdump`, filter an unencrypted HTTP/DNS exchange, extract credentials/records, and independently inspect a remote server's TLS certificate chain using `openssl s_client`.
