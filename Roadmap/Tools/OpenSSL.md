@@ -18,12 +18,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Networking | Crypto & Certs | Packet Analysis | Exploitation |
 |:-----------|:---------------|:----------------|:-------------|
-| [[Nmap|🗺️ Nmap]] | **🔐 OpenSSL** (you are here) | [[Wireshark|🦈 Wireshark]] | [[Metasploit_Framework|💀 Metasploit]] |
-| [[Netcat|🔌 Netcat]] | [[socat|📦 socat]] | [[tcpdump|🦭 tcpdump]] | [[Hashcat|🔓 Hashcat]] |
+| [[Nmap\|🗺️ Nmap]] | **🔐 OpenSSL** (you are here) | [[Wireshark\|🦈 Wireshark]] | [[Metasploit_Framework\|💀 Metasploit]] |
+| [[Netcat\|🔌 Netcat]] | [[socat\|📦 socat]] | [[tcpdump\|🦭 tcpdump]] | [[Hashcat\|🔓 Hashcat]] |
 
 ---
 

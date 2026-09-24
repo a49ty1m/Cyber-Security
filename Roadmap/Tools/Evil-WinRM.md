@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]] · [[../Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]] · [[Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | AD Attacks |
 |:-----------------|:-------------|:------------------|:-----------|
-| [[Nmap|🗺️ Nmap]] | [[Metasploit_Framework|💀 Metasploit]] | [[LinPEAS|🐉 LinPEAS]] | [[BloodHound|🩸 BloodHound]] |
-| [[Netcat|🔌 Netcat]] | [[Hydra|🔓 Hydra]] | [[WinPEAS|🪟 WinPEAS]] | [[Impacket|🐍 Impacket]] |
-| [[Gobuster|📂 Gobuster]] | **🪟 Evil-WinRM** (you are here) | [[Hashcat|🔥 Hashcat]] | [[NetExec|🌐 NetExec]] |
+| [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[BloodHound\|🩸 BloodHound]] |
+| [[Netcat\|🔌 Netcat]] | [[Hydra\|🔓 Hydra]] | [[WinPEAS\|🪟 WinPEAS]] | [[Impacket\|🐍 Impacket]] |
+| [[Gobuster\|📂 Gobuster]] | **🪟 Evil-WinRM** (you are here) | [[Hashcat\|🔥 Hashcat]] | [[NetExec\|🌐 NetExec]] |
 
 ---
 

@@ -12,7 +12,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Phishing Platforms | Social Engineering Toolkit | Credential Capture | Payload Delivery |
+|:-------------------|:---------------------------|:-------------------|:-----------------|
+| [[GoPhish\|🎣 GoPhish]] | **🎭 SET** (you are here) | [[Responder\|📡 Responder]] | [[Metasploit_Framework\|💀 Metasploit]] |
+| | | [[Evil-WinRM\|🪟 Evil-WinRM]] | [[Sliver\|🐍 Sliver]] |
 
 ---
 

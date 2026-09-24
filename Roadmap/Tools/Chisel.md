@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Pivoting & Tunneling | Post-Exploitation | C2 | Network |
 |:--------------------|:-----------------|:---|:--------|
-| [[Ligolo-ng|🔀 Ligolo-ng]] | [[LinPEAS|🐉 LinPEAS]] | [[Sliver|🐍 Sliver]] | [[Netcat|🔌 Netcat]] |
-| **🔀 Chisel** (you are here) | [[WinPEAS|🪟 WinPEAS]] | [[Metasploit_Framework|💀 Metasploit]] | [[Nmap|🗺️ Nmap]] |
-| [[Ligolo-ng|🔀 Ligolo-ng]] | [[BloodHound|🩸 BloodHound]] | [[Impacket|🐍 Impacket]] | [[Scapy|📦 Scapy]] |
+| [[Ligolo-ng\|🔀 Ligolo-ng]] | [[LinPEAS\|🐉 LinPEAS]] | [[Sliver\|🐍 Sliver]] | [[Netcat\|🔌 Netcat]] |
+| **🔀 Chisel** (you are here) | [[WinPEAS\|🪟 WinPEAS]] | [[Metasploit_Framework\|💀 Metasploit]] | [[Nmap\|🗺️ Nmap]] |
+| [[Ligolo-ng\|🔀 Ligolo-ng]] | [[BloodHound\|🩸 BloodHound]] | [[Impacket\|🐍 Impacket]] | [[Scapy\|📦 Scapy]] |
 
 ---
 

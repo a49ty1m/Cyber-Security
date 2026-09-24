@@ -12,7 +12,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| API Testing | Token & Session Security | Web Interception | Web Fuzzing |
+|:------------|:-------------------------|:-----------------|:------------|
+| [[Postman\|📬 Postman]] | [[jwt-tool\|🔐 jwt-tool]] | [[Burp_Suite\|🕷️ Burp Suite]] | [[ffuf\|🌀 ffuf]] |
+| [[SoapUI\|🧼 SoapUI]] | **🍪 Cookie-Editor** (you are here) | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | [[Gobuster\|📂 Gobuster]] |
 
 ---
 

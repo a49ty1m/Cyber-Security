@@ -5,7 +5,7 @@
 
 ### 🧭 Navigation
 
-🏠 [[README\|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[Stage-1_Foundation\|Stage 1]] · [[Stage-2_Offense-I\|Stage 2]] · [[Stage-3_Web-and-App-Sec\|Stage 3]] · [[Stage-4_Enterprise\|Stage 4]] · [[Stage-5_Specialized\|Stage 5]]
+🏠 [[README|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[Stage-1_Foundation|Stage 1]] · [[Stage-2_Offense-I|Stage 2]] · [[Stage-3_Web-and-App-Sec|Stage 3]] · [[Stage-4_Enterprise|Stage 4]] · [[Stage-5_Specialized|Stage 5]]
 
 ---
 
@@ -393,4 +393,4 @@ Pin these to your taskbar and keep them open:
 
 ### 🧭 Navigation
 
-🏠 [[README\|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[#📚 Book → Roadmap Stage & Module Mapping (smilo's Library)|⬆ Return to Top]]
+🏠 [[README|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[#📚 Book → Roadmap Stage & Module Mapping (smilo's Library)|⬆ Return to Top]]

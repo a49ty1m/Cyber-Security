@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Detection Rules | Malware Analysis | Memory Forensics | SIEM |
 |:---------------|:----------------|:-----------------|:-----|
-| [[Sigma|🔎 Sigma]] | **🦠 YARA** (you are here) | [[Volatility|🧠 Volatility]] | [[Splunk|📊 Splunk]] |
-| | [[Ghidra|🔬 Ghidra]] | [[Autopsy|🔬 Autopsy]] | [[Wazuh|🐺 Wazuh]] |
+| [[Sigma\|🔎 Sigma]] | **🦠 YARA** (you are here) | [[Volatility\|🧠 Volatility]] | [[Splunk\|📊 Splunk]] |
+| | [[Ghidra\|🔬 Ghidra]] | [[Autopsy\|🔬 Autopsy]] | [[Wazuh\|🐺 Wazuh]] |
 
 ---
 

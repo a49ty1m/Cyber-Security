@@ -6,7 +6,7 @@
 ---
 
 ## 🧭 Navigation
-> [[README|🏠 Master Roadmap]] · [[Stage-1_Foundation|Stage 1: Foundation]] · [[Stage-2_Offense-I|Stage 2: Offense I]] · [[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] · [[Stage-4_Enterprise|Stage 4: Enterprise]] · [[Stage-5_Specialized|Stage 5: Specialized]] · [[Shelf_Post-Hire|📦 Shelf]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Roadmap/Stage-1_Foundation|Stage 1: Foundation]] · [[Roadmap/Stage-2_Offense-I|Stage 2: Offense I]] · [[Roadmap/Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] · [[Roadmap/Stage-4_Enterprise|Stage 4: Enterprise]] · [[Roadmap/Stage-5_Specialized|Stage 5: Specialized]] · [[Roadmap/Shelf_Post-Hire|📦 Shelf]]
 
 ---
 

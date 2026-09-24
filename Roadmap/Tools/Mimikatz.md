@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Post-Exploitation | AD Attacks | Credential Access | C2 |
 |:-----------------|:-----------|:-----------------|:---|
-| [[LinPEAS|🐉 LinPEAS]] | [[BloodHound|🩸 BloodHound]] | [[Hashcat|🔥 Hashcat]] | [[Metasploit_Framework|💀 Metasploit]] |
-| [[WinPEAS|🪟 WinPEAS]] | [[Impacket|🐍 Impacket]] | [[John_the_Ripper|🔑 John the Ripper]] | [[Sliver|🐍 Sliver]] |
-| **🐱 Mimikatz** (you are here) | [[NetExec|🌐 NetExec]] | [[Responder|📡 Responder]] | [[Evil-WinRM|🪟 Evil-WinRM]] |
+| [[LinPEAS\|🐉 LinPEAS]] | [[BloodHound\|🩸 BloodHound]] | [[Hashcat\|🔥 Hashcat]] | [[Metasploit_Framework\|💀 Metasploit]] |
+| [[WinPEAS\|🪟 WinPEAS]] | [[Impacket\|🐍 Impacket]] | [[John_the_Ripper\|🔑 John the Ripper]] | [[Sliver\|🐍 Sliver]] |
+| **🐱 Mimikatz** (you are here) | [[NetExec\|🌐 NetExec]] | [[Responder\|📡 Responder]] | [[Evil-WinRM\|🪟 Evil-WinRM]] |
 
 ---
 

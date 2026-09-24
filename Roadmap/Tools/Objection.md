@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Mobile Security | Dynamic Analysis | Static Analysis | Network |
 |:---------------|:----------------|:----------------|:--------|
-| [[Frida|🔬 Frida]] | **📱 Objection** (you are here) | [[jadx|📦 jadx]] | [[Burp_Suite|🕷️ Burp Suite]] |
-| [[APKTool|🔨 APKTool]] | | | |
+| [[Frida\|🔬 Frida]] | **📱 Objection** (you are here) | [[jadx\|📦 jadx]] | [[Burp_Suite\|🕷️ Burp Suite]] |
+| [[APKTool\|🔨 APKTool]] | | | |
 
 ---
 

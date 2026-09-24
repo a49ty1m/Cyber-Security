@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Recon & Scanning | AD Attacks | Post-Exploitation | Credential Access |
 |:-----------------|:-----------|:------------------|:-----------------|
-| [[Nmap|🗺️ Nmap]] | [[Impacket|🐍 Impacket]] | [[BloodHound|🩸 BloodHound]] | [[Hashcat|🔥 Hashcat]] |
-| [[theHarvester|🌾 theHarvester]] | [[NetExec|🌐 NetExec]] | [[WinPEAS|🪟 WinPEAS]] | [[Responder|📡 Responder]] |
-| **🔑 Kerbrute** (you are here) | [[BloodHound|🩸 BloodHound]] | [[Hashcat|🔥 Hashcat]] | [[Impacket|🐍 Impacket]] |
+| [[Nmap\|🗺️ Nmap]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Hashcat\|🔥 Hashcat]] |
+| [[theHarvester\|🌾 theHarvester]] | [[NetExec\|🌐 NetExec]] | [[WinPEAS\|🪟 WinPEAS]] | [[Responder\|📡 Responder]] |
+| **🔑 Kerbrute** (you are here) | [[BloodHound\|🩸 BloodHound]] | [[Hashcat\|🔥 Hashcat]] | [[Impacket\|🐍 Impacket]] |
 
 ---
 

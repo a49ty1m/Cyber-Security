@@ -1900,6 +1900,6 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#Stage 3 — Web & App Sec|⬆ Return to Top]] |
+| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#Stage 3 — Web & App Sec\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-4_Enterprise|Stage 4: Enterprise]]` to open the next stage in a split tab, or hover to preview.

@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | C2 Frameworks | Post-Exploitation | Offensive Tooling |
 |:-------------|:----------------|:-----------------|
-| **🏰 Mythic** (you are here) | [[Sliver|🔱 Sliver]] | [[Metasploit_Framework|💉 Metasploit]] |
-| [[Havoc|⚔️ Havoc]] | [[Impacket|🔧 Impacket]] | [[BloodHound|🩸 BloodHound]] |
+| **🏰 Mythic** (you are here) | [[Sliver\|🔱 Sliver]] | [[Metasploit_Framework\|💉 Metasploit]] |
+| [[Havoc\|⚔️ Havoc]] | [[Impacket\|🔧 Impacket]] | [[BloodHound\|🩸 BloodHound]] |
 
 ---
 

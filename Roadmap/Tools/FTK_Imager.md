@@ -14,7 +14,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Disk Forensics | Memory Forensics | Timeline & Artifacts | Host Telemetry |
+|:---------------|:-----------------|:---------------------|:---------------|
+| [[Autopsy\|🔍 Autopsy]] | [[Volatility\|🧠 Volatility]] | [[Plaso\|📅 Plaso]] | [[Sysmon\|📊 Sysmon]] |
+| **💾 FTK Imager** (you are here) | | [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
 
 ---
 

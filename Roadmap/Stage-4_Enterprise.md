@@ -1539,6 +1539,6 @@ Robert Cialdini's research on influence identified six universal principles that
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#Stage 4 — Enterprise|⬆ Return to Top]] |
+| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#Stage 4 — Enterprise\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-5_Specialized|Stage 5: Specialized]]` to open the next stage in a split tab, or hover to preview.

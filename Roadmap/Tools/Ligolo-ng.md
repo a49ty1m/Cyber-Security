@@ -14,7 +14,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Pivoting & Tunneling | Post-Exploitation & PrivEsc | C2 Frameworks | Network Relays |
+|:---------------------|:----------------------------|:--------------|:---------------|
+| [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] | [[Sliver\|🐍 Sliver]] | [[Netcat\|🔌 Netcat]] |
+| **🔀 Ligolo-ng** (you are here) | [[WinPEAS\|🪟 WinPEAS]] | [[Havoc\|⚔️ Havoc]] | [[socat\|🔄 socat]] |
+| | [[Mimikatz\|🐱 Mimikatz]] | [[Mythic\|🏛️ Mythic]] | [[Metasploit_Framework\|💀 Metasploit]] |
 
 ---
 

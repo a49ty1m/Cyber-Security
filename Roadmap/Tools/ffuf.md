@@ -17,7 +17,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Web Proxy & Scanning | Fuzzing & Discovery | Exploitation | CMS & Vuln Scanners |
+|:---------------------|:--------------------|:-------------|:---------------------|
+| [[Burp_Suite\|🕷️ Burp Suite]] | **🌀 ffuf** (you are here) | [[sqlmap\|💉 sqlmap]] | [[Nikto\|🔍 Nikto]] |
+| [[OWASP_ZAP\|🛡️ OWASP ZAP]] | [[Gobuster\|📂 Gobuster]] | [[jwt-tool\|🔐 jwt-tool]] | [[wpscan\|🔌 WPScan]] |
+| [[Nuclei\|⚡ Nuclei]] | | | |
 
 ---
 

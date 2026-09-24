@@ -318,5 +318,5 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 
 | 🏠 Root Portfolio | 🔵 Start Stage 1 | 🛠️ Tool Mastery Hub | ⬆ Return to Top |
 |:---:|:---:|:---:|:---:|
-| [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Stage 1: Foundation ➔]] | [[Tools/README\|88 Tool Mastery Guides]] | [[#🛡️ Cybersecurity Master Roadmap|⬆ Back to Top]] |
+| [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Stage 1: Foundation ➔]] | [[Tools/README\|88 Tool Mastery Guides]] | [[#🛡️ Cybersecurity Master Roadmap\|⬆ Back to Top]] |
 

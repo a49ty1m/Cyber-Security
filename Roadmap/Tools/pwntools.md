@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Binary Exploitation | Debugging | Static Analysis | Forensics |
 |:-------------------|:---------|:----------------|:---------|
-| **🐍 pwntools** (you are here) | [[GDB|🐛 GDB]] | [[Ghidra|🔭 Ghidra]] | [[Autopsy|🔬 Autopsy]] |
-| | [[x64dbg|🐛 x64dbg]] | | [[FTK_Imager|🖼️ FTK Imager]] |
+| **🐍 pwntools** (you are here) | [[GDB\|🐛 GDB]] | [[Ghidra\|🔭 Ghidra]] | [[Autopsy\|🔬 Autopsy]] |
+| | [[x64dbg\|🐛 x64dbg]] | | [[FTK_Imager\|🖼️ FTK Imager]] |
 
 ---
 

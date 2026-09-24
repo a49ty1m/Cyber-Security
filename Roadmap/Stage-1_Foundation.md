@@ -3254,6 +3254,6 @@ Authentication is the #1 attack surface in web applications. Building it myself 
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#Stage 1 — Foundation|⬆ Return to Top]] |
+| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#Stage 1 — Foundation\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-2_Offense-I|Stage 2: Offense I]]` to open the next stage in a split tab, or hover to preview.

@@ -16,7 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| AD Recon & Enumeration | Credential Capture & Abuse | Lateral Movement | Privilege Escalation |
+|:-----------------------|:---------------------------|:-----------------|:---------------------|
+| [[BloodHound\|🩸 BloodHound]] | **📡 Responder** (you are here) | [[NetExec\|🌐 NetExec]] | [[Mimikatz\|🐱 Mimikatz]] |
+| [[Kerbrute\|🔑 Kerbrute]] | [[Impacket\|🐍 Impacket]] | [[Evil-WinRM\|🪟 Evil-WinRM]] | [[Rubeus\|🎫 Rubeus]] |
+| [[Certipy\|🎫 Certipy]] | | [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] |
 
 ---
 

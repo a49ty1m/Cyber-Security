@@ -1801,6 +1801,6 @@ This is the Stage 2 capstone project — it combines everything from recon (port
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#Stage 2 — Offense I|⬆ Return to Top]] |
+| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#Stage 2 — Offense I\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]]` to open the next stage in a split tab, or hover to preview.

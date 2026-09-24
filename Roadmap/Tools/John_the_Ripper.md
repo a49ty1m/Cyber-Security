@@ -16,7 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Password Cracking | Online Brute-Force | Credential Extraction | Network Poisoning |
+|:------------------|:-------------------|:----------------------|:-------------------|
+| [[Hashcat\|🔥 Hashcat]] | [[Hydra\|🔓 Hydra]] | [[Mimikatz\|🐱 Mimikatz]] | [[Responder\|📡 Responder]] |
+| **🔑 John the Ripper** (you are here) | [[Metasploit_Framework\|💀 Metasploit]] | [[Impacket\|🐍 Impacket]] | [[NetExec\|🌐 NetExec]] |
 
 ---
 

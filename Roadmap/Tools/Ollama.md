@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | AI/LLM Security | LLM Red Teaming | AI SDKs |
 |:---------------|:----------------|:--------|
-| **🦙 Ollama** (you are here) | [[Garak|🧨 Garak]] | [[Python_AI_SDKs|🤖 Python AI SDKs]] |
-| | [[PyRIT|⚔️ PyRIT]] | |
+| **🦙 Ollama** (you are here) | [[Garak\|🧨 Garak]] | [[Python_AI_SDKs\|🤖 Python AI SDKs]] |
+| | [[PyRIT\|⚔️ PyRIT]] | |
 
 ---
 

@@ -1096,20 +1096,20 @@
 
 | # | Tool | Domain | Signature Use Case |
 |:-:|:-----|:-------|:-------------------|
-| 1 | [[Nmap|🗺️ Nmap]] | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. |
-| 2 | [[Netcat|🔌 Netcat]] | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. |
-| 3 | [[Burp_Suite|🕷️ Burp Suite]] | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. |
-| 4 | [[Metasploit_Framework|💀 Metasploit Framework]] | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. |
-| 5 | [[ffuf|💨 ffuf]] | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. |
-| 6 | [[Gobuster|🔍 Gobuster]] | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. |
-| 7 | [[LinPEAS|🐲 LinPEAS]] | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment I get a Linux shell. |
-| 8 | [[WinPEAS|🪟 WinPEAS]] | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment I get a Windows shell. |
-| 9 | [[Hydra|🔨 Hydra]] | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. |
-| 10 | [[Hashcat|#️⃣ Hashcat]] | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. |
-| 11 | [[John_the_Ripper|🔑 John the Ripper]] | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. |
-| 12 | [[sqlmap|💉 sqlmap]] | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. |
-| 13 | [[Responder|📣 Responder]] | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. |
-| 14 | [[tcpdump|📡 tcpdump]] | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. |
+| 1 | [[Nmap\|🗺️ Nmap]] | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. |
+| 2 | [[Netcat\|🔌 Netcat]] | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. |
+| 3 | [[Burp_Suite\|🕷️ Burp Suite]] | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. |
+| 4 | [[Metasploit_Framework\|💀 Metasploit Framework]] | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. |
+| 5 | [[ffuf\|💨 ffuf]] | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. |
+| 6 | [[Gobuster\|🔍 Gobuster]] | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. |
+| 7 | [[LinPEAS\|🐲 LinPEAS]] | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment I get a Linux shell. |
+| 8 | [[WinPEAS\|🪟 WinPEAS]] | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment I get a Windows shell. |
+| 9 | [[Hydra\|🔨 Hydra]] | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. |
+| 10 | [[Hashcat\|#️⃣ Hashcat]] | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. |
+| 11 | [[John_the_Ripper\|🔑 John the Ripper]] | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. |
+| 12 | [[sqlmap\|💉 sqlmap]] | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. |
+| 13 | [[Responder\|📣 Responder]] | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. |
+| 14 | [[tcpdump\|📡 tcpdump]] | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. |
 
 > [!IMPORTANT]
 > **Gate:** Every one of these 14 tools must be muscle memory before starting Tier 2. Tools 1–8 appear on the OSCP exam. Tools 9–14 appear in virtually every AD and web lab.
@@ -1122,18 +1122,18 @@
 
 | # | Tool | Domain | Signature Use Case |
 |:-:|:-----|:-------|:-------------------|
-| 15 | [[Impacket|🐍 Impacket]] | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. |
-| 16 | [[BloodHound|🩸 BloodHound]] | Active Directory | AD attack path visualization. Shortest path to Domain Admin from my current position. |
-| 17 | [[NetExec|🕸️ NetExec (nxc)]] | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. |
-| 18 | [[Wireshark|🦈 Wireshark]] | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. |
-| 19 | [[Nikto|🌐 Nikto]] | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. |
-| 20 | [[wpscan|🔴 wpscan]] | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. |
-| 21 | [[theHarvester|🌾 theHarvester]] | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. |
-| 22 | [[Recon-ng|🔭 Recon-ng]] | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. |
-| 23 | [[Ligolo-ng|🔀 Ligolo-ng]] | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. |
-| 24 | [[Sliver|🗡️ Sliver]] | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. |
-| 25 | [[OWASP_ZAP|🛡️ OWASP ZAP]] | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. |
-| 26 | [[Bettercap|🐝 Bettercap]] | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. |
+| 15 | [[Impacket\|🐍 Impacket]] | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. |
+| 16 | [[BloodHound\|🩸 BloodHound]] | Active Directory | AD attack path visualization. Shortest path to Domain Admin from my current position. |
+| 17 | [[NetExec\|🕸️ NetExec (nxc)]] | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. |
+| 18 | [[Wireshark\|🦈 Wireshark]] | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. |
+| 19 | [[Nikto\|🌐 Nikto]] | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. |
+| 20 | [[wpscan\|🔴 wpscan]] | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. |
+| 21 | [[theHarvester\|🌾 theHarvester]] | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. |
+| 22 | [[Recon-ng\|🔭 Recon-ng]] | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. |
+| 23 | [[Ligolo-ng\|🔀 Ligolo-ng]] | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. |
+| 24 | [[Sliver\|🗡️ Sliver]] | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. |
+| 25 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. |
+| 26 | [[Bettercap\|🐝 Bettercap]] | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. |
 
 > [!TIP]
 > **Tier 2 study path:** AD cluster first (Impacket → BloodHound → NetExec). Network (Wireshark → Bettercap). Web specialization (Nikto → wpscan → OWASP ZAP). Red team (Ligolo-ng → Sliver). OSINT (theHarvester → Recon-ng) runs in parallel.
@@ -1146,9 +1146,9 @@
 
 | # | Tool | Domain | When You Need It |
 |:-:|:-----|:-------|:-----------------|
-| 27 | [[Scapy|🐍 Scapy]] | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. |
-| 28 | [[Ghidra|🐉 Ghidra]] | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. |
-| 29 | [[jwt-tool|🔑 jwt_tool]] | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. |
+| 27 | [[Scapy\|🐍 Scapy]] | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. |
+| 28 | [[Ghidra\|🐉 Ghidra]] | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. |
+| 29 | [[jwt-tool\|🔑 jwt_tool]] | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. |
 | 30 | 📮 Postman | Web / API Testing | Manual REST API testing. Build, replay, and document API requests; manage auth flows. |
 | 31 | 🐙 Ettercap | Sniffing & Spoofing | Legacy MITM tool. Understand it for older environments; use Bettercap for modern labs. |
 | 32 | 🦶 SpiderFoot | OSINT | Automated OSINT with relationship graph. More automated than Recon-ng with less manual control. |
@@ -1293,6 +1293,6 @@ WHAT DO YOU NEED TO DO?
 
 | ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | ⬆ Top |
 |:---:|:---:|:---:|:---:|
-| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#Stage 5 — Specialized|⬆ Return to Top]] |
+| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#Stage 5 — Specialized\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Shelf_Post-Hire|Shelf: Post-Hire]]` to explore situational post-hire electives, or hover to preview.

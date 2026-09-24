@@ -12,7 +12,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Endpoint Telemetry | SIEM & Analysis | Static Binary Triage | Dynamic Debugging |
+|:-------------------|:----------------|:---------------------|:------------------|
+| [[Sysmon\|📊 Sysmon]] | [[Splunk\|🔎 Splunk]] | [[PEStudio\|🔬 PEStudio]] | [[x64dbg\|🐛 x64dbg]] |
+| **🔍 Procmon** (you are here) | [[ELK\|🦌 ELK]] | [[Detect_It_Easy\|🔎 Detect It Easy]] | [[GDB\|🐞 GDB]] |
+| | [[Wazuh\|🛡️ Wazuh]] | [[strings\|📝 strings]] | [[Volatility\|🧠 Volatility]] |
 
 ---
 

@@ -2422,6 +2422,6 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 
 | ◀ Return to Stage 5 | 🏠 Master Hub | ⬆ Top |
 |:---:|:---:|:---:|
-| [[Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[README\|Master Roadmap]] | [[#📦 Shelf: Post-Hire & Elective Specializations|⬆ Return to Top]] |
+| [[Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[README\|Master Roadmap]] | [[#📦 Shelf: Post-Hire & Elective Specializations\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Use Obsidian's quick switcher (`Ctrl + O` or `Cmd + O`) to search and jump directly to any specific Shelf module.

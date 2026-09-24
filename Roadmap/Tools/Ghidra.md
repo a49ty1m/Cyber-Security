@@ -14,7 +14,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+
+| Static RE & Decompilation | Dynamic Debugging | Binary Exploitation | Triage & Strings |
+|:--------------------------|:------------------|:--------------------|:-----------------|
+| **🔬 Ghidra** (you are here) | [[x64dbg\|🐛 x64dbg]] | [[pwntools\|⚡ pwntools]] | [[PEStudio\|🔬 PEStudio]] |
+| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] | | [[Detect_It_Easy\|🔎 Detect It Easy]] |
+| | | | [[strings\|📝 strings]] |
 
 ---
 

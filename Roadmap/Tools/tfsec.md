@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | IaC Security | Cloud Assessment | Secrets Scanning |
 |:------------|:----------------|:-----------------|
-| [[Checkov|✅ Checkov]] | [[Prowler|☁️ Prowler]] | [[Gitleaks|🕵️ Gitleaks]] |
-| **🛡️ tfsec** (you are here) | | [[TruffleHog|🔎 TruffleHog]] |
+| [[Checkov\|✅ Checkov]] | [[Prowler\|☁️ Prowler]] | [[Gitleaks\|🕵️ Gitleaks]] |
+| **🛡️ tfsec** (you are here) | | [[TruffleHog\|🔎 TruffleHog]] |
 
 ---
 

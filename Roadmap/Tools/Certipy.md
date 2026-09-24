@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Active Directory | Credentials | Network | Cloud |
 |:----------------|:-----------|:--------|:------|
-| [[BloodHound|🩸 BloodHound]] | [[Mimikatz|🥷 Mimikatz]] | [[Impacket|🔧 Impacket]] | [[Prowler|☁️ Prowler]] |
-| [[Rubeus|🔑 Rubeus]] | **🔑 Certipy** (you are here) | [[NetExec|💀 NetExec]] | [[Pacu|🐦 Pacu]] |
-| [[Kerbrute|👣 Kerbrute]] | | | |
+| [[BloodHound\|🩸 BloodHound]] | [[Mimikatz\|🥷 Mimikatz]] | [[Impacket\|🔧 Impacket]] | [[Prowler\|☁️ Prowler]] |
+| [[Rubeus\|🔑 Rubeus]] | **🔑 Certipy** (you are here) | [[NetExec\|💀 NetExec]] | [[Pacu\|🐦 Pacu]] |
+| [[Kerbrute\|👣 Kerbrute]] | | | |
 
 ---
 

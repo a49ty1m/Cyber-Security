@@ -16,13 +16,13 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Kerberos Attacks | AD Attacks | Credential Access | C2 |
 |:----------------|:-----------|:-----------------|:---|
-| [[Impacket|🐍 Impacket]] | [[BloodHound|🩸 BloodHound]] | [[Mimikatz|🐱 Mimikatz]] | [[Sliver|🐍 Sliver]] |
-| **🎫 Rubeus** (you are here) | [[NetExec|🌐 NetExec]] | [[Hashcat|🔥 Hashcat]] | [[Evil-WinRM|🪟 Evil-WinRM]] |
-| [[Kerbrute|🔑 Kerbrute]] | [[BloodHound|🩸 BloodHound]] | [[Responder|📡 Responder]] | [[Metasploit_Framework|💀 Metasploit]] |
+| [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Mimikatz\|🐱 Mimikatz]] | [[Sliver\|🐍 Sliver]] |
+| **🎫 Rubeus** (you are here) | [[NetExec\|🌐 NetExec]] | [[Hashcat\|🔥 Hashcat]] | [[Evil-WinRM\|🪟 Evil-WinRM]] |
+| [[Kerbrute\|🔑 Kerbrute]] | [[BloodHound\|🩸 BloodHound]] | [[Responder\|📡 Responder]] | [[Metasploit_Framework\|💀 Metasploit]] |
 
 ---
 

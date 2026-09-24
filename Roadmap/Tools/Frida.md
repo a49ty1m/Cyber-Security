@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Mobile Security | Android Analysis | iOS Analysis | Network |
 |:---------------|:----------------|:-------------|:--------|
-| **🔬 Frida** (you are here) | [[jadx|📦 jadx]] | [[Objection|📱 Objection]] | [[Burp_Suite|🕷️ Burp Suite]] |
-| [[APKTool|🔨 APKTool]] | [[Aircrack-ng|📡 Aircrack-ng]] | | |
+| **🔬 Frida** (you are here) | [[jadx\|📦 jadx]] | [[Objection\|📱 Objection]] | [[Burp_Suite\|🕷️ Burp Suite]] |
+| [[APKTool\|🔨 APKTool]] | [[Aircrack-ng\|📡 Aircrack-ng]] | | |
 
 ---
 

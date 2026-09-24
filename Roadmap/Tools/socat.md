@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Shell & Pivoting | Networking | Tunneling | Crypto |
 |:----------------|:-----------|:----------|:-------|
-| [[Netcat|🔌 Netcat]] | [[Nmap|🗺️ Nmap]] | [[Chisel|🐛 Chisel]] | [[OpenSSL|🔐 OpenSSL]] |
-| **📡 socat** (you are here) | [[Responder|🔥 Responder]] | [[Ligolo-ng|🌐 Ligolo-ng]] | [[Metasploit_Framework|💀 Metasploit]] |
+| [[Netcat\|🔌 Netcat]] | [[Nmap\|🗺️ Nmap]] | [[Chisel\|🐛 Chisel]] | [[OpenSSL\|🔐 OpenSSL]] |
+| **📡 socat** (you are here) | [[Responder\|🔥 Responder]] | [[Ligolo-ng\|🌐 Ligolo-ng]] | [[Metasploit_Framework\|💀 Metasploit]] |
 
 ---
 

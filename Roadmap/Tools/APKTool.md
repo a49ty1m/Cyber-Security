@@ -16,12 +16,12 @@
 
 ## 🧭 Navigation
 
-> [[README|🏠 Master Roadmap]] · [[README|🔧 Tools Index]]
+> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
 
 | Mobile Static Analysis | Mobile Dynamic Analysis | Resources |
 |:----------------------|:------------------------|:---------|
-| [[jadx|📦 jadx]] | [[Frida|🔬 Frida]] | |
-| **🔨 APKTool** (you are here) | [[Objection|📱 Objection]] | |
+| [[jadx\|📦 jadx]] | [[Frida\|🔬 Frida]] | |
+| **🔨 APKTool** (you are here) | [[Objection\|📱 Objection]] | |
 
 ---
 
