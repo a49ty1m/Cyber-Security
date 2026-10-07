@@ -33,17 +33,17 @@
 > [!IMPORTANT]
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
-> | Priority | Tool | Purpose & Core Skills |
-> | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | [[BloodHound]] & SharpHound | AD/Azure graph collection, Cypher query analysis, ACL abuse pathing (`ShortestPath to Domain Admins`). |
-> | **Tier 1 (Mandatory)** | [[Impacket]] Suite | Protocol-level attacks (`secretsdump.py`, `psexec.py`, `wmiexec.py`, `GetNPUsers.py`, `GetUserSPNs.py`). |
-> | **Tier 1 (Mandatory)** | [[Mimikatz]] & [[Rubeus]] | LSASS credential dumping (`sekurlsa::logonpasswords`), Kerberoasting, AS-REP roasting, Overpass-the-Hash, ticket injection. |
-> | **Tier 1 (Mandatory)** | **Certipy** | Active Directory Certificate Services (ADCS) enumeration, ESC1/ESC4 template exploitation, shadow credentials. |
-> | **Tier 1 (Mandatory)** | [[NetExec]] (nxc) | Network spray & lateral movement orchestrator across SMB, WinRM, LDAP, MSSQL, and RDP. |
-> | **Tier 1 (Mandatory)** | **Prowler & Pacu** | AWS/Azure cloud security posture assessment, IAM privilege escalation, misconfiguration exploitation. |
-> | **Tier 2 (Secondary)** | [[Evil-WinRM]] | WinRM remote shell execution, DLL payload loading, pass-the-hash administrative control. |
-> | **Tier 2 (Secondary)** | [[Kerbrute]] | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. |
-> | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. |
+> | Priority | Tool | Purpose & Core Skills | ✅ Complete By |
+> | :--- | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [[BloodHound]] & SharpHound | AD/Azure graph collection, Cypher query analysis, ACL abuse pathing (`ShortestPath to Domain Admins`). | **Module 19 — Topic 1 (Discovery & Enumeration)** |
+> | **Tier 1 (Mandatory)** | [[Impacket]] Suite | Protocol-level attacks (`secretsdump.py`, `psexec.py`, `wmiexec.py`, `GetNPUsers.py`, `GetUserSPNs.py`). | **Module 19 — Topic 2 (Credential & Auth Attacks)** |
+> | **Tier 1 (Mandatory)** | [[Mimikatz]] & [[Rubeus]] | LSASS credential dumping (`sekurlsa::logonpasswords`), Kerberoasting, AS-REP roasting, Overpass-the-Hash, ticket injection. | **Module 19 — Topic 2 (Credential & Auth Attacks)** |
+> | **Tier 1 (Mandatory)** | **Certipy** | Active Directory Certificate Services (ADCS) enumeration, ESC1/ESC4 template exploitation, shadow credentials. | **Module 19 — Topic 3 (Delegation, ACL, and ADCS Abuse)** |
+> | **Tier 1 (Mandatory)** | [[NetExec]] (nxc) | Network spray & lateral movement orchestrator across SMB, WinRM, LDAP, MSSQL, and RDP. | **Module 19 — Topic 4 (Lateral Movement & Persistence)** |
+> | **Tier 1 (Mandatory)** | **Prowler & Pacu** | AWS/Azure cloud security posture assessment, IAM privilege escalation, misconfiguration exploitation. | **Module 20 — Topic 5 (Cloud-Specific Attack Vectors)** |
+> | **Tier 2 (Secondary)** | [[Evil-WinRM]] | WinRM remote shell execution, DLL payload loading, pass-the-hash administrative control. | **Module 19 — Topic 4 (Lateral Movement & Persistence)** |
+> | **Tier 2 (Secondary)** | [[Kerbrute]] | Fast Active Directory user enumeration and password brute-forcing via Kerberos pre-auth. | **Module 19 — Topic 1 (Discovery & Enumeration)** |
+> | **Tier 2 (Secondary)** | **Trivy & ScoutSuite** | Container/Kubernetes image vulnerability scanning and multi-cloud security auditing. | **Module 21 — Topic 1 & 2 (Container & Kubernetes Security)** |
 > **Stage 4 Exit Gate:** I cannot pass Stage 4 until I can enumerate domain accounts with `Kerbrute`, collect AD graph data with `SharpHound`, visualize privilege escalation paths in `BloodHound`, exploit an ADCS misconfiguration with `Certipy`, and dump the NTDS.dit database via `secretsdump.py`.
 
 ---

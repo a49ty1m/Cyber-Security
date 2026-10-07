@@ -33,16 +33,16 @@
 > [!IMPORTANT]
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
-> | Priority | Tool | Purpose & Core Skills |
-> | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | [[Nmap]] | Host discovery, port scanning, service banner grabbing, NSE script auditing (`-sC -sV`). |
-> | **Tier 1 (Mandatory)** | [[Netcat]] / `socat` | Port binding, raw banner interaction, listener setup, encrypted reverse/bind shells. |
-> | **Tier 1 (Mandatory)** | [[Responder]] | LLMNR/NBT-NS/mDNS spoofing, rogue WPAD proxy poisoning, NetNTLMv1/v2 hash harvesting. |
-> | **Tier 1 (Mandatory)** | [[Hashcat]] | GPU password cracking, rule-based attacks (`best64.rule`), hash-mode identification (`-m 5600`). |
-> | **Tier 1 (Mandatory)** | [[Metasploit_Framework]] | Modular exploitation, auxiliary scanning, payload generation (`msfvenom`), Meterpreter navigation. |
-> | **Tier 2 (Secondary)** | [[theHarvester]] & [[Amass]] | Passive OSINT, subdomain enumeration, organization surface mapping. |
-> | **Tier 2 (Secondary)** | [[Hydra]] & [[John_the_Ripper]] | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. |
-> | **Tier 2 (Secondary)** | [[LinPEAS]] & [[WinPEAS]] | Automated local privilege escalation vector enumeration on Linux and Windows targets. |
+> | Priority | Tool | Purpose & Core Skills | ✅ Complete By |
+> | :--- | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [[Nmap]] | Host discovery, port scanning, service banner grabbing, NSE script auditing (`-sC -sV`). | **Module 09 — Topic 1 & 2 (Scanning)** |
+> | **Tier 1 (Mandatory)** | [[Netcat]] / `socat` | Port binding, raw banner interaction, listener setup, encrypted reverse/bind shells. | **Module 10 — Topic 1 (Enumeration)** |
+> | **Tier 1 (Mandatory)** | [[Responder]] | LLMNR/NBT-NS/mDNS spoofing, rogue WPAD proxy poisoning, NetNTLMv1/v2 hash harvesting. | **Module 12 — Topic 2 (Sniffing & Spoofing)** |
+> | **Tier 1 (Mandatory)** | [[Hashcat]] | GPU password cracking, rule-based attacks (`best64.rule`), hash-mode identification (`-m 5600`). | **Module 12 — Topic 3 (Password Cracking)** |
+> | **Tier 1 (Mandatory)** | [[Metasploit_Framework]] | Modular exploitation, auxiliary scanning, payload generation (`msfvenom`), Meterpreter navigation. | **Module 13 — Topic 1 & 2 (Exploitation)** |
+> | **Tier 2 (Secondary)** | [[theHarvester]] & [[Amass]] | Passive OSINT, subdomain enumeration, organization surface mapping. | **Module 08 — Topic 1 & 2 (Reconnaissance)** |
+> | **Tier 2 (Secondary)** | [[Hydra]] & [[John_the_Ripper]] | Online network service brute-forcing (SSH/SMB/FTP) and offline password hash cracking. | **Module 12 — Topic 3 (Password Cracking)** |
+> | **Tier 2 (Secondary)** | [[LinPEAS]] & [[WinPEAS]] | Automated local privilege escalation vector enumeration on Linux and Windows targets. | **Module 13 — Topic 3 (Post-Exploitation & Privilege Escalation)** |
 > **Stage 2 Exit Gate:** I cannot pass Stage 2 until I can scan a target subnet with `Nmap`, poison an internal broadcast query using `Responder`, crack the harvested NetNTLMv2 hash using `Hashcat`, exploit an unpatched service, and catch a stable reverse shell using `Netcat`.
 
 ---

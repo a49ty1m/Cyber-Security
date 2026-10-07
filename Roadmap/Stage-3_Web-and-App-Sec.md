@@ -34,16 +34,16 @@
 > [!IMPORTANT]
 
 ### 🛠️ Mandatory Tool Stack (Must Master in This Stage)
-> | Priority | Tool | Purpose & Core Skills |
-> | :--- | :--- | :--- |
-> | **Tier 1 (Mandatory)** | [[Burp_Suite]] (Community or Pro) | HTTP/S proxying, Repeater parameter manipulation, Intruder fuzzing, match & replace rules, Autorize plugin (IDOR). |
-> | **Tier 1 (Mandatory)** | [[ffuf]] / [[Gobuster]] | High-speed web content/directory discovery, virtual host routing fuzzing, parameter fuzzing. |
-> | **Tier 1 (Mandatory)** | [[sqlmap]] | Automated SQL injection testing, tamper script crafting, DBMS fingerprinting, database dumping. |
-> | **Tier 1 (Mandatory)** | [[Postman]] / cURL | REST/GraphQL API schema testing, authentication token injection, automated regression request suites. |
-> | **Tier 1 (Mandatory)** | [[jwt-tool]] | JSON Web Token tampering, algorithm confusion (`none`), key cracking, signature forgery. |
-> | **Tier 2 (Secondary)** | [[Nuclei]] | Template-based vulnerability scanning, custom YAML template writing for known CVEs. |
-> | **Tier 2 (Secondary)** | [[OWASP_ZAP]] | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. |
-> | **Tier 2 (Secondary)** | [[wpscan]] & [[Nikto]] | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. |
+> | Priority | Tool | Purpose & Core Skills | ✅ Complete By |
+> | :--- | :--- | :--- | :--- |
+> | **Tier 1 (Mandatory)** | [[Burp_Suite]] (Community or Pro) | HTTP/S proxying, Repeater parameter manipulation, Intruder fuzzing, match & replace rules, Autorize plugin (IDOR). | **Module 14 — Topic 1 & 2 (Web App Hacking Recon & Vuln Analysis)** |
+> | **Tier 1 (Mandatory)** | [[ffuf]] / [[Gobuster]] | High-speed web content/directory discovery, virtual host routing fuzzing, parameter fuzzing. | **Module 14 — Topic 1 (Reconnaissance & Mapping)** |
+> | **Tier 1 (Mandatory)** | [[sqlmap]] | Automated SQL injection testing, tamper script crafting, DBMS fingerprinting, database dumping. | **Module 14 — Topic 3 (OWASP Top 10 Exploitation)** |
+> | **Tier 1 (Mandatory)** | [[Postman]] / cURL | REST/GraphQL API schema testing, authentication token injection, automated regression request suites. | **Module 17 — Topic 1 & 2 (API Security)** |
+> | **Tier 1 (Mandatory)** | [[jwt-tool]] | JSON Web Token tampering, algorithm confusion (`none`), key cracking, signature forgery. | **Module 15 — Topic 3 (Token Forgery & Replay)** |
+> | **Tier 2 (Secondary)** | [[Nuclei]] | Template-based vulnerability scanning, custom YAML template writing for known CVEs. | **Module 16 — Topic 3 (Vulnerability Assessment & Exploitation)** |
+> | **Tier 2 (Secondary)** | [[OWASP_ZAP]] | Open-source proxy alternative, automated spidering, baseline CI/CD security scanning. | **Module 16 — Topic 2 (Scanning & Service Enumeration)** |
+> | **Tier 2 (Secondary)** | [[wpscan]] & [[Nikto]] | CMS-specific auditing (WordPress themes/plugins) and legacy web server configuration profiling. | **Module 16 — Topic 2 (Scanning & Service Enumeration)** |
 > **Stage 3 Exit Gate:** I cannot pass Stage 3 until I can intercept web traffic in Burp Suite, uncover an unlinked API route using `ffuf`, forge an admin session using `jwt-tool`, and extract database schema details using `sqlmap` with an appropriate tamper script.
 
 ---

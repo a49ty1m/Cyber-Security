@@ -1094,22 +1094,22 @@
 
 *14 tools. I will use these on nearly every lab, CTF, and engagement. OSCP requires most of them. Master all 14 before moving to Tier 2.*
 
-| # | Tool | Domain | Signature Use Case |
-|:-:|:-----|:-------|:-------------------|
-| 1 | [[Nmap\|🗺️ Nmap]] | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. |
-| 2 | [[Netcat\|🔌 Netcat]] | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. |
-| 3 | [[Burp_Suite\|🕷️ Burp Suite]] | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. |
-| 4 | [[Metasploit_Framework\|💀 Metasploit Framework]] | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. |
-| 5 | [[ffuf\|💨 ffuf]] | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. |
-| 6 | [[Gobuster\|🔍 Gobuster]] | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. |
-| 7 | [[LinPEAS\|🐲 LinPEAS]] | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment I get a Linux shell. |
-| 8 | [[WinPEAS\|🪟 WinPEAS]] | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment I get a Windows shell. |
-| 9 | [[Hydra\|🔨 Hydra]] | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. |
-| 10 | [[Hashcat\|#️⃣ Hashcat]] | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. |
-| 11 | [[John_the_Ripper\|🔑 John the Ripper]] | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. |
-| 12 | [[sqlmap\|💉 sqlmap]] | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. |
-| 13 | [[Responder\|📣 Responder]] | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. |
-| 14 | [[tcpdump\|📡 tcpdump]] | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. |
+| # | Tool | Domain | Signature Use Case | ✅ Complete By |
+|:-:|:-----|:-------|:-------------------|:--------------|
+| 1 | [[Nmap\|🗺️ Nmap]] | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. | **Module 27 — before Lab Progression (Offensive Dev)** |
+| 2 | [[Netcat\|🔌 Netcat]] | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. | **Module 27 — Topic 4 (C2 & Implant Development)** |
+| 3 | [[Burp_Suite\|🕷️ Burp Suite]] | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 4 | [[Metasploit_Framework\|💀 Metasploit Framework]] | Exploitation | CVE exploitation, auxiliary modules, Meterpreter post-exploitation. OSCP-standard. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
+| 5 | [[ffuf\|💨 ffuf]] | Web Fuzzing | High-speed content discovery — directories, parameters, vhosts. Fastest fuzzer available. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 6 | [[Gobuster\|🔍 Gobuster]] | Web Fuzzing | DNS subdomain, directory, and vhost brute-force. Simpler syntax than ffuf for quick runs. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 7 | [[LinPEAS\|🐲 LinPEAS]] | Post-Exploitation / Linux | Linux privesc enumeration. Run the moment I get a Linux shell. | **Module 27 — Topic 3 (Linux Offensive Development)** |
+| 8 | [[WinPEAS\|🪟 WinPEAS]] | Post-Exploitation / Windows | Windows privesc enumeration. Run the moment I get a Windows shell. | **Module 27 — Topic 2 (Windows Offensive Development)** |
+| 9 | [[Hydra\|🔨 Hydra]] | Credential Attacks | Multi-protocol brute-force — SSH, FTP, HTTP, RDP, SMB, WinRM. | **Module 29 — Topic 2 (Initial Access & Payload Delivery)** |
+| 10 | [[Hashcat\|#️⃣ Hashcat]] | Password Cracking | GPU-accelerated hash cracking. Go-to for large wordlists and rule-based attacks. | **Module 29 — Topic 2 (Initial Access & Payload Delivery)** |
+| 11 | [[John_the_Ripper\|🔑 John the Ripper]] | Password Cracking | Format-auto-detecting hash cracker. Best for shadow files, ZIP, SSH keys, rare formats. | **Module 29 — Topic 2 (Initial Access & Payload Delivery)** |
+| 12 | [[sqlmap\|💉 sqlmap]] | Web App Testing | Automated SQL injection detection and exploitation. Run after Burp confirms the endpoint. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 13 | [[Responder\|📣 Responder]] | Sniffing & Spoofing | LLMNR/NBT-NS/mDNS poisoning. Passive NTLMv2 hash capture on Windows networks. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
+| 14 | [[tcpdump\|📡 tcpdump]] | Packet Capture | Headless CLI packet capture. Use on servers and pivots where Wireshark is unavailable. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
 
 > [!IMPORTANT]
 > **Gate:** Every one of these 14 tools must be muscle memory before starting Tier 2. Tools 1–8 appear on the OSCP exam. Tools 9–14 appear in virtually every AD and web lab.
@@ -1120,20 +1120,20 @@
 
 *12 tools. Critical for Active Directory attacks, network analysis, red teaming, and web specialization. I will use these in most serious engagements — just not on every single target like Tier 1.*
 
-| # | Tool | Domain | Signature Use Case |
-|:-:|:-----|:-------|:-------------------|
-| 15 | [[Impacket\|🐍 Impacket]] | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. |
-| 16 | [[BloodHound\|🩸 BloodHound]] | Active Directory | AD attack path visualization. Shortest path to Domain Admin from my current position. |
-| 17 | [[NetExec\|🕸️ NetExec (nxc)]] | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. |
-| 18 | [[Wireshark\|🦈 Wireshark]] | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. |
-| 19 | [[Nikto\|🌐 Nikto]] | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. |
-| 20 | [[wpscan\|🔴 wpscan]] | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. |
-| 21 | [[theHarvester\|🌾 theHarvester]] | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. |
-| 22 | [[Recon-ng\|🔭 Recon-ng]] | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. |
-| 23 | [[Ligolo-ng\|🔀 Ligolo-ng]] | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. |
-| 24 | [[Sliver\|🗡️ Sliver]] | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. |
-| 25 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. |
-| 26 | [[Bettercap\|🐝 Bettercap]] | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. |
+| # | Tool | Domain | Signature Use Case | ✅ Complete By |
+|:-:|:-----|:-------|:-------------------|:--------------|
+| 15 | [[Impacket\|🐍 Impacket]] | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
+| 16 | [[BloodHound\|🩸 BloodHound]] | Active Directory | AD attack path visualization. Shortest path to Domain Admin from my current position. | **Module 29 — Topic 1 (Campaign Planning & Infrastructure)** |
+| 17 | [[NetExec\|🕸️ NetExec (nxc)]] | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
+| 18 | [[Wireshark\|🦈 Wireshark]] | Packet Analysis | GUI deep-packet inspection. Protocol analysis, CTF pcap challenges, credential extraction. | **Module 27 — before Lab Progression (Offensive Dev)** |
+| 19 | [[Nikto\|🌐 Nikto]] | Web App Testing | Fast automated web server scanner. Finds misconfigs, outdated software, dangerous files. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 20 | [[wpscan\|🔴 wpscan]] | Web App Testing | WordPress enumeration — plugins, themes, users, CVEs. Mandatory on any WordPress target. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 21 | [[theHarvester\|🌾 theHarvester]] | OSINT / Recon | Passive email, subdomain, and IP harvest from search engines and threat intel APIs. | **Module 29 — Topic 1 (Campaign Planning & Infrastructure)** |
+| 22 | [[Recon-ng\|🔭 Recon-ng]] | OSINT / Recon | Structured, database-backed OSINT framework with module chaining and report generation. | **Module 29 — Topic 1 (Campaign Planning & Infrastructure)** |
+| 23 | [[Ligolo-ng\|🔀 Ligolo-ng]] | Red Team / Pivoting | TUN interface pivoting — full network access through a compromised host. No proxychains needed. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
+| 24 | [[Sliver\|🗡️ Sliver]] | Red Team / C2 | Open-source C2. Persistent implants, beacons, mTLS/HTTPS/DNS protocols, multi-operator. | **Module 27 — Topic 4 (C2 & Implant Development)** |
+| 25 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | Web App Testing | Free active scanner + AJAX spider. Best Burp Suite Community alternative and CI/CD integration. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 26 | [[Bettercap\|🐝 Bettercap]] | Sniffing & Spoofing | ARP/DNS poisoning, MITM, credential sniffing, Wi-Fi deauth and handshake capture. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
 
 > [!TIP]
 > **Tier 2 study path:** AD cluster first (Impacket → BloodHound → NetExec). Network (Wireshark → Bettercap). Web specialization (Nikto → wpscan → OWASP ZAP). Red team (Ligolo-ng → Sliver). OSINT (theHarvester → Recon-ng) runs in parallel.
@@ -1144,19 +1144,19 @@
 
 *12 tools. Essential within their specific domain, but not universally needed. Pick the sub-group that matches my track.*
 
-| # | Tool | Domain | When You Need It |
-|:-:|:-----|:-------|:-----------------|
-| 27 | [[Scapy\|🐍 Scapy]] | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. |
-| 28 | [[Ghidra\|🐉 Ghidra]] | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. |
-| 29 | [[jwt-tool\|🔑 jwt_tool]] | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. |
-| 30 | 📮 Postman | Web / API Testing | Manual REST API testing. Build, replay, and document API requests; manage auth flows. |
-| 31 | 🐙 Ettercap | Sniffing & Spoofing | Legacy MITM tool. Understand it for older environments; use Bettercap for modern labs. |
-| 32 | 🦶 SpiderFoot | OSINT | Automated OSINT with relationship graph. More automated than Recon-ng with less manual control. |
-| 33 | 🕵️ Maltego | OSINT | Visual intelligence mapping. Turns raw OSINT data into an interactive relationship graph. |
-| 34 | 🎣 GoPhish | Social Engineering | Phishing campaign framework — manages email sending, landing pages, and click/credential tracking. |
-| 35 | 🎭 Social-Engineer Toolkit (SET) | Social Engineering | Credential harvesting sites, malicious payload delivery, spear-phishing, phone phishing vectors. |
-| 36 | 🔬 x64dbg | Malware Analysis | Dynamic analysis on Windows — live debugging, API call tracing, memory breakpoints. |
-| 37 | 🖼️ PEStudio | Malware Analysis | Static PE triage — imports, strings, entropy, VirusTotal score. First tool opened on any sample. |
+| # | Tool | Domain | When You Need It | ✅ Complete By |
+|:-:|:-----|:-------|:-----------------|:--------------|
+| 27 | [[Scapy\|🐍 Scapy]] | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
+| 28 | [[Ghidra\|🐉 Ghidra]] | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
+| 29 | [[jwt-tool\|🔑 jwt_tool]] | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 30 | 📮 Postman | Web / API Testing | Manual REST API testing. Build, replay, and document API requests; manage auth flows. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 31 | 🐙 Ettercap | Sniffing & Spoofing | Legacy MITM tool. Understand it for older environments; use Bettercap for modern labs. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
+| 32 | 🦶 SpiderFoot | OSINT | Automated OSINT with relationship graph. More automated than Recon-ng with less manual control. | **Module 29 — Topic 1 (Campaign Planning & Infrastructure)** |
+| 33 | 🕵️ Maltego | OSINT | Visual intelligence mapping. Turns raw OSINT data into an interactive relationship graph. | **Module 29 — Topic 1 (Campaign Planning & Infrastructure)** |
+| 34 | 🎣 GoPhish | Social Engineering | Phishing campaign framework — manages email sending, landing pages, and click/credential tracking. | **Module 29 — Topic 2 (Initial Access & Payload Delivery)** |
+| 35 | 🎭 Social-Engineer Toolkit (SET) | Social Engineering | Credential harvesting sites, malicious payload delivery, spear-phishing, phone phishing vectors. | **Module 29 — Topic 2 (Initial Access & Payload Delivery)** |
+| 36 | 🔬 x64dbg | Malware Analysis | Dynamic analysis on Windows — live debugging, API call tracing, memory breakpoints. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
+| 37 | 🖼️ PEStudio | Malware Analysis | Static PE triage — imports, strings, entropy, VirusTotal score. First tool opened on any sample. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
 
 > [!NOTE]
 > **Study Tier 3 by track:** Malware analyst → PEStudio → Ghidra → x64dbg. Web/API tester → jwt_tool → Postman. OSINT investigator → SpiderFoot → Maltego. Social engineer → GoPhish → SET. Scapy is cross-track.
@@ -1167,18 +1167,18 @@
 
 *11 tools. Know what each does and when to call for it. Deep practice is optional unless DoS testing or low-level malware analysis is my specific role.*
 
-| # | Tool | Domain | What It Does |
-|:-:|:-----|:-------|:-------------|
-| 28 | 🧬 Detect It Easy (DiE) | Malware Analysis | PE packer and compiler identification. First step before attempting to unpack a binary. |
-| 30 | 👁️ Procmon | Malware Analysis | Windows process activity monitor — real-time file, registry, and network event capture during execution. |
-| 31 | 🧵 strings | Malware Analysis | Extract all printable strings from a binary. Fastest first-pass indicator extraction before Ghidra. |
-| 32 | 🧼 SoapUI | API Testing | SOAP/WSDL web service testing. Use for legacy XML-based enterprise APIs. |
-| 33 | 🍪 Cookie-Editor | Session Hijacking | Browser extension for viewing, modifying, and importing session cookies during web testing. |
-| 34 | 🦥 Slowloris | DoS Testing | HTTP slow-connection DoS. Tests whether a server is vulnerable to partial-request socket exhaustion. |
-| 35 | 💛 GoldenEye | DoS Testing | HTTP Layer 7 DoS tool. Use for demonstrating DoS concepts in isolated lab environments. |
-| 36 | ⚖️ ApacheBench (ab) | Performance / DoS | HTTP benchmarking. Understand server throughput and concurrency before a load test. |
-| 37 | 🔧 wrk | Performance / DoS | Modern sustained HTTP load tester. More realistic than ApacheBench for high-concurrency scenarios. |
-| 38 | 📶 iperf3 | Network Performance | Raw TCP/UDP bandwidth measurement between two hosts. Validates lab network capacity. |
+| # | Tool | Domain | What It Does | ✅ Complete By |
+|:-:|:-----|:-------|:-------------|:--------------|
+| 28 | 🧬 Detect It Easy (DiE) | Malware Analysis | PE packer and compiler identification. First step before attempting to unpack a binary. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
+| 30 | 👁️ Procmon | Malware Analysis | Windows process activity monitor — real-time file, registry, and network event capture during execution. | **Module 27 — Topic 2 (Windows Offensive Development)** |
+| 31 | 🧵 strings | Malware Analysis | Extract all printable strings from a binary. Fastest first-pass indicator extraction before Ghidra. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
+| 32 | 🧼 SoapUI | API Testing | SOAP/WSDL web service testing. Use for legacy XML-based enterprise APIs. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 33 | 🍪 Cookie-Editor | Session Hijacking | Browser extension for viewing, modifying, and importing session cookies during web testing. | **Module 28 — Topic 3 (Adversarial Techniques)** |
+| 34 | 🦥 Slowloris | DoS Testing | HTTP slow-connection DoS. Tests whether a server is vulnerable to partial-request socket exhaustion. | **Module 29 — Topic 4 (Data Exfiltration & Impact)** |
+| 35 | 💛 GoldenEye | DoS Testing | HTTP Layer 7 DoS tool. Use for demonstrating DoS concepts in isolated lab environments. | **Module 29 — Topic 4 (Data Exfiltration & Impact)** |
+| 36 | ⚖️ ApacheBench (ab) | Performance / DoS | HTTP benchmarking. Understand server throughput and concurrency before a load test. | **Module 30 — Topic 2 (Technical Portfolio & GitHub Presence)** |
+| 37 | 🔧 wrk | Performance / DoS | Modern sustained HTTP load tester. More realistic than ApacheBench for high-concurrency scenarios. | **Module 30 — Topic 2 (Technical Portfolio & GitHub Presence)** |
+| 38 | 📶 iperf3 | Network Performance | Raw TCP/UDP bandwidth measurement between two hosts. Validates lab network capacity. | **Module 27 — before Lab Progression (Offensive Dev)** |
 
 > [!NOTE]
 > **Tier 4 is conceptual.** I should be able to explain what each tool does and run a basic test — that's it. I do not need to master these to be a working penetration tester.
