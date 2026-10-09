@@ -314,6 +314,53 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 
 ---
 
+### 🎯 Practice Platforms — Tiered List
+
+#### Beginner
+
+| Platform | Notes |
+|----------|-------|
+| [TryHackMe](https://tryhackme.com) ✓ | Daily anchor — guided rooms, good for concept introduction |
+| [OverTheWire: Bandit → Natas](https://overthewire.org/wargames/) ✓ | Linux fundamentals and web basics via wargames |
+| [picoCTF / picoGym](https://picoctf.org) ✓ | Small, accessible CTF challenges across categories |
+| [Hacker101 CTF](https://ctf.hacker101.com) ✓ | Good first web-hacking flags, HackerOne-linked |
+| [CTFlearn](https://ctflearn.com) | Small easy challenges across categories — low friction entry |
+
+#### Intermediate
+
+| Platform | Notes |
+|----------|-------|
+| [HTB Starting Point → easy/medium retired boxes](https://hackthebox.com) ✓ | Unguided boxes, closer to real work |
+| [PortSwigger Web Security Academy](https://portswigger.net/web-security) ✓ | Best web training that exists — free, lab-driven, no hand-holding |
+| [Root-Me](https://root-me.org) ✓ | Broad category coverage, good for gaps |
+| [CryptoHack](https://cryptohack.org) ✓ | Crypto fundamentals via practical challenges |
+| [pwn.college](https://pwn.college) ✓ | Binary exploitation — structured belt progression |
+| [PentesterLab](https://pentesterlab.com) ✓ | Web + code review focus |
+| [Proving Grounds Play (OffSec)](https://www.offsec.com/labs/) | OSCP-style boxes, a few free per day |
+| [HackMyVM / Vulnyx](https://hackmyvm.eu) | VulnHub-style downloadable VMs, newer stock |
+| [CyberDefenders](https://cyberdefenders.org) ✓ | Blue team and forensics labs |
+
+#### Advanced
+
+| Platform | Notes |
+|----------|-------|
+| [HTB hard/insane boxes + Pro Labs](https://hackthebox.com) ✓ | Pro Labs for full AD attack chains |
+| [ROP Emporium](https://ropemporium.com) / [Exploit Education](https://exploit.education) / [pwnable.kr](https://pwnable.kr) ✓ | Binary exploitation depth |
+| [pwnable.tw](https://pwnable.tw) | Hard pwn — no hints, no scaffolding |
+| [Crackmes.one](https://crackmes.one) | Reverse engineering challenges |
+| [Live CTFs via CTFtime](https://ctftime.org) ✓ | The real test — no hints, real competition |
+| [Google CTF and Hackropole archives](https://goo.gle/ctf) | Past hard CTF challenges with writeups |
+
+#### The honest part
+
+THM modules are guided. They teach concepts, but they hold your hand. CTF and pentest skill comes from **unguided work** — where you're stuck and have to figure it out. If your whole day is modules, you're consuming, not practicing.
+
+- Pick **one unguided thing per day** from the intermediate tier (a PortSwigger lab, one HTB box, or one pwn.college challenge). Give it 60 minutes before reading a hint or writeup — then write up what you learned either way.
+- Add **zero new platforms** until you've finished something on the ones you have. A platform you've done 5 challenges on is worth less than one you've done 50 on.
+- Play **one live CTF from CTFtime each month**, even if you place last. Nothing exposes your gaps faster.
+
+---
+
 ### 🧭 Roadmap Navigation
 
 | 🏠 Root Portfolio | 🔵 Start Stage 1 | 🛠️ Tool Mastery Hub | ⬆ Return to Top |

@@ -13,14 +13,14 @@ filler. If my reasoning is wrong, sloppy, or hand-wavy, say so and say why.
 
 ## My setup (treat as fixed; edit before use)
 
-- **Lab environment:** `<host OS + VM/distro + tool versions, e.g. Kali VM on ...>`
+- **Lab environment:** `Kali(in KVM),fedora(primary system)& windows (for gaming only and other if needed)`
 - **Section 4 platforms (use ONLY these):** TryHackMe (default anchor),
   OverTheWire, Root Me, picoCTF, SadServers, HTB Academy, PortSwigger Web
   Academy, VulnHub, Metasploitable/DVWA/Juice Shop, or a local VM/Docker setup.
 - **Tool familiarity (keep updated):**
-  - Comfortable with: `<e.g. basic Linux CLI, git, ...>`
-  - Used a little: `<...>`
-  - Never used: `<e.g. gdb, Wireshark, Burp, ...>`
+  - Comfortable with: `kali-linux cli, nmap, wireshark, gobuster, KVM-Vertual_Machine, openssh, sharlok, traceroute, John, python, tailscale, powershell, bash`
+  - Used a little: `tcpdump, ffuf, nikto, whatweb`
+  - Never used: `Tools not mentioned above`
   Anything not listed under "Comfortable" is treated as not known.
 - **Time budget per hands-on task:** 60-90 minutes, including any tool prep.
 - **Authorization:** my own lab or explicitly authorized targets only. If any
