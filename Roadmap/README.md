@@ -29,7 +29,7 @@ x
 |     | ↳ [[#🏢 STAGE 4 — ENTERPRISE\|🏢 Stage 4: Enterprise]]                              | Active Directory, Kerberos, Cloud IAM, Containers, Adversary Emulation, Reporting    |
 |     | ↳ [[#🔬 STAGE 5 — SPECIALIZED\|🔬 Stage 5: Specialized]]                            | Custom C2 Implants, Exploit Dev, AI Red Teaming, Campaign Tradecraft, Portfolio      |
 |  3  | [[#📦 Shelf — Post-Hire Electives\|📦 Shelf — Post-Hire Electives]]                 | 21 off-sequence situational tracks (Mobile, ICS/SCADA, Forensics, Hardware, Telecom) |
-|  4  | [[#⏱️ Daily Protocol\|⏱️ Daily Protocol & Hard Rules]]                              | 3-step loop (Engineering Foundation ➔ Lab Execution ➔ Proof) & Weekend Scripting     |
+|  4  | [[#⏱️ Daily Protocol\|⏱️ Daily Protocol & Hard Rules]]                              | 4-phase loop (Target ➔ Foundation ➔ Lab Execution ➔ Proof), session tiers, daily unguided/CTF rule, weekly rhythm & Weekend Scripting |
 |  5  | [[#🛠️ Lab Setup\|🛠️ Lab Setup Baseline]]                                          | Hardware specs, hypervisor baselines, target environments, and practice platforms    |
 
 ---
@@ -266,16 +266,42 @@ x
 
 ## ⏱️ Daily Protocol
 
-> One question answered every morning: **"What is my current module and what am I proving today?"**
+> One question answered every morning: **"What is my current module, what Time Bracket am I in, and what am I proving today?"**
+
+### 🔒 Session Types
+
+Not every day is a full lab day. Pick the type honestly *before* starting so the loop below scales instead of getting skipped entirely.
+
+| Session Type | Duration | Use When | Scope |
+|:---|:---:|---|---|
+| **Full Session** | 2.5–4 hrs | Normal weekday/weekend, full energy | All 4 phases below |
+| **Short Session** | 60–90 min | Busy day, low energy | Phase 0 + one phase only (usually Lab Execution) |
+| **Recovery Session** | 20–30 min | Sick, travel, burned out | Reread yesterday's artifact & notes. No new material. |
+
+A Short or Recovery day still counts — a skipped day doesn't. Log it as such in the git commit message (`[short]` / `[recovery]`) so the record stays honest.
+
+### 🔁 The 4-Phase Loop
+
+**0. Lock the Target** *(~5 min)*
+Open the current module's Stage file and find the exact Topic and its stated **⏱️ Time Bracket**. Write one line before doing anything else: *"Today I complete ___ and prove it with ___."* This replaces "whatever's next" with a scoped, checkable target.
 
 **1. Engineering Foundation**
-Read the protocol or mechanism for my current topic. Write structured notes. Understand *why* it works before touching a tool.
+Read the protocol or mechanism for *today's topic only* — not the whole module. Write structured notes in my own words. Understand *why* it works before touching a tool. Stay inside the topic's Time Bracket; blowing past it is a signal the concept isn't understood yet, not a reason to keep re-reading.
 
 **2. Lab Execution**
-Terminal open. Wireshark running. Execute commands, capture output, break things. Never run a tool I cannot explain at the packet or system level.
+Terminal open. Wireshark running. Execute commands, capture output, break things. Never run a tool I cannot explain at the packet or system level. On an Unguided Day (below), this phase *is* the unguided challenge — no walkthrough open in a second tab.
 
 **3. Artifact & Proof**
-Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descriptive message. Check the Move-On Gate in the stage file.
+Save PCAP/log/screenshot. Write the 1-page lab summary (objective → steps → output → lessons learned). Git commit with a descriptive message. Check the Move-On Gate / Pacing Checkpoint in the current stage file before marking the topic done — don't self-certify past it.
+
+### 🎯 Unguided Work & CTF Rule
+
+Guided rooms (THM, structured walkthroughs) teach concepts but hold my hand. Real skill comes from being stuck and getting out of it alone:
+
+- **At least once per day** — even on a Short Session — spend Lab Execution on something unguided: one PortSwigger lab, one HTB/THM unguided box, one pwn.college challenge, or one live CTF problem from [[#🎯 Practice Platforms — Tiered List|Practice Platforms]].
+- Give it **60 minutes** before reading a hint or writeup. Write up what I learned either way — a documented failure is still proof of work.
+- **1 CTF challenge minimum, every single day**, no exceptions for Short Sessions (pick something small enough to fit).
+- **Add zero new platforms** until I've finished something on the ones I already use. 50 challenges on one platform beats 5 each on ten.
 
 ### Hard Rules
 
@@ -284,6 +310,30 @@ Save PCAP/log/screenshot. Write the 1-page lab summary. Git commit with a descri
 3. **No writeup = learning didn't happen.** Every lab session gets a committed markdown file.
 4. **Respect the Stage Gates.** Do not proceed until I can demonstrate the skill without notes.
 5. **Git commit after every session.** If I haven't committed in 2 weeks, I'm drifting.
+6. **Scope the session before opening a single tab.** Phase 0 is not optional — an unscoped session is how 3 hours turns into unstructured scrolling.
+
+### 📅 Weekly Rhythm
+
+| Day | Focus |
+|:---|---|
+| **Mon–Fri** | Current module, full 4-Phase Loop, weekday Session Type as energy allows |
+| **Sat** | Programming Track (below) + unguided CTF |
+| **Sun** | Programming Track + **Weekly Review**: reread the week's lab summaries, then re-derive one concept from memory with zero notes open |
+| **Last day of month** | **Buffer Day** — no new material. Close every open writeup, re-verify the git log has no 2-week gap, redo one Move-On Gate check cold |
+
+### 📋 Daily Log Template
+
+Paste into today's note before starting Phase 0:
+
+```
+### [Date] — Module ## · Topic # · [Session Type]
+- [ ] Target locked: ___
+- [ ] Foundation notes written
+- [ ] Lab executed — tool(s): ___
+- [ ] Artifact saved: ___ (path)
+- [ ] Git commit: ___
+- [ ] Unguided/CTF done: ___ (platform + challenge)
+```
 
 ### Programming Track *(Weekends Only)*
 
@@ -366,4 +416,3 @@ THM modules are guided. They teach concepts, but they hold your hand. CTF and pe
 | 🏠 Root Portfolio | 🔵 Start Stage 1 | 🛠️ Tool Mastery Hub | ⬆ Return to Top |
 |:---:|:---:|:---:|:---:|
 | [🏠 Root README](../README.md) | [[Stage-1_Foundation\|Stage 1: Foundation ➔]] | [[Tools/README\|88 Tool Mastery Guides]] | [[#🛡️ Cybersecurity Master Roadmap\|⬆ Back to Top]] |
-
