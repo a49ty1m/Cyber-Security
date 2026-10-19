@@ -11,7 +11,6 @@
     <img src="https://img.shields.io/badge/Stages-5%20%2B%20Shelf-purple" alt="Stages">
     <img src="https://img.shields.io/badge/Status-Active-brightgreen" alt="Status">
   </p>
-</p>
 
 ---
 
