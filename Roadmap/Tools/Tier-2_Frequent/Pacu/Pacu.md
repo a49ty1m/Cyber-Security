@@ -18,7 +18,7 @@
 
 ## 🧭 Navigation
 
-> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+> [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Cloud Security | Cloud Audit | Enterprise |
 |:--------------|:-----------|:-----------|

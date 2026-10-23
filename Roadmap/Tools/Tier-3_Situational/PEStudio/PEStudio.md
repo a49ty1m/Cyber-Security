@@ -16,7 +16,7 @@
 
 ## 🧭 Navigation
 
-> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+> [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Static RE & Decompilation | Dynamic Debugging | Binary Exploitation | Triage & Strings |
 |:--------------------------|:------------------|:--------------------|:-----------------|

@@ -14,7 +14,7 @@
 
 ## 🧭 Navigation
 
-> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]]
+> [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Endpoint Telemetry | SIEM & Analysis | Static Binary Triage | Dynamic Debugging |
 |:-------------------|:----------------|:---------------------|:------------------|

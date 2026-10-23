@@ -18,7 +18,7 @@
 
 ## 🧭 Navigation
 
-> [[Roadmap/README|🏠 Master Roadmap]] · [[Tools/README|🔧 Tools Index]] · [[Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
+> [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
 |:-----------------|:-------------|:------------------|:--------------|
