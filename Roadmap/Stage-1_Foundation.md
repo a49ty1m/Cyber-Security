@@ -151,7 +151,8 @@
 
 ---
 
-## Module 01: Fundamentals [[Module-01_Fundamentals|📁]]
+## Module 01: Fundamentals
+[[Module-01_Fundamentals|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -163,7 +164,8 @@
 > ⏱️ **Module 01 Total Time Budget: 5–8 weeks**
 > Topics 1–6 (conceptual) = ~2 weeks. Topic 7A (programming, 4 languages) = 3–5 weeks. Programming is weekend-only per the roadmap; if daily, compress to 3 weeks. Do not skip any language — all four appear in Stage 2 onward.
 
-### Topic 1: Hardware, CPU & Pre-Boot Environment — 🧠 Conceptual [[Topic-1_Hardware-CPU-and-Pre-Boot-Environment|📁]]
+### Topic 1: Hardware, CPU & Pre-Boot Environment — 🧠 Conceptual
+[[Topic-1_Hardware-CPU-and-Pre-Boot-Environment|📁]]
 
 > [!TIP]
 > **Goal:** Master the machine before the Operating System initializes.
@@ -185,7 +187,7 @@
 
 - [x] **The Boot Chain:** Master the sequence from **UEFI/Secure Boot** $\rightarrow$ **Bootloader** $\rightarrow$ **Kernel Load** $\rightarrow$ **Init/Systemd**.
 
-- [x] **TPM (Trusted Platform Module):** Understand TPM 2.0 as a hardware crypto co-processor for **key storage**, **remote attestation**, and **sealing** (binding data to a specific boot state via PCR hash chains). BitLocker seals the volume key to PCR values — tamper the boot chain and it demands a recovery key. *Security angle: PCIe bus sniffing on discrete TPMs (patched); CVE-2023-1017/1018 (buffer overflows in TPM2.0 reference impl).*
+- [ ] **TPM (Trusted Platform Module):** Understand TPM 2.0 as a hardware crypto co-processor for **key storage**, **remote attestation**, and **sealing** (binding data to a specific boot state via PCR hash chains). BitLocker seals the volume key to PCR values — tamper the boot chain and it demands a recovery key. *Security angle: PCIe bus sniffing on discrete TPMs (patched); CVE-2023-1017/1018 (buffer overflows in TPM2.0 reference impl).*
 
 - [x] **PCIe (Peripheral Component Interconnect Express):** High-speed serial bus (x1/x4/x8/x16 lanes) connecting CPU to GPUs, NVMe, NICs. PCIe devices have **DMA capability** — they can read/write RAM directly without the CPU. *Security angle: Thunderbolt PCIe tunneling = DMA access before OS loads (Evil Maid, PCILeech); mitigation: IOMMU (Intel VT-d / AMD-Vi), disabled by default on consumer systems.*
 
@@ -199,7 +201,8 @@
 
 ---
 
-### Topic 2: Operating System Internals — 🧠 Conceptual [[Topic-2_Operating-System-Internals|📁]]
+### Topic 2: Operating System Internals — 🧠 Conceptual
+[[Topic-2_Operating-System-Internals|📁]]
 
 > [!TIP]
 > **Goal:** Understand the resource manager and its internal logic.
@@ -223,7 +226,8 @@
 
 ---
 
-### Topic 3: Memory Management — 🧠 Conceptual [[Topic-3_Memory-Management|📁]]
+### Topic 3: Memory Management — 🧠 Conceptual
+[[Topic-3_Memory-Management|📁]]
 
 > [!TIP]
 > **Goal:** Understand how memory is organized and managed.
@@ -243,7 +247,8 @@
 
 ---
 
-### Topic 4: Data Representation & Logic — 🧠 Conceptual [[Topic-4_Data-Representation-and-Logic|📁]]
+### Topic 4: Data Representation & Logic — 🧠 Conceptual
+[[Topic-4_Data-Representation-and-Logic|📁]]
 
 > [!TIP]
 > **Goal:** Master binary representation and Boolean logic fundamentals.
@@ -259,7 +264,8 @@
 
 ---
 
-### Topic 5: Wireless & Physical Connections — 🧠 Conceptual [[Topic-5_Wireless-and-Physical-Connections|📁]]
+### Topic 5: Wireless & Physical Connections — 🧠 Conceptual
+[[Topic-5_Wireless-and-Physical-Connections|📁]]
 
 > [!TIP]
 > **Goal:** Understand wireless protocols and physical security infrastructure at a foundational level. Deep offensive techniques for each wireless protocol are covered in Shelf 01 (Wireless Network Security).
@@ -301,7 +307,8 @@
 
 ---
 
-### Topic 6: Mobile Platform Awareness — 🧠 Conceptual [[Topic-6_Mobile-Platform-Awareness|📁]]
+### Topic 6: Mobile Platform Awareness — 🧠 Conceptual
+[[Topic-6_Mobile-Platform-Awareness|📁]]
 
 > [!TIP]
 > **Goal:** Know that mobile platforms have distinct architectures and security models. Hands-on mobile hacking is covered in Shelf 02 (Mobile Platform Pentesting).
@@ -318,7 +325,8 @@
 
 ---
 
-### Topic 7A: Programming & Scripting Fundamentals — 🔬 Practical [[Topic-7A_Programming-and-Scripting-Fundamentals|📁]]
+### Topic 7A: Programming & Scripting Fundamentals — 🔬 Practical
+[[Topic-7A_Programming-and-Scripting-Fundamentals|📁]]
 
 > [!TIP]
 > **Goal (Stage 7A):** Build a strong programming foundation for cybersecurity by learning to automate tasks, understand software internals, interact with operating systems and networks, and create custom security tooling. This stage covers Python, Bash, PowerShell, and JavaScript — the four languages with immediate utility from Stage 1. **C and C++ are deferred to Stage 5 (Module 27)**, where binary analysis context makes them immediately applicable.
@@ -336,7 +344,8 @@
 
 ---
 
-#### Python (Automation, Networking & Security Scripting) [[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/PYTHON|📄]]
+#### Python (Automation, Networking & Security Scripting)
+[[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/PYTHON|📄]]
 
 > [!NOTE]
 > ⏱️ **Python Time Bracket: 1.5–2 weeks**
@@ -398,7 +407,8 @@
 
 ---
 
-#### JavaScript & Node.js (Web, Browser & API Security) [[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/JAVA_SCRIPT|📄]]
+#### JavaScript & Node.js (Web, Browser & API Security)
+[[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/JAVA_SCRIPT|📄]]
 
 > [!NOTE]
 > ⏱️ **JavaScript Time Bracket: 1–1.5 weeks**
@@ -502,7 +512,8 @@
 
 ---
 
-#### Bash (Linux Automation & Operations) [[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/BASH|📄]]
+#### Bash (Linux Automation & Operations)
+[[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/BASH|📄]]
 
 > [!NOTE]
 > ⏱️ **Bash Time Bracket: 1 week**
@@ -637,7 +648,8 @@
 
 ---
 
-#### PowerShell (Windows Automation & Enterprise Administration) [[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/POWERSHELL|📄]]
+#### PowerShell (Windows Automation & Enterprise Administration)
+[[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/POWERSHELL|📄]]
 
 > [!NOTE]
 > ⏱️ **PowerShell Time Bracket: 1 week**
@@ -792,7 +804,8 @@ Before moving to the next stage, I should be able to:
 
 ---
 
-### Topic 7B: C & C++ Programming ← Deferred to Stage 5 (Module 27) — 🔬 Practical [[Topic-7B_C-and-Cpp_Deferred-to-Stage-5|📁]]
+### Topic 7B: C & C++ Programming ← Deferred to Stage 5 (Module 27) — 🔬 Practical
+[[Topic-7B_C-and-Cpp_Deferred-to-Stage-5|📁]]
 
 > [!IMPORTANT]
 > **Do not start Stage 7B now.** This stage is placed here as a structural marker only. C and C++ are the languages of OS internals, exploit primitives, shellcode, and reverse engineering targets — but they require meaningful context to learn effectively:
@@ -996,7 +1009,8 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 
 ---
 
-## Module 02: Linux Administration [[Module-02_Linux-Administration|📁]]
+## Module 02: Linux Administration
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -1011,7 +1025,8 @@ _The full curriculum below is what I will complete when I return. Read it now fo
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the Linux administration skills required by the Foundation Proof Gate and used throughout every subsequent Stage._
 
-### Topic 1: User & Access Management (Linux) — 🔬 Practical [[Module-02_Linux-Administration|📁]]
+### Topic 1: User & Access Management (Linux) — 🔬 Practical
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — Day 1: Users/groups (useradd, usermod, /etc/passwd, /etc/shadow), password policy (chage, PAM). Day 2: File permissions (chmod octal + symbolic, SUID/SGID/sticky), sudo rules (visudo), ACLs (setfacl/getfacl). Deliverable: create 5 users with different permission profiles and verify access works as expected.
@@ -1028,7 +1043,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **ACLs:** Configure **POSIX ACLs** with **getfacl/setfacl** for fine-grained access control beyond standard permissions.
 
-### Topic 2: Service & Process Management (Linux) — 🔬 Practical [[Module-02_Linux-Administration|📁]]
+### Topic 2: Service & Process Management (Linux) — 🔬 Practical
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — Day 1: systemd (systemctl start/stop/enable/mask, unit files, targets). Day 2: Process management (ps, top, kill, nice, zombie processes), cron/systemd timers, and package management (apt/dnf). Boot sequence drill: trace GRUB2 → systemd → target from cold boot in your VM.
@@ -1043,7 +1059,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **Boot Process:** Understand **GRUB2 → systemd → target** boot sequence, **runlevels/targets**, and **single-user mode** for recovery.
 
-### Topic 3: Networking (Linux) — 🔬 Practical [[Module-02_Linux-Administration|📁]]
+### Topic 3: Networking (Linux) — 🔬 Practical
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — Day 1: Interface config (ip addr, ip route, nmcli), DNS resolution (/etc/resolv.conf, dig, systemd-resolved), socket inspection (ss). Day 2: Firewall config (iptables/nftables/ufw) with working rules, SSH hardening (/etc/ssh/sshd_config: disable root login, key-only auth, fail2ban). Deliverable: working SSH key-only setup with firewall blocking all except port 22.
@@ -1058,7 +1075,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **SSH Hardening:** Configure **/etc/ssh/sshd_config** — disable root login, enforce key-based auth, change default port, configure **fail2ban**, and understand **SSH tunneling (local, remote, dynamic)**.
 
-### Topic 4: Log Analysis & Monitoring (Linux) — 🔬 Practical [[Module-02_Linux-Administration|📁]]
+### Topic 4: Log Analysis & Monitoring (Linux) — 🔬 Practical
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 1–2 days** — journalctl (filter by unit, priority, time range), syslog (/var/log/auth.log, /var/log/syslog), logrotate config, dmesg reading, system health commands (uptime, free, df, iostat). Deliverable: find and annotate 3 suspicious events in /var/log/auth.log from your own SSH/sudo activity.
@@ -1073,7 +1091,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **Monitoring Tools:** Use **uptime, free, df, du, iostat, vmstat** for system health monitoring. Understand when to investigate further.
 
-### Topic 5: Storage & Filesystem (Linux) — 🔬 Practical [[Module-02_Linux-Administration|📁]]
+### Topic 5: Storage & Filesystem (Linux) — 🔬 Practical
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 1–2 days** — Disk mgmt (fdisk, lsblk, blkid), filesystem creation (mkfs, mount, fstab), LVM (create PV/VG/LV, extend without downtime), LUKS encryption (cryptsetup luksFormat, luksOpen). Deliverable: create an LVM volume, add a LUKS-encrypted partition, and mount it at boot via /etc/crypttab and fstab.
@@ -1086,7 +1105,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 - [ ] **Disk Encryption:** Encrypt partitions with **LUKS (cryptsetup)**. Understand **dm-crypt**, key slots, and unlock-at-boot configuration.
 
-### Topic 6: Security Hardening (Linux) — 🔬 Practical [[Module-02_Linux-Administration|📁]]
+### Topic 6: Security Hardening (Linux) — 🔬 Practical
+[[Module-02_Linux-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — Day 1: SELinux (getenforce, setenforce, audit.log denials, audit2allow) or AppArmor (aa-status, aa-genprof). Day 2: System auditing (auditd rules, ausearch, aureport) and kernel hardening (sysctl params: ASLR, ip_forward, protected_hardlinks). Deliverable: write a custom auditd rule, trigger it, find it in ausearch output.
@@ -1118,7 +1138,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ---
 
-## Module 03: Windows Administration [[Module-03_Windows-Administration|📁]]
+## Module 03: Windows Administration
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -1131,7 +1152,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Module 19), Cloud (Module 20), and Defensive modules._
 
-### Topic 1: User & Access Management (Windows) — 🔬 Practical [[Module-03_Windows-Administration|📁]]
+### Topic 1: User & Access Management (Windows) — 🔬 Practical
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 1–2 days** — Local users/groups (lusrmgr.msc, net user), NTFS permissions (inheritance, explicit vs inherited), share permissions (SMB, Everyone vs Authenticated Users), UAC integrity levels, and Local Security Policy. Deliverable: configure a shared folder with NTFS + share permissions and document effective access for 3 different user types.
@@ -1146,7 +1168,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 - [ ] **Local Security Policy:** Configure **password policy, account lockout policy, user rights assignments** via **secpol.msc** and **gpedit.msc**.
 
-### Topic 2: System Management (Windows) — 🔬 Practical [[Module-03_Windows-Administration|📁]]
+### Topic 2: System Management (Windows) — 🔬 Practical
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 1–2 days** — Windows services (services.msc, sc.exe, service accounts), Registry (hive navigation, Run/RunOnce keys, malware persistence patterns), Task Scheduler (SYSTEM-run tasks), Windows Firewall (wf.msc, netsh, profiles). Deliverable: identify all auto-start registry keys on your VM and document which could be used for persistence.
@@ -1161,7 +1184,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 - [ ] **Windows Update:** Understand **WSUS, Windows Update for Business**, and **patch management** concepts. Know how to check update history and roll back problematic updates.
 
-### Topic 3: Event Viewer & Auditing (Windows) — 🔬 Practical [[Module-03_Windows-Administration|📁]]
+### Topic 3: Event Viewer & Auditing (Windows) — 🔬 Practical
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — Day 1: Event log structure (eventvwr.msc), all key Event IDs listed — generate each one yourself (failed logon, process creation, group membership change) and find it in the log. Day 2: Audit Policy (auditpol.exe), Sysmon install + config (SwiftOnSecurity template), PowerShell Script Block Logging. Deliverable: a Sysmon + audit policy baseline document.
@@ -1185,7 +1209,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 - [ ] **PowerShell Logging:** Enable **Script Block Logging (Event ID 4104)**, **Module Logging**, and **Transcription Logging**. Understand why these are critical for detecting fileless attacks.
 
-### Topic 4: PowerShell Administration (Windows) — 🔬 Practical [[Module-03_Windows-Administration|📁]]
+### Topic 4: PowerShell Administration (Windows) — 🔬 Practical
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — Core cmdlets (Get-Process, Get-WinEvent, Get-CimInstance), pipeline/filtering, PowerShell Remoting (Enable-PSRemoting, Invoke-Command, double-hop auth), WMI/CIM queries (Win32_Process, Win32_Service), and AD module basics (Get-ADUser, Get-ADGroup). Deliverable: write a script that collects process list + open network connections and exports to CSV.
@@ -1200,7 +1225,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 - [ ] **Active Directory Basics:** Use **RSAT tools** and **Active Directory PowerShell module** (Get-ADUser, Get-ADGroup, Get-ADComputer). Understand **OU structure, GPO basics, DNS integration with AD**.
 
-### Topic 5: Active Directory Concepts (Prerequisite for Module 19) — 🧠 Conceptual [[Module-03_Windows-Administration|📁]]
+### Topic 5: Active Directory Concepts (Prerequisite for Module 19) — 🧠 Conceptual
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 2 days** — AD architecture (domains, forests, OUs, trusts, replication, DC vs member server), GPO creation and linking (computer vs user config, gpupdate, rsop.msc, inheritance/blocking), DNS in AD (SRV records, forward/reverse zones, dynamic registration), DHCP authorization. Deliverable: draw a full AD topology diagram from scratch with domains, OUs, DCs, trust types.
@@ -1216,7 +1242,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 > [!NOTE]
 > **Stage 5 → Stage 6 Transition:** Stage 5 gives me the conceptual map of Active Directory — the structure, objects, and administrative mechanisms. Stage 6 gives me the protocol mechanics — _why_ these structures exist and _how_ authentication flows through them. The overlap you may notice on account types and trust architecture is intentional: Stage 5 names them, Stage 6 explains how they are exploited. Both topics are required before Stage 4 Module 19 (Active Directory attacks). Do not skip Topic 6 even if Topic 5 felt complete.
 
-### Topic 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19) — 🧠 Conceptual [[Module-03_Windows-Administration|📁]]
+### Topic 6: Windows Identity & Kerberos Protocol Foundations (Critical Prerequisite for Module 19) — 🧠 Conceptual
+[[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
 > ⏱️ **Time Bracket: 3–4 days** — This is the hardest conceptual topic in Module 03. Do NOT rush it.
@@ -1327,7 +1354,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ---
 
-## Module 04: Networking Fundamentals [[Module-04_Networking-Fundamentals|📁]]
+## Module 04: Networking Fundamentals
+[[Module-04_Networking-Fundamentals|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**

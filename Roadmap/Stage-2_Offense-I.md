@@ -147,7 +147,8 @@
 > - At least 1 completed HTB/THM machine writeup covering the full chain
 
 ---
-## Module 08: Footprinting & Reconnaissance [[Module-08_Footprinting-and-Reconnaissance|📁]]
+## Module 08: Footprinting & Reconnaissance
+[[Module-08_Footprinting-and-Reconnaissance|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -162,7 +163,8 @@
 > Topic 1 (passive OSINT): 2–3 days | Topic 2 (semi-passive): 1–2 days | Topic 3 (active): 2 days | Topic 4 (advanced fingerprinting): 1 day | Topic 5 (IPv6/protocols): 1 day | Topic 6 (dark web): 1 day | Topic 7 (satellite/geo): SKIP | Topic 8 (strategy): 1 day | Labs: 2–3 days.
 > Recon is the phase pentesters rush and then pay for later. Invest proper time here. Every finding from Module 08 feeds directly into Module 09 targeting decisions. A good recon phase cuts enumeration time in half.
 
-### Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling) — 🧠🔬 Mixed [[Topic-1_The-Ghost-Phase_Passive-OSINT-and-Human-Profiling|📁]]
+### Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling) — 🧠🔬 Mixed
+[[Topic-1_The-Ghost-Phase_Passive-OSINT-and-Human-Profiling|📁]]
 
 > [!TIP]
 > **Goal:** Maximum data acquisition with zero target interaction.
@@ -190,7 +192,8 @@
 
 ---
 
-### Topic 2: Semi-Passive Infrastructure Mapping — 🔬 Practical [[Topic-2_Semi-Passive-Infrastructure-Mapping|📁]]
+### Topic 2: Semi-Passive Infrastructure Mapping — 🔬 Practical
+[[Topic-2_Semi-Passive-Infrastructure-Mapping|📁]]
 
 > [!TIP]
 > **Goal:** Querying third-party aggregators to see what the world already knows about them.
@@ -211,7 +214,8 @@
 - [ ] **VHost & Favicon Hunts:** Bruteforce **vhosts/domains** and use **favicon hash**/HTTP header diffs to find hidden apps.
 ---
 
-### Topic 3: Active Footprinting & Network Interrogation — 🔬 Practical [[Topic-3_Active-Footprinting-and-Network-Interrogation|📁]]
+### Topic 3: Active Footprinting & Network Interrogation — 🔬 Practical
+[[Topic-3_Active-Footprinting-and-Network-Interrogation|📁]]
 
 > [!TIP]
 > **Goal:** Direct contact to map the live network fabric. Risk of detection is now ACTIVE.
@@ -235,7 +239,8 @@
 
 ---
 
-### Topic 4: Advanced Fingerprinting & Logic Analysis — 🔬 Practical [[Topic-4_Advanced-Fingerprinting-and-Logic-Analysis|📁]]
+### Topic 4: Advanced Fingerprinting & Logic Analysis — 🔬 Practical
+[[Topic-4_Advanced-Fingerprinting-and-Logic-Analysis|📁]]
 
 > [!TIP]
 > **Goal:** Understand the defensive "brain" of the target.
@@ -253,7 +258,8 @@
 
 ---
 
-### Topic 5: IPv6 & Protocol Enumeration — 🧠🔬 Mixed [[Topic-5_IPv6-and-Protocol-Enumeration|📁]]
+### Topic 5: IPv6 & Protocol Enumeration — 🧠🔬 Mixed
+[[Topic-5_IPv6-and-Protocol-Enumeration|📁]]
 
 > [!TIP]
 > **Goal:** Discover targets using newer protocols and dual-stack networks.
@@ -277,7 +283,8 @@
 
 ---
 
-### Topic 6: Dark Web & Breach Intelligence — 🔬 Practical [[Module-08_Footprinting-and-Reconnaissance|📁]]
+### Topic 6: Dark Web & Breach Intelligence — 🔬 Practical
+[[Module-08_Footprinting-and-Reconnaissance|📁]]
 
 > [!TIP]
 > **Goal:** Uncover intelligence from dark web and historical breaches.
@@ -297,7 +304,8 @@
 
 ---
 
-### Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope) — 🧠🔬 Mixed [[Module-08_Footprinting-and-Reconnaissance|📁]]
+### Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope) — 🧠🔬 Mixed
+[[Module-08_Footprinting-and-Reconnaissance|📁]]
 
 > [!WARNING]
 > **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if I am conducting an authorized physical penetration test where facility layout matters.
@@ -307,7 +315,8 @@
 
 ---
 
-### Topic 8: Strategy & Attack Mapping — 🧠 Conceptual [[Module-08_Footprinting-and-Reconnaissance|📁]]
+### Topic 8: Strategy & Attack Mapping — 🧠 Conceptual
+[[Module-08_Footprinting-and-Reconnaissance|📁]]
 
 > [!TIP]
 > **Goal:** Convert raw data into an execution plan.
@@ -340,7 +349,8 @@
 
 ---
 
-## Module 09: Scanning [[Module-09_Scanning|📁]]
+## Module 09: Scanning
+[[Module-09_Scanning|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -355,7 +365,8 @@
 > Topic 1 (host discovery): 1 day | Topic 2 (port/service enum): 2 days | Topic 3 (defense assessment): 1 day | Topic 4 (vuln mapping): 1 day | Topic 5 (stealth/evasion): 1 day | Topic 6 (advanced): 1 day | Labs: 2 days.
 > Nmap is the single most important tool in this entire curriculum. Learn every flag. Don’t just run `-sV` blindly — understand what packet is sent, what response is expected, and why each scan type has different stealth/detection characteristics. Every scan you run in Modules 10–13 depends on this.
 
-### Topic 1: Host Discovery & Network Topology (The "Roll Call") — 🔬 Practical [[Topic-1_Host-Discovery-and-Ping-Sweeps|📁]]
+### Topic 1: Host Discovery & Network Topology (The "Roll Call") — 🔬 Practical
+[[Topic-1_Host-Discovery-and-Ping-Sweeps|📁]]
 
 > [!TIP]
 > **Goal:** Identify live assets without wasting time on dead IPs or triggering ICMP alarms.
@@ -375,7 +386,8 @@
 
 ---
 
-### Topic 2: Port, Service & Protocol Enumeration (The "Door Check") — 🔬 Practical [[Topic-2_Port-Scanning-Techniques|📁]]
+### Topic 2: Port, Service & Protocol Enumeration (The "Door Check") — 🔬 Practical
+[[Topic-2_Port-Scanning-Techniques|📁]]
 
 > [!TIP]
 > **Goal:** Determine exactly what applications are running and how they communicate.
@@ -399,7 +411,8 @@
 
 ---
 
-### Topic 3: Defense & Configuration Assessment (The "Armor Check") — 🔬 Practical [[Topic-3_Service-and-OS-Fingerprinting|📁]]
+### Topic 3: Defense & Configuration Assessment (The "Armor Check") — 🔬 Practical
+[[Topic-3_Service-and-OS-Fingerprinting|📁]]
 
 > [!TIP]
 > **Goal:** Identify security controls that will attempt to block or alert on my presence.
@@ -417,7 +430,8 @@
 
 ---
 
-### Topic 4: Vulnerability Association & Attack Mapping — 🧠🔬 Mixed [[Topic-4_Nmap-Deep-Reference|📁]]
+### Topic 4: Vulnerability Association & Attack Mapping — 🧠🔬 Mixed
+[[Topic-4_Nmap-Deep-Reference|📁]]
 
 > [!TIP]
 > **Goal:** Convert raw scan data into actionable exploitation vectors.
@@ -435,7 +449,8 @@
 
 ---
 
-### Topic 5: Stealth & Evasion Techniques — 🔬 Practical [[Topic-5_Vulnerability-Scanning|📁]]
+### Topic 5: Stealth & Evasion Techniques — 🔬 Practical
+[[Topic-5_Vulnerability-Scanning|📁]]
 
 > [!TIP]
 > **Goal:** Scan without detection by firewalls, IDS, and EDR.
@@ -459,7 +474,8 @@
 
 ---
 
-### Topic 6: Advanced Scanning Techniques — 🔬 Practical [[Module-09_Scanning|📁]]
+### Topic 6: Advanced Scanning Techniques — 🔬 Practical
+[[Module-09_Scanning|📁]]
 
 > [!TIP]
 > **Goal:** Optimize scanning efficiency and discover hidden services.
@@ -496,7 +512,8 @@
 
 ---
 
-## Module 10: Enumeration [[Module-10_Enumeration|📁]]
+## Module 10: Enumeration
+[[Module-10_Enumeration|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -512,7 +529,8 @@
 > Topic 1 (service/banner): 2 days | Topic 2 (directory/identity): 1–2 days | Topic 3 (DNS/infra): 1 day | Topic 4 (DB/app): 1 day | Topic 5 (surface consolidation + OpSec): 1 day | Labs: 2–3 days.
 > Enumeration is where most pentesters find their critical paths. A missed SNMP community string or an overlooked NFS export can be the difference between a stalled engagement and Domain Admin. Don’t rush this module.
 
-### Topic 1: Service Enumeration & Banner Grabbing — 🔬 Practical [[Topic-1_NetBIOS-and-SMB-Enumeration|📁]]
+### Topic 1: Service Enumeration & Banner Grabbing — 🔬 Practical
+[[Topic-1_NetBIOS-and-SMB-Enumeration|📁]]
 
 > [!TIP]
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
@@ -534,7 +552,8 @@
 
 ---
 
-### Topic 2: Directory & Identity Enumeration — 🔬 Practical [[Topic-2_SNMP-Enumeration|📁]]
+### Topic 2: Directory & Identity Enumeration — 🔬 Practical
+[[Topic-2_SNMP-Enumeration|📁]]
 
 > [!TIP]
 > **Goal:** Map users, groups, and organizational structure from directory services.
@@ -554,7 +573,8 @@
 
 ---
 
-### Topic 3: DNS & Infrastructure Enumeration — 🔬 Practical [[Topic-3_LDAP-and-Active-Directory-Enumeration|📁]]
+### Topic 3: DNS & Infrastructure Enumeration — 🔬 Practical
+[[Topic-3_LDAP-and-Active-Directory-Enumeration|📁]]
 
 > [!TIP]
 > **Goal:** Extract naming, network, and infrastructure intelligence from DNS.
@@ -572,7 +592,8 @@
 
 ---
 
-### Topic 4: Database & Application Enumeration — 🔬 Practical [[Topic-4_DNS-and-SMTP-Enumeration|📁]]
+### Topic 4: Database & Application Enumeration — 🔬 Practical
+[[Topic-4_DNS-and-SMTP-Enumeration|📁]]
 
 > [!TIP]
 > **Goal:** Extract schemas, credentials, and data from discovered database and application services.
@@ -592,7 +613,8 @@
 
 ---
 
-### Topic 5: Attack Surface Consolidation & Enumeration OpSec — 🧠🔬 Mixed [[Topic-5_NTP-and-RPC-Enumeration|📁]]
+### Topic 5: Attack Surface Consolidation & Enumeration OpSec — 🧠🔬 Mixed
+[[Topic-5_NTP-and-RPC-Enumeration|📁]]
 
 > [!TIP]
 > **Goal:** Consolidate findings into an attack plan while maintaining stealth.
@@ -627,7 +649,8 @@
 
 ---
 
-## Module 11: Database Security [[Module-13_System-Hacking|📁]]
+## Module 11: Database Security
+[[Module-13_System-Hacking|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -866,7 +889,8 @@
 
 ---
 
-## Module 12: Password Cracking & Hash Analysis [[Module-13_System-Hacking|📁]]
+## Module 12: Password Cracking & Hash Analysis
+[[Module-13_System-Hacking|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -964,7 +988,8 @@
 
 ---
 
-## Module 13: System Hacking & Initial Compromise [[Module-13_System-Hacking|📁]]
+## Module 13: System Hacking & Initial Compromise
+[[Module-13_System-Hacking|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -981,7 +1006,8 @@
 > Topic 1 (initial access): 1 week | Topic 2 (privilege escalation — Windows + Linux): 1–2 weeks | Topic 3 (persistence + lateral movement): 3–5 days | Topic 4 (defense evasion): 2–3 days | Topic 5 (exfiltration): 2 days | Topic 6 (governance/reporting): 2 days | Labs + HTB boxes: ongoing.
 > You cannot rush privilege escalation. The 9-vector Windows methodology and the 9-vector Linux methodology here represent the OSCP exam and real-world coverage. Work every vector on a dedicated lab VM before calling this done. No walkthrough shortcuts.
 
-### Topic 1: The Breach (Initial Access & Exploitation) — 🔬 Practical [[Topic-1_Password-Attacks|📁]]
+### Topic 1: The Breach (Initial Access & Exploitation) — 🔬 Practical
+[[Topic-1_Password-Attacks|📁]]
 
 > [!TIP]
 > **Goal:** Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold.
@@ -1049,7 +1075,8 @@
 
 ---
 
-### Topic 2: The Ascension (Privilege Escalation) — 🔬 Practical [[Topic-3_Privilege-Escalation|📁]]
+### Topic 2: The Ascension (Privilege Escalation) — 🔬 Practical
+[[Topic-3_Privilege-Escalation|📁]]
 
 > [!TIP]
 > **Goal:** Move from low-level foothold to administrative control by exploiting system logic.
@@ -1387,7 +1414,8 @@
 
 ---
 
-### Topic 3: The Stronghold (Persistence & Lateral Movement) — 🔬 Practical [[Topic-4_Execution-and-Persistence|📁]]
+### Topic 3: The Stronghold (Persistence & Lateral Movement) — 🔬 Practical
+[[Topic-4_Execution-and-Persistence|📁]]
 
 > [!TIP]
 > **Goal:** Establish permanent presence and move horizontally across network.
@@ -1467,7 +1495,8 @@
 
 ---
 
-### Topic 4: The Shadow (Defense Evasion & Anti-Forensics) — 🧠🔬 Mixed [[Topic-5_Covering-Tracks|📁]]
+### Topic 4: The Shadow (Defense Evasion & Anti-Forensics) — 🧠🔬 Mixed
+[[Topic-5_Covering-Tracks|📁]]
 
 > [!TIP]
 > **Goal:** Blind the Blue Team and minimize evidence of compromise.
@@ -1521,7 +1550,8 @@
 
 ---
 
-### Topic 5: Data Exfiltration & Impact — 🔬 Practical [[Module-13_System-Hacking|📁]]
+### Topic 5: Data Exfiltration & Impact — 🔬 Practical
+[[Module-13_System-Hacking|📁]]
 
 > [!TIP]
 > **Goal:** Extract sensitive data and demonstrate business impact.
@@ -1551,7 +1581,8 @@
 
 ---
 
-### Topic 6: The Professional (Governance & Reporting) — 🧠🔬 Mixed [[Module-13_System-Hacking|📁]]
+### Topic 6: The Professional (Governance & Reporting) — 🧠🔬 Mixed
+[[Module-13_System-Hacking|📁]]
 
 > [!TIP]
 > **Goal:** Execute within legal/ethical boundaries and deliver findings professionally.
