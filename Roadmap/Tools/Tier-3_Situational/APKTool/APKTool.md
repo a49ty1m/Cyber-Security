@@ -1,5 +1,7 @@
 # 🔨 APKTool: Complete Mastery Checklist
 
+📝 [[APKTool_Notes|Notes]]
+
 > **What is APKTool?** APKTool is an open-source reverse engineering tool for Android APK files. Unlike jadx (which decompiles to Java), APKTool disassembles the compiled DEX bytecode to Smali — a human-readable assembly language for Android's Dalvik Virtual Machine. APKTool also decodes binary XML resources (AndroidManifest.xml, layouts, strings) back to readable text, and crucially allows you to **rebuild and repackage** modified APKs. This bidirectional capability (disassemble → modify → reassemble) is what makes APKTool unique.
 >
 > **Why does it exist?** jadx gives you readable Java code but you can't easily modify and rebuild it. APKTool operates at the Smali layer — closer to the actual bytecode — enabling precise modifications that survive recompilation. It's the tool for patching APKs: removing security checks, modifying behavior, injecting code, and rebuilding for testing.

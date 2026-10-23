@@ -1,5 +1,7 @@
 # ⚡ Nuclei: Complete Mastery Checklist
 
+📝 [[Nuclei_Notes|Notes]]
+
 > **What is Nuclei?** Nuclei is ProjectDiscovery's open-source, template-based vulnerability scanner. Instead of running fixed checks, it uses community-maintained YAML templates to test for specific vulnerabilities, misconfigurations, and exposures. With 9,000+ templates covering CVEs, misconfigured services, exposed panels, and web application vulnerabilities, it has become the go-to scanner for modern bug bounty and external attack surface assessments.
 >
 > **Why does it exist?** Traditional scanners like Nikto use a static, hardcoded check list that is slow to update and generates excessive false positives. Nuclei's template engine lets security researchers write precise, targeted checks that are reviewed by the community and updated continuously — making it dramatically more accurate and up-to-date.

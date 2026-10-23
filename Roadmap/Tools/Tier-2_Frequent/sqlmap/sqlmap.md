@@ -1,5 +1,7 @@
 # 💉 sqlmap: Complete Mastery Checklist
 
+📝 [[sqlmap_Notes|Notes]]
+
 > **What is sqlmap?** sqlmap is an open-source automated SQL injection tool. It detects and exploits SQL injection vulnerabilities in web applications — testing injection points, fingerprinting the database type, extracting schema and data, and in some cases achieving OS-level code execution. It supports every major database type (MySQL, PostgreSQL, MSSQL, Oracle, SQLite, etc.) and covers all SQL injection techniques (error-based, blind boolean, time-based, union-based, stacked queries, out-of-band).
 >
 > **Why does it exist?** Manual SQL injection testing is time-consuming and error-prone, especially for blind injection where you have to infer results one bit at a time. sqlmap automates the entire process — detection, technique selection, and data extraction — saving hours of manual work.

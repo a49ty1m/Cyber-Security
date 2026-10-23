@@ -1,5 +1,7 @@
 # 🌾 theHarvester: Complete Mastery Checklist
 
+📝 [[theHarvester_Notes|Notes]]
+
 > **What is theHarvester?** theHarvester is an OSINT tool that aggregates information about a target organization from multiple public sources — search engines, DNS servers, certificate transparency logs, PGP key servers, LinkedIn, Shodan, and more. It collects: email addresses, subdomains, IP addresses, employee names, and virtual hosts associated with a given domain.
 >
 > **Why does it exist?** The pre-attack reconnaissance phase requires gathering intelligence without directly touching the target. theHarvester automates passive data collection from dozens of sources simultaneously — giving you a structured list of emails (for phishing), subdomains (for additional attack surface), and IPs (for scanning) — all from public data with no direct target interaction.

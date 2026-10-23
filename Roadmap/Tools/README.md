@@ -147,3 +147,26 @@
 | **Stage 4 — Enterprise** | BloodHound, Impacket, NetExec, Responder, Evil-WinRM, Kerbrute, Certipy, Mimikatz, Rubeus, Pacu, Prowler, Bettercap, Ettercap, Scapy, GoPhish, SET, Ligolo-ng, Chisel |
 | **Stage 5 — Specialized** | Sliver, Havoc, Mythic, pwntools, GDB, Ollama, Python AI SDKs, Garak, PyRIT |
 | **Shelf — Post-Hire** | Aircrack-ng (S01), Frida, Objection, jadx, APKTool (S02), Volatility, Autopsy, FTK Imager, Plaso (S04), Ghidra, x64dbg, PEStudio, Detect It Easy, strings (S05), Semgrep, Gitleaks, TruffleHog, Checkov, tfsec (S12–S14), ApacheBench, wrk, GoldenEye, Slowloris, hping3 (S17) |
+
+---
+
+## 📁 Structure Convention
+
+Each tool lives in its own folder inside `Tools/`:
+
+```
+Tools/
+├── README.md
+├── Tier-1_Core/
+│   └── <Tool>/
+│       ├── <Tool>.md          ← checklist
+│       └── <Tool>_Notes.md    ← personal notes
+├── Tier-2_Frequent/
+├── Tier-3_Situational/
+└── Tier-4_Niche/
+```
+
+- **`<Tool>.md`** is the structured checklist. Do not edit its curriculum content manually.
+- **`<Tool>_Notes.md`** is personal — commands I actually use, lab logs, gotchas, open questions. It is created once and never touched by any script again.
+- Obsidian resolves wikilinks by unique filename, so `[[Nmap]]` always finds `Tools/Nmap/Nmap.md` regardless of folder depth.
+

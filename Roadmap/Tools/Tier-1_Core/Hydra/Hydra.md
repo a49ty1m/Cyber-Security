@@ -1,5 +1,7 @@
 # 🔓 Hydra: Complete Mastery Checklist
 
+📝 [[Hydra_Notes|Notes]]
+
 > **What is Hydra?** Hydra (THC-Hydra) is the fastest and most flexible online password brute-forcing tool. It attacks live authentication services — SSH, FTP, HTTP, RDP, SMB, MySQL, and 50+ other protocols — by rapidly testing username/password combinations against running services.
 >
 > **Why does it exist?** Weak passwords remain the #1 way organizations get compromised. Hydra automates the process of testing credentials against network services, proving whether password policies are effective and whether default/weak credentials exist.

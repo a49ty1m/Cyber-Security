@@ -1,5 +1,7 @@
 # 🎫 Rubeus: Complete Mastery Checklist
 
+📝 [[Rubeus_Notes|Notes]]
+
 > **What is Rubeus?** Rubeus is a C# .NET tool for raw Kerberos interaction and abuses. Unlike Impacket (Python, runs from Linux) or Mimikatz (C, direct memory access), Rubeus operates entirely within the Windows Kerberos API — making it stealthier, more flexible, and directly usable from Windows sessions, Sliver C2 armory, or in-memory via Evil-WinRM's `Invoke-Binary`.
 >
 > **Why does it exist?** Impacket is excellent for Kerberos attacks from Linux, but once you are operating inside a Windows environment (post-exploitation), you need native Windows-side Kerberos tooling. Rubeus fills that gap — it can request, manipulate, import, and abuse Kerberos tickets entirely through standard Windows Kerberos APIs without touching LSASS.

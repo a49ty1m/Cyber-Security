@@ -1,5 +1,7 @@
 # 🤖 Python AI SDKs: Complete Mastery Checklist
 
+📝 [[Python_AI_SDKs_Notes|Notes]]
+
 > **What are Python AI SDKs?** The Python AI SDK ecosystem refers to the official Python client libraries for interacting with frontier LLM APIs — primarily `openai` (OpenAI/Azure OpenAI), `anthropic` (Claude), and `google-generativeai` (Gemini). These libraries provide the programmatic interface to call LLM APIs, manage conversation context, use function/tool calling, handle streaming, and build LLM-powered applications. For Phase 9 AI security testing, mastery of these SDKs is required to build attack targets, write automated probing scripts, and integrate with security testing frameworks (Garak, PyRIT).
 >
 > **Why do they exist?** LLM APIs require structured HTTP requests with specific authentication, request formats, and response parsing. The SDKs abstract all of this, providing clean Python interfaces for model invocation, tool calling, embeddings, and fine-tuning.

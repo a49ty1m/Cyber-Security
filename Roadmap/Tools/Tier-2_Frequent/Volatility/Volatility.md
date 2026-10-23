@@ -1,5 +1,7 @@
 # 🧠 Volatility 3: Complete Mastery Checklist
 
+📝 [[Volatility_Notes|Notes]]
+
 > **What is Volatility?** Volatility is the industry-standard open-source memory forensics framework. It analyses RAM captures (memory dumps) to extract running processes, network connections, loaded drivers, injected code, encryption keys, passwords, and evidence of malware that lives entirely in memory (fileless malware). Volatility 3 is the current version — rebuilt with Python 3, faster symbol table handling, and a plugin architecture that covers Windows, Linux, and macOS.
 >
 > **Why does it exist?** Disk forensics cannot see what is in RAM. Many modern attacks — fileless malware, process injection, credential theft via LSASS — leave minimal disk artifacts but leave extensive memory traces. Volatility bridges this gap.

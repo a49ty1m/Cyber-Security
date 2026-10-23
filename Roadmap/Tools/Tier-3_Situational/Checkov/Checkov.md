@@ -1,5 +1,7 @@
 # ✅ Checkov: Complete Mastery Checklist
 
+📝 [[Checkov_Notes|Notes]]
+
 > **What is Checkov?** Checkov is an open-source static analysis tool for Infrastructure as Code (IaC) — it scans Terraform, CloudFormation, Kubernetes YAML, Dockerfiles, Helm charts, Ansible, ARM templates, and more to find security misconfigurations before infrastructure is deployed. With 1,000+ built-in checks covering CIS Benchmarks, NIST, SOC 2, PCI DSS, and custom policies, Checkov prevents the cloud misconfigurations that Prowler would find after deployment.
 >
 > **Why does it exist?** Cloud infrastructure misconfigurations (open security groups, unencrypted S3 buckets, over-privileged IAM roles) are far cheaper to fix in code than in a deployed environment. Checkov shifts security left — finding issues in the IaC templates before `terraform apply` runs, not after the vulnerable infrastructure exists in production.

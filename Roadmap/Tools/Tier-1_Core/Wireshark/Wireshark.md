@@ -1,5 +1,7 @@
 # 🦈 Wireshark: Complete Mastery Checklist
 
+📝 [[Wireshark_Notes|Notes]]
+
 > **What is Wireshark?** Wireshark is the world's most widely used network protocol analyzer. It captures live network traffic and decodes it into human-readable format, allowing you to inspect every packet — every header, every payload, every handshake — at any layer of the OSI model.
 >
 > **Why does it exist?** Networks are invisible by default. Wireshark makes the invisible visible. It lets you see exactly what devices are saying to each other, debug network problems, verify security controls, detect malicious activity, and prove vulnerabilities with packet-level evidence.

@@ -1,5 +1,7 @@
 # 🏰 Mythic: Complete Mastery Checklist
 
+📝 [[Mythic_Notes|Notes]]
+
 > **What is Mythic?** Mythic is a modern, open-source Command & Control (C2) framework designed for offensive security operations and red team engagements. It provides a web-based operator interface, a scalable C2 server architecture, and a modular agent/payload system supporting multiple operating systems and communication protocols. Mythic is the next-generation replacement for older C2 frameworks — designed with a React-based UI, Docker-based deployment, and a plugin system for custom agents and communication channels ("C2 profiles").
 >
 > **Why does it exist?** Traditional C2 frameworks (Cobalt Strike, Metasploit) are either expensive, monolithic, or primarily designed for testing rather than realistic red team operations. Mythic was built for mature red team operations: it supports multi-operator collaboration, real-time task delegation, detailed logging for deconfliction, and a plugin architecture (agents, C2 profiles) that allows custom implants and novel communication channels for bypass of modern security controls.

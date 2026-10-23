@@ -1,5 +1,7 @@
 # 🔐 OpenSSL & cryptsetup: Complete Mastery Checklist
 
+📝 [[OpenSSL_Notes|Notes]]
+
 > **What is OpenSSL?** OpenSSL is the world's most widely deployed cryptography library and command-line toolkit. It implements TLS/SSL protocols, RSA/ECC/DSA key operations, symmetric ciphers (AES, ChaCha20), hashing (SHA-256, SHA-3), certificate signing, and PKCS standards. It underpins virtually every HTTPS connection, VPN, and PKI deployment on the planet.
 >
 > **What is cryptsetup?** cryptsetup is the Linux utility for managing LUKS (Linux Unified Key Setup) full-disk and partition encryption. It uses dm-crypt in the kernel to provide transparent AES-XTS block-device encryption. LUKS is the standard for Linux disk encryption.

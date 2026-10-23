@@ -1,5 +1,7 @@
 # 👻 Ghidra: Complete Mastery Checklist
 
+📝 [[Ghidra_Notes|Notes]]
+
 > **What is Ghidra?** Ghidra is a free, open-source software reverse engineering (SRE) framework developed and released by the NSA. It disassembles and decompiles binary executables — converting compiled machine code into readable assembly and pseudo-C code — enabling analysis of malware, finding vulnerabilities in closed-source software, and understanding how binaries behave. It supports x86, x64, ARM, MIPS, PowerPC, and many other architectures.
 >
 > **Why does it exist?** IDA Pro — the industry standard for reverse engineering — costs thousands of dollars. Ghidra fills the gap as a free, powerful alternative. While IDA Pro remains more mature for some workflows, Ghidra's decompiler output is excellent, it handles large binaries well, and it is scriptable in Java and Python.

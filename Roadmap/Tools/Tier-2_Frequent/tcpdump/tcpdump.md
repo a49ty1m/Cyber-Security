@@ -1,5 +1,7 @@
 # 🦈 tcpdump: Complete Mastery Checklist
 
+📝 [[tcpdump_Notes|Notes]]
+
 > **What is tcpdump?** tcpdump is a command-line packet capture and analysis tool. It captures network packets from a specified interface — applying optional BPF (Berkeley Packet Filter) expressions to filter what gets captured — and displays or saves them. It is the standard tool for command-line packet capture on Linux/Unix systems, deployable on any machine without a GUI.
 >
 > **Why does it exist?** Wireshark is excellent for interactive analysis but requires a GUI and is not available on headless servers. tcpdump runs everywhere, captures to `.pcap` files for later Wireshark analysis, and can filter, display, and analyze packets directly in the terminal. It is indispensable for troubleshooting, traffic analysis, and network-level security investigation on servers.

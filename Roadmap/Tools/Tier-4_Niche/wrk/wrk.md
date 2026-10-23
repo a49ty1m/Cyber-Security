@@ -1,5 +1,7 @@
 # 🔧 wrk: Complete Reference
 
+📝 [[wrk_Notes|Notes]]
+
 > **What is wrk?** wrk is a modern, high-performance HTTP benchmarking tool. It uses a multi-threaded design and event-driven I/O to generate far more HTTP load than ApacheBench from a single machine. It supports Lua scripting for custom request generation (dynamic URLs, different methods, request bodies, response validation). wrk is the standard HTTP load testing tool when you need accurate, sustained, high-concurrency results.
 >
 > **When to use it:** Serious HTTP/HTTPS performance benchmarking. Finding a server's maximum sustained throughput. Testing API performance under realistic load. Comparing server configurations. When ab runs out of capacity before the server does (very common with high-performance servers or APIs).

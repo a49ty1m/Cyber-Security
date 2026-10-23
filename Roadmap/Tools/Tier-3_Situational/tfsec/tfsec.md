@@ -1,5 +1,7 @@
 # 🛡️ tfsec: Complete Mastery Checklist
 
+📝 [[tfsec_Notes|Notes]]
+
 > **What is tfsec?** tfsec is an open-source, Terraform-focused static analysis security scanner. It analyzes Terraform HCL code to identify security misconfigurations, insecure defaults, and violations of security best practices — specifically within Terraform infrastructure definitions. Unlike Checkov (which is multi-framework), tfsec is purpose-built for Terraform, resulting in deeper Terraform-specific checks, better false positive rates, and tighter integration with Terraform's module system.
 >
 > **Why does it exist?** Terraform is the dominant IaC tool, and Terraform configurations frequently contain security misconfigurations (open security groups, unencrypted storage, over-permissive IAM). tfsec provides Terraform-native static analysis that can be run locally, in CI/CD, and as a pre-commit hook — shifting security left before `terraform apply` ever runs.

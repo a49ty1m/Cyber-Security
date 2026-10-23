@@ -1,5 +1,7 @@
 # 🏓 hping3: Complete Reference
 
+📝 [[hping3_Notes|Notes]]
+
 > **What is hping3?** hping3 is a command-line TCP/IP packet assembler and analyzer. Unlike ping (which only sends ICMP echo requests), hping3 can craft and send TCP, UDP, ICMP, and RAW-IP packets with full control over every header field — source IP, port, flags, TTL, data payload. It is the Swiss Army knife of low-level network testing: port scanning, firewall rule testing, SYN flood DoS, traceroute with different protocols, and fragmentation testing.
 >
 > **When to use it:** Testing firewall rules (can ICMP get through? What about TCP on port 443?). Generating DoS traffic in lab environments for defensive testing. Custom traceroutes when ICMP is blocked but TCP isn't. Verifying network filtering behavior. TCP/IP packet crafting when Scapy is overkill for a simple task.

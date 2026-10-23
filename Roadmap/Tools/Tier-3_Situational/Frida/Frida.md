@@ -1,5 +1,7 @@
 # 🔬 Frida: Complete Mastery Checklist
 
+📝 [[Frida_Notes|Notes]]
+
 > **What is Frida?** Frida is an open-source dynamic instrumentation framework that lets you inject JavaScript (or Python) scripts into running processes on Android, iOS, Windows, macOS, and Linux — without modifying or recompiling the target application. At runtime, Frida can intercept function calls, modify arguments and return values, hook into memory, bypass security checks, and extract sensitive data from any running process. It is the primary tool for mobile application security testing and reverse engineering.
 >
 > **Why does it exist?** Static analysis (reading decompiled code) tells you what an app *can* do. Dynamic instrumentation tells you what it *actually does* at runtime, with real data. Frida bridges this gap — you can observe, intercept, and modify an application's behavior while it's running, without having the source code.

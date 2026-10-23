@@ -1,5 +1,7 @@
 # 🧬 Detect It Easy (DiE): Complete Reference
 
+📝 [[Detect_It_Easy_Notes|Notes]]
+
 > **What is Detect It Easy?** Detect It Easy (DiE) is a free, cross-platform tool for identifying the packer, compiler, linker, and protector used to build a PE (or ELF/Mach-O) executable. It analyzes the binary's structure, sections, headers, and byte signatures to determine: "Was this compiled with Visual C++ 2019? Was it packed with UPX? Is it protected with Themida?" DiE answers these questions in seconds, using a large, community-maintained signature database plus heuristic analysis.
 >
 > **When to use it:** First step in any packed binary analysis — before attempting to unpack in x64dbg, know what packer you're dealing with. Identifying the compiler (helps narrow down the language and SDK). Understanding the protection layer. Prioritizing analysis effort: well-known packer → use existing unpackers. Custom packer → manual analysis required.

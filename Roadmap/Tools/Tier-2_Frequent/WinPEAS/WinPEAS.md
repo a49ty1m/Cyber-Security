@@ -1,5 +1,7 @@
 # 🏆 WinPEAS: Complete Mastery Checklist
 
+📝 [[WinPEAS_Notes|Notes]]
+
 > **What is WinPEAS?** WinPEAS (Windows Privilege Escalation Awesome Script) is a privilege escalation enumeration script for Windows. It automatically checks hundreds of misconfigurations, weak permissions, stored credentials, and known vulnerable configurations across a compromised Windows system — outputting color-coded results that highlight likely escalation paths.
 >
 > **Why does it exist?** Manual Windows privilege escalation enumeration requires checking dozens of different categories: service permissions, registry keys, scheduled tasks, stored credentials, unquoted paths, token privileges, and more. WinPEAS automates all of it in one run, surfacing the highest-probability escalation vectors first.

@@ -1,5 +1,7 @@
 # 🔑 Certipy: Complete Mastery Checklist
 
+📝 [[Certipy_Notes|Notes]]
+
 > **What is Certipy?** Certipy is an open-source Python tool for enumerating and exploiting Active Directory Certificate Services (ADCS) misconfigurations. ADCS is Windows's PKI infrastructure for issuing digital certificates within a domain — and it is riddled with well-known misconfiguration classes (ESC1–ESC13) that allow privilege escalation, domain compromise, and persistent access. Certipy automates the discovery and exploitation of all these misconfiguration classes.
 >
 > **Why does it exist?** The research paper "Certified Pre-Owned" (2021, by Will Schroeder & Lee Christensen of SpecterOps) revealed that ADCS is massively misconfigured in most enterprise environments, and these misconfigurations lead to trivially easy domain compromise. Certipy was built to operationalize this research for penetration testers. In practice, ESC1 (vulnerable certificate template + domain user enrollment) is present in the majority of real-world AD environments.

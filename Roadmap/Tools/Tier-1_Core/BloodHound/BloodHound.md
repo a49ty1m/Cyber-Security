@@ -1,5 +1,7 @@
 # 🩸 BloodHound: Complete Mastery Checklist
 
+📝 [[BloodHound_Notes|Notes]]
+
 > **What is BloodHound?** BloodHound is a graph-based Active Directory reconnaissance and attack path analysis tool. It maps relationships between AD objects — users, groups, computers, GPOs, ACLs, sessions, trusts — and uses graph theory to reveal hidden attack paths that would be invisible through manual enumeration.
 >
 > **Why does it exist?** Active Directory environments contain thousands of objects with complex relationships. A user may be a member of a group that has GenericWrite on another group that has DCSync rights on the domain — this three-hop path is invisible to manual enumeration but trivial for BloodHound to find. BloodHound makes the invisible visible.

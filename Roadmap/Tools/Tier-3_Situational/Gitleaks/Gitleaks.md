@@ -1,5 +1,7 @@
 # 🕵️ Gitleaks: Complete Mastery Checklist
 
+📝 [[Gitleaks_Notes|Notes]]
+
 > **What is Gitleaks?** Gitleaks is an open-source SAST tool specifically designed to detect hardcoded secrets — API keys, tokens, passwords, SSH private keys, connection strings, and other credentials — in Git repositories. It scans the entire Git history (not just the current state of the code), meaning a secret committed and then deleted a year ago is still detected. Gitleaks includes 200+ built-in detection rules for common secret patterns (AWS keys, GitHub tokens, Stripe keys, Slack tokens, etc.).
 >
 > **Why does it exist?** Developers accidentally commit secrets constantly. A quick `git log` reveals that secrets often get committed, then deleted in a follow-up commit — but they're still in the Git history forever (unless the history is explicitly purged). Attackers who clone a public repo or gain access to a private one immediately run secret scanning tools. Gitleaks makes it easy to catch these secrets before — or after — they're exposed.

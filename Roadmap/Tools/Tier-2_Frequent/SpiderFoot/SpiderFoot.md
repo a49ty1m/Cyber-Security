@@ -1,5 +1,7 @@
 # 🕷️ SpiderFoot: Complete Mastery Checklist
 
+📝 [[SpiderFoot_Notes|Notes]]
+
 > **What is SpiderFoot?** SpiderFoot is an automated OSINT collection platform with 200+ modules that query hundreds of data sources simultaneously — search engines, DNS records, WHOIS, threat intelligence feeds, dark web mentions, Shodan, HaveIBeenPwned, LinkedIn, GitHub, and more. It builds a graph of relationships between discovered entities (domains, IPs, emails, persons, phone numbers, certificates). It has a web UI for interactive use and CLI for automation.
 >
 > **Why does it exist?** Running 200+ individual OSINT queries manually is impractical. SpiderFoot automates this collection, correlates findings, and presents them as an interconnected graph — revealing relationships that individual tool runs miss. It is particularly powerful for building comprehensive external intelligence profiles.

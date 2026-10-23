@@ -1,5 +1,7 @@
 # 🪟 Evil-WinRM: Complete Mastery Checklist
 
+📝 [[Evil-WinRM_Notes|Notes]]
+
 > **What is Evil-WinRM?** Evil-WinRM is a full-featured Windows Remote Management (WinRM) shell built specifically for penetration testing. It provides an interactive PowerShell session over WinRM (port 5985 HTTP / 5986 HTTPS) with built-in features for file upload/download, in-memory script loading, pass-the-hash, and AMSI bypass.
 >
 > **Why does it exist?** WinRM is Microsoft's remote management protocol — enabled by default on Windows Server 2012+ and any machine enrolled in a domain management policy. Once you have valid Windows credentials (from Responder, Impacket, NetExec, or Hashcat), Evil-WinRM gives you a clean interactive shell without needing RDP, SMB exec, or a full C2 implant.

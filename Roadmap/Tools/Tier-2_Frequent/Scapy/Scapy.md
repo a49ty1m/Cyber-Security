@@ -1,5 +1,7 @@
 # 🐍 Scapy: Complete Mastery Checklist
 
+📝 [[Scapy_Notes|Notes]]
+
 > **What is Scapy?** Scapy is a Python library and interactive tool for creating, sending, capturing, and analyzing arbitrary network packets. You can construct any packet from scratch — specifying every header field at every protocol layer — or capture live traffic and manipulate it. It understands dozens of protocols natively and lets you forge, fuzz, decode, and replay packets at will.
 >
 > **Why does it exist?** Most network tools are purpose-built — Nmap scans, tcpdump captures, Wireshark analyzes. Scapy does all of this and more, but the key difference is programmability: you write Python to construct exact packets. This makes it invaluable for: creating custom protocol implementations, fuzzing network services, building novel attack tools, and understanding protocols at the bit level.

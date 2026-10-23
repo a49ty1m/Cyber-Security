@@ -1,5 +1,7 @@
 # 🧨 Garak: Complete Mastery Checklist
 
+📝 [[Garak_Notes|Notes]]
+
 > **What is Garak?** Garak is an open-source LLM vulnerability scanner developed by NVIDIA. It's the "Nmap for LLMs" — a systematic framework that probes LLMs for specific vulnerability classes using hundreds of pre-built attack probes. Garak tests for prompt injection, jailbreaking, data leakage, denial of service, hallucination, toxicity, and many other LLM-specific failure modes, generating structured vulnerability reports. It automates what would otherwise require manually writing thousands of adversarial prompts.
 >
 > **Why does it exist?** Manually testing an LLM for every known vulnerability class is impractical. Garak systematizes LLM security assessment: you specify a target LLM (via API or local Ollama), select probe suites, and Garak automatically generates and sends thousands of adversarial prompts, analyzes responses, and produces a pass/fail vulnerability report. It's the OWASP ZAP equivalent for LLM security.

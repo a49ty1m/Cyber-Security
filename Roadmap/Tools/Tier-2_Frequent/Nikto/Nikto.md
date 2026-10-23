@@ -1,5 +1,7 @@
 # 🔍 Nikto: Complete Mastery Checklist
 
+📝 [[Nikto_Notes|Notes]]
+
 > **What is Nikto?** Nikto is an open-source web server vulnerability scanner. It sends a large number of HTTP requests to a web server, checking for: known CVEs in web server software, dangerous default files, misconfigured headers, information disclosure, outdated server versions, and thousands of known vulnerable paths. It gives you a rapid first-pass vulnerability picture of any web server in minutes.
 >
 > **Why does it exist?** Manually checking a web server against thousands of known issues is impractical. Nikto automates this — running a comprehensive, signature-based scan that surfaces common, well-known issues immediately. It's not a deep application scanner (that's Burp Suite's job), but it catches the low-hanging fruit very fast.

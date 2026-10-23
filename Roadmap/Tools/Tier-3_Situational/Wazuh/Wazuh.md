@@ -1,5 +1,7 @@
 # 🐺 Wazuh: Complete Mastery Checklist
 
+📝 [[Wazuh_Notes|Notes]]
+
 > **What is Wazuh?** Wazuh is a free and open-source security platform that provides unified SIEM and XDR (Extended Detection and Response) capabilities. It combines endpoint detection (via a lightweight agent), log analysis, vulnerability detection, file integrity monitoring (FIM), configuration auditing, and active response — all integrated with an Elastic Stack backend for storage and Kibana for visualization. Wazuh is effectively a pre-configured, security-focused ELK stack with built-in detection rules and an agent ecosystem.
 >
 > **Why does it exist?** Splunk and commercial SIEMs are expensive. Pure ELK requires extensive manual configuration to become a security tool. Wazuh bridges the gap: it's open-source, fully featured for security operations, and ships with thousands of built-in detection rules aligned to MITRE ATT&CK.

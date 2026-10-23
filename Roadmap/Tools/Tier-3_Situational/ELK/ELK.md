@@ -1,5 +1,7 @@
 # 📦 ELK Stack (Elastic Stack): Complete Mastery Checklist
 
+📝 [[ELK_Notes|Notes]]
+
 > **What is the ELK Stack?** ELK is an acronym for three open-source tools built by Elastic: **Elasticsearch** (distributed search and analytics engine), **Logstash** (data ingestion and transformation pipeline), and **Kibana** (visualization and dashboarding UI). Together they form a powerful, open-source SIEM and log analytics platform. The modern term is **Elastic Stack**, as Beats (lightweight data shippers) are now a core component alongside the original three.
 >
 > **Why does it exist?** Organizations needed a scalable, open-source alternative to expensive proprietary SIEMs. Elasticsearch's inverted index architecture enables sub-second full-text search across billions of log events. Kibana makes that data explorable visually. It is the dominant open-source SIEM foundation globally.

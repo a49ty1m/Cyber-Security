@@ -1,5 +1,7 @@
 # 🐍 Impacket: Complete Mastery Checklist
 
+📝 [[Impacket_Notes|Notes]]
+
 > **What is Impacket?** Impacket is a collection of Python classes and tools for working with Windows network protocols: SMB, MSRPC, LDAP, Kerberos, NTLM, WMI, DCOM, and more. It enables remote command execution, credential extraction, Kerberos attacks, and Active Directory exploitation — all from a Linux attacker machine.
 >
 > **Why does it exist?** Attacking Windows/Active Directory environments from Linux requires deep protocol implementation. Impacket provides Python-native implementations of Windows protocols, enabling offensive security operations without needing a Windows attack machine.

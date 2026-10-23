@@ -1,5 +1,7 @@
 # 🔬 Autopsy: Complete Mastery Checklist
 
+📝 [[Autopsy_Notes|Notes]]
+
 > **What is Autopsy?** Autopsy is a free, open-source digital forensics platform and graphical front-end to The Sleuth Kit (TSK). It allows investigators to analyze disk images, file systems, and artifacts from Windows, Linux, macOS, Android, and iOS devices. It is the most widely used open-source forensic tool in law enforcement, incident response, and security research.
 >
 > **Why does it exist?** Commercial forensic tools (FTK, EnCase, X-Ways) cost thousands of dollars per seat. Autopsy provides a comparable workflow for free — with a module-based architecture, timeline analysis, keyword searching, hash filtering, and artifact extraction. It is extensively used in CTF forensics challenges and real investigations.

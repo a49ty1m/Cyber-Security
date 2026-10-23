@@ -1,5 +1,7 @@
 # 🔑 John the Ripper: Complete Mastery Checklist
 
+📝 [[John_the_Ripper_Notes|Notes]]
+
 > **What is John the Ripper?** John the Ripper (JtR) is a free, open-source password cracking tool. It takes hashed password representations (NTLM, SHA-1, bcrypt, MD5, etc.) and attempts to recover the original plaintext through dictionary attacks, rule-based mangling, brute-force, and combination attacks. It runs on CPU and supports an enormous range of hash formats natively.
 >
 > **Why does it exist?** Password cracking is essential in penetration testing: captured hashes from SAM databases, /etc/shadow, NTDS.dit, Kerberoasting, and network captures are useless until cracked. JtR converts a hash into a credential you can actually use for lateral movement or escalation.

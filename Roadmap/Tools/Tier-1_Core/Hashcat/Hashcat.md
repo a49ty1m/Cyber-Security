@@ -1,5 +1,7 @@
 # 🔥 Hashcat: Complete Mastery Checklist
 
+📝 [[Hashcat_Notes|Notes]]
+
 > **What is Hashcat?** Hashcat is the world's fastest and most advanced offline password recovery (cracking) tool. It uses CPU and GPU hardware acceleration to test billions of password candidates per second against captured password hashes.
 >
 > **Why does it exist?** When you extract password hashes from a compromised system (from `/etc/shadow`, SAM database, NTDS.dit, web app databases, or network captures), you need to recover the plaintext passwords. Hashcat converts those hashes back to passwords using brute-force, dictionary attacks, and rule-based mutations.

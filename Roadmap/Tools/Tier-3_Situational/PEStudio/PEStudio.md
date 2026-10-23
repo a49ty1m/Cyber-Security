@@ -1,5 +1,7 @@
 # 🔬 PEStudio: Complete Mastery Checklist
 
+📝 [[PEStudio_Notes|Notes]]
+
 > **What is PEStudio?** PEStudio is a free Windows PE (Portable Executable) file analyzer for malware initial triage. It provides an instant, comprehensive static analysis view of a Windows executable or DLL without executing it — showing: file hashes, imported APIs, strings, sections, resources, certificates, entropy, VirusTotal results, and indicators of compromise. It is the tool every malware analyst opens first when they receive a suspicious file.
 >
 > **Why does it exist?** Before committing to a full Ghidra/x64dbg analysis session, analysts need to quickly understand a file: is it malicious? What does it likely do? Is it packed? PEStudio provides this 2-minute triage that tells you everything you need to know to prioritize and direct deeper analysis.

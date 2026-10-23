@@ -1,5 +1,7 @@
 # 🔎 TruffleHog: Complete Mastery Checklist
 
+📝 [[TruffleHog_Notes|Notes]]
+
 > **What is TruffleHog?** TruffleHog is an open-source secret scanning tool that searches for high-entropy strings and credential patterns across Git repositories, S3 buckets, file systems, GitHub/GitLab organizations, Jira, Confluence, and more. Its key differentiator is **secret verification** — TruffleHog doesn't just detect potential secrets, it actively tests them against APIs (AWS STS, GitHub, Stripe, Slack, etc.) to confirm whether the detected credential is still valid and live.
 >
 > **Why does it exist?** Finding a credential in code is only half the battle. Knowing whether it's still active determines urgency. TruffleHog's verification capability transforms a "potential finding" into a confirmed "live credential compromise" — dramatically changing the priority of the response. It also scans more sources than most tools (not just Git — S3, CI/CD systems, collaboration tools).

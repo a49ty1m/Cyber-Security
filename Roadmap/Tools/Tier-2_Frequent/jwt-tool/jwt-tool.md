@@ -1,5 +1,7 @@
 # 🔑 jwt_tool: Complete Mastery Checklist
 
+📝 [[jwt-tool_Notes|Notes]]
+
 > **What is jwt_tool?** jwt_tool is a Python toolkit for testing, decoding, forging, and attacking JSON Web Tokens (JWTs). JWTs are the dominant authentication mechanism for modern web APIs and SPAs. jwt_tool supports every known JWT attack: algorithm confusion (RS256 → HS256), the `alg:none` bypass, key injection, brute-forcing weak HMAC secrets, and tampered claim testing. It integrates with Burp Suite via a proxy flag.
 >
 > **Why does it exist?** JWTs are widely misimplemented. The `alg:none` vulnerability and RS256→HS256 confusion attack are so common that a dedicated tool is essential. jwt_tool automates both the attack scanning and the manual token crafting required for JWT exploitation.

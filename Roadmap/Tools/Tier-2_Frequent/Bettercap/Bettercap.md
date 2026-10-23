@@ -1,5 +1,7 @@
 # 🐝 Bettercap: Complete Mastery Checklist
 
+📝 [[Bettercap_Notes|Notes]]
+
 > **What is Bettercap?** Bettercap is a modern, modular network attack and monitoring framework. It handles ARP poisoning/MITM, DNS spoofing, HTTP/HTTPS injection, Bluetooth and Wi-Fi attacks, and passive network reconnaissance — all through a unified, scriptable web-based or interactive CLI interface. It is the actively maintained successor to Ettercap.
 >
 > **Why does it exist?** Ettercap became unmaintained and brittle. Bettercap was designed as a complete rewrite — clean architecture, extensible modules, Go-based core, web UI, and a built-in scripting engine (caplets). It handles modern network scenarios that Ettercap struggles with (HTTPS MITM, 802.11 attacks, BLE).

@@ -1,5 +1,7 @@
 # 🔫 WPScan: Complete Mastery Checklist
 
+📝 [[wpscan_Notes|Notes]]
+
 > **What is WPScan?** WPScan is a WordPress-specific vulnerability scanner. It fingerprints a WordPress installation — version, plugins, themes, users — and checks each component against the WPScan Vulnerability Database (WPVulnDB). It identifies: vulnerable plugin versions with known CVEs, weak/missing security configurations, exposed user enumeration, and default/common credentials via its bruteforce module.
 >
 > **Why does it exist?** WordPress powers over 40% of all websites. Most WordPress vulnerabilities come from outdated plugins and themes, not the core. WPScan knows the WordPress ecosystem deeply — it understands where to find version strings, which endpoints expose user data, and what each plugin/theme version is vulnerable to. Generic scanners miss most of this.

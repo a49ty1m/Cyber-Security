@@ -1,5 +1,7 @@
 # 📡 Responder: Complete Mastery Checklist
 
+📝 [[Responder_Notes|Notes]]
+
 > **What is Responder?** Responder is a LLMNR, NBT-NS, and mDNS poisoner for Windows networks. When a Windows machine fails to resolve a hostname via DNS, it falls back to LLMNR (Link-Local Multicast Name Resolution) and NBT-NS (NetBIOS Name Service) — broadcasting a query on the local network. Responder answers all such queries, claiming to be the requested host. The requesting machine then authenticates to Responder using NTLMv1/NTLMv2, and Responder captures the hash. These Net-NTLMv2 hashes are then cracked offline or relayed for authentication.
 >
 > **Why does it exist?** LLMNR and NBT-NS are enabled by default on Windows and have no authentication — any machine on the network can answer a broadcast query. Responder exploits this fundamental design flaw to capture credentials from Windows machines that fail to resolve hostnames (e.g., a typo in a UNC path, a lost network share, a misconfigured startup script).

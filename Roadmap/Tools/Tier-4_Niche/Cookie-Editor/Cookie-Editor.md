@@ -1,5 +1,7 @@
 # 🍪 Cookie-Editor: Complete Reference
 
+📝 [[Cookie-Editor_Notes|Notes]]
+
 > **What is Cookie-Editor?** Cookie-Editor is a browser extension (Chrome, Firefox, Edge, Safari) that provides a clean GUI for viewing, editing, adding, deleting, importing, and exporting HTTP cookies for the current page. It eliminates the need to navigate browser DevTools to manipulate cookies during web application testing, making session hijacking tests, cookie attribute validation, and token-swapping operations faster and more accessible.
 >
 > **When to use it:** Testing session management: can you replace a session cookie with another user's? Testing cookie security attributes (HttpOnly, Secure, SameSite). Manual JWT or session token swap for authorization testing. Importing/exporting cookie sets between browsers for cross-account testing. Quick session fixation testing.

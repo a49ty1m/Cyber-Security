@@ -1,5 +1,7 @@
 # 💾 FTK Imager: Complete Mastery Checklist
 
+📝 [[FTK_Imager_Notes|Notes]]
+
 > **What is FTK Imager?** FTK Imager (Forensic Toolkit Imager) is a free disk imaging and evidence preservation tool from AccessData (now Exterro). It creates forensically sound images of hard drives, SSDs, USB drives, and memory. It is the most widely used acquisition tool in digital forensics — law enforcement, corporate investigators, and security researchers all rely on it for evidence-grade disk imaging.
 >
 > **Why does it exist?** Forensic investigations require evidence preservation before analysis. FTK Imager creates verified, bit-for-bit copies of storage media with hash verification, supporting multiple output formats (E01, DD, AD1) compatible with major forensic analysis tools (Autopsy, EnCase, FTK). It also performs live memory acquisition and can preview a drive's contents before committing to a full image.

@@ -1,5 +1,7 @@
 # 🌐 Amass: Complete Mastery Checklist
 
+📝 [[Amass_Notes|Notes]]
+
 > **What is Amass?** Amass is the OWASP-backed open-source subdomain enumeration and external attack surface mapping tool. It combines passive DNS, certificate transparency logs, API sources (Shodan, Censys, VirusTotal, etc.), and active DNS brute-force into a single unified workflow — giving you the most complete external asset inventory available.
 >
 > **Why does it exist?** Organizations expose dozens or hundreds of subdomains they forget they own. Each forgotten subdomain is a potential attack surface — forgotten dev servers, unpatched legacy apps, exposed admin panels. Amass maps all of them systematically so nothing is missed.

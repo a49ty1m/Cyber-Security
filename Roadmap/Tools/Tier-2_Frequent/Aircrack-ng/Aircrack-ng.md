@@ -1,5 +1,7 @@
 # 📡 Aircrack-ng: Complete Mastery Checklist
 
+📝 [[Aircrack-ng_Notes|Notes]]
+
 > **What is Aircrack-ng?** Aircrack-ng is the standard open-source wireless network security auditing toolkit. It consists of four main components: `airmon-ng` (enable monitor mode), `airodump-ng` (capture packets and handshakes), `aireplay-ng` (inject frames — deauth attacks, ARP replay), and `aircrack-ng` (crack WEP keys and WPA/WPA2 handshakes). It is the foundational tool for all Wi-Fi security testing.
 >
 > **Why does it exist?** Wi-Fi networks are broadcast by nature — every packet is transmitted through the air and receivable by anyone in range. Aircrack-ng exploits this to capture authentication handshakes and crack pre-shared keys offline, exposing weak Wi-Fi passwords that put an entire network at risk.

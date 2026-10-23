@@ -1,5 +1,7 @@
 # 🗺️ Nmap: Complete Mastery Checklist
 
+📝 [[Nmap_Notes|Notes]]
+
 > **What is Nmap?** Nmap (Network Mapper) is the industry-standard network discovery and security auditing tool. It identifies live hosts, open ports, running services, operating systems, and vulnerabilities on a network. It is the **first tool** used in nearly every penetration test.
 >
 > **Why does it exist?** Networks are opaque by default. Before attacking or defending anything, you must know what's there — what machines, what ports, what software, what versions. Nmap turns an unknown network into a detailed inventory.

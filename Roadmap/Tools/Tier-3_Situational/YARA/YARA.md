@@ -1,5 +1,7 @@
 # 🦠 YARA: Complete Mastery Checklist
 
+📝 [[YARA_Notes|Notes]]
+
 > **What is YARA?** YARA is an open-source pattern matching tool designed to identify and classify malware. It works by matching binary patterns (byte sequences, strings, regex) against files, directories, or memory. A YARA rule describes the characteristics of a malware family or suspicious artifact — and YARA scans anything you point it at to find matches. YARA is the standard tool for malware analysts, threat intelligence teams, and incident responders worldwide.
 >
 > **Why does it exist?** Hash-based detection (matching a file's MD5/SHA256) breaks the moment malware recompiles or modifies a single byte. YARA's pattern-based approach is more resilient — a rule targeting the malware's algorithm, string constants, or bytecode patterns can survive minor modifications and catch entire malware families.

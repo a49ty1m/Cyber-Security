@@ -1,5 +1,7 @@
 # 🔎 Sigma: Complete Mastery Checklist
 
+📝 [[Sigma_Notes|Notes]]
+
 > **What is Sigma?** Sigma is a generic, open-source signature format for SIEM detection rules. It is the **YARA of log detection** — a vendor-neutral rule language that describes attacker behavior in log data, which can then be converted to the query language of any SIEM (Splunk SPL, Elastic KQL, Microsoft Sentinel KQL, QRadar, Wazuh, etc.) using the `sigma-cli` converter. A single Sigma rule can target all SIEMs simultaneously.
 >
 > **Why does it exist?** Every SIEM has its own query language. A detection rule written in Splunk SPL is useless in Elastic, and vice versa. Sigma solves this by being a common intermediate format. The open-source SigmaHQ repository contains 3,000+ community-written rules aligned to MITRE ATT&CK — the single largest freely available detection rule library.

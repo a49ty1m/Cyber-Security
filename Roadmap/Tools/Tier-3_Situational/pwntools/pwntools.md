@@ -1,5 +1,7 @@
 # 🐍 pwntools: Complete Mastery Checklist
 
+📝 [[pwntools_Notes|Notes]]
+
 > **What is pwntools?** pwntools is a Python library purpose-built for binary exploitation and CTF challenges. It provides utilities for every stage of exploit development: interacting with local processes and remote sockets (pwnlib.tubes), working with binary formats (ELF parsing, GOT/PLT navigation), packing/unpacking integers, building ROP chains, shellcode generation, and heap analysis utilities. It transforms exploit development from low-level scripting to clean, readable Python.
 >
 > **Why does it exist?** Writing exploit code without pwntools means manually handling socket I/O, byte packing, offsets, and ELF structure parsing — error-prone and slow. pwntools abstracts these operations into a clean API, letting you focus on the vulnerability mechanics rather than infrastructure code. It is the standard tool for binary exploitation in CTF competitions and professional penetration testing.

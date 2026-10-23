@@ -1,5 +1,7 @@
 # 🔀 Chisel: Complete Mastery Checklist
 
+📝 [[Chisel_Notes|Notes]]
+
 > **What is Chisel?** Chisel is a fast TCP/UDP tunneling tool written in Go that transports network traffic over HTTP (or HTTPS). It creates an encrypted tunnel between your attack machine (server) and a compromised host (client), allowing you to pivot into internal networks, bypass firewalls, and access services not directly reachable from the internet.
 >
 > **Why does it exist?** In real-world network penetration tests, the target's internal network is not directly accessible from the attacker's machine. A compromised internet-facing host becomes a pivot point — Chisel turns that host into a tunnel endpoint, routing your traffic through it to reach internal hosts and services.

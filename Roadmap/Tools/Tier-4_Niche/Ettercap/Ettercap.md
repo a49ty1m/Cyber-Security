@@ -1,5 +1,7 @@
 # 🌿 Ettercap: Complete Mastery Checklist
 
+📝 [[Ettercap_Notes|Notes]]
+
 > ⚠️ **Legacy Tool Notice:** Ettercap has been superseded by [[Bettercap]] for all active MitM work. This file is preserved for understanding protocol fundamentals, interpreting older documentation and courses that reference Ettercap, and testing legacy environments where Bettercap is unavailable. **For new engagements and lab work, use Bettercap instead.**
 > **Roadmap Stage / Module:** Stage 4: Module 23 (Sniffing & Spoofing — Legacy Reference)
 

@@ -1,5 +1,7 @@
 # 🐍 Sliver: Complete Mastery Checklist
 
+📝 [[Sliver_Notes|Notes]]
+
 > **What is Sliver?** Sliver is a modern, open-source Command & Control (C2) framework developed by BishopFox. It generates cross-platform implants (Linux, Windows, macOS) that connect back to a Sliver server, providing operators with persistent shell access, file operations, process injection, and post-exploitation capabilities — with multiple communication channels (mTLS, WireGuard, HTTP/S, DNS). It is a legitimate red team alternative to Cobalt Strike.
 >
 > **Why does it exist?** Commercial C2 platforms like Cobalt Strike cost thousands of dollars and are heavily signatured by AV/EDR. Sliver provides a capable, actively maintained, open-source alternative with modern features: multiple protocol support, in-memory execution, post-exploitation modules (SOCKS pivoting, port forwarding, process hollowing), and a built-in armory of extensions.

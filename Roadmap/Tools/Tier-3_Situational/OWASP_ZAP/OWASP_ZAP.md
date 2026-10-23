@@ -1,5 +1,7 @@
 # 🛡️ OWASP ZAP: Complete Mastery Checklist
 
+📝 [[OWASP_ZAP_Notes|Notes]]
+
 > **What is OWASP ZAP?** OWASP Zed Attack Proxy (ZAP) is a free, open-source web application security scanner and intercepting proxy. It sits between your browser and the target application, capturing and allowing you to modify all HTTP/HTTPS traffic. It includes an automated active scanner that tests for OWASP Top 10 vulnerabilities, a spider to crawl application content, a fuzzer, and a suite of passive scan rules that flag issues without sending attack traffic.
 >
 > **Why does it exist?** Burp Suite Community is free but has significant limitations (no active scanner, no automated testing). ZAP fills that gap — it's the most feature-complete free web application security testing tool available. It's widely used in DAST (Dynamic Application Security Testing) pipelines, in CTFs, and in security assessments where Burp Pro's license cost isn't justified.

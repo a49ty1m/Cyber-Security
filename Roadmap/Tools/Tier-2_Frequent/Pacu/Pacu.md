@@ -1,5 +1,7 @@
 # 🐦 Pacu: Complete Mastery Checklist
 
+📝 [[Pacu_Notes|Notes]]
+
 > **What is Pacu?** Pacu is an open-source AWS exploitation framework — the AWS equivalent of Metasploit. Built by Rhino Security Labs, it provides a modular interface with 100+ attack modules covering the full AWS attack chain: IAM privilege escalation, credential theft, persistence, lateral movement, data exfiltration, and service-specific exploitation across every major AWS service (EC2, Lambda, ECS, S3, IAM, STS, RDS, Cognito, and more).
 >
 > **Why does it exist?** Once an attacker has initial AWS access (leaked credentials, SSRF on an EC2 instance, Lambda function compromise), manually running `aws cli` commands to escalate privileges and move laterally is slow and error-prone. Pacu automates the known privilege escalation and lateral movement techniques across AWS services, enabling rapid exploitation.

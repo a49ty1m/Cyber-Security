@@ -1,5 +1,7 @@
 # 🧼 SoapUI: Complete Reference
 
+📝 [[SoapUI_Notes|Notes]]
+
 > **What is SoapUI?** SoapUI is an open-source tool for testing SOAP (Simple Object Access Protocol) web services and REST APIs. It provides a GUI for building, sending, and validating XML/WSDL-based SOAP requests as well as REST requests. It is the standard tool for testing legacy enterprise web services — the kind you encounter in banking, healthcare, ERP, and government systems that predate the REST/JSON era.
 >
 > **When to use it:** Testing SOAP/WSDL APIs on enterprise targets. Understanding WSDL definitions and auto-generating test requests. Testing XML-specific vulnerabilities (XXE, XPATH injection, SOAP action spoofing). API security assessments against legacy enterprise systems. When an engagement scope includes SOA (Service-Oriented Architecture) targets.

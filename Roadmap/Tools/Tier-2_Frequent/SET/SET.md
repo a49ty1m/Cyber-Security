@@ -1,5 +1,7 @@
 # 🛡️ SET (Social-Engineer Toolkit): Complete Mastery Checklist
 
+📝 [[SET_Notes|Notes]]
+
 > **What is SET?** The Social-Engineer Toolkit (SET) is a Python-based framework for social engineering attacks — primarily phishing websites, credential harvesting, and payload delivery. Its website attack vectors can clone any website automatically, serve it from a local web server, and capture submitted credentials. Its other modules handle spear-phishing emails, malicious file generation (with Metasploit integration), and HID attacks. SET is pre-installed on Kali and is the go-to tool for quick, one-command credential harvesting pages.
 >
 > **When to use it:** Quick credential harvesting page setup. Spear-phishing campaigns with payload delivery. When you need a credential harvester in minutes. Labs and CTFs requiring social engineering components.

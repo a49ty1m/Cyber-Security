@@ -1,5 +1,7 @@
 # 🌐 Maltego: Complete Mastery Checklist
 
+📝 [[Maltego_Notes|Notes]]
+
 > **What is Maltego?** Maltego is a link analysis and data mining tool for OSINT and investigative work. It visually maps relationships between entities — people, organizations, domains, IPs, phone numbers, email addresses, social accounts — on an interactive graph canvas. It queries hundreds of data sources ("Transforms") to enrich entities and discover connections automatically. It is the industry standard for visual intelligence analysis.
 >
 > **Why does it exist?** OSINT data becomes complex quickly. Hundreds of entities with thousands of relationships can't be understood in a spreadsheet. Maltego's visual graph makes it immediately clear how entities connect — who is associated with what infrastructure, what accounts connect to what people, how organizations relate. It's the difference between data and intelligence.

@@ -1,5 +1,7 @@
 # 🪲 x64dbg: Complete Mastery Checklist
 
+📝 [[x64dbg_Notes|Notes]]
+
 > **What is x64dbg?** x64dbg is a free, open-source x64/x32 debugger for Windows. It allows you to run a binary in a controlled way — pausing at any instruction (breakpoints), inspecting registers and memory at any point, stepping through code instruction by instruction, and modifying execution flow. Combined with Ghidra (static analysis), x64dbg provides the dynamic analysis layer: see actual runtime values, bypass anti-analysis tricks, unpack packed malware, and understand behavior that static analysis can't reveal.
 >
 > **Why does it exist?** OllyDbg was the classic 32-bit Windows debugger. x64dbg is its modern replacement — supports both x64 and x32, actively maintained, highly extensible via plugins (ScyllaHide for anti-anti-debug, xAnalyzer, etc.), and has a clean, intuitive UI.

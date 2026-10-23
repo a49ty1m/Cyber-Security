@@ -1,5 +1,7 @@
 # 🔑 Kerbrute: Complete Mastery Checklist
 
+📝 [[Kerbrute_Notes|Notes]]
+
 > **What is Kerbrute?** Kerbrute is a Go-based tool for performing Kerberos-based username enumeration and password spraying against Active Directory. It sends pre-authentication requests directly to the Key Distribution Center (KDC) and interprets the error codes to determine whether usernames are valid — without triggering standard account lockout policies.
 >
 > **Why does it exist?** Before you have any credentials in an AD engagement, you need a valid username list. Kerbrute exploits the fact that the Kerberos KDC returns different error codes for "valid username, wrong password" (`KRB5KDC_ERR_PREAUTH_FAILED`) vs "username does not exist" (`KRB5KDC_ERR_C_PRINCIPAL_UNKNOWN`) — making it possible to enumerate valid accounts silently.

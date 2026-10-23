@@ -1,5 +1,7 @@
 # 🚪 Gobuster: Complete Mastery Checklist
 
+📝 [[Gobuster_Notes|Notes]]
+
 > **What is Gobuster?** Gobuster is a fast directory, file, DNS subdomain, virtual host, and S3 bucket brute-forcer written in Go. It sends parallel requests, replacing a placeholder with each word from a wordlist, and reports hits based on HTTP status codes. It is simpler than ffuf but fast, reliable, and purpose-built for discovery.
 >
 > **When to use it:** Quick directory and file discovery. DNS subdomain enumeration. Virtual host discovery. When you need a simple, fast, reliable discovery tool. Good first-pass tool before deeper ffuf analysis.

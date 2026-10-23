@@ -1,5 +1,7 @@
 # ⚔️ Havoc: Complete Mastery Checklist
 
+📝 [[Havoc_Notes|Notes]]
+
 > **What is Havoc?** Havoc is a modern, open-source Command & Control (C2) framework written in Go (server) and C/C++ (the "Demon" implant). It provides a Qt-based graphical interface, a modular agent architecture, and a focus on offensive tradecraft and EDR evasion techniques. Havoc's Demon agent implements advanced in-memory evasion techniques: indirect syscalls, sleep obfuscation, module stomping, process injection, and AMSI/ETW bypass — making it one of the most technically sophisticated publicly-available C2 frameworks.
 >
 > **Why does it exist?** Cobalt Strike is expensive and heavily signatured. Sliver and Metasploit are well-known and detected. Havoc was created as a technically advanced, free alternative that implements modern EDR evasion techniques used by real APT groups. Its focus on low-level Windows evasion makes it particularly valuable for learning advanced offensive tradecraft and testing EDR detection capabilities.

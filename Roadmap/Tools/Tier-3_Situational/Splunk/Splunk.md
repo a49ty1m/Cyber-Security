@@ -1,5 +1,7 @@
 # 📊 Splunk: Complete Mastery Checklist
 
+📝 [[Splunk_Notes|Notes]]
+
 > **What is Splunk?** Splunk is the industry-leading Security Information and Event Management (SIEM) platform. It ingests, indexes, and makes searchable any machine-generated data — Windows Event Logs, syslog, firewall logs, endpoint telemetry (Sysmon), network flows, application logs, and more. Splunk's proprietary query language (SPL — Search Processing Language) lets you build real-time alerts, dashboards, and detection rules over billions of events.
 >
 > **Why does it exist?** In any organization with more than a handful of machines, logs become impossible to review manually. Splunk solves the log correlation problem: it aggregates all data in one place, lets analysts query across millions of events in seconds, and fires alerts when attacker behaviors match detection rules.

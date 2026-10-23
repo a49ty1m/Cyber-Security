@@ -1,5 +1,7 @@
 # 📱 Objection: Complete Mastery Checklist
 
+📝 [[Objection_Notes|Notes]]
+
 > **What is Objection?** Objection is a runtime mobile exploration toolkit built on top of Frida. It provides a command-line REPL (interactive console) with pre-built, one-command operations for the most common mobile security testing tasks — SSL pinning bypass, root/jailbreak detection bypass, memory dumping, class enumeration, and more. Where raw Frida requires writing custom JavaScript, Objection provides push-button access to the same capabilities.
 >
 > **Why does it exist?** Writing Frida scripts from scratch for every engagement is time-consuming. Objection packages the most commonly needed Frida scripts into a structured CLI, making dynamic mobile app analysis accessible without deep JavaScript expertise. It handles the boilerplate so you can focus on finding vulnerabilities.

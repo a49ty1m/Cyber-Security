@@ -1,5 +1,7 @@
 # 🕷️ Burp Suite: Complete Mastery Checklist
 
+📝 [[Burp_Suite_Notes|Notes]]
+
 > **What is Burp Suite?** Burp Suite is the industry-standard web application security testing platform. It acts as an intercepting proxy between your browser and the target web application, allowing you to inspect, modify, and replay every HTTP/HTTPS request and response. It includes tools for scanning, fuzzing, brute-forcing, and encoding.
 >
 > **Why does it exist?** Web applications are the largest attack surface in modern IT. Browsers hide the HTTP mechanics from users. Burp Suite makes every HTTP request and response visible and modifiable, turning the browser into a security testing instrument.

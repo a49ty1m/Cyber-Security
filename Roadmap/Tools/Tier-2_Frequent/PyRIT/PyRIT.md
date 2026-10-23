@@ -1,5 +1,7 @@
 # ⚔️ PyRIT: Complete Mastery Checklist
 
+📝 [[PyRIT_Notes|Notes]]
+
 > **What is PyRIT?** PyRIT (Python Risk Identification Toolkit for Generative AI) is an open-source red-teaming framework for LLMs developed by Microsoft. Unlike Garak (which uses pre-built probe suites for automated scanning), PyRIT provides an orchestration framework for **directed** AI red teaming — using an attacker LLM to dynamically generate and adapt attack prompts against a target LLM, pursuing specific adversarial objectives. PyRIT enables multi-turn, adaptive attacks that evolve based on the target's responses.
 >
 > **Why does it exist?** Static probe suites (like Garak's) test known attack patterns. Real-world LLM attacks are adaptive — an attacker rephrases prompts based on what worked or failed. PyRIT simulates this by using an "orchestrator" that sends prompts, evaluates whether the objective was achieved, and iterates with new attack strategies. It's the adversarial red-teaming approach, not the automated scanning approach.

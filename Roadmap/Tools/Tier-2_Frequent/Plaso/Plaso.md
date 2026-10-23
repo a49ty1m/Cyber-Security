@@ -1,5 +1,7 @@
 # ⏱️ Plaso / log2timeline: Complete Mastery Checklist
 
+📝 [[Plaso_Notes|Notes]]
+
 > **What is Plaso?** Plaso (Plaso Langar Að Safna Og) is the engine behind `log2timeline` — a framework for super-timeline creation in digital forensics. It extracts timestamp-based events from hundreds of artifact types (Registry hives, event logs, browser history, prefetch files, LNK files, NTFS journal, email, etc.) across Windows, Linux, and macOS, and consolidates them into a single chronological timeline (called a plaso storage file, `.plaso`), which can then be filtered, converted, and queried with `psort`.
 >
 > **Why does it exist?** Manual timeline reconstruction across multiple artifact types is slow and error-prone. Plaso automates the extraction of every timestamp-bearing artifact from a disk image and merges them into a unified, searchable timeline. This is critical for incident response — identifying an attacker's first action, last action, and sequence of activities across heterogeneous evidence sources.

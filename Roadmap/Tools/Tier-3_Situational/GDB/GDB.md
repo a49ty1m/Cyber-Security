@@ -1,5 +1,7 @@
 # 🐛 GDB (pwndbg / GEF): Complete Mastery Checklist
 
+📝 [[GDB_Notes|Notes]]
+
 > **What is GDB?** GDB (GNU Debugger) is the standard debugger for programs written in C, C++, Rust, and other compiled languages on Linux (and cross-platform via remote stub). It allows you to set breakpoints, step through code instruction-by-instruction, inspect memory and registers, disassemble functions, and observe program state at any point during execution. For exploit development and binary analysis, GDB is the primary dynamic analysis tool.
 >
 > **What are pwndbg and GEF?** pwndbg (by pwndbg team) and GEF (GDB Enhanced Features, by hugsy) are GDB plugins that dramatically improve the debugging experience for exploit development: better register display, heap visualization, ROP gadget search, pattern generation, context panel on every break, and dozens of exploit-dev-specific commands. You should never use vanilla GDB for exploitation work — always use one of these plugins.

@@ -1,5 +1,7 @@
 # 🦙 Ollama: Complete Mastery Checklist
 
+📝 [[Ollama_Notes|Notes]]
+
 > **What is Ollama?** Ollama is an open-source tool for running Large Language Models (LLMs) locally on your own hardware. It provides a simple CLI and REST API to download, manage, and run models like Llama 3, Mistral, Gemma, Phi, CodeLlama, and dozens more — entirely offline, without sending data to any cloud provider. Think of it as Docker for LLMs: pull a model, run it, interact with it via API.
 >
 > **Why does it exist?** LLM security research (Phase 9) requires a safe, controllable, locally-hosted target environment for testing prompt injection, jailbreaks, data extraction, and other AI attacks. You cannot test adversarial prompts against production cloud LLMs (OpenAI, Anthropic) without violating terms of service and risking account bans. Ollama provides a local, attack-safe target where you can run unlimited tests against the same model.

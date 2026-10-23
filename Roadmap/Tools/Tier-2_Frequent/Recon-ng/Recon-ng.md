@@ -1,5 +1,7 @@
 # 🔭 Recon-ng: Complete Mastery Checklist
 
+📝 [[Recon-ng_Notes|Notes]]
+
 > **What is Recon-ng?** Recon-ng is a modular, Python-based OSINT framework with a Metasploit-inspired interface. It provides a structured workspace environment where you load modules — each targeting a specific data source or performing a specific OSINT task — and chain them together to build comprehensive intelligence profiles. It uses a relational database to store all collected intelligence and can export reports in multiple formats.
 >
 > **Why does it exist?** OSINT collection quickly becomes disorganized — dozens of tools, multiple output formats, no correlation between findings. Recon-ng solves this: it stores everything in a structured database (domains, hosts, contacts, credentials, ports, vulnerabilities), correlates findings across modules, and produces coherent reports. It's the OSINT equivalent of Metasploit for exploitation.

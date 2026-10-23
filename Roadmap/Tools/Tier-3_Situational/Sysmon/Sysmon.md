@@ -1,5 +1,7 @@
 # 🔭 Sysmon (System Monitor): Complete Mastery Checklist
 
+📝 [[Sysmon_Notes|Notes]]
+
 > **What is Sysmon?** Sysmon (System Monitor) is a free Windows system service and device driver from Microsoft Sysinternals that monitors and logs system activity to the Windows Event Log. It provides detailed information on process creation (with full command lines and parent processes), network connections, file creation, registry modifications, driver loads, DLL loads, and more — information that Windows's native audit logging either doesn't capture or captures incompletely. Sysmon is the single most important endpoint telemetry tool for Windows detection engineering.
 >
 > **Why does it exist?** Windows's built-in audit logging (Event IDs 4688, etc.) is insufficient for security operations. It lacks parent process information, full command lines are truncated, and many critical events simply aren't logged. Sysmon fills these gaps with 30+ event types covering the full spectrum of attacker behavior on Windows endpoints.

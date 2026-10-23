@@ -1,5 +1,7 @@
 # 📡 socat: Complete Mastery Checklist
 
+📝 [[socat_Notes|Notes]]
+
 > **What is socat?** socat (SOcket CAT) is a multipurpose relay tool — a bidirectional data transfer bridge between virtually any two endpoints: TCP, UDP, UNIX sockets, files, pipes, serial ports, TLS, IPv4, IPv6, or a process's stdin/stdout. It is Netcat on steroids: where Netcat can connect two TCP sockets, socat can relay between any two communication channels, with optional TLS encryption, forking, and access control.
 >
 > **Why does it exist?** Netcat has no native TLS support and limited protocol flexibility. socat fills these gaps, making it the preferred tool when you need encrypted shells, protocol bridging, port forwarding with access control, or any relay that Netcat cannot handle cleanly.

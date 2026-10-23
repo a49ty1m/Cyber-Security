@@ -1,5 +1,7 @@
 # 🎣 GoPhish: Complete Mastery Checklist
 
+📝 [[GoPhish_Notes|Notes]]
+
 > **What is GoPhish?** GoPhish is an open-source phishing framework that lets you run complete phishing campaigns — create email templates, design landing pages (credential capture portals), manage target lists, send campaign emails, and track results (who opened, who clicked, who submitted credentials) — all through a web UI. It is the industry standard free phishing simulation platform.
 >
 > **Why does it exist?** Running phishing simulations manually requires coordinating multiple tools and tracking results by hand. GoPhish integrates everything: email sending (via SMTP relay), landing page hosting, real-time tracking, and campaign analytics — in one platform. It turns what would take days to set up into a task that takes hours.

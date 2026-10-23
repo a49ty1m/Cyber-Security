@@ -1,5 +1,7 @@
 # 🌉 Ligolo-ng: Complete Mastery Checklist
 
+📝 [[Ligolo-ng_Notes|Notes]]
+
 > **What is Ligolo-ng?** Ligolo-ng is a modern, lightweight tunneling/pivoting tool that creates a TUN interface on the attacker's machine and routes traffic through a compromised host to otherwise unreachable internal networks — without needing SOCKS proxies or ProxyChains. It uses a reverse connection model: the compromised host (agent) connects outbound to the attacker's relay server. From the attacker's machine, the internal network becomes directly routable as if locally connected.
 >
 > **Why does it exist?** Classic pivoting via SSH port forwarding or SOCKS proxies is cumbersome and slow, and tools like ProxyChains don't work with UDP or raw sockets. Ligolo-ng creates a real TUN/TAP tunnel interface — native routing — so every tool (Nmap, Metasploit, evil-winrm, Burp, everything) works on the internal network as if the attacker is directly on it.

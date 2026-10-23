@@ -1,5 +1,7 @@
 # 🔌 Netcat: Complete Mastery Checklist
 
+📝 [[Netcat_Notes|Notes]]
+
 > **What is Netcat?** Netcat (nc/ncat) is a command-line networking utility that reads and writes data across network connections using TCP or UDP. It is the most fundamental network tool — a raw pipe between two endpoints. Anything that speaks TCP or UDP can be interacted with using Netcat.
 >
 > **Why does it exist?** Before Netcat, interacting with network services required purpose-built clients. Netcat provides a universal, protocol-agnostic way to connect to any TCP/UDP port, send arbitrary data, listen for incoming connections, and transfer files. It is the networking equivalent of `cat` for files.

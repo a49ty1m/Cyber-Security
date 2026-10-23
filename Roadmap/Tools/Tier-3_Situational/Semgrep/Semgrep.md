@@ -1,5 +1,7 @@
 # 🔍 Semgrep: Complete Mastery Checklist
 
+📝 [[Semgrep_Notes|Notes]]
+
 > **What is Semgrep?** Semgrep (Semantic Grep) is a fast, open-source static analysis engine that finds bugs, security vulnerabilities, and code quality issues using pattern-matching rules that understand code syntax and semantics. Unlike `grep` (which matches strings), Semgrep understands code structure — it can match across multiple lines, understand that `x + y` and `y + x` are equivalent, and respect language-specific semantics. It supports 30+ languages and has thousands of pre-written security rules.
 >
 > **Why does it exist?** SAST (Static Application Security Testing) tools are either expensive (Fortify, Checkmarx) or inaccurate (lots of false positives). Semgrep bridges the gap: free, fast (runs in seconds on large codebases), accurate, and developer-friendly (rules are written in the same language as the code they scan). It's the SAST tool that developers will actually use without resisting.

@@ -1,5 +1,7 @@
 # 📮 Postman: Complete Mastery Checklist
 
+📝 [[Postman_Notes|Notes]]
+
 > **What is Postman?** Postman is an API development and testing platform. It provides a GUI for constructing, sending, and inspecting HTTP/HTTPS requests to any API — REST, GraphQL, SOAP, WebSocket. For security professionals, it is the tool for understanding and testing API endpoints: managing authentication flows, organizing requests into collections, writing test assertions, and documenting API behavior found during reconnaissance.
 >
 > **Why does it exist?** APIs are the dominant interface for modern applications and the primary attack surface for web pentesting. Postman lets you work with APIs systematically — replay requests, modify parameters, manage tokens and auth flows, and organize findings by collection. It bridges the gap between understanding an API and testing it.

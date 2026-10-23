@@ -1,5 +1,7 @@
 # ⚖️ ApacheBench (ab): Complete Reference
 
+📝 [[ApacheBench_Notes|Notes]]
+
 > **What is ApacheBench?** ApacheBench (`ab`) is a command-line HTTP benchmarking tool bundled with the Apache web server. It sends a specified number of HTTP requests to a URL — with a configurable concurrency level — and reports throughput metrics: requests per second, mean request time, time per request, transfer rate, and a full request time distribution. It tells you how fast a server can handle HTTP load under controlled conditions.
 >
 > **When to use it:** Quickly measuring a web server's baseline throughput. Comparing performance before and after configuration changes. Understanding how concurrency affects server response time. Simple load tests for small servers or APIs. When you need HTTP benchmarking results without setting up wrk or JMeter.

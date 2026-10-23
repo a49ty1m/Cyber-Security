@@ -1,5 +1,7 @@
 # ⚡ NetExec (nxc): Complete Mastery Checklist
 
+📝 [[NetExec_Notes|Notes]]
+
 > **What is NetExec?** NetExec (nxc) is the maintained successor to CrackMapExec (CME). It is a Swiss-army-knife tool for network authentication testing against SMB, WinRM, LDAP, MSSQL, SSH, RDP, and VNC. Given a credential (username/password or hash) and a target range, NetExec tests whether that credential works — and if it does, can execute commands, dump SAM/LSA/NTDS, enumerate shares, users, sessions, and run post-exploitation modules.
 >
 > **Why does it exist?** After compromising one credential in an AD environment, you need to rapidly answer: which machines does this credential work on? Is it a local admin? Is it a domain admin? Is there credential re-use? NetExec answers these questions across an entire network range in minutes.

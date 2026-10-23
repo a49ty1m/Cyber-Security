@@ -1,5 +1,7 @@
 # 🧵 strings: Complete Reference
 
+📝 [[strings_Notes|Notes]]
+
 > **What is strings?** `strings` is a classic Unix command-line utility that extracts all printable character sequences (default: 4+ consecutive printable ASCII characters) from any binary file. No parsing, no format understanding — just raw byte extraction of readable text. In 30 seconds, it gives you a first look at what a binary contains: URLs, file paths, registry keys, error messages, API function names, hardcoded credentials, compiler artifacts, and more.
 >
 > **When to use it:** First-pass triage before opening a binary in PEStudio or Ghidra. Quick IOC extraction (domains, IPs, file paths). Extracting readable content from unknown files (firmware, PDFs, office docs). Finding hardcoded secrets in compiled binaries during code review or binary analysis. Identifying strings in memory dumps.

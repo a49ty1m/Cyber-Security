@@ -1,5 +1,7 @@
 # 🦥 Slowloris: Complete Reference
 
+📝 [[Slowloris_Notes|Notes]]
+
 > **What is Slowloris?** Slowloris is a Layer 7 (application-layer) HTTP DoS tool that attacks web servers by holding many concurrent connections open as long as possible — sending HTTP headers just often enough to prevent the connection from timing out, but never completing the request. It consumes the server's connection pool with minimal bandwidth, causing legitimate requests to be dropped because the server has no connections left to serve them.
 >
 > **Why it's significant:** Slowloris demonstrated that a DoS attack doesn't require massive bandwidth — a single machine on a slow connection can take down a web server if that server is configured to wait indefinitely for incomplete requests. It exploits server design decisions, not a vulnerability in the traditional sense.

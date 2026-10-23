@@ -1,5 +1,7 @@
 # 🐱 Mimikatz: Complete Mastery Checklist
 
+📝 [[Mimikatz_Notes|Notes]]
+
 > **What is Mimikatz?** Mimikatz is the definitive Windows credential extraction tool. Written by Benjamin Delpy, it extracts plaintext passwords, NTLM hashes, Kerberos tickets, and other credentials directly from Windows memory (LSASS process), registry hives, and Active Directory. It is the tool most referenced in Windows post-exploitation documentation, CTF writeups, and security certifications.
 >
 > **Why does it exist?** Windows stores credentials in memory to support Single Sign-On (SSO) and seamless network authentication. Mimikatz exposes this design — reading the LSASS process memory reveals cached credentials for every user who has authenticated on the machine. This is a fundamental Windows security weakness, not a software bug.

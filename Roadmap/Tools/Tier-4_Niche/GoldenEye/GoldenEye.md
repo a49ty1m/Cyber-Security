@@ -1,5 +1,7 @@
 # 💛 GoldenEye: Complete Reference
 
+📝 [[GoldenEye_Notes|Notes]]
+
 > **What is GoldenEye?** GoldenEye is a Python-based HTTP Layer 7 DoS testing tool. Unlike Slowloris (which holds connections open slowly), GoldenEye sends legitimate-looking but rapidly-generated HTTP GET/POST requests with randomized User-Agent headers, randomized referers, and cache-bypass parameters — flooding the web server with requests it must actually process. It aims to exhaust server CPU and memory by forcing real HTTP processing, not just connection slot exhaustion.
 >
 > **When to use it:** Lab environments for stress testing web servers. Understanding HTTP-level DoS attack patterns for defensive configuration. DDoS resilience testing where the threat model includes HTTP flood attacks. Understanding the difference between connection-level (Slowloris) and request-level (GoldenEye) DoS.

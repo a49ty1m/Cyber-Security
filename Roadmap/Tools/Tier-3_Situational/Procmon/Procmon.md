@@ -1,5 +1,7 @@
 # 👁️ Procmon: Complete Reference
 
+📝 [[Procmon_Notes|Notes]]
+
 > **What is Procmon?** Process Monitor (Procmon) is a free Windows Sysinternals tool that captures real-time file system, Windows Registry, and process/thread activity for every process running on the system. Every file create/read/write/delete, every registry key open/set/query, every network connection and DLL load is logged with the calling process, exact timestamp, result code, and full path. It is the definitive tool for understanding what a process is actually doing on a Windows system.
 >
 > **When to use it:** Dynamic malware analysis — what files does this malware create? What registry keys does it set for persistence? What DLLs does it load? Troubleshooting application behavior. Privilege escalation research (finding misconfigured file/registry paths a privileged process writes to). DLL hijacking discovery. Understanding installation behavior.

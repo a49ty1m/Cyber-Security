@@ -1,5 +1,7 @@
 # 📡 iperf3: Complete Reference
 
+📝 [[iperf3_Notes|Notes]]
+
 > **What is iperf3?** iperf3 is a network throughput testing tool. It measures the actual bandwidth available between two endpoints — TCP or UDP — by running one instance in server mode and another in client mode. The client pushes data to the server (or vice versa) and reports: throughput (Mbits/sec), jitter (for UDP), packet loss (for UDP), and TCP retransmission count. It tells you what the network link between two points can actually deliver.
 >
 > **When to use it:** Verifying network bandwidth between lab machines. Testing if firewall rules or network segmentation affect throughput. Measuring WAN link capacity. Testing network performance between a C2 server and implant host (in authorized red team labs). Baselining network capacity before and after infrastructure changes. Troubleshooting network performance issues.

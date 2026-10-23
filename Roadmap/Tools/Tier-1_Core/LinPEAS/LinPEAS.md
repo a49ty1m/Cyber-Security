@@ -1,5 +1,7 @@
 # 🐉 LinPEAS: Complete Mastery Checklist
 
+📝 [[LinPEAS_Notes|Notes]]
+
 > **What is LinPEAS?** LinPEAS (Linux Privilege Escalation Awesome Script) is the most comprehensive automated privilege escalation enumeration tool for Linux systems. It searches for misconfigurations, vulnerable software, sensitive files, and potential escalation paths — all in one script.
 >
 > **Why does it exist?** After gaining an initial low-privilege shell on a Linux target, you need to escalate to root. Manually checking hundreds of potential escalation vectors is slow and error-prone. LinPEAS automates this enumeration in seconds, highlighting findings with color-coded severity.

@@ -1,5 +1,7 @@
 # 💀 Metasploit Framework: Complete Mastery Checklist
 
+📝 [[Metasploit_Framework_Notes|Notes]]
+
 > **What is Metasploit?** The Metasploit Framework is the world's most used penetration testing and exploitation framework. It provides a structured way to discover vulnerabilities, develop and execute exploits, deliver payloads, establish persistent access, and pivot through networks — all from a single unified console.
 >
 > **Why does it exist?** Before Metasploit, exploiting a vulnerability required finding raw exploit code, modifying it for your target, handling shellcode manually, and dealing with countless compatibility issues. Metasploit standardized all of this into modules: pick an exploit, pick a payload, set options, run.

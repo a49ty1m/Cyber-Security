@@ -1,5 +1,7 @@
 # 📦 jadx: Complete Mastery Checklist
 
+📝 [[jadx_Notes|Notes]]
+
 > **What is jadx?** jadx is an open-source command-line and GUI tool for decompiling Android APK and DEX (Dalvik Executable) files back into readable Java source code. It takes the compiled bytecode of an Android app and reconstructs the original Java classes, methods, and logic — allowing you to read an app's code without having the source. jadx-gui provides a graphical interface with syntax highlighting, class browser, search, and cross-reference navigation.
 >
 > **Why does it exist?** Android apps ship as compiled DEX bytecode, not source code. Static analysis of mobile apps requires reading this code. While tools like `apktool` decompile to Smali (assembly-like bytecode), jadx decompiles all the way to Java — dramatically more readable and analyzable. jadx is the fastest way to understand what an Android application is doing.

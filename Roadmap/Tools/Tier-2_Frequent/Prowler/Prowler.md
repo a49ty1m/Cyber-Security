@@ -1,5 +1,7 @@
 # ☁️ Prowler: Complete Mastery Checklist
 
+📝 [[Prowler_Notes|Notes]]
+
 > **What is Prowler?** Prowler is an open-source cloud security tool that performs security assessments, audits, and compliance checks across AWS, Azure, and Google Cloud Platform. It runs hundreds of automated checks against cloud environments — checking IAM misconfigurations, exposed S3 buckets, unencrypted data stores, missing logging, over-privileged roles, network security group gaps, and compliance with frameworks like CIS Benchmarks, SOC 2, GDPR, HIPAA, and PCI DSS.
 >
 > **Why does it exist?** Cloud misconfiguration is the #1 cause of cloud security breaches. Manual auditing of cloud environments with thousands of resources is impossible at scale. Prowler automates this — giving a complete security posture assessment in minutes that would take a human team days.
