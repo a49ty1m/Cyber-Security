@@ -9,6 +9,7 @@
 | Wargame | Focus | Difficulty | Notes |
 |---------|-------|------------|-------|
 | [**Bandit**](Bandit/README.md) | Linux CLI, SSH, file permissions, scripting | Beginner → Intermediate | Levels 0–33 complete |
+| [**Natas**](Natas/README.md) | Web security, HTTP, source review, injection | Beginner → Intermediate | Levels 0–34 in progress |
 
 ---
 
