@@ -187,9 +187,9 @@
 
 - [x] **The Boot Chain:** Master the sequence from **UEFI/Secure Boot** $\rightarrow$ **Bootloader** $\rightarrow$ **Kernel Load** $\rightarrow$ **Init/Systemd**.
 
-- [ ] **TPM (Trusted Platform Module):** Understand TPM 2.0 as a hardware crypto co-processor for **key storage**, **remote attestation**, and **sealing** (binding data to a specific boot state via PCR hash chains). BitLocker seals the volume key to PCR values — tamper the boot chain and it demands a recovery key. *Security angle: PCIe bus sniffing on discrete TPMs (patched); CVE-2023-1017/1018 (buffer overflows in TPM2.0 reference impl).*
+- [x] **TPM (Trusted Platform Module):** Understand TPM 2.0 as a hardware crypto co-processor for **key storage**, **remote attestation**, and **sealing** (binding data to a specific boot state via PCR hash chains). BitLocker seals the volume key to PCR values — tamper the boot chain and it demands a recovery key. *Security angle: PCIe bus sniffing on discrete TPMs (patched); CVE-2023-1017/1018 (buffer overflows in TPM2.0 reference impl).*
 
-- [x] **PCIe (Peripheral Component Interconnect Express):** High-speed serial bus (x1/x4/x8/x16 lanes) connecting CPU to GPUs, NVMe, NICs. PCIe devices have **DMA capability** — they can read/write RAM directly without the CPU. *Security angle: Thunderbolt PCIe tunneling = DMA access before OS loads (Evil Maid, PCILeech); mitigation: IOMMU (Intel VT-d / AMD-Vi), disabled by default on consumer systems.*
+- [ ] **PCIe (Peripheral Component Interconnect Express):** High-speed serial bus (x1/x4/x8/x16 lanes) connecting CPU to GPUs, NVMe, NICs. PCIe devices have **DMA capability** — they can read/write RAM directly without the CPU. *Security angle: Thunderbolt PCIe tunneling = DMA access before OS loads (Evil Maid, PCILeech); mitigation: IOMMU (Intel VT-d / AMD-Vi), disabled by default on consumer systems.*
 
 - [x] **USB Architecture & Attack Surface:** Understand the host/device/hub hierarchy and USB descriptors (device, configuration, interface) — the OS trusts declared device class without authentication. *Security angle: BadUSB (reflash controller firmware to HID keyboard), Rubber Ducky, Juice Jacking, USBKill. Mitigations: USBGuard (Linux), Windows USB Device Control.*
 
