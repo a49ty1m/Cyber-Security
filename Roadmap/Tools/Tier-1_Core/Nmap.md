@@ -605,7 +605,7 @@
 
 # 📋 FINAL COMPETENCY MATRIX
 
-| Competency | Self-Assessment |
+| Competency | Check |
 |:---|:---:|
 | Can perform host discovery on any network | ☐ |
 | Can perform full TCP and UDP port scanning | ☐ |
@@ -613,27 +613,24 @@
 | Can use NSE scripts for targeted enumeration | ☐ |
 | Can use evasion techniques when needed | ☐ |
 | Can parse and automate Nmap output | ☐ |
-| Can integrate Nmap with Metasploit, Searchsploit, and other tools | ☐ |
+| Can integrate Nmap with other tools | ☐ |
 | Can scan through proxies and pivots | ☐ |
 | Can optimize scans for large networks | ☐ |
-| Can write a professional report from Nmap findings | ☐ |
+| Can write professional reports from Nmap findings | ☐ |
 | Can teach Nmap to another person | ☐ |
-| Can troubleshoot scan failures independently | ☐ |
 
 ---
 
-## 🎯 Interview Questions to Test Yourself
+## 🎯 Interview Questions
 
 1. What is the difference between `-sS` and `-sT`? When would you use each?
 2. Why does Nmap need root privileges for SYN scanning?
-3. What does the "filtered" port state mean, and how does it differ from "closed"?
+3. What does the "filtered" port state mean?
 4. Explain the professional Nmap workflow for scanning a /24 network.
 5. How would you scan a network through a SOCKS proxy?
-6. What is an idle scan and how does it work?
-7. How do you import Nmap results into Metasploit?
-8. What are the limitations of Nmap compared to a dedicated vulnerability scanner?
-9. How would you detect if a service is intentionally misreporting its version?
-10. Explain the `-A` flag. When would you use it and when would you avoid it?
+6. How do you import Nmap results into Metasploit?
+7. What are Nmap's limitations compared to dedicated vulnerability scanners?
+8. Explain the `-A` flag and when to use it.
 
 ---
 
