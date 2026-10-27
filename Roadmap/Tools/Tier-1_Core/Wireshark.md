@@ -337,7 +337,7 @@
 | **Skills Learned** | SSLKEYLOGFILE environment variable, how browsers log TLS session keys, configuring Wireshark to use the key log file, the difference between this method and using server private keys. |
 | **Practical Exercise** | Set environment variable: `export SSLKEYLOGFILE=/tmp/sslkeys.log`. Open browser and browse HTTPS sites. In Wireshark: Edit → Preferences → Protocols → TLS → "(Pre)-Master-Secret log filename" → `/tmp/sslkeys.log`. Capture HTTPS traffic → verify it's decrypted (you can see HTTP/2 frames inside TLS). |
 | **Expected Output** | Decrypted HTTPS traffic visible in Wireshark showing HTTP headers, responses, and content inside TLS. |
-| **Common Mistakes** | Setting SSLKEYLOGFILE after starting the browser (must be set before). File permissions preventing Wireshark from reading the key log. Not understanding that this only works for traffic from browsers that support SSLKEYLOGFILE (Chrome, Firefox — not curl by default). NEVER use this on production traffic without authorization. |
+| **Common Mistakes** | Setting SSLKEYLOGFILE after starting the browser (must be set before). File permissions preventing Wireshark from reading the key log. **Outdated info:** Older documentation states curl doesn't support SSLKEYLOGFILE "by default," but recent curl versions (7.78.0+, widely available since 2021) do support the SSLKEYLOGFILE environment variable. Test with `curl --version` and `export SSLKEYLOGFILE=/tmp/sslkeys.log` before assuming it won't work. NEVER use this on production traffic without authorization. |
 
 ---
 

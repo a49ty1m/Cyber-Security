@@ -50,6 +50,56 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands / Setup
+```
+Proxy listener: 127.0.0.1:8080
+Browser proxy:  127.0.0.1:8080
+CA cert:        http://burpsuite (download & import to browser)
+```
+
+### Common Scenarios
+```
+# Intercept → modify → forward
+Proxy > Intercept ON → edit request → Forward
+
+# Send request to Repeater and replay
+Right-click request → Send to Repeater → Ctrl+R to resend
+
+# Fuzz a parameter with Intruder (Sniper)
+Highlight value → Send to Intruder → Positions tab → Attack
+
+# Match & Replace to remove client-side validation header
+Proxy > Options > Match and Replace → add rule
+```
+
+### Key Options
+| Feature | Location | Notes |
+|---------|----------|-------|
+| Scope | Target > Scope | Limits all tools to target |
+| Upstream proxy | User options > Connections | Route through corp proxy |
+| TLS passthrough | Proxy > Options | Skip HTTPS interception per host |
+| Grep – Match | Intruder > Options | Flag responses containing string |
+| Turbo Intruder | BApp Store | Bypasses Community throttle |
+
+**Community throttle:** starts ~1 req/sec, degrades to ~1/5 sec then ~1/15 sec after ~150 requests (progressive, undocumented). Use Turbo Intruder or batch to 30–50 requests.
+
+### Community vs Professional Edition
+
+| Feature | Community | Professional |
+|---------|-----------|-------------|
+| Proxy, Repeater, Decoder, Comparer, Sequencer | ✅ Full | ✅ Full |
+| Intruder | ⚠️ Severely throttled (unusable for large attacks) | ✅ Full speed |
+| Scanner | ❌ None | ✅ Active & passive scanning |
+| Collaborator | ❌ None | ✅ Full |
+| Extensions | ✅ Most work | ✅ All work |
+| Save projects | ❌ Temporary only | ✅ Persistent projects |
+
+**This checklist works with Community Edition** but notes where Pro is required or recommended.
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---
@@ -195,7 +245,8 @@
 | **Attack Types** | **Sniper:** One position, one payload set, tests each position independently. Use for single-parameter testing. **Battering Ram:** All positions, same payload simultaneously. Use when all parameters need the same value. **Pitchfork:** Multiple positions, one payload set per position, iterated in parallel (row 1 with row 1). Use for username:password pairs from a credential list. **Cluster Bomb:** All combinations of all payload sets. Use for brute-forcing (every username with every password). |
 | **Practical Exercise** | Send a login request to Intruder → mark username and password as positions → choose Cluster Bomb → set username list and password list → Start → sort by response length to find successful logins. Then: send an IDOR request → mark the ID parameter → Sniper with a number range (1-100) → identify different responses. |
 | **Expected Output** | Intruder results showing differentiated responses. Valid credentials discovered (different response length). IDOR resources discovered (different response content). |
-| **Common Mistakes** | Using Cluster Bomb when Pitchfork is appropriate (Cluster Bomb tries ALL combinations — exponentially more requests). Not sorting by response length (the key differentiator in results). Community Edition Intruder is throttled and gets progressively slower (~1/sec → 1/5sec → 1/15sec reported after ~150 requests); use Burp Pro or the free Turbo Intruder extension for speed. Not using payload processing (URL-encoding, hashing, etc.). |
+| **Community Edition Throttling** | **Reality Check:** Community Edition throttles Intruder aggressively: starts at ~1 request/second, progressively slows to 1 request every 5-15 seconds after ~150 requests. Exact throttling is undocumented and changes between versions. This makes Intruder nearly unusable for real attacks in Community. **Workaround:** Use Turbo Intruder extension (no throttling) or upgrade to Pro. |
+| **Common Mistakes** | Using Cluster Bomb when Pitchfork is appropriate (Cluster Bomb tries ALL combinations — exponentially more requests). Not sorting by response length (the key differentiator in results). **Waiting for Community Intruder to finish a 1000+ word attack (will take hours). Use Turbo Intruder or write a Python script instead.** Not using payload processing (URL-encoding, hashing, etc.). |
 
 ---
 

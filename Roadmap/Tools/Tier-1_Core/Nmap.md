@@ -161,8 +161,8 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Perform the default and most common scan type. Understand why it's called "stealth" (half-open — never completes the handshake) and its advantages over TCP connect scans. |
-| **Skills Learned** | SYN scan mechanics (SYN → SYN-ACK → RST instead of ACK), why half-open is stealthier (some old logging only records completed connections), raw socket requirement, comparison with `-sT`. |
+| **Objective** | Perform the default and most common scan type. Understand why it's called "stealth" (half-open — never completes the handshake) and its advantages over TCP connect scans. **⚠️ Reality Check:** The "stealth" label is outdated. Modern IDS/IPS systems detect SYN scans trivially. The term refers to old systems that only logged completed TCP connections. Against modern defenses, SYN scans are just as detectable as any other scan type. |
+| **Skills Learned** | SYN scan mechanics (SYN → SYN-ACK → RST instead of ACK), why half-open was historically considered stealthier (some old logging only recorded completed connections), raw socket requirement, comparison with `-sT`, understanding modern detection capabilities. |
 | **Syntax** | `sudo nmap -sS <target>` (SYN scan, default 1000 ports). `sudo nmap -sS -p- <target>` (all 65535 ports). |
 | **Real-World Scenario** | Standard scan for every pentest. Fast, reliable, relatively quiet. The scan type used in ~90% of all Nmap usage. |
 | **Expected Output** | Open/closed/filtered port list. Compare speed with `nmap -sT` (connect scan) — SYN is faster because it doesn't complete the handshake. |
@@ -315,9 +315,9 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Use Nmap's vulnerability detection scripts to identify known CVEs on discovered services. Understand the difference between Nmap's vuln scanning and dedicated vulnerability scanners (Nessus, OpenVAS). |
-| **Skills Learned** | NSE vuln category scripts, `vulners` script (checks CVE databases), `vulscan` script (extended vulnerability matching), Nmap vs dedicated vulnerability scanners. |
-| **Syntax** | `nmap --script vuln <target>` (built-in vuln scripts). `nmap --script vulners -sV <target>` (CVE lookup based on version strings). `nmap --script smb-vuln-ms17-010 <target>` (specific vulnerability check like EternalBlue). |
+| **Objective** | Use Nmap's vulnerability detection scripts to identify known CVEs on discovered services. Understand the difference between Nmap's vuln scanning and dedicated vulnerability scanners (Nessus, OpenVAS). **⚠️ Warning:** Some vulnerability scripts can be destructive or trigger IDS alerts. Scripts in the `vuln` category may attempt to exploit vulnerabilities to confirm them. Always check script documentation before running against production systems. |
+| **Skills Learned** | NSE vuln category scripts, `vulners` script (checks CVE databases), `vulscan` script (extended vulnerability matching), Nmap vs dedicated vulnerability scanners, understanding script risk levels. |
+| **Syntax** | `nmap --script vuln <target>` (built-in vuln scripts — use with caution). `nmap --script vulners -sV <target>` (safer: CVE lookup based on version strings). `nmap --script smb-vuln-ms17-010 <target>` (specific vulnerability check like EternalBlue). Check script safety first: `nmap --script-help smb-vuln-ms17-010`. |
 | **Real-World Scenario** | Quick vulnerability triage during a pentest when you don't have access to Nessus. Checking for specific high-severity vulnerabilities (EternalBlue, BlueKeep) across a network. |
 | **Expected Output** | CVE identifiers associated with discovered service versions. Specific vulnerability confirmations (VULNERABLE / NOT VULNERABLE). |
 | **Common Mistakes** | Treating Nmap vuln scanning as a replacement for Nessus/OpenVAS (Nmap checks fewer vulnerabilities). Not combining with `-sV` (vuln scripts need version information). Trusting negative results (Nmap may not have a script for every vulnerability). |

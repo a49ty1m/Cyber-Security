@@ -48,6 +48,58 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands
+```bash
+hashcat -m 1000 hashes.txt rockyou.txt                     # NTLM dictionary
+hashcat -m 1000 hashes.txt rockyou.txt -r best64.rule      # + rules
+hashcat -m 1000 hashes.txt -a 3 ?u?l?l?l?d?d              # mask attack
+hashcat -m 1000 hashes.txt -a 8 rockyou.txt                # PRINCE (built-in, no pp64)
+hashcat --show -m 1000 hashes.txt                          # show cracked
+hashcat --restore                                           # resume session
+```
+
+### Common Scenarios
+```bash
+# Crack NTLM from secretsdump
+hashcat -m 1000 ntlm.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
+
+# Crack NetNTLMv2 (from Responder)
+hashcat -m 5600 netntlmv2.txt rockyou.txt
+
+# Crack WPA2 (from cap file converted with hcxtools)
+hashcat -m 22000 hash.hc22000 rockyou.txt
+
+# Resume interrupted session
+hashcat --restore --session mysession
+```
+
+### Key Hash Modes
+| -m | Hash Type |
+|----|----------|
+| 0 | MD5 |
+| 100 | SHA1 |
+| 1000 | NTLM |
+| 1400 | SHA256 |
+| 1800 | SHA512crypt (Linux $6$) |
+| 3200 | bcrypt |
+| 5600 | NetNTLMv2 |
+| 13100 | Kerberos TGS-REP (Kerberoast) |
+| 18200 | Kerberos AS-REP (ASREProast) |
+| 22000 | WPA2 (PMKID/EAPOL) |
+
+| Flag | Meaning |
+|------|---------|
+| `-m` | Hash mode |
+| `-a` | Attack mode (0=dict, 3=mask, 6=hybrid, 8=PRINCE) |
+| `-r` | Rules file |
+| `-O` | Optimised kernel (faster, max password length limited) |
+| `--username` | Strip username prefix from hash file |
+| `--show` | Show already-cracked hashes |
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---
@@ -271,9 +323,10 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Use the PRINCE (PRobability INfinite Chained Elements) attack to generate password candidates by combining words from a dictionary in order of probability. More intelligent than simple combinator. |
-| **Syntax** | `hashcat -a 8 -m <mode> hashes.txt wordlist.txt` (PRINCE is built-in since Hashcat 5.x as attack mode 8). Elements from wordlist are combined in probabilistic order. |
+| **Objective** | Use the PRINCE (PRobability INfinite Chained Elements) attack to generate password candidates by combining words from a dictionary in order of probability. More intelligent than simple combinator. **Version Note:** Hashcat 5.x and later have PRINCE built-in as attack mode 8 (`-a 8`). Hashcat 4.x and earlier require the separate `pp64` preprocessor. Check your version with `hashcat --version`. Kali 2023+ ships with Hashcat 6.x (mode 8 works). |
+| **Syntax** | Hashcat 5.x+: `hashcat -a 8 -m <mode> hashes.txt wordlist.txt`. Hashcat 4.x (if using old version): `pp64 < wordlist.txt | hashcat -m <mode> hashes.txt`. |
 | **Expected Output** | Passwords cracked that are combinations of multiple common words. |
+| **Common Mistakes** | Using `-a 8` on Hashcat 4.x and wondering why it fails (mode 8 not supported in older versions). Not checking Hashcat version before attempting PRINCE. |
 
 ---
 

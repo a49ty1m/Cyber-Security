@@ -50,6 +50,52 @@
 
 ---
 
+## Quick Reference
+
+### Essential Commands
+```bash
+# Start Neo4j and BloodHound
+sudo neo4j start && bloodhound
+
+# Collect from Windows (SharpHound)
+.\SharpHound.exe -c All
+
+# Collect from Linux
+bloodnound-python -u USER -p PASS -d DOMAIN.LOCAL -ns DC_IP -c All
+
+# Collect sessions only (quieter)
+.\SharpHound.exe -c Session
+
+# Mark object as Owned in BloodHound UI
+# Right-click node → Mark as Owned
+```
+
+### Common Scenarios
+```bash
+# Full domain collection (Linux)
+bloodhound-python -u john -p 'Password1' -d corp.local -ns 10.10.10.1 -c All
+
+# Zip output for ingest
+.\SharpHound.exe -c All --zipfilename loot.zip
+
+# Upload zip via CE API
+curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","secret":"pass"}' | jq .data.session_token
+```
+
+### Key Options (BloodHound-Python)
+| Flag | Meaning |
+|------|---------|
+| `-c All` | Collect all data types |
+| `-c Session` | Sessions only (less noise) |
+| `-u / -p` | AD credentials |
+| `-k` | Kerberos auth |
+| `-ns` | DNS server (DC IP) |
+| `--zip` | Auto-zip output |
+
+**Top built-in queries:** Shortest Path to DA · Kerberoastable Users · ASREPRoastable Users · Find Computers with Unsupported OS · Principals with DCSync Rights
+
+---
+
 # PHASE 1: FUNDAMENTALS
 
 ---
@@ -74,11 +120,11 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Understand the three-component architecture: (1) **Collectors** (SharpHound, BloodHound.py) gather AD data from the environment. (2) **Database** (Neo4j for Legacy, PostgreSQL for CE) stores the graph. (3) **UI** (Electron app for Legacy, Web UI for CE) visualizes and queries the graph. |
-| **Skills Learned** | Component roles, data flow (Collector → JSON/ZIP → Database → UI), why each component exists, CE vs Legacy architecture differences. |
-| **Practical Exercise** | Draw the architecture: SharpHound runs on domain-joined machine → produces ZIP file → uploaded to BloodHound → stored in database → queried through UI. |
-| **Expected Output** | Architecture diagram with data flow. Understanding that the collector and UI are SEPARATE — you collect data in the target environment and analyze it on your machine. |
-| **Common Mistakes** | Running BloodHound itself on the target (only the COLLECTOR runs on the target — BloodHound UI runs on your attack machine). Confusing SharpHound (Windows collector, .NET) with BloodHound.py (Python collector, runs from Linux). |
+| **Objective** | Understand the three-component architecture and the differences between CE (Community Edition) and Legacy versions. **BloodHound CE (current standard):** (1) Collectors (SharpHound, BloodHound.py) gather AD data → (2) PostgreSQL database stores the graph → (3) Web UI visualizes and queries via API. **BloodHound Legacy:** (1) Collectors → (2) Neo4j database → (3) Electron desktop app UI with direct Neo4j queries. |
+| **Skills Learned** | Component roles, data flow (Collector → JSON/ZIP → Database → UI), why each component exists, **key differences: CE uses PostgreSQL + Web UI + API; Legacy uses Neo4j + Electron app + Cypher queries**. |
+| **Practical Exercise** | Draw TWO architecture diagrams side-by-side: **CE:** SharpHound → ZIP → CE API upload → PostgreSQL → Web UI. **Legacy:** SharpHound → ZIP → drag-drop to Electron app → Neo4j → Electron UI with Cypher. |
+| **Expected Output** | Architecture diagrams showing both versions. Understanding that the collector and UI are SEPARATE — you collect data in the target environment and analyze it on your attack machine. Clear understanding that CE and Legacy are different products with different workflows. |
+| **Common Mistakes** | Running BloodHound itself on the target (only the COLLECTOR runs on the target — BloodHound UI runs on your attack machine). Confusing SharpHound (Windows collector, .NET) with BloodHound.py (Python collector, runs from Linux). **Mixing CE and Legacy instructions (they use different databases, different UIs, and different query languages).** |
 
 ---
 
@@ -101,7 +147,7 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Install BloodHound Legacy (Electron app + Neo4j) as a fallback and for environments where CE isn't available. Many tutorials and resources still reference Legacy. |
+| **Objective** | Install BloodHound Legacy (Electron app + Neo4j) as a fallback and for environments where CE isn't available. Many tutorials and resources still reference Legacy. **⚠️ Compatibility Warning:** Neo4j 4.x (required for Legacy) is deprecated. On modern systems (Java 17+), you may encounter compatibility issues. Consider using BloodHound CE unless you specifically need Legacy features or are following older tutorials. |
 | **Practical Exercise** | Install Neo4j: `sudo apt install neo4j`. Start: `sudo neo4j start`. Access Neo4j at `http://localhost:7474` → change default password (neo4j:neo4j). Install BloodHound: `sudo apt install bloodhound` or download from GitHub releases. Launch: `bloodhound` → connect to Neo4j (`bolt://localhost:7687`). |
 | **Expected Output** | Neo4j running. BloodHound Legacy connected to the database. Empty graph ready for data import. |
 | **Common Mistakes** | Not changing Neo4j's default password (BloodHound won't connect). Java version incompatibility with Neo4j (Neo4j 4.x needs Java 11). Not starting Neo4j before launching BloodHound. Port conflicts with other services. |
@@ -334,7 +380,7 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Write custom Cypher queries for Neo4j (BloodHound Legacy) to find specific attack paths, misconfigurations, and patterns not covered by built-in queries. |
+| **Objective** | **⚠️ LEGACY ONLY:** Custom Cypher queries are ONLY for BloodHound Legacy (Neo4j backend). BloodHound CE uses a different query language and API. If you're using CE, these Cypher examples will NOT work in the UI. Write custom Cypher queries for Neo4j (BloodHound Legacy) to find specific attack paths, misconfigurations, and patterns not covered by built-in queries. |
 | **Key Cypher Queries** | All DA sessions: `MATCH (c:Computer)-[:HasSession]->(u:User) WHERE u.admincount=true RETURN u.name, c.name`. Kerberoastable admins: `MATCH (u:User {hasspn:true, admincount:true}) RETURN u.name, u.serviceprincipalnames`. Users with DCSync: `MATCH (u)-[:MemberOf*1..]->(g:Group)-[:DCSync|GetChanges|GetChangesAll*1..]->(d:Domain) RETURN u.name`. Shortest path from owned to DA: `MATCH p=shortestPath((u:User {owned:true})-[*1..]->(g:Group {name:"DOMAIN ADMINS@DOMAIN.LOCAL"})) RETURN p`. Computers where Domain Users are local admin: `MATCH (g:Group {name:"DOMAIN USERS@DOMAIN.LOCAL"})-[:AdminTo]->(c:Computer) RETURN c.name`. |
 | **Expected Output** | Custom queries answering specific engagement questions. Ability to extend BloodHound's analysis beyond built-in queries. |
 | **Common Mistakes** | Wrong syntax (Cypher is case-sensitive for labels, properties use lowercase). Not escaping domain names properly. Queries returning too many results (add LIMIT). Not using `shortestPath` when you want efficient pathfinding. |
