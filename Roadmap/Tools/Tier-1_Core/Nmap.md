@@ -313,12 +313,12 @@
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Use Nmap's vulnerability detection scripts to identify known CVEs on discovered services. Understand the difference between Nmap's vuln scanning and dedicated vulnerability scanners (Nessus, OpenVAS). **⚠️ Warning:** Some vulnerability scripts can be destructive or trigger IDS alerts. Scripts in the `vuln` category may attempt to exploit vulnerabilities to confirm them. Always check script documentation before running against production systems. |
-| **Skills Learned** | NSE vuln category scripts, `vulners` script (checks CVE databases), `vulscan` script (extended vulnerability matching), Nmap vs dedicated vulnerability scanners, understanding script risk levels. |
-| **Syntax** | `nmap --script vuln <target>` (built-in vuln scripts — use with caution). `nmap --script vulners -sV <target>` (safer: CVE lookup based on version strings). `nmap --script smb-vuln-ms17-010 <target>` (specific vulnerability check like EternalBlue). Check script safety first: `nmap --script-help smb-vuln-ms17-010`. |
-| **Real-World Scenario** | Quick vulnerability triage during a pentest when you don't have access to Nessus. Checking for specific high-severity vulnerabilities (EternalBlue, BlueKeep) across a network. |
-| **Expected Output** | CVE identifiers associated with discovered service versions. Specific vulnerability confirmations (VULNERABLE / NOT VULNERABLE). |
-| **Common Mistakes** | Treating Nmap vuln scanning as a replacement for Nessus/OpenVAS (Nmap checks fewer vulnerabilities). Not combining with `-sV` (vuln scripts need version information). Trusting negative results (Nmap may not have a script for every vulnerability). |
+| **Objective** | Use Nmap's vulnerability detection scripts to identify known CVEs. **⚠️ Warning:** Some vuln scripts can be destructive or trigger IDS alerts. Always check documentation first. |
+| **Skills Learned** | NSE vuln category scripts, `vulners` script (CVE lookup), Nmap vs dedicated vulnerability scanners. |
+| **Syntax** | `nmap --script vulners -sV <target>` (safer: CVE lookup based on versions). `nmap --script smb-vuln-ms17-010 <target>` (specific vuln check). Check first: `nmap --script-help smb-vuln-ms17-010`. |
+| **Real-World Scenario** | Quick vulnerability triage during a pentest. Checking for specific high-severity vulnerabilities (EternalBlue, BlueKeep) across a network. |
+| **Expected Output** | CVE identifiers and specific vulnerability confirmations. |
+| **Common Mistakes** | Treating Nmap vuln scanning as a replacement for Nessus/OpenVAS. Not combining with `-sV`. |
 
 ---
 
