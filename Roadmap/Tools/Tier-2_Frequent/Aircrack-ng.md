@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Network Attacks | Packet Analysis | Credential Access | MitM |
-|:----------------|:----------------|:-----------------|:-----|
+| :---------------- | :---------------- | :----------------- | :----- |
 | [[Nmap\|🗺️ Nmap]] | [[Wireshark\|🦈 Wireshark]] | [[Hashcat\|🔥 Hashcat]] | [[Bettercap\|🕵️ Bettercap]] |
 | [[hping3\|🔨 hping3]] | [[tcpdump\|📻 tcpdump]] | [[John_the_Ripper\|🔑 John the Ripper]] | [[Ettercap\|🐛 Ettercap]] |
 | **📡 Aircrack-ng** (you are here) | [[Scapy\|📦 Scapy]] | [[Hydra\|🔓 Hydra]] | [[Bettercap\|🕵️ Bettercap]] |
@@ -31,7 +31,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Wireless Theory | 5 | 3–4 hours |
 | 2 | Core Toolkit — Monitor, Capture, Crack | 6 | 5–7 hours |
 | 3 | Intermediate — Deauth, PMKID, Evil Twin | 5 | 5–7 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 5–8 hours |
 | 7 | Methodology & Legal Context | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **34** | **~30–44 hours** |
+|| **Total** | **34** | **~30–44 hours** |
 
 **Prerequisites:** Understanding of 802.11 Wi-Fi standards (a/b/g/n/ac/ax). Linux CLI basics. A wireless adapter with monitor mode and packet injection support (recommended: Alfa AWUS036ACH or similar). A dedicated lab AP and target network you own or have written authorization to test.
 
@@ -59,7 +59,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand WPA2-PSK authentication well enough to know exactly what Aircrack-ng captures and cracks. |
 | **Skills Learned** | 802.11 frame types (management, control, data), WPA2-PSK 4-way handshake (EAPOL frames exchanged to derive the PTK), what the handshake contains (ANonce, SNonce, MIC), why the MIC is crackable offline (it is derived from the PSK — guess the PSK, verify the MIC). |
 | **Practical Exercise** | Draw the WPA2 4-way handshake: AP sends ANonce → Client sends SNonce + MIC → AP verifies MIC (derives PTK from ANonce+SNonce+PMK, verifies MIC — if MIC matches, PSK is correct). This is the exact operation Aircrack-ng/Hashcat performs offline. |
@@ -70,7 +70,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand what monitor mode is and why standard wireless adapters cannot capture all 802.11 traffic without it. |
 | **Skills Learned** | Normal managed mode (only receives packets addressed to your MAC), monitor mode (receives ALL 802.11 frames in range regardless of destination), packet injection capability (needed for deauth attacks), which chipsets support injection (Atheros, Ralink/Mediatek, Realtek RTL8812AU). |
 | **Practical Exercise** | Check your wireless adapter: `iw list \| grep -A 10 "Supported interface modes"` — if `monitor` appears, your adapter supports monitor mode. Check injection: `aireplay-ng --test wlan0`. |
@@ -81,7 +81,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Know each tool in the suite and its specific role. |
 | **Skills Learned** | `airmon-ng` (enable/disable monitor mode), `airodump-ng` (passive sniffing and handshake capture), `aireplay-ng` (frame injection: deauth, ARP replay, fake auth), `aircrack-ng` (key cracking from captured files), `airbase-ng` (fake AP — evil twin), `airdecap-ng` (decrypt captured packets). |
 | **Expected Output** | Reference table: tool → function → when to use. |
@@ -91,7 +91,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Practical Exercise** | `sudo apt install aircrack-ng` → `airmon-ng --version`. Check `iw`, `iwconfig`, `hostapd` also installed. On Kali Linux — all pre-installed. On other distros: `sudo apt install iw wireless-tools hostapd`. Verify: `airmon-ng` lists your wireless interfaces. |
 
 ### Task 1.5 — Wireless Survey: Understanding the Environment
@@ -99,7 +99,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand what is visible in the wireless environment before attacking. |
 | **Practical Exercise** | `sudo airmon-ng start wlan0` → `sudo airodump-ng wlan0mon` → read output columns: BSSID (AP MAC), PWR (signal), #Data (data frames), #/s (rate), CH (channel), ENC (encryption type — WPA2/WPA3/OPN), ESSID (network name). Identify your lab target. Note channel number for focused capture. |
 | **Expected Output** | Understanding of airodump-ng survey output. Target AP identified with BSSID and channel. |
@@ -115,7 +115,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Put the wireless adapter into monitor mode. |
 | **Practical Exercise** | Kill interfering processes: `sudo airmon-ng check kill`. Enable monitor mode: `sudo airmon-ng start wlan0` → adapter becomes `wlan0mon`. Verify: `iwconfig wlan0mon` shows `Mode:Monitor`. To stop: `sudo airmon-ng stop wlan0mon` → `sudo service NetworkManager restart`. |
 | **Expected Output** | `wlan0mon` in monitor mode. Network Manager stopped (otherwise it restarts managed mode). |
@@ -126,7 +126,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Lock capture to a specific target AP and channel to collect the WPA2 handshake. |
 | **Skills Learned** | `--bssid` (target AP MAC), `--channel` (lock to AP channel — reduces noise), `--write` (save capture to .cap file). |
 | **Practical Exercise** | `sudo airodump-ng --bssid AA:BB:CC:DD:EE:FF --channel 6 --write capture wlan0mon`. Output file: `capture-01.cap`. Monitor the top-right corner of the display for `[ WPA handshake: AA:BB:CC:DD:EE:FF ]` — this appears when a client connects or is forced to reconnect. |
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Send deauthentication frames to force a client to reconnect — triggering the WPA2 4-way handshake capture. |
 | **Skills Learned** | `aireplay-ng --deauth` attack (`-0` mode), targeted deauth (specific client) vs broadcast deauth (all clients), why deauth works (802.11 management frames are unauthenticated — any device can spoof them). |
 | **Practical Exercise** | In a second terminal (airodump-ng still running in first): `sudo aireplay-ng --deauth 5 -a AA:BB:CC:DD:EE:FF -c CC:DD:EE:FF:00:11 wlan0mon`. (`-a` = AP BSSID, `-c` = client MAC, `5` = send 5 deauth frames). Switch to airodump-ng terminal — should show `[ WPA handshake: ... ]` within seconds. |
@@ -149,7 +149,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Verify the captured .cap file actually contains a complete, crackable 4-way handshake. |
 | **Practical Exercise** | Method 1: `aircrack-ng capture-01.cap` → if handshake present, shows `1 handshake` for the target BSSID. Method 2: Open in Wireshark → filter `eapol` → confirm 4 EAPOL frames (messages 1-4). Method 3: `hcxtools: hcxpcapngtool capture-01.cap -o test.hc22000` → if no error, handshake is usable. |
 | **Expected Output** | Confirmed complete 4-way handshake in capture file. Ready for cracking. |
@@ -159,7 +159,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Convert the .cap file to Hashcat's WPA format for GPU-accelerated cracking — much faster than aircrack-ng's built-in cracker. |
 | **Skills Learned** | `hcxpcapngtool` (from hcxtools), `.hc22000` format, Hashcat mode 22000 for WPA. |
 | **Practical Exercise** | `sudo apt install hcxtools` → `hcxpcapngtool -o handshake.hc22000 capture-01.cap` → `hashcat -m 22000 handshake.hc22000 /usr/share/wordlists/rockyou.txt`. |
@@ -170,7 +170,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Crack the WPA handshake directly with aircrack-ng and a wordlist (CPU-based — slower than Hashcat but simpler). |
 | **Practical Exercise** | `aircrack-ng -w /usr/share/wordlists/rockyou.txt -b AA:BB:CC:DD:EE:FF capture-01.cap`. Watch progress: keys tested/second, time remaining. For a weak password in rockyou.txt, this succeeds in seconds. |
 | **Expected Output** | `KEY FOUND! [ password123 ]` if the password is in the wordlist. Understanding that for strong passwords, Hashcat + GPU is required. |
@@ -186,7 +186,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Capture the PMKID from the first EAPOL frame without waiting for a client to connect — no deauth needed, no client needed. |
 | **Skills Learned** | PMKID concept (derived from PMK + AP/client MAC — calculable without client interaction), `hcxdumptool` for PMKID capture, converting to Hashcat format. |
 | **Practical Exercise** | `sudo apt install hcxdumptool hcxtools` → `sudo hcxdumptool -o pmkid.pcapng --enable-status=1 -i wlan0mon` → stop after a few minutes → `hcxpcapngtool -o pmkid.hc22000 pmkid.pcapng` → `hashcat -m 22000 pmkid.hc22000 rockyou.txt`. |
@@ -197,7 +197,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the deauthentication flood as a DoS attack and why it is a fundamental 802.11 weakness. |
 | **Skills Learned** | Continuous deauth flood (`--deauth 0` = infinite), why management frame authentication is a design flaw (IEEE 802.11w adds management frame protection — MFP/PMF to fix this), detection via Wireshark (high rate of deauth frames from spoofed MAC), real-world impact. |
 | **Practical Exercise** | Lab only: `sudo aireplay-ng --deauth 0 -a <your_lab_AP> wlan0mon` → observe clients disconnecting continuously. Stop with Ctrl+C. Check: does your AP support 802.11w (PMF)? If yes — deauth attack has reduced effectiveness. |
@@ -208,7 +208,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 50 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create a rogue access point that mimics a legitimate AP to capture credentials or perform MitM. |
 | **Skills Learned** | `airbase-ng` for fake AP creation, deauth clients from real AP → clients connect to evil twin, traffic capture through the fake AP, captive portal credential harvesting (combine with Bettercap). |
 | **Practical Exercise** | Lab: `sudo airbase-ng -e "TargetSSID" -c 6 wlan0mon` → rogue AP created on `at0` interface → bridge with internet (`brctl`) → clients connecting get internet (avoids detection) and traffic is captured. |
@@ -219,7 +219,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand and exploit Wi-Fi Protected Setup (WPS) PIN authentication weakness. |
 | **Skills Learned** | WPS PIN concept (8-digit PIN with design flaw — only 11,000 combinations needed due to split validation), `wash` to identify WPS-enabled APs, `reaver` or `bully` for WPS brute-force, WPS lockout detection. |
 | **Practical Exercise** | Survey: `sudo wash -i wlan0mon` → identify WPS-enabled APs. Attack (lab only): `sudo reaver -i wlan0mon -b <BSSID> -vv` → watch PIN attempts. Modern APs have WPS lockout — may take hours or fail if locked. |
@@ -230,7 +230,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand WPA2-Enterprise authentication and how it differs from PSK (and why it is harder to crack). |
 | **Skills Learned** | 802.1X EAP authentication (each user has their own credential — no shared PSK), EAP types (PEAP, EAP-TTLS, EAP-TLS), rogue RADIUS AP attack (hostapd-wpe to capture PEAP/MSCHAPv2 credentials), NTLMv2 hash extraction from PEAP challenge/response. |
 | **Practical Exercise** | Review `hostapd-wpe` concept: set up a rogue WPA2-Enterprise AP with a valid-looking certificate → clients connect → MSCHAPv2 handshakes captured → crack with `hashcat -m 5500` (NetNTLMv1) or `-m 5600` (NetNTLMv2). |
@@ -247,7 +247,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand WPA3's Simultaneous Authentication of Equals (SAE) protocol and why it defeats traditional handshake capture. |
 | **Skills Learned** | SAE (Dragonfly handshake) — prevents offline dictionary attacks by requiring real-time interaction for each guess, Forward Secrecy in WPA3, Dragonblood vulnerabilities (side-channel attacks against early WPA3 implementations), Transition mode weakness (WPA3/WPA2 mixed allows downgrade attacks). |
 | **Practical Exercise** | Research: can airodump-ng capture a WPA3 SAE handshake for offline cracking? (No — SAE handshake is not vulnerable to offline dictionary attack by design.) What attack still works? (Dragonblood side-channel on vulnerable APs, evil twin with forced WPA2 downgrade via transition mode.) |
@@ -258,7 +258,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build a complete picture of a wireless environment before attacking. |
 | **Skills Learned** | Band awareness (2.4 GHz vs 5 GHz — need dual-band adapter for 5 GHz), hidden SSID de-cloaking (probe requests reveal hidden SSIDs when clients connect), signal mapping, identifying all connected clients per AP. |
 | **Practical Exercise** | `sudo airodump-ng wlan0mon` → collect data for 5 minutes → export to CSV: `--output-format csv` → analyse which APs have the most clients, which use weak encryption, which are on auto-channel. |
@@ -268,7 +268,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build an effective cracking strategy for WPA2 passwords beyond plain rockyou.txt. |
 | **Skills Learned** | Wi-Fi passwords are often: router defaults (8-char alphanumeric — use manufacturer-specific wordlists), ISP defaults (e.g., BT Hub uses 8-char hex), phone numbers, addresses, family names. `hashcat -m 22000` with rules: `best64.rule`, SSID-based mangling (people use SSID in password: `HomeWifi2024`). |
 | **Practical Exercise** | Build a targeted wordlist for a test AP: SSID name, owner's name (from OSINT), common local patterns → apply `hashcat` rules → try before rockyou.txt. |
@@ -278,7 +278,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | After cracking the PSK, decrypt captured traffic from connected clients. |
 | **Practical Exercise** | `airdecap-ng -e "SSID" -p "cracked_password" capture-01.cap` → decrypted packets in `capture-01-dec.cap` → open in Wireshark → inspect HTTP, DNS, and other plaintext protocols. |
 | **Expected Output** | Decrypted packet capture. Understanding that cracking the WPA2 PSK means all past and future traffic on that network can be decrypted if you captured it. |
@@ -293,7 +293,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Aircrack-ng for capture, Hashcat for cracking — the standard professional workflow. |
 | **Practical Exercise** | Capture `.cap` → `hcxpcapngtool` convert to `.hc22000` → `hashcat -m 22000` with GPU. Always prefer Hashcat for cracking — aircrack-ng's built-in cracker is CPU-only and much slower. |
 
@@ -301,14 +301,14 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Practical Exercise** | Open `capture-01.cap` in Wireshark → `eapol` filter → inspect 4-way handshake frames → `wlan.fc.type_subtype == 0x0c` for deauth frames → document the full attack sequence visible in the packet capture. |
 
 ### Task 5.3 — Bettercap Wireless + Aircrack-ng
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Bettercap's wireless modules alongside Aircrack-ng for a complete wireless assessment. |
 | **Practical Exercise** | Aircrack-ng for WPA2 handshake capture → Bettercap for 802.11 probe sniffing (`wifi.recon on`), deauth (`wifi.deauth`), and captive portal attacks. Compare capabilities of each. |
 
@@ -316,7 +316,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Document wireless security findings professionally. |
 | **Practical Exercise** | Write a finding: "WPA2-PSK Weak Pre-Shared Key — Risk: High. The wireless network SSID X was found to use a weak PSK recoverable via offline dictionary attack in under 60 seconds. Recommendation: enforce complex PSK (20+ random characters), consider WPA3, enable 802.11w MFP." |
 
@@ -330,7 +330,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 2–3 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Set up a test AP with a weak PSK (`password123`). Full chain: airmon-ng → airodump-ng → aireplay-ng deauth → handshake capture → hcxpcapngtool → hashcat crack. |
 | **Success Criteria** | PSK cracked. Full chain documented with screenshots. |
 
@@ -338,7 +338,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 1–2 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Same test AP. Capture PMKID with hcxdumptool (no deauth, no connected client needed). Crack with Hashcat. |
 | **Success Criteria** | PMKID captured. PSK cracked. Compared time to capture vs deauth method. |
 
@@ -346,7 +346,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 2 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Download a WPA2 capture file from a CTF challenge (HackTheBox, CTFtime) or generate one from your lab. Crack the PSK and decrypt the traffic to find the flag. |
 | **Success Criteria** | PSK cracked from .cap file. Traffic decrypted. Flag found in HTTP/DNS traffic. |
 
@@ -354,7 +354,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 2 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Configure one AP as WPA2-PSK and another as WPA3-SAE (both with the same weak password). Attempt the same handshake capture + crack against both. Document what succeeds and fails. |
 | **Success Criteria** | WPA2 cracked successfully. WPA3 SAE handshake not crackable via same method. Documented the security improvement. |
 
@@ -368,7 +368,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Follow a structured wireless security assessment methodology. |
 | **Expected Output** | Methodology: (1) Passive survey — identify all APs, clients, encryption types. (2) Passive capture — record traffic without injection. (3) PMKID capture (passive, no deauth). (4) Forced handshake via deauth (only if authorized). (5) Offline cracking. (6) Decrypted traffic analysis. (7) Findings report. |
 
@@ -376,7 +376,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the legal landscape for wireless security testing. |
 | **Skills Learned** | Written authorization scope must explicitly include wireless testing. Monitor mode scanning of all APs in range (even without connecting) may be legally ambiguous in some jurisdictions. Deauth attacks are a DoS attack — they affect ALL clients. Never test hotel, coffee shop, neighbour, or employer Wi-Fi without explicit written authorization. |
 
@@ -384,7 +384,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Advise organizations on wireless security hardening. |
 | **Skills Learned** | Use WPA3-SAE, enable 802.11w (PMF/MFP) to prevent deauth attacks, use long random PSK (20+ chars) or WPA2-Enterprise for corporate, disable WPS, disable hidden SSID (security through obscurity), network segmentation (IoT VLAN, guest network). |
 
@@ -414,17 +414,17 @@ Conduct a complete wireless security assessment of your home lab (multiple APs i
 ## 🎓 Competency Matrix
 
 | Skill | Beginner | Intermediate | Advanced |
-|:------|:--------:|:------------:|:--------:|
-| Enable monitor mode and kill interfering processes | [ ] | | |
-| Survey wireless environment with airodump-ng | [ ] | | |
-| Targeted handshake capture | | [ ] | |
-| Deauthentication frame injection | | [ ] | |
-| PMKID capture with hcxdumptool | | [ ] | |
-| Convert .cap to .hc22000 and crack with Hashcat | | [ ] | |
-| Decrypt captured WPA2 traffic | | [ ] | |
-| Evil twin / rogue AP setup | | | [ ] |
-| WPA2-Enterprise PEAP credential theft | | | [ ] |
-| WPA3 vs WPA2 attack surface comparison | | [ ] | |
+| :------ | :--------: | :------------: | :--------: |
+| Enable monitor mode and kill interfering processes | [ ] |||
+| Survey wireless environment with airodump-ng | [ ] |||
+| Targeted handshake capture || [ ] ||
+| Deauthentication frame injection || [ ] ||
+| PMKID capture with hcxdumptool || [ ] ||
+| Convert .cap to .hc22000 and crack with Hashcat || [ ] ||
+| Decrypt captured WPA2 traffic || [ ] ||
+| Evil twin / rogue AP setup ||| [ ] |
+| WPA2-Enterprise PEAP credential theft ||| [ ] |
+| WPA3 vs WPA2 attack surface comparison || [ ] ||
 
 ---
 

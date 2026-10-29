@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Active Directory | Credentials | Network | Cloud |
-|:----------------|:-----------|:--------|:------|
+| :---------------- | :----------- | :-------- | :------ |
 | [[BloodHound\|🩸 BloodHound]] | [[Mimikatz\|🥷 Mimikatz]] | [[Impacket\|🔧 Impacket]] | [[Prowler\|☁️ Prowler]] |
 | [[Rubeus\|🔑 Rubeus]] | **🔑 Certipy** (you are here) | [[NetExec\|💀 NetExec]] | [[Pacu\|🐦 Pacu]] |
-| [[Kerbrute\|👣 Kerbrute]] | | | |
+| [[Kerbrute\|👣 Kerbrute]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & ADCS Basics | 5 | 2–3 hours |
 | 2 | Enumeration with `find` | 7 | 3–4 hours |
 | 3 | ESC1 — Vulnerable Templates | 6 | 3–5 hours |
@@ -39,7 +39,7 @@
 | 5 | Certificate-Based Authentication | 5 | 3–4 hours |
 | 6 | Shadow Credentials | 4 | 2–3 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **37** | **~22–32 hours** |
+|| **Total** | **37** | **~22–32 hours** |
 
 **Prerequisites:** Phase 6 Part 25 complete (BloodHound, AD enumeration basics). Understanding of Kerberos and Active Directory fundamentals. Access to a lab AD environment (use GOAD — Game of Active Directory — or a custom lab).
 
@@ -79,7 +79,7 @@ cd Certipy && pip3 install .
 **The ESC Vulnerability Classes:**
 
 | ESC | Vulnerability | Severity |
-|:----|:-------------|:---------|
+| :---- | :------------- | :--------- |
 | ESC1 | Template allows SAN specification + low-privilege enrollment | CRITICAL |
 | ESC2 | Any Purpose EKU + low-privilege enrollment | HIGH |
 | ESC3 | Certificate Request Agent EKU abuse | HIGH |

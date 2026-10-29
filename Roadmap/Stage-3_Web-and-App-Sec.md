@@ -6,8 +6,8 @@
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
-|:---:|:---:|:---:|:---|
-| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 3\|🎮 CTF Practice]] · [[#🏁 Stage Gate 2 — Web Application Security Gate\|🏁 Stage Gate 2]] |
+| :---: | :---: | :---: | :--- |
+| [[Cyber-Security/Roadmap/Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 3\|🎮 CTF Practice]] · [[#🏁 Stage Gate 2 — Web Application Security Gate\|🏁 Stage Gate 2]] |
 
 ---
 
@@ -326,7 +326,7 @@
 ### Lab Progression (Module 14: Web Application Hacking)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Complete all OWASP Top 10 labs on PortSwigger Web Security Academy | Badge/completion screenshots |
 | 2 | Exploit SQLi + XSS + SSRF on DVWA or OWASP Juice Shop | Attack chain documentation with request/response evidence |
 | 3 | Perform an authenticated web app assessment on WebGoat (all modules) | Structured vulnerability report |
@@ -338,7 +338,7 @@
 **Platform Guide for Stage 3:**
 
 | Platform | Best For | Cost |
-|----------|----------|------|
+| ---------- | ---------- | ------ |
 | [PortSwigger Web Security Academy](https://portswigger.net/web-security) | OWASP Top 10 labs, JWT attacks, SSRF, OAuth, deserialization — industry gold standard | Free |
 | [PentesterLab](https://pentesterlab.com) | Source-code-based vulnerability training, PHP/Ruby/Python code review, white-box web testing | Free + Pro |
 | [Root-Me](https://root-me.org) | 400+ realistic web challenges organized by category and difficulty — excellent for breadth coverage | Free |
@@ -476,7 +476,7 @@
 ### Lab Progression (Module 15: Session Hijacking & Token Attacks)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Inspect cookie flags and entropy on a live web application using Burp Sequencer | Session randomness and security attribute audit report |
 | 2 | Execute a session fixation attack against a deliberately vulnerable web lab | Proof-of-concept showing authenticated state takeover via fixed session token |
 | 3 | Exploit Stored XSS to exfiltrate active session tokens to Burp Collaborator / webhook | Exploit payload + captured session token + authenticated impersonation evidence |
@@ -584,7 +584,7 @@
 ### Lab Progression (Module 16: Web Server Hacking)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Enumerate and exploit a vulnerable web server (Metasploitable 2/3) | Exploitation walkthrough |
 | 2 | Gain shell via file upload or RCE on a lab web server | Web shell deployment report |
 | 3 | Escalate from web shell to root/SYSTEM on the host | Full attack chain document |
@@ -716,7 +716,7 @@
 ### Lab Progression (Module 17: API Security)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Complete crAPI (completely ridiculous API) lab — all OWASP API Top 10 challenges | Challenge completion documentation |
 | 2 | Test BOLA, broken auth, and mass assignment against vAPI or Juice Shop API | OWASP API assessment report |
 | 3 | Exploit JWT algorithm confusion (`alg:none`, RS256→HS256) and forge tokens in a lab API | JWT attack PoC + writeup |
@@ -1127,7 +1127,7 @@ It also teaches a critical professional lesson: automated scanners miss things. 
 
 ### Side-Track A: Detection Engineering & SOC Operations
 
-_Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Shelf_Post-Hire#Shelf 16: Security Operations Expansion|Shelf 16 (Security Operations Expansion)]]._
+_Understand defensive detection to know what to evade. This side-track covers core detection engineering, SIEM, threat hunting, incident response, and forensic fundamentals (Stages 1–10). Security operations expansion topics (SOAR, DLP, Vulnerability Management, Insider Threat) continue in [[Cyber-Security/Roadmap/Shelf_Post-Hire#Shelf 16: Security Operations Expansion|Shelf 16 (Security Operations Expansion)]]._
 
 ### Topic 1: Defensive Architecture — 🧠 Conceptual
 
@@ -1527,7 +1527,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 ### Lab Progression (Side-Track B: IDS, Firewalls & Honeypots)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Deploy Snort/Suricata IDS in a lab and write 5 custom rules | IDS ruleset + test results |
 | 2 | Configure pfSense/iptables firewall with zone-based policies | Firewall architecture diagram + ruleset |
 | 3 | Deploy a honeypot (Cowrie, T-Pot, or HoneyD) and analyze attacker behavior | Honeypot analysis report (24-48 hours of data) |
@@ -1659,7 +1659,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 ### Lab Progression (Side-Track C: Threat Intelligence & OSINT)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Perform complete OSINT profile of a public figure (using only public data) | OSINT report with sources |
 | 2 | Use Shodan/Censys to discover exposed services on a target range | Exposure assessment report |
 | 3 | Set up automated threat intelligence feeds (MISP or OpenCTI) | Working TI platform with 3+ feeds |
@@ -1749,12 +1749,12 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 - [ ] **Severity Classification:** Most organizations use a tiered severity system for incidents. Know a typical framework:
 
-  | Severity | Definition | Examples | Response Time |
-  |----------|-----------|---------|---------------|
-  | **Critical (P1)** | Active breach, ransomware, data exfiltration in progress | Confirmed ransomware, APT intrusion, insider data theft | Immediate (< 1 hour) |
-  | **High (P2)** | Likely breach or imminent risk | Malware confirmed on critical system, privileged account compromise | < 4 hours |
-  | **Medium (P3)** | Potential incident requiring investigation | Suspicious login patterns, anomalous data movement, policy violation | < 24 hours |
-  | **Low (P4)** | Security event unlikely to cause significant harm | Failed login attempts, policy violation without data risk | < 72 hours |
+| Severity | Definition | Examples | Response Time |
+| ---------- | ----------- | --------- | --------------- |
+| **Critical (P1)** | Active breach, ransomware, data exfiltration in progress | Confirmed ransomware, APT intrusion, insider data theft | Immediate (< 1 hour) |
+| **High (P2)** | Likely breach or imminent risk | Malware confirmed on critical system, privileged account compromise | < 4 hours |
+| **Medium (P3)** | Potential incident requiring investigation | Suspicious login patterns, anomalous data movement, policy violation | < 24 hours |
+| **Low (P4)** | Security event unlikely to cause significant harm | Failed login attempts, policy violation without data risk | < 72 hours |
 
 - [ ] **Incident Categories (CISA Model):** Know the standard incident categories used in government and enterprise:
   - **Category 1 — Unauthorized Access:** User accessing systems/data they shouldn't
@@ -1771,15 +1771,15 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 - [ ] **Framework by Industry Quick Reference:**
 
-  | Industry | Primary Framework | Regulator |
-  |----------|------------------|-----------|
-  | US Healthcare | HIPAA | HHS Office for Civil Rights |
-  | Payment Processing | PCI-DSS | PCI Security Standards Council |
-  | EU Data Processing | GDPR | National Data Protection Authorities |
-  | US Federal Agencies | NIST SP 800-53, FedRAMP | NIST, OMB, CISA |
-  | Financial Services (US) | SOX (IT controls), GLBA, FFIEC | SEC, FDIC, OCC |
-  | US Defense Supply Chain | CMMC (Cybersecurity Maturity Model Certification) | DoD |
-  | Indian Data Processing | DPDP Act 2023 | Data Protection Board of India |
+| Industry | Primary Framework | Regulator |
+| ---------- | ------------------ | ----------- |
+| US Healthcare | HIPAA | HHS Office for Civil Rights |
+| Payment Processing | PCI-DSS | PCI Security Standards Council |
+| EU Data Processing | GDPR | National Data Protection Authorities |
+| US Federal Agencies | NIST SP 800-53, FedRAMP | NIST, OMB, CISA |
+| Financial Services (US) | SOX (IT controls), GLBA, FFIEC | SEC, FDIC, OCC |
+| US Defense Supply Chain | CMMC (Cybersecurity Maturity Model Certification) | DoD |
+| Indian Data Processing | DPDP Act 2023 | Data Protection Board of India |
 
 - [ ] **What Auditors Look For (Basics):** Compliance audits typically check for: documented policies, evidence that controls are operating, access control logs, vulnerability scan results, patch management records, incident response plan existence (and evidence of testing), and security awareness training completion records. My SIEM and incident documentation are primary audit evidence sources.
 
@@ -1787,7 +1787,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 ---
 
-> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Shelf_Post-Hire#Shelf 11: Governance, Risk & Compliance (GRC)|Shelf 11: GRC]]. This sidebar gives me the minimum needed to function effectively in a defensive role from Day 1._
+> 📌 _Full GRC depth (audit mechanics, vendor risk assessment, continuous compliance automation, FAIR risk quantification, regulatory testing procedures, ISO 27001 control implementation) is covered in [[Cyber-Security/Roadmap/Shelf_Post-Hire#Shelf 11: Governance, Risk & Compliance (GRC)|Shelf 11: GRC]]. This sidebar gives me the minimum needed to function effectively in a defensive role from Day 1._
 
 ---
 
@@ -1826,7 +1826,7 @@ _Understand defensive detection to know what to evade. This side-track covers co
 
 > [!NOTE]
 > **✅ Defensive Operations side-tracks conclude here.**
-> Module 22 (Adversary Emulation & Purple Teaming) lives in [[Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming|Stage 4: Enterprise]].
+> Module 22 (Adversary Emulation & Purple Teaming) lives in [[Cyber-Security/Roadmap/Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming|Stage 4: Enterprise]].
 
 ---
 
@@ -1899,7 +1899,7 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
-|:---:|:---:|:---:|:---:|
-| [[Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[README\|Master Roadmap]] | [[Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#Stage 3 — Web & App Sec\|⬆ Return to Top]] |
+| :---: | :---: | :---: | :---: |
+| [[Cyber-Security/Roadmap/Stage-2_Offense-I\|◀ Stage 2: Offense I]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-4_Enterprise\|Stage 4: Enterprise ➔]] | [[#Stage 3 — Web & App Sec\|⬆ Return to Top]] |
 
-> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-4_Enterprise|Stage 4: Enterprise]]` to open the next stage in a split tab, or hover to preview.
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Cyber-Security/Roadmap/Stage-4_Enterprise|Stage 4: Enterprise]]` to open the next stage in a split tab, or hover to preview.

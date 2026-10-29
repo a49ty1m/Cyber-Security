@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Endpoint Telemetry | SIEM Platforms | Detection Rules | Forensics |
-|:------------------|:--------------|:----------------|:----------|
+| :------------------ | :-------------- | :---------------- | :---------- |
 | **🔭 Sysmon** (you are here) | [[Splunk\|📊 Splunk]] | [[Sigma\|🔎 Sigma]] | [[Volatility\|🧠 Volatility]] |
-| | [[Wazuh\|🐺 Wazuh]] | [[YARA\|🦠 YARA]] | [[Autopsy\|🔬 Autopsy]] |
-| | [[ELK\|📦 ELK]] | | |
+|| [[Wazuh\|🐺 Wazuh]] | [[YARA\|🦠 YARA]] | [[Autopsy\|🔬 Autopsy]] |
+|| [[ELK\|📦 ELK]] |||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Configuration | 5 | 2–3 hours |
 | 2 | Core Event Types (IDs 1–15) | 10 | 4–5 hours |
 | 3 | Advanced Event Types (IDs 17–29) | 6 | 3–4 hours |
@@ -39,7 +39,7 @@
 | 5 | SIEM Integration | 4 | 2–3 hours |
 | 6 | Attack Simulation & Detection | 8 | 5–7 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **44** | **~24–33 hours** |
+|| **Total** | **44** | **~24–33 hours** |
 
 **Prerequisites:** Windows administration basics. Phase 1 complete. Have a Windows VM (Windows 10/11 or Server 2019/2022) ready.
 
@@ -138,7 +138,7 @@ sysmon64.exe -s
 **Critical parent-child relationships to know:**
 
 | Parent | Suspicious Child | TTP |
-|:-------|:----------------|:----|
+| :------- | :---------------- | :---- |
 | `winword.exe` / `excel.exe` | `cmd.exe`, `powershell.exe`, `wscript.exe` | Macro execution (T1566) |
 | `powershell.exe` | `cmd.exe`, any LOLBin | Staged execution |
 | `svchost.exe` | `cmd.exe`, `powershell.exe` | Service exploitation |
@@ -226,7 +226,7 @@ Logs every DNS query made by every process — domain, result, and which process
 ---
 
 | Event ID | Description | Key Use Case |
-|:---------|:------------|:-------------|
+| :--------- | :------------ | :------------- |
 | 17 | Pipe Created | Named pipe C2 communication (Cobalt Strike, Sliver) |
 | 18 | Pipe Connected | Client connecting to C2 named pipe |
 | 19 | WMI Event Filter registered | WMI persistence |

@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Recon & OSINT | Scanning | Web Attacks | Exploitation |
-|:-------------|:---------|:-----------|:------------|
+| :------------- | :--------- | :----------- | :------------ |
 | [[theHarvester\|🌾 theHarvester]] | [[Nmap\|🗺️ Nmap]] | [[Burp_Suite\|🕷️ Burp Suite]] | [[Metasploit_Framework\|💀 Metasploit]] |
 | [[Recon-ng\|🔭 Recon-ng]] | [[Gobuster\|📂 Gobuster]] | [[sqlmap\|💉 sqlmap]] | [[Hydra\|🔓 Hydra]] |
 | **🌐 Amass** (you are here) | [[Nikto\|🔍 Nikto]] | [[ffuf\|🌀 ffuf]] | [[Impacket\|🐍 Impacket]] |
@@ -31,7 +31,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & DNS Recon Theory | 5 | 2–3 hours |
 | 2 | Core Usage — Passive & Active Enumeration | 6 | 4–6 hours |
 | 3 | Intermediate — API Keys & Data Sources | 5 | 4–5 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 4–7 hours |
 | 7 | Methodology & OPSEC | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **34** | **~24–37 hours** |
+|| **Total** | **34** | **~24–37 hours** |
 
 **Prerequisites:** DNS fundamentals (A, CNAME, NS, MX records). Understanding of certificate transparency. Basic Linux CLI.
 
@@ -62,7 +62,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand why subdomains are high-value recon targets and what attackers find there. |
 | **Skills Learned** | Attack surface concept, why forgotten subdomains exist (abandoned projects, dev/staging environments, acquired companies), subdomain takeover (dangling DNS pointing to unclaimed cloud resources), what kinds of vulnerabilities are found on subdomains vs main domains. |
 | **Practical Exercise** | Research 3 real subdomain takeover cases (GitHub Pages, AWS S3, Heroku). Understand the pattern: DNS CNAME points to a third-party service that no longer exists → anyone can claim it. |
@@ -73,7 +73,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the difference between passive DNS enumeration (no direct contact with target) and active DNS brute-force (sends queries that target can see). |
 | **Skills Learned** | Passive sources: certificate transparency (crt.sh, Censys), DNS aggregators (VirusTotal, PassiveTotal), Shodan, Google/Bing dorks. Active methods: DNS brute-force (sending `mail.target.com?`, `dev.target.com?` etc), DNS zone transfer (`AXFR`). |
 | **Practical Exercise** | Manual passive test: go to `crt.sh/?q=%.target.com` → look at all certificates issued for the target domain. Count how many subdomains are visible. This is one of Amass's passive sources. |
@@ -84,7 +84,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand how TLS certificate issuance logs expose subdomains passively. |
 | **Skills Learned** | Certificate Transparency (CT) log concept, `crt.sh` as a public CT log search engine, why every HTTPS subdomain appears in CT logs (browsers require logged certificates since 2018), using CT logs for recon before active scanning. |
 | **Practical Exercise** | `curl -s "https://crt.sh/?q=%.hackerone.com&output=json" \| jq '.[].name_value' \| sort -u` — pipe crt.sh results for a bug bounty target. Count unique subdomains found passively with zero DNS queries to the target. |
@@ -95,7 +95,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install Amass and set up the configuration file for API keys. |
 | **Practical Exercise** | `sudo apt install amass` OR `go install -v github.com/owasp-amass/amass/v4/...@master`. Verify: `amass -version`. Create config dir: `mkdir -p ~/.config/amass/`. Copy example config: `amass enum --help` (find config path). `amass intel --help` and `amass enum --help` to understand subcommands. |
 | **Expected Output** | Amass installed, version confirmed, config directory created. |
@@ -105,7 +105,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand Amass's subcommand structure: `intel`, `enum`, `viz`, `track`, `db`. |
 | **Skills Learned** | `intel` — discover root domains from ASN/CIDR/org. `enum` — enumerate subdomains of a known root domain. `viz` — visualize collected data. `track` — compare enumerations over time. `db` — manage the Amass graph database. |
 | **Expected Output** | Table mapping each subcommand to its use case. Understanding that `enum` is the primary subcommand used 90% of the time. |
@@ -121,7 +121,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Run a passive-only enumeration that makes zero direct contact with the target's DNS infrastructure. |
 | **Skills Learned** | `-passive` flag, understanding passive sources (CT logs, VirusTotal, Shodan, etc.), output flags (`-o`), JSON output (`-json`). |
 | **Practical Exercise** | `amass enum -passive -d hackerone.com -o passive_subs.txt` (use a bug bounty target you have permission to enumerate). Review output. Count unique subdomains. Time the scan — passive runs finish in 2–10 minutes depending on API keys configured. |
@@ -133,7 +133,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Run a full active enumeration combining passive sources with DNS brute-force. |
 | **Skills Learned** | Active mode (default), DNS brute-force with wordlists, resolver configuration (`-rf` for resolver file), rate limiting (`-max-dns-queries`). |
 | **Practical Exercise** | `amass enum -d target.com -brute -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -o active_subs.txt`. Monitor output in real time. Compare results with passive run — active should find significantly more. |
@@ -145,7 +145,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `amass intel` to discover root domains belonging to a company from their ASN or IP ranges. |
 | **Skills Learned** | ASN lookup, `-org` flag (search by company name), `-asn` flag (enumerate from ASN), `-cidr` flag (enumerate from IP range), why discovering root domains before subdomains is important for large organizations. |
 | **Practical Exercise** | `amass intel -org "HackerOne"` → find their ASN → `amass intel -asn <ASN_number> -o root_domains.txt` → now enumerate each root domain: `amass enum -df root_domains.txt -passive`. |
@@ -156,7 +156,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Work with Amass output in different formats for downstream tool consumption. |
 | **Skills Learned** | `-o` (plain text), `-json` (JSON with source metadata), `-oA` (all formats), parsing with `jq`, deduplication with `sort -u`, piping to `httpx` for HTTP probing. |
 | **Practical Exercise** | `amass enum -passive -d target.com -json amass_out.json` → `jq '.name' amass_out.json \| sort -u > subs.txt` → `cat subs.txt \| httpx -silent -o live_subs.txt` → live subdomains ready for Nmap/Nuclei/Burp. |
@@ -167,7 +167,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Attempt DNS AXFR (zone transfer) against target nameservers — rare but reveals the entire zone when misconfigured. |
 | **Practical Exercise** | `dig axfr @ns1.target.com target.com` — most production nameservers refuse this. Try against lab: set up BIND with zone transfers allowed → verify `dig axfr` returns all records. Amass automatically attempts zone transfers during active enumeration. |
 | **Expected Output** | Understanding of zone transfer concept. Confirmation that modern nameservers reject AXFR by default. Note when it succeeds — it is a Critical finding. |
@@ -177,7 +177,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Provide Amass with a list of fast, reliable DNS resolvers to dramatically speed up active enumeration. |
 | **Practical Exercise** | Download public resolver list: `wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers.txt`. `amass enum -d target.com -rf resolvers.txt -brute -w wordlist.txt`. Compare scan time with and without custom resolvers. |
 | **Expected Output** | Significantly faster active enumeration. Understanding that default public resolvers (8.8.8.8, 1.1.1.1) rate-limit heavy DNS queries. |
@@ -193,7 +193,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Configure API keys for Amass's data sources to unlock the full passive enumeration capability. |
 | **Skills Learned** | Amass config file (`~/.config/amass/config.ini`), free API keys available from: Shodan (free tier), VirusTotal (free), SecurityTrails (free tier), Censys (free), URLScan.io (free), GitHub (free token), AlienVault OTX (free). |
 | **Practical Exercise** | Create `~/.config/amass/config.ini` → add API keys for VirusTotal, SecurityTrails, URLScan, GitHub. Re-run passive enum and compare subdomain count before vs after API keys. The difference is dramatic — often 3–5x more subdomains. |
@@ -204,7 +204,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Know which data sources Amass queries and what each contributes. |
 | **Practical Exercise** | `amass enum -list` → view all configured data sources. Categorize them: CT logs (Certspotter, crt.sh), passive DNS (SecurityTrails, CIRCL), search engines (Google, Bing, Yahoo), threat intel (VirusTotal, OTX), internet scanning (Shodan, Censys), code search (GitHub). |
 | **Expected Output** | Source-category mapping table. Understanding that each source type finds different subdomains — all are needed for complete coverage. |
@@ -214,7 +214,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand when to use Subfinder vs Amass and how to combine them for maximum coverage. |
 | **Skills Learned** | Subfinder installation (`go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest`), Subfinder passive-only workflow, combining results with `sort -u`, Subfinder speed advantage for quick passive runs. |
 | **Practical Exercise** | Run both against the same target: `subfinder -d target.com -o sf_subs.txt` AND `amass enum -passive -d target.com -o amass_subs.txt`. Merge: `cat sf_subs.txt amass_subs.txt \| sort -u > all_subs.txt`. Compare unique counts — each finds subdomains the other misses. |
@@ -226,7 +226,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Amass's Shodan integration to find subdomains from internet scan data. |
 | **Practical Exercise** | Add Shodan API key to config. Run `amass enum -passive -d target.com`. Shodan-discovered hosts often include non-standard ports and IP-only services invisible to pure DNS enumeration. Cross-reference Amass results with direct `shodan search hostname:target.com`. |
 | **Expected Output** | Subdomains discovered via Shodan's scan database. Understanding that Shodan finds hosts that don't advertise themselves via DNS. |
@@ -236,7 +236,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Amass's GitHub source to find subdomains mentioned in public code repositories. |
 | **Practical Exercise** | Add GitHub token to Amass config. Run passive enum and watch for GitHub-sourced subdomains in `-json` output (`"source":"GitHub"`). Separately search GitHub manually: `site:github.com "target.com" subdomain`. |
 | **Expected Output** | Subdomains found in public GitHub repos — often internal/dev subdomains developers accidentally committed. |
@@ -252,7 +252,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Generate a visual network graph of the discovered attack surface. |
 | **Practical Exercise** | After enumeration, export to dot format: `amass viz -dot -d target.com -o graph.dot`. Render with Graphviz: `dot -Tpng graph.dot -o graph.png`. Alternatively use D3.js output: `amass viz -d3 -d target.com -o graph.html` — open in browser for interactive exploration. |
 | **Expected Output** | Visual graph showing domain → subdomain → IP relationships. Useful for reports and for spotting anomalous connections. |
@@ -262,7 +262,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Run Amass periodically against a target and detect new subdomains that appear between scans. |
 | **Practical Exercise** | Run first enum: `amass enum -d target.com`. Wait 24 hours. Run again. `amass track -d target.com` → shows new, removed, and changed subdomains between runs. New subdomains = newly deployed assets that may be less hardened. |
 | **Expected Output** | Delta report showing new and removed subdomains. Understanding that continuous tracking is valuable for bug bounty and long-term red team engagements. |
@@ -272,7 +272,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Query the Amass local graph database to extract data from previous enumeration runs. |
 | **Practical Exercise** | `amass db -names -d target.com` (list all subdomains). `amass db -show -d target.com` (show full asset details). `amass db -summary -d target.com` (stats on the collected dataset). Useful for re-querying without re-running scans. |
 | **Expected Output** | Ability to query historical Amass data without re-running enumeration. |
@@ -282,7 +282,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify dangling CNAME records pointing to unclaimed third-party services — subdomain takeover candidates. |
 | **Skills Learned** | Subdomain takeover concept, `can-i-take-over-xyz` GitHub reference list, using `subjack` or `nuclei -t subdomain-takeover/` against Amass results. |
 | **Practical Exercise** | `amass enum -passive -d target.com -o subs.txt` → `cat subs.txt \| httpx -silent -o live.txt` → `nuclei -l live.txt -t nuclei-templates/takeovers/ -o takeovers.txt`. Review results for CNAME targets like `amazonaws.com`, `github.io`, `heroku.com`, `azurewebsites.net`. |
@@ -298,7 +298,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Feed Amass-discovered subdomains into Nmap for port scanning. |
 | **Practical Exercise** | `amass enum -passive -d target.com -o subs.txt` → `nmap -iL subs.txt -p 80,443,8080,8443 --open -oN web_ports.txt`. Pipe resolved IPs: `amass enum -passive -d target.com -ip -o subs_ips.txt \| awk '{print $2}' > ips.txt \| nmap -iL ips.txt`. |
 
@@ -306,7 +306,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Chain Amass subdomain discovery into Nuclei for automated vulnerability scanning across the full attack surface. |
 | **Practical Exercise** | `amass enum -passive -d target.com -o subs.txt` → `cat subs.txt \| httpx -silent \| nuclei -t ~/nuclei-templates/ -severity critical,high -o vulns.txt`. |
 
@@ -314,7 +314,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Combine Amass and Subfinder outputs into a single deduplicated master list. |
 | **Practical Exercise** | `cat amass_out.txt subfinder_out.txt \| sort -u \| anew master_subs.txt` (using `anew` for append-new-only deduplication). |
 
@@ -322,7 +322,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build a full Phase 1 recon chain using all three OSINT tools together. |
 | **Practical Exercise** | `theHarvester` → emails/names/domains → `amass enum` → all subdomains → `recon-ng` → enrich with WHOIS/contacts/breaches → comprehensive target profile. |
 
@@ -336,7 +336,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 3–4 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Pick a HackerOne program with a broad scope (`*.target.com`). Run full Amass passive + active enumeration. Combine with Subfinder. Validate live hosts with httpx. |
 | **Success Criteria** | 50+ unique live subdomains discovered. At least one subdomain not on the main site. Full asset inventory documented. |
 
@@ -344,7 +344,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 2–3 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Simulate OSCP-style external recon: given a company domain, enumerate all subdomains, map IPs, identify interesting services. |
 | **Success Criteria** | Complete subdomain list with IP mappings. HTTP/HTTPS services identified. Interesting targets (login portals, API endpoints, dev servers) highlighted. |
 
@@ -352,7 +352,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 2–3 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Run Amass against a bug bounty target. Check all CNAME records. Identify dangling CNAMEs pointing to unclaimed services. Verify with Nuclei takeover templates. |
 | **Success Criteria** | At least one potential takeover candidate identified. Verified by checking if the third-party service can be claimed. |
 
@@ -360,7 +360,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 2 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Set up a cron job that runs Amass daily against a target domain and alerts on new subdomains. |
 | **Success Criteria** | Cron job running. `amass track` detects new subdomains between runs. Alert (email or Slack webhook) fires on new subdomain discovery. |
 
@@ -374,7 +374,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Position Amass in the full external recon methodology. |
 | **Expected Output** | Methodology flowchart: `amass intel` (root domains) → `amass enum -passive` (subdomains, no noise) → `amass enum -active` (full brute-force, authorized) → `httpx` (live hosts) → `Nmap`/`Nuclei` (services/vulns). |
 
@@ -382,7 +382,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the detection and legal trade-offs of passive vs active enumeration. |
 | **Skills Learned** | Passive = zero target-side logs (reads from public data sources only). Active = DNS queries appear in target's DNS server logs and can trigger IDS. For black-box external pentests: always start passive. For authorized tests: active is fine. For bug bounty: passive unless scope explicitly allows active. |
 
@@ -390,7 +390,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Stay within authorized scope when enumerating multi-domain organizations. |
 | **Practical Exercise** | Use `-df domains.txt` to enumerate multiple root domains at once while staying in scope. Use `-exclude` to skip out-of-scope subdomains. Always verify with the scope document before active enumeration. |
 
@@ -420,17 +420,17 @@ Find and responsibly disclose a real subdomain takeover vulnerability via a bug 
 ## 🎓 Competency Matrix
 
 | Skill | Beginner | Intermediate | Advanced |
-|:------|:--------:|:------------:|:--------:|
-| Passive subdomain enumeration | [ ] | | |
-| Active DNS brute-force | | [ ] | |
-| ASN/CIDR root domain discovery | | [ ] | |
-| API key configuration (5+ sources) | | [ ] | |
-| Subfinder + Amass combined pipeline | | [ ] | |
-| httpx validation of discovered subdomains | [ ] | | |
-| Subdomain takeover identification | | | [ ] |
-| Amass track for change detection | | [ ] | |
-| Full automated recon pipeline | | | [ ] |
-| Bug bounty recon methodology | | | [ ] |
+| :------ | :--------: | :------------: | :--------: |
+| Passive subdomain enumeration | [ ] |||
+| Active DNS brute-force || [ ] ||
+| ASN/CIDR root domain discovery || [ ] ||
+| API key configuration (5+ sources) || [ ] ||
+| Subfinder + Amass combined pipeline || [ ] ||
+| httpx validation of discovered subdomains | [ ] |||
+| Subdomain takeover identification ||| [ ] |
+| Amass track for change detection || [ ] ||
+| Full automated recon pipeline ||| [ ] |
+| Bug bounty recon methodology ||| [ ] |
 
 ---
 

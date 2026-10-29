@@ -29,23 +29,23 @@ This repository is an **active cyber-security engineering system** built around 
 > [!TIP]
 > ### 💎 Best Navigated in Obsidian (Interactive Knowledge Graph & Seamless Traversal)
 > This entire engineering curriculum is specifically structured and optimized for **[Obsidian](https://obsidian.md/)**.
-> 
+>
 > - **Interactive Bi-Directional Links:** The **Master Roadmap** (`Roadmap/`) and **Tool Mastery** (`Tools/`) guides leverage native Obsidian wikilinks (`[[Stage-1_Foundation]]`, `[[Nmap]]`, `[[Module#Topic]]`) enabling frictionless jumping across prerequisite concepts, tool mechanics, and proof gates.
 > - **Interactive Graph View:** Visualize relationships, attack vectors, and cross-stage dependencies visually on Obsidian's local and global graph.
 > - **Hover Previews:** Hover over any tool or stage link to inspect prerequisites, checklists, or command syntax without losing your place.
 > - **Native Callouts & Task Checklists:** Interactive checkboxes (`- [ ]`) and styled operational callouts (`[!IMPORTANT]`, `[!NOTE]`, `[!CAUTION]`) render natively for a focused study terminal.
-> 
+>
 > ⚡ **Quick Setup:** Launch Obsidian ➔ Click **"Open folder as vault"** ➔ Select this repository's root `Cyber-Security/` folder.
 
 ### System Overview
 
-| Area                           | Scope & Breakdown                                                                                                      | Primary Hub                                                  |
+| Area | Scope & Breakdown | Primary Hub |
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------- |
-| 🗺️ **Master Roadmap**         | 5 sequential execution stages covering 30 core modules + proof gates *(Optimized for Obsidian)*                        | [Roadmap/README.md](Roadmap/README.md)                       |
-| 🛠️ **Tool Mastery Directory** | 88 comprehensive tool checklists arranged into a 4-tier operational hierarchy                                          | [Roadmap/Tools/README.md](Roadmap/Tools/README.md)           |
-| 🧪 **Hands-On Labs**           | Network exploitation, web security, Linux privilege escalation, and AD testing                                         | [Lab/README.md](Lab/README.md)                               |
-| 📦 **Post-Hire Shelf**         | 21 situational specializations (ICS/SCADA, Mobile, Web3, Forensics, Hardware, Automotive, Telecom, Advanced Internals) | [Roadmap/Shelf_Post-Hire.md](Roadmap/Shelf_Post-Hire.md)     |
-| 📚 **Literature Mapping**      | Exhaustive topic-by-topic cross-reference to primary security textbooks                                                | [Roadmap/book_to_phase_map.md](Roadmap/book_to_phase_map.md) |
+| 🗺️ **Master Roadmap** | 5 sequential execution stages covering 30 core modules + proof gates *(Optimized for Obsidian)* | [Roadmap/README.md](Roadmap/README.md) |
+| 🛠️ **Tool Mastery Directory** | 88 comprehensive tool checklists arranged into a 4-tier operational hierarchy | [Roadmap/Tools/README.md](Roadmap/Tools/README.md) |
+| 🧪 **Hands-On Labs** | Network exploitation, web security, Linux privilege escalation, and AD testing | [Lab/README.md](Lab/README.md) |
+| 📦 **Post-Hire Shelf** | 21 situational specializations (ICS/SCADA, Mobile, Web3, Forensics, Hardware, Automotive, Telecom, Advanced Internals) | [Roadmap/Shelf_Post-Hire.md](Roadmap/Shelf_Post-Hire.md) |
+| 📚 **Literature Mapping** | Exhaustive topic-by-topic cross-reference to primary security textbooks | [Roadmap/book_to_phase_map.md](Roadmap/book_to_phase_map.md) |
 
 ---
 
@@ -54,7 +54,7 @@ This repository is an **active cyber-security engineering system** built around 
 The curriculum follows a strict, dependency-driven execution order. Do not skip ahead without passing the designated **Stage Proof Gates**.
 
 | Stage | Focus & Scope | Modules | Key Milestone / Gate |
-|:-----:|:--------------|:-------:|:---------------------|
+| :-----: | :-------------- | :-------: | :--------------------- |
 | 🔵 **[Stage 1: Foundation](Roadmap/Stage-1_Foundation.md)** | Hardware architecture, Linux/Windows internals, 7-layer networking, Cryptography, Auth & Web fundamentals | `01–07` | **Foundation Proof Gate** (10 PCAPs, admin baselines, 3 scripts, lab report) |
 | 🟠 **[Stage 2: Offense I](Roadmap/Stage-2_Offense-I.md)** | OSINT, Port/Service Scanning, Service Enumeration, Database exploitation, Hash cracking, Initial compromise & PrivEsc | `08–13` | **Stage Gate 1** (Cold root on target, password hash extraction & cracking, PrivEsc) |
 | 🟣 **[Stage 3: Web & App Sec](Roadmap/Stage-3_Web-and-App-Sec.md)** | OWASP Top 10, modern web attacks, session hijacking, Web server hacking, API security, Bug bounty methodology, SOC/IDS/CTI | `14–18` | **Stage Gate 2** (3+ HTB/THM writeups, full OWASP coverage, Linux+Windows privesc) |
@@ -72,7 +72,7 @@ The repository features **88 structured tool guides** organized by tier in [Road
 *Must be mastered before entering client or enterprise engagements.*
 
 | Tool | Focus & Purpose | Guide |
-|:-----|:----------------|:-----:|
+| :----- | :---------------- | :-----: |
 | 🔌 **Netcat** | TCP/UDP swiss-army knife, port scanning, raw connections, reverse/bind shells | [Open Guide](Roadmap/Tools/Netcat.md) |
 | 🦈 **Wireshark** | Deep packet inspection, protocol analysis, credential extraction, PCAP forensics | [Open Guide](Roadmap/Tools/Wireshark.md) |
 | 🗺️ **Nmap** | Host discovery, port scanning, service versioning, OS detection, NSE scripts | [Open Guide](Roadmap/Tools/Nmap.md) |
@@ -93,7 +93,7 @@ The repository features **88 structured tool guides** organized by tier in [Road
 Theory without execution is dead weight. All knowledge is validated against isolated virtual machine environments and targets.
 
 | Environment | Focus Area | Entry Point |
-|:------------|:-----------|:-----------:|
+| :------------ | :----------- | :-----------: |
 | 🐧 **Metasploitable 2** | Service enumeration, network-level exploitation, Linux post-exploitation | [109-Task Lab Guide](Lab/Metasploitable_2/TASK_LIST.md) |
 | 🌐 **OWASP Broken WebApps** | OWASP Top 10 hands-on practice, Burp Suite testing, web vulnerability analysis | [Web Security Lab](Lab/OWASP_Broken_WebApps/TASK_LIST.md) |
 | 🏰 **OverTheWire Bandit** | Command line fluency, SSH configuration, Linux permissions, pipeline mastery | [Bandit 0–33 Writeups](Lab/OverTheWire/Bandit/README.md) |

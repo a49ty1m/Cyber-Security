@@ -19,7 +19,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | HTTP Benchmarking | DoS Simulation | Network Testing | Traffic Capture |
-|:-------------------|:---------------|:----------------|:----------------|
+| :------------------- | :--------------- | :---------------- | :---------------- |
 | [[ApacheBench\|📊 ApacheBench]] | [[GoldenEye\|💣 GoldenEye]] | [[hping3\|🔨 hping3]] | [[tcpdump\|📻 tcpdump]] |
 | [[wrk\|⚡ wrk]] | **🐌 Slowloris** (you are here) | [[iperf3\|📶 iperf3]] | [[Wireshark\|🦈 Wireshark]] |
 
@@ -28,13 +28,13 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | How Slowloris Works | 4 | 1–2 hours |
 | 2 | Using Slowloris | 4 | 1–2 hours |
 | 3 | Defense | 3 | 1–2 hours |
 | 4 | Comparison | 2 | 30 min |
 | 5 | Mastery Check | 2 | 20 min |
-| | **Total** | **15** | **~4–7 hours** |
+|| **Total** | **15** | **~4–7 hours** |
 
 ---
 
@@ -47,7 +47,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Normal HTTP** | Client connects → sends complete HTTP request headers → server processes → responds → connection closed or reused. |
 | **Slowloris** | Client connects → sends partial HTTP headers → waits → sends one more header every ~15 seconds → never sends the terminating `\r\n\r\n`. Server waits for the request to complete. Multiplied across hundreds of connections = connection pool exhausted. |
 | **Impact** | Server's `MaxConnections` (Apache: ~150 default) fills with Slowloris connections. New legitimate requests → "503 Service Unavailable" or "Connection refused". The server itself is fine — only its connection handling capacity is consumed. |
@@ -60,7 +60,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Vulnerable** | Apache 1.x and 2.x (by default). dhttpd. GoAhead. Many other thread-per-connection servers. |
 | **Resistant** | Nginx (event-driven, non-blocking I/O — incomplete requests don't block worker threads). IIS (configurable request timeouts). lighttpd. Servers with good request timeout configuration. Load balancers (terminate incomplete connections quickly). |
 | **Why Nginx Resists** | Nginx uses asynchronous event-driven architecture. Incomplete connections are held in a queue without consuming a thread. The worker threads only engage when data is ready. Slowloris fills the queue but doesn't block thread capacity. |
@@ -72,7 +72,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Initial Request** | `GET / HTTP/1.1\r\nHost: target.com\r\nUser-Agent: ...\r\n`. (No terminating `\r\n\r\n` — request never completes.) |
 | **Keep-Alive Headers** | Every ~15 seconds: `X-a: b\r\n` — sends a meaningless header to prevent the server's incomplete request timeout from firing. |
 | **Loop** | This continues until the connection is closed by the server or the attack stops. |
@@ -84,7 +84,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Origin** | Created by RSnake (Robert Hansen) in 2009. Demonstrated that low-bandwidth attacks could be as devastating as high-bandwidth ones. Named after the slow loris animal (which moves very slowly). |
 | **Impact** | Caused Apache to add `mod_reqtimeout`. Led to wider adoption of Nginx and event-driven architectures. Changed how server connection handling is designed. |
 
@@ -99,7 +99,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Python** | `pip install slowloris`. `slowloris target.com`. |
 | **Original Perl** | `github.com/llaera/slowloris.pl`. |
 | **CLI** | `slowloris target.com -p 80 -s 150 --sleeptime 15`. |
@@ -114,7 +114,7 @@
 > Lab only. Only test against servers you own or have explicit written authorization for.
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `slowloris 192.168.1.10 -p 80 -s 200 --sleeptime 15`. |
 | **Options** | `-p 80` — target port. `-s 200` — number of sockets (connections). `--sleeptime 15` — seconds between keep-alive header sends. `-v` — verbose (shows connection count). |
 | **Observe** | Monitor the target: `ss -tn | grep :80 | wc -l` — count connections. Once the connection count hits server max, try browsing to the server — you should get connection refused or timeout. |
@@ -126,7 +126,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `slowloris target.com -p 443 --ssl`. |
 | **Note** | TLS handshake still completes — the incomplete HTTP request comes after the TLS layer. Same mechanism, but over encrypted transport. SSL termination at a load balancer may cut the connection before it reaches the web server. |
 
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Determine at what socket count the server becomes unresponsive. |
 | **Method** | Start: `slowloris target -s 50`. Verify server still responds. Increase: `slowloris target -s 100`. Increase: `slowloris target -s 200`. Stop when server becomes unresponsive. Document: threshold socket count = server's practical connection limit. |
 | **Mitigation Test** | Apply `mod_reqtimeout` on Apache → retest. Does the mitigation raise the threshold or eliminate the attack? |
@@ -153,7 +153,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **mod_reqtimeout** | `a2enmod reqtimeout`. Config: `RequestReadTimeout header=20-40,MinRate=500 body=20,MinRate=500`. Forces server to close connections that don't send headers fast enough. |
 | **mod_limitipconn** | Limit connections per IP: `MaxConnPerIP 5`. |
 | **MaxRequestWorkers** | Increase Apache's worker count (buys time but doesn't fix the root problem). |
@@ -165,7 +165,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Rate Limiting** | `iptables -A INPUT -p tcp --dport 80 -m connlimit --connlimit-above 20 -j REJECT`. Limit connections per source IP. |
 | **Load Balancer** | Put Nginx or HAProxy in front of Apache. Nginx handles connection management; Apache only sees complete requests. Nginx's event model absorbs slow connections without blocking Apache workers. |
 | **CDN/WAF** | Cloudflare, AWS CloudFront — terminate connections at the edge, which has massive connection capacity and sophisticated DDoS mitigations. |
@@ -177,7 +177,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Indicators** | Many connections from the same IP(s) in ESTABLISHED state with no data transfer. `netstat -nt | grep :80 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -rn`. High connection count from single IP → likely Slowloris. Server access log: many partial requests (requests logged with "408 Request Timeout" or no response logged). |
 
 ---
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SYN Flood (hping3)** | Layer 3/4. Targets TCP connection table. Requires high packet rate. Defenses: SYN cookies. |
 | **HTTP Flood (GoldenEye)** | Layer 7. Sends many complete HTTP requests very fast. Requires more bandwidth than Slowloris. |
 | **Slowloris** | Layer 7. Holds connections open, never completing them. Very low bandwidth. Targets connection pool, not bandwidth. |
@@ -204,7 +204,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Nginx Target** | Slowloris has negligible impact. Nginx holds queued connections without blocking threads. |
 | **Short Timeouts** | If the server closes incomplete connections within seconds, Slowloris can't hold them open long enough. |
 | **Rate Limiting** | Firewall blocks after N connections from source IP. |
@@ -221,7 +221,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can explain how Slowloris works mechanically | ☐ |
 | Knows which server architectures are vulnerable and which are resistant | ☐ |
 | Can run a Slowloris test in a lab environment | ☐ |

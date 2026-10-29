@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | IaC Security | Cloud Assessment | Secrets Scanning |
-|:------------|:----------------|:-----------------|
+| :------------ | :---------------- | :----------------- |
 | [[Checkov\|✅ Checkov]] | [[Prowler\|☁️ Prowler]] | [[Gitleaks\|🕵️ Gitleaks]] |
-| **🛡️ tfsec** (you are here) | | [[TruffleHog\|🔎 TruffleHog]] |
+| **🛡️ tfsec** (you are here) || [[TruffleHog\|🔎 TruffleHog]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Scan | 4 | 1 hour |
 | 2 | Core Terraform Checks | 7 | 2–3 hours |
 | 3 | Module & Variable Analysis | 5 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 5 | CI/CD Integration | 4 | 1–2 hours |
 | 6 | tfsec vs Checkov — Combined Workflow | 4 | 1–2 hours |
 | 7 | Practical Labs | 4 | 3–4 hours |
-| | **Total** | **34** | **~13–19 hours** |
+|| **Total** | **34** | **~13–19 hours** |
 
 **Prerequisites:** Terraform basics (HCL syntax, resource/module/variable concepts). Phase 1 Linux CLI. Phase 8 DevSecOps context. Checkov.md read first (overlapping concepts).
 
@@ -319,7 +319,7 @@ jobs:
 ## 6.1 Differences at a Glance
 
 | Feature | tfsec | Checkov |
-|:--------|:------|:--------|
+| :-------- | :------ | :-------- |
 | **Scope** | Terraform only | Terraform, K8s, CF, Docker, Ansible, Helm |
 | **Performance** | Very fast (Go binary) | Slower (Python) |
 | **Module support** | Deep — traces through modules | Good |

@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Binary Exploitation | Debugging | Static Analysis | Forensics |
-|:-------------------|:---------|:----------------|:---------|
+| :------------------- | :--------- | :---------------- | :--------- |
 | **🐍 pwntools** (you are here) | [[GDB\|🐛 GDB]] | [[Ghidra\|🔭 Ghidra]] | [[Autopsy\|🔬 Autopsy]] |
-| | [[x64dbg\|🐛 x64dbg]] | | [[FTK_Imager\|🖼️ FTK Imager]] |
+|| [[x64dbg\|🐛 x64dbg]] || [[FTK_Imager\|🖼️ FTK Imager]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Basic Tube Usage | 6 | 2–3 hours |
 | 2 | ELF Analysis & Binary Introspection | 7 | 3–4 hours |
 | 3 | Buffer Overflow Exploitation | 8 | 5–7 hours |
@@ -38,7 +38,7 @@
 | 5 | Format String Exploitation | 6 | 4–6 hours |
 | 6 | Heap Exploitation Primitives | 7 | 6–8 hours |
 | 7 | Practical Labs | 4 | 6–10 hours |
-| | **Total** | **46** | **~32–46 hours** |
+|| **Total** | **46** | **~32–46 hours** |
 
 **Prerequisites:** Phase 7 Part 28 Stage 1 complete (GDB/pwndbg basics, x86-64 assembly fundamentals). Comfortable with Python. Understanding of memory layout (stack, heap, BSS, .text), calling conventions, and basic buffer overflow concept.
 

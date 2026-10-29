@@ -6,8 +6,8 @@
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Status |
-|:---:|:---:|:---|
-| [[Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[README\|Master Roadmap]] | Post-Hire & Elective Specializations (S01–S21) |
+| :---: | :---: | :--- |
+| [[Cyber-Security/Roadmap/Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | Post-Hire & Elective Specializations (S01–S21) |
 
 ---
 
@@ -333,7 +333,7 @@
 ### **Lab Progression (Shelf 01: Wireless Network Security)**
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Capture a WPA2 4-way handshake from my own AP using Aircrack-ng and crack it with a wordlist | Handshake capture file + successful crack report |
 | 2 | Execute an evil twin attack with [[Bettercap]]/hostapd-mana and capture credentials in my lab | MITM attack walkthrough with evidence screenshots |
 | 3 | Perform BLE enumeration and GATT service analysis of an IoT device using Bettercap or GATTacker | BLE security audit report with service map |
@@ -346,7 +346,7 @@
 ### **Lab Progression (Shelf 02: Mobile Platform Pentesting)**
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Perform static analysis of DIVA or InsecureBankv2 using MobSF and document all findings | Mobile app static analysis report |
 | 2 | Use Frida/Objection to bypass root detection and SSL pinning on a test app, then intercept API traffic | Dynamic analysis walkthrough with method hooks and traffic captures |
 | 3 | Complete a full mobile pentest (static + dynamic + network + local storage) on a vulnerable app | Professional mobile assessment report following OWASP MSTG |
@@ -517,7 +517,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Goal:** Gain hands-on experience with industrial control system attacks and defenses.
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Set up GRFICSv2 or SWaT testbed and explore Modbus/DNP3 traffic with [[Wireshark]] | Protocol analysis report with annotated packet captures |
 | 2 | Attack an OpenPLC controller in lab (scan, enumerate, modify ladder logic) | PLC exploitation walkthrough with screenshots |
 | 3 | Design ICS network segmentation using Purdue Model zones and data diodes | ICS security architecture document with network diagram |
@@ -694,7 +694,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 ### **Lab Progression (Shelf 04: Digital Forensics)**
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Acquire a forensic image using FTK Imager from a lab VM | Forensic image + hash verification document |
 | 2 | Analyze a memory dump with Volatility 3 (identify injected process) | Process analysis report with IOCs |
 | 3 | Reconstruct attack timeline from Windows Event Logs + Prefetch + Shimcache | Timeline spreadsheet with evidence citations |
@@ -1034,7 +1034,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Goal:** Gain hands-on experience with hardware and embedded system attacks.
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Extract firmware from a consumer IoT device (router, IP camera) using binwalk and analyze the filesystem | Firmware analysis report with extracted credentials/keys |
 | 2 | Gain UART shell access on a lab device, dump flash via SPI, and modify firmware | Hardware exploitation walkthrough with photos |
 | 3 | Perform side-channel power analysis using ChipWhisperer on a target implementing AES | Side-channel attack report with key recovery evidence |
@@ -1135,7 +1135,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Goal:** Gain hands-on experience with physical security assessment techniques.
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Practice lock picking on a training lock set (transparent locks + standard pin tumbler) | Lock bypass skills log with technique notes |
 | 2 | Clone a low-frequency RFID badge using Proxmark3 and demonstrate access control bypass in lab | Badge cloning walkthrough with Proxmark3 output |
 | 3 | Build and deploy a Rubber Ducky/Bash Bunny payload that establishes a reverse shell within 10 seconds | HID attack payload with demo video and detection guidance |
@@ -1247,7 +1247,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Goal:** Gain hands-on experience with VoIP and telecommunications attacks.
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Set up Asterisk PBX in lab, register SIP clients, and capture SIP/RTP traffic in Wireshark | VoIP protocol analysis report with call flow diagrams |
 | 2 | Perform SIP enumeration (svmap, svwar) and eavesdrop on an unencrypted call using Wireshark RTP playback | VoIP exploitation walkthrough with audio extraction evidence |
 | 3 | Harden the lab PBX with SRTP, TLS, and SBC rules; verify that previous attacks no longer work | VoIP hardening report with before/after comparison |
@@ -1352,7 +1352,7 @@ README must explain: what monitor mode is, why root is required, how to enable m
 > **Goal:** Gain hands-on experience with smart contract auditing and Web3 attacks.
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Complete Ethernaut and Damn Vulnerable DeFi (first 10 challenges each) | Challenge solutions with exploit code and vulnerability explanations |
 | 2 | Audit a sample smart contract using Slither + manual review; write a finding report | Smart contract audit report with severity ratings and PoC |
 | 3 | Write a Foundry test that demonstrates a flash loan attack against a vulnerable DeFi protocol on a mainnet fork | Flash loan exploit PoC with Foundry test code and impact analysis |
@@ -1453,15 +1453,15 @@ Choose one track:
 
   Privacy engineering applies threat modelling methodology to privacy risks — analogous to STRIDE for security threats. LINDDUN identifies seven privacy threat categories against data flows:
 
-  | Threat | Description | Example |
-  |--------|-------------|---------|
-  | **L**inkability | Link data items/actions across contexts | Correlating user sessions across services |
-  | **I**dentifiability | Identify individuals from supposedly anonymous data | Re-identifying users from "anonymised" datasets via quasi-identifiers |
-  | **N**on-repudiation | User cannot deny actions they took | Immutable audit logs expose user behaviour to third parties |
-  | **D**etectability | Detect existence of data or actions | Timing attacks revealing whether a username exists |
-  | **D**isclosure | Expose personal data to unauthorised parties | S3 bucket misconfiguration exposing PII |
-  | **U**nawareness | Users don't know what data is collected/processed | Dark patterns hiding data collection in ToS |
-  | **N**on-compliance | Processing data in violation of regulations | Missing GDPR consent mechanism or retention policy |
+| Threat | Description | Example |
+| -------- | ------------- | --------- |
+| **L**inkability | Link data items/actions across contexts | Correlating user sessions across services |
+| **I**dentifiability | Identify individuals from supposedly anonymous data | Re-identifying users from "anonymised" datasets via quasi-identifiers |
+| **N**on-repudiation | User cannot deny actions they took | Immutable audit logs expose user behaviour to third parties |
+| **D**etectability | Detect existence of data or actions | Timing attacks revealing whether a username exists |
+| **D**isclosure | Expose personal data to unauthorised parties | S3 bucket misconfiguration exposing PII |
+| **U**nawareness | Users don't know what data is collected/processed | Dark patterns hiding data collection in ToS |
+| **N**on-compliance | Processing data in violation of regulations | Missing GDPR consent mechanism or retention policy |
 
   - [ ] **GDPR Article 25 — Privacy by Design:** Controllers must implement data protection by design and default. In practice: data minimisation (collect only what is necessary), purpose limitation (don't reuse data), pseudonymisation of personal data at rest, default-secure settings (maximum privacy by default, not maximum functionality).
 
@@ -1867,7 +1867,7 @@ Choose one track:
 ### **Lab Progression (Shelf 14: Secure Code Review Methodology)**
 
 | Level | Task | Deliverable |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Clone DVWA or WebGoat; identify 5 vulnerable functions by reading source code only (no exploitation) | Vulnerability list with file/line references and CWE IDs |
 | 2 | Run `semgrep --config=auto` against a small Python/PHP project; triage all findings (true positive, false positive, needs-context) | Triaged findings report with rationale for each decision |
 | 3 | Write 3 custom Semgrep rules targeting patterns not covered by default rulesets in my target language | 3 working Semgrep `.yaml` rule files with test cases |
@@ -1919,13 +1919,13 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
   ZTNA (Zero Trust Network Access) replaces VPN with identity-aware, least-privilege application access. SASE (Secure Access Service Edge) bundles ZTNA, SWG, CASB, FWaaS, and SD-WAN into a cloud-delivered platform. As a security architect or pentester, I will encounter these in every large enterprise.
 
-  | Product | Vendor | Type | Architecture |
-  |---------|--------|------|-------------|
-  | **Zscaler Internet Access (ZIA)** | Zscaler | SWG + CASB + FWaaS | Cloud-delivered proxy; all user traffic tunnelled to Zscaler PoPs |
-  | **Zscaler Private Access (ZPA)** | Zscaler | ZTNA | App connector in datacenter; user never touches the network — only the app |
-  | **Palo Alto Prisma Access** | Palo Alto | SASE | NGFW policy + GlobalProtect + CASB in cloud |
-  | **Cloudflare Access** | Cloudflare | ZTNA | Identity-aware proxy; JWT-based per-request auth; integrates with Okta/Azure AD |
-  | **Microsoft Entra Private Access** | Microsoft | ZTNA | Replaces VPN for Azure-integrated environments; Conditional Access integration |
+| Product | Vendor | Type | Architecture |
+| --------- | -------- | ------ | ------------- |
+| **Zscaler Internet Access (ZIA)** | Zscaler | SWG + CASB + FWaaS | Cloud-delivered proxy; all user traffic tunnelled to Zscaler PoPs |
+| **Zscaler Private Access (ZPA)** | Zscaler | ZTNA | App connector in datacenter; user never touches the network — only the app |
+| **Palo Alto Prisma Access** | Palo Alto | SASE | NGFW policy + GlobalProtect + CASB in cloud |
+| **Cloudflare Access** | Cloudflare | ZTNA | Identity-aware proxy; JWT-based per-request auth; integrates with Okta/Azure AD |
+| **Microsoft Entra Private Access** | Microsoft | ZTNA | Replaces VPN for Azure-integrated environments; Conditional Access integration |
 
   - [ ] **How ZTNA Replaces VPN:** Traditional VPN grants network access (wide blast radius on credential theft). ZTNA grants *application* access — the user's device never joins the corporate network. A compromised ZTNA session can access one app, not the entire network. Understand: connector-based ZTNA (Zscaler ZPA) vs. reverse-proxy ZTNA (Cloudflare Access).
 
@@ -1949,13 +1949,13 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 
   CNAPP unifies CSPM, CWPP, CIEM, and IaC scanning into a single platform. Cloud security engineers are expected to understand this tooling category — it has replaced standalone CSPM/CWPP tools in most enterprise cloud security programmes.
 
-  | Component | What it covers | Standalone tool equivalent |
-  |-----------|---------------|---------------------------|
-  | **CSPM** (Cloud Security Posture Management) | Cloud configuration misconfigurations | Prowler, ScoutSuite |
-  | **CWPP** (Cloud Workload Protection) | VM/container/serverless runtime threats | Falco, Sysdig |
-  | **CIEM** (Cloud Infrastructure Entitlement Management) | Overpermissioned IAM roles, lateral movement paths | IAM Access Analyzer |
-  | **IaC Scanning** | Misconfigurations in Terraform, Bicep, CloudFormation | Checkov, tfsec |
-  | **CNAPP** | All of the above unified with a shared data model and attack path analysis | Wiz, Lacework, Orca Security |
+| Component | What it covers | Standalone tool equivalent |
+| ----------- | --------------- | --------------------------- |
+| **CSPM** (Cloud Security Posture Management) | Cloud configuration misconfigurations | Prowler, ScoutSuite |
+| **CWPP** (Cloud Workload Protection) | VM/container/serverless runtime threats | Falco, Sysdig |
+| **CIEM** (Cloud Infrastructure Entitlement Management) | Overpermissioned IAM roles, lateral movement paths | IAM Access Analyzer |
+| **IaC Scanning** | Misconfigurations in Terraform, Bicep, CloudFormation | Checkov, tfsec |
+| **CNAPP** | All of the above unified with a shared data model and attack path analysis | Wiz, Lacework, Orca Security |
 
   **Representative CNAPP platforms:**
   - **Wiz:** Agentless cloud scanning via read-only API access. Builds a security graph connecting cloud resources, identities, misconfigs, vulnerabilities, and network exposure. Attack path analysis shows: "this S3 bucket is publicly accessible AND contains credentials that grant admin access to RDS" — a compound finding no standalone tool sees.
@@ -1989,7 +1989,7 @@ _Phase 8 — Governance, Supply Chain, DevSecOps & Architecture | This module fi
 ### **Lab Progression (Shelf 15: Security Architecture & Engineering)**
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Design a network architecture for a 3-tier web application | Architecture diagram with security controls |
 | 2 | Create a Zero Trust access policy for a hybrid workforce | Policy document with NIST 800-207 mapping |
 | 3 | Design a cloud security architecture (VPC, security groups, WAF) | Cloud architecture diagram |
@@ -2127,7 +2127,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 **Platform Guide for SecOps:**
 
 | Platform | Best For | Cost |
-|----------|----------|------|
+| ---------- | ---------- | ------ |
 | [Blue Team Labs Online](https://blueteamlabs.online) | DFIR investigations, SOC analyst challenges, log analysis, malware triage | Free + Pro |
 | [LetsDefend](https://letsdefend.io) | SOC analyst workflows, alert triage, phishing analysis, incident handling | Free + Pro |
 | [CyberDefenders](https://cyberdefenders.org) | Blue team CTF challenges, PCAP analysis, forensics, threat hunting | Free + Pro |
@@ -2180,7 +2180,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 ---
 
 > [!NOTE]
-> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[[Stage-3_Web-and-App-Sec#Module 15: Session Hijacking & Token Attacks|Stage 3: Module 15]]** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[[Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23 (Sniffing & Spoofing)]]**.
+> **Curriculum Alignment Note:** Application-layer Session Hijacking & Token Attacks (cookie security attributes, session fixation, JWT tampering, and CSRF) are taught exclusively in **[[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec#Module 15: Session Hijacking & Token Attacks|Stage 3: Module 15]]** alongside Web Application Penetration Testing. Network-level packet sniffing and MITM manipulation are covered in **[[Cyber-Security/Roadmap/Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23 (Sniffing & Spoofing)]]**.
 
 ------
 
@@ -2234,7 +2234,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 - [ ] **OTA Security Architecture:** Secure boot chain (HSM, code signing with ECC), encrypted and signed firmware packages, rollback prevention, secure update session management.
 
 | Tool | Purpose |
-|:-----|:--------|
+| :----- | :-------- |
 | `can-utils` (candump, cansend) | Linux CAN socket interface — capture and inject frames |
 | CANtact / PCAN-USB | USB-to-CAN hardware interface |
 | Caringcarla / Python-can | Python CAN bus automation and fuzzing |
@@ -2295,7 +2295,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 - [ ] **5G Security Improvements:** SUCI (Subscription Concealed Identifier) — IMSI encrypted with home network public key (ECIES) before air interface transmission, preventing passive IMSI harvesting. Null encryption prohibition in NAS layer. Bidirectional authentication mandatory.
 
 | Tool | Purpose |
-|:-----|:--------|
+| :----- | :-------- |
 | SigPloit | SS7 / Diameter / GTP security testing framework |
 | Wireshark (M3UA, MAP, Diameter dissectors) | Telecom protocol capture and analysis |
 | osmocomBB | Open-source GSM baseband for air interface research |
@@ -2351,7 +2351,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 - [ ] **eBPF Security Relevance:** eBPF programs attached to kprobes, tracepoints, and network sockets — used by modern EDRs (Falco, Cilium, Tetragon) for process/network/file telemetry. Offensive research: malicious eBPF for rootkit-grade stealth without kernel module signing requirements.
 
 | Tool | Purpose |
-|:-----|:--------|
+| :----- | :-------- |
 | `strace` / `ltrace` | Syscall and library call tracing |
 | `ftrace` / `bpftrace` | Kernel function tracing and eBPF scripting |
 | QEMU + GDB | Kernel debugging and exploit development environment |
@@ -2408,7 +2408,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 - [ ] **Malware Persistence Artifacts in Memory:** Identifying rootkit hooks — SSDT (System Service Descriptor Table) hooks, IRP (I/O Request Packet) dispatch table hooks in driver objects, DKOM modifications (process FLINK/BLINK list unlinking). Comparing against known-good baselines.
 
 | Tool | Purpose |
-|:-----|:--------|
+| :----- | :-------- |
 | Volatility 3 | Windows and Linux memory forensics framework |
 | WinPmem / DumpIt | Physical memory acquisition |
 | Sysinternals (Process Explorer, Handle, VMMap) | Live Windows internals inspection |
@@ -2421,7 +2421,7 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 ### 🧭 Shelf Navigation
 
 | ◀ Return to Stage 5 | 🏠 Master Hub | ⬆ Top |
-|:---:|:---:|:---:|
-| [[Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[README\|Master Roadmap]] | [[#📦 Shelf: Post-Hire & Elective Specializations\|⬆ Return to Top]] |
+| :---: | :---: | :---: |
+| [[Cyber-Security/Roadmap/Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[#📦 Shelf: Post-Hire & Elective Specializations\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Use Obsidian's quick switcher (`Ctrl + O` or `Cmd + O`) to search and jump directly to any specific Shelf module.

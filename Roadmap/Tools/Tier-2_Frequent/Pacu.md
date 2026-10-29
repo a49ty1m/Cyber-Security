@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Cloud Security | Cloud Audit | Enterprise |
-|:--------------|:-----------|:-----------|
+| :-------------- | :----------- | :----------- |
 | **🐦 Pacu** (you are here) | [[Prowler\|☁️ Prowler]] | [[BloodHound\|🩸 BloodHound]] |
-| [[Certipy\|🔑 Certipy]] | | [[Impacket\|🔧 Impacket]] |
+| [[Certipy\|🔑 Certipy]] || [[Impacket\|🔧 Impacket]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Session Setup | 5 | 1–2 hours |
 | 2 | Reconnaissance Modules | 7 | 3–4 hours |
 | 3 | IAM Privilege Escalation | 8 | 4–6 hours |
@@ -38,7 +38,7 @@
 | 5 | Service-Specific Exploitation | 7 | 4–5 hours |
 | 6 | Data Exfiltration & Impact | 5 | 2–3 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **41** | **~21–30 hours** |
+|| **Total** | **41** | **~21–30 hours** |
 
 **Prerequisites:** Basic AWS concepts (IAM, S3, EC2, Lambda). Phase 6 cloud security fundamentals. AWS CLI configured with test credentials.
 

@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | **🔥 Hashcat** (you are here) | |
+|| [[Hydra\|🔓 Hydra]] | **🔥 Hashcat** (you are here) ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Hash Theory | 6 | 3–4 hours |
 | 2 | Core Attack Modes | 7 | 5–7 hours |
 | 3 | Intermediate (Rules, Masks, Combinator) | 6 | 5–7 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 4–8 hours |
 | 7 | Methodology & Limitations | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **38** | **~30–46 hours** |
+|| **Total** | **38** | **~30–46 hours** |
 
 **Prerequisites:** Understanding of password hashing concepts. Hash extraction from a compromised target (Metasploitable 2 `/etc/shadow`). GPU recommended but CPU works for learning.
 
@@ -77,7 +77,7 @@ hashcat --restore --session mysession
 
 ### Key Hash Modes
 | -m | Hash Type |
-|----|----------|
+| ---- | ---------- |
 | 0 | MD5 |
 | 100 | SHA1 |
 | 1000 | NTLM |
@@ -90,7 +90,7 @@ hashcat --restore --session mysession
 | 22000 | WPA2 (PMKID/EAPOL) |
 
 | Flag | Meaning |
-|------|---------|
+| ------ | --------- |
 | `-m` | Hash mode |
 | `-a` | Attack mode (0=dict, 3=mask, 6=hybrid, 8=PRINCE) |
 | `-r` | Rules file |
@@ -109,7 +109,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the fundamental differences: **Encoding** is reversible without a key (Base64, URL). **Encryption** is reversible WITH a key (AES, RSA). **Hashing** is ONE-WAY — you cannot mathematically reverse a hash to get the original password. Cracking = guessing inputs until one produces the same hash. |
 | **Skills Learned** | One-way function concept, why hashing is used for password storage, why cracking is "educated guessing" not "decryption," salt and pepper concepts, hash collision concept. |
 | **Practical Exercise** | Generate hashes: `echo -n "password123" | md5sum`, `echo -n "password123" | sha256sum`. Observe: the same input always produces the same hash. Different inputs produce completely different hashes. You cannot reverse-engineer the input from the hash. |
@@ -123,7 +123,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify hash types by their format, length, and prefix. Hashcat requires you to specify the correct hash mode (`-m`) — wrong mode = zero results. |
 | **Skills Learned** | Visual hash identification, common hash formats, using identification tools, Hashcat mode numbers for common types. |
 | **Key Hash Types** | **MD5:** 32 hex chars, `-m 0`. **SHA-1:** 40 hex chars, `-m 100`. **SHA-256:** 64 hex chars, `-m 1400`. **NTLM:** 32 hex chars (Windows), `-m 1000`. **NetNTLMv2:** `user::domain:challenge:hash:blob`, `-m 5600`. **bcrypt:** `$2b$10$...`, `-m 3200`. **Linux SHA-512:** `$6$salt$hash`, `-m 1800`. **Linux SHA-256:** `$5$salt$hash`, `-m 7400`. **WPA:** `.hccapx` file, `-m 22000`. |
@@ -138,7 +138,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install Hashcat and verify your hardware (GPU/CPU) is detected. Understand the massive speed difference between CPU and GPU cracking. |
 | **Skills Learned** | `hashcat -I` (list detected devices), OpenCL/CUDA driver requirements, GPU vs CPU performance (GPU is 10-100x faster for most hash types), benchmarking with `hashcat -b`. |
 | **Practical Exercise** | `hashcat -I` (identify devices). `hashcat -b -m 0` (benchmark MD5 speed). `hashcat -b -m 1000` (benchmark NTLM). `hashcat -b -m 1800` (benchmark SHA-512 crypt — notice how much slower it is). |
@@ -152,7 +152,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Prepare hash files in the correct format for Hashcat. Each hash type has a specific expected format — wrong format = error or no results. |
 | **Skills Learned** | Hash file formatting (one hash per line), extracting hashes from `/etc/shadow`, Windows SAM, NTDS.dit, and database dumps, removing extraneous data, username:hash format handling. |
 | **Practical Exercise** | Extract from `/etc/shadow`: `sudo cat /etc/shadow | grep '\$6\$' > linux-hashes.txt`. Format for Hashcat: `awk -F':' '{print $2}' linux-hashes.txt > hashes-only.txt`. Or keep `user:hash` format: `awk -F':' '{print $1":"$2}' /etc/shadow > user-hashes.txt` and use `--username` flag. |
@@ -166,7 +166,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Read and interpret Hashcat's runtime output: speed, progress, estimated time, temperature, and cracked hash display. Understand the potfile and `--show` flag. |
 | **Skills Learned** | Runtime status (press `s` during cracking), speed interpretation (H/s = hashes per second), ETA reading, temperature monitoring, potfile concept (already-cracked hashes stored in `~/.local/share/hashcat/hashcat.potfile`), `--show` to display cracked hashes. |
 | **Practical Exercise** | Run a crack attempt. Press `s` for status. Note: Speed, Progress (X/Y = candidates tested/total), Time.Estimated, Temperature. After cracking: `hashcat -m <mode> hashes.txt --show` (display cracked results). `cat ~/.local/share/hashcat/hashcat.potfile` (view all ever-cracked hashes). |
@@ -180,7 +180,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create a clear decision framework: Have hashes? → Hashcat. Have a live service? → Hydra. Know when each is applicable and their trade-offs. |
 | **Comparison** | **Hashcat (Offline):** Needs extracted hashes, billions/sec speed, no network needed, no account lockout, no detection. **Hydra (Online):** Needs live service, ~100 attempts/sec, network dependent, account lockout risk, IDS detection. |
 | **Expected Output** | Decision framework documented. Understanding that offline cracking is always preferred when hashes are available. |
@@ -196,7 +196,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Run a basic dictionary attack: test every word in a wordlist against the hash(es). This is the starting point for all cracking attempts. |
 | **Syntax** | `hashcat -m <mode> -a 0 hashes.txt /usr/share/wordlists/rockyou.txt`. |
 | **Real-World Scenario** | You extracted SHA-512 hashes from a Linux server's `/etc/shadow`. Test them against `rockyou.txt` first — it contains the 14 million most common passwords. |
@@ -210,7 +210,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Apply mutation rules to dictionary words: capitalize first letter, append numbers, substitute characters (leet speak), reverse, duplicate. Rules multiply the effectiveness of any wordlist by testing variations. |
 | **Syntax** | `hashcat -m <mode> -a 0 hashes.txt rockyou.txt -r /usr/share/hashcat/rules/best64.rule`. Multiple rules: `-r rule1.rule -r rule2.rule`. Common rule files: `best64.rule` (essential), `d3ad0ne.rule` (comprehensive), `rockyou-30000.rule` (massive), `dive.rule` (thorough). |
 | **Real-World Scenario** | The password is `Summer2024!` — not in any wordlist. But `summer` IS in the wordlist. Rules that capitalize + append `2024!` find it. Rules transform a 14M wordlist into billions of candidates. |
@@ -224,7 +224,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use mask attacks to test all possible character combinations matching a pattern. This is systematic brute-force with pattern awareness — much smarter than testing every possible combination blindly. |
 | **Syntax** | `hashcat -m <mode> -a 3 hashes.txt ?u?l?l?l?l?d?d?d?s`. Charsets: `?l` = lowercase, `?u` = uppercase, `?d` = digit, `?s` = special, `?a` = all printable, `?b` = all bytes. Custom charset: `-1 ?l?d` then use `?1` in the mask. Increment: `--increment --increment-min 4 --increment-max 8` (try lengths 4 through 8). |
 | **Real-World Scenario** | You know the password policy requires: 1 uppercase + 5 lowercase + 2 digits + 1 special. Mask: `?u?l?l?l?l?l?d?d?s` tests all combinations matching this exact pattern. |
@@ -238,7 +238,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Combine every word from one wordlist with every word from another. Catches passwords like `solarwinds123`, `football2024`, `admin!password`. |
 | **Syntax** | `hashcat -m <mode> -a 1 hashes.txt wordlist1.txt wordlist2.txt`. |
 | **Real-World Scenario** | Create list1 with base words (`summer`, `winter`, `spring`, `company`) and list2 with suffixes (`2024`, `2023`, `!`, `123`, `@1`). Combinator produces: `summer2024`, `company!`, `winter123`, etc. |
@@ -252,7 +252,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Combine dictionary words with brute-force masks. Mode 6: wordlist + mask (append). Mode 7: mask + wordlist (prepend). Catches passwords like `password123`, `2024summer!`. |
 | **Syntax** | Append digits: `hashcat -m <mode> -a 6 hashes.txt rockyou.txt ?d?d?d` (word + 3 digits). Prepend: `hashcat -m <mode> -a 7 hashes.txt ?d?d?d?d rockyou.txt` (4 digits + word). |
 | **Real-World Scenario** | Common password pattern: dictionary word + 2-4 digits + optional special. `hashcat -a 6 hashes.txt wordlist.txt ?d?d?d?s` catches `summer123!`, `admin456@`. |
@@ -266,7 +266,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Crack Linux password hashes extracted from `/etc/shadow`. Identify the hash type by prefix: `$1$` = MD5crypt, `$5$` = SHA-256crypt, `$6$` = SHA-512crypt, `$y$` = yescrypt. |
 | **Practical Exercise** | Extract hashes from Metasploitable 2's `/etc/shadow` (obtained via exploitation). Identify type (likely `$1$` MD5crypt on older systems). Crack: `hashcat -m 500 linux-hashes.txt rockyou.txt -r best64.rule`. |
 | **Expected Output** | Linux user passwords cracked. Credential inventory expanded. Understanding of Linux hash formats and their relative strength. |
@@ -279,7 +279,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Crack Windows NTLM hashes extracted from SAM, NTDS.dit, or Meterpreter's `hashdump`. NTLM is fast to crack because it's unsalted MD4. |
 | **Practical Exercise** | From Meterpreter hashdump output (format: `user:RID:LM:NTLM:::`), extract NTLM portion. Crack: `hashcat -m 1000 ntlm-hashes.txt rockyou.txt -r best64.rule`. Note the cracking speed — NTLM is one of the fastest hash types. |
 | **Expected Output** | Windows passwords cracked at extremely high speed. Understanding that NTLM is weak because it's unsalted (identical passwords = identical hashes across all systems). |
@@ -296,7 +296,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Write custom Hashcat rules to generate password candidates that match your target's likely password patterns. Rules are the most powerful feature in Hashcat. |
 | **Skills Learned** | Rule syntax: `:` (do nothing), `l` (lowercase all), `u` (uppercase all), `c` (capitalize first), `t` (toggle case), `$X` (append X), `^X` (prepend X), `sa@` (substitute a→@), `d` (duplicate), `r` (reverse), `[` (delete first), `]` (delete last), `T0` (toggle position 0). |
 | **Practical Exercise** | Create `custom.rule`: `:` (original word), `c` (capitalize), `c$1` (capitalize + append 1), `c$!` (capitalize + append !), `c$2$0$2$4` (capitalize + append 2024), `sa@` (a→@), `se3` (e→3), `c$!$!` (capitalize + append !!). Test: `hashcat -m 0 test-hash.txt wordlist.txt -r custom.rule`. |
@@ -310,7 +310,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create `.hcmask` files containing multiple masks to run sequentially. This automates testing multiple password patterns in one command. |
 | **Syntax** | Create `patterns.hcmask`: `?u?l?l?l?l?l?d?d` (Ullllldd), `?u?l?l?l?l?d?d?d?d` (Ulllldddd), `?d?d?d?d?d?d` (6 digits), `?l?l?l?l?l?l?l?l` (8 lowercase). Run: `hashcat -m <mode> -a 3 hashes.txt patterns.hcmask`. |
 | **Expected Output** | Multiple patterns tested sequentially. Understanding that mask files organize brute-force strategy. |
@@ -322,7 +322,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use the PRINCE (PRobability INfinite Chained Elements) attack to generate password candidates by combining words from a dictionary in order of probability. More intelligent than simple combinator. **Version Note:** Hashcat 5.x and later have PRINCE built-in as attack mode 8 (`-a 8`). Hashcat 4.x and earlier require the separate `pp64` preprocessor. Check your version with `hashcat --version`. Kali 2023+ ships with Hashcat 6.x (mode 8 works). |
 | **Syntax** | Hashcat 5.x+: `hashcat -a 8 -m <mode> hashes.txt wordlist.txt`. Hashcat 4.x (if using old version): `pp64 < wordlist.txt | hashcat -m <mode> hashes.txt`. |
 | **Expected Output** | Passwords cracked that are combinations of multiple common words. |
@@ -335,7 +335,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Crack captured Wi-Fi WPA/WPA2 handshakes. Understand the capture-to-crack pipeline: capture handshake (aircrack-ng) → convert to Hashcat format → crack. |
 | **Syntax** | Convert capture: `hcxpcapngtool -o hash.hc22000 capture.pcapng`. Crack: `hashcat -m 22000 hash.hc22000 rockyou.txt -r best64.rule`. |
 | **Expected Output** | Wi-Fi password recovered from handshake capture. Understanding of the WPA cracking pipeline. |
@@ -348,7 +348,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Crack hashes from web applications (WordPress, Joomla, Drupal), databases (MySQL, MSSQL, PostgreSQL), and other applications. Each uses a different hashing scheme. |
 | **Key Modes** | WordPress: `-m 400` (phpass). MySQL 4.1+: `-m 300`. MSSQL: `-m 1731`. PostgreSQL MD5: `-m 12`. Drupal 7: `-m 7900`. phpBB3: `-m 400`. Kerberos TGS (Kerberoasting): `-m 13100`. |
 | **Expected Output** | Application-specific hashes cracked. Understanding that each application uses different hash schemes with different cracking speeds. |
@@ -360,7 +360,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Save and restore long-running cracking sessions. Name sessions for organization across engagements. |
 | **Syntax** | Named session: `hashcat --session engagement1 -m 1800 hashes.txt rockyou.txt`. Pause: press `q` (quit and save). Restore: `hashcat --session engagement1 --restore`. |
 | **Expected Output** | Sessions saved and restored without losing progress. Multiple named sessions for different engagements. |
@@ -376,7 +376,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Split cracking work across multiple machines using `--skip` and `--limit` or Hashtopolis for centralized management. |
 | **Skills Learned** | Keyspace splitting, Hashtopolis agent setup, distributed cracking architecture, cloud GPU instances for cracking (AWS p3, Google Cloud GPU). |
 | **Expected Output** | Understanding of distributed cracking architecture. Ability to split work across machines. |
@@ -388,7 +388,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master hash extraction from various sources: `secretsdump.py` (AD hashes), `mimikatz` (Windows memory), Meterpreter `hashdump`, database dumps, web app databases, `john2hashcat` format conversion. |
 | **Key Tools** | `secretsdump.py -just-dc-ntlm domain/user:pass@DC` (Active Directory). `mimikatz` → `sekurlsa::logonpasswords`. Meterpreter → `hashdump` or `load kiwi` → `creds_all`. `unshadow /etc/passwd /etc/shadow > combined.txt` (for John format). |
 | **Expected Output** | Hashes extracted from multiple sources in Hashcat-ready format. |
@@ -400,7 +400,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze cracked passwords for patterns: most common base words, length distribution, character set usage, policy compliance. This data goes into your pentest report. |
 | **Practical Exercise** | After cracking a set of hashes: `hashcat -m <mode> hashes.txt --show | awk -F: '{print $NF}'` → save cracked passwords → analyze: `awk '{print length($0)}' cracked.txt | sort | uniq -c | sort -rn` (length distribution). `pipal cracked.txt` (password analysis tool). |
 | **Expected Output** | Password analysis report: length distribution, character set usage, top base words, policy compliance percentage. |
@@ -414,7 +414,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Optimize Hashcat performance: workload profiles (`-w`), temperature limits, device selection, kernel optimization. |
 | **Syntax** | Workload profiles: `-w 1` (low), `-w 2` (default), `-w 3` (high), `-w 4` (nightmare — may freeze your GUI). Temperature limit: `--hwmon-temp-abort=90`. Device selection: `-d 1` (use device 1 only). Force CPU: `--force -D 1`. |
 | **Expected Output** | Optimized cracking speed without hardware damage. Understanding of workload/temperature trade-offs. |
@@ -426,7 +426,7 @@ hashcat --restore --session mysession
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Crack Kerberos ticket hashes obtained through Kerberoasting (`-m 13100`) and AS-REP Roasting (`-m 18200`). These are critical Active Directory attack techniques. |
 | **Syntax** | Kerberoast: `hashcat -m 13100 kerberoast-hashes.txt rockyou.txt -r best64.rule`. AS-REP Roast: `hashcat -m 18200 asrep-hashes.txt rockyou.txt -r best64.rule`. |
 | **Expected Output** | Service account passwords cracked from Kerberos tickets. Understanding of the full Kerberoasting pipeline (request tickets → extract hashes → crack offline). |
@@ -559,7 +559,7 @@ hashcat --restore --session mysession
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can identify common hash types by sight | ☐ |
 | Can run dictionary, rule, mask, and hybrid attacks | ☐ |
 | Can write custom rules for targeted cracking | ☐ |

@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
-|:--------------|:----------|:----------------|:----------|
+| :-------------- | :---------- | :---------------- | :---------- |
 | [[Splunk\|📊 Splunk]] | [[Sysmon\|🔭 Sysmon]] | [[Sigma\|🔎 Sigma]] | [[Volatility\|🧠 Volatility]] |
 | [[Wazuh\|🐺 Wazuh]] | [[Plaso\|📦 Plaso]] | [[YARA\|🦠 YARA]] | [[Autopsy\|🔬 Autopsy]] |
-| **📦 ELK** (you are here) | | | |
+| **📦 ELK** (you are here) ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Stack Setup | 6 | 3–4 hours |
 | 2 | Elasticsearch Core Concepts | 7 | 3–4 hours |
 | 3 | Logstash Pipelines & Beats | 6 | 3–4 hours |
@@ -39,7 +39,7 @@
 | 5 | Elastic Security (SIEM Module) | 7 | 4–6 hours |
 | 6 | Sysmon + Winlogbeat Integration | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 6–8 hours |
-| | **Total** | **43** | **~26–35 hours** |
+|| **Total** | **43** | **~26–35 hours** |
 
 **Prerequisites:** Linux fundamentals (Phase 1). Basic understanding of JSON. Docker knowledge is helpful (Docker Compose is the easiest install method).
 
@@ -129,7 +129,7 @@ curl http://localhost:9200
 ## 2.1 Key Elasticsearch Concepts
 
 | Concept | Elasticsearch | SQL Equivalent |
-|:--------|:-------------|:--------------|
+| :-------- | :------------- | :-------------- |
 | Cluster | Elasticsearch cluster | Database server |
 | Index | Index | Database/table |
 | Document | JSON document | Row |
@@ -231,7 +231,7 @@ output {
 ## 3.2 Beats — Lightweight Shippers
 
 | Beat | Purpose | Use Case |
-|:-----|:--------|:---------|
+| :----- | :-------- | :--------- |
 | **Filebeat** | Ships log files | syslog, app logs, audit logs |
 | **Winlogbeat** | Ships Windows Event Logs | Windows endpoints in your lab |
 | **Packetbeat** | Ships network packet data | Network monitoring |

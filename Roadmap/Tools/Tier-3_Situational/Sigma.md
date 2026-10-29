@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Detection Rules | SIEM Platforms | Endpoint Telemetry | Malware Analysis |
-|:---------------|:--------------|:------------------|:-----------------|
+| :--------------- | :-------------- | :------------------ | :----------------- |
 | **🔎 Sigma** (you are here) | [[Splunk\|📊 Splunk]] | [[Sysmon\|🔭 Sysmon]] | [[YARA\|🦠 YARA]] |
-| | [[Wazuh\|🐺 Wazuh]] | | [[Volatility\|🧠 Volatility]] |
-| | [[ELK\|📦 ELK]] | | |
+|| [[Wazuh\|🐺 Wazuh]] || [[Volatility\|🧠 Volatility]] |
+|| [[ELK\|📦 ELK]] |||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Sigma Basics & Tool Setup | 5 | 1–2 hours |
 | 2 | Rule Anatomy & Syntax | 8 | 3–4 hours |
 | 3 | Writing Rules from Scratch | 8 | 4–6 hours |
@@ -39,7 +39,7 @@
 | 5 | The SigmaHQ Repository | 5 | 2–3 hours |
 | 6 | Advanced: Correlation & Conditions | 6 | 3–4 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **41** | **~19–28 hours** |
+|| **Total** | **41** | **~19–28 hours** |
 
 **Prerequisites:** Phase 3 Part 13A Stage 1 complete (Sysmon deployed, SIEM ingesting Windows Event Logs). Familiarity with at least one SIEM query language (Splunk SPL or Kibana KQL).
 
@@ -144,7 +144,7 @@ level: high    # informational | low | medium | high | critical
 ## 2.2 Log Source Categories
 
 | Category | Maps To | Event IDs |
-|:---------|:--------|:---------|
+| :--------- | :-------- | :--------- |
 | `process_creation` | Sysmon Event 1, Windows 4688 | Process creation |
 | `network_connection` | Sysmon Event 3 | Network connections |
 | `image_load` | Sysmon Event 7 | DLL loads |

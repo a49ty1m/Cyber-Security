@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | C2 Frameworks | Post-Exploitation | Offensive Tooling |
-|:-------------|:----------------|:-----------------|
+| :------------- | :---------------- | :----------------- |
 | **🏰 Mythic** (you are here) | [[Sliver\|🔱 Sliver]] | [[Metasploit_Framework\|💉 Metasploit]] |
 | [[Havoc\|⚔️ Havoc]] | [[Impacket\|🔧 Impacket]] | [[BloodHound\|🩸 BloodHound]] |
 
@@ -30,7 +30,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Architecture | 6 | 2–3 hours |
 | 2 | Web Interface & Operator Workflow | 7 | 3–4 hours |
 | 3 | Agents — Apollo & Poseidon | 7 | 4–5 hours |
@@ -38,7 +38,7 @@
 | 5 | Post-Exploitation Modules | 8 | 4–5 hours |
 | 6 | Red Team Operations Workflow | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **43** | **~24–33 hours** |
+|| **Total** | **43** | **~24–33 hours** |
 
 **Prerequisites:** Phase 2 complete (Metasploit, basic C2 concepts). Phase 6 active directory exploitation. Linux server administration (Docker). Understanding of what C2 is and why it's needed.
 
@@ -291,7 +291,7 @@ dumpvault                  # Dump Windows Credential Manager
 ```
 # Pass-the-Hash via Apollo
 pth /user:administrator /ntlm:NTLM_HASH_HERE /host:TARGET_HOST
-    
+
 # Pass-the-Ticket (inject a Kerberos ticket)
 # First get a TGT:
 # run Rubeus or get_injection with a ticket

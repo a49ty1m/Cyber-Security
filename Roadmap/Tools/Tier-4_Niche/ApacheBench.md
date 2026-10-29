@@ -17,7 +17,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | HTTP Benchmarking | DoS Simulation | Network Testing | Traffic Capture |
-|:-------------------|:---------------|:----------------|:----------------|
+| :------------------- | :--------------- | :---------------- | :---------------- |
 | **📊 ApacheBench** (you are here) | [[GoldenEye\|💣 GoldenEye]] | [[hping3\|🔨 hping3]] | [[tcpdump\|📻 tcpdump]] |
 | [[wrk\|⚡ wrk]] | [[Slowloris\|🐌 Slowloris]] | [[iperf3\|📶 iperf3]] | [[Wireshark\|🦈 Wireshark]] |
 
@@ -26,13 +26,13 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 3 | 45 min |
 | 2 | Core Usage | 4 | 1–2 hours |
 | 3 | Interpreting Output | 4 | 1–2 hours |
 | 4 | Limitations & Alternatives | 3 | 45 min |
 | 5 | Mastery Check | 2 | 20 min |
-| | **Total** | **16** | **~4–6 hours** |
+|| **Total** | **16** | **~4–6 hours** |
 
 ---
 
@@ -45,7 +45,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Mechanism** | Sends N total requests with C concurrent connections. Measures: total time, requests/second, time per request (mean and across concurrency), min/max/median response time, response size. |
 | **Single URL** | ab tests only one URL per run. It does not simulate a real browsing session (no JS, no CSS fetching, no redirect following by default). |
 | **Use Case** | "How many requests/second can this API endpoint handle?" "What response time should I expect under 50 concurrent users?" |
@@ -57,7 +57,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Linux** | Included with `apache2-utils`: `apt install apache2-utils`. |
 | **macOS** | Bundled with macOS (Apache installed). |
 | **Windows** | Install Apache for Windows — ab is included in the `bin/` directory. |
@@ -70,7 +70,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Format** | `ab [options] http://target.com/path/`. Note the trailing slash — required. |
 | **Key Options** | `-n 1000` — total requests. `-c 50` — concurrent connections. `-k` — Keep-Alive. `-H "Header: value"` — add custom header. `-p post_data.txt -T content-type` — POST request. `-s 30` — timeout per request (seconds). |
 
@@ -85,7 +85,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ab -n 1000 -c 10 http://target.com/`. |
 | **What This Does** | Sends 1000 total requests, 10 at a time. Reports how long it took, req/sec, mean response time. |
 | **Realistic Test** | Match concurrency to expected real-world load. 10 concurrent = small site. 100 concurrent = medium traffic. |
@@ -97,7 +97,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Cookie Auth** | `ab -n 500 -c 20 -H "Cookie: session=abc123" http://target.com/dashboard`. |
 | **Basic Auth** | `ab -n 500 -c 20 -A username:password http://target.com/api`. |
 | **Bearer Token** | `ab -n 500 -c 20 -H "Authorization: Bearer eyJ..." http://target.com/api/data`. |
@@ -109,7 +109,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Create Body File** | `echo '{"user":"test","action":"query"}' > body.json`. |
 | **Command** | `ab -n 500 -c 20 -p body.json -T "application/json" http://target.com/api/endpoint`. |
 | **Form POST** | `echo "user=test&pass=secret" > form.txt`. `ab -n 500 -c 20 -p form.txt -T "application/x-www-form-urlencoded" http://target.com/login`. |
@@ -121,7 +121,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Keep-Alive** | `ab -n 1000 -c 50 -k http://target.com/` — reuses TCP connections (HTTP/1.1 keep-alive). Significantly faster — removes TCP connection setup overhead. More realistic for modern apps (browsers reuse connections). |
 | **HTTPS** | `ab -n 500 -c 20 https://target.com/` — TLS overhead adds latency. Compare HTTP vs HTTPS response times to measure TLS overhead. |
 
@@ -136,7 +136,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Requests per second** | `Requests per second: 423.19 [#/sec]` — server throughput. Higher = better. This is the headline metric. |
 | **Time per request (mean)** | `Time per request: 23.634 [ms] (mean)` — average response time across all requests. Lower = better. |
 | **Time per request (across all concurrent)** | `Time per request: 2.363 [ms] (mean, across all concurrent requests)` — mean time per connection including concurrency. Lower than the mean because connections are served in parallel. |
@@ -150,7 +150,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Table** | `Connection Times (ms)`: rows=Connect, Processing, Waiting, Total. Columns=min, mean, median, max, stddev. |
 | **Connect** | TCP connection setup time. High connect time = network latency or server backlog. |
 | **Waiting** | Time from request sent to first byte received (TTFB — Time to First Byte). High TTFB = slow server-side processing. |
@@ -164,7 +164,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Table** | `Percentage of the requests served within a certain time (ms)`. Shows 50th, 66th, 75th, 80th, 90th, 95th, 98th, 99th, 100th percentile response times. |
 | **Important** | The 99th and 100th percentile are the "tail latency" — the worst-case experience for 1% and the absolute worst request. High tail latency = unpredictable performance under load. |
 | **SLA Context** | If SLA requires <500ms for 99% of requests: check if 99th percentile is below 500ms under your expected concurrency. |
@@ -176,7 +176,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Non-zero Failed** | Any failed request during a benchmark = the server cannot sustain that load level reliably. Common causes: connection refused (max connections reached), timeouts, 500 errors (server crash/exception). |
 | **Find the Threshold** | Binary search: at 50 concurrent → 0 failures. At 200 concurrent → 50 failures. At 100 concurrent → 0 failures. At 150 concurrent → 5 failures. Max stable concurrency ≈ 130. |
 
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Single URL** | Only tests one URL. Real traffic hits dozens of different URLs. |
 | **No JS Execution** | Doesn't execute JavaScript, fetch CSS, or load images. Not representative of a real browser visit. |
 | **HTTP/1.1 Only** | ab doesn't support HTTP/2 or HTTP/3. Modern servers are optimized for HTTP/2 — ab results may not reflect real performance. |
@@ -204,7 +204,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **wrk Advantages** | Multi-threaded (doesn't bottleneck on the client side). Lua scripting for complex request scenarios. Better for sustained, high-concurrency load. More accurate at high request rates. |
 | **When to Use ab** | Quick sanity check. Simple scenarios. When wrk isn't available. When you need results in 30 seconds without configuration. |
 | **When to Use wrk** | Serious performance benchmarking. High concurrency (>200). Complex request scenarios. |
@@ -216,7 +216,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Teaching Concurrency** | Run ab with -c 1 (serial) vs. -c 50 (concurrent). Compare req/sec. See the benefit of parallelism. |
 | **Teaching Caching** | Run ab against a cached endpoint vs. uncached. See 10x+ improvement from caching. |
 | **Teaching Rate Limiting** | Apply Nginx rate limiting. Run ab. See failed requests appear. Remove rate limiting. See improvement. |
@@ -232,7 +232,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run a basic GET benchmark with specified concurrency | ☐ |
 | Can benchmark authenticated (cookie/token) endpoints | ☐ |
 | Can interpret requests/second, mean response time, and failed requests | ☐ |

@@ -5,7 +5,7 @@
 
 ### 🧭 Navigation
 
-🏠 [[README|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[Stage-1_Foundation|Stage 1]] · [[Stage-2_Offense-I|Stage 2]] · [[Stage-3_Web-and-App-Sec|Stage 3]] · [[Stage-4_Enterprise|Stage 4]] · [[Stage-5_Specialized|Stage 5]]
+🏠 [[Cyber-Security/Roadmap/README|MASTER_README]] | [🏠 Root Portfolio](../README.md) | [[Cyber-Security/Roadmap/Stage-1_Foundation|Stage 1]] · [[Cyber-Security/Roadmap/Stage-2_Offense-I|Stage 2]] · [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec|Stage 3]] · [[Cyber-Security/Roadmap/Stage-4_Enterprise|Stage 4]] · [[Cyber-Security/Roadmap/Stage-5_Specialized|Stage 5]]
 
 ---
 
@@ -17,7 +17,7 @@
 ## Priority Legend
 
 | Symbol | Meaning | What to do |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 **Must Read** | Non-negotiable primary resource for this Module | Open when you start the Module. Read relevant chapters before touching labs. |
 | 🟡 **Should Read** | High-value supplement | Read after your first lab pass when you need more context or depth. |
 | 🟢 **Can Read** | Optional depth | Reference only if stuck on a specific topic, or going deeper than the roadmap requires. |
@@ -30,7 +30,7 @@
 ### Module 01: Fundamentals
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Foundations of Information Security - Jason Andress` | CIA triad, auth, access control basics — targeted chapter lookup only |
 | 🟡 | `Security in Computing 5th Edition` | Authoritative reference for security concepts |
 | 🟢 | `The Linux Command Line - A Complete Introduction` | Quick lookup for specific commands |
@@ -38,7 +38,7 @@
 ### Module 02: Linux Administration
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `The Linux Command Line - A Complete Introduction` | Primary CLI and admin reference |
 | 🟡 | `Using And Administering Linux Volume 1 Zero To SysAdmin Getting Started` | systemctl, user management, /etc/ configs |
 | 🟡 | `Using And Administering Linux Volume 2 Zero To SysAdmin Advanced` | Advanced admin and service configuration |
@@ -47,14 +47,14 @@
 ### Module 03: Windows Administration
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `EA - Windows Security Internals with PowerShell` | Deep Windows internals + PowerShell. Critical again in Stage 4 Module 19 (AD). |
 | 🟡 | `Windows PowerShell Cookbook` | PowerShell command reference for admin tasks |
 
 ### Module 04: Networking Fundamentals
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Data Communications and Networking with TCPIP Protocol Suite - Behrouz A. Forouzan (2022)` | The definitive networking reference — per-chapter as needed (TCP, DNS, subnetting) |
 | 🟡 | `Wireshark Cheat Sheet` | ⚡ Keep open during all packet analysis labs |
 | 🟢 | `Computer Networking Principles, Protocols, and Practice` | Lighter alternative to Forouzan for readable second opinions |
@@ -62,21 +62,21 @@
 ### Module 05: Cryptography
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Security in Computing 5th Edition` | Crypto primitives, hashing, PKI — chapter-level reference |
 | 🟡 | `Foundations of Information Security - Jason Andress` | Readable crypto foundations without academic abstraction |
 
 ### Module 06: Authentication Standards
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `The Tangled Web` | Deep dive into session cookies, origin policies, and token mechanics |
 | 🟡 | `Foundations of Information Security - Jason Andress` | Authentication mechanisms, MFA, and access control models |
 
 ### Module 07: Web Technology Fundamentals
 
 | Priority | Book | How to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `The Tangled Web` | Deep dive on how browsers and HTTP work; directly explains why web vulnerabilities exist |
 | 🟡 | `Foundations of Information Security - Jason Andress` | Session, cookie, and auth fundamentals chapter |
 
@@ -87,7 +87,7 @@
 ### Module 08: Footprinting & Reconnaissance
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `The Hacker Playbook 2` | Chapter 1: Recon section | Real-world passive + active OSINT methodology |
 | 🔴 | `Red Team Field Manual v3` | Reference throughout | ⚡ Fastest command lookup — keep open always |
 | 🟡 | `Counter Hack Reloaded - Ed Skoudis & Tom Liston` | Recon chapters | Structured methodology for full recon pipeline |
@@ -97,7 +97,7 @@
 ### Module 09: Scanning
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Red Team Field Manual v3` | Reference throughout | ⚡ Keep open during all scanning labs |
 | 🟡 | `Ethical Hacking A Hands-on Introduction to Breaking In` | Scanning & fingerprinting chapters | Hands-on Nmap and service enumeration |
 | 🟡 | `The Power of Scapy V2` | Full (short reference) | Custom packet crafting for advanced scanning |
@@ -107,7 +107,7 @@
 ### Module 10: Enumeration
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Hacking Exposed` | SMB, SNMP, LDAP, RPC chapters | Classic enumeration playbook — still directly applicable |
 | 🟡 | `Counter Hack Reloaded - Ed Skoudis & Tom Liston` | Enumeration chapters | Structured per-protocol coverage and what data each leaks |
 | 🟢 | `Cyberjutsu Cybersecurity for the Modern Ninja` | Enumeration section | Attacker-focused methodology in clear tactical language |
@@ -115,14 +115,14 @@
 ### Module 11: Database Security
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Web Application Hacking Advanced SQL Injection and Data Store Attacks` | DB internals chapters only (save injection for Stage 3) | DB enumeration and extraction fundamentals |
 | 🟡 | `Database Security Problems and Solutions` | Full (reference) | DB misconfiguration and exploitation techniques |
 
 ### Module 12: Password Cracking & Hash Analysis
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Hacking_ The Art Of Exploitation 2nd Edition` | Cryptography and hashing chapter | Ground-truth on how hashes work and why cracking is possible |
 | 🟡 | `Reverse Engineering and Password Breaking` | Full (short) | Direct coverage of hash formats and cracking methodology |
 | 🟢 | `Computer & Internet Security A Hands on Approach 2nd Ed` | Authentication chapters | Explains salting, key derivation, why bcrypt/Argon2 resist cracking |
@@ -130,7 +130,7 @@
 ### Module 13: System Hacking & Initial Compromise
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `The Hacker Playbook 3 (Red Team Edition)` | Initial access, privesc, persistence | Best modern red team field guide — primary companion for Module 13 |
 | 🔴 | `Hacking_ The Art Of Exploitation 2nd Edition` | Shellcode, stack/heap overflows | Foundational exploitation textbook — understand WHY exploits work |
 | 🔴 | `Red Team Field Manual v3` | Reference throughout | ⚡ Keep open always |
@@ -149,7 +149,7 @@
 ### Module 14: Web Application Hacking
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `The Web Application Hacker's Handbook` | Chapter matching current PortSwigger module | **The** foundational web security textbook — maps 1:1 to PortSwigger topics |
 | 🔴 | `SQL Injection Attacks and Defense` | Full book | Deepest SQLi reference — read alongside PortSwigger SQLi Modules 6–18 |
 | 🔴 | `Burp Suite Compendium` / `The Power of Burp Suite` | Reference throughout Stage 3 | Deep Burp feature coverage |
@@ -164,13 +164,13 @@
 ### Module 15: Session Hijacking & Token Attacks
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `The Tangled Web` | Browser/session management chapters | Deep coverage of session flaws, cookie isolation, and DOM token handling |
 
 ### Module 16: Web Server Hacking
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🟡 | `Web Application Attacks` | Reference | Broad server-side attack catalog beyond SQLi and XSS |
 | 🟢 | `Web security exposed` | Reference | Supplementary attack coverage |
 | 🟢 | `WordPress Hacking and Security` | Reference | CMS-specific methodology for real-world scope targets |
@@ -178,14 +178,14 @@
 ### Module 17: API Security
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Hacking APIs Breaking Web Application Programming Interfaces - Corey` | Full book | **The** dedicated API security book — maps directly to Module 17 |
 | 🟡 | `Web security testing guide` | Reference | OWASP WSTG API test cases — use IDs when writing reports |
 
 ### Module 18: Bug Bounty Methodology
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `zseano's methodology` | Full (short) | Practical bug bounty workflow from an experienced hunter |
 | 🔴 | `From Hacking to Report Writing` | Full | Bridges exploitation to professional report writing |
 | 🟡 | `Bug Bounty Hunting For Web Security` | Full | Platform-specific methodology for HackerOne, Bugcrowd etc. |
@@ -195,7 +195,7 @@
 ### Side-Tracks: Defensive Awareness & Threat Intelligence
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🟡 | `Threat Intelligence Handbook` | Full | CTI fundamentals, threat actors, and TTP modeling |
 | 🟡 | `Cybersecurity Attack-and-Defense Strategies 2nd` | Blue team & SIEM detection chapters | Informs offensive OPSEC and detection evasion |
 
@@ -206,7 +206,7 @@
 ### Module 19: Active Directory & Entra ID
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `EA - Windows Security Internals with PowerShell` | AD internals, attack paths chapters | Best single resource for Kerberoasting, DCSync, Golden Ticket, PowerShell enumeration |
 | 🟡 | `Windows PowerShell Cookbook` | Reference | PowerShell scripting for AD enumeration and post-exploitation |
 | 🟡 | `Windows Server automation with PowerShell cookbook` | Reference | Group Policy, SYSVOL, service configs |
@@ -215,14 +215,14 @@
 ### Module 20: Cloud Computing
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Cloud_Hacking (1)` | Full | Cloud attack methodology (misconfigs, SSRF to metadata, IAM abuse) |
 | 🟢 | `Trusted Cloud Computing` | Reference | Cloud security architecture — defensive context |
 
 ### Module 23: Sniffing & Spoofing
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `The Power of Scapy V2` | ARP spoofing, packet injection chapters | Tool mastery for MitM and packet manipulation |
 | 🟡 | `Wireshark Cheat Sheet` | Reference | ⚡ Keep open during capture and analysis labs |
 | 🟢 | `Hacking and Network Defense` | Sniffing chapter | Defender detection of sniffing activity — informs OPSEC |
@@ -230,14 +230,14 @@
 ### Module 24: Social Engineering
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Social Engineering The Art of Human Hacking` | Full book | **The** definitive SE book — read fully during Module 24 |
 | 🟡 | `The Social Engineers Playbook` | Full (short) | Practical tactical scripts and pretexts |
 
 ### Module 26: Pentest Methodologies & Report Writing
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `The Pentester Blueprint` | Pentest career methodology, report writing, professional conduct |
 | 🔴 | `From Hacking to Report Writing` | Report structure, evidence packaging, finding articulation |
 | 🟢 | `Web Application Pentest Methodology` | Structured methodology doc for pentest engagements |
@@ -249,7 +249,7 @@
 ### Module 27: Offensive Development & Tooling
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Black Hat Python 2nd Edition` | Full book | C2 building, RAT development, evasion, custom offensive tooling |
 | 🟡 | `Black Hat Go Go Programming For Hackers and Pentesters` | Full | Modern Go-based offensive tooling and implant development |
 | 🟡 | `Gray Hat Python - Seitz, Justin` | Full | Debugging, fuzzing, shellcode injection, process manipulation via Python |
@@ -258,14 +258,14 @@
 ### Module 28: AI & LLM Red Teaming
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🟡 | `Hacking AI` | LLM attack surface, prompt injection concepts |
 | 🟢 | `Data Mining and Machine Learning in Cybersecurity` | ML model vulnerabilities — adversarial ML and poisoning attacks context |
 
 ### Module 29: Red Team Operations & Tradecraft
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Red Team Field Manual v3` | ⚡ Keep open at all times — fastest command reference |
 | 🟡 | `The Red Report 2023` | Current attacker TTP trends and real-incident data |
 | 🟡 | `Threat Intelligence Handbook` | CTI methodology for adversary profiling and red team planning |
@@ -274,7 +274,7 @@
 ### Module 30: Proof of Work & Career Portfolio
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🟡 | `cyber security interview questions` | Technical interview preparation |
 | 🟡 | `Cybersecurity First Principles A Reboot of Strategy and Tactics` | Strategic framing for senior-level interviews and portfolio positioning |
 | 🟢 | `Threat Detection Report 2023` | Current threat landscape context for interview discussions |
@@ -286,7 +286,7 @@
 ### Shelf S01: Wireless Network Security
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Wireless Hacking` | Full | Core wireless attack methodology (WPA2 cracking, PMKID, Evil AP) |
 | 🔴 | `Wireless Hacking Cheat Sheet v1.1` | Reference | ⚡ Keep open during all wireless labs |
 | 🟡 | `Wireless Network Security` | Reference | Defensive perspective — informs OPSEC and detection awareness |
@@ -295,7 +295,7 @@
 ### Shelf S02: Mobile Security
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Hacking android` | Full | Android attack surface, APK analysis, and exploitation |
 | 🔴 | `Hacking and securing ios applications` | Full | iOS binary analysis, Jailbreak exploitation, runtime hooking |
 | 🟡 | `Cybersecurity for Mobile Devices` | Reference | Broad mobile security coverage |
@@ -305,7 +305,7 @@
 ### Shelf S04: Digital Forensics (DFIR)
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `The Art of Memory Forensics` | Full book | **The** definitive memory forensics reference — mandatory reading |
 | 🔴 | `SANS DFIR Cheatsheets and Notebooks` | Reference | ⚡ Keep open during all DFIR labs |
 | 🟡 | `Hacking Exposed Computer Forensics Secrets & Solutions 2nd` | Full | Disk and network forensics methodology |
@@ -315,7 +315,7 @@
 ### Shelf S05: Reverse Engineering & Malware Analysis
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Reversing Secrets of Reverse Engineering - Eldad Eilam` | Full book | **The** foundational RE textbook |
 | 🟡 | `The Android Malware Handbook (2023)` | Full | Mobile malware RE |
 | 🟡 | `Designing BSD rootkit` | Full | Rootkit internals, evasion, and persistence mechanisms |
@@ -325,7 +325,7 @@
 ### Shelf S06: Modern Exploitation
 
 | Priority | Book | Specific Chapters | What It Adds |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 🔴 | `Hacking_ The Art Of Exploitation 2nd Edition` | Full book | Shellcode, stack overflows, heap exploitation |
 | 🟡 | `Exploit Development on Linux Platform` | Full | Linux-specific exploit writing and shellcode injection |
 | 🟡 | `Exploit Development Wintel Platform` | Full | Windows-specific exploit development (SEH, ROP chains) |
@@ -334,7 +334,7 @@
 ### Shelf S11: Governance, Risk & Compliance (GRC)
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Foundations of Information Security - Jason Andress` | Security policy and risk management fundamentals |
 | 🟡 | `CISSP Study Guide 4th Edition` | Broad governance, risk, and compliance framework reference |
 | 🟢 | `The Practical Guide to HIPAA Privacy and Security Compliance 2nd` | Compliance framework depth for healthcare/regulated environments |
@@ -342,21 +342,21 @@
 ### Shelf S13: DevSecOps & Secure SDLC
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Security for Software Engineers` | Secure SDLC, threat modeling, SAST/DAST |
 | 🟡 | `Web Application Security - Andrew Hoffman` | Secure code patterns from an AppSec engineer perspective |
 
 ### Shelf S14: Secure Code Review Methodology
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Web Application Security - Andrew Hoffman` | Identifies vulnerable patterns (SQL sinks, XSS outputs, deserialization) in code |
 | 🟡 | `Security for Software Engineers` | Secure coding patterns across languages |
 
 ### Shelf S15: Security Architecture & Engineering
 
 | Priority | Book | Use |
-|---|---|---|
+| --- | --- | --- |
 | 🟡 | `CISSP Study Guide 4th Edition` | Security architecture domains (network, identity, cryptography, physical) |
 | 🟡 | `Foundations of Information Security - Jason Andress` | Architecture and design security principles |
 | 🟢 | `Cybersecurity First Principles A Reboot of Strategy and Tactics` | Strategic architecture thinking |
@@ -368,7 +368,7 @@
 Do not read cover-to-cover. Glance only if a specific topic has no better modern source:
 
 | Series | When to Glance | Why |
-|---|---|---|
+| --- | --- | --- |
 | `Hakin9 Regular 2013–2014` | Stage 4 (Enterprise) or Stage 3 (Web) if stuck on a specific technique | Some solid intermediate-level articles on specific tools |
 | `Hakin9 Mobile Security 2012` | Shelf Module S02 | Mobile security concepts — historical context only |
 | `Hakin9 EXTRA Forensic 2011` | Shelf Module S04 | Early forensic methodology |
@@ -381,7 +381,7 @@ Do not read cover-to-cover. Glance only if a specific topic has no better modern
 Pin these to your taskbar and keep them open:
 
 | Priority | Cheat Sheet | When to Use |
-|---|---|---|
+| --- | --- | --- |
 | 🔴 | `Red Team Field Manual v3` | Every stage — fastest command reference |
 | 🟡 | `Wireshark Cheat Sheet` | Stage 2 Module 09 (Scanning) + Stage 4 Module 23 (Sniffing) |
 | 🟡 | `Wireless Hacking Cheat Sheet v1.1` | Shelf Module S01 |
@@ -393,4 +393,4 @@ Pin these to your taskbar and keep them open:
 
 ### 🧭 Navigation
 
-🏠 [[README|Master Roadmap]] | [🏠 Root Portfolio](../README.md) | [[#📚 Book → Roadmap Stage & Module Mapping (smilo's Library)|⬆ Return to Top]]
+🏠 [[Cyber-Security/Roadmap/README|MASTER_README]] | [🏠 Root Portfolio](../README.md) | [[#📚 Book → Roadmap Stage & Module Mapping (smilo's Library)|⬆ Return to Top]]

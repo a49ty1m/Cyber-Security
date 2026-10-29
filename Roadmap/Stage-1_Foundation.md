@@ -6,8 +6,8 @@
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
-|:---:|:---:|:---:|:---|
-| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🧱 Stage 1 Pacing Checkpoints\|🧱 Pacing Checkpoints]] · [[#🎮 Concurrent CTF Practice — Stage 1\|🎮 CTF Practice]] · [[#🏁 Foundation Proof Gate\|🏁 Foundation Proof Gate]] |
+| :---: | :---: | :---: | :--- |
+| *(Start of Curriculum)* | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🧱 Stage 1 Pacing Checkpoints\|🧱 Pacing Checkpoints]] · [[#🎮 Concurrent CTF Practice — Stage 1\|🎮 CTF Practice]] · [[#🏁 Foundation Proof Gate\|🏁 Foundation Proof Gate]] |
 
 ---
 
@@ -322,7 +322,7 @@
 - [ ] **Mobile Security Concepts:** Know that **rooting/jailbreaking**, **certificate pinning**, **biometric authentication**, and **hardware-backed keystores** are key security mechanisms on mobile platforms.
 
 > [!NOTE]
-> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Shelf_Post-Hire#Shelf 02: Mobile Platform Pentesting|Shelf 02: Mobile Platform Pentesting]]** (Shelf 02). Do not attempt until completing Stages 2–4.
+> **Cross-Reference:** Full mobile architecture details (APK/IPA structure, SELinux sandboxing, app permissions, Keychain/Keystore internals) and all exploitation techniques (Frida, SSL pinning bypass, runtime manipulation) are covered in **[[Cyber-Security/Roadmap/Shelf_Post-Hire#Shelf 02: Mobile Platform Pentesting|Shelf 02: Mobile Platform Pentesting]]** (Shelf 02). Do not attempt until completing Stages 2–4.
 
 ---
 
@@ -1123,15 +1123,15 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 
 ### Lab Progression (Linux)
 
-| Level | Task                                                                   | Deliverable                                |
+| Level | Task | Deliverable |
 | ----- | ---------------------------------------------------------------------- | ------------------------------------------ |
-| 1     | Set up a fresh Ubuntu/Debian VM from ISO                               | Working VM with SSH access                 |
-| 2     | Create 5 users with different group memberships and sudo rules         | Screenshot of /etc/sudoers and group files |
-| 3     | Configure SSH key-only auth + fail2ban                                 | SSH hardening checklist document           |
-| 4     | Set up iptables/nftables firewall rules allowing only SSH, HTTP, HTTPS | Firewall ruleset export                    |
-| 5     | Analyze auth.log to identify failed login patterns                     | 1-page log analysis report                 |
-| 6     | Set up LVM, create/extend logical volumes                              | Screenshot of lvm commands and df output   |
-| 7     | Enable SELinux/AppArmor, troubleshoot a denied operation               | Audit log analysis + policy fix document   |
+| 1 | Set up a fresh Ubuntu/Debian VM from ISO | Working VM with SSH access |
+| 2 | Create 5 users with different group memberships and sudo rules | Screenshot of /etc/sudoers and group files |
+| 3 | Configure SSH key-only auth + fail2ban | SSH hardening checklist document |
+| 4 | Set up iptables/nftables firewall rules allowing only SSH, HTTP, HTTPS | Firewall ruleset export |
+| 5 | Analyze auth.log to identify failed login patterns | 1-page log analysis report |
+| 6 | Set up LVM, create/extend logical volumes | Screenshot of lvm commands and df output |
+| 7 | Enable SELinux/AppArmor, troubleshoot a denied operation | Audit log analysis + policy fix document |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can create users, manage services, configure networking, read logs, and harden a Linux system from scratch without referring to documentation for basic commands.
@@ -1323,15 +1323,15 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 
 ### Lab Progression (Windows)
 
-| Level | Task                                                                                     | Deliverable                                           |
+| Level | Task | Deliverable |
 | ----- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 1     | Install Windows Server 2022 in VM                                                        | Working VM with RDP access                            |
-| 2     | Create local users, configure NTFS permissions on shared folder                          | Permission matrix document                            |
-| 3     | Promote to Domain Controller, create OU structure with 10+ users                         | AD topology screenshot                                |
-| 4     | Configure Group Policy (password policy, software restriction)                           | GPO summary document                                  |
-| 5     | Enable Advanced Audit Policy + Sysmon, generate logon events                             | Event log analysis (identify 4624, 4625, 4688 events) |
-| 6     | Configure Windows Firewall rules via PowerShell                                          | Exported firewall ruleset                             |
-| 7     | Write PowerShell script to audit AD: list all admins, find stale accounts, export report | Working .ps1 script + CSV output                      |
+| 1 | Install Windows Server 2022 in VM | Working VM with RDP access |
+| 2 | Create local users, configure NTFS permissions on shared folder | Permission matrix document |
+| 3 | Promote to Domain Controller, create OU structure with 10+ users | AD topology screenshot |
+| 4 | Configure Group Policy (password policy, software restriction) | GPO summary document |
+| 5 | Enable Advanced Audit Policy + Sysmon, generate logon events | Event log analysis (identify 4624, 4625, 4688 events) |
+| 6 | Configure Windows Firewall rules via PowerShell | Exported firewall ruleset |
+| 7 | Write PowerShell script to audit AD: list all admins, find stale accounts, export report | Working .ps1 script + CSV output |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can set up a Windows domain from scratch, create users/groups/GPOs, read Event Viewer logs to identify suspicious activity, and write basic PowerShell automation scripts without referring to documentation for core tasks.
@@ -2278,18 +2278,18 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > [!NOTE]
 > Complete all 10 PCAP exercises below. These become the 10 named `.pcap` deliverables required for the **Networking Packet Proof** gate earlier in this phase.
 
-| #   | Capture Scenario                               | Primary Filter              | Deliverable                                    |
+| # | Capture Scenario | Primary Filter | Deliverable |
 | --- | ---------------------------------------------- | --------------------------- | ---------------------------------------------- |
-| 1   | ARP request/reply cycle                        | `arp`                       | Annotated ARP exchange explanation             |
-| 2   | DNS query + response (A record and NXDOMAIN)   | `dns`                       | Annotated DNS exchange + negative response     |
-| 3   | TCP 3-way handshake + FIN/RST                  | `tcp.flags`                 | TCP state diagram with timestamps              |
-| 4   | TLS handshake (ClientHello → Finished)         | `tls.handshake`             | SNI, cipher suite, certificate chain extracted |
-| 5   | HTTP GET request + 200 response with body      | `http`                      | HTTP header analysis + object export           |
-| 6   | HTTP POST with form data (credentials visible) | `http.request.method==POST` | Credential extraction writeup                  |
-| 7   | ICMP ping sweep + traceroute                   | `icmp`                      | Network path reconstruction                    |
-| 8   | DHCP DORA (Discover/Offer/Request/Acknowledge) | `bootp`                     | DORA sequence diagram                          |
-| 9   | NAT in action (pre/post translation addresses) | `ip.addr`                   | Before/after NAT IP comparison                 |
-| 10  | Firewall drop (no response to SYN)             | `tcp.flags.syn==1`          | Open vs filtered vs closed port evidence       |
+| 1 | ARP request/reply cycle | `arp` | Annotated ARP exchange explanation |
+| 2 | DNS query + response (A record and NXDOMAIN) | `dns` | Annotated DNS exchange + negative response |
+| 3 | TCP 3-way handshake + FIN/RST | `tcp.flags` | TCP state diagram with timestamps |
+| 4 | TLS handshake (ClientHello → Finished) | `tls.handshake` | SNI, cipher suite, certificate chain extracted |
+| 5 | HTTP GET request + 200 response with body | `http` | HTTP header analysis + object export |
+| 6 | HTTP POST with form data (credentials visible) | `http.request.method==POST` | Credential extraction writeup |
+| 7 | ICMP ping sweep + traceroute | `icmp` | Network path reconstruction |
+| 8 | DHCP DORA (Discover/Offer/Request/Acknowledge) | `bootp` | DORA sequence diagram |
+| 9 | NAT in action (pre/post translation addresses) | `ip.addr` | Before/after NAT IP comparison |
+| 10 | Firewall drop (no response to SYN) | `tcp.flags.syn==1` | Open vs filtered vs closed port evidence |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can open any unknown PCAP file and within 5 minutes identify: the top protocols present, the most active conversations, whether cleartext credentials are visible, and whether any anomalous patterns exist. I can write a 1-page network event summary from a PCAP without assistance.
@@ -2803,13 +2803,13 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 ### Lab Progression (Module 06: Authentication Standards)
 
-| Level | Task                                                                                                                                                | Deliverable                                     |
+| Level | Task | Deliverable |
 | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 1     | Decode a JWT from any login response using jwt.io — identify all claims and algorithm                                                               | Annotated JWT breakdown document                |
-| 2     | Set up a local OAuth 2.0 lab using Keycloak — complete the Authorization Code flow and capture every HTTP exchange                                  | HTTP exchange log with step-by-step annotations |
-| 3     | Configure a TOTP-enabled account; extract the TOTP secret; simulate OTP theft in a lab MFA relay scenario                                           | Lab notes documenting the attack surface        |
-| 4     | Generate and examine an ID token — verify issuer, audience, expiry, and signature using the JWKS URI                                                | Validation script + analysis notes              |
-| 5     | Build a local Flask API secured with JWT — intentionally break it three ways (alg:none, expired token accepted, weak HMAC secret) and document each | Broken API code + analysis report               |
+| 1 | Decode a JWT from any login response using jwt.io — identify all claims and algorithm | Annotated JWT breakdown document |
+| 2 | Set up a local OAuth 2.0 lab using Keycloak — complete the Authorization Code flow and capture every HTTP exchange | HTTP exchange log with step-by-step annotations |
+| 3 | Configure a TOTP-enabled account; extract the TOTP secret; simulate OTP theft in a lab MFA relay scenario | Lab notes documenting the attack surface |
+| 4 | Generate and examine an ID token — verify issuer, audience, expiry, and signature using the JWKS URI | Validation script + analysis notes |
+| 5 | Build a local Flask API secured with JWT — intentionally break it three ways (alg:none, expired token accepted, weak HMAC secret) and document each | Broken API code + analysis report |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can explain the difference between a session cookie, an opaque access token, and a JWT. I can trace the OAuth 2.0 Authorization Code flow step-by-step. I can decode a JWT and identify what is and is not protected. I can explain why FIDO2 defeats phishing but TOTP does not.
@@ -2991,14 +2991,14 @@ _Understand the web from the ground up — how browsers communicate with servers
 
 - [ ] **Security Response Headers:** Know what each header does and how its absence creates vulnerabilities:
 
-  | Header                             | Purpose                             | Missing = Risk               |
-  | ---------------------------------- | ----------------------------------- | ---------------------------- |
-  | `Content-Security-Policy (CSP)`    | Restricts which scripts can execute | XSS attacks succeed          |
-  | `X-Frame-Options: DENY`            | Prevents iframe embedding           | Clickjacking attacks         |
-  | `Strict-Transport-Security (HSTS)` | Forces HTTPS                        | SSL stripping MITM           |
-  | `X-Content-Type-Options: nosniff`  | Prevents MIME sniffing              | Content injection            |
-  | `Referrer-Policy`                  | Controls Referer header leakage     | URL parameter leakage        |
-  | `Permissions-Policy`               | Restricts browser API access        | Fingerprinting, camera abuse |
+| Header | Purpose | Missing = Risk |
+| ---------------------------------- | ----------------------------------- | ---------------------------- |
+| `Content-Security-Policy (CSP)` | Restricts which scripts can execute | XSS attacks succeed |
+| `X-Frame-Options: DENY` | Prevents iframe embedding | Clickjacking attacks |
+| `Strict-Transport-Security (HSTS)` | Forces HTTPS | SSL stripping MITM |
+| `X-Content-Type-Options: nosniff` | Prevents MIME sniffing | Content injection |
+| `Referrer-Policy` | Controls Referer header leakage | URL parameter leakage |
+| `Permissions-Policy` | Restricts browser API access | Fingerprinting, camera abuse |
 
 - [ ] **CSP Deep-Dive:** Content Security Policy is the most powerful XSS defense available. Know:
   - `default-src 'self'` — only load resources from same origin
@@ -3078,13 +3078,13 @@ _Understand the web from the ground up — how browsers communicate with servers
 > [!TIP]
 > **Goal:** Build practical web layer familiarity before any offensive work begins.
 
-| Level | Task                                                                                                                                                                                        | Deliverable                                                |
+| Level | Task | Deliverable |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| 1     | Install Burp Suite Community; configure browser proxy; capture 10 different HTTP requests from real websites and annotate each request/response with method, headers, status code, and body | Annotated HTTP capture log in Markdown                     |
-| 2     | Using Burp Repeater, manually modify a cookie value and observe the server response; replay a GET request as a POST and document the difference                                             | Lab notes with screenshots showing request modification    |
-| 3     | Set up OWASP Juice Shop (Docker); use browser DevTools to inspect session cookies; identify HttpOnly/Secure/SameSite flags on each cookie; document what each flag's absence allows         | Cookie security analysis report                            |
-| 4     | Write a Python script using the `requests` library that: logs into Juice Shop, captures the session cookie, and makes an authenticated API call to retrieve a resource                      | Working Python script committed to Git                     |
-| 5     | Using Burp, capture a JWT from Juice Shop; decode the payload (base64); document what claims it contains; attempt the `alg: none` bypass and document whether it succeeds                   | JWT analysis notes with decoded payload and bypass attempt |
+| 1 | Install Burp Suite Community; configure browser proxy; capture 10 different HTTP requests from real websites and annotate each request/response with method, headers, status code, and body | Annotated HTTP capture log in Markdown |
+| 2 | Using Burp Repeater, manually modify a cookie value and observe the server response; replay a GET request as a POST and document the difference | Lab notes with screenshots showing request modification |
+| 3 | Set up OWASP Juice Shop (Docker); use browser DevTools to inspect session cookies; identify HttpOnly/Secure/SameSite flags on each cookie; document what each flag's absence allows | Cookie security analysis report |
+| 4 | Write a Python script using the `requests` library that: logs into Juice Shop, captures the session cookie, and makes an authenticated API call to retrieve a resource | Working Python script committed to Git |
+| 5 | Using Burp, capture a JWT from Juice Shop; decode the payload (base64); document what claims it contains; attempt the `alg: none` bypass and document whether it succeeds | JWT analysis notes with decoded payload and bypass attempt |
 
 > [!IMPORTANT]
 > **Move-On Gate (Module 07):** I can explain the full HTTP request-response cycle, decode and analyze a session cookie, identify its security attributes, decode a JWT payload, and intercept/modify requests in Burp Suite. Only proceed to Stage 2 when I can explain WHY session hijacking works at the protocol level.
@@ -3284,7 +3284,7 @@ Authentication is the #1 attack surface in web applications. Building it myself 
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
-|:---:|:---:|:---:|:---:|
-| *(Start of Curriculum)* | [[README\|Master Roadmap]] | [[Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#Stage 1 — Foundation\|⬆ Return to Top]] |
+| :---: | :---: | :---: | :---: |
+| *(Start of Curriculum)* | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-2_Offense-I\|Stage 2: Offense I ➔]] | [[#Stage 1 — Foundation\|⬆ Return to Top]] |
 
-> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-2_Offense-I|Stage 2: Offense I]]` to open the next stage in a split tab, or hover to preview.
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Cyber-Security/Roadmap/Stage-2_Offense-I|Stage 2: Offense I]]` to open the next stage in a split tab, or hover to preview.

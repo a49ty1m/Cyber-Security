@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Dynamic Debugging | Binary Exploitation | Static Analysis |
-|:-----------------|:-------------------|:----------------|
+| :----------------- | :------------------- | :---------------- |
 | **🐛 GDB** (you are here) | [[pwntools\|🐍 pwntools]] | [[Ghidra\|🔭 Ghidra]] |
-| [[x64dbg\|🐛 x64dbg]] | | |
+| [[x64dbg\|🐛 x64dbg]] |||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | GDB Installation & pwndbg Setup | 4 | 1–2 hours |
 | 2 | Core GDB Commands | 10 | 4–5 hours |
 | 3 | pwndbg-Specific Features | 8 | 3–4 hours |
@@ -38,7 +38,7 @@
 | 5 | Heap Inspection | 6 | 4–5 hours |
 | 6 | GDB Scripting & pwntools Integration | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **45** | **~23–32 hours** |
+|| **Total** | **45** | **~23–32 hours** |
 
 **Prerequisites:** Phase 7 Part 28 Stage 1 (x86-64 assembly fundamentals). Understanding of stack layout, calling conventions, and what a buffer overflow is conceptually. Linux CLI basics.
 
@@ -251,7 +251,7 @@ LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
    0x401235 <main+1>    mov  rbp, rsp
 ─────────── stack ────────────────────────────
 00:0000│ rsp 0x7fffffffe468 ◂— 0x1
-01:0008│     0x7fffffffe470 —▸ 0x7fffffffe6a0 ◂— 0x616d2f2e ('am/.') 
+01:0008│     0x7fffffffe470 —▸ 0x7fffffffe6a0 ◂— 0x616d2f2e ('am/.')
 ─────────── backtrace ────────────────────────
  ► f 0   0x401234 main
 ```

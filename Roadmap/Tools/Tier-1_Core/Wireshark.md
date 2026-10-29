@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:------------------|:--------------|
+| :----------------- | :------------- | :------------------ | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | **🦈 Wireshark** (you are here) |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Interface | 6 | 3–4 hours |
 | 2 | Core Capture & Display Filters | 8 | 5–7 hours |
 | 3 | Intermediate Analysis | 7 | 5–7 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 5 | 6–10 hours |
 | 7 | Methodology & Forensics | 4 | 3–4 hours |
 | 8 | Mastery Challenges | 4 | 6–10 hours |
-| | **Total** | **43** | **~36–53 hours** |
+|| **Total** | **43** | **~36–53 hours** |
 
 **Prerequisites:** TCP/IP fundamentals (OSI model, ports, protocols). Basic understanding of HTTP, DNS, ARP, TCP handshake. A lab network with traffic to capture.
 
@@ -64,7 +64,7 @@ scp user@server:/tmp/remote.pcap .        # transfer for Wireshark analysis
 
 ### Top 15 Display Filters
 | Filter | Purpose |
-|:-------|:--------|
+| :------- | :-------- |
 | `http` | All HTTP traffic |
 | `tcp.port == 80` | Specific port |
 | `ip.addr == 192.168.1.10` | Specific IP (src or dst) |
@@ -119,7 +119,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Explain why Wireshark is essential for both offensive and defensive security. Understand it's a passive analysis tool — it captures and displays traffic but does not modify or inject packets. |
 | **Skills Learned** | Packet analysis concept, passive vs active tools, where Wireshark fits in incident response, forensics, pentesting, and network debugging. Wireshark across PTES phases: Reconnaissance (sniffing credentials), Vulnerability Analysis (verifying insecure protocols), Post-Exploitation (capturing traffic from compromised hosts). |
 | **Practical Exercise** | List five offensive and five defensive use cases for Wireshark. Map each to a pentest phase or IR phase. |
@@ -133,7 +133,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Select the correct capture interface and understand promiscuous mode (captures all traffic on the segment, not just traffic addressed to your machine). |
 | **Skills Learned** | Network interface identification, promiscuous vs normal mode, why you need promiscuous mode for security analysis, monitor mode for wireless (different from promiscuous). |
 | **Practical Exercise** | Open Wireshark → identify your lab interface (look for the one with traffic activity graphs). Start a capture. Verify promiscuous mode is enabled: Edit → Preferences → Capture → check "Use promiscuous mode on all interfaces." |
@@ -147,7 +147,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Navigate every panel of the Wireshark UI: Packet List (summary rows), Packet Details (protocol tree), Packet Bytes (hex dump), Display Filter bar, Capture Filter bar, Status Bar (packet counts), and coloring rules. |
 | **Skills Learned** | UI fluency, understanding the three-pane layout, reading the protocol tree (Layer 2 → Layer 3 → Layer 4 → Layer 7), interpreting hex dumps, using coloring rules to spot anomalies. |
 | **Practical Exercise** | Capture 60 seconds of lab traffic. Click on different packets and examine each pane. Expand every protocol layer in the Packet Details pane. Find the same bytes in the Hex Dump pane. Right-click a field → "Apply as Filter." |
@@ -161,7 +161,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Perform your first traffic capture, stop it, and save the file. Understand PCAP vs PCAPNG formats and when to use each. |
 | **Skills Learned** | Starting/stopping captures, saving capture files, PCAP format (universal, compatible with all tools) vs PCAPNG (newer, supports annotations and multiple interfaces), file management. |
 | **Practical Exercise** | Start a capture → generate traffic (ping, browse web, run Nmap scan) → stop capture → Save As `lab-capture-01.pcapng`. Also save as PCAP: File → Save As → select "Wireshark/tcpdump/... - pcap" format. |
@@ -175,7 +175,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use tshark (Wireshark's command-line equivalent) for headless captures on remote servers, automated analysis, and scripted processing. |
 | **Skills Learned** | tshark capture syntax, display filters in CLI, field extraction with `-T fields -e`, why tshark is essential for capturing on servers without a GUI, piping tshark output into other tools. |
 | **Practical Exercise** | Live capture: `sudo tshark -i eth0 -c 100`. With filter: `sudo tshark -i eth0 -f "port 80" -c 50`. Field extraction: `tshark -r capture.pcap -T fields -e ip.src -e ip.dst -e tcp.dstport`. Save to file: `sudo tshark -i eth0 -w /tmp/capture.pcap -c 1000`. |
@@ -189,7 +189,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Capture traffic remotely using tcpdump (available on almost every Linux system), transfer the PCAP file, and analyze it in Wireshark. This is the standard workflow for analyzing traffic from servers. |
 | **Skills Learned** | tcpdump capture syntax, remote capture workflow, PCAP file transfer, the tcpdump → Wireshark pipeline as the standard remote analysis pattern. |
 | **Practical Exercise** | On target/server: `sudo tcpdump -i eth0 -w /tmp/remote-capture.pcap -c 500`. Transfer: `scp user@server:/tmp/remote-capture.pcap .`. Open in Wireshark: `wireshark remote-capture.pcap`. |
@@ -207,7 +207,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Apply Berkeley Packet Filter (BPF) capture filters to reduce capture volume. Capture filters are applied DURING capture — packets that don't match are never saved. |
 | **Skills Learned** | BPF syntax, when to filter at capture time (high-traffic networks, specific protocols, long captures), the performance difference between capture and display filters. |
 | **Syntax Examples** | Only HTTP: `tcp port 80`. Only DNS: `udp port 53`. Specific host: `host 192.168.1.10`. Exclude your IP: `not host 192.168.1.5`. Subnet: `net 192.168.1.0/24`. Combination: `host 192.168.1.10 and tcp port 80`. |
@@ -222,7 +222,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master Wireshark's display filter language to isolate specific packets from a captured file. Display filters are applied AFTER capture — all packets are saved but only matching ones are shown. |
 | **Skills Learned** | Display filter syntax (dot notation, comparison operators, logical operators), the difference between capture and display filters, building complex filter expressions, filter autocompletion. |
 | **Essential Filters** | Protocol: `http`, `dns`, `tcp`, `arp`, `icmp`, `tls`. IP: `ip.addr == 192.168.1.10`, `ip.src == x`, `ip.dst == x`. Port: `tcp.port == 80`, `tcp.dstport == 443`. HTTP: `http.request.method == "GET"`, `http.response.code == 200`. DNS: `dns.qry.name contains "example"`. TCP flags: `tcp.flags.syn == 1`, `tcp.flags.reset == 1`. Negation: `!(arp or dns)`. Contains: `frame contains "password"`. |
@@ -236,7 +236,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Reconstruct complete TCP conversations using "Follow TCP Stream." This shows the full dialogue between client and server — the most powerful analysis feature in Wireshark. |
 | **Skills Learned** | TCP stream concept (all packets in a single TCP connection), stream reconstruction, reading protocol conversations, identifying credentials in cleartext protocols, exporting stream data. |
 | **Practical Exercise** | Capture an HTTP session (browse to a web page). Right-click any packet in the conversation → Follow → TCP Stream. Read the complete HTTP request/response conversation. Capture a Telnet login → Follow TCP Stream → observe the credentials in cleartext. |
@@ -250,7 +250,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Wireshark's Statistics menu to get a high-level overview of captured traffic: protocol distribution, conversation pairs, endpoint statistics, and I/O graphs. |
 | **Skills Learned** | Traffic profiling, protocol distribution analysis, identifying dominant protocols, spotting anomalies (unexpected protocols, unusual traffic volumes), statistical overview before deep analysis. |
 | **Practical Exercise** | Open a capture → Statistics → Protocol Hierarchy (see percentage breakdown of all protocols). Statistics → Conversations → sort by bytes (find the heaviest talkers). Statistics → Endpoints (all unique IPs/MACs). Statistics → I/O Graphs (traffic volume over time). |
@@ -270,7 +270,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand and customize Wireshark's coloring rules to visually highlight important traffic patterns. Create a custom profile for security analysis. |
 | **Skills Learned** | Default coloring meanings (light green = TCP, light blue = UDP, black = TCP errors, red = bad checksum), creating custom rules, profile management for different analysis contexts. |
 | **Practical Exercise** | View → Coloring Rules → examine each default rule. Create a custom rule: name "Cleartext Credentials," filter `telnet or ftp`, color bright red background. Create a security analysis profile: Edit → Configuration Profiles → New. |
@@ -284,7 +284,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Extract transferred files from captured traffic: HTTP objects (images, downloads, HTML), SMB files, TFTP files, and DICOM images. This is a core forensics skill. |
 | **Skills Learned** | File carving from network traffic, HTTP object export, SMB file extraction, evidence preservation, why this matters for forensics and incident response. |
 | **Practical Exercise** | Capture HTTP traffic while downloading a file → File → Export Objects → HTTP → find and save the file. Repeat for SMB file transfers. Verify the extracted file matches the original (MD5 checksum). |
@@ -298,7 +298,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Search for specific strings, hex patterns, or field values within captured packets. Mark important packets for reference. Add comments to packets for documentation. |
 | **Skills Learned** | Packet searching (Edit → Find Packet), search types (display filter, hex value, string), packet marking (Ctrl+M), packet commenting, bookmarking important findings. |
 | **Practical Exercise** | Search for the string "password" in packet bytes: Edit → Find Packet → String → "password." Mark all found packets (Ctrl+M). Add comments to key packets: right-click → Packet Comment. |
@@ -316,7 +316,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify and analyze TCP three-way handshakes (SYN → SYN-ACK → ACK), connection teardowns (FIN), and resets (RST). Understand what healthy and unhealthy connections look like. |
 | **Skills Learned** | TCP state machine visualization, identifying successful connections, failed connections (RST), filtered ports (no response), half-open connections (SYN but no SYN-ACK), retransmissions indicating network issues. |
 | **Practical Exercise** | Filter: `tcp.flags.syn == 1 && tcp.flags.ack == 0` (show all SYN packets — connection initiations). Run an Nmap SYN scan and capture simultaneously — see the half-open handshakes. |
@@ -330,7 +330,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze HTTP requests and responses in detail: methods, headers, status codes, cookies, POST data, and file transfers. Identify credentials, session tokens, and sensitive data transmitted over HTTP. |
 | **Skills Learned** | HTTP protocol analysis, identifying authentication traffic, cookie extraction, POST body inspection, file download detection, why HTTP is a security risk (everything is visible). |
 | **Practical Exercise** | Capture HTTP login traffic (DVWA login). Filter: `http.request.method == "POST"`. Follow the TCP stream → find the username and password in the POST body. Filter: `http.cookie contains "PHPSESSID"` → extract session cookies. |
@@ -344,7 +344,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze DNS queries and responses: identify resolved domains, detect DNS tunneling, spot DNS exfiltration, and identify unusual DNS behavior. |
 | **Skills Learned** | DNS protocol structure (queries, responses, record types), detecting DNS tunneling (unusually long subdomain labels, high query volume), DNS cache poisoning indicators, identifying C2 domains. |
 | **Practical Exercise** | Filter: `dns`. Examine query/response pairs. Filter for unusual TXT records: `dns.qry.type == 16`. Look for long subdomain names: `dns.qry.name matches ".*\..*\..*\..*\."` (more than 3 levels). Statistics → DNS → see query/response distribution. |
@@ -358,7 +358,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze ARP traffic to understand network topology and detect ARP spoofing (a common MITM attack technique). |
 | **Skills Learned** | ARP protocol mechanics (who has this IP? → I have it, my MAC is...), normal ARP behavior, ARP spoofing indicators (duplicate IP-to-MAC mappings, gratuitous ARP floods), how to detect MITM attacks. |
 | **Practical Exercise** | Filter: `arp`. Examine normal ARP request/response pairs. Look for Wireshark's built-in ARP alerts: Analyze → Expert Information → look for "Duplicate IP address" warnings. Filter for gratuitous ARP: `arp.opcode == 2 && arp.src.proto_ipv4 == arp.dst.proto_ipv4`. |
@@ -372,7 +372,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze TLS handshakes to identify: TLS version, cipher suite negotiated, certificate details (CN, SAN, issuer, expiry), and potential weaknesses (old TLS versions, weak ciphers). |
 | **Skills Learned** | TLS handshake structure (ClientHello → ServerHello → Certificate → KeyExchange → Finished), cipher suite interpretation, certificate analysis, identifying TLS downgrade attacks, JA3 fingerprinting concept. |
 | **Practical Exercise** | Filter: `tls.handshake.type == 1` (ClientHello messages). Examine: TLS version, supported cipher suites, SNI (Server Name Indication — reveals the requested hostname even in encrypted traffic). Filter: `tls.handshake.type == 11` (Certificate messages — extract the server certificate). |
@@ -386,7 +386,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Decrypt TLS traffic in Wireshark using pre-master secret keys logged by the browser. This is the primary method for analyzing encrypted web traffic in a controlled environment. |
 | **Skills Learned** | SSLKEYLOGFILE environment variable, how browsers log TLS session keys, configuring Wireshark to use the key log file, the difference between this method and using server private keys. |
 | **Practical Exercise** | Set environment variable: `export SSLKEYLOGFILE=/tmp/sslkeys.log`. Open browser and browse HTTPS sites. In Wireshark: Edit → Preferences → Protocols → TLS → "(Pre)-Master-Secret log filename" → `/tmp/sslkeys.log`. Capture HTTPS traffic → verify it's decrypted (you can see HTTP/2 frames inside TLS). |
@@ -400,7 +400,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Wireshark's Expert Information system to quickly identify errors, warnings, and anomalies in captured traffic. |
 | **Skills Learned** | Expert Information categories (Errors, Warnings, Notes, Chat), TCP retransmissions, duplicate ACKs, zero window events, RST floods, malformed packets, using Expert Info as a triage starting point. |
 | **Practical Exercise** | Open a capture → Analyze → Expert Information. Sort by severity. Click on errors to jump to the offending packet. Common findings: TCP retransmissions (network congestion), RST packets (connection rejection), duplicate ACKs (packet loss). |
@@ -418,7 +418,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Extract credentials from cleartext protocols: HTTP Basic/Form auth, FTP, Telnet, SMTP, POP3, IMAP. Understand why these protocols are security risks and what should replace them. |
 | **Skills Learned** | Protocol-specific credential extraction, HTTP Basic auth (Base64 decoded from Authorization header), FTP USER/PASS, Telnet character-by-character capture, SMTP AUTH, professional evidence documentation. |
 | **Practical Exercise** | Capture Telnet login to Metasploitable 2 → Follow TCP Stream → extract credentials. Capture FTP login → filter `ftp.request.command == "USER" or ftp.request.command == "PASS"`. Capture HTTP Basic auth → filter `http.authorization`. |
@@ -432,7 +432,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Given a PCAP file of an attack, reconstruct the entire attack timeline: reconnaissance (port scans), exploitation (exploit delivery), C2 communication, and data exfiltration. |
 | **Skills Learned** | Attack timeline reconstruction, pattern recognition (scan patterns, exploit signatures, C2 beacons), evidence chain documentation, forensic report writing from PCAP evidence. |
 | **Practical Exercise** | Capture your own Nmap scan + exploit + reverse shell against Metasploitable 2. Then analyze the PCAP: identify the scan phase, the exploitation attempt, the reverse shell establishment, and any post-exploitation commands. |
@@ -446,12 +446,12 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build complex display filter expressions using logical operators, field comparisons, membership operators, and display filter macros for reusable analysis patterns. |
 | **Skills Learned** | Advanced filter syntax: `in` operator, `matches` (regex), field slicing (`tcp.payload[0:4]`), display filter macros, creating filter buttons for one-click analysis. |
 | **Syntax Examples** | Ports in range: `tcp.port in {80 443 8080 8443}`. Regex hostname: `http.host matches ".*admin.*"`. Payload starts with specific bytes: `tcp.payload[0:4] == 47:45:54:20` (GET in hex). Non-standard DNS: `dns && udp.port != 53`. |
 | **Expected Output** | Complex filters that precisely isolate security-relevant traffic patterns. Custom filter buttons for common security checks. |
-| **Common Mistakes** | Over-complicating filters when simpler ones work. Not using `in` for port lists (more readable than chaining `||`). Not using `matches` for regex patterns (more powerful than `contains`). |
+| **Common Mistakes** | Over-complicating filters when simpler ones work. Not using `in` for port lists (more readable than chaining ` || `). Not using `matches` for regex patterns (more powerful than `contains`). |
 
 ---
 
@@ -462,7 +462,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Capture and analyze Wi-Fi traffic in monitor mode. Identify SSIDs, connected clients, authentication types, and deauthentication attacks. |
 | **Skills Learned** | Monitor mode configuration, 802.11 frame types (management, control, data), beacon frame analysis, deauth detection, WPA handshake capture for offline cracking. |
 | **Practical Exercise** | (Requires monitor-mode capable adapter) Set monitor mode: `sudo airmon-ng start wlan0`. Capture: `sudo wireshark -i wlan0mon`. Filter beacons: `wlan.fc.type_subtype == 0x08`. Filter deauths: `wlan.fc.type_subtype == 0x0c`. |
@@ -476,7 +476,7 @@ ftp || telnet || http.authbasic
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 60 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Write a simple Wireshark Lua dissector to decode a custom protocol. Understand the dissector architecture and when custom dissectors are needed. |
 | **Skills Learned** | Wireshark Lua API, protocol dissector creation, tree construction, field registration, when custom dissectors are needed (proprietary protocols, CTF challenges, IoT analysis). |
 | **Practical Exercise** | Write a basic Lua dissector that identifies packets on a specific port and decodes a simple custom header format. Load it: Edit → Preferences → Protocols → Lua → add script path. |
@@ -645,7 +645,7 @@ ftp || telnet || http.authbasic
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can capture traffic on the correct interface | ☐ |
 | Can write capture and display filters fluently | ☐ |
 | Can follow and reconstruct TCP streams | ☐ |

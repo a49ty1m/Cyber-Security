@@ -17,23 +17,23 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Packet Capture & Analysis | Traffic Crafting & Flooding | MitM & Interception | Network Discovery |
-|:--------------------------|:----------------------------|:--------------------|:------------------|
+| :-------------------------- | :---------------------------- | :-------------------- | :------------------ |
 | [[Wireshark\|🦈 Wireshark]] | [[Scapy\|📦 Scapy]] | [[Bettercap\|🕵️ Bettercap]] | [[Nmap\|🗺️ Nmap]] |
 | [[tcpdump\|📻 tcpdump]] | [[hping3\|🔨 hping3]] | [[Ettercap\|🐛 Ettercap]] | [[Netcat\|🔌 Netcat]] |
-| **📶 iperf3** (you are here) | | [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
+| **📶 iperf3** (you are here) || [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 3 | 45 min |
 | 2 | Core Usage | 5 | 1–2 hours |
 | 3 | Advanced Tests | 4 | 2–3 hours |
 | 4 | Security Context | 3 | 1 hour |
 | 5 | Mastery Check | 2 | 20 min |
-| | **Total** | **17** | **~5–7 hours** |
+|| **Total** | **17** | **~5–7 hours** |
 
 ---
 
@@ -46,7 +46,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Bandwidth** | How much data can flow between two points per second (Mbits/sec or Gbits/sec). The actual available throughput, not the theoretical link speed. |
 | **TCP vs. UDP** | TCP: measures bandwidth, retransmissions. Shows impact of congestion control. UDP: measures bandwidth, jitter (variation in packet arrival timing), packet loss percentage. |
 | **Jitter** | How consistently packets arrive. Low jitter = good for real-time traffic (VoIP, video). High jitter = packets arrive at irregular intervals → problems for latency-sensitive applications. |
@@ -59,7 +59,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Linux** | `apt install iperf3`. |
 | **macOS** | `brew install iperf3`. |
 | **Windows** | Download from `iperf.fr`. Extract. Run from CMD/PowerShell. |
@@ -73,7 +73,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Server Mode** | On machine A: `iperf3 -s`. Listens on port 5201 (default). Waits for connections. |
 | **Client Mode** | On machine B: `iperf3 -c <server_IP>`. Connects to server. Sends data. Reports results. |
 | **Direction** | Default: client sends → server receives (measures upload bandwidth from client's perspective). Reverse: add `-R` → server sends → client receives (measures download). |
@@ -89,7 +89,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Server** | `iperf3 -s`. |
 | **Client** | `iperf3 -c 192.168.1.100`. Default: 10-second TCP test. |
 | **Output** | Interval-by-interval throughput + summary: `[ ID] Interval       Transfer     Bandwidth`. `[  4]  0.00-10.00 sec  1.12 GBytes   961 Mbits/sec    sender`. |
@@ -102,7 +102,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Duration** | `-t 30` — run for 30 seconds (default 10). Longer = more stable average. |
 | **Interval** | `-i 1` — report every 1 second. Default 1 second. `-i 5` — every 5 seconds (less noise). |
 | **Example** | `iperf3 -c 192.168.1.100 -t 60 -i 5` — 60-second test, report every 5 seconds. |
@@ -114,7 +114,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Server** | `iperf3 -s`. |
 | **Client** | `iperf3 -c 192.168.1.100 -u -b 100M`. |
 | **Flags** | `-u` — UDP mode. `-b 100M` — target bitrate (100 Mbps). UDP doesn't self-regulate like TCP — you must set the target rate. |
@@ -127,7 +127,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `iperf3 -c 192.168.1.100 -R`. |
 | **What Changes** | Server sends data → client receives. Measures client's download bandwidth from the server. |
 | **Use Case** | If you're benchmarking a server's ability to push data to clients (e.g., a file server), use `-R`. For measuring upload capacity, use the default direction. |
@@ -139,7 +139,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `iperf3 -c 192.168.1.100 -P 4`. |
 | **What It Does** | Opens 4 parallel TCP streams simultaneously. Can help saturate a link that a single stream can't fill (due to TCP window size limits on high-latency links). |
 | **Use Case** | Testing total available bandwidth across all flows (not just single-stream). High-latency WAN links benefit more from parallel streams. |
@@ -155,7 +155,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Server** | `iperf3 -s -p 8080` — listen on port 8080. |
 | **Client** | `iperf3 -c 192.168.1.100 -p 8080`. |
 | **Use Case** | Test if specific ports have different throughput (firewall QoS). Test if port 443 is rate-limited vs. port 5201. Compare throughput on allowed vs. non-standard ports. |
@@ -167,7 +167,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Socket Buffer** | `-w 256k` — set TCP socket buffer (window size). Larger window = can have more data in flight on high-latency links. |
 | **Bandwidth-Delay Product** | BDP = Bandwidth × RTT. On a 1Gbps link with 100ms RTT: BDP = 100 Mbits = 12.5 MB. TCP window must be at least 12.5 MB to fully utilize the link. |
 | **Test** | Compare default window size vs. `-w 8M` on a high-latency link. Often see significant throughput improvement. |
@@ -179,7 +179,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `iperf3 -c 192.168.1.100 -J > results.json`. |
 | **Parse** | `cat results.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(d['end']['sum_sent']['bits_per_second']/1e6, 'Mbps'"`. |
 | **Use Case** | Automated network testing scripts. Log throughput over time. Compare before/after configuration changes programmatically. |
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `iperf3 -c 192.168.1.100 --bidir`. (iperf3 ≥ 3.7). |
 | **What It Does** | Simultaneously sends in both directions — measures full-duplex throughput. |
 | **Use Case** | Verify that simultaneous upload+download doesn't interfere (some network equipment degrades throughput when both directions saturated simultaneously). |
@@ -207,7 +207,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Use Case** | Run iperf3 server in one network segment (e.g., DMZ). Run iperf3 client in another segment (e.g., corporate LAN). If you can connect: those segments are not properly isolated. |
 | **Firewall Testing** | `iperf3 -c dmz_server -p 5201` — tests if port 5201 is allowed through the firewall. Try different ports to test which are permitted. |
 | **Expected Result** | In a properly segmented network: connection refused (firewall blocks). |
@@ -219,7 +219,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Use Case** | In an authorized red team lab: estimate how much data you can exfiltrate per second via a C2 channel. Run iperf3 over the same port and protocol as the C2 channel. |
 | **Example** | C2 uses HTTPS to external server. `iperf3 -c c2-server -p 443` (if server configured to listen on 443). Throughput = max exfiltration rate. |
 
@@ -230,7 +230,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Verify that network QoS policies are working as configured. |
 | **Test** | Expected: port 80 limited to 10 Mbps by QoS policy. `iperf3 -c server -p 80 -t 30`. Result: if ≈10 Mbps → policy working. If much higher → policy not applied. Compare: `iperf3 -c server -p 443 -t 30` — should get different rate if different QoS class. |
 
@@ -245,7 +245,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can start iperf3 in server and client mode | ☐ |
 | Can run TCP and UDP tests | ☐ |
 | Can interpret throughput, jitter, and packet loss metrics | ☐ |

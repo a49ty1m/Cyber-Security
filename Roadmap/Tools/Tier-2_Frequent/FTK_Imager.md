@@ -19,16 +19,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Disk Forensics | Memory Forensics | Timeline & Artifacts | Host Telemetry |
-|:---------------|:-----------------|:---------------------|:---------------|
+| :--------------- | :----------------- | :--------------------- | :--------------- |
 | [[Autopsy\|🔍 Autopsy]] | [[Volatility\|🧠 Volatility]] | [[Plaso\|📅 Plaso]] | [[Sysmon\|📊 Sysmon]] |
-| **💾 FTK Imager** (you are here) | | [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
+| **💾 FTK Imager** (you are here) || [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Core Concepts & Installation | 4 | 1–2 hours |
 | 2 | Disk Image Acquisition | 5 | 2–4 hours |
 | 3 | Memory Acquisition | 3 | 1–2 hours |
@@ -36,7 +36,7 @@
 | 5 | Image Mounting & Format Conversion | 3 | 1–2 hours |
 | 6 | Chain of Custody & Documentation | 3 | 1–2 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **26** | **~12–21 hours** |
+|| **Total** | **26** | **~12–21 hours** |
 
 **Prerequisites:** Basic Windows administration. Understanding of disk structure (MBR, GPT, partitions). Phase 7 Part 27 Stage 1 completion recommended before field use.
 

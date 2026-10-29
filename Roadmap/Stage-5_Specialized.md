@@ -6,8 +6,8 @@
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | 📑 Quick Jump |
-|:---:|:---:|:---:|:---|
-| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Tool Priority Reference\|🛠️ Tool Priority Reference]] · [[#🏁 Final Gate — Mastery & Career Validation\|🏁 Final Gate]] |
+| :---: | :---: | :---: | :--- |
+| [[Cyber-Security/Roadmap/Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Tool Priority Reference\|🛠️ Tool Priority Reference]] · [[#🏁 Final Gate — Mastery & Career Validation\|🏁 Final Gate]] |
 
 ---
 
@@ -227,7 +227,7 @@
 ### Lab Progression (Module 27: Offensive Development & Tooling)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Exploit a basic stack buffer overflow (SLMail/Brainpan) | Working exploit script |
 | 2 | Write custom shellcode for a reverse shell (x86) | Shellcode + test harness |
 | 3 | Build a basic C2 implant (Python client → Python server) | Working C2 demo in lab |
@@ -286,7 +286,7 @@
 **Lab — Build My Toolkit:**
 
 | Tool | Language | Estimated time | Deliverable |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Recon pipeline | Python + Bash | 2–3 sessions | Single-command recon script, markdown output |
 | JWT tester | Python | 1 session | Automated JWT vulnerability checker |
 | Log anomaly parser | Python | 2 sessions | Suspicious event timeline from raw logs |
@@ -704,7 +704,7 @@
 ### Lab Progression (Module 28: AI & LLM Red Teaming)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Complete Gandalf AI CTF and HackAPrompt challenges (first 10 levels each) | Challenge solutions with exploit methodology documented |
 | 2 | Build a RAG poisoning PoC against a local LangChain/LlamaIndex application | RAG attack report with injection payloads and impact analysis |
 | 3 | Build an AI-driven fuzzer or automated payload obfuscator and publish to GitHub | Working tool with README, architecture diagram, and demo |
@@ -840,11 +840,11 @@
 
 ### Lab Progression (Module 29: Red Team Operations & Tradecraft)
 
-| Level | Task                                                                                                                       | Deliverable                                                            |
+| Level | Task | Deliverable |
 | ----- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 1     | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in my lab                                         | C2 deployment guide with listener/payload configuration                |
-| 2     | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite)                                                | Infrastructure diagram + setup documentation                           |
-| 3     | Execute a full red team campaign against my AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
+| 1 | Deploy Sliver or Mythic C2, generate payloads, and establish callbacks in my lab | C2 deployment guide with listener/payload configuration |
+| 2 | Build a redirector infrastructure (cloud VM + domain + HTTPS + mod_rewrite) | Infrastructure diagram + setup documentation |
+| 3 | Execute a full red team campaign against my AD lab — initial access, persistence, lateral movement, objective completion | Campaign report with timeline, detection analysis, and recommendations |
 
 > [!IMPORTANT]
 > **Move-On Gate (Module 29):** I can plan a red team campaign, deploy C2 infrastructure with redirectors, execute a full attack lifecycle with OPSEC discipline, and produce a campaign report that analyzes detection gaps.
@@ -1036,11 +1036,11 @@
 
 ### Lab Progression (Module 30: Proof of Work & Career Portfolio)
 
-| Level | Task                                                                                                         | Deliverable                                                |
+| Level | Task | Deliverable |
 | ----- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| 1     | Write 3 pentest reports with executive summaries tailored for CISO, engineering lead, and compliance officer | Reports with 3 audience-specific executive summaries       |
-| 2     | Build GitHub portfolio with 2–5 security tools and publish 5+ technical blog posts                           | Live GitHub + blog with cross-linked content               |
-| 3     | Submit 5 valid bug bounty findings and present at a local meetup or BSides                                   | Bug bounty acknowledgments + presentation slides/recording |
+| 1 | Write 3 pentest reports with executive summaries tailored for CISO, engineering lead, and compliance officer | Reports with 3 audience-specific executive summaries |
+| 2 | Build GitHub portfolio with 2–5 security tools and publish 5+ technical blog posts | Live GitHub + blog with cross-linked content |
+| 3 | Submit 5 valid bug bounty findings and present at a local meetup or BSides | Bug bounty acknowledgments + presentation slides/recording |
 
 > [!IMPORTANT]
 > **Move-On Gate (Module 30):** Produce one pentest report with three executive summaries (CISO, engineering lead, compliance officer) for the same set of findings, and have a live portfolio with working tools, published writeups, and at least one industry-recognized certification.
@@ -1095,7 +1095,7 @@
 *14 tools. I will use these on nearly every lab, CTF, and engagement. OSCP requires most of them. Master all 14 before moving to Tier 2.*
 
 | # | Tool | Domain | Signature Use Case | ✅ Complete By |
-|:-:|:-----|:-------|:-------------------|:--------------|
+| :-: | :----- | :------- | :------------------- | :-------------- |
 | 1 | [[Nmap\|🗺️ Nmap]] | Recon & Scanning | First tool on every engagement. Host discovery, port scan, service/version fingerprinting. | **Module 27 — before Lab Progression (Offensive Dev)** |
 | 2 | [[Netcat\|🔌 Netcat]] | Networking / Shells | Reverse shells, bind shells, banner grabbing, port forwarding. The duct tape of pentesting. | **Module 27 — Topic 4 (C2 & Implant Development)** |
 | 3 | [[Burp_Suite\|🕷️ Burp Suite]] | Web App Testing | The #1 tool for manual web app testing. Proxy, Repeater, Intruder, active scanner. | **Module 28 — Topic 3 (Adversarial Techniques)** |
@@ -1121,7 +1121,7 @@
 *12 tools. Critical for Active Directory attacks, network analysis, red teaming, and web specialization. I will use these in most serious engagements — just not on every single target like Tier 1.*
 
 | # | Tool | Domain | Signature Use Case | ✅ Complete By |
-|:-:|:-----|:-------|:-------------------|:--------------|
+| :-: | :----- | :------- | :------------------- | :-------------- |
 | 15 | [[Impacket\|🐍 Impacket]] | Active Directory | Python suite for SMB, Kerberos, DCOM. `secretsdump`, `psexec`, `ntlmrelayx`, `GetUserSPNs`. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
 | 16 | [[BloodHound\|🩸 BloodHound]] | Active Directory | AD attack path visualization. Shortest path to Domain Admin from my current position. | **Module 29 — Topic 1 (Campaign Planning & Infrastructure)** |
 | 17 | [[NetExec\|🕸️ NetExec (nxc)]] | Active Directory / Red Team | SMB enumeration, password spraying, lateral movement, BloodHound collection. Successor to CrackMapExec. | **Module 29 — Topic 3 (OPSEC, Persistence & Lateral Movement)** |
@@ -1145,7 +1145,7 @@
 *12 tools. Essential within their specific domain, but not universally needed. Pick the sub-group that matches my track.*
 
 | # | Tool | Domain | When You Need It | ✅ Complete By |
-|:-:|:-----|:-------|:-----------------|:--------------|
+| :-: | :----- | :------- | :----------------- | :-------------- |
 | 27 | [[Scapy\|🐍 Scapy]] | Packet Crafting | Craft any custom packet in Python. Build scanners, ARP poisoners, protocol fuzzers from scratch. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
 | 28 | [[Ghidra\|🐉 Ghidra]] | Malware Analysis / RE | Static binary reverse engineering. NSA's free IDA Pro alternative — disassembly, decompiler, scripting. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
 | 29 | [[jwt-tool\|🔑 jwt_tool]] | Web / API Testing | JWT attack suite — `alg:none`, RS256→HS256 confusion, weak secret brute-force, `kid` injection. | **Module 28 — Topic 3 (Adversarial Techniques)** |
@@ -1168,7 +1168,7 @@
 *11 tools. Know what each does and when to call for it. Deep practice is optional unless DoS testing or low-level malware analysis is my specific role.*
 
 | # | Tool | Domain | What It Does | ✅ Complete By |
-|:-:|:-----|:-------|:-------------|:--------------|
+| :-: | :----- | :------- | :------------- | :-------------- |
 | 28 | 🧬 Detect It Easy (DiE) | Malware Analysis | PE packer and compiler identification. First step before attempting to unpack a binary. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
 | 30 | 👁️ Procmon | Malware Analysis | Windows process activity monitor — real-time file, registry, and network event capture during execution. | **Module 27 — Topic 2 (Windows Offensive Development)** |
 | 31 | 🧵 strings | Malware Analysis | Extract all printable strings from a binary. Fastest first-pass indicator extraction before Ghidra. | **Module 27 — Topic 1 (Exploit Development Foundation)** |
@@ -1262,7 +1262,7 @@ WHAT DO YOU NEED TO DO?
 *Start from Block 1. Complete each block before moving to the next.*
 
 | Block | Weeks | Tools | Focus |
-|:-----:|:-----:|:------|:------|
+| :-----: | :-----: | :------ | :------ |
 | 1 | 1–2 | Nmap · Netcat · tcpdump | Networking fundamentals — understand the infrastructure before attacking it |
 | 2 | 3–4 | Burp Suite · ffuf · Gobuster · Nikto | Web recon and manual testing baseline |
 | 3 | 5–6 | Hydra · Hashcat · John the Ripper · sqlmap | Credential attacks and web exploitation |
@@ -1292,7 +1292,7 @@ WHAT DO YOU NEED TO DO?
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next: Electives ➔ | ⬆ Top |
-|:---:|:---:|:---:|:---:|
-| [[Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[README\|Master Roadmap]] | [[Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#Stage 5 — Specialized\|⬆ Return to Top]] |
+| :---: | :---: | :---: | :---: |
+| [[Cyber-Security/Roadmap/Stage-4_Enterprise\|◀ Stage 4: Enterprise]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Shelf_Post-Hire\|Shelf: Post-Hire ➔]] | [[#Stage 5 — Specialized\|⬆ Return to Top]] |
 
-> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Shelf_Post-Hire|Shelf: Post-Hire]]` to explore situational post-hire electives, or hover to preview.
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Cyber-Security/Roadmap/Shelf_Post-Hire|Shelf: Post-Hire]]` to explore situational post-hire electives, or hover to preview.

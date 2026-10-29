@@ -17,23 +17,23 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Static RE & Decompilation | Dynamic Debugging | Binary Exploitation | Triage & Strings |
-|:--------------------------|:------------------|:--------------------|:-----------------|
+| :-------------------------- | :------------------ | :-------------------- | :----------------- |
 | [[Ghidra\|🔬 Ghidra]] | [[x64dbg\|🐛 x64dbg]] | [[pwntools\|⚡ pwntools]] | [[PEStudio\|🔬 PEStudio]] |
-| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] | | [[Detect_It_Easy\|🔎 Detect It Easy]] |
-| | | | **📝 strings** (you are here) |
+| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] || [[Detect_It_Easy\|🔎 Detect It Easy]] |
+|||| **📝 strings** (you are here) |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 3 | 45 min |
 | 2 | Core Usage | 5 | 1–2 hours |
 | 3 | Analysis Techniques | 4 | 1–2 hours |
 | 4 | Limitations & Alternatives | 3 | 45 min |
 | 5 | Mastery Check | 2 | 20 min |
-| | **Total** | **17** | **~3.5–5.5 hours** |
+|| **Total** | **17** | **~3.5–5.5 hours** |
 
 ---
 
@@ -46,7 +46,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Mechanism** | Scans raw file bytes. Whenever it finds N consecutive printable ASCII characters (default N=4), it outputs that sequence. No file format awareness — works on any file type. |
 | **What It Finds** | Hard-coded URLs, domains, IPs. File paths (`C:\Users\...`, `/etc/passwd`). Registry keys. Error messages and debug text. Function names (if dynamically resolved). Hardcoded credentials. Mutex names. PDB paths. Base64-encoded data. |
 | **What It Misses** | Encrypted/obfuscated strings (they're not printable ASCII). Unicode strings (need `-el` or `-eu` flag). Strings shorter than 4 chars (need `-n` flag). |
@@ -58,7 +58,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Linux** | Pre-installed on most distributions (`binutils` package). `apt install binutils`. |
 | **Windows Sysinternals** | `strings.exe` from Sysinternals (Microsoft). `strings64.exe` for 64-bit binaries on Windows. Download: `learn.microsoft.com/sysinternals/downloads/strings`. |
 | **macOS** | Built-in: `strings`. |
@@ -70,7 +70,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **strings** | CLI. Fast. Works on any file type. No automatic filtering or indicator flagging. Raw output — you analyze it. |
 | **PEStudio Strings** | GUI. PE-aware — knows which section each string came from. Automatically flags suspicious strings against its indicator database. More visual. Windows-only. |
 | **Workflow** | `strings sample.exe | grep -i "http\|\.com\|passwd\|token"` → fast targeted extraction. PEStudio → comprehensive with automatic indicator matching. Use both. |
@@ -86,7 +86,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `strings sample.exe` — extract all ASCII strings (≥4 chars). |
 | **Minimum Length** | `strings -n 8 sample.exe` — only strings 8+ chars (reduces noise). `strings -n 3 sample.exe` — catch shorter strings (more noise). |
 | **With Offset** | `strings -t x sample.exe` — show hex file offset of each string. Useful for finding strings in a hex editor. `strings -t d` — decimal offset. |
@@ -98,7 +98,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Problem** | Default `strings` only finds ASCII. Windows strings are often Unicode (UTF-16 LE — every char has a null byte between). `Hello` in Unicode: `48 00 65 00 6C 00 6C 00 6F 00`. `strings` can't see this. |
 | **Unicode Flag** | `strings -el sample.exe` — little-endian 16-bit (Windows UTF-16). `strings -eb sample.exe` — big-endian 16-bit. `strings -e S sample.exe` — UTF-8 multi-byte. |
 | **Sysinternals strings** | `strings.exe -u sample.exe` — both ASCII and Unicode. Much better for Windows PE files. |
@@ -111,7 +111,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **URLs and Domains** | `strings sample.exe | grep -i "http\|\.com\|\.ru\|\.cn\|\.io"`. |
 | **IPs** | `strings sample.exe | grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"`. |
 | **Paths** | `strings sample.exe | grep -i "c:\\\\users\|appdata\|system32\|\\\\temp\\\\"`. |
@@ -126,7 +126,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Redirect** | `strings sample.exe > strings_output.txt`. |
 | **Combined** | `strings sample.exe strings -el sample.exe | sort -u > all_strings.txt`. Sort + deduplicate. |
 | **Grep + Save** | `strings sample.exe | grep -i "http" | tee network_strings.txt`. Displays and saves simultaneously. |
@@ -138,7 +138,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Multiple Files** | `strings /path/to/samples/*` — processes all files. Output includes filename headers. |
 | **With grep** | `strings /path/to/samples/* | grep -i "evil-c2.com"` — find which samples reference a specific domain. |
 | **Campaign Pivot** | Extract all strings from a sample set → grep for a unique C2 domain → find all related samples. |
@@ -154,8 +154,8 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
-| **Workflow** | `strings -n 6 sample.exe | grep -iE "(https?://|\.com|\.ru|\.cn|:\d{2,5})" | sort -u`. |
+| :--- | :--- |
+| **Workflow** | `strings -n 6 sample.exe | grep -iE "(https?:// | \.com | \.ru | \.cn | :\d{2,5})" | sort -u`. |
 | **What to Do With Hits** | Search each domain on VirusTotal, URLhaus, urlscan.io. Check WHOIS registration date. Check passive DNS. Add as IOC. |
 | **Config Not Found** | If no URLs → C2 config likely encrypted. Proceed to dynamic analysis (x64dbg). |
 
@@ -166,9 +166,9 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Find hardcoded credentials, API keys, or secrets in compiled binaries. |
-| **Pentest / Code Review** | `strings application.exe | grep -iE "password|passwd|secret|key|token|auth|credential"`. |
+| **Pentest / Code Review** | `strings application.exe | grep -iE "password | passwd | secret | key | token | auth | credential"`. |
 | **AWS Keys** | `strings binary | grep -E "AKIA[0-9A-Z]{16}"`. |
 | **GitHub Tokens** | `strings binary | grep "ghp_"`. |
 
@@ -179,7 +179,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **PDB Path** | `strings sample.exe | grep -i "\.pdb"`. Full developer file system path: `C:\Users\alice\Projects\RAT\Release\payload.pdb`. |
 | **Error Messages** | Unique error strings often identify the malware family or confirm open-source base code. |
 | **Version Strings** | `strings | grep -i "version\|v[0-9]\."` — may reveal software version or campaign version. |
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Use Case** | Run `strings` on a memory dump (from Volatility, WinPmem, or dumped from x64dbg) to find decrypted strings not visible in the original binary. |
 | **Command** | `strings memory_dump.raw | grep -i "http"` → find C2 URLs that were decrypted at runtime. |
 | **Critical Insight** | If the binary's strings show no C2 (encrypted at load), the memory dump's strings will show them after decryption. |
@@ -207,7 +207,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Encrypted Strings** | XOR'd, AES-encrypted, or obfuscated strings appear as garbage bytes. Not extractable statically. |
 | **Short Strings** | Strings shorter than 4 chars (default) are missed. Use `-n 3` or `-n 2` but expect noise. |
 | **Dynamically Built Strings** | Strings constructed byte-by-byte at runtime (char arrays built in code). Not visible until execution. |
@@ -220,7 +220,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **floss (FLARE Obfuscated String Solver)** | `github.com/mandiant/flare-floss`. Goes beyond `strings` — finds statically obfuscated strings (XOR-encoded, stack-based strings, encoding loops). Run after `strings` for additional coverage. |
 | **PEStudio** | For PE files: better contextualized string analysis with automatic indicator matching. |
 | **FLARE VM** | Mandiant's Windows malware analysis VM includes floss + dozens of other tools pre-installed. |
@@ -232,7 +232,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Install** | `pip install flare-floss`. |
 | **Run** | `floss sample.exe` — outputs static strings, stack strings, and decoded strings (XOR etc.). |
 | **Comparison** | `strings sample.exe` → 15 interesting strings. `floss sample.exe` → 15 + 32 additional decoded strings (including C2 domain hidden by XOR encoding). |
@@ -248,7 +248,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can extract ASCII and Unicode strings from a binary | ☐ |
 | Can grep strings output for specific IOC types | ☐ |
 | Can extract C2 URLs and file paths from malware strings | ☐ |

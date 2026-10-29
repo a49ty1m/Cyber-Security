@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | SAST/DevSecOps | Secrets Scanning | IaC Security |
-|:--------------|:----------------|:-------------|
+| :-------------- | :---------------- | :------------- |
 | **🔍 Semgrep** (you are here) | [[Gitleaks\|🕵️ Gitleaks]] | [[Checkov\|✅ Checkov]] |
-| | [[TruffleHog\|🔎 TruffleHog]] | [[tfsec\|🛡️ tfsec]] |
+|| [[TruffleHog\|🔎 TruffleHog]] | [[tfsec\|🛡️ tfsec]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Scan | 4 | 1 hour |
 | 2 | Using Pre-Built Rules | 6 | 2–3 hours |
 | 3 | Rule Syntax — Writing Custom Rules | 9 | 4–6 hours |
@@ -38,7 +38,7 @@
 | 5 | CI/CD Integration (GitHub Actions) | 5 | 2–3 hours |
 | 6 | Taint Analysis & Data Flow | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **40** | **~19–27 hours** |
+|| **Total** | **40** | **~19–27 hours** |
 
 **Prerequisites:** Phase 1 complete. Basic familiarity with at least one programming language (Python, JavaScript, Java). Understanding of common web vulnerabilities (SQL injection, XSS, path traversal) from Phase 4.
 
@@ -129,10 +129,10 @@ Finding #1:
   Lines: 42-43
   Message: Detected user-controlled data passed to SQL query without parameterization.
            This could result in SQL injection.
-  
+
   42: query = "SELECT * FROM users WHERE name = '" + request.GET['name'] + "'"
   43: cursor.execute(query)
-  
+
   Fix: Use parameterized queries: cursor.execute("SELECT * FROM users WHERE name = %s", [name])
   Reference: https://semgrep.dev/r/python.django.security.injection.tainted-sql-string
 ```
@@ -343,10 +343,10 @@ jobs:
   semgrep:
     name: SAST Security Scan
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Semgrep
         uses: semgrep/semgrep-action@v1
         with:
@@ -355,7 +355,7 @@ jobs:
             p/owasp-top-ten
             ./security/custom-rules.yml     # Your custom rules
           fail_open: false                  # Fail build if Semgrep errors occur
-          
+
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}  # Optional: Semgrep Cloud
 
@@ -368,7 +368,7 @@ jobs:
                   --error \                  # Exit code 1 if findings (fails the build)
                   --sarif-output results.sarif \
                   .
-          
+
       - name: Upload SARIF Results
         uses: github/codeql-action/upload-sarif@v3
         with:

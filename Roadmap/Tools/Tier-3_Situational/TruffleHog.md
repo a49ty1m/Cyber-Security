@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Secrets Scanning | SAST | IaC Security |
-|:----------------|:-----|:-------------|
+| :---------------- | :----- | :------------- |
 | [[Gitleaks\|🕵️ Gitleaks]] | [[Semgrep\|🔍 Semgrep]] | [[Checkov\|✅ Checkov]] |
-| **🔎 TruffleHog** (you are here) | | [[tfsec\|🛡️ tfsec]] |
+| **🔎 TruffleHog** (you are here) || [[tfsec\|🛡️ tfsec]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Scan | 4 | 1 hour |
 | 2 | Git Repository Scanning | 6 | 2–3 hours |
 | 3 | Secret Verification | 5 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 5 | CI/CD Integration | 4 | 1–2 hours |
 | 6 | Detectors & Custom Rules | 5 | 2–3 hours |
 | 7 | Practical Labs | 4 | 3–5 hours |
-| | **Total** | **34** | **~14–21 hours** |
+|| **Total** | **34** | **~14–21 hours** |
 
 **Prerequisites:** Phase 1 complete. Git basics. Understanding of API keys and credentials from Phase 4/5 context. Phase 8 DevSecOps fundamentals.
 

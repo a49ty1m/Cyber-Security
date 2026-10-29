@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
-|:--------------|:----------|:----------------|:----------|
+| :-------------- | :---------- | :---------------- | :---------- |
 | [[Splunk\|📊 Splunk]] | [[Sysmon\|🔭 Sysmon]] | [[Sigma\|🔎 Sigma]] | [[Volatility\|🧠 Volatility]] |
 | **🐺 Wazuh** (you are here) | [[Plaso\|📦 Plaso]] | [[YARA\|🦠 YARA]] | [[Autopsy\|🔬 Autopsy]] |
-| [[ELK\|📦 ELK]] | | | |
+| [[ELK\|📦 ELK]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Server Installation & Agent Deployment | 6 | 3–4 hours |
 | 2 | Log Analysis & Built-in Rules | 7 | 3–4 hours |
 | 3 | Custom Rule Writing | 7 | 4–6 hours |
@@ -39,7 +39,7 @@
 | 5 | Vulnerability Detection & Compliance | 4 | 2–3 hours |
 | 6 | Active Response | 4 | 2–3 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **36** | **~21–31 hours** |
+|| **Total** | **36** | **~21–31 hours** |
 
 **Prerequisites:** Linux fundamentals (Phase 1 complete). Basic understanding of Syslog, JSON, and what a SIEM does.
 
@@ -121,7 +121,7 @@ net start wazuhdagent
 ## 2.2 Built-in Rule Categories
 
 | Rule File | Coverage |
-|:----------|:---------|
+| :---------- | :--------- |
 | `0015-ossec_rules.xml` | OSSEC core agent events |
 | `0020-syslog_rules.xml` | Linux syslog (auth, sudo, su) |
 | `0040-sshd_rules.xml` | SSH brute force, authentication |
@@ -192,7 +192,7 @@ rule.mitre.id:"T1059.001"
 ## 3.2 Key Rule Attributes
 
 | Attribute | Description |
-|:----------|:------------|
+| :---------- | :------------ |
 | `id` | Unique rule ID (custom rules: 100000–109999) |
 | `level` | Severity 1–15 |
 | `frequency` | Number of times to match within `timeframe` seconds |

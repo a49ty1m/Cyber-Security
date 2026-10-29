@@ -19,17 +19,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Static RE & Decompilation | Dynamic Debugging | Binary Exploitation | Triage & Strings |
-|:--------------------------|:------------------|:--------------------|:-----------------|
+| :-------------------------- | :------------------ | :-------------------- | :----------------- |
 | [[Ghidra\|🔬 Ghidra]] | **🐛 x64dbg** (you are here) | [[pwntools\|⚡ pwntools]] | [[PEStudio\|🔬 PEStudio]] |
-| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] | | [[Detect_It_Easy\|🔎 Detect It Easy]] |
-| | | | [[strings\|📝 strings]] |
+| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] || [[Detect_It_Easy\|🔎 Detect It Easy]] |
+|||| [[strings\|📝 strings]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 2–3 hours |
 | 2 | Interface | 4 | 2–3 hours |
 | 3 | Breakpoints | 4 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 6 | Unpacking | 3 | 3–5 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **29** | **~23–35 hours** |
+|| **Total** | **29** | **~23–35 hours** |
 
 **Prerequisites:** x86/x64 assembly. Windows PE format basics. Ghidra (static analysis). Run in a VM (malware analysis sandbox).
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Static** | Ghidra. Read code without executing. Safe. Can't see runtime values, encrypted strings, or dynamic API calls. |
 | **Dynamic** | x64dbg. Run the code, pause it, inspect it. Sees actual runtime values. Required for: packed malware, obfuscated code, encrypted strings decrypted at runtime. |
 | **Combined** | Start with Ghidra for overview → switch to x64dbg for runtime verification of specific functions. Jump between both constantly. |
@@ -65,7 +65,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Download** | `x64dbg.com` → download. Extracts to a folder. No installer. |
 | **x64dbg.exe** | 64-bit debugger. |
 | **x32dbg.exe** | 32-bit debugger. Use when analyzing 32-bit binaries. |
@@ -78,7 +78,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ScyllaHide** | Anti-anti-debug plugin. Hides debugger presence from most detection techniques. Automatically applied. Essential for malware analysis. |
 | **Scylla** | Imports fixer. Rebuilds import table for dumped executables. |
 | **xAnalyzer** | Automatic analysis and annotation. |
@@ -91,7 +91,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Breakpoint** | Tells debugger: pause execution when this instruction is about to execute. |
 | **Step Into** | Execute one instruction. If it's a `call`: follow into the called function. |
 | **Step Over** | Execute one instruction. If it's a `call`: run the whole function and pause on the next instruction. |
@@ -109,7 +109,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **CPU** | Main view: top-left = disassembly. Top-right = registers. Bottom-left = stack. Bottom-right = memory (hex dump). |
 | **Graph** | Control flow graph of current function (similar to Ghidra's graph view). |
 | **Log** | Debug log: API calls, breakpoints hit, exceptions. |
@@ -124,7 +124,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Open** | File → Open → select binary. Or drag-drop. |
 | **Attach** | File → Attach → select running process ID. Attach to a running process. |
 | **Pause** | Binary paused at entry point on load. |
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Registers** | RAX, RBX, RCX, RDX, RBP, RSP, RSI, RDI, R8-R15, RIP. Highlighted in red = changed since last step. |
 | **Flags** | ZF (zero flag), CF (carry), SF (sign), OF (overflow). Used by conditional jumps. |
 | **RIP** | Instruction pointer — current instruction address. |
@@ -150,7 +150,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **View** | Stack grows downward. Top = current RSP value (most recently pushed). |
 | **Function Args** | On a `call`: parameters pushed to stack (x86) or in registers (x64 — first 4 in RCX, RDX, R8, R9). |
 | **Return Address** | After `call`, return address on top of stack. |
@@ -167,7 +167,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Set** | Click address in disassembly → press `F2`. Or right-click → Add Breakpoint. |
 | **On Symbol** | Ctrl+G → type function name (e.g., `CreateProcessA`) → F2 to set breakpoint. |
 | **Conditional** | Right-click → Add Conditional Breakpoint → only break when condition is true (e.g., `eax == 1`). |
@@ -180,7 +180,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Purpose** | Hardware breakpoints are set in CPU debug registers (DR0-DR3). Not modifiable by the program. Undetectable by most anti-debug checks (unlike software BP which writes 0xCC). |
 | **Set** | Right-click address → Hardware Breakpoint → On Execute. |
 | **Limit** | Maximum 4 hardware breakpoints simultaneously. |
@@ -192,7 +192,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Purpose** | Break when a memory address is read from or written to. |
 | **Set** | In memory dump: select bytes → right-click → Breakpoint → Memory → Read/Write. |
 | **Use** | Find what code accesses a specific buffer. Track when an encrypted string is decrypted. |
@@ -204,7 +204,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Find API** | Ctrl+G → type API name: `VirtualAlloc`, `CreateRemoteThread`, `WinExec`, `RegSetValue`. |
 | **Set BP** | F2 on the API → break every time it's called. |
 | **Inspect** | When hit: inspect registers for arguments. RCX = first arg, RDX = second arg (x64). |
@@ -221,7 +221,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **View** | Memory Map → find interesting region (heap, newly allocated section) → right-click → Dump to File. |
 | **Follow in Dump** | Right-click register/address → Follow in Dump → see memory at that address in hex dump. |
 | **Search** | In dump: Ctrl+B → search for byte pattern. Ctrl+F → search for string. |
@@ -233,7 +233,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Approach** | Encrypted string in binary → breakpoint on decryption function → run → break → inspect destination buffer in dump → decrypted string visible. |
 | **Memory Search** | After decryption: Ctrl+F in dump → search for expected plaintext. |
 
@@ -244,7 +244,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Find** | Breakpoint on `VirtualAlloc` → break → note returned memory address (RAX) → run → break on `memcpy`/`WriteProcessMemory` → observe shellcode being written → breakpoint on that address → step through shellcode. |
 | **Annotate** | Follow shellcode in disassembly. Navigate to allocated address. |
 
@@ -255,7 +255,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Modify Register** | Right-click register → Set Value → enter new value. Change EAX return value to bypass a check. |
 | **Modify Memory** | In dump → double-click byte → edit. Patch a byte to NOP out a check. |
 | **Zero Flag** | Right-click ZF in flags → Toggle → change conditional jump outcome. |
@@ -271,7 +271,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Detection** | `IsDebuggerPresent` → checks PEB.BeingDebugged flag. Returns 1 if debugger present. |
 | **Bypass** | ScyllaHide patches this automatically. Or: BP on `IsDebuggerPresent` → when hit → set RAX=0 → NOP the check. Or: PEB → manually set BeingDebugged byte to 0 (`fs:[30h]` in x86, `gs:[60h]` in x64). |
 
@@ -282,7 +282,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Detection** | Malware records timestamp → executes code → records second timestamp → if elapsed time > threshold (debugger slows execution): exit. `GetTickCount`, `QueryPerformanceCounter`. |
 | **Bypass** | ScyllaHide patches timing functions. Or: BP after timing check → set return value to 0. |
 
@@ -293,7 +293,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Enable** | Plugins → ScyllaHide → Options → enable all anti-anti-debug features. |
 | **Covers** | IsDebuggerPresent, CheckRemoteDebuggerPresent, NtQueryInformationProcess, timing checks, heap flags, OutputDebugString trick, and more. |
 | **Essential** | Always enable ScyllaHide when analyzing modern malware. Without it, many samples immediately exit on detecting the debugger. |
@@ -309,7 +309,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Signs** | Small import table (only LoadLibrary, GetProcAddress). Encrypted/compressed sections. DetectItEasy identifies packer. UPX, MPRESS, custom packers. |
 | **Ghidra** | Most code is a stub. Only unpacker code visible. Main payload absent. |
 
@@ -320,7 +320,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Packer decompresses/decrypts original code to memory → jumps to OEP (Original Entry Point). Dump memory at that moment. |
 | **Find OEP** | Set BP on `VirtualAlloc`/`VirtualProtect`. Run. When unpacked: often a `jmp` or `push retn` to OEP. Follow the tail call. Or: ESP trick (hardware BP on stack → run → break when stack returns to original value). |
 | **Dump** | At OEP: Scylla plugin → Dump → saves process memory to file. |
@@ -332,7 +332,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Problem** | Dumped binary has broken import table (packer hasn't restored it). |
 | **Scylla** | Plugins → Scylla → IAT Autosearch → Find Imports → Fix Dump. Rebuilds the import table from the running process's resolved imports. |
 | **Result** | Loadable, analyzable binary with correct imports. Open in Ghidra for further static analysis. |
@@ -413,7 +413,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can open a binary, set breakpoints, and step through code | ☐ |
 | Can read registers and inspect stack during execution | ☐ |
 | Can set API breakpoints and inspect function arguments | ☐ |

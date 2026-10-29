@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Mobile Security | Android Analysis | iOS Analysis | Network |
-|:---------------|:----------------|:-------------|:--------|
+| :--------------- | :---------------- | :------------- | :-------- |
 | **🔬 Frida** (you are here) | [[jadx\|📦 jadx]] | [[Objection\|📱 Objection]] | [[Burp_Suite\|🕷️ Burp Suite]] |
-| [[APKTool\|🔨 APKTool]] | [[Aircrack-ng\|📡 Aircrack-ng]] | | |
+| [[APKTool\|🔨 APKTool]] | [[Aircrack-ng\|📡 Aircrack-ng]] |||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Setup | 5 | 2–3 hours |
 | 2 | Frida Basics & Script Structure | 7 | 3–4 hours |
 | 3 | Intercepting Android API Calls | 8 | 4–6 hours |
@@ -38,7 +38,7 @@
 | 5 | Root/Jailbreak Detection Bypass | 5 | 3–4 hours |
 | 6 | iOS Instrumentation | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **40** | **~23–34 hours** |
+|| **Total** | **40** | **~23–34 hours** |
 
 **Prerequisites:** Phase 1 complete (Python basics). A rooted Android device or emulator (Genymotion, Android Studio AVD with rooted image). Basic understanding of Android app architecture (Activity, APK structure). Phase 4 Burp Suite basics helpful.
 

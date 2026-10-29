@@ -19,19 +19,19 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Recon & OSINT | Scanning | Web Attacks | Exploitation |
-|:--------------|:---------|:------------|:-------------|
+| :-------------- | :--------- | :------------ | :------------- |
 | [[Amass\|🌐 Amass]] | [[Nmap\|🗺️ Nmap]] | [[Burp_Suite\|🕷️ Burp Suite]] | [[Metasploit_Framework\|💀 Metasploit]] |
 | [[theHarvester\|🌾 theHarvester]] | [[Nuclei\|⚡ Nuclei]] | [[ffuf\|🌀 ffuf]] | [[Hydra\|🔓 Hydra]] |
 | [[Recon-ng\|🔭 Recon-ng]] | [[Gobuster\|📂 Gobuster]] | [[sqlmap\|💉 sqlmap]] | [[Impacket\|🐍 Impacket]] |
-| **🕸️ SpiderFoot** (you are here) | | | |
-| [[Maltego\|🕵️ Maltego]] | | | |
+| **🕸️ SpiderFoot** (you are here) ||||
+| [[Maltego\|🕵️ Maltego]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Web UI | 4 | 2–3 hours |
 | 3 | Core Modules | 4 | 2–3 hours |
@@ -40,7 +40,7 @@
 | 6 | CLI and Automation | 3 | 1–2 hours |
 | 7 | Practical Labs | 3 | 3–5 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **26** | **~14–23 hours** |
+|| **Total** | **26** | **~14–23 hours** |
 
 ---
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scan** | Each investigation is a "scan" with a target (domain, IP, email, person, etc.) and a set of modules to run. |
 | **Modules** | 200+ modules, each querying a specific data source or performing analysis. Modules generate "events" (findings). |
 | **Events** | Typed findings: DOMAIN_NAME, IP_ADDRESS, EMAILADDR, USERNAME, PHONE_NUMBER, VULNERABILITY_CVE, DARKNET_MENTION, etc. |
@@ -66,7 +66,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **GitHub** | `git clone https://github.com/smicallef/spiderfoot`. `pip3 install -r requirements.txt`. `python3 sf.py -l 127.0.0.1:5001`. |
 | **Docker** | `docker pull smicallef/spiderfoot`. `docker run -p 5001:5001 smicallef/spiderfoot`. |
 | **Kali** | `apt install spiderfoot` or manual install. |
@@ -79,7 +79,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Domain** | Start with a domain → discovers subdomains, emails, IPs, certificates, mentions. |
 | **IP Address** | Start with IP → discovers hostnames, ASN, geolocation, open ports, CVEs. |
 | **Email** | Start with email → breaches, social profiles, associated domains. |
@@ -93,7 +93,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HX** | `spiderfoot.net` — hosted version. More modules, dark web access, better performance. Freemium. |
 | **Self-hosted** | Full control. No data sent to third party. Limited by your API keys and bandwidth. |
 
@@ -108,7 +108,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **New Scan** | Web UI → New Scan → Enter target name → Select scan type. |
 | **Module Selection** | Choose: "All" (comprehensive), "Footprint" (domain/IP surface), "Investigate" (deep dig), "Passive" (no active queries), "OSINT" (open source only). Or custom: manually select modules. |
 | **Start** | Click Run. Modules execute in parallel. Results stream in real time. |
@@ -120,7 +120,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Browse** | Scan → Browse → Event type filter. Filter by: IP_ADDRESS, EMAILADDR, VULNERABILITY, DARKNET_MENTION, etc. |
 | **Graph** | Scan → Graph → visual relationship map. Entities as nodes, relationships as edges. |
 | **Status** | High interest: VULNERABILITY_CVE, DARKNET_MENTION, CREDENTIAL_BREACH, PHONE_NUMBER, EMAILADDR. |
@@ -132,7 +132,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Key Events** | `VULNERABILITY_CVE` — CVEs found for discovered services. `CREDENTIAL_BREACH` — emails found in breach databases. `DARKNET_MENTION` — target mentioned on dark web. `LINKED_URL_INTERNAL` — internal URL exposure. `INTERNET_NAME` — discovered hostnames. `EMAILADDR` — email addresses. |
 | **Filter** | Event Type dropdown in Browse view. Focus on high-value event types first. |
 
@@ -143,7 +143,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Export** | Scan → Download → CSV or JSON. Filter by event type before downloading for focused exports. |
 | **GEXF** | Graph format for Gephi visualization. Large relationship maps. |
 
@@ -158,7 +158,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **sfp_dnsresolve** | Resolves discovered hostnames to IPs. |
 | **sfp_crt** | Certificate transparency log queries. Subdomain discovery. |
 | **sfp_dnsdumpster** | DNSDumpster API for DNS records. |
@@ -171,7 +171,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **sfp_shodan** | Shodan host lookup for discovered IPs (requires API key). |
 | **sfp_virustotal** | VirusTotal for domain/IP reputation (requires API key). |
 | **sfp_alienvault** | AlienVault OTX threat intelligence. |
@@ -184,7 +184,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **sfp_haveibeenpwned** | HIBP API — check emails against breach databases (requires API key). |
 | **sfp_leakix** | LeakIX for exposed/vulnerable services. |
 | **sfp_dehashed** | DeHashed breach database (requires paid key for full access). |
@@ -196,7 +196,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **sfp_github** | GitHub code search — find mentions of the target in code (requires API key). |
 | **sfp_linkedin** | LinkedIn discovery (limited without official API). |
 | **sfp_hunter** | Hunter.io email discovery (requires API key). |
@@ -212,7 +212,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Web UI** | Settings → Global Options → enter API keys for each service. |
 | **Key Services** | Shodan, VirusTotal, Hunter.io, HIBP, GitHub, Censys, PassiveTotal, SecurityTrails. |
 
@@ -223,7 +223,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Free Keys** | Shodan (limited free). VirusTotal (500/day free). GitHub (5000/hour with account). HIBP (free for email check). |
 | **High-value** | Shodan + VirusTotal + HIBP cover the most important threat intel categories. Prioritize these. |
 
@@ -234,7 +234,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Passive** | Select "Passive" scan type → only queries third-party databases, no direct target contact. Zero detection risk. |
 | **Use Case** | Pre-engagement intelligence when you cannot afford any target interaction. |
 
@@ -249,7 +249,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Graph View** | Visualize entity relationships. Clusters of related infrastructure. Shared hosting relationships. |
 | **Pivot** | Domain → IP → other domains on same IP → expand attack surface. |
 | **Connected Targets** | Domains sharing ASN, certificates, or IP ranges = likely same organization → broader scope. |
@@ -261,7 +261,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **CVE Events** | SpiderFoot correlates service banners (from Shodan) with known CVEs → surfaces vulnerable exposed services. |
 | **Action** | Validate each CVE finding manually. Shodan banners can be outdated. Verify the actual version before attempting exploitation. |
 
@@ -272,7 +272,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Modules** | Dark web modules require Tor connectivity or dedicated dark web data services. |
 | **Value** | Find mentions of the target organization on dark web forums, paste sites, data leak sites. Credential databases. |
 | **HX** | SpiderFoot HX has better dark web coverage than self-hosted. |
@@ -288,7 +288,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `python3 sf.py -s target.com -t DOMAIN_NAME -m sfp_crt,sfp_hackertarget,sfp_dnsresolve -o csv -q`. |
 | **Flags** | `-s target` — scan target. `-t type` — target type. `-m modules` — comma-separated modules. `-o format` — output format (csv, json, tab). `-q` — quiet (no progress). |
 
@@ -299,7 +299,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Save** | Save a module selection as a template. Reuse for similar engagements. |
 | **Quick** | "Footprint" preset = standard module set for domain attack surface. |
 
@@ -310,7 +310,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Export → Nmap** | Export all discovered IPs → feed to Nmap for port scanning. |
 | **Export → ffuf** | Export all discovered subdomains → feed to ffuf or Gobuster for web fuzzing. |
 | **Export → nxc** | Discovered network ranges → nxc smb for authentication testing. |
@@ -373,7 +373,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run a SpiderFoot scan and review results by event type | ☐ |
 | Can select appropriate modules for a scan | ☐ |
 | Can configure API keys for enhanced coverage | ☐ |

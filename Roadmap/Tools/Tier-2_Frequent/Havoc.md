@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | C2 Frameworks | EDR Evasion | Post-Exploitation |
-|:-------------|:-----------|:-----------------|
+| :------------- | :----------- | :----------------- |
 | [[Mythic\|🏰 Mythic]] | **⚔️ Havoc** (you are here) | [[Sliver\|🔱 Sliver]] |
-| | [[Metasploit_Framework\|💉 Metasploit]] | [[Impacket\|🔧 Impacket]] |
+|| [[Metasploit_Framework\|💉 Metasploit]] | [[Impacket\|🔧 Impacket]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Setup | 6 | 2–3 hours |
 | 2 | UI & Listener Configuration | 5 | 2–3 hours |
 | 3 | Demon Agent — Generation & Callbacks | 6 | 3–4 hours |
@@ -38,7 +38,7 @@
 | 5 | EDR Evasion Techniques | 9 | 5–7 hours |
 | 6 | Purple Team — Testing Detections | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **43** | **~24–34 hours** |
+|| **Total** | **43** | **~24–34 hours** |
 
 **Prerequisites:** Phase 7 complete (binary exploitation basics, Windows internals). Phase 10 Mythic basics (C2 concepts). Windows API knowledge (system calls, process injection concepts). Linux server for Havoc server deployment.
 
@@ -168,12 +168,12 @@ Key Configuration Options:
     dll                  — DLL (for sideloading or reflective loading)
     raw shellcode        — Position-independent shellcode (for injection)
     service executable   — For persistence via Windows Service
-    
+
 - Sleep Technique:
     WaitForSingleObject  — Simple sleep (baseline, detectable)
     Ekko                 — Encrypted sleep with ROP chain (EDR evasion)
     Zilean               — Timer-based encrypted sleep
-    
+
 - Stack Spoof: On/Off — Spoofs call stack to make Demon appear legitimate
 - Sleep Mask: On/Off — Encrypts agent in memory during sleep
 - Indirect Syscalls: On/Off — Calls Windows APIs via indirect syscalls (bypasses API hooks)
@@ -346,9 +346,9 @@ Stack Spoof: Enabled
 ## 5.5 AMSI/ETW Bypass
 
 ```
-# AMSI (Antimalware Scan Interface): PowerShell, JScript, VBScript content 
+# AMSI (Antimalware Scan Interface): PowerShell, JScript, VBScript content
 # passes through AMSI before execution — AV engines scan it
-# 
+#
 # Bypass: Patch amsi.dll's AmsiScanBuffer function in memory to return
 # AMSI_RESULT_CLEAN without scanning
 

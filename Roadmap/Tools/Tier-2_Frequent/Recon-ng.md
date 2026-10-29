@@ -21,19 +21,19 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Recon & OSINT | Scanning | Web Attacks | Exploitation |
-|:--------------|:---------|:------------|:-------------|
+| :-------------- | :--------- | :------------ | :------------- |
 | [[Amass\|🌐 Amass]] | [[Nmap\|🗺️ Nmap]] | [[Burp_Suite\|🕷️ Burp Suite]] | [[Metasploit_Framework\|💀 Metasploit]] |
 | [[theHarvester\|🌾 theHarvester]] | [[Nuclei\|⚡ Nuclei]] | [[ffuf\|🌀 ffuf]] | [[Hydra\|🔓 Hydra]] |
 | **🔭 Recon-ng** (you are here) | [[Gobuster\|📂 Gobuster]] | [[sqlmap\|💉 sqlmap]] | [[Impacket\|🐍 Impacket]] |
-| [[SpiderFoot\|🕸️ SpiderFoot]] | | | |
-| [[Maltego\|🕵️ Maltego]] | | | |
+| [[SpiderFoot\|🕸️ SpiderFoot]] ||||
+| [[Maltego\|🕵️ Maltego]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Module System | 5 | 2–3 hours |
 | 3 | Key Modules | 5 | 3–4 hours |
@@ -42,7 +42,7 @@
 | 6 | Advanced | 3 | 2–3 hours |
 | 7 | Practical Labs | 3 | 3–5 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **29** | **~16–25 hours** |
+|| **Total** | **29** | **~16–25 hours** |
 
 ---
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workspace** | Isolated working environment. Each engagement gets its own workspace. All data persists in the workspace database. Multiple workspaces for multiple engagements. |
 | **Database** | SQLite database per workspace. Tables: `domains`, `hosts`, `contacts`, `credentials`, `ports`, `vulnerabilities`, `locations`, `companies`, `netblocks`. |
 | **Modules** | Independent Python modules. Each does one specific OSINT task. Load, configure, and run. Results stored in database automatically. |
@@ -68,7 +68,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | `apt install recon-ng`. |
 | **PIP** | `pip3 install recon-ng`. |
 | **Git** | `git clone https://github.com/lanmaster53/recon-ng`. |
@@ -81,7 +81,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Create** | `workspaces create target_company`. |
 | **List** | `workspaces list`. |
 | **Switch** | `workspaces load target_company`. |
@@ -94,7 +94,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Show** | `show hosts` — all hosts. `show contacts` — all contacts/emails. `show domains` — all domains. `show ports`, `show credentials`, etc. |
 | **Add Manually** | `db insert domains` → prompts for domain name. Seed the database before running modules. |
 | **Query** | `db query SELECT * FROM hosts WHERE ip_address IS NOT NULL`. Direct SQL. |
@@ -106,7 +106,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **First Step** | Add the target domain to the database: `db insert domains` → `target.com`. This seeds the starting point for all domain-based modules. |
 | **Add Company** | `db insert companies` → `Target Corporation`. For company-based searches. |
 | **Add Netblock** | `db insert netblocks` → `192.168.1.0/24`. For IP-based searches. |
@@ -122,7 +122,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Marketplace** | `marketplace search` — list all available modules. `marketplace search domain` — filter by keyword. |
 | **Categories** | `discovery/` — active discovery. `exploitation/` — rare, for specific scenarios. `import/` — import data from files. `recon/` — main OSINT collection (domains, contacts, hosts). `reporting/` — export data. |
 | **Installed** | `modules search` — list installed modules. |
@@ -134,7 +134,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Single** | `marketplace install recon/domains-hosts/hackertarget`. |
 | **All** | `marketplace install all` — installs everything. Large download. |
 | **Info** | `marketplace info recon/domains-hosts/hackertarget` — see module description, required API keys, and source/output tables. |
@@ -146,7 +146,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Load** | `modules load recon/domains-hosts/hackertarget`. |
 | **Info** | `info` — show module description, required options, source, and output tables. |
 | **Set Options** | `options set SOURCE target.com`. Or: if `SOURCE` is set to use DB: it auto-uses domains in the database. |
@@ -159,7 +159,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Module A writes hosts to database → Module B reads hosts from database as its source → Module B writes ports to database → Module C reads ports. Fully automated pipeline. |
 | **SOURCE** | Most modules accept `SOURCE` as the database table name: `options set SOURCE hosts`. Runs module against every entry in the hosts table. |
 | **Power** | One command runs a module against all 200 hosts in the database — not just one. |
@@ -171,7 +171,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Default** | Source = the relevant database table (e.g., `domains` for domain-based modules). |
 | **Override** | `options set SOURCE specific.domain.com` — single target. |
 | **File** | `options set SOURCE file:///path/to/domains.txt` — read from file. |
@@ -187,7 +187,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **hackertarget** | `recon/domains-hosts/hackertarget` — DNS lookups via hackertarget.com. |
 | **crt** | `recon/domains-hosts/certificate_transparency` — CT log lookup. |
 | **bing_domain_web** | `recon/domains-hosts/bing_domain_web` — Bing search for subdomains. |
@@ -200,7 +200,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **hunter_io** | `recon/domains-contacts/hunter_io` — Hunter.io email discovery (requires API key). |
 | **pgp_search** | `recon/domains-contacts/pgp_search` — PGP key server emails. |
 | **whois_pocs** | `recon/domains-contacts/whois_pocs` — WHOIS point-of-contact emails. |
@@ -213,7 +213,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **resolve** | `recon/hosts-hosts/resolve` — resolves all hosts in database to IPs. Essential step before port scanning. |
 | **reverse_resolve** | `recon/addresses-hosts/reverse_resolve` — reverse DNS for IP addresses. |
 | **ipinfodb** | `recon/hosts-hosts/ipinfodb` — geolocation for discovered IPs. |
@@ -226,7 +226,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **github_miner** | `recon/companies-contacts/github_miner` — mine GitHub for employee emails from commits. |
 | **xssposed** | `recon/hosts-vulnerabilities/xssposed` — check hosts against XSSposed database. |
 | **pwnedlist** | `recon/contacts-credentials/pwnedlist` (requires key) — check emails against breach databases. |
@@ -239,7 +239,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **twitter_search** | `recon/companies-contacts/twitter_search` — find Twitter accounts for a company. |
 | **linkedin_auth** | LinkedIn modules require authentication (Recon-ng used to support this — check current availability). |
 | **fullcontact** | `recon/contacts-contacts/fullcontact` — enrich contacts with social profiles (requires key). |
@@ -255,7 +255,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Store Key** | `keys add shodan_api YOUR_KEY_HERE`. |
 | **List Keys** | `keys list` — see all stored keys and which modules require them. |
 | **Remove** | `keys remove shodan_api`. |
@@ -268,7 +268,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Shodan** | Free tier: limited searches. shodan.io → account → API key. |
 | **Hunter.io** | Free tier: 25 requests/month. hunter.io → account → API key. |
 | **VirusTotal** | Free tier: 500 requests/day. virustotal.com → profile → API key. |
@@ -281,7 +281,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Strategy** | Run modules that don't need API keys first (crt.sh, hackertarget, pgp, bing). Then use API-based modules selectively on the most important targets. |
 | **Multiple Accounts** | For practice: create multiple free accounts with different email addresses. |
 
@@ -296,7 +296,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Module** | `modules load reporting/html`. `options set FILENAME /path/to/report.html`. `options set CREATOR Your Name`. `options set CUSTOMER Target Corp`. `run`. |
 | **Contents** | Professional HTML report with all database tables formatted: hosts, contacts, credentials, ports. |
 
@@ -307,7 +307,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Module** | `modules load reporting/csv`. `options set FILENAME /path/to/report.csv`. `run`. |
 | **Use** | Import into Excel for filtering, sorting, deduplication. |
 
@@ -318,7 +318,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Module** | `modules load reporting/json`. Export for programmatic processing or import into other tools. |
 | **Direct SQL** | `db query SELECT email FROM contacts` → pipe to file for direct use. |
 
@@ -333,7 +333,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Pipeline** | `db insert domains target.com`. Load `certificate_transparency` → run → hosts found. Load `resolve` → run → IPs found. Load `hunter_io` → run → contacts found. Load `shodan_hostname` → run → port/service data. Load `reporting/html` → run → report. |
 
 ---
@@ -343,7 +343,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Resource File** | Create a `.rc` file: one command per line. `recon-ng -r recon_script.rc`. Automates an entire recon workflow. |
 | **Content** | `workspaces create target`. `db insert domains target.com`. `modules load recon/domains-hosts/certificate_transparency`. `run`. `modules load recon/hosts-hosts/resolve`. `run`. `modules load reporting/html`. `options set FILENAME /output/report.html`. `run`. |
 
@@ -354,7 +354,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Query** | `db query SELECT contacts.email, hosts.host FROM contacts JOIN hosts ON ...` — join tables to correlate contacts with hosts. |
 | **Value** | Find which emails correspond to which systems. Build targeted attack plans. |
 
@@ -416,7 +416,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can create and manage Recon-ng workspaces | ☐ |
 | Can seed the database and install modules from the marketplace | ☐ |
 | Can chain modules using database table sources | ☐ |

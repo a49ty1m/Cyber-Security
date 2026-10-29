@@ -19,23 +19,23 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Disk Forensics | Memory Forensics | Timeline & Artifacts | Host Telemetry |
-|:---------------|:-----------------|:---------------------|:---------------|
+| :--------------- | :----------------- | :--------------------- | :--------------- |
 | [[Autopsy\|🔍 Autopsy]] | [[Volatility\|🧠 Volatility]] | **📅 Plaso** (you are here) | [[Sysmon\|📊 Sysmon]] |
-| [[FTK_Imager\|💾 FTK Imager]] | | [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
+| [[FTK_Imager\|💾 FTK Imager]] || [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Architecture | 4 | 1–2 hours |
 | 2 | `log2timeline` — Evidence Ingestion | 5 | 2–4 hours |
 | 3 | `psort` — Timeline Filtering & Export | 5 | 2–3 hours |
 | 4 | `pinfo` & Storage Analysis | 3 | 1–2 hours |
 | 5 | Timeline Analysis Workflow | 4 | 3–5 hours |
 | 6 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **25** | **~14–24 hours** |
+|| **Total** | **25** | **~14–24 hours** |
 
 **Prerequisites:** Understanding of Windows artifact types (Registry, Event Logs, Prefetch, LNK files). Phase 7 Part 27 Stages 1–3 recommended. Familiarity with Autopsy (disk analysis) and Volatility (memory) — Plaso complements both.
 
@@ -186,7 +186,7 @@ psort.py -o l2tcsv -w output.csv case.plaso "date > '2026-01-01' AND message con
 ## 3.2 Export Formats
 
 | Format | Use Case |
-|--------|----------|
+| -------- | ---------- |
 | `l2tcsv` | Timeline Explorer, Excel, grep analysis |
 | `json` | SIEM import, custom Python analysis |
 | `xlsx` | Stakeholder reporting (formatted spreadsheet) |

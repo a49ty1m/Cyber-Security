@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | **🗺️ Nmap** (you are here) | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Setup | 6 | 3–4 hrs |
 | 2 | Core Scanning Features | 10 | 6–8 hrs |
 | 3 | Intermediate Techniques | 7 | 5–7 hrs |
@@ -39,7 +39,7 @@
 | 5 | Tool Integration | 3 | 2–3 hrs |
 | 6 | Practical Labs | 3 | 5–8 hrs |
 | 7 | Real-World Methodology | 4 | 3–4 hrs |
-| | **Total** | **39** | **~30–42 hrs** |
+|| **Total** | **39** | **~30–42 hrs** |
 
 **Prerequisites:** Basic TCP/IP networking (OSI model, IP addressing, ports, protocols). Linux command line basics. A lab environment with at least one target (Metasploitable 2 recommended).
 
@@ -66,7 +66,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 
 ### Most-Used Scan Commands
 | Command | Purpose | When to Use |
-|:--------|:--------|:------------|
+| :-------- | :-------- | :------------ |
 | `sudo nmap -sS -p- <target> -oA scan_full` | Full TCP port scan (all 65535) | Complete port discovery |
 | `sudo nmap -sV -sC -p <ports> <target> -oA scan_services` | Service detection + default scripts | After finding open ports |
 | `sudo nmap -sU --top-ports 20 <target> -oA scan_udp` | Fast UDP scan | Find UDP services (DNS, SNMP) |
@@ -75,7 +75,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 
 ### Critical Flags
 | Flag | Meaning | Always Use With |
-|:-----|:--------|:----------------|
+| :----- | :-------- | :---------------- |
 | `-oA <basename>` | Save output (all formats) | **Every scan** — documentation is mandatory |
 | `-Pn` | Skip host discovery | Firewalled Windows hosts |
 | `--reason` | Show why port is open/closed/filtered | Debugging scans |
@@ -105,7 +105,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Explain what Nmap does, which pentest phase it belongs to (Reconnaissance/Scanning), and why it's used before exploitation. |
 | **Skills Learned** | PTES methodology awareness, attack surface concept, why port scanning is the foundation of every engagement. |
 | **Expected Output** | Diagram showing where Nmap fits in the pentest lifecycle (Recon → **Scanning** → Enumeration → Exploitation → Post-Exploitation → Reporting). |
@@ -118,7 +118,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Verify Nmap is installed, check version, understand components (Nmap, Ncat, Nping, Ndiff, NSE scripts). |
 | **Skills Learned** | Tool version management, locating NSE script libraries. |
 | **Practical Exercise** | Run: `nmap --version`, `locate *.nse | wc -l` (count scripts), `which ncat nping ndiff`. |
@@ -132,7 +132,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand why many Nmap scan types require root/sudo and what changes when you run as regular user vs root. |
 | **Skills Learned** | Raw socket access, why SYN scans need root, what happens when Nmap falls back to TCP connect scans. |
 | **Practical Exercise** | Run: `nmap <target>` as user, then `sudo nmap <target>`. Compare scan types. Use `--reason` flag. |
@@ -146,7 +146,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand all six Nmap port states: open, closed, filtered, unfiltered, open\|filtered, closed\|filtered. Know what network behavior produces each state. |
 | **Skills Learned** | TCP/UDP response behavior, firewall interaction with scans, why "filtered" doesn't mean "safe." |
 | **Practical Exercise** | Scan: `sudo nmap -sS -p 1-100 --reason <target>`. Document the reason for each state. |
@@ -160,7 +160,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master all Nmap output formats. Always save scan results — never scan without saving output. |
 | **Skills Learned** | Output format selection, result archival, professional documentation habits. |
 | **Practical Exercise** | Run: `sudo nmap -sV <target> -oA scan_results`. Examine: `.nmap` (human-readable), `.gnmap` (grepable), `.xml` (structured). Parse grepable: `grep "open" scan_results.gnmap`. |
@@ -174,7 +174,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Learn to navigate Nmap's help, man page, and online documentation efficiently. |
 | **Skills Learned** | Self-guided learning, man page navigation, finding the right flag quickly. |
 | **Practical Exercise** | Use `nmap -h | grep -i "script"` to find script flags. Use `man nmap` and search for "timing" (`/timing`). Find NSE docs: `nmap --script-help default`. |
@@ -192,7 +192,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Discover live hosts on a subnet without port scanning. |
 | **Skills Learned** | Host discovery techniques (ICMP, TCP, ARP), why `-sn` is preferred over deprecated `-sP`. |
 | **Syntax** | `sudo nmap -sn 192.168.1.0/24 -oA discovery` (discover hosts, no port scan). |
@@ -207,7 +207,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Perform the default and most common scan type. Understand why it's called "stealth" (half-open — never completes the handshake) and its advantages over TCP connect scans. **⚠️ Reality Check:** The "stealth" label is outdated. Modern IDS/IPS systems detect SYN scans trivially. The term refers to old systems that only logged completed TCP connections. Against modern defenses, SYN scans are just as detectable as any other scan type. |
 | **Skills Learned** | SYN scan mechanics (SYN → SYN-ACK → RST instead of ACK), why half-open was historically considered stealthier (some old logging only recorded completed connections), raw socket requirement, comparison with `-sT`, understanding modern detection capabilities. |
 | **Syntax** | `sudo nmap -sS <target> -oA scan` (SYN scan, default 1000 ports). `sudo nmap -sS -p- <target> -oA scan_full` (all 65535 ports). |
@@ -222,7 +222,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand TCP connect scan (`-sT`), when it's required (no root access, scanning through SOCKS proxies), and its trade-offs vs SYN scanning. |
 | **Skills Learned** | Full TCP handshake scanning, when `-sT` is mandatory (non-root, proxychains). |
 | **Syntax** | `nmap -sT <target>` (works without root). `proxychains nmap -sT -Pn <target>` (through a proxy). |
@@ -237,7 +237,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify exact software names and version numbers running on open ports. |
 | **Skills Learned** | Service fingerprinting, version intensity levels, why version detection is critical for exploit matching. |
 | **Syntax** | `sudo nmap -sV <target> -oA scan_versions`. `sudo nmap -sV --version-intensity 9 <target> -oA scan_detailed` (maximum probing). |
@@ -252,7 +252,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify the target's operating system using TCP/IP stack fingerprinting. |
 | **Skills Learned** | TCP/IP stack fingerprinting, why Nmap shows percentage confidence, CPE strings. |
 | **Syntax** | `sudo nmap -O <target> -oA scan_os`. `sudo nmap -O --osscan-guess <target> -oA scan_os_guess` (show best guesses). |
@@ -267,7 +267,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Scan UDP ports. UDP scanning is slower and less reliable than TCP but essential for finding DNS, SNMP, DHCP, and TFTP services. |
 | **Skills Learned** | UDP protocol behavior, why UDP scans are slow, combining UDP with version detection for better accuracy. |
 | **Syntax** | `sudo nmap -sU --top-ports 50 <target> -oA scan_udp`. `sudo nmap -sU -sV -p 53,161,162 <target> -oA scan_udp_targeted` (targeted with version detection). |
@@ -282,7 +282,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Run Nmap's default NSE scripts (`-sC`) and understand what additional intelligence they provide. Learn script categories: safe, intrusive, vuln, brute, discovery, auth. |
 | **Skills Learned** | NSE architecture, default script behavior, script categories and risk levels. |
 | **Syntax** | `sudo nmap -sC <target> -oA scan_scripts`. `sudo nmap -sV -sC <target> -oA scan_services` (most common combination). `nmap --script-help default`. |
@@ -297,7 +297,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Learn the standard professional Nmap workflow: (1) discover hosts, (2) fast port scan all TCP, (3) targeted version + script scan on open ports, (4) targeted UDP scan. |
 | **Skills Learned** | Efficient scanning methodology, why splitting scans is faster than one monolithic scan. |
 | **Syntax** | Step 1: `sudo nmap -sn 192.168.1.0/24 -oA discovery`. Step 2: `sudo nmap -sS -p- -T4 <target> -oA tcp-all`. Step 3: `sudo nmap -sV -sC -p <open-ports> <target> -oA tcp-detailed`. Step 4: `sudo nmap -sU --top-ports 50 <target> -oA udp-top50`. |
@@ -312,7 +312,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand Nmap's timing templates (`-T0` through `-T5`) and how they affect scan speed and detection risk. |
 | **Skills Learned** | Timing template internals, the speed/accuracy/stealth triangle, when to use each template. |
 | **Syntax** | `-T0` (paranoid — 5 min between probes), `-T3` (normal, default), `-T4` (aggressive — recommended for labs/CTFs), `-T5` (insane — may miss ports). |
@@ -327,7 +327,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master all the ways to specify targets: single IP, CIDR, ranges, lists, input files, and exclusions. |
 | **Skills Learned** | CIDR notation, efficient target specification, using target lists for large engagements. |
 | **Syntax** | Single: `nmap 192.168.1.10`. CIDR: `nmap 192.168.1.0/24`. Range: `nmap 192.168.1.1-50`. File: `nmap -iL targets.txt`. Exclude: `nmap 192.168.1.0/24 --exclude 192.168.1.1`. |
@@ -346,7 +346,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use specific NSE script categories and individual scripts for targeted enumeration. Script categories: `auth`, `brute`, `discovery`, `exploit`, `intrusive`, `safe`, `vuln`. |
 | **Skills Learned** | Targeted script selection, combining scripts, script arguments, understanding script risk levels. |
 | **Syntax** | `nmap --script vuln <target>`. `nmap --script "smb-enum-*" <target>`. `nmap --script smb-brute --script-args userdb=users.txt <target>`. |
@@ -361,7 +361,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Nmap's vulnerability detection scripts to identify known CVEs. **⚠️ Warning:** Some vuln scripts can be destructive or trigger IDS alerts. Always check documentation first. |
 | **Skills Learned** | NSE vuln category scripts, `vulners` script (CVE lookup), Nmap vs dedicated vulnerability scanners. |
 | **Syntax** | `nmap --script vulners -sV <target>` (safer: CVE lookup based on versions). `nmap --script smb-vuln-ms17-010 <target>` (specific vuln check). Check first: `nmap --script-help smb-vuln-ms17-010`. |
@@ -376,7 +376,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the `-A` flag (enables OS detection, version detection, script scanning, and traceroute simultaneously). |
 | **Skills Learned** | Flag composition, understanding that `-A` equals `-O -sV -sC --traceroute`, performance trade-offs. |
 | **Syntax** | `sudo nmap -A <target> -oA scan_aggressive` (aggressive scan on top 1000 ports). `sudo nmap -A -p- <target> -oA scan_aggressive_full` (all ports — very slow). |
@@ -391,7 +391,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Learn Nmap's evasion techniques for bypassing firewalls and IDS/IPS systems. |
 | **Skills Learned** | Packet fragmentation (`-f`), decoy scanning (`-D`), source port manipulation (`--source-port`), idle/zombie scanning (`-sI`). |
 | **Syntax** | Fragment packets: `sudo nmap -f <target>`. Decoys: `sudo nmap -D RND:10 <target>`. Source port 53: `sudo nmap --source-port 53 <target>`. Idle scan: `sudo nmap -sI <zombie-host> <target>`. |
@@ -406,7 +406,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Parse Nmap output using grep and awk. Extract specific information (open ports, service versions) for feeding into other tools. |
 | **Skills Learned** | Grepable output parsing, building tool chains (Nmap → parser → next tool). |
 | **Syntax** | Extract IPs with open ports: `grep "open" scan.gnmap | awk '{print $2}'`. Extract port numbers: `grep "/open/" scan.gnmap | awk -F'[ /]' '{print $5}'`. |
@@ -421,7 +421,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Nmap through SOCKS proxies (proxychains) to scan internal networks from a pivot host. |
 | **Skills Learned** | Pivoting concepts, proxychains configuration, why only `-sT` works through proxies, SSH dynamic port forwarding (`-D`). |
 | **Syntax** | `ssh -D 1080 user@pivot-host`. Edit `/etc/proxychains4.conf`: `socks5 127.0.0.1 1080`. `proxychains nmap -sT -Pn -p 22,80,445 <internal-target>`. |
@@ -436,7 +436,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `ndiff` to compare two Nmap scans taken at different times. Identify new hosts, new ports, changed services. |
 | **Skills Learned** | Network change detection, baseline comparison methodology. |
 | **Syntax** | `ndiff scan-before.xml scan-after.xml`. Automated: cron job running `nmap -sV -oX /scans/scan-$(date +%F).xml <target>`. |
@@ -455,7 +455,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 60 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Read, understand, and modify an existing NSE script. Then write a simple custom NSE script. |
 | **Skills Learned** | Lua programming basics, NSE API structure, how Nmap scripts interact with services. |
 | **Practical Exercise** | Read `/usr/share/nmap/scripts/http-title.nse`. Modify it to also extract the server header. Write a script that checks if a specific banner string is present. |
@@ -469,7 +469,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Scan IPv6 targets. Understand why IPv6 scanning is different (no traditional network sweeping due to massive address space). |
 | **Skills Learned** | IPv6 address formats in Nmap, `-6` flag usage, why IPv6 often has different firewall rules than IPv4. |
 | **Syntax** | `sudo nmap -6 <ipv6-address>`. `sudo nmap -6 --script targets-ipv6-multicast-echo <interface>` (discover IPv6 hosts). |
@@ -483,7 +483,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Masscan for ultra-fast port discovery, then feed results into Nmap for detailed service analysis. Professional workflow for large-scope engagements. |
 | **Skills Learned** | Masscan usage, speed vs depth trade-off, tool combination for efficiency. |
 | **Syntax** | `sudo masscan -p1-65535 192.168.1.0/24 --rate 10000 -oL masscan-results.txt`. Parse results: `nmap -sV -sC -p <ports> <hosts> -oA detailed-scan`. |
@@ -497,7 +497,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use HTTP-specific NSE scripts to enumerate web applications before switching to dedicated tools (Burp, Nikto). |
 | **Skills Learned** | HTTP-specific NSE scripts, web technology detection, web application discovery at scale. |
 | **Syntax** | `nmap --script http-enum <target>`. `nmap --script http-methods <target>`. `nmap --script http-title,http-headers <target>`. |
@@ -517,7 +517,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Optimize Nmap for scanning large networks efficiently. Tune parallelism, timeouts, and retry counts. |
 | **Skills Learned** | `--min-hostgroup`, `--max-parallelism`, `--host-timeout`, `--max-retries` (reduce retries for speed). |
 | **Syntax** | `sudo nmap -sS -p- --min-rate 5000 --max-retries 2 --host-timeout 5m -T4 -iL large-targets.txt -oA large-scan`. |
@@ -535,7 +535,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Import Nmap scan results into Metasploit database. Use Metasploit to search for exploits based on discovered services. |
 | **Workflow** | `nmap -sV -oX scan.xml <target>` → `msfconsole` → `db_import scan.xml` → `hosts` → `services` → `search type:exploit name:<service>`. |
 | **Expected Output** | Metasploit database populated with hosts and services. Exploit candidates listed. |
@@ -547,7 +547,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Extract hosts running specific services and feed into specialized tools (Nikto, Hydra). |
 | **Workflow** | Extract SSH hosts: `grep "22/open" scan.gnmap | awk '{print $2}' > ssh-targets.txt` → `hydra -L users.txt -P passwords.txt -M ssh-targets.txt ssh`. Extract web servers: `grep "80/open\|443/open" scan.gnmap | awk '{print $2}'` → `nikto -h targets.txt`. |
 | **Expected Output** | Automated testing pipeline from network discovery to service-specific enumeration. |
@@ -559,7 +559,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Write a Bash script that automates the full Nmap workflow: discovery → port scan → service detection → vulnerability check → parsing → reporting. |
 | **Practical Exercise** | Create a script that: (1) ping sweep, (2) full TCP port scan, (3) version + script detection on open ports, (4) top 50 UDP scan, (5) vulnerability scan, (6) parses results into a markdown report. |
 | **Expected Output** | A reusable scanning automation script. Clean markdown report generated from scan results. |
@@ -647,7 +647,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Check |
-|:---|:---:|
+| :--- | :---: |
 | Can perform host discovery on any network | ☐ |
 | Can perform full TCP and UDP port scanning | ☐ |
 | Can identify services and versions accurately | ☐ |
@@ -678,7 +678,7 @@ sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
 ## 🔄 Revision Schedule
 
 | Milestone | Review |
-|:---|:---|
+| :--- | :--- |
 | After completing Phase 2 | Review Phase 1 concepts |
 | After completing Phase 4 | Redo Lab 6.1 from memory |
 | After completing Phase 6 | Redo all labs with time constraints |

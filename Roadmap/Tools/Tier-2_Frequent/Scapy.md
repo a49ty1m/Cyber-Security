@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Packet Capture & Analysis | Traffic Crafting & Flooding | MitM & Interception | Network Discovery |
-|:--------------------------|:----------------------------|:--------------------|:------------------|
+| :-------------------------- | :---------------------------- | :-------------------- | :------------------ |
 | [[Wireshark\|🦈 Wireshark]] | **📦 Scapy** (you are here) | [[Bettercap\|🕵️ Bettercap]] | [[Nmap\|🗺️ Nmap]] |
 | [[tcpdump\|📻 tcpdump]] | [[hping3\|🔨 hping3]] | [[Ettercap\|🐛 Ettercap]] | [[Netcat\|🔌 Netcat]] |
-| [[iperf3\|📶 iperf3]] | | [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
+| [[iperf3\|📶 iperf3]] || [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Packet Construction | 5 | 3–4 hours |
 | 3 | Sending and Receiving | 4 | 2–3 hours |
@@ -40,7 +40,7 @@
 | 6 | Scripting | 3 | 2–3 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **31** | **~21–32 hours** |
+|| **Total** | **31** | **~21–32 hours** |
 
 ---
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Install** | `pip3 install scapy`. |
 | **Interactive** | `sudo scapy` — opens Python REPL with all Scapy classes imported. |
 | **Script** | `from scapy.all import *` — import in a Python script. |
@@ -66,7 +66,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Layers** | Packets are built by stacking layers with `/`: `Ether()/IP()/TCP()/Raw(b"data")`. |
 | **Each Layer** | A Scapy class with named fields: `IP(dst="8.8.8.8", ttl=64)`. `TCP(dport=80, flags="S")`. |
 | **Inspect** | `pkt = IP()/TCP()`. `pkt.show()` — print all fields and values. `pkt.summary()` — one-line summary. |
@@ -79,7 +79,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Ethernet** | `Ether(dst="ff:ff:ff:ff:ff:ff", src="aa:bb:cc:dd:ee:ff")`. |
 | **IP** | `IP(src="1.2.3.4", dst="5.6.7.8", ttl=64, proto=6)`. |
 | **TCP** | `TCP(sport=12345, dport=80, flags="S", seq=100, ack=0)`. |
@@ -95,7 +95,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List Fields** | `ls(IP)` — list all IP header fields with types and defaults. `ls(TCP)` — TCP fields. |
 | **Show** | `pkt.show()` — formatted view of all layers and fields. `pkt.show2()` — computed values (checksum filled in). |
 | **Hexdump** | `hexdump(pkt)` — raw bytes. |
@@ -108,7 +108,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Auto** | Scapy computes checksums automatically before sending. Leave `chksum=None` (default). |
 | **Manual** | `IP(chksum=0xdead)` — set manually (for fuzzing bad checksums). |
 | **Verify** | `del pkt[IP].chksum; pkt = pkt.__class__(bytes(pkt))` — force recalculation. |
@@ -124,7 +124,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Code** | `pkt = IP(dst="192.168.1.1")/TCP(dport=80, flags="S")`. |
 | **Send** | `send(pkt)` — send at layer 3. `sendp(Ether()/pkt, iface="eth0")` — send at layer 2. |
 | **Flags** | `"S"` = SYN. `"SA"` = SYN-ACK. `"A"` = ACK. `"F"` = FIN. `"R"` = RST. `"PA"` = PSH+ACK. Combine: `"SA"`. |
@@ -136,7 +136,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ARP Request** | `pkt = Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.1.1")`. |
 | **ARP Reply (Spoofed)** | `pkt = Ether(dst="victim_mac")/ARP(op=2, psrc="gateway_ip", pdst="victim_ip", hwdst="victim_mac")`. |
 | **Fields** | `op=1` = request. `op=2` = reply. `psrc` = source IP. `hwsrc` = source MAC. `pdst` = dest IP. `hwdst` = dest MAC. |
@@ -148,7 +148,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Query** | `pkt = IP(dst="8.8.8.8")/UDP(dport=53)/DNS(rd=1, qd=DNSQR(qname="example.com"))`. |
 | **Send+Recv** | `resp = sr1(pkt, timeout=2)`. `resp[DNS].an.rdata` — answer's IP. |
 
@@ -159,7 +159,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Ping** | `pkt = IP(dst="8.8.8.8")/ICMP()`. `resp = sr1(pkt)`. `resp.show()`. |
 | **Sweep** | `ans, unans = sr(IP(dst="192.168.1.0/24")/ICMP(), timeout=2)`. `ans.summary()`. |
 
@@ -170,7 +170,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Raw** | `pkt = IP(dst="target")/TCP(dport=9999)/Raw(b"GET / HTTP/1.0\r\n\r\n")`. |
 | **HTTP** | Scapy has an HTTP layer: `from scapy.layers.http import *`. `pkt = IP(dst="target")/TCP(dport=80)/HTTP()/HTTPRequest(Method=b"GET", Path=b"/", Http_Version=b"HTTP/1.0")`. |
 
@@ -185,7 +185,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **send** | Layer 3 send (IP and above). OS handles routing. `send(IP(dst="target")/ICMP())`. |
 | **sendp** | Layer 2 send (Ethernet and above). Full control including source MAC. `sendp(Ether()/IP(dst="target")/ICMP(), iface="eth0")`. |
 | **sr** | Send and receive. Returns `(answered, unanswered)` pair. `ans, unans = sr(pkt, timeout=2)`. |
@@ -199,7 +199,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Code** | `ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.1.0/24"), timeout=2, iface="eth0", verbose=False)`. `for sent, received in ans: print(received.psrc, received.hwsrc)`. |
 | **Result** | Lists all responding IPs and their MAC addresses. Faster than Nmap's ARP scan in a script. |
 
@@ -210,7 +210,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SYN Scan** | `ports = [22, 80, 443, 8080]`. `ans, unans = sr(IP(dst="target")/TCP(dport=ports, flags="S"), timeout=2)`. `for sent, recv in ans: if recv.haslayer(TCP) and recv[TCP].flags == 0x12: print(f"Port {recv[TCP].sport}: OPEN")`. |
 | **Flags** | `0x12` = SYN+ACK (open). `0x14` = RST+ACK (closed). No response = filtered. |
 
@@ -221,7 +221,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Loop** | `sendp(pkt, count=100)` — send 100 times. `sendp(pkt, loop=1, inter=0.5)` — loop forever, 0.5s between sends. Ctrl+C to stop. |
 | **Inter** | `sr(pkt, inter=0.1)` — 100ms between each packet. |
 
@@ -236,7 +236,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Basic** | `pkts = sniff(count=100)` — capture 100 packets. `pkts.summary()`. |
 | **Filter** | `sniff(filter="tcp port 80", count=50)` — BPF filter. |
 | **Interface** | `sniff(iface="eth0", count=50)`. |
@@ -250,7 +250,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Write** | `pkts = sniff(count=100); wrpcap("capture.pcap", pkts)`. |
 | **Read** | `pkts = rdpcap("capture.pcap")`. `pkts[0].show()`. |
 | **Scapy + Wireshark** | `wireshark(pkts)` — open packets in Wireshark directly from Scapy. |
@@ -262,7 +262,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Filter by Protocol** | `http_pkts = [p for p in pkts if p.haslayer(TCP) and p[TCP].dport == 80]`. |
 | **Extract Fields** | `for p in pkts: if p.haslayer(IP): print(p[IP].src, p[IP].dst)`. |
 | **Extract Payload** | `p[Raw].load` — raw bytes of payload. `p[Raw].load.decode("utf-8", errors="ignore")` — try to decode. |
@@ -278,7 +278,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Spoof** | `import time`. `victim="192.168.1.100"; gateway="192.168.1.1"`. `victim_mac = getmacbyip(victim); gw_mac = getmacbyip(gateway)`. Loop: send `ARP(op=2, psrc=gateway, hwsrc=attacker_mac, pdst=victim, hwdst=victim_mac)` and `ARP(op=2, psrc=victim, hwsrc=attacker_mac, pdst=gateway, hwdst=gw_mac)` every 2 seconds. |
 | **Restore** | On exit: send correct ARP replies to restore tables. |
 
@@ -289,7 +289,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Code** | `from scapy.all import *; import random`. `send(IP(src=RandIP(), dst="target")/TCP(dport=80, flags="S", sport=RandShort()), loop=1, verbose=False)`. |
 | **`RandIP()`** | Random source IP per packet. Defeats simple IP-based blocks. |
 | **Lab Only** | SYN flood is a DoS attack. Only in isolated lab environments. |
@@ -301,7 +301,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Sniff + Inject** | Sniff DNS queries from poisoned victim. When a query is seen: immediately send a forged DNS response with attacker's IP as the answer before the real response arrives. |
 | **Code Skeleton** | `sniff(filter="udp port 53", prn=dns_spoof)`. In `dns_spoof`: check if `DNSQR in pkt` → build spoofed reply → send before real DNS server responds. |
 
@@ -312,7 +312,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Fuzz Layer** | `fuzz(IP()/TCP())` — Scapy fills random values in all unset fields. `send(fuzz(IP(dst="target")/TCP(dport=80)))`. |
 | **Protocol Fuzzing** | Systematically fuzz a custom protocol: build valid packet → modify one field at a time with unexpected values → send → watch for crashes or unexpected behavior. |
 
@@ -327,7 +327,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Goal** | Write a SYN scanner in Python using Scapy. Input: target IP and port list. Output: open ports. |
 | **Key** | Use `sr()` with a list of `TCP(dport=port_list)` packets in one call (Scapy handles this efficiently). Match responses by port. |
 
@@ -338,7 +338,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Goal** | Write an ARP host discovery script. Input: CIDR range. Output: IP → MAC table of responding hosts. |
 | **Use** | `srp()` with Ethernet broadcast + ARP request for the CIDR. Parse answers. |
 
@@ -349,7 +349,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Replay** | `pkts = rdpcap("capture.pcap")`. `sendp(pkts, iface="eth0")`. Send captured packets back onto the network. |
 | **Use** | Replay a legitimate authentication sequence. Test if a service is vulnerable to replay attacks. |
 
@@ -429,7 +429,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can construct custom packets at any protocol layer | ☐ |
 | Can send layer 2 and layer 3 packets | ☐ |
 | Can use sr/sr1 to send packets and receive responses | ☐ |

@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Mobile Static Analysis | Mobile Dynamic Analysis | Resources |
-|:----------------------|:------------------------|:---------|
-| [[jadx\|📦 jadx]] | [[Frida\|🔬 Frida]] | |
-| **🔨 APKTool** (you are here) | [[Objection\|📱 Objection]] | |
+| :---------------------- | :------------------------ | :--------- |
+| [[jadx\|📦 jadx]] | [[Frida\|🔬 Frida]] ||
+| **🔨 APKTool** (you are here) | [[Objection\|📱 Objection]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Decompile | 4 | 1–2 hours |
 | 2 | APK Structure & Smali Basics | 7 | 3–4 hours |
 | 3 | AndroidManifest & Resource Analysis | 5 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 5 | Injecting Frida Gadget | 5 | 3–4 hours |
 | 6 | Signing & Installing Modified APKs | 4 | 1–2 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **37** | **~18–27 hours** |
+|| **Total** | **37** | **~18–27 hours** |
 
 **Prerequisites:** Basic Android understanding (what an APK is, activity lifecycle). Phase 1 Linux CLI. jadx basics (Phase 5) helpful for understanding code before patching.
 
@@ -142,7 +142,7 @@ Smali is the assembly language of the Dalvik VM. Every Java class becomes a `.sm
 **Critical Smali type descriptors:**
 
 | Smali | Java Type |
-|:------|:---------|
+| :------ | :--------- |
 | `Z` | boolean |
 | `I` | int |
 | `J` | long |

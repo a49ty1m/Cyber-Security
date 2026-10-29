@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Mobile Security | Dynamic Analysis | Static Analysis | Network |
-|:---------------|:----------------|:----------------|:--------|
+| :--------------- | :---------------- | :---------------- | :-------- |
 | [[Frida\|🔬 Frida]] | **📱 Objection** (you are here) | [[jadx\|📦 jadx]] | [[Burp_Suite\|🕷️ Burp Suite]] |
-| [[APKTool\|🔨 APKTool]] | | | |
+| [[APKTool\|🔨 APKTool]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Connection | 4 | 1–2 hours |
 | 2 | SSL Pinning Bypass | 5 | 2–3 hours |
 | 3 | Root/Jailbreak Detection Bypass | 4 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 5 | Memory & Runtime Analysis | 6 | 3–4 hours |
 | 6 | File System & Data Storage Analysis | 5 | 2–3 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **36** | **~17–25 hours** |
+|| **Total** | **36** | **~17–25 hours** |
 
 **Prerequisites:** Frida installed and working (see Frida.md Phase 1). Rooted Android device or emulator. Burp Suite configured as HTTP proxy.
 

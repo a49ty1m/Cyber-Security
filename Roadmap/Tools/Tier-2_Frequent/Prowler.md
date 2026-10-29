@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Cloud Security | AD/Enterprise | Exploitation |
-|:--------------|:-------------|:-------------|
+| :-------------- | :------------- | :------------- |
 | **☁️ Prowler** (you are here) | [[BloodHound\|🩸 BloodHound]] | [[Pacu\|🐦 Pacu]] |
 | [[Certipy\|🔑 Certipy]] | [[Impacket\|🔧 Impacket]] | [[NetExec\|💀 NetExec]] |
 
@@ -30,7 +30,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & AWS Configuration | 5 | 1–2 hours |
 | 2 | Core AWS Checks | 8 | 3–4 hours |
 | 3 | IAM & Privilege Analysis | 7 | 3–4 hours |
@@ -38,7 +38,7 @@
 | 5 | Compliance Framework Scans | 4 | 2–3 hours |
 | 6 | Azure & GCP Coverage | 5 | 2–3 hours |
 | 7 | Practical Labs | 4 | 3–5 hours |
-| | **Total** | **39** | **~16–24 hours** |
+|| **Total** | **39** | **~16–24 hours** |
 
 **Prerequisites:** Phase 1 CLI basics. Basic understanding of AWS core services (IAM, S3, EC2, VPC). An AWS account (free tier works). Phase 6 cloud fundamentals.
 

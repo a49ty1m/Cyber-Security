@@ -19,16 +19,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Disk Forensics | Memory Forensics | Timeline & Artifacts | Host Telemetry |
-|:---------------|:-----------------|:---------------------|:---------------|
+| :--------------- | :----------------- | :--------------------- | :--------------- |
 | **🔍 Autopsy** (you are here) | [[Volatility\|🧠 Volatility]] | [[Plaso\|📅 Plaso]] | [[Sysmon\|📊 Sysmon]] |
-| [[FTK_Imager\|💾 FTK Imager]] | | [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
+| [[FTK_Imager\|💾 FTK Imager]] || [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Case Setup | 5 | 2–3 hours |
 | 2 | File System Analysis | 5 | 3–4 hours |
 | 3 | Artifact Extraction | 6 | 4–6 hours |
@@ -36,7 +36,7 @@
 | 5 | Keyword Search & Ingest Modules | 4 | 3–4 hours |
 | 6 | Reporting & Evidence Handling | 4 | 2–3 hours |
 | 7 | Practical Labs | 4 | 6–10 hours |
-| | **Total** | **32** | **~23–34 hours** |
+|| **Total** | **32** | **~23–34 hours** |
 
 **Prerequisites:** Understanding of file systems (FAT32, NTFS, ext4). Familiarity with Windows artifacts (Registry, Event Logs, Prefetch). Phase 7 Part 27 Stage 1–2 completion recommended.
 

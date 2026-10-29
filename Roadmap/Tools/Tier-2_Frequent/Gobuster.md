@@ -19,17 +19,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Web Proxy & Scanning | Fuzzing & Discovery | Exploitation | CMS & Vuln Scanners |
-|:---------------------|:--------------------|:-------------|:---------------------|
+| :--------------------- | :-------------------- | :------------- | :--------------------- |
 | [[Burp_Suite\|🕷️ Burp Suite]] | [[ffuf\|🌀 ffuf]] | [[sqlmap\|💉 sqlmap]] | [[Nikto\|🔍 Nikto]] |
 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | **📂 Gobuster** (you are here) | [[jwt-tool\|🔐 jwt-tool]] | [[wpscan\|🔌 WPScan]] |
-| [[Nuclei\|⚡ Nuclei]] | | | |
+| [[Nuclei\|⚡ Nuclei]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Dir Mode | 5 | 2–3 hours |
 | 3 | DNS Mode | 4 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 6 | Integration | 3 | 1 hour |
 | 7 | Practical Labs | 3 | 2–4 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **27** | **~12–20 hours** |
+|| **Total** | **27** | **~12–20 hours** |
 
 ---
 
@@ -51,7 +51,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **dir** | Directory and file discovery (HTTP). |
 | **dns** | DNS subdomain enumeration. |
 | **vhost** | Virtual host discovery (HTTP Host header). |
@@ -66,7 +66,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | `apt install gobuster`. |
 | **Go** | `go install github.com/OJ/gobuster/v3@latest`. |
 | **Verify** | `gobuster version`. |
@@ -78,7 +78,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Wordlist** | `-w wordlist.txt`. |
 | **Threads** | `-t 50` (default 10). |
 | **Output** | `-o results.txt`. |
@@ -93,7 +93,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Dir** | `/usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt`. |
 | **DNS** | `/usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt`. |
 | **Common** | `/usr/share/wordlists/dirb/common.txt` (fast, ~5k, good first pass). |
@@ -109,7 +109,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `gobuster dir -u http://target.com -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 50`. |
 | **Output** | Shows: `/admin (Status: 301) [Size: 312]`. Each found path with status code and response size. |
 
@@ -120,7 +120,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `gobuster dir -u http://target.com -w common.txt -x php,html,bak,txt,zip -t 50`. |
 | **High Value** | `.bak`, `.old`, `.bkp` — backup files. `.env` — environment config (credentials). `.git` — source control. `config.php` — database credentials. |
 
@@ -131,7 +131,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Include Codes** | `-s 200,301,302,403` — only show these codes. Default shows 200,204,301,302,307,401,403,405. |
 | **Exclude Codes** | `--exclude-length 1234` — exclude responses of this length (custom 404 bypass). |
 | **403 Note** | Always include 403 — it means the directory exists but access is denied. May be bypassable with path tricks. |
@@ -143,7 +143,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Cookie** | `-c "session=abc123"` — add cookie. |
 | **Header** | `-H "Authorization: Bearer token"`. |
 | **HTTP Basic** | `-U username -P password`. |
@@ -155,7 +155,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTTPS** | `gobuster dir -u https://target.com -k ...`. `-k` skips TLS verification (for self-signed certs). |
 | **Redirects** | `-r` — follow redirects. Without `-r`, 301/302 shows the destination in brackets. |
 
@@ -170,7 +170,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `gobuster dns -d target.com -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t 50`. |
 | **Output** | Shows resolved subdomains: `Found: mail.target.com [192.168.1.10]`. |
 | **Resolver** | `-r 8.8.8.8` — use a specific DNS resolver. Useful when default resolver is slow or blocks queries. |
@@ -182,7 +182,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Problem** | Some domains have wildcard DNS: `*.target.com` → all subdomains resolve. Every word appears as a valid subdomain. |
 | **Detection** | Gobuster detects wildcards automatically and warns you. |
 | **Handling** | `--wildcard` flag — forces gobuster to continue even if wildcard is detected, but results will be unreliable. |
@@ -195,7 +195,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Flag** | `-i` — show IP addresses for found subdomains. |
 | **Use** | Map subdomain → IP → feed IPs to Nmap. Find subdomains resolving to internal IPs (internal service exposed externally). |
 
@@ -206,7 +206,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Gobuster DNS** | Active — sends DNS queries. Limited to wordlist coverage. Detectable. |
 | **crt.sh** | Passive — reads public SSL certificate logs. Finds subdomains that a wordlist would miss. No target interaction. |
 | **Workflow** | crt.sh first (passive) → Gobuster DNS to fill gaps and verify. |
@@ -222,7 +222,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `gobuster vhost -u http://target_ip -w subdomains.txt --append-domain -t 30`. |
 | **How** | Changes the `Host` header to `word.target.com` for each word. Different response = valid vhost. |
 | **Filter** | `--exclude-length` to filter out the default "unknown vhost" response size. |
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `gobuster fuzz -u "http://target.com/FUZZ" -w wordlist.txt`. |
 | **vs. ffuf** | Less features than ffuf for fuzzing. Use ffuf for advanced fuzzing. Gobuster fuzz is a basic alternative. |
 
@@ -246,7 +246,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `gobuster s3 -w company-wordlist.txt`. |
 | **What It Finds** | Publicly accessible S3 buckets. Try company name, product name, internal project names. |
 | **Value** | Misconfigured public S3 buckets often contain sensitive files (database backups, code, credentials). |
@@ -262,7 +262,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Proxy** | `--proxy http://127.0.0.1:8080` — route through Burp. |
 | **Delay** | `--delay 200ms` — wait 200ms between requests per thread. Useful for rate limit evasion. |
 
@@ -273,7 +273,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Timeout** | `--timeout 5s` — request timeout. Reduce for fast networks. Increase for slow/distant targets. |
 | **Retries** | Gobuster doesn't retry by default. Use `-t` (more threads) but be aware of overloading slow servers. |
 
@@ -284,7 +284,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Custom UA** | `-a "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"` — set a browser-like User-Agent. Some sites block non-browser UAs. |
 
 ---
@@ -298,7 +298,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Nmap: find open ports. Port 80/443/8080 → run Gobuster dir on each HTTP service. Port 53 → run Gobuster dns. |
 
 ---
@@ -308,7 +308,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Gobuster: quick first pass with medium wordlist → identifies high-level structure. ffuf: deeper analysis on found directories with larger wordlists, extension sets, and custom filtering. |
 
 ---
@@ -318,7 +318,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Save** | `-o results.txt`. |
 | **Extract URLs** | `grep -oP '(?<=/).*?(?= )' results.txt` — extract paths. |
 | **Filter 200s** | `grep "(Status: 200)" results.txt`. |
@@ -381,7 +381,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run directory discovery with extensions | ☐ |
 | Can enumerate DNS subdomains and handle wildcard DNS | ☐ |
 | Can discover virtual hosts with the vhost mode | ☐ |

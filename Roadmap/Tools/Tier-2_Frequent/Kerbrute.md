@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Recon & Scanning | AD Attacks | Post-Exploitation | Credential Access |
-|:-----------------|:-----------|:------------------|:-----------------|
+| :----------------- | :----------- | :------------------ | :----------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Hashcat\|🔥 Hashcat]] |
 | [[theHarvester\|🌾 theHarvester]] | [[NetExec\|🌐 NetExec]] | [[WinPEAS\|🪟 WinPEAS]] | [[Responder\|📡 Responder]] |
 | **🔑 Kerbrute** (you are here) | [[BloodHound\|🩸 BloodHound]] | [[Hashcat\|🔥 Hashcat]] | [[Impacket\|🐍 Impacket]] |
@@ -31,7 +31,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Kerberos Pre-Auth | 5 | 2–3 hours |
 | 2 | Core Usage — Enumeration & Spray | 6 | 4–5 hours |
 | 3 | Intermediate (AS-REP, Wordlists, OPSEC) | 5 | 3–5 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 4–7 hours |
 | 7 | Methodology & Detection | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **34** | **~23–35 hours** |
+|| **Total** | **34** | **~23–35 hours** |
 
 **Prerequisites:** Network access to domain controller (port 88/TCP Kerberos). A wordlist of potential usernames (OSINT-derived, common first.last format). Basic understanding of Kerberos authentication flow.
 
@@ -57,7 +57,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand exactly why Kerberos error codes leak username validity, and why Kerbrute can enumerate without triggering lockout. |
 | **Skills Learned** | Kerberos AS-REQ/AS-REP flow, error codes: `KDC_ERR_PREAUTH_FAILED` (valid user, wrong password) vs `KDC_ERR_C_PRINCIPAL_UNKNOWN` (user does not exist), why pre-auth failure ≠ account lockout. |
 | **Practical Exercise** | Draw the Kerberos AS-REQ flow: client → KDC (AS-REQ with username) → KDC responds with error if pre-auth fails. Note: account lockout counter only increments on specific authentication events — pre-auth failures via Kerbrute do NOT increment the bad password count on most default AD configurations. |
@@ -69,7 +69,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install Kerbrute and verify it runs correctly. |
 | **Practical Exercise** | Download from GitHub releases: `wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_amd64 -O kerbrute` → `chmod +x kerbrute` → `./kerbrute --help`. On Kali: `sudo apt install kerbrute`. |
 | **Expected Output** | Kerbrute binary runs, help shows `userenum`, `passwordspray`, `bruteuser`, `bruteforce` subcommands. |
@@ -80,7 +80,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify the domain name and Domain Controller IP before running Kerbrute. |
 | **Skills Learned** | Nmap port 88/389 scanning, DNS SRV record lookup for `_kerberos._tcp`, reading domain name from LDAP null base DN query. |
 | **Practical Exercise** | `nmap -p 88,389,636,3268 <subnet> --open` → identify DC IPs. `nslookup -type=SRV _kerberos._tcp.<domain>` → confirm domain name and DC. `nmcli` or `/etc/resolv.conf` to see configured DNS (may point to DC already). |
@@ -92,7 +92,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create a realistic username wordlist for enumeration using common AD naming conventions. |
 | **Skills Learned** | AD naming formats (`first.last`, `f.last`, `firstl`, `flast`, `first_last`), generating permutations from OSINT names, using `username-anarchy` tool. |
 | **Practical Exercise** | Gather names from LinkedIn, company website, email headers. Use `username-anarchy -i names.txt > usernames.txt` to generate all format permutations. Review the SecLists `/Discovery/OSINT/` username lists as a baseline. |
@@ -104,7 +104,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the target domain's lockout policy before any spraying activity to avoid locking accounts. |
 | **Skills Learned** | Lockout threshold (bad password attempts before lockout), lockout duration, lockout observation window, how to read policy with `net accounts /domain`, `crackmapexec`/`nxc --pass-pol`. |
 | **Practical Exercise** | `nxc smb <DC_IP> -u '' -p '' --pass-pol` (null session) OR `nxc smb <DC_IP> -u guest -p '' --pass-pol` → read: lockout threshold, lockout duration. If threshold is 5, spray maximum 3 attempts per account per window period. |
@@ -122,7 +122,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Enumerate valid domain usernames from a wordlist using Kerberos pre-authentication error codes. |
 | **Skills Learned** | `userenum` subcommand, `-d` domain flag, `--dc` flag, `-o` output flag, reading results (valid users highlighted in green). |
 | **Practical Exercise** | `./kerbrute userenum -d corp.local --dc 192.168.1.10 -o valid_users.txt usernames.txt`. Watch output — valid users show `VALID USERNAME`. Invalid users show nothing (or `INVALID`). |
@@ -134,7 +134,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Spray a single password across all valid usernames — staying under lockout threshold. |
 | **Skills Learned** | `passwordspray` subcommand, choosing safe spray passwords (Season+Year, Company+Year, Welcome1), timing sprays to stay under lockout observation window. |
 | **Practical Exercise** | `./kerbrute passwordspray -d corp.local --dc 192.168.1.10 valid_users.txt 'Password2024'`. If lockout threshold is 5, do only ONE spray, wait the full observation window, then optionally spray again with a different password. |
@@ -146,7 +146,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force a single specific account with a password wordlist — only use when you know the account has no lockout (service accounts, local accounts). |
 | **Skills Learned** | `bruteuser` subcommand, risk assessment before use, choosing appropriate wordlists (targeted company password lists). |
 | **Practical Exercise** | `./kerbrute bruteuser -d corp.local --dc 192.168.1.10 passwords.txt svc_backup` (target: known service account with assumed no lockout). Check lockout policy first — never bruteuser on regular accounts. |
@@ -158,7 +158,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Find accounts with Kerberos pre-authentication disabled (AS-REP Roastable) — without needing any credentials. |
 | **Skills Learned** | AS-REP Roasting concept (accounts with `DONT_REQUIRE_PREAUTH` flag), using `userenum` output + Impacket GetNPUsers, Kerbrute's `--downgrade` flag for AS-REP harvesting. |
 | **Practical Exercise** | After enumerating valid users: `impacket-GetNPUsers corp.local/ -usersfile valid_users.txt -no-pass -outputfile asrep_hashes.txt`. OR use Kerbrute with `userenum` and look for lines that return an AS-REP hash directly (accounts with pre-auth disabled respond with a crackable hash). |
@@ -170,7 +170,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Tune Kerbrute's thread count and timing for your network conditions. |
 | **Practical Exercise** | Default is 10 threads. For a local lab: `-t 50`. For a slow/noisy WAN: `-t 5`. Monitor for dropped requests or timeouts — reduce threads if you see missed responses. Use `--timeout` to adjust per-request timeout. |
 | **Expected Output** | Optimized thread count for your lab environment without false negatives. |
@@ -181,7 +181,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Save and process Kerbrute output for use in downstream tools. |
 | **Practical Exercise** | `-o valid_users.txt` → output contains one valid username per line. `--safe` flag → stop spraying if any lockout is detected. Parse valid_users.txt: `cat valid_users.txt \| awk '{print $NF}' \| cut -d@ -f1 > clean_users.txt` for a clean single-column list. |
 | **Expected Output** | Clean username list for use with Impacket, NetExec, Hashcat, BloodHound.py. |
@@ -197,7 +197,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the Windows event log footprint of Kerbrute activity. |
 | **Skills Learned** | Event ID 4768 (AS-REQ — Kerberos auth ticket requested), Event ID 4771 (pre-auth failed), how SOC analysts detect username enumeration from high-rate 4768 events, slow enumeration techniques. |
 | **Practical Exercise** | Run Kerbrute against a test DC. Check Security event log: `Get-WinEvent -LogName Security | Where-Object {$_.Id -eq 4771} | Select -First 20`. Note the source IP, username, and frequency. |
@@ -209,7 +209,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build a targeted username wordlist from real OSINT data rather than generic lists. |
 | **Skills Learned** | LinkedIn scraping with theHarvester, generating name permutations with `username-anarchy`, combining multiple OSINT sources, deduplication. |
 | **Practical Exercise** | `theHarvester -d corp.com -b linkedin` → extract names → `echo "John Smith" >> names.txt` for each result → `username-anarchy -i names.txt -f first.last,f.last,firstl,first > usernames.txt` → `sort -u usernames.txt > deduped.txt`. |
@@ -220,7 +220,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Choose spray passwords intelligently based on the target's likely password policy. |
 | **Skills Learned** | Common weak passwords meeting complexity requirements, seasonal patterns, company-name passwords, default passwords for new accounts. |
 | **Practical Exercise** | Research the company's public password policy (sometimes on their careers page or IT docs). Build a spray list of 3–5 candidates: `Company2024!`, `Winter2024!`, `Welcome1`, `Password1`, `<Company>1234`. Never use all at once — spray one per lockout window. |
@@ -231,7 +231,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Leverage SecLists pre-built username lists when OSINT is limited. |
 | **Practical Exercise** | `ls /usr/share/seclists/Usernames/` → explore `Names/names.txt`, `xato-net-10-million-usernames-dup.txt`. For AD: combine with name-format permutations. `kerbrute userenum -d corp.local --dc <DC> /usr/share/seclists/Usernames/Names/names.txt`. |
 | **Expected Output** | Baseline valid username list from generic wordlist. OSINT-derived lists still preferred — this is a fallback. |
@@ -241,7 +241,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand that AD supports per-user and per-group Password Settings Objects (PSO/Fine-Grained Password Policy) — some accounts have different lockout thresholds. |
 | **Skills Learned** | PSO concept, how to identify PSO-protected accounts (requires LDAP read access), safe assumption when you cannot read PSOs. |
 | **Practical Exercise** | If you have credentials: `Get-ADFineGrainedPasswordPolicy -Filter *` (PowerShell) or `ldapsearch -x -b "CN=Password Settings Container,CN=System,DC=corp,DC=local"`. Without creds: assume the most restrictive policy. |
@@ -258,7 +258,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Kerbrute-enumerated users as input to Impacket's GetNPUsers for AS-REP Roasting. |
 | **Practical Exercise** | `./kerbrute userenum -d corp.local --dc <DC> -o users.txt wordlist.txt` → `impacket-GetNPUsers corp.local/ -usersfile users.txt -no-pass -outputfile hashes.txt` → `hashcat -m 18200 hashes.txt /usr/share/wordlists/rockyou.txt` → use cracked creds with Evil-WinRM or NetExec. |
 | **Expected Output** | Cracked plaintext credentials from AS-REP hash. Shell access with no prior credentials. |
@@ -268,7 +268,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Validate Kerbrute spray results with NetExec for SMB/WinRM access confirmation. |
 | **Practical Exercise** | Kerbrute finds `jsmith:Password2024` → `nxc smb <subnet> -u jsmith -p 'Password2024'` → `nxc winrm <subnet> -u jsmith -p 'Password2024'` → `(Pwn3d!)` hosts → `evil-winrm -i <host> -u jsmith -p 'Password2024'`. |
 | **Expected Output** | Valid credentials confirmed on multiple protocols. Shell access achieved. |
@@ -278,7 +278,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use spray-found credentials to run BloodHound.py and map the AD environment. |
 | **Practical Exercise** | After finding valid creds with Kerbrute spray: `bloodhound-python -d corp.local -u jsmith -p 'Password2024' -dc dc01.corp.local -c All` → import ZIP to BloodHound CE → identify attack paths. |
 | **Expected Output** | BloodHound data collected with low-priv credentials. Attack paths to Domain Admin visible. |
@@ -288,7 +288,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Write a simple bash script that sprays one password, waits the full lockout observation window, then sprays the next — safely automating multi-round spraying. |
 | **Practical Exercise** | `for pass in 'Winter2024!' 'Spring2024!' 'Password1'; do ./kerbrute passwordspray -d corp.local --dc <DC> users.txt "$pass" -o spray_$(date +%s).txt; echo "Waiting 31 minutes..."; sleep 1860; done`. Adjust sleep to lockout observation window + 1 minute. |
 | **Expected Output** | Automated safe spray that respects lockout windows. Results saved per-round with timestamps. |
@@ -303,7 +303,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build a full OSINT → enumeration pipeline: email harvest → username generation → Kerberos validation. |
 | **Practical Exercise** | `theHarvester -d corp.com -b all -f harvest.xml` → extract names/emails → `username-anarchy` → `kerbrute userenum`. |
 
@@ -311,7 +311,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Enum → spray → AS-REP roast → Kerberoast → DCSync using Kerbrute as the first step. |
 | **Practical Exercise** | Full chain: `kerbrute userenum` → `kerbrute passwordspray` → `impacket-GetNPUsers` → `impacket-GetUserSPNs` → Hashcat → `impacket-secretsdump`. |
 
@@ -319,7 +319,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Full no-prior-creds AD initial access chain using Kerbrute as the starting point. |
 | **Practical Exercise** | `kerbrute passwordspray` → found creds → `nxc winrm` to find WinRM access → `evil-winrm` interactive shell. |
 
@@ -327,7 +327,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Document Kerbrute findings professionally for a penetration test report. |
 | **Practical Exercise** | Write a finding: "Domain username enumeration via Kerberos pre-authentication error codes. X valid accounts identified. Password spray resulted in Y valid credential pairs." Include risk rating, evidence screenshot, and remediation (Fine-Grained Password Policy, monitoring Event ID 4768 rate anomalies). |
 
@@ -341,7 +341,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 2 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | THM guided AD room. Kerbrute is explicitly used for username enumeration and AS-REP Roasting discovery. |
 | **Success Criteria** | Valid users enumerated with Kerbrute. AS-REP hash obtained and cracked. Domain compromised. |
 
@@ -349,7 +349,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 2–3 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | HTB Forest — AD domain with AS-REP Roastable account. Kerbrute used to enumerate svc-alfresco before AS-REP Roasting. |
 | **Success Criteria** | Username found via Kerbrute → hash cracked → Evil-WinRM shell → Domain Admin via BloodHound. |
 
@@ -357,7 +357,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 3–4 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Home AD lab. Starting with only DC IP. Enumerate all users via Kerbrute, spray default password, obtain shell, document findings. |
 | **Success Criteria** | Valid credentials obtained via enumeration+spray alone. Full attack chain documented. |
 
@@ -365,7 +365,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 2 hours
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | HTB Active — user found via SMB share GPP creds, then Kerberoasting. Use Kerbrute to verify account names before Kerberoasting. |
 | **Success Criteria** | Kerbrute confirms valid accounts. Kerberoast hash cracked. Administrator shell. |
 
@@ -379,7 +379,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Position Kerbrute in the AD engagement kill chain: always first when you have DC access but no credentials. |
 | **Expected Output** | Attack chain diagram: Nmap → **Kerbrute userenum** → **Kerbrute passwordspray** → Impacket/NetExec → BloodHound → Escalation. |
 
@@ -387,7 +387,7 @@
 
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand how defenders detect Kerberos enumeration and spraying. |
 | **Skills Learned** | Event 4768 (AS-REQ rate anomaly), Event 4771 (pre-auth failure spike), network IDS rules for high-rate Kerberos to DC port 88, SIEM correlation rules. |
 | **Expected Output** | Detection rule: "Alert on >100 Event 4771 from single source IP within 60 seconds." |
@@ -396,7 +396,7 @@
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Know how to reduce Kerbrute effectiveness from the defender side. |
 | **Skills Learned** | Fine-Grained Password Policy with low lockout threshold, monitoring Event 4768/4771 rates, firewall rules restricting port 88 access to known management hosts, honey accounts (fake users that alert on any auth attempt). |
 | **Expected Output** | Defensive checklist against Kerberos enumeration and spraying. |
@@ -430,16 +430,16 @@ Set up Splunk Free or ELK on a home lab. Configure Windows DC to forward securit
 ## 🎓 Competency Matrix
 
 | Skill | Beginner | Intermediate | Advanced |
-|:------|:--------:|:------------:|:--------:|
-| Explain Kerberos pre-auth error code leak | [ ] | | |
-| Username enumeration with userenum | [ ] | | |
-| Password spray with lockout-safe timing | | [ ] | |
-| AS-REP Roasting target discovery | | [ ] | |
-| OSINT-driven custom wordlist creation | | [ ] | |
-| Fine-grained password policy awareness | | [ ] | |
-| Full Kerbrute → Impacket → Hashcat chain | | | [ ] |
-| Full zero-cred → DA chain using Kerbrute | | | [ ] |
-| Blue team detection and SIEM rule writing | | | [ ] |
+| :------ | :--------: | :------------: | :--------: |
+| Explain Kerberos pre-auth error code leak | [ ] |||
+| Username enumeration with userenum | [ ] |||
+| Password spray with lockout-safe timing || [ ] ||
+| AS-REP Roasting target discovery || [ ] ||
+| OSINT-driven custom wordlist creation || [ ] ||
+| Fine-grained password policy awareness || [ ] ||
+| Full Kerbrute → Impacket → Hashcat chain ||| [ ] |
+| Full zero-cred → DA chain using Kerbrute ||| [ ] |
+| Blue team detection and SIEM rule writing ||| [ ] |
 
 ---
 

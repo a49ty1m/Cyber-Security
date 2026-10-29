@@ -17,23 +17,23 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Packet Capture & Analysis | Traffic Crafting & Flooding | MitM & Interception | Network Discovery |
-|:--------------------------|:----------------------------|:--------------------|:------------------|
+| :-------------------------- | :---------------------------- | :-------------------- | :------------------ |
 | [[Wireshark\|🦈 Wireshark]] | [[Scapy\|📦 Scapy]] | [[Bettercap\|🕵️ Bettercap]] | [[Nmap\|🗺️ Nmap]] |
 | [[tcpdump\|📻 tcpdump]] | **🔨 hping3** (you are here) | [[Ettercap\|🐛 Ettercap]] | [[Netcat\|🔌 Netcat]] |
-| [[iperf3\|📶 iperf3]] | | [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
+| [[iperf3\|📶 iperf3]] || [[Responder\|📡 Responder]] | [[OpenSSL\|🔒 OpenSSL]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Core Usage | 5 | 2–3 hours |
 | 3 | Network Testing | 4 | 2–3 hours |
 | 4 | DoS Testing (Lab) | 3 | 1–2 hours |
 | 5 | Mastery Check | 2 | 1 hour |
-| | **Total** | **18** | **~7–11 hours** |
+|| **Total** | **18** | **~7–11 hours** |
 
 ---
 
@@ -46,7 +46,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Core Capability** | Send arbitrary TCP/UDP/ICMP/RAW-IP packets. Control every header field manually. Receive and display responses. |
 | **vs. Nmap** | Nmap does discovery and service detection as a workflow. hping3 sends individual, fully-crafted packets for precision testing. |
 | **vs. Scapy** | Scapy: scriptable, complex packet crafting in Python. hping3: quick CLI one-liners for common tasks. |
@@ -59,7 +59,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Install** | `apt install hping3`. Pre-installed on Kali. Requires root for raw socket access. |
 | **Verify** | `hping3 --version`. |
 
@@ -70,7 +70,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **TCP (default)** | `hping3 target` — sends TCP SYN to port 0 by default. |
 | **ICMP** | `hping3 -1 target` — sends ICMP echo (like ping). |
 | **UDP** | `hping3 -2 target -p 53` — sends UDP to port 53. |
@@ -83,7 +83,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Port** | `-p 80` — destination port. |
 | **Count** | `-c 5` — send 5 packets then stop. |
 | **Interval** | `-i u1000` — send every 1000 microseconds (1ms). `-i 1` — every 1 second. |
@@ -104,7 +104,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `hping3 -1 -c 5 192.168.1.1`. |
 | **Output** | Shows RTT per packet. Same as regular ping but with more control. |
 | **When Useful** | When you need to send ICMP with specific TTL, size, or rate. `hping3 -1 --ttl 5 target` — set TTL to 5 (like traceroute step). |
@@ -116,7 +116,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `hping3 -S -p 80 -c 3 target`. |
 | **What Happens** | Sends TCP SYN to port 80. If host is up: SYN-ACK (port open) or RST (port closed — but host responded). If no response: host down or firewall drops. |
 | **Use Case** | Discover hosts in environments where ICMP ping is blocked by firewall. |
@@ -128,7 +128,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scan Range** | `hping3 -S --scan 1-1000 target` — SYN scan ports 1–1000. |
 | **Open Ports** | SYN-ACK response → open. RST → closed. No response → filtered. |
 | **vs. Nmap** | Nmap is better for port scanning. Use hping3 scan for: bypassing some IDS signatures, or when you need fine-grained control over timing/flags. |
@@ -140,7 +140,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `hping3 -A -p 80 target`. |
 | **Logic** | An ACK packet is not a new connection. Stateless firewalls pass ACK through if port 80 is open. Stateful firewalls drop unsolicited ACKs. |
 | **Result** | RST received: port is not filtered (firewall allows through). No response: port is filtered by firewall. |
@@ -153,7 +153,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ICMP Traceroute** | `hping3 -1 --traceroute target` — TTL increment, shows hop-by-hop path. |
 | **TCP Traceroute** | `hping3 -S -p 80 --traceroute target` — traceroute using SYN packets to port 80. Bypasses firewalls that block ICMP-based traceroute. |
 | **UDP Traceroute** | `hping3 -2 -p 53 --traceroute target` — traceroute via UDP to port 53. |
@@ -169,7 +169,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Verify that firewall rules are working as intended. |
 | **Method** | `hping3 -S -p 443 target` — should pass (HTTPS allowed). `hping3 -S -p 23 target` — should be blocked (Telnet). `hping3 -1 target` — ICMP allowed? Compare expected vs. actual. |
 | **Evidence** | RST = port reached the host (not blocked by firewall). No reply + RST from firewall IP = blocked. |
@@ -181,7 +181,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Large Packets** | `hping3 -S -p 80 -d 1400 target` — 1400-byte payload per packet. |
 | **Monitor** | Use Wireshark or tcpdump on the target to see incoming traffic. |
 | **Note** | For proper bandwidth testing, use iperf3 instead. hping3 is better for functional testing, not throughput measurement. |
@@ -193,7 +193,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Fragment Packets** | `hping3 -S -p 80 -f target` — set "More Fragments" flag. Send fragmented packets. |
 | **Use Case** | Test if firewalls/IDS handle fragmented packets correctly. Some old IDS reassemble incorrectly → evasion. |
 
@@ -204,7 +204,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `hping3 -S -p 80 -a 10.0.0.99 target` — spoof source IP as 10.0.0.99. |
 | **Use Case** | Test whether target validates source IPs. Reflection attack research. |
 | **Limitation** | Responses go to the spoofed IP — you won't see them. Useful only for one-way testing or when you control the spoofed IP's traffic too. |
@@ -223,7 +223,7 @@
 > **Lab only.** Never run against systems you don't own or have explicit written authorization to test. SYN floods can take down servers and disrupt other services.
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `hping3 --flood -S -p 80 --rand-source target`. |
 | **What Happens** | Sends SYN packets as fast as possible from random spoofed source IPs. Target's SYN queue fills → legitimate connections drop. |
 | **Defense** | SYN cookies (kernel feature). Rate limiting on the firewall. TCP connection limits per source IP. |
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `hping3 --flood -1 target`. |
 | **Effect** | Saturates target's ICMP processing. Less effective on modern systems. Useful for demonstrating ICMP-based DoS concepts. |
 
@@ -246,7 +246,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Test how many SYN packets per second are needed to saturate a target's connection table. |
 | **Method** | Start with low rate: `hping3 -S -p 80 -i u1000 target` (1000 packets/sec). Increase rate. Monitor target: when does response time degrade? When does it stop responding? Document the threshold. |
 
@@ -261,7 +261,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can perform ICMP, TCP SYN, and UDP packet tests | ☐ |
 | Can use hping3 to discover hosts when ICMP is blocked | ☐ |
 | Can use ACK scan to map firewall rules | ☐ |

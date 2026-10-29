@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | AI/LLM Security | LLM Red Teaming | AI SDKs |
-|:---------------|:----------------|:--------|
+| :--------------- | :---------------- | :-------- |
 | **🦙 Ollama** (you are here) | [[Garak\|🧨 Garak]] | [[Python_AI_SDKs\|🤖 Python AI SDKs]] |
-| | [[PyRIT\|⚔️ PyRIT]] | |
+|| [[PyRIT\|⚔️ PyRIT]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Model Run | 5 | 1–2 hours |
 | 2 | Model Management | 5 | 1–2 hours |
 | 3 | REST API & Integration | 7 | 2–3 hours |
@@ -38,7 +38,7 @@
 | 5 | Modelfiles & Custom Models | 5 | 2–3 hours |
 | 6 | Garak & PyRIT Integration | 5 | 2–3 hours |
 | 7 | Practical Labs | 4 | 3–5 hours |
-| | **Total** | **38** | **~14–22 hours** |
+|| **Total** | **38** | **~14–22 hours** |
 
 **Prerequisites:** Phase 1 complete (Linux CLI). Python basics. Basic LLM concept understanding (what a prompt, token, temperature is). GPU/CPU with at least 8GB RAM for small models.
 
@@ -68,7 +68,7 @@ curl http://localhost:11434/api/tags
 ## 1.2 Hardware Requirements
 
 | Model Size | RAM Required | GPU VRAM | Examples |
-|:-----------|:------------|:---------|:---------|
+| :----------- | :------------ | :--------- | :--------- |
 | ~1-4B params | 4-8 GB RAM | 4 GB VRAM | Phi-3 Mini, Gemma 2 2B |
 | ~7-8B params | 8-16 GB RAM | 8 GB VRAM | Llama 3.1 8B, Mistral 7B |
 | ~13B params | 16-32 GB RAM | 16 GB VRAM | Llama 2 13B, CodeLlama 13B |
@@ -192,7 +192,7 @@ def ollama_generate(model: str, prompt: str, system: str = None) -> str:
     }
     if system:
         payload["system"] = system
-    
+
     response = requests.post(
         "http://localhost:11434/api/generate",
         json=payload
@@ -272,18 +272,18 @@ def chat_with_agent(user_message: str, history: list) -> str:
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     messages.extend(history)
     messages.append({"role": "user", "content": user_message})
-    
+
     response = requests.post(
         "http://localhost:11434/api/chat",
         json={"model": "llama3.1", "messages": messages, "stream": False}
     ).json()["message"]["content"]
-    
+
     # Check if model tries to call a tool
     for tool_name, tool_func in MOCK_TOOLS.items():
         if f"<tool>{tool_name}</tool>" in response:
             # This is the attack surface — unauthorized tool invocation
             print(f"[!] Model invoked tool: {tool_name}")
-    
+
     return response
 
 # Now use Garak/PyRIT to attack this agent

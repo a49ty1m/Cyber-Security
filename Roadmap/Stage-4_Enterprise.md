@@ -6,8 +6,8 @@
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
-|:---:|:---:|:---:|:---|
-| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 4\|🎮 CTF Practice]] · [[#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting\|🏁 Stage Gate 3]] |
+| :---: | :---: | :---: | :--- |
+| [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 4\|🎮 CTF Practice]] · [[#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting\|🏁 Stage Gate 3]] |
 
 ---
 
@@ -746,7 +746,7 @@
 ### Lab Progression (Module 22: Adversary Emulation & Purple Teaming)
 
 | Level | Task | Deliverable |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | 1 | Map a single APT group's TTPs to MITRE ATT&CK Navigator | ATT&CK heatmap export |
 | 2 | Execute Atomic Red Team tests for 5 techniques in a lab | Detection results per technique |
 | 3 | Run a full APT emulation plan (e.g., APT29) in lab | Emulation report with detection gaps |
@@ -877,13 +877,13 @@
 
 ### Lab Progression (Module 23: Sniffing & Spoofing)
 
-| Level | Task                                                                       | Deliverable                               |
+| Level | Task | Deliverable |
 | ----- | -------------------------------------------------------------------------- | ----------------------------------------- |
-| 1     | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS)              | Annotated pcap with credential extraction |
-| 2     | Perform ARP spoofing + MITM with [[Bettercap]] in lab | Screenshot of intercepted traffic         |
-| 3     | Execute DNS spoofing to redirect lab traffic to phishing page              | DNS spoof lab report                      |
-| 4     | Perform SSL stripping against a lab web server without HSTS                | Before/after traffic comparison           |
-| 5     | Full MITM chain: ARP spoof → DNS redirect → credential capture             | End-to-end MITM lab report                |
+| 1 | Capture traffic with Wireshark in a home lab (HTTP, FTP, DNS) | Annotated pcap with credential extraction |
+| 2 | Perform ARP spoofing + MITM with [[Bettercap]] in lab | Screenshot of intercepted traffic |
+| 3 | Execute DNS spoofing to redirect lab traffic to phishing page | DNS spoof lab report |
+| 4 | Perform SSL stripping against a lab web server without HSTS | Before/after traffic comparison |
+| 5 | Full MITM chain: ARP spoof → DNS redirect → credential capture | End-to-end MITM lab report |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can perform a complete MITM attack chain in a lab, capture credentials from unencrypted and downgraded traffic, and explain exactly which defenses (DAI, HSTS, certificate pinning) would have prevented each technique.
@@ -1346,13 +1346,13 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ### Lab Progression (Module 25: Malware & Weaponization)
 
-| Level | Task                                                                                                       | Deliverable                                         |
+| Level | Task | Deliverable |
 | ----- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| 1     | Generate 5 payload types with `msfvenom` (staged + stageless, EXE/DLL/PS1/ELF) and compare detection rates | VirusTotal screenshots + payload comparison report  |
-| 2     | Deploy Sliver or Mythic in my lab, generate an implant, establish callback, and configure sleep/jitter   | C2 lab setup guide + beacon screenshot              |
-| 3     | Build an HTML smuggler that delivers a test payload (EICAR) through a simulated email gateway              | HTML smuggler code + gateway bypass evidence        |
-| 4     | Weaponize a OneNote file with an embedded script that calls back to my Sliver listener                   | Weaponized `.one` file + callback screenshot        |
-| 5     | Map my lab campaign to MITRE ATT&CK — from delivery through C2 establishment                             | ATT&CK navigator layer JSON + technique annotations |
+| 1 | Generate 5 payload types with `msfvenom` (staged + stageless, EXE/DLL/PS1/ELF) and compare detection rates | VirusTotal screenshots + payload comparison report |
+| 2 | Deploy Sliver or Mythic in my lab, generate an implant, establish callback, and configure sleep/jitter | C2 lab setup guide + beacon screenshot |
+| 3 | Build an HTML smuggler that delivers a test payload (EICAR) through a simulated email gateway | HTML smuggler code + gateway bypass evidence |
+| 4 | Weaponize a OneNote file with an embedded script that calls back to my Sliver listener | Weaponized `.one` file + callback screenshot |
+| 5 | Map my lab campaign to MITRE ATT&CK — from delivery through C2 establishment | ATT&CK navigator layer JSON + technique annotations |
 
 > [!IMPORTANT]
 > **Move-On Gate (Module 25):** I can explain the malware taxonomy and choose the correct category for a given attack objective; generate payloads using `msfvenom` and a C2 framework; understand conceptually how Stages 2–5 techniques work and what defenders detect; deliver a weaponized document in a lab environment; and map a simulated campaign to MITRE ATT&CK. I am not expected to implement custom implants, PE packers, or EDR bypass code at this stage — that comes in Shelf 05 and Stage 5: Module 27.
@@ -1497,11 +1497,11 @@ Robert Cialdini's research on influence identified six universal principles that
 
 ### Lab Progression (Module 26: Penetration Testing Methodologies & Report Writing)
 
-| Level | Task                                                                                                                  | Deliverable                                                   |
+| Level | Task | Deliverable |
 | ----- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| 1     | Draft an SoW and RoE document for a fictional engagement using a provided scenario                                    | Complete SoW + RoE document pair                              |
-| 2     | Apply STRIDE to a target application's DFD and produce a ranked threat list                                           | Threat model document with STRIDE matrix                      |
-| 3     | Write a full pentest report (executive summary + 3 findings with PoC + remediation roadmap) for an enterprise lab engagement | Professional pentest report in PDF format, password-protected |
+| 1 | Draft an SoW and RoE document for a fictional engagement using a provided scenario | Complete SoW + RoE document pair |
+| 2 | Apply STRIDE to a target application's DFD and produce a ranked threat list | Threat model document with STRIDE matrix |
+| 3 | Write a full pentest report (executive summary + 3 findings with PoC + remediation roadmap) for an enterprise lab engagement | Professional pentest report in PDF format, password-protected |
 
 > [!IMPORTANT]
 > **Move-On Gate (Module 26):** I can select and apply the correct engagement methodology (PTES, NIST 800-115, WSTG), produce an SoW and RoE document, perform STRIDE threat modeling, calculate CVSS scores manually, and write a complete pentest report with executive summary, technical findings, and remediation roadmap.
@@ -1538,7 +1538,7 @@ Robert Cialdini's research on influence identified six universal principles that
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
-|:---:|:---:|:---:|:---:|
-| [[Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[README\|Master Roadmap]] | [[Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#Stage 4 — Enterprise\|⬆ Return to Top]] |
+| :---: | :---: | :---: | :---: |
+| [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec\|◀ Stage 3: Web & App Sec]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-5_Specialized\|Stage 5: Specialized ➔]] | [[#Stage 4 — Enterprise\|⬆ Return to Top]] |
 
-> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-5_Specialized|Stage 5: Specialized]]` to open the next stage in a split tab, or hover to preview.
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Cyber-Security/Roadmap/Stage-5_Specialized|Stage 5: Specialized]]` to open the next stage in a split tab, or hover to preview.

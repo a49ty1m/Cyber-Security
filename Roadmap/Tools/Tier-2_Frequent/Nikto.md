@@ -23,17 +23,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Web Proxy & Scanning | Fuzzing & Discovery | Exploitation | CMS & Vuln Scanners |
-|:---------------------|:--------------------|:-------------|:---------------------|
+| :--------------------- | :-------------------- | :------------- | :--------------------- |
 | [[Burp_Suite\|🕷️ Burp Suite]] | [[ffuf\|🌀 ffuf]] | [[sqlmap\|💉 sqlmap]] | **🔍 Nikto** (you are here) |
 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | [[Gobuster\|📂 Gobuster]] | [[jwt-tool\|🔐 jwt-tool]] | [[wpscan\|🔌 WPScan]] |
-| [[Nuclei\|⚡ Nuclei]] | | | |
+| [[Nuclei\|⚡ Nuclei]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Core Scanning | 5 | 2–3 hours |
 | 3 | Output and Reporting | 3 | 1–2 hours |
@@ -42,7 +42,7 @@
 | 6 | Integration | 3 | 1–2 hours |
 | 7 | Practical Labs | 3 | 2–4 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **28** | **~13–22 hours** |
+|| **Total** | **28** | **~13–22 hours** |
 
 ---
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Server Software** | Outdated Apache, Nginx, IIS, Tomcat versions with known CVEs. |
 | **Default Files** | Default installation pages, test scripts, sample apps left on the server. |
 | **Security Headers** | Missing or misconfigured: `X-Frame-Options`, `X-XSS-Protection`, `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options`. |
@@ -71,7 +71,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `nikto -Version`. |
 | **Manual** | `git clone https://github.com/sullo/nikto`. `perl nikto.pl`. |
 | **Perl** | Nikto requires Perl. |
@@ -83,7 +83,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Target** | `nikto -h http://target.com` or `nikto -h target_ip`. |
 | **Port** | `-p 8080` — non-standard port. |
 | **SSL** | `-ssl` — force HTTPS. Or just use `https://` in the URL. |
@@ -96,7 +96,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Nikto** | Server-level. Fast. Signature-based. Not application-aware. Best for: server software issues, headers, default files. |
 | **Burp Suite** | Application-level. Interactive proxy + active scanner. Best for: XSS, SQLi, IDOR, logic flaws. |
 | **OWASP ZAP** | Application-level. Open source Burp alternative. |
@@ -113,7 +113,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nikto -h http://target.com`. |
 | **Duration** | A standard scan takes 2–10 minutes depending on the server and network speed. |
 | **Output** | Shows findings as they're discovered. Each line: `+ OSVDB-XXXX: /path: Finding description`. |
@@ -125,7 +125,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Burp Proxy** | `nikto -h http://target.com -useproxy http://127.0.0.1:8080`. All Nikto requests visible in Burp history. Manually review interesting requests/responses. |
 
 ---
@@ -135,7 +135,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTTP Basic** | `nikto -h http://target.com -id user:password`. |
 | **Cookie** | `nikto -h http://target.com -C "session=abc123"`. |
 
@@ -146,7 +146,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **File** | `nikto -h targets.txt` — one host:port per line. |
 | **Nmap Integration** | `nmap -p80,443,8080 192.168.1.0/24 -oG - | nikto -h -` — pipe Nmap results directly to Nikto. |
 
@@ -157,7 +157,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Tuning** | `-T` flag selects test categories. `-T 1` — interesting files. `-T 2` — misconfiguration. `-T 4` — injection (XSS, SQLi). `-T 9` — SQL injection. Multiple: `-T 124` — tests 1, 2, and 4. |
 | **No SSL** | `-nossl` — skip SSL checks. |
 | **404 detection** | `-404code 403` — tell Nikto that 403 means file exists. |
@@ -173,7 +173,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTML** | `nikto -h target -o report.html -Format htm` — best for sharing with clients. |
 | **CSV** | `-o findings.csv -Format csv` — import into Excel/spreadsheet. |
 | **XML** | `-o findings.xml -Format xml` — import into Metasploit or other tools. |
@@ -186,7 +186,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **OSVDB** | Each finding cites an OSVDB-ID (Open Source Vulnerability Database reference). Look up for more detail. |
 | **+** | Each line starting with `+` is a finding. |
 | **Priority** | Prioritize: CVE references > default credentials > dangerous files > missing headers > informational. |
@@ -198,7 +198,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Rule** | Nikto reports findings based on signatures. Always verify manually — visit the path in a browser or curl it. Many findings are false positives (server responds 200 to everything, or path exists but is harmless). |
 | **Verify** | `curl -v http://target.com/path/from/nikto` — verify the finding is real and accessible. |
 
@@ -213,7 +213,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Evasion Mode** | `-evasion 1` — random URL encoding. `-evasion 2` — directory self-reference. `-evasion 3` — premature URL ending. Multiple: `-evasion 12` (both 1 and 2). |
 | **Purpose** | Try to bypass IDS/WAF signatures. Not always effective against modern WAFs. |
 
@@ -224,7 +224,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Delay** | `-D 1` — 1-second delay between requests. Slows scan but reduces chance of rate limiting. |
 | **Timeout** | `-timeout 10` — 10-second request timeout. |
 
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List Plugins** | `nikto -list-plugins`. |
 | **Run Specific** | `nikto -h target -Plugins "headers;ssl"` — run only headers and SSL plugins. |
 
@@ -246,7 +246,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **vhost** | `nikto -h 192.168.1.10 -vhost admin.target.com` — sends Host header as the virtual hostname while connecting to the IP. |
 
 ---
@@ -260,7 +260,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **X-Frame-Options** | Missing → clickjacking possible. Add: `X-Frame-Options: DENY`. |
 | **Content-Security-Policy** | Missing → XSS easier. Add CSP that restricts script sources. |
 | **Strict-Transport-Security** | Missing on HTTPS → HSTS not enforced. Add: `Strict-Transport-Security: max-age=31536000`. |
@@ -274,7 +274,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **phpinfo.php** | Exposes full PHP configuration, server paths, environment variables. Remove from production. |
 | **Default Pages** | `/apache2-default/`, `/xampp/`, `/iisstart.htm` — server was never properly configured. |
 | **Default Creds** | Nikto may flag default credential paths. Test: admin/admin, admin/password on any admin panel found. |
@@ -286,7 +286,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **TRACE** | `nikto: TRACE method is active` → Cross-Site Tracing (XST). Can expose cookies in some scenarios. |
 | **PUT** | PUT enabled → can upload files to the server directly. Test: `curl -X PUT http://target/shell.php -d "@shell.php"`. |
 | **DELETE** | DELETE enabled on writable resources → can delete files. |
@@ -298,7 +298,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Priority** | Any finding with a CVE reference deserves immediate attention. Nikto may flag: `Apache 2.4.49 - CVE-2021-41773 Path Traversal/RCE`. |
 | **Verify** | Look up the CVE. Check the exact version. If version matches: test the exploit. |
 | **Searchsploit** | `searchsploit apache 2.4.49` — find available exploits. |
@@ -314,7 +314,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `nmap -p 80,443,8080,8443 192.168.1.0/24 --open -oG - | grep "/open" | awk '{print $2}' | xargs -I{} nikto -h http://{} -o nikto_{}.txt`. |
 | **Result** | Automated Nikto scan of all discovered web servers in the network range. |
 
@@ -325,7 +325,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Order** | Nikto first → identifies known dangerous paths and server version. ffuf → deeper directory enumeration using appropriate wordlists based on tech stack identified by Nikto. |
 
 ---
@@ -335,7 +335,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Nikto finds interesting paths → copy to Burp Repeater → manually explore. Nikto through Burp proxy → all requests logged for later replay. |
 
 ---
@@ -396,7 +396,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run a basic Nikto scan against HTTP and HTTPS targets | ☐ |
 | Can use tuning flags to target specific test categories | ☐ |
 | Can route Nikto through Burp Suite for request inspection | ☐ |

@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Password Cracking | Online Brute-Force | Credential Extraction | Network Poisoning |
-|:------------------|:-------------------|:----------------------|:-------------------|
+| :------------------ | :------------------- | :---------------------- | :------------------- |
 | [[Hashcat\|🔥 Hashcat]] | [[Hydra\|🔓 Hydra]] | [[Mimikatz\|🐱 Mimikatz]] | [[Responder\|📡 Responder]] |
 | **🔑 John the Ripper** (you are here) | [[Metasploit_Framework\|💀 Metasploit]] | [[Impacket\|🐍 Impacket]] | [[NetExec\|🌐 NetExec]] |
 
@@ -30,7 +30,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Core Attack Modes | 5 | 3–5 hours |
 | 3 | Rules and Mangling | 4 | 3–4 hours |
@@ -39,7 +39,7 @@
 | 6 | Integration | 3 | 1–2 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–5 hours |
-| | **Total** | **32** | **~20–31 hours** |
+|| **Total** | **32** | **~20–31 hours** |
 
 **Prerequisites:** Understanding of cryptographic hashing (one-way function — hash cannot be reversed mathematically, only cracked by guessing). Familiarity with how passwords are stored (Linux: `/etc/shadow`, Windows: SAM/NTDS).
 
@@ -54,7 +54,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **One-Way Function** | A hash is deterministic (same input → same hash) but not reversible. Cracking = finding input that produces the same hash — by trying candidates. |
 | **Salting** | Modern hashes add a unique random salt per user so identical passwords produce different hashes. Defeats precomputed rainbow tables. |
 | **Hash Strength** | MD5/NTLM: fast — billions of guesses/sec on modern hardware. bcrypt/scrypt/Argon2: slow by design — thousands of guesses/sec. Always identify the hash type before cracking. |
@@ -68,7 +68,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `john --version`. |
 | **Jumbo** | `john-jumbo` (community-enhanced) has 100+ more hash formats. `apt install john`. Most Kali installations use Jumbo. |
 | **Compile from Source** | `git clone https://github.com/openwall/john; cd john/src; ./configure; make -s clean && make -sj4`. Required for latest formats and performance. |
@@ -81,7 +81,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Auto-detect** | `john hash.txt` — JtR attempts to auto-detect. Works for common formats. |
 | **Manual** | `john --list=formats | grep -i ntlm` — find the exact format name. `john --format=NT hash.txt`. |
 | **hash-identifier** | `hash-identifier` (Kali tool) — paste a hash → identifies likely format. |
@@ -95,7 +95,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`. |
 | **Show Results** | `john --show hash.txt`. |
 | **Session** | `john --session=mysession --wordlist=rockyou.txt hash.txt`. Resume: `john --restore=mysession`. |
@@ -108,7 +108,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **/etc/shadow** | `john /etc/shadow` — JtR recognizes shadow format directly. Or: `unshadow /etc/passwd /etc/shadow > combined.txt; john combined.txt`. |
 | **Single Hash** | `echo "5f4dcc3b5aa765d61d8327deb882cf99" > hash.txt; john --format=Raw-MD5 hash.txt`. |
 | **NTLM Hashes** | From secretsdump: `Administrator:500:aad3b435b51404eeaad3b435b51404ee:8846f7eaee8fb117ad06bdd830b7586c:::`. `john --format=NT hashes.txt`. |
@@ -125,7 +125,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --wordlist=rockyou.txt hash.txt`. |
 | **Wordlists** | `rockyou.txt` (14M passwords) — always try first. `SecLists/Passwords/`. `kaonashi.txt` (NTLM-specific). `weakpass_3` (large compilation). |
 | **Multiple Wordlists** | JtR takes one wordlist at a time. Run sequentially: first rockyou → then larger lists → then rules. |
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --incremental hash.txt` — full brute-force, all character sets. |
 | **Character Set** | `--incremental=Alpha` — letters only. `--incremental=Digits` — numbers only. `--incremental=Alnum` — letters + digits. |
 | **Length Limit** | Add to john.conf under `[Incremental:Custom]`: `MinLen=4` `MaxLen=8`. |
@@ -150,7 +150,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --single hash.txt`. |
 | **How It Works** | Uses the username (from shadow file or input format) and applies mangling rules to it. `alice` → tries: `alice`, `Alice`, `ALICE`, `alice1`, `alice123`, `alice!`, `3lice` etc. |
 | **When Useful** | After extracting a shadow file — run `--single` first (fast). Users often use their own name as the basis. |
@@ -162,7 +162,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --wordlist=rockyou.txt --rules=best64 hash.txt`. |
 | **What Rules Do** | Take each word and apply transformations: capitalize first letter, append numbers, substitute letters with symbols (a→@, e→3), reverse, duplicate. Dramatically expands coverage without a larger wordlist. |
 | **Built-in Rulesets** | `best64` (64 common transformations). `Jumbo` (many transformations). `KoreLogic` (comprehensive). `T0XlCv2` (advanced). |
@@ -174,7 +174,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Mask attack = brute-force with a pattern. When you know the password structure: `?u?l?l?l?d?d!` (Upper+3lower+2digits+!). Only tries combinations matching that pattern. |
 | **JtR Syntax** | Not natively as flexible as Hashcat's mask attack. Use `--mask` in JtR Jumbo: `john --mask='?a?a?a?a?a?a' hash.txt`. `?a`=all chars, `?u`=uppercase, `?l`=lowercase, `?d`=digit, `?s`=special. |
 | **Better Alternative** | Hashcat's mask attack (`-a 3`) is significantly more powerful. Prefer Hashcat for mask attacks when a GPU is available. |
@@ -190,7 +190,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Rule Syntax** | Rules are defined in `john.conf`. Each rule is a string of transformation codes applied sequentially to a word. |
 | **Common Codes** | `l` = lowercase all. `u` = uppercase all. `c` = capitalize first. `r` = reverse. `d` = duplicate. `$X` = append character X. `^X` = prepend X. `sXY` = substitute X with Y. `[` = remove first char. `]` = remove last char. |
 | **Example** | `cl$1$!` = capitalize, lowercase rest, append `1`, append `!`. `password` → `Password1!`. |
@@ -202,7 +202,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Where** | Add to `john.conf` under `[List.Rules:CustomRules]`. |
 | **Common Patterns** | Append years: `$2$0$2$4` → append `2024`. Append season+year: create rule set with `spring2024`, `Summer2024` patterns. Common suffix: `$1$2$3`. |
 | **Company-Specific** | If company name is known: prepend company name, append year, add special char. `Company2024!`. Write a rule set for these. |
@@ -214,7 +214,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Download** | KoreLogic published a comprehensive JtR rule set: available on GitHub/Kali. Some are included in john-jumbo. |
 | **Use** | `john --wordlist=rockyou.txt --rules=KoreLogic hash.txt`. |
 | **Coverage** | ~60 rules covering most common corporate password patterns. Good for AD password audits. |
@@ -226,7 +226,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `john --wordlist=john.pot --rules hash.txt`. |
 | **What It Does** | Uses already-cracked passwords from the pot file as the wordlist. Then applies rules. If `password1` was cracked, it tries `password1!`, `Password1`, `PASSWORD1` etc. |
 | **Value** | Users in the same organization tend to follow similar password patterns. Cracked passwords reveal the pattern — apply rules to find related uncracked ones. |
@@ -242,7 +242,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Shadow Format** | `username:$type$salt$hash:...`. `$1$` = MD5-crypt. `$5$` = SHA-256-crypt. `$6$` = SHA-512-crypt. `$y$` = yescrypt. |
 | **Direct** | `john /etc/shadow --wordlist=rockyou.txt`. |
 | **unshadow** | `unshadow /etc/passwd /etc/shadow > combined.txt`. Combines username+hash for single crack mode to use the username. |
@@ -254,7 +254,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **NTLM Format** | `user:rid:LM_hash:NT_hash:::`. LM hash is the old, weak one (usually empty: `aad3b435b51404eeaad3b435b51404ee`). NT hash is what you crack. |
 | **Crack** | `john --format=NT --wordlist=rockyou.txt ntlm_hashes.txt`. |
 | **NTLMv2** | Net-NTLMv2 (from Responder): different format. `john --format=netntlmv2 --wordlist=rockyou.txt netntlmv2.txt`. |
@@ -266,7 +266,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Format** | `$krb5tgs$23$*...*` — TGS-REP format from Kerberoasting. |
 | **Crack** | `john --format=krb5tgs --wordlist=rockyou.txt kerberoast.txt`. |
 | **Better** | Hashcat mode 13100 is significantly faster if a GPU is available. |
@@ -278,7 +278,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **WordPress** | `$P$` hash. `john --format=phpass --wordlist=rockyou.txt wp_hashes.txt`. |
 | **MySQL** | `*hash` format. `john --format=mysql-sha1 ...`. |
 | **MSSQL** | `0x0100...`. `john --format=mssql ...`. |
@@ -295,7 +295,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ZIP** | `zip2john protected.zip > zip.hash; john --wordlist=rockyou.txt zip.hash`. |
 | **RAR** | `rar2john protected.rar > rar.hash; john --wordlist=rockyou.txt rar.hash`. |
 | **7z** | `7z2john protected.7z > 7z.hash; john --wordlist=rockyou.txt 7z.hash`. |
@@ -307,7 +307,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Extract** | `ssh2john id_rsa > ssh.hash`. |
 | **Crack** | `john --wordlist=rockyou.txt ssh.hash`. |
 | **Use** | After cracking: `ssh -i id_rsa user@target` → enter cracked passphrase. |
@@ -319,7 +319,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Office** | `office2john protected.docx > office.hash; john --format=office --wordlist=rockyou.txt office.hash`. |
 | **PDF** | `pdf2john protected.pdf > pdf.hash; john --wordlist=rockyou.txt pdf.hash`. |
 
@@ -330,7 +330,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Extract** | `keepass2john database.kdbx > keepass.hash`. |
 | **Crack** | `john --format=keepass --wordlist=rockyou.txt keepass.hash`. |
 | **Value** | KeePass databases on compromised machines may contain credentials for the entire organization. |
@@ -346,7 +346,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | `impacket-secretsdump -just-dc-ntlm domain/admin@DC -outputfile ntds`. → `ntds.ntds` contains all NT hashes. `john --format=NT --wordlist=rockyou.txt ntds.ntds`. |
 
 ---
@@ -356,7 +356,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Responder captures Net-NTLMv2 hashes from LLMNR/NBT-NS poisoning. `Responder.db` or per-user files in `/usr/share/responder/logs/`. `john --format=netntlmv2 --wordlist=rockyou.txt NTLMv2_hash.txt`. |
 
 ---
@@ -366,7 +366,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Use JtR** | No GPU available. Linux shadow files (convenient format handling). File cracking (zip2john etc.). Rule writing convenience. Quick single-mode run. |
 | **Use Hashcat** | GPU available (10–100x faster). Mask attacks. Large NTLM hash dumps. Kerberoast hashes. Long cracking sessions. |
 
@@ -446,7 +446,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can identify hash formats from format strings and visual patterns | ☐ |
 | Can crack Linux shadow files with wordlist + rules | ☐ |
 | Can crack NTLM and Net-NTLMv2 hashes | ☐ |

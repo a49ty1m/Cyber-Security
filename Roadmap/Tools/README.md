@@ -7,14 +7,14 @@
 
 ## 🧭 Navigation
 
-> [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Stage-1_Foundation|Stage 1: Foundation]] · [[Cyber-Security/Roadmap/Stage-2_Offense-I|Stage 2: Offense I]] · [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] · [[Cyber-Security/Roadmap/Stage-4_Enterprise|Stage 4: Enterprise]] · [[Cyber-Security/Roadmap/Stage-5_Specialized|Stage 5: Specialized]] · [[Cyber-Security/Roadmap/Shelf_Post-Hire|📦 Shelf]]
+> [[Cyber-Security/Roadmap/README|MASTER_README]] · [[Cyber-Security/Roadmap/Stage-1_Foundation|Stage 1: Foundation]] · [[Cyber-Security/Roadmap/Stage-2_Offense-I|Stage 2: Offense I]] · [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]] · [[Cyber-Security/Roadmap/Stage-4_Enterprise|Stage 4: Enterprise]] · [[Cyber-Security/Roadmap/Stage-5_Specialized|Stage 5: Specialized]] · [[Cyber-Security/Roadmap/Shelf_Post-Hire|📦 Shelf]]
 
 ---
 
 ## 🏷️ Tier System
 
 | Tier | Label | When you use it | Checklist depth |
-|:----:|:------|:----------------|:----------------|
+| :----: | :------ | :---------------- | :---------------- |
 | **1** | **Core** | Every single engagement — master these first | 38–50 tasks · 33–58 hrs |
 | **2** | **Frequent** | Regularly, in specific attack chains or modules | 25–40 tasks · 25–45 hrs |
 | **3** | **Situational** | For specific target types, environments, or scenarios | 16–24 tasks · 12–22 hrs |
@@ -27,7 +27,7 @@
 > Must be mastered before advancing. Used on every engagement.
 
 | Tool | What it does | Stage / Module |
-|:-----|:-------------|:---------------|
+| :----- | :------------- | :--------------- |
 | [[Netcat\|🔌 Netcat]] | TCP/UDP swiss-army knife — port scanning, file transfer, reverse/bind shells | S1: M04 · S2: M13 |
 | [[Wireshark\|🦈 Wireshark]] | Packet capture and deep protocol analysis — live capture and PCAP forensics | S1: M04 |
 | [[Nmap\|🗺️ Nmap]] | Network discovery, port scanning, service/OS detection, NSE scripting | S2: M08–09 |
@@ -46,7 +46,7 @@
 > Used regularly across specific attack chains, modules, or lab setups.
 
 | Tool | What it does | Stage / Module |
-|:-----|:-------------|:---------------|
+| :----- | :------------- | :--------------- |
 | [[Scapy\|📦 Scapy]] | Python packet crafting and network manipulation library | S1: M04 · S4: M23 |
 | [[tcpdump\|📻 tcpdump]] | CLI packet capture — remote collection, filter syntax, PCAP production | S1: M04 |
 | [[Amass\|🌐 Amass]] | OWASP subdomain enumeration — passive, active, API-enriched | S2: M08 |
@@ -99,7 +99,7 @@
 > Reach for these when the target type or scenario demands it.
 
 | Tool | What it does | Stage / Module |
-|:-----|:-------------|:---------------|
+| :----- | :------------- | :--------------- |
 | [[Procmon\|🔍 Procmon]] | Windows process monitor — file system, registry, network, process activity | S1: M03 · Shelf: S05 |
 | [[OpenSSL\|🔒 OpenSSL]] | TLS handshake inspection, key generation, and certificate verification | S1: M05 |
 | [[socat\|🔄 socat]] | Multipurpose bidirectional relay — reverse shells, encrypted tunnels, port forwards | S2: M13 |
@@ -134,7 +134,7 @@
 > Specialized, legacy, or post-hire depth. Know when to reach for them.
 
 | Tool | What it does | Stage / Module |
-|:-----|:-------------|:---------------|
+| :----- | :------------- | :--------------- |
 | [[hping3\|🔨 hping3]] | TCP/IP packet crafting — SYN floods, traceroute, firewall testing | S1: M04 · Shelf: S17 |
 | [[iperf3\|📶 iperf3]] | Network bandwidth and throughput testing | S1: M04 |
 | [[Cookie-Editor\|🍪 Cookie-Editor]] | Browser cookie inspection and manipulation extension | S3: M15 |
@@ -149,7 +149,7 @@
 ## 🗺️ Tools by Roadmap Stage
 
 | Stage | Tools |
-|:------|:------|
+| :------ | :------ |
 | **S1 — Foundation** | [[Wireshark\|Wireshark]] · [[tcpdump\|tcpdump]] · [[Netcat\|Netcat]] · [[OpenSSL\|OpenSSL]] · [[Scapy\|Scapy]] · [[iperf3\|iperf3]] · [[Procmon\|Procmon]] · [[hping3\|hping3]] |
 | **S2 — Offense I** | [[Nmap\|Nmap]] · [[Amass\|Amass]] · [[theHarvester\|theHarvester]] · [[Recon-ng\|Recon-ng]] · [[SpiderFoot\|SpiderFoot]] · [[Maltego\|Maltego]] · [[Gobuster\|Gobuster]] · [[Hashcat\|Hashcat]] · [[Hydra\|Hydra]] · [[John_the_Ripper\|John the Ripper]] · [[Metasploit_Framework\|Metasploit]] · [[LinPEAS\|LinPEAS]] · [[WinPEAS\|WinPEAS]] · [[socat\|socat]] · [[Ligolo-ng\|Ligolo-ng]] · [[Chisel\|Chisel]] · [[Evil-WinRM\|Evil-WinRM]] |
 | **S3 — Web & App Sec** | [[Burp_Suite\|Burp Suite]] · [[sqlmap\|sqlmap]] · [[ffuf\|ffuf]] · [[Gobuster\|Gobuster]] · [[Nikto\|Nikto]] · [[Nuclei\|Nuclei]] · [[OWASP_ZAP\|OWASP ZAP]] · [[Postman\|Postman]] · [[SoapUI\|SoapUI]] · [[jwt-tool\|jwt-tool]] · [[wpscan\|WPScan]] · [[Cookie-Editor\|Cookie-Editor]] · *Side-Track: [[Splunk\|Splunk]] · [[ELK\|ELK]] · [[Wazuh\|Wazuh]] · [[Sysmon\|Sysmon]] · [[Sigma\|Sigma]] · [[YARA\|YARA]]* |

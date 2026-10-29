@@ -17,23 +17,23 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Endpoint Telemetry | SIEM & Analysis | Static Binary Triage | Dynamic Debugging |
-|:-------------------|:----------------|:---------------------|:------------------|
+| :------------------- | :---------------- | :--------------------- | :------------------ |
 | [[Sysmon\|📊 Sysmon]] | [[Splunk\|🔎 Splunk]] | [[PEStudio\|🔬 PEStudio]] | [[x64dbg\|🐛 x64dbg]] |
 | **🔍 Procmon** (you are here) | [[ELK\|🦌 ELK]] | [[Detect_It_Easy\|🔎 Detect It Easy]] | [[GDB\|🐞 GDB]] |
-| | [[Wazuh\|🛡️ Wazuh]] | [[strings\|📝 strings]] | [[Volatility\|🧠 Volatility]] |
+|| [[Wazuh\|🛡️ Wazuh]] | [[strings\|📝 strings]] | [[Volatility\|🧠 Volatility]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Core Usage | 5 | 2–3 hours |
 | 3 | Filtering | 4 | 2–3 hours |
 | 4 | Malware Analysis Use | 3 | 2–3 hours |
 | 5 | Mastery Check | 2 | 30 min |
-| | **Total** | **18** | **~8–12 hours** |
+|| **Total** | **18** | **~8–12 hours** |
 
 **Setup:** Procmon only runs on Windows. Use in a Windows analysis VM. Download from `learn.microsoft.com/sysinternals/downloads/procmon`. No installation — single executable. Requires admin privileges.
 
@@ -48,7 +48,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **File System** | Every `CreateFile`, `ReadFile`, `WriteFile`, `DeleteFile`, `SetFileAttributes` call. Shows full path, result (SUCCESS/NAME NOT FOUND/ACCESS DENIED), and calling process. |
 | **Registry** | Every `RegOpenKey`, `RegSetValue`, `RegQueryValue`, `RegDeleteKey`. Shows key path and value name. |
 | **Process/Thread** | Process creation and exit. Thread creation. DLL image loads. |
@@ -61,7 +61,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Event List** | Main scrolling list: Sequence, Time, Process Name, PID, Operation, Path, Result, Detail. |
 | **Toolbar Icons** | Magnifying glass: filter (highlight icon). Funnel: filter. Red record dot: start/stop capture. Blue eraser: clear events. |
 | **Capture Toggle** | `Ctrl+E` — toggle event capture. Start Procmon → wait for activity → stop → analyze. |
@@ -74,7 +74,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Toolbar Filters** | Show File System Activity (folder icon). Show Registry Activity (registry icon). Show Network Activity (wifi icon). Show Process & Thread Activity (gear icon). Toggle each on/off to reduce noise. |
 
 ---
@@ -84,7 +84,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Save** | File → Save → PML (native format, preserves all data). Or save as CSV for Excel/grep analysis. |
 | **Load** | File → Open → load saved PML. Analyze offline (useful: capture on analysis VM, analyze on main machine). |
 | **Backing File** | By default, Procmon pages events to disk to avoid running out of RAM. File → Backing Files → configure location. |
@@ -100,7 +100,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | 1. Clear existing events (`Ctrl+X`). 2. Start capture (`Ctrl+E`). 3. Execute the process/action you want to observe. 4. Stop capture (`Ctrl+E`). 5. Apply filters to isolate relevant events. 6. Analyze. |
 | **Malware** | Start Procmon → snapshot VM → execute malware → observe activity in Procmon → stop → filter by malware process name → document all file, registry, network activity. |
 
@@ -111,7 +111,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Add Filter** | Filter → Filter (`Ctrl+L`) → `Process Name` `is` `malware.exe` `include`. Add. Apply. Now only events from `malware.exe` are shown. |
 | **PID Filter** | If the process name is common (e.g., `powershell.exe`), filter by PID instead: `PID` `is` `1234`. |
 | **Exclude Noise** | `Process Name` `is` `Procmon.exe` `exclude` — remove Procmon's own events. |
@@ -123,7 +123,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Highlight Rules** | Filter → Highlight Rules → add rules: `Operation` `contains` `WriteFile` → color red. `Path` `contains` `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` → color green (persistence). |
 
 ---
@@ -133,7 +133,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **View** | Tools → Process Tree → shows all processes that ran during capture, with parent-child relationships. |
 | **Malware Use** | See if malware spawned child processes. Example: `malware.exe` → spawns `cmd.exe` → runs `powershell.exe` → downloads payload. |
 
@@ -144,7 +144,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Tools Menu** | Tools → File Summary: most-accessed paths. Tools → Registry Summary: most-accessed keys. Tools → Network Summary: connections made. |
 | **Use** | Quick overview of what a process touched — much faster than reading every event. |
 
@@ -159,7 +159,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **File Writes** | `Operation` `is` `WriteFile` `include`. Finds all files written — persistence payloads, dropped files, log files. |
 | **Registry Persistence** | `Path` `contains` `CurrentVersion\Run` `include`. Catches common autorun key modifications. |
 | **Successful Only** | `Result` `is` `SUCCESS` `include`. Removes all the "NOT FOUND" noise from failed lookup attempts. Very useful. |
@@ -172,7 +172,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Temp Directory** | `Path` `contains` `\Temp\` `include`. Malware often drops payloads in Temp. |
 | **AppData** | `Path` `contains` `AppData` `include`. Common malware persistence location. |
 | **System32** | `Path` `contains` `System32` `include`. Detects attempts to write to system directories. |
@@ -185,7 +185,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Technique** | Run a privileged process (e.g., a Windows service). Filter Procmon: `Operation` `is` `CreateFile`, `Result` `is` `NAME NOT FOUND`, `Path` `ends with` `.dll`. |
 | **What You See** | A privileged process looking for a DLL that doesn't exist in the application directory. If you can write to that directory: plant a malicious DLL there → process loads it → code execution as the service's privilege level. |
 | **Practical Use** | This technique is used for local privilege escalation. Procmon is the standard tool for finding these opportunities. |
@@ -197,7 +197,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Common Noisy Processes** | Exclude: `Procmon.exe`, `svchost.exe` (unless it's your target), `explorer.exe`, `SearchIndexer.exe`, `MsMpEng.exe` (Defender). |
 | **Result Filter** | Exclude `NAME NOT FOUND` and `PATH NOT FOUND` if they're not relevant — massively reduces noise from DLL and file search failures. |
 | **Event Type** | Focus on File System only (disable Registry and Network temporarily) to reduce visual complexity during initial analysis. |
@@ -213,7 +213,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Document all filesystem and registry changes made by malware execution. |
 | **Key Questions** | What files did it create/modify/delete? What registry keys did it set (especially Run keys → persistence)? What DLLs did it load? What processes did it spawn? Did it access any credential stores (SAM, LSASS paths)? |
 | **Evidence Trail** | Every event has a timestamp, result, and exact path. The Procmon log is forensic evidence of what the malware did. |
@@ -225,7 +225,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Run both simultaneously: x64dbg for code-level control (step through, breakpoints). Procmon for system-level observation (what does each code section do to the OS?). Step through suspicious code in x64dbg → observe the corresponding file/registry event appear in Procmon. |
 
 ---
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **From Procmon Log** | File paths created → file IOCs. Registry keys set → registry IOCs. Mutex names (in Process & Thread events). Network destinations → IP/domain IOCs. |
 | **Export** | File → Save → CSV → import into Excel/Splunk for IOC extraction and report generation. |
 
@@ -250,7 +250,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can capture and stop a Procmon trace | ☐ |
 | Can filter events by process name, operation, and path | ☐ |
 | Can use the Process Tree to view child process spawning | ☐ |

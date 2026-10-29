@@ -21,19 +21,19 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Recon & OSINT | Scanning | Web Attacks | Exploitation |
-|:--------------|:---------|:------------|:-------------|
+| :-------------- | :--------- | :------------ | :------------- |
 | [[Amass\|🌐 Amass]] | [[Nmap\|🗺️ Nmap]] | [[Burp_Suite\|🕷️ Burp Suite]] | [[Metasploit_Framework\|💀 Metasploit]] |
 | **🌾 theHarvester** (you are here) | [[Nuclei\|⚡ Nuclei]] | [[ffuf\|🌀 ffuf]] | [[Hydra\|🔓 Hydra]] |
 | [[Recon-ng\|🔭 Recon-ng]] | [[Gobuster\|📂 Gobuster]] | [[sqlmap\|💉 sqlmap]] | [[Impacket\|🐍 Impacket]] |
-| [[SpiderFoot\|🕸️ SpiderFoot]] | | | |
-| [[Maltego\|🕵️ Maltego]] | | | |
+| [[SpiderFoot\|🕸️ SpiderFoot]] ||||
+| [[Maltego\|🕵️ Maltego]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Data Sources | 5 | 2–3 hours |
 | 3 | Emails | 3 | 1–2 hours |
@@ -42,7 +42,7 @@
 | 6 | Reporting | 2 | 1 hour |
 | 7 | Practical Labs | 3 | 2–4 hours |
 | 8 | Mastery Challenges | 2 | 2–3 hours |
-| | **Total** | **25** | **~11–19 hours** |
+|| **Total** | **25** | **~11–19 hours** |
 
 ---
 
@@ -55,7 +55,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Passive vs. Active** | Passive: collect from public data sources only — no direct contact with the target. Active: send queries to the target (DNS lookup, web crawling). theHarvester does both — but passive sources are preferred first. |
 | **Why OSINT First** | Zero detection risk (you're just reading public data). Builds target profile before any scanning. Identifies attack vectors (phishing emails, subdomains, exposed services). |
 | **Legal** | OSINT on public data is generally legal. Email addresses from corporate sites are public. Respect ToS of data sources. |
@@ -67,7 +67,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `theHarvester -h`. |
 | **GitHub** | `git clone https://github.com/laramies/theHarvester; pip3 install -r requirements.txt`. |
 | **API Keys** | `~/.theHarvester/api-keys.yaml` — add API keys for Shodan, Hunter.io, VirusTotal, GitHub, etc. More sources = more results. |
@@ -79,7 +79,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `theHarvester -d target.com -b all`. |
 | **Flags** | `-d domain` — target domain. `-b source` — data source(s). `-l 500` — limit results per source (default 500). `-n` — DNS brute force. `-f report` — save HTML/XML report to file. |
 | **Sources** | `-b all` — all available sources. `-b google,bing,crtsh` — specific sources. |
@@ -91,7 +91,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Sections** | Emails found. Hosts found (subdomains and IPs). Virtual hosts. Shodan results (if key set). |
 | **Format** | Text output to terminal. `-f filename` for HTML/XML. |
 | **Deduplication** | Results from all sources merged and deduplicated. |
@@ -107,7 +107,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Google** | `-b google` — uses Google dorks. Limited by rate limiting. |
 | **Bing** | `-b bing` — often finds different results than Google. Less rate limiting. |
 | **Yahoo** | `-b yahoo`. |
@@ -121,7 +121,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **crtsh** | `-b crtsh` — Certificate Transparency logs. Every SSL/TLS cert issued is logged publicly. Reveals subdomains that have had certs issued. Very reliable. |
 | **certspotter** | `-b certspotter` — another CT log source. |
 | **Value** | Finds subdomains that search engines haven't indexed — internal tools, staging servers, admin panels. Completely passive. |
@@ -133,7 +133,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **DNS Brute Force** | `-n` flag — theHarvester actively bruteforces DNS subdomains. Not passive. |
 | **hackertarget** | `-b hackertarget` — DNS lookup via hackertarget.com API. |
 | **DNS Dumpster** | `-b dnsdumpster` — DNS records from dnsdumpster.com. |
@@ -146,7 +146,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Shodan** | `-b shodan` (requires API key). Find open ports, banners, technologies on the target's IPs. |
 | **VirusTotal** | `-b virustotal` (requires API key). Subdomains seen by VirusTotal. |
 | **GitHub** | `-b github-code` (requires API key). Email addresses found in GitHub code. Useful for finding developer emails and leaked credentials. |
@@ -160,7 +160,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **PGP** | `-b pgp` — PGP key server search. Users who have uploaded PGP keys often use their corporate email. |
 | **EmailHarvester Format** | Emails found: `user@target.com`, `firstname.lastname@target.com`. Reveals naming convention (critical for targeted phishing). |
 
@@ -175,7 +175,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Extract Convention** | Analyze discovered emails: `jsmith@target.com` → `firstname_lastname`. `john.smith@target.com` → `firstname.lastname`. `j.smith@target.com` → `f.lastname`. |
 | **Generate More** | Once convention known: apply to known employee names (from LinkedIn, company site) to generate candidate email addresses for phishing or password spraying. |
 | **Verify** | Use Hunter.io, Clearbit, or SMTP VRFY (if enabled) to verify generated addresses. |
@@ -187,7 +187,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Collect emails → extract usernames (part before @) → use as usernames for password spraying against OWA/O365/VPN. |
 | **Tools** | `nxc smb target -u usernames.txt -p "Winter2024!"`. `spray` tool for O365. `MSOLSpray` for Microsoft 365. |
 
@@ -198,7 +198,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Target Selection** | IT staff emails (admin access). Finance staff (business email compromise). Executives (CEO fraud). |
 | **Integration** | Email list → GoPhish campaign. Harvest → profile → craft believable lure → deploy. |
 
@@ -213,7 +213,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `theHarvester -d target.com -b crtsh,google,bing,hackertarget,dnsdumpster -f subdomains`. |
 | **Add to Hosts** | For HTB/lab: extract subdomains → add to `/etc/hosts` → visit each. |
 
@@ -224,7 +224,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Resolve** | `for sub in subdomains.txt; do host $sub; done` — resolve each subdomain to IP. |
 | **Find Interesting** | Subdomains resolving to internal IPs exposed externally. Subdomains resolving to non-production ranges (staging, dev). Subdomains with different hosting than main site. |
 
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Subdomain points to a third-party service (GitHub Pages, Heroku, etc.) that no longer exists → attacker claims the service → controls the subdomain. |
 | **Check** | `subjack -w subdomains.txt -t 100 -o output.txt` — automated subdomain takeover check. |
 | **Manual** | For each subdomain: does it resolve? What does it point to? Is the pointed-to resource claimable? |
@@ -251,7 +251,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | theHarvester first (fast, multiple sources) → Amass for deeper passive enumeration → combine subdomain lists → deduplicate → resolve all → scan open ones. |
 | **Combine** | `cat theharvester_subdomains.txt amass_subdomains.txt | sort -u > all_subdomains.txt`. |
 
@@ -262,7 +262,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | theHarvester finds IPs → feed to Shodan API → get open ports, banners, CVEs for each IP. `shodan host <ip>` for each discovered IP. |
 
 ---
@@ -272,7 +272,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Workflow** | Collect subdomains/IPs → resolve → Nmap scan discovered IPs. `nmap -sV -iL resolved_ips.txt -oN nmap_results.txt`. |
 
 ---
@@ -286,7 +286,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **HTML** | `theHarvester -d target.com -b all -f report` → creates `report.html` and `report.xml`. |
 | **Review** | Open HTML in browser: formatted sections for emails, hosts, IPs, Shodan results. |
 
@@ -297,7 +297,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Build Profile** | Combine theHarvester results with LinkedIn (employee list), Shodan (exposed services), job postings (reveals tech stack), news articles (acquisitions, partnerships). |
 | **Output** | Target profile document: org overview, key personnel, email convention, exposed subdomains, IP ranges, technologies, likely attack vectors. |
 
@@ -359,7 +359,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run theHarvester against all available sources | ☐ |
 | Can analyze email results and identify naming conventions | ☐ |
 | Can collect subdomains from CT logs and search engines | ☐ |

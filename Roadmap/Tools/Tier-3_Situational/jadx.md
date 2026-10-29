@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Mobile Static Analysis | Mobile Dynamic Analysis | Binary Analysis |
-|:----------------------|:------------------------|:----------------|
+| :---------------------- | :------------------------ | :---------------- |
 | **📦 jadx** (you are here) | [[Frida\|🔬 Frida]] | [[Ghidra\|🔭 Ghidra]] |
 | [[APKTool\|🔨 APKTool]] | [[Objection\|📱 Objection]] | [[x64dbg\|🐛 x64dbg]] |
 
@@ -30,7 +30,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Decompile | 4 | 1–2 hours |
 | 2 | jadx-gui Navigation | 6 | 2–3 hours |
 | 3 | Finding Hardcoded Secrets | 7 | 3–4 hours |
@@ -38,7 +38,7 @@
 | 5 | Certificate Pinning Analysis | 5 | 3–4 hours |
 | 6 | Dealing with Obfuscation | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **38** | **~20–28 hours** |
+|| **Total** | **38** | **~20–28 hours** |
 
 **Prerequisites:** Phase 1 complete. Basic Java reading ability (you don't need to write Java, just read and understand it). Phase 5 APK structure knowledge helpful.
 

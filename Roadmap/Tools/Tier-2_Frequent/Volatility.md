@@ -19,16 +19,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Disk Forensics | Memory Forensics | Timeline & Artifacts | Host Telemetry |
-|:---------------|:-----------------|:---------------------|:---------------|
+| :--------------- | :----------------- | :--------------------- | :--------------- |
 | [[Autopsy\|🔍 Autopsy]] | **🧠 Volatility** (you are here) | [[Plaso\|📅 Plaso]] | [[Sysmon\|📊 Sysmon]] |
-| [[FTK_Imager\|💾 FTK Imager]] | | [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
+| [[FTK_Imager\|💾 FTK Imager]] || [[YARA\|🔍 YARA]] | [[Procmon\|🔍 Procmon]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Memory Acquisition | 4 | 1–2 hours |
 | 2 | Core Process Analysis | 6 | 3–4 hours |
 | 3 | Network & Connection Analysis | 4 | 2–3 hours |
@@ -36,7 +36,7 @@
 | 5 | Credential Extraction | 4 | 2–3 hours |
 | 6 | Rootkit & Kernel Analysis | 4 | 3–4 hours |
 | 7 | Practical Labs | 4 | 6–10 hours |
-| | **Total** | **31** | **~21–32 hours** |
+|| **Total** | **31** | **~21–32 hours** |
 
 **Prerequisites:** OS internals (Phase 1 Part 1 Stage 2–3 complete). Understanding of Windows process model, virtual memory, and kernel/user space. Phase 7 Part 27 Stage 1–2 recommended.
 

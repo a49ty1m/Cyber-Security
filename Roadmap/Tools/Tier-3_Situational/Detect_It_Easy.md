@@ -17,23 +17,23 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Static RE & Decompilation | Dynamic Debugging | Binary Exploitation | Triage & Strings |
-|:--------------------------|:------------------|:--------------------|:-----------------|
+| :-------------------------- | :------------------ | :-------------------- | :----------------- |
 | [[Ghidra\|🔬 Ghidra]] | [[x64dbg\|🐛 x64dbg]] | [[pwntools\|⚡ pwntools]] | [[PEStudio\|🔬 PEStudio]] |
-| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] | | **🔎 Detect It Easy** (you are here) |
-| | | | [[strings\|📝 strings]] |
+| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] || **🔎 Detect It Easy** (you are here) |
+|||| [[strings\|📝 strings]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 1–2 hours |
 | 2 | Using DiE | 5 | 2–3 hours |
 | 3 | Interpreting Results | 4 | 2–3 hours |
 | 4 | DiE in the Analysis Workflow | 3 | 1–2 hours |
 | 5 | Mastery Check | 2 | 30 min |
-| | **Total** | **18** | **~7–11 hours** |
+|| **Total** | **18** | **~7–11 hours** |
 
 ---
 
@@ -46,7 +46,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Compilers** | Visual C++ (MSVC), GCC, MinGW, Delphi, Borland, Go, Rust, Python (compiled), .NET/Mono. Each leaves distinct artifacts in the PE header and sections. |
 | **Packers** | UPX, MPRESS, ASPack, PECompact, LZMA-based packers. Packers compress/encrypt the original code and add a stub that unpacks at runtime. |
 | **Protectors** | Themida, VMProtect, Enigma Protector, Obsidium. More complex than packers — add anti-debug, virtualization, and code obfuscation layers. |
@@ -60,7 +60,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Download** | `github.com/horsicq/Detect-It-Easy` → Releases → download for your platform. |
 | **Versions** | `die.exe` — GUI. `diec.exe` — CLI (Windows). `diec` — CLI (Linux). Both available in the same release package. |
 | **Linux** | `apt install detect-it-easy` (Kali). Or download AppImage. |
@@ -72,7 +72,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **PEStudio** | Full PE analysis: imports, strings, resources, sections, VirusTotal. Packer detection is one indicator among many. |
 | **DiE** | Focused specifically on packer/compiler/linker identification. More accurate and comprehensive detection than PEStudio for this specific task. More signature database coverage. |
 | **Use Together** | PEStudio → first pass analysis (imports, strings, VT score). DiE → definitive packer/compiler identification. Together = complete first-pass picture. |
@@ -84,7 +84,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Signatures** | DiE maintains `db/` directory of JavaScript signature scripts. Each script implements detection logic for one packer/compiler. Community-contributed and regularly updated. |
 | **Heuristics** | Beyond signatures: entropy analysis, section name patterns, entry point code patterns, import table structure. |
 | **Confidence** | DiE reports confidence: "UPX(3.95) [NRV2E, brute] 100%" = very certain. "Possible: compiler=MSVC" = less certain. |
@@ -100,7 +100,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Load File** | Drag and drop PE file onto DiE window. Or File → Open. Results appear immediately. |
 | **Main Results** | Top area: packer/compiler/linker detected with confidence level. Tabs: Info (raw detection data), Sections (section entropy + characteristics), Memory map, Strings, Hex view. |
 | **Entropy Graph** | Visualizes entropy per section — spikes indicate encrypted/compressed data. |
@@ -112,7 +112,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Single File** | `diec sample.exe` → prints detection result. |
 | **Directory Scan** | `diec -r /path/to/samples/` — recursively scan all files. |
 | **JSON Output** | `diec --json sample.exe` — machine-parseable output. |
@@ -126,7 +126,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify the packer distribution across a malware sample set. |
 | **Command** | `for f in samples/*; do echo "$f: $(diec $f)"; done`. |
 | **Use Case** | "Of 50 samples from this campaign, 35 used UPX and 15 used custom packers." Guides analysis prioritization — UPX-packed → quick unpack. Custom → harder analysis. |
@@ -138,7 +138,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **View** | GUI → Entropy tab → graph of entropy across the file. |
 | **Interpretation** | High entropy throughout = packed/encrypted. High entropy in specific section only = that section contains encrypted data. Normal entropy with one spike = embedded payload or resource. |
 | **Numbers** | 0–5: low entropy (text, normal code). 5–7: moderate (compiled code). 7–8: high (compressed/encrypted). |
@@ -150,7 +150,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand what signatures DiE uses so you can interpret results accurately. |
 | **Location** | `db/PE/` — PE format signatures. `db/ELF/` — Linux. `db/MACH/` — macOS. Each `.js` file = one detector. |
 | **Custom Signatures** | Write your own JavaScript signature file following DiE's API. Add to `db/PE/` → DiE picks it up. Useful for detecting custom in-house malware. |
@@ -166,7 +166,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **MSVC (Microsoft Visual C++)** | Most Windows malware. Rich reverse engineering resources. Ghidra decompiles well. |
 | **GCC/MinGW** | Cross-platform malware. Also very common. |
 | **Delphi/Borland** | Banking trojans frequently use Delphi. Different calling conventions — note in Ghidra. |
@@ -182,7 +182,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **UPX** | Most common packer. `upx -d sample.exe` → instant unpack. Unpacked binary → open in Ghidra. |
 | **MPRESS** | Simple unpacker available. `mpress -d` or use x64dbg (OEP approach). |
 | **ASPack** | x64dbg unpack (find OEP + Scylla). |
@@ -196,7 +196,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **DiE Detects** | ".NET 4.8" or "Microsoft Visual C#" → it's a .NET assembly. |
 | **Don't Use Ghidra First** | Ghidra can analyze .NET but it's harder. Use dnSpy or ILSpy — these decompile .NET IL (Intermediate Language) to near-perfect C# source code. |
 | **If Obfuscated** | .NET obfuscators (ConfuserEx, de4dot targets). De4dot (`github.com/de4dot/de4dot`) deobfuscates many common .NET protectors. |
@@ -208,7 +208,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Unknown Result** | DiE says "Unknown" or gives low-confidence results. |
 | **Next Steps** | Check PEStudio entropy (high = packed). Manual entry point analysis in x64dbg. Submit to unpac.me or any.run sandbox — automated unpacking. Try generic unpackers (Universal PE Unpacker plugin for x64dbg). |
 | **Accept Limitations** | Some custom packers/protectors will defeat DiE. Document "custom/unknown packer" and proceed with dynamic analysis. |
@@ -224,7 +224,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Position in Workflow** | `strings` (30 sec) → PEStudio (3–5 min) → DiE (1 min) → decide: unpack → Ghidra → x64dbg. DiE tells you *how* to proceed to the next stage. |
 | **Decision** | UPX detected → `upx -d` → Ghidra. Custom packer → x64dbg first. .NET detected → dnSpy. Python/PyInstaller → pyinstxtractor. |
 
@@ -235,7 +235,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use compiler/packer info to group related samples. |
 | **Pattern** | "All samples in this campaign: MinGW compiled, UPX packed, version 3.95" → same build environment → likely same actor. Change in packer/compiler across campaigns → possible actor change or tool refresh. |
 
@@ -246,7 +246,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Built-in Update** | DiE has an online update feature for its signature database. Settings → Update. |
 | **Manual** | `git pull` in the DiE repository → copy updated `db/` directory. |
 | **New Packers** | If you encounter a frequently recurring unknown packer, write a detection script and contribute to the DiE project. |
@@ -262,7 +262,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can identify packer, compiler, and protector from DiE output | ☐ |
 | Knows the appropriate unpack/analysis approach for common packers | ☐ |
 | Can run DiE from CLI and parse JSON output | ☐ |

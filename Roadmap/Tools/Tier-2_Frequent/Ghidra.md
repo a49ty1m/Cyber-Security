@@ -19,17 +19,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Static RE & Decompilation | Dynamic Debugging | Binary Exploitation | Triage & Strings |
-|:--------------------------|:------------------|:--------------------|:-----------------|
+| :-------------------------- | :------------------ | :-------------------- | :----------------- |
 | **🔬 Ghidra** (you are here) | [[x64dbg\|🐛 x64dbg]] | [[pwntools\|⚡ pwntools]] | [[PEStudio\|🔬 PEStudio]] |
-| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] | | [[Detect_It_Easy\|🔎 Detect It Easy]] |
-| | | | [[strings\|📝 strings]] |
+| [[jadx\|🔍 jadx]] | [[GDB\|🐞 GDB]] || [[Detect_It_Easy\|🔎 Detect It Easy]] |
+|||| [[strings\|📝 strings]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 4 | 2–3 hours |
 | 2 | Ghidra Interface | 5 | 3–4 hours |
 | 3 | Analysis | 5 | 4–6 hours |
@@ -38,7 +38,7 @@
 | 6 | Malware Analysis | 4 | 4–6 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **32** | **~28–41 hours** |
+|| **Total** | **32** | **~28–41 hours** |
 
 **Prerequisites:** x86/x64 assembly basics. C programming fundamentals. Understanding of calling conventions, stack frames, and binary formats (PE, ELF).
 
@@ -53,7 +53,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Static Analysis** | Analyze binary without executing it. Safe. Ghidra is primarily a static analysis tool. |
 | **Dynamic Analysis** | Execute and observe behavior. x64dbg, OllyDbg. Required for understanding runtime behavior, obfuscated code, packer analysis. |
 | **Disassembly** | Convert machine code bytes → assembly instructions (mov, push, call, jmp). Shows the exact CPU instructions. |
@@ -67,7 +67,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Download** | `ghidra.re` → Download → ghidra_X.X_PUBLIC.zip. |
 | **Java** | Requires JDK 17+. `apt install openjdk-17-jdk`. |
 | **Run** | `./ghidraRun` (Linux/macOS). `ghidraRun.bat` (Windows). |
@@ -80,7 +80,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Project** | Container for all binaries and analysis under one engagement/investigation. Create one project per malware sample or CTF challenge. |
 | **Program** | Individual binary loaded into a project. |
 | **Analysis** | Ghidra automatically analyzes on import: identifies functions, strings, imports, cross-references. |
@@ -92,7 +92,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Registers** | `rax/eax/ax` — return value, general purpose. `rdi/esi/edx/ecx/r8/r9` — function arguments (Linux). `rcx/rdx/r8/r9` — function arguments (Windows). `rsp` — stack pointer. `rbp` — base pointer. `rip` — instruction pointer. |
 | **Common Instructions** | `mov dst, src` — copy. `push reg` — push to stack. `pop reg` — pop from stack. `call func` — call function (push return addr, jmp). `ret` — return (pop return addr, jmp). `cmp a, b` — compare. `jz/je` — jump if zero/equal. `jnz/jne` — jump if not zero. `lea dst, [addr]` — load effective address. |
 | **Stack** | Stack grows down. Local variables below rbp. Parameters above rbp (or in registers on x64). |
@@ -108,7 +108,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Code Browser** | Main analysis window. Toolbar access all sub-windows. |
 | **Listing (Disassembly)** | Assembly view. Address | bytes | instruction format. |
 | **Decompiler** | Pseudo-C view. Shows alongside or separately. Updates as cursor moves in listing. |
@@ -123,7 +123,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Import** | File → Import File → select binary. Or drag-drop. |
 | **Format** | Ghidra auto-detects PE/ELF/Macho. Confirm format, language (x86 64-bit), compiler (Visual C++, GCC). |
 | **Analyze** | After import: "Analyze?" dialog → Yes. Auto-analysis runs (function identification, string detection, type recovery). Takes 30–120 seconds. |
@@ -135,7 +135,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Go To** | `G` key — enter address or symbol name. Navigate to any address instantly. |
 | **Back/Forward** | Alt+← / Alt+→ — browser-like history navigation. |
 | **Symbols** | Symbol Tree → Functions → double-click to navigate to function. |
@@ -149,7 +149,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **List** | Window → Functions. All identified functions: name, address, size. |
 | **Sort** | Sort by name, address, or size. Large functions = complex logic. |
 | **Undefined** | Functions Ghidra couldn't name show as `FUN_00401234`. Rename as you understand them. |
@@ -162,7 +162,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Open** | Window → Defined Strings. All ASCII and Unicode strings in the binary. |
 | **Filter** | Type in filter box: search for `http`, `password`, `cmd`, `regkey`, `C2`, `.exe`. |
 | **Navigate** | Double-click any string → navigate to it in listing. See cross-references → what code uses this string. |
@@ -179,7 +179,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Imports** | Symbol Tree → Imports. What Windows API functions the binary calls. `CreateProcess` = process execution. `InternetConnect` = network connectivity. `RegCreateKey` = registry operations. `VirtualAlloc` = memory allocation (code injection). `WriteProcessMemory` = process injection. |
 | **Exports** | Symbol Tree → Exports. Functions exported for use by other code. DLL analysis. |
 | **Value** | Import list gives a high-level behavior profile before reading a single instruction. |
@@ -191,7 +191,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Entry Point** | `entry` function in Symbol Tree. For Windows: often `__start` → calls `__mainCRTStartup` → calls `WinMain`. |
 | **Find main** | Search for the function that takes expected main arguments. Or: in the CRT startup code, the last `call` before `ExitProcess` is usually `main`/`WinMain`. |
 | **Rename** | Double-click function name in listing or decompiler → rename to `main`. |
@@ -203,7 +203,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **XREFs to** | Right-click address/function → References → Show References to. See every place this is called/used. |
 | **XREFs from** | Right-click → References → Show References from. See everything this function calls. |
 | **Call Tree** | Window → Function Call Trees. Visual graph of function calls. |
@@ -216,7 +216,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Rename Function** | Click function name → press `L` → enter new name. Propagates everywhere it's referenced. |
 | **Rename Variable** | In decompiler: click variable → `L` → rename. |
 | **Comment** | `Semicolon` key → add end-of-line comment. `;` at any address. |
@@ -230,7 +230,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Right-click → Data** | Right-click on data address → Data → apply type (DWORD, WORD, string, struct). |
 | **Struct** | Create custom struct in Data Type Manager → apply to data region → Ghidra renders it as structured fields. |
 | **Win32 Types** | Import Windows header types: Data Type Manager → Open File Archive → windows_vs12_32.gdt or similar. Apply `STARTUPINFOA`, `PROCESS_INFORMATION`, etc. |
@@ -246,7 +246,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Quality** | Ghidra's decompiler produces high-quality pseudo-C. Not exact — compiler transforms code significantly. Goal: understand behavior, not recover original source. |
 | **Variables** | Local variables named `local_XX` initially. Rename after understanding. |
 | **Types** | Initially `undefined4`, `undefined8`. Assign proper types after analysis. |
@@ -259,7 +259,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **String Decryption** | Loop over byte array with XOR, ROT, or AES → produces cleartext string. Common malware obfuscation. Identify the key and algorithm → decrypt manually or script. |
 | **API Hashing** | Malware resolves API functions by hash rather than name to evade import analysis. See: iterate export table, compute hash, compare → call the resolved function. Identify the hash algorithm → find what API is being resolved. |
 | **Process Injection** | `VirtualAllocEx` → `WriteProcessMemory` → `CreateRemoteThread`. Classic injection pattern. |
@@ -272,7 +272,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Packing** | Packed binary: most code is a loader. Small import table. Compressed main code section. Strategy: run in a sandbox → dump unpacked binary from memory (Hollows Hunter). Then analyze dumped binary in Ghidra. |
 | **String Encryption** | Find the decryption function (called repeatedly) → understand it → write Ghidra script to decrypt all strings. |
 | **Control Flow Flattening** | Complex switch-statement-like control flow to confuse decompiler. Manual analysis of each case. |
@@ -284,7 +284,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Ghidra Debugger** | Ghidra 10+ has a built-in debugger. Connect to a running process. Set breakpoints. Step through. Updates decompiler view in real time. |
 | **DWARF Symbols** | If available (Linux binaries with debug symbols): Ghidra loads function names and variable types automatically. Much easier analysis. |
 
@@ -299,7 +299,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Languages** | Java (native), Python 2 (via Jython). Python 3 not yet fully supported in built-in scripting (use GhidraScript bridge or external tools). |
 | **Script Manager** | Window → Script Manager. Browse, run, create scripts. |
 | **API** | `currentProgram` — current binary. `currentAddress` — cursor address. `getFunction(addr)` — get function at address. `getFunctionContaining(addr)` — function containing address. `createBookmark(addr, "type", "desc")`. |
@@ -311,7 +311,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Goal** | Find XOR-encrypted string array → write script to decrypt all strings → annotate each with the cleartext. |
 | **Approach** | Identify the XOR key from decompiler. Script: iterate over each call to decrypt function → get arguments (encrypted bytes + key) → decrypt → add comment at each call site. |
 
@@ -322,7 +322,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **pyhidra** | Python 3 bridge to Ghidra's Java API. `pip install pyhidra`. Full Python 3 ecosystem available (requests, capstone, pwntools) with Ghidra API access. |
 | **Ghidrathon** | NSA's official Python 3 scripting extension for Ghidra. Replaces Jython. Install from GitHub. |
 | **Use** | Write Python 3 scripts to automate bulk analysis: iterate all functions, apply types, decrypt strings, output reports. |
@@ -338,7 +338,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Step 1** | Check imports: what API families are called? (network, filesystem, registry, process, crypto). |
 | **Step 2** | Strings window: URLs, IP addresses, commands, error messages, registry keys. |
 | **Step 3** | Entry point → main function → core logic. |
@@ -352,7 +352,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Find Network Calls** | `InternetOpenUrl`, `HttpSendRequest`, `WSAConnect`, `connect` → trace back to find what URL/IP is used. |
 | **Encoded Strings** | If URL is encrypted: find decryption routine → script to decrypt → reveal C2 address. |
 | **Beacon Logic** | Find the sleep call → what interval? → what's sent to the C2 in each beacon? |
@@ -364,7 +364,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Registry** | Cross-reference `RegSetValue` calls → find which key. `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` = user-level startup. `HKLM\...Run` = system-level. |
 | **Scheduled Task** | `ITaskService`, `COM` calls to Task Scheduler. |
 | **Service** | `CreateService`, `OpenSCManager` calls. |
@@ -377,7 +377,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Anti-Debug** | `IsDebuggerPresent`, `CheckRemoteDebuggerPresent`, timing checks, `OutputDebugString` trick. Find these → understand how the malware detects analysis. |
 | **Anti-VM** | CPUID checks, registry key checks for VMware/VirtualBox artifacts (`HKLM\SOFTWARE\VMware, Inc.`), MAC address checks. |
 | **API Unhooking** | Reads NTDLL from disk to get clean (unhooked) copy of syscall stubs. Bypasses EDR hooks. |
@@ -458,7 +458,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can import a binary and run analysis in Ghidra | ☐ |
 | Can navigate the interface: listing, decompiler, symbol tree, strings | ☐ |
 | Can identify imports and build a behavioral profile | ☐ |

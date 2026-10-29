@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | SIEM Platforms | Telemetry | Detection Rules | Forensics |
-|:--------------|:----------|:----------------|:----------|
+| :-------------- | :---------- | :---------------- | :---------- |
 | **📊 Splunk** (you are here) | [[Sysmon\|🔭 Sysmon]] | [[Sigma\|🔎 Sigma]] | [[Volatility\|🧠 Volatility]] |
 | [[Wazuh\|🐺 Wazuh]] | [[Plaso\|📦 Plaso]] | [[YARA\|🦠 YARA]] | [[Autopsy\|🔬 Autopsy]] |
-| [[ELK\|📦 ELK]] | | | |
+| [[ELK\|📦 ELK]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Data Ingestion | 5 | 2–3 hours |
 | 2 | SPL Core — Searching & Filtering | 8 | 4–6 hours |
 | 3 | SPL Intermediate — Stats, Lookups, Subsearches | 7 | 4–5 hours |
@@ -39,7 +39,7 @@
 | 5 | Dashboards & Threat Hunting | 6 | 4–5 hours |
 | 6 | Sysmon Integration & Windows Event Logs | 6 | 4–6 hours |
 | 7 | Practical Labs | 4 | 6–10 hours |
-| | **Total** | **44** | **~29–42 hours** |
+|| **Total** | **44** | **~29–42 hours** |
 
 **Prerequisites:** Linux fundamentals (Phase 1 complete). Basic understanding of Windows Event Logs and Sysmon (Phase 3 Part 13A Stage 1 recommended). Conceptual understanding of what a SIEM does.
 
@@ -324,7 +324,7 @@ index=main sourcetype=WinEventLog EventCode=1
 ## 6.1 Key Windows Event IDs
 
 | Event ID | Description | Detection Value |
-|:---------|:------------|:----------------|
+| :--------- | :------------ | :---------------- |
 | 4624 | Successful logon | Lateral movement, unusual logon types |
 | 4625 | Failed logon | Brute force, spray attacks |
 | 4648 | Logon with explicit credentials | Pass-the-Hash, PsExec |
@@ -337,7 +337,7 @@ index=main sourcetype=WinEventLog EventCode=1
 ## 6.2 Key Sysmon Event IDs (after deploying Sysmon)
 
 | Event ID | Description | Detection Value |
-|:---------|:------------|:----------------|
+| :--------- | :------------ | :---------------- |
 | 1 | Process Create (full command line + parent) | Execution, LOLBins |
 | 3 | Network Connection | C2 beaconing, lateral movement |
 | 7 | Image Loaded (DLL load) | DLL hijacking, injection |

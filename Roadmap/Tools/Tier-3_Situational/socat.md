@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Shell & Pivoting | Networking | Tunneling | Crypto |
-|:----------------|:-----------|:----------|:-------|
+| :---------------- | :----------- | :---------- | :------- |
 | [[Netcat\|🔌 Netcat]] | [[Nmap\|🗺️ Nmap]] | [[Chisel\|🐛 Chisel]] | [[OpenSSL\|🔐 OpenSSL]] |
 | **📡 socat** (you are here) | [[Responder\|🔥 Responder]] | [[Ligolo-ng\|🌐 Ligolo-ng]] | [[Metasploit_Framework\|💀 Metasploit]] |
 
@@ -30,14 +30,14 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & Basic Relays | 4 | 1–2 hours |
 | 2 | Shell Handling (Bind, Reverse, PTY) | 7 | 3–4 hours |
 | 3 | TLS Encrypted Shells | 5 | 2–3 hours |
 | 4 | Port Forwarding & Pivoting | 5 | 3–4 hours |
 | 5 | Advanced: Forking, Exec, File Transfer | 4 | 2–3 hours |
 | 6 | Practical Labs | 4 | 4–6 hours |
-| | **Total** | **29** | **~15–22 hours** |
+|| **Total** | **29** | **~15–22 hours** |
 
 **Prerequisites:** Netcat basics (Phase 2 Part 5 Stage 1 complete). Comfort with TCP/UDP concepts, ports, and shell types.
 

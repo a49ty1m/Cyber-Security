@@ -7,7 +7,7 @@
 ## 📑 Table of Contents
 
 | Lab | Target Skills | Roadmap Alignment | Entry |
-|-----|---------------|-------------------|-------|
+| ----- | --------------- | ------------------- | ------- |
 | 🐧 [Metasploitable 2](Metasploitable_2/TASK_LIST.md) | Network exploitation, service attacks, post-exploitation | Stage 2: Offense I — Modules 08–13 | [Task List](Metasploitable_2/TASK_LIST.md) |
 | 🌐 [OWASP Broken WebApps](OWASP_Broken_WebApps/TASK_LIST.md) | OWASP Top 10, web app security, Burp Suite methodology | Stage 3: Web & App Sec — Modules 14–18 | [Task List](OWASP_Broken_WebApps/TASK_LIST.md) |
 | 🏰 [OverTheWire Bandit](OverTheWire/Bandit/README.md) | Linux CLI, SSH, file permissions, scripting | Stage 1: Foundation — Module 02 (Linux Admin) | [Levels 0–33](OverTheWire/Bandit/README.md) |
@@ -41,7 +41,7 @@ Lab/
 > Don't grind one lab front-to-back. Interleaving between Metasploitable 2 (network exploitation) and OWASP BWA (web exploitation) prevents burnout and reinforces cross-domain skills.
 
 | Step | Lab | What to Complete | Est. Hours |
-|:---:|:---:|:---|:---:|
+| :---: | :---: | :--- | :---: |
 | 1 | 🐧 MS2 | Phase 1: Foundation & Lab Setup (Tasks 0.1–1.4) | ~4h |
 | 2 | 🌐 BWA | Phase 1: Foundation & HTTP Mechanics (Tasks 0.1–2.4) | ~10h |
 | 3 | 🐧 MS2 | Phase 2: Deep Enumeration (Tasks 2.1–2.10) | ~8h |

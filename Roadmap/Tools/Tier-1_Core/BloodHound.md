@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | **🩸 BloodHound** (you are here) | [[Wireshark\|🦈 Wireshark]] |
-| | [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] | |
+|| [[Hydra\|🔓 Hydra]] | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & AD Graph Theory | 5 | 2–3 hours |
 | 2 | Core Data Collection & Import | 7 | 5–7 hours |
 | 3 | Intermediate (Queries & Analysis) | 7 | 5–7 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 6–10 hours |
 | 7 | Methodology & Defensive Usage | 4 | 3–4 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **39** | **~30–46 hours** |
+|| **Total** | **39** | **~30–46 hours** |
 
 **Prerequisites:** Active Directory fundamentals (domains, forests, trusts, groups, GPOs). Understanding of Kerberos and NTLM authentication. Domain user credentials (any privilege level). A Windows AD lab environment.
 
@@ -84,7 +84,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 
 ### Key Options (BloodHound-Python)
 | Flag | Meaning |
-|------|---------|
+| ------ | --------- |
 | `-c All` | Collect all data types |
 | `-c Session` | Sessions only (less noise) |
 | `-u / -p` | AD credentials |
@@ -105,7 +105,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand why graph databases reveal attack paths that flat enumeration tools (like net commands, PowerView, or ldapsearch) cannot. AD is a graph of relationships — users belong to groups, groups have permissions on objects, computers have sessions, trusts connect domains. Attack paths follow these relationships. |
 | **Skills Learned** | Graph theory basics (nodes, edges, paths), why relationship-based analysis is superior for AD security, the concept of "transitive permissions" (Group A → member of Group B → has permissions on Object C), shortest path algorithms applied to AD attacks. |
 | **Practical Exercise** | Draw a simple AD graph: 5 users, 3 groups, 2 computers, 1 domain. Add membership edges, session edges, admin edges. Trace a path from a low-privilege user to Domain Admin. Count how many "hops" it takes. |
@@ -119,7 +119,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the three-component architecture and the differences between CE (Community Edition) and Legacy versions. **BloodHound CE (current standard):** (1) Collectors (SharpHound, BloodHound.py) gather AD data → (2) PostgreSQL database stores the graph → (3) Web UI visualizes and queries via API. **BloodHound Legacy:** (1) Collectors → (2) Neo4j database → (3) Electron desktop app UI with direct Neo4j queries. |
 | **Skills Learned** | Component roles, data flow (Collector → JSON/ZIP → Database → UI), why each component exists, **key differences: CE uses PostgreSQL + Web UI + API; Legacy uses Neo4j + Electron app + Cypher queries**. |
 | **Practical Exercise** | Draw TWO architecture diagrams side-by-side: **CE:** SharpHound → ZIP → CE API upload → PostgreSQL → Web UI. **Legacy:** SharpHound → ZIP → drag-drop to Electron app → Neo4j → Electron UI with Cypher. |
@@ -133,7 +133,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install BloodHound Community Edition using Docker Compose. CE is the current recommended version with a modern web interface, API access, and PostgreSQL backend. |
 | **Practical Exercise** | `curl -L https://ghst.ly/getbhce | docker compose -f - up` (official one-liner). Access UI at `http://localhost:8080`. Find the initial admin password in the Docker logs: `docker compose logs | grep "Initial Password"`. Log in and change the password. |
 | **Expected Output** | BloodHound CE running in Docker. Web UI accessible. Admin account configured. |
@@ -150,7 +150,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the AD objects that become graph nodes in BloodHound: **Users**, **Groups**, **Computers**, **Domains**, **GPOs**, **OUs** (Organizational Units), **Containers**. Each has properties (SID, description, last logon, admin count, password last set, etc.). |
 | **Key Node Types** | **User:** Domain accounts — target for credential attacks. **Group:** Permission containers — membership grants permissions transitively. **Computer:** Domain-joined machines — targets for lateral movement. **Domain:** The AD domain itself — target for dominance. **GPO:** Group Policy Objects — modification = control over OU members. **OU:** Organizational Unit — GPO application scope. |
 | **Expected Output** | Understanding of each node type and its significance in attack paths. |
@@ -162,7 +162,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the relationship types (edges) that connect nodes in BloodHound. These edges ARE the attack paths — each edge represents a way to move from one object to another. |
 | **Key Edge Types** | **MemberOf:** User/Group is a member of a Group (transitive permissions). **AdminTo:** User/Group has local admin on a Computer. **HasSession:** Computer has an active session from a User (credential harvesting). **CanRDP:** User/Group can RDP to a Computer. **GenericAll:** Full control over an object (reset password, modify group membership). **GenericWrite:** Can write to object properties (modify SPN for Kerberoasting, write to msDS-AllowedToActOnBehalfOfOtherIdentity for RBCD). **WriteDACL:** Can modify the object's ACL (grant yourself GenericAll). **WriteOwner:** Can change the object's owner (then modify DACL). **ForceChangePassword:** Can reset a user's password without knowing the current one. **AddMember:** Can add members to a group. **DCSync:** Has DS-Replication permissions (can dump all domain hashes). **GPLink:** GPO is linked to an OU. **Contains:** OU contains an object. **TrustedBy:** Domain trust relationship. |
 | **Expected Output** | Complete edge type reference. Understanding that each edge type represents a specific abuse technique. Ability to read a BloodHound path and explain each hop's exploitation method. |
@@ -179,7 +179,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Run SharpHound (the Windows/.NET collector) from a domain-joined machine to gather ALL AD data: users, groups, computers, sessions, ACLs, trusts, GPOs, OUs. |
 | **Syntax** | Executable: `.\SharpHound.exe -c All`. PowerShell: `Import-Module .\SharpHound.ps1; Invoke-BloodHound -CollectionMethod All`. Output: `*_BloodHound.zip` file containing JSON data files. Collection methods: `All`, `Default`, `Session`, `ACL`, `Group`, `Trusts`, `ObjectProps`, `Container`, `GPOLocalGroup`. |
 | **Real-World Scenario** | You have any domain user credentials. Run SharpHound to collect the entire AD graph. Even as a low-privilege user, you can enumerate most AD objects because AD is readable by all authenticated users by default. |
@@ -193,7 +193,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Collect AD data from Linux using `bloodhound-python` (the Python-based collector). This is the standard collection method when you're attacking from a Kali/Linux machine. |
 | **Syntax** | `bloodhound-python -u user -p 'password' -d domain.local -ns <DC-IP> -c All`. With hash: `bloodhound-python -u user --hashes :NTLM -d domain.local -ns <DC-IP> -c All`. Output: JSON files in the current directory. |
 | **Real-World Scenario** | You've obtained domain credentials through Kerberoasting or credential stuffing. Run bloodhound-python from your Kali machine — no need to touch a Windows machine. |
@@ -207,7 +207,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Import collected data (ZIP or JSON files) into BloodHound CE through the web UI or API. **Note: Two separate authentication layers:** (1) **Data collection** authenticates to Active Directory with `-u user -p password` (or `-k` for Kerberos, or `--hashes` for pass-the-hash). (2) **BloodHound CE Web API** uses JWT tokens obtained from `POST /api/v2/login` or signed API tokens for scripted uploads. |
 | **Practical Exercise** | BloodHound CE Web UI: Click upload icon → select ZIP file → wait for ingestion. Verify: search for a known user → check that relationships appear. **API upload (requires CE auth token):** First get token: `curl -X POST http://localhost:8080/api/v2/login -H 'Content-Type: application/json' -d '{"login_method":"secret","secret":"your-password","username":"admin"}' | jq -r '.data.session_token'`. Then upload: `curl -X POST http://localhost:8080/api/v2/file-upload -F 'file=@data.zip' -H 'Authorization: Bearer <JWT-TOKEN>'`. |
 | **Expected Output** | Data ingested into BloodHound. Graph populated with AD objects and relationships. Search returning results. |
@@ -220,7 +220,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Import data into BloodHound Legacy via the Electron app's drag-and-drop interface. |
 | **Practical Exercise** | Launch BloodHound → connect to Neo4j → drag and drop the ZIP file onto the BloodHound window. Watch the import progress bar. Verify: search for "Domain Admins" → check member count. |
 | **Expected Output** | Data imported into Neo4j. Graph queryable through the BloodHound UI. |
@@ -233,7 +233,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand each collection method and when to use subsets instead of `All`: `Session` (who is logged in where — most volatile), `ACL` (permissions — most attack paths come from here), `Group` (memberships), `Trusts` (domain trust relationships), `GPOLocalGroup` (GPO-defined local admins). |
 | **When to Use Subsets** | **Stealth:** Collect `Group` and `ACL` only (less noisy than session collection). **Re-collection:** Run `Session` periodically (sessions change constantly — new sessions = new attack paths). **Large environments:** Split collection into chunks to avoid timeouts. |
 | **Expected Output** | Understanding of each collection method's data source, noise level, and value. Strategy for targeted collection in stealth-sensitive environments. |
@@ -246,7 +246,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Minimize detection during data collection: reduce LDAP query volume, avoid session enumeration (SMB-heavy), use specific collection methods, and understand what triggers alerts. |
 | **Detection Indicators** | High-volume LDAP queries from a single source. SMB connections to many workstations (session enumeration). Unusual access to SYSVOL (GPO collection). SPN queries (part of Kerberoasting detection). |
 | **Stealth Options** | SharpHound: `--Stealth` flag (only collects from DCs, avoids workstation contact). Specific methods: `-c Group,ACL,Trusts` (skip sessions). Jitter: `--RandomDelay <ms>` (add random delays between queries). |
@@ -259,7 +259,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Validate imported data for completeness and understand data freshness: session data goes stale within hours, but group memberships and ACLs change less frequently. |
 | **Practical Exercise** | After import: check node counts (Users, Computers, Groups). Compare with expected counts (`net group "Domain Users" /domain` should roughly match). Check session data timestamp. Re-collect sessions after 24 hours and re-import. |
 | **Expected Output** | Validated data with known completeness. Strategy for session re-collection during multi-day engagements. |
@@ -275,7 +275,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use BloodHound's pre-built queries to find the most common attack paths. The most important query: "Shortest Paths to Domain Admins from Owned Principals." |
 | **Key Built-In Queries** | "Find all Domain Admins" → shows DA group members. "Shortest Paths to Domain Admins" → shows ALL paths from ANY user to DA. "Shortest Paths to Domain Admins from Owned Principals" → shows paths from users you've compromised. "Find Principals with DCSync Rights" → direct path to domain compromise. "Find Computers where Domain Users are Local Admin" → easy lateral movement. "Shortest Paths to High Value Targets" → paths to all high-value objects. |
 | **Practical Exercise** | Run each built-in query. For each result, read the path from left to right — each edge is an exploitation step. Document the shortest path you find. |
@@ -289,7 +289,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Mark compromised users/computers as "Owned" and critical targets as "High Value." This enables personalized attack path queries and prioritizes your analysis. |
 | **Practical Exercise** | Right-click a user you've compromised → "Mark as Owned." Right-click a critical server → "Mark as High Value" (DCs, file servers, database servers are auto-marked). Run "Shortest Paths from Owned Principals to High Value Targets." |
 | **Expected Output** | Personalized attack paths from YOUR compromised accounts to YOUR targets. |
@@ -302,7 +302,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Click on any node to see its detailed properties and relationships. This panel reveals everything BloodHound knows about an object — critically important information for exploitation. |
 | **Key Properties (User)** | Display Name, SID, Enabled, Last Logon, Password Last Set, AdminCount, ServicePrincipalNames (Kerberoastable?), "Do not require Kerberos preauthentication" (AS-REP Roastable?), Group Memberships, Local Admin Rights, Sessions, Outbound Control (objects this user can abuse), Inbound Control (who can abuse this user). |
 | **Key Properties (Computer)** | OS, OS Version, Enabled, Unconstraineddelegation, Local Admins, Sessions, Outbound/Inbound Control. |
@@ -315,7 +315,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Read BloodHound paths end-to-end and translate each edge into a concrete exploitation step. Each hop in the path requires a specific tool and technique. |
 | **Edge-to-Exploitation Mapping** | **MemberOf** → group membership (no exploitation needed — you inherit the group's permissions). **AdminTo** → use psexec/wmiexec for remote execution, harvest credentials. **HasSession** → compromise the computer → harvest the logged-in user's credentials (Mimikatz). **GenericAll on User** → reset the user's password: `net user <user> NewPass123 /domain`. **GenericAll on Group** → add yourself to the group: `net group "<group>" <your-user> /add /domain`. **GenericWrite** → modify SPN for Kerberoasting OR modify msDS-AllowedToActOnBehalfOfOtherIdentity for RBCD. **WriteDACL** → grant yourself GenericAll, then abuse it. **WriteOwner** → take ownership, then modify DACL, then abuse. **ForceChangePassword** → reset password without knowing current. **AddMember** → add yourself or a controlled user to the group. **DCSync** → run secretsdump.py to extract all domain hashes. |
 | **Practical Exercise** | For a BloodHound path of 4+ hops, write out each step: "Step 1: I have user X. Step 2: User X is MemberOf Group Y. Step 3: Group Y has GenericAll on User Z. I will reset Z's password. Step 4: User Z is AdminTo Computer W. I will psexec to W. Step 5: Computer W has a session from Domain Admin. I will dump credentials from W." |
@@ -329,7 +329,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use BloodHound to identify accounts vulnerable to Kerberoasting (have SPNs) and AS-REP Roasting (pre-auth disabled). These are often quick wins for credential access. |
 | **Practical Exercise** | Query: "List all Kerberoastable Accounts." Check each account's group memberships — prioritize those in privileged groups. Query: "List all AS-REP Roastable Users." Cross-reference with Impacket: `impacket-GetUserSPNs` and `impacket-GetNPUsers`. |
 | **Expected Output** | List of Kerberoastable accounts prioritized by privilege level. AS-REP Roastable accounts identified. Attack plan for each. |
@@ -341,7 +341,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Exploit "HasSession" edges: if a high-value user has a session on a computer you can admin, you can harvest their credentials from that computer. |
 | **Attack Chain** | BloodHound shows: Domain Admin "HasSession" on SERVER01 → You have AdminTo on SERVER01 → psexec to SERVER01 → run Mimikatz → extract DA credentials → DCSync. |
 | **Expected Output** | Session-based attack paths identified and prioritized. Understanding that session data is volatile — re-collect frequently. |
@@ -354,7 +354,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Intermediate-Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze domain trust relationships, unconstrained/constrained delegation, and resource-based constrained delegation (RBCD) opportunities identified by BloodHound. |
 | **Key Queries** | "Find Computers with Unconstrained Delegation" → compromise these to capture TGTs. "Find all users with constrained delegation" → delegation abuse. "Map Domain Trusts" → identify cross-domain attack paths. |
 | **Expected Output** | Delegation targets identified. Trust relationships mapped. Cross-domain attack paths documented. |
@@ -370,9 +370,9 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | **⚠️ LEGACY ONLY:** Custom Cypher queries are ONLY for BloodHound Legacy (Neo4j backend). BloodHound CE uses a different query language and API. If you're using CE, these Cypher examples will NOT work in the UI. Write custom Cypher queries for Neo4j (BloodHound Legacy) to find specific attack paths, misconfigurations, and patterns not covered by built-in queries. |
-| **Key Cypher Queries** | All DA sessions: `MATCH (c:Computer)-[:HasSession]->(u:User) WHERE u.admincount=true RETURN u.name, c.name`. Kerberoastable admins: `MATCH (u:User {hasspn:true, admincount:true}) RETURN u.name, u.serviceprincipalnames`. Users with DCSync: `MATCH (u)-[:MemberOf*1..]->(g:Group)-[:DCSync|GetChanges|GetChangesAll*1..]->(d:Domain) RETURN u.name`. Shortest path from owned to DA: `MATCH p=shortestPath((u:User {owned:true})-[*1..]->(g:Group {name:"DOMAIN ADMINS@DOMAIN.LOCAL"})) RETURN p`. Computers where Domain Users are local admin: `MATCH (g:Group {name:"DOMAIN USERS@DOMAIN.LOCAL"})-[:AdminTo]->(c:Computer) RETURN c.name`. |
+| **Key Cypher Queries** | All DA sessions: `MATCH (c:Computer)-[:HasSession]->(u:User) WHERE u.admincount=true RETURN u.name, c.name`. Kerberoastable admins: `MATCH (u:User {hasspn:true, admincount:true}) RETURN u.name, u.serviceprincipalnames`. Users with DCSync: `MATCH (u)-[:MemberOf*1..]->(g:Group)-[:DCSync | GetChanges | GetChangesAll*1..]->(d:Domain) RETURN u.name`. Shortest path from owned to DA: `MATCH p=shortestPath((u:User {owned:true})-[*1..]->(g:Group {name:"DOMAIN ADMINS@DOMAIN.LOCAL"})) RETURN p`. Computers where Domain Users are local admin: `MATCH (g:Group {name:"DOMAIN USERS@DOMAIN.LOCAL"})-[:AdminTo]->(c:Computer) RETURN c.name`. |
 | **Expected Output** | Custom queries answering specific engagement questions. Ability to extend BloodHound's analysis beyond built-in queries. |
 | **Common Mistakes** | Wrong syntax (Cypher is case-sensitive for labels, properties use lowercase). Not escaping domain names properly. Queries returning too many results (add LIMIT). Not using `shortestPath` when you want efficient pathfinding. |
 
@@ -383,7 +383,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify and exploit complex ACL-based attack chains where multiple permission abuses are chained together. These multi-hop ACL paths are BloodHound's most powerful findings. |
 | **Example Chain** | User A → WriteDACL on Group B → grant GenericAll → add User A to Group B → Group B has GenericAll on User C (service account) → Kerberoast User C → crack password → User C is AdminTo Server D → psexec → Server D has session from Domain Admin → Mimikatz → DCSync. |
 | **Tools for Each Step** | WriteDACL: `PowerView: Add-DomainObjectAcl`. AddMember: `net group "GroupB" UserA /add /domain`. GenericAll on User: `net user UserC NewPass /domain`. Kerberoast: `impacket-GetUserSPNs`. Psexec: `impacket-psexec`. Mimikatz: `sekurlsa::logonpasswords`. DCSync: `impacket-secretsdump`. |
@@ -396,9 +396,9 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify GPOs that can be modified (WriteDACL, GenericWrite, GenericAll) and the OUs they're linked to. Modifying a GPO lets you push malicious configurations (scheduled tasks, startup scripts, registry keys) to every computer and user in the linked OU. |
-| **Query (Cypher)** | `MATCH (u:User)-[r:GenericAll|GenericWrite|WriteDACL]->(g:GPO)-[:GpLink]->(ou:OU) RETURN u.name, g.name, ou.name`. |
+| **Query (Cypher)** | `MATCH (u:User)-[r:GenericAll | GenericWrite | WriteDACL]->(g:GPO)-[:GpLink]->(ou:OU) RETURN u.name, g.name, ou.name`. |
 | **Expected Output** | Modifiable GPOs identified with their scope (which OUs/computers they affect). Understanding that GPO abuse = code execution on every machine in the OU. |
 
 ---
@@ -408,7 +408,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Analyze trust relationships between domains and forests. Identify attack paths that cross trust boundaries — compromising one domain to pivot into another. |
 | **Key Concepts** | Intra-forest trusts (bidirectional by default, SID history abuse possible). External trusts (one-way or two-way, SID filtering may apply). Forest trusts (limited trust, SID filtering enforced). |
 | **Expected Output** | Trust relationship map. Cross-domain attack paths identified. Understanding of SID filtering and its bypasses. |
@@ -420,7 +420,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use BloodHound from a defensive perspective: identify the most critical misconfigurations and provide remediation recommendations. This is how blue teams and AD admins should use BloodHound. |
 | **Key Defensive Queries** | Count of users with paths to DA → prioritize remediation. Identify "choke points" — edges that appear in many attack paths (removing one edge breaks many paths). Find over-privileged service accounts. Identify stale admin sessions (DAs logged into workstations). Find computers with unconstrained delegation (shouldn't be on workstations). |
 | **Expected Output** | Prioritized remediation recommendations. Understanding that removing ONE critical edge can break dozens of attack paths. |
@@ -532,7 +532,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Export BloodHound attack paths as screenshots and data for professional penetration test reports. Create clear, visual representations of attack chains that non-technical stakeholders can understand. |
 | **Tools** | Screenshot attack paths directly from BloodHound UI. Use PlumHound for automated reporting from BloodHound data. Export custom Cypher queries as CSV for spreadsheet analysis. Create Mermaid diagrams from path data for markdown reports. |
 | **Expected Output** | Professional report section with visual attack paths, step-by-step exploitation narrative, and remediation recommendations. |
@@ -566,7 +566,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can install and configure BloodHound (CE and Legacy) | ☐ |
 | Can collect AD data with SharpHound and bloodhound-python | ☐ |
 | Can import data and run built-in queries | ☐ |

@@ -21,16 +21,16 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Detection Rules | Malware Analysis | Memory Forensics | SIEM |
-|:---------------|:----------------|:-----------------|:-----|
+| :--------------- | :---------------- | :----------------- | :----- |
 | [[Sigma\|🔎 Sigma]] | **🦠 YARA** (you are here) | [[Volatility\|🧠 Volatility]] | [[Splunk\|📊 Splunk]] |
-| | [[Ghidra\|🔬 Ghidra]] | [[Autopsy\|🔬 Autopsy]] | [[Wazuh\|🐺 Wazuh]] |
+|| [[Ghidra\|🔬 Ghidra]] | [[Autopsy\|🔬 Autopsy]] | [[Wazuh\|🐺 Wazuh]] |
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Installation & First Scan | 4 | 1 hour |
 | 2 | Rule Syntax & String Types | 8 | 3–4 hours |
 | 3 | Conditions & Modifiers | 8 | 3–4 hours |
@@ -38,7 +38,7 @@
 | 5 | Memory Scanning & Volatility Integration | 5 | 3–4 hours |
 | 6 | Advanced Techniques & Evasion | 5 | 3–4 hours |
 | 7 | Practical Labs | 4 | 5–8 hours |
-| | **Total** | **41** | **~22–31 hours** |
+|| **Total** | **41** | **~22–31 hours** |
 
 **Prerequisites:** Phase 1 complete (Linux CLI, hex fundamentals). Phase 3 Sigma basics recommended. Phase 7 reverse engineering basics helpful for writing malware-specific rules.
 

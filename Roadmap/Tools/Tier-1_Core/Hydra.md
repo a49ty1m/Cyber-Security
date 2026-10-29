@@ -21,17 +21,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]] · [[Cyber-Security/Lab/Metasploitable_2/TASK_LIST|🐧 Metasploitable 2 Lab]] · [[Cyber-Security/Lab/OWASP_Broken_WebApps/TASK_LIST|🌐 OWASP BWA Lab]]
 
 | Recon & Scanning | Exploitation | Post-Exploitation | Web & Traffic |
-|:-----------------|:-------------|:-------------------|:--------------|
+| :----------------- | :------------- | :------------------- | :-------------- |
 | [[Nmap\|🗺️ Nmap]] | [[Metasploit_Framework\|💀 Metasploit]] | [[LinPEAS\|🐉 LinPEAS]] | [[Burp_Suite\|🕷️ Burp Suite]] |
 | [[Netcat\|🔌 Netcat]] | [[Impacket\|🐍 Impacket]] | [[BloodHound\|🩸 BloodHound]] | [[Wireshark\|🦈 Wireshark]] |
-| | **🔓 Hydra** (you are here) | [[Hashcat\|🔥 Hashcat]] | |
+|| **🔓 Hydra** (you are here) | [[Hashcat\|🔥 Hashcat]] ||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals & Setup | 5 | 2–3 hours |
 | 2 | Core Protocol Attacks | 8 | 5–7 hours |
 | 3 | Intermediate Techniques | 5 | 3–5 hours |
@@ -40,7 +40,7 @@
 | 6 | Practical Labs | 4 | 4–8 hours |
 | 7 | Methodology & Limitations | 3 | 2–3 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **37** | **~26–41 hours** |
+|| **Total** | **37** | **~26–41 hours** |
 
 **Prerequisites:** Nmap (to discover authentication services). Understanding of authentication protocols. Wordlists (`/usr/share/wordlists/rockyou.txt`). A vulnerable target (Metasploitable 2).
 
@@ -96,7 +96,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 
 ### Key Options
 | Flag | Meaning |
-|------|---------|
+| ------ | --------- |
 | `-l` | Single username |
 | `-L` | Username list file |
 | `-p` | Single password |
@@ -123,7 +123,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand the fundamental difference: **Online attacks** (Hydra) test credentials against a LIVE service over the network. **Offline attacks** (Hashcat/John) crack password hashes locally without network interaction. Know when each is appropriate. |
 | **Skills Learned** | Online brute-force mechanics, why online attacks are slow (network latency, service processing), why offline attacks are fast (GPU computation), when to use each, account lockout implications. |
 | **Practical Exercise** | Write a comparison table: Online (Hydra) vs Offline (Hashcat) — speed, network requirement, detection risk, account lockout risk, prerequisites. |
@@ -137,7 +137,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Verify Hydra installation and review supported protocols. Hydra supports 50+ protocols — know the most important ones for pentesting. |
 | **Skills Learned** | `hydra -h` for help, listing supported protocols, understanding that each protocol module has its own syntax requirements, identifying which protocols Hydra handles best. |
 | **Practical Exercise** | `hydra -h | head -30` (version and usage). `hydra -U http-post-form` (show module-specific help). Key protocols to know: `ssh`, `ftp`, `http-get`, `http-post-form`, `rdp`, `smb`, `mysql`, `vnc`, `telnet`, `smtp`, `pop3`, `imap`. |
@@ -151,7 +151,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand wordlist strategy: start small and targeted before going to large lists. Know key wordlists, how to create custom lists, and how to optimize lists for the target. |
 | **Skills Learned** | Wordlist sources (`/usr/share/wordlists/`, SecLists, CeWL for custom), `rockyou.txt` (14M passwords), targeted wordlist creation, wordlist mutation with `john --rules`, deduplication, sorting by probability. |
 | **Practical Exercise** | Check available wordlists: `ls /usr/share/wordlists/`. Create a targeted list: `cewl http://<target> -d 2 -m 5 -w custom-wordlist.txt` (scrape target website for passwords). Combine and deduplicate: `cat list1.txt list2.txt | sort -u > combined.txt`. Check size: `wc -l combined.txt`. |
@@ -165,7 +165,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Always enumerate valid usernames BEFORE brute-forcing passwords. A targeted attack against known usernames is orders of magnitude more efficient than testing random usernames. |
 | **Skills Learned** | Username enumeration techniques (SMTP VRFY, login error differences, LDAP queries, web application user listing, social engineering/OSINT), building targeted username lists. |
 | **Practical Exercise** | Enumerate users on Metasploitable 2: `smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t <target>`. From Nmap scripts: `nmap --script smb-enum-users <target>`. Build username list from results. |
@@ -179,7 +179,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Master Hydra's core syntax and essential options. |
 | **Skills Learned** | `-l` (single username), `-L` (username file), `-p` (single password), `-P` (password file), `-t` (threads, default 16), `-f` (stop after first match), `-V` (verbose, show each attempt), `-o` (output file), `-M` (target list file), `-s` (custom port), `-e nsr` (try null, same-as-username, reversed username). |
 | **Syntax** | Single user: `hydra -l admin -P passwords.txt <target> ssh`. User list: `hydra -L users.txt -P passwords.txt <target> ssh`. Quick checks: `hydra -l admin -p admin <target> ssh` (single credential). Common extras: `hydra -L users.txt -P passwords.txt -e nsr -f -V <target> ssh`. |
@@ -197,7 +197,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force SSH credentials on Metasploitable 2. SSH is the most commonly brute-forced service in pentests. |
 | **Syntax** | `hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt -t 4 -f <target> ssh`. Reduced threads (`-t 4`) because SSH rate-limits aggressive connections. |
 | **Real-World Scenario** | Found SSH on port 22 during Nmap scan. Enumerated username "admin" via SMTP. Testing common passwords against it. |
@@ -211,7 +211,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force FTP credentials. FTP is less rate-limited than SSH, allowing faster attacks. Also check for anonymous access. |
 | **Syntax** | `hydra -L users.txt -P passwords.txt -f <target> ftp`. Anonymous check: `hydra -l anonymous -p anonymous -f <target> ftp`. |
 | **Expected Output** | Valid FTP credentials or anonymous access confirmed. |
@@ -224,7 +224,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force HTTP Basic Authentication (the popup login dialog in browsers). Understand how Basic Auth transmits credentials (Base64-encoded in the Authorization header). |
 | **Syntax** | `hydra -l admin -P passwords.txt <target> http-get /protected-directory/`. |
 | **Expected Output** | Valid HTTP Basic Auth credentials. Understanding that Basic Auth sends credentials Base64-encoded (NOT encrypted) with every request. |
@@ -237,7 +237,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force an HTML login form (like DVWA). This is the most complex Hydra module because you must specify the POST path, parameters, and the failure/success indicator string. |
 | **Syntax** | `hydra -l admin -P passwords.txt <target> http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:Login failed:H=Cookie: PHPSESSID=abc123; security=low"`. Format: `"path:POST-parameters:failure-string[:optional-headers]"`. `^USER^` and `^PASS^` are replaced by Hydra with each attempt. `F=` prefix = failure string (show in response when login fails). `S=` prefix = success string (show in response when login succeeds). |
 | **Real-World Scenario** | Most web applications use HTML form logins, not Basic Auth. You need to capture the exact POST request in Burp first, then translate it to Hydra syntax. |
@@ -251,7 +251,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force SMB (Windows file sharing) credentials. SMB is a high-value target because valid credentials give file share access and potentially remote command execution. |
 | **Syntax** | `hydra -L users.txt -P passwords.txt <target> smb`. |
 | **Expected Output** | Valid SMB credentials. Understanding that SMB credentials can be used for share access, psexec, WMI, and pass-the-hash. |
@@ -264,7 +264,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force Remote Desktop Protocol credentials. RDP is a high-value target — valid credentials give full GUI access to Windows systems. |
 | **Syntax** | `hydra -l administrator -P passwords.txt -t 1 -f <target> rdp`. Use `-t 1` (one thread) — RDP is extremely slow and disconnects aggressively. |
 | **Expected Output** | Valid RDP credentials. Understanding that RDP brute-forcing is very slow and risky (account lockout, NLA complications). |
@@ -277,7 +277,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Brute-force database credentials for directly exposed database services. |
 | **Syntax** | MySQL: `hydra -l root -P passwords.txt <target> mysql`. PostgreSQL: `hydra -l postgres -P passwords.txt <target> postgres`. |
 | **Expected Output** | Valid database credentials. Understanding that database access = full data access = critical finding. |
@@ -290,7 +290,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Test credentials across multiple hosts simultaneously using Hydra's `-M` flag. Useful when the same credentials may work on multiple servers. |
 | **Syntax** | `hydra -l admin -P passwords.txt -M targets.txt ssh`. Where `targets.txt` contains one IP per line. |
 | **Expected Output** | Credentials tested against all hosts. Valid logins identified across the network. |
@@ -307,7 +307,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Use Hydra's `-C` flag for credential stuffing: testing pre-paired username:password combinations from a colon-separated file. This is different from brute-forcing (which tests all combinations). Note: `-c TIME` is a different flag that throttles total attempts across all threads combined — pair with `-t 1` for per-attempt delays. |
 | **Syntax** | Create `creds.txt`: `admin:admin\nadmin:password\nroot:root\nuser:user123`. Run: `hydra -C creds.txt <target> ssh`. For throttling: `hydra -t 1 -c 5 -L users.txt -P pass.txt <target> ssh` (5 sec wait across all threads). |
 | **Expected Output** | Only paired credentials tested (not all combinations). Faster and more targeted than full brute-force. |
@@ -320,7 +320,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Perform a password spray: test ONE password against MANY usernames before moving to the next password. This avoids account lockout (each account sees only 1-2 failed attempts). |
 | **Syntax** | `hydra -L users.txt -p "Summer2024!" -f <target> smb`. Then manually change the password and run again. For automated spraying with delay: use CrackMapExec or a custom script with sleep intervals. |
 | **Expected Output** | Valid credentials found without triggering account lockout. Understanding of spray vs brute-force trade-offs. |
@@ -333,7 +333,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Attack services running on non-standard ports and services requiring SSL/TLS connections. |
 | **Syntax** | Custom port: `hydra -l admin -P passwords.txt -s 2222 <target> ssh` (SSH on port 2222). SSL: `hydra -l admin -P passwords.txt -S <target> https-post-form "..."` (HTTPS). Or: `hydra -l admin -P passwords.txt -s 8443 -S <target> https-get /admin/`. |
 | **Expected Output** | Successful attacks against non-standard ports and SSL-protected services. |
@@ -346,7 +346,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Save Hydra results to files, use verbose output for debugging, and restore interrupted sessions. |
 | **Syntax** | Save results: `hydra -o results.txt -L users.txt -P passwords.txt <target> ssh`. JSON output: `hydra -b json -o results.json ...`. Restore: `hydra -R` (resumes the last interrupted session from `hydra.restore`). Verbose: `-V` (show every attempt), `-d` (debug mode). |
 | **Expected Output** | Results saved to file. Interrupted session restored. Understanding of when verbose/debug modes are needed. |
@@ -359,7 +359,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Handle services that rate-limit or timeout connections. Tune Hydra's connection parameters for reliability. |
 | **Syntax** | Reduce threads: `-t 4` or `-t 1`. Connection timeout: `-w 10` (wait 10 seconds). Response timeout: `-W 5`. Wait between attempts: use with `-c <seconds>` per connection attempt. |
 | **Expected Output** | Stable brute-force against rate-limited services. No "connection refused" errors. |
@@ -376,7 +376,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Attack complex web login forms that require: SSL, session cookies, CSRF tokens, and specific headers. This is where most beginners fail with Hydra. |
 | **Skills Learned** | Capturing exact POST requests from Burp, translating Burp requests to Hydra syntax, handling cookies with `H=Cookie:`, understanding Hydra's HTTP form module limitations, when to switch to Burp Intruder or custom scripts. |
 | **Practical Exercise** | Capture a DVWA login request in Burp. Note: POST path, all parameters (including CSRF token), failure string, required cookies. Translate to Hydra syntax. If CSRF changes per request → Hydra can't handle it → use Burp Intruder. |
@@ -390,7 +390,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Test SSH services for key-based authentication. If you have a stolen SSH private key, test it against discovered hosts. Use Crowbar for SSH key spraying. |
 | **Skills Learned** | SSH key-based authentication testing, Hydra limitations with SSH keys (limited support), Crowbar as a better tool for SSH key attacks, key passphrase brute-forcing with John. |
 | **Practical Exercise** | If you have a stolen key: `ssh -i stolen_key user@<target>`. Key passphrase cracking: `ssh2john stolen_key > hash.txt && john hash.txt --wordlist=rockyou.txt`. Multiple targets: `crowbar -b sshkey -s <targets>/32 -u root -k /path/to/keys/`. |
@@ -403,7 +403,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Attack multiple protocols on the same target simultaneously by running multiple Hydra instances. Understand resource management and interference risks. |
 | **Practical Exercise** | Terminal 1: `hydra -l admin -P pass.txt <target> ssh -o ssh-results.txt &`. Terminal 2: `hydra -l admin -P pass.txt <target> ftp -o ftp-results.txt &`. Terminal 3: `hydra -l root -P pass.txt <target> mysql -o mysql-results.txt &`. |
 | **Expected Output** | Parallel attacks against multiple services. Results from each saved to separate files. |
@@ -416,7 +416,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Understand when Hydra is appropriate in bug bounty (rarely — most programs prohibit brute-forcing) and CTFs (commonly — weak credentials are intentional). |
 | **Key Considerations** | Bug bounty: check program rules first — most prohibit brute-force attacks. CTFs: weak credentials are common puzzles — use small targeted wordlists. Always check for default credentials manually before automating. Rate limiting and lockout may be part of the challenge. |
 
@@ -427,7 +427,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Compare Hydra with alternatives and know when each is the better choice. |
 | **Comparison** | **Medusa:** Similar to Hydra, modular, slightly different syntax. **CrackMapExec:** Better for SMB/WinRM/LDAP, supports pass-the-hash. **Burp Intruder:** Better for HTTP with CSRF tokens and complex sessions. **Patator:** Python-based, most flexible for edge cases. **Crowbar:** Better for RDP and SSH key attacks. **Spray:** Better for password spraying with lockout awareness. |
 
@@ -568,7 +568,7 @@ hydra -l admin -P rockyou.txt ssh://10.10.10.1 -o hydra_results.txt
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can brute-force SSH, FTP, Telnet credentials | ☐ |
 | Can attack HTTP Basic Auth and POST form logins | ☐ |
 | Can perform password spray attacks safely | ☐ |

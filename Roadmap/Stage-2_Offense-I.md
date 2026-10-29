@@ -6,8 +6,8 @@
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | 📑 Quick Jump |
-|:---:|:---:|:---:|:---|
-| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 2\|🎮 CTF Practice]] · [[#🏁 Stage Gate 1 — Host Dominance & Privilege Escalation\|🏁 Stage Gate 1]] |
+| :---: | :---: | :---: | :--- |
+| [[Cyber-Security/Roadmap/Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#🗂️ Table of Contents\|🗂️ Table of Contents]] · [[#🛠️ Mandatory Tool Stack (Must Master in This Stage)\|🛠️ Mandatory Tools]] · [[#🎮 Concurrent CTF Practice — Stage 2\|🎮 CTF Practice]] · [[#🏁 Stage Gate 1 — Host Dominance & Privilege Escalation\|🏁 Stage Gate 1]] |
 
 ---
 
@@ -115,7 +115,7 @@
 > [!IMPORTANT]
 > ### 📋 Stage 2 Module Execution Order
 > Follow this linear module sequence:
-> 
+>
 > | Step | Module | Focus |
 > | :---: | :--- | :--- |
 > | 1 | [[#Module 08: Footprinting & Reconnaissance\|Module 08]] | Footprinting & Reconnaissance |
@@ -124,7 +124,7 @@
 > | 4 | [[#Module 11: Database Security\|Module 11]] | Database Security |
 > | 5 | [[#Module 12: Password Cracking & Hash Analysis\|Module 12]] | Password Cracking & Hash Analysis |
 > | 6 | [[#Module 13: System Hacking & Initial Compromise\|Module 13]] | System Hacking & Initial Compromise |
-> 
+>
 > **Why this order?**
 > ```text
 > What exists?               → Module 08 (Recon)
@@ -337,13 +337,13 @@
 
 ### Lab Progression (Module 08: Footprinting & Reconnaissance)
 
-| Level | Task                                                                    | Deliverable                                                     |
+| Level | Task | Deliverable |
 | ----- | ----------------------------------------------------------------------- | --------------------------------------------------------------- |
-| 1     | Perform passive recon on a bug bounty target using only OSINT tools     | Reconnaissance report (domains, subdomains, emails, tech stack) |
-| 2     | Use Google Dorks to find exposed files on a permitted target            | Dork queries + findings document                                |
-| 3     | Enumerate subdomains using 3+ tools (Sublist3r, Amass, crt.sh)          | Combined subdomain list with deduplication                      |
-| 4     | Map a target's full DNS infrastructure (MX, NS, TXT, CNAME)             | DNS map diagram                                                 |
-| 5     | Perform active recon on a home lab target (traceroute, banner grabbing) | Active recon report                                             |
+| 1 | Perform passive recon on a bug bounty target using only OSINT tools | Reconnaissance report (domains, subdomains, emails, tech stack) |
+| 2 | Use Google Dorks to find exposed files on a permitted target | Dork queries + findings document |
+| 3 | Enumerate subdomains using 3+ tools (Sublist3r, Amass, crt.sh) | Combined subdomain list with deduplication |
+| 4 | Map a target's full DNS infrastructure (MX, NS, TXT, CNAME) | DNS map diagram |
+| 5 | Perform active recon on a home lab target (traceroute, banner grabbing) | Active recon report |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can produce a complete reconnaissance report on an unfamiliar target using both passive and active techniques, identify the technology stack, and prioritize attack surface areas.
@@ -500,13 +500,13 @@
 
 ### Lab Progression (Module 09: Scanning)
 
-| Level | Task                                                          | Deliverable                     |
+| Level | Task | Deliverable |
 | ----- | ------------------------------------------------------------- | ------------------------------- |
-| 1     | Scan a home lab subnet with Nmap (host discovery + port scan) | Nmap output report              |
-| 2     | Perform service version detection and OS fingerprinting       | Annotated scan results          |
-| 3     | Write a custom NSE script to detect a specific vulnerability  | Working .nse script             |
-| 4     | Scan a target through a proxy chain / VPN tunnel              | Scan results + stealth analysis |
-| 5     | Compare scan results with and without IDS evasion techniques  | Evasion effectiveness report    |
+| 1 | Scan a home lab subnet with Nmap (host discovery + port scan) | Nmap output report |
+| 2 | Perform service version detection and OS fingerprinting | Annotated scan results |
+| 3 | Write a custom NSE script to detect a specific vulnerability | Working .nse script |
+| 4 | Scan a target through a proxy chain / VPN tunnel | Scan results + stealth analysis |
+| 5 | Compare scan results with and without IDS evasion techniques | Evasion effectiveness report |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can discover all live hosts and open ports on a /24 subnet, identify service versions and OS types, and adapt scan techniques to evade basic IDS detection.
@@ -637,13 +637,13 @@
 
 ### Lab Progression (Module 10: Enumeration)
 
-| Level | Task                                                         | Deliverable                                    |
+| Level | Task | Deliverable |
 | ----- | ------------------------------------------------------------ | ---------------------------------------------- |
-| 1     | Enumerate SMB shares and users on a Windows lab target       | Enumeration findings document                  |
-| 2     | Enumerate SNMP on a network device (community strings, MIBs) | SNMP data export                               |
-| 3     | Perform full LDAP enumeration against a lab AD domain        | User/group/OU listing                          |
-| 4     | Enumerate DNS zone transfers and subdomain brute-forcing     | DNS enumeration report                         |
-| 5     | Build a complete attack surface map from enumeration data    | Attack profile document with prioritized paths |
+| 1 | Enumerate SMB shares and users on a Windows lab target | Enumeration findings document |
+| 2 | Enumerate SNMP on a network device (community strings, MIBs) | SNMP data export |
+| 3 | Perform full LDAP enumeration against a lab AD domain | User/group/OU listing |
+| 4 | Enumerate DNS zone transfers and subdomain brute-forcing | DNS enumeration report |
+| 5 | Build a complete attack surface map from enumeration data | Attack profile document with prioritized paths |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can enumerate services, users, shares, and misconfigurations across SMB, LDAP, SNMP, DNS, and web services, and produce a prioritized attack surface map.
@@ -661,7 +661,7 @@
 > - 🟡 `Database Security Problems and Solutions` — Full (reference) — attacker-focused DB misconfiguration and exploitation techniques
 
 > [!NOTE]
-> **Navigational Note — Scope:** Module 11 focuses on direct database engine exploitation, authentication bypass, and privilege escalation (UDF, xp_cmdshell, misconfigurations). Application-layer SQL Injection is taught in [[Stage-3_Web-and-App-Sec#Module 14: Web Application Hacking|Stage 3: Module 14]].
+> **Navigational Note — Scope:** Module 11 focuses on direct database engine exploitation, authentication bypass, and privilege escalation (UDF, xp_cmdshell, misconfigurations). Application-layer SQL Injection is taught in [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec#Module 14: Web Application Hacking|Stage 3: Module 14]].
 
 > [!IMPORTANT]
 > **Prerequisites:** Module 10 (Enumeration) — specifically Topic 4 (Database & Application Enumeration). I should already be able to identify running database services and version-fingerprint them before starting this module.
@@ -882,13 +882,13 @@
 
 ### Lab Progression (Module 11: Database Security)
 
-| Level | Task                                                                         | Deliverable                                                   |
+| Level | Task | Deliverable |
 | ----- | ---------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| 1     | Local MySQL lab: create a low-priv user, escalate via `FILE` privilege abuse | Step-by-step attack documentation                             |
-| 2     | MSSQL in a lab VM: enable `xp_cmdshell`, execute OS commands, extract hashes | Command log + hash extraction proof                           |
-| 3     | Redis without auth: RCE via config rewrite (web shell method)                | Working web shell demonstration                               |
-| 4     | MongoDB without auth: enumerate collections, test `$ne` auth bypass          | Injection payload documentation                               |
-| 5     | Full DB attack chain on HackTheBox/VulnHub machine with exposed DB service   | Pentest-style report: enumeration → exploitation → escalation |
+| 1 | Local MySQL lab: create a low-priv user, escalate via `FILE` privilege abuse | Step-by-step attack documentation |
+| 2 | MSSQL in a lab VM: enable `xp_cmdshell`, execute OS commands, extract hashes | Command log + hash extraction proof |
+| 3 | Redis without auth: RCE via config rewrite (web shell method) | Working web shell demonstration |
+| 4 | MongoDB without auth: enumerate collections, test `$ne` auth bypass | Injection payload documentation |
+| 5 | Full DB attack chain on HackTheBox/VulnHub machine with exposed DB service | Pentest-style report: enumeration → exploitation → escalation |
 
 > [!IMPORTANT]
 > **Move-On Gate:** I can enumerate database services, identify engine and version, test default credentials, achieve OS command execution on at least one DB engine (MySQL or MSSQL), and explain the defensive controls that would prevent each attack. Document every command and finding.
@@ -994,7 +994,7 @@
 
 - [ ] **Mentalist / PACK:** Use **Mentalist (GUI) or PACK (Policy Analysis)** to analyze cracked passwords and generate statistically optimized masks and rules.
 
-> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Stage-4_Enterprise#Module 19: Active Directory & Entra ID|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Shelf_Post-Hire#Shelf 01: Wireless Network Security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Module 13: System Hacking** (credential-based lateral movement). Complete this module before Stage 4.
+> 📌 **Cross-Reference:** Password cracking skills are directly applied in **[[Cyber-Security/Roadmap/Stage-4_Enterprise#Module 19: Active Directory & Entra ID|Stage 4: Module 19 (Active Directory & Entra ID)]]** (Kerberoasting, AS-REP Roasting), **[[Cyber-Security/Roadmap/Shelf_Post-Hire#Shelf 01: Wireless Network Security|Shelf 01: Wireless Network Security]]** (WPA handshake cracking), and **Module 13: System Hacking** (credential-based lateral movement). Complete this module before Stage 4.
 
 ---
 
@@ -1249,16 +1249,16 @@
 > [!TIP]
 > Work through these in order. Each machine reinforces specific vectors with different difficulty.
 
-| Machine         | Platform    | Primary Vectors                          | Key Learning                       |
+| Machine | Platform | Primary Vectors | Key Learning |
 | --------------- | ----------- | ---------------------------------------- | ---------------------------------- |
-| Blue            | HackTheBox  | MS17-010 (EternalBlue)                   | RCE → SYSTEM via kernel exploit    |
-| Optimum         | HackTheBox  | HFS RCE → MS16-032                       | Exploit suggester workflow         |
-| Bastard         | HackTheBox  | Drupal RCE → token impersonation         | SeImpersonatePrivilege path        |
-| Windows PrivEsc | TryHackMe   | Service misconfigs, registry, DLL hijack | Structured privesc methodology     |
-| Steel Mountain  | TryHackMe   | HFS → PowerUp → unquoted path            | Guided Windows privesc walkthrough |
-| Alfred          | TryHackMe   | Jenkins → token impersonation            | JuicyPotato/Incognito              |
-| Retro           | HackTheBox  | CVE research + credential hunting        | Manual credential discovery        |
-| AccessChk       | Personal VM | Custom misconfigs                        | Build my own vuln lab            |
+| Blue | HackTheBox | MS17-010 (EternalBlue) | RCE → SYSTEM via kernel exploit |
+| Optimum | HackTheBox | HFS RCE → MS16-032 | Exploit suggester workflow |
+| Bastard | HackTheBox | Drupal RCE → token impersonation | SeImpersonatePrivilege path |
+| Windows PrivEsc | TryHackMe | Service misconfigs, registry, DLL hijack | Structured privesc methodology |
+| Steel Mountain | TryHackMe | HFS → PowerUp → unquoted path | Guided Windows privesc walkthrough |
+| Alfred | TryHackMe | Jenkins → token impersonation | JuicyPotato/Incognito |
+| Retro | HackTheBox | CVE research + credential hunting | Manual credential discovery |
+| AccessChk | Personal VM | Custom misconfigs | Build my own vuln lab |
 
 **Active Directory Attacks:**
 
@@ -1384,13 +1384,13 @@
 
 **Linux Privesc Lab Targets (Recommended Practice):**
 
-| Platform    | Machine/Room            | Primary Vectors Covered              |
+| Platform | Machine/Room | Primary Vectors Covered |
 | ----------- | ----------------------- | ------------------------------------ |
-| TryHackMe   | "Linux PrivEsc" room    | SUID, sudo, cron, capabilities, PATH |
-| HackTheBox  | Jarvis, Sunday, Shocker | SUID, sudo misconfiguration          |
-| HackTheBox  | Cronos                  | Cron job hijacking                   |
-| VulnHub     | Lin.Security            | Comprehensive multipath              |
-| Local Build | Custom misconfig VM     | Build my own with 8 vectors above  |
+| TryHackMe | "Linux PrivEsc" room | SUID, sudo, cron, capabilities, PATH |
+| HackTheBox | Jarvis, Sunday, Shocker | SUID, sudo misconfiguration |
+| HackTheBox | Cronos | Cron job hijacking |
+| VulnHub | Lin.Security | Comprehensive multipath |
+| Local Build | Custom misconfig VM | Build my own with 8 vectors above |
 
 **Container & K8s Breakout:**
 
@@ -1666,10 +1666,10 @@
 
 > [!NOTE]
 > **Curriculum Alignment:** Advanced operational topics previously grouped under secondary offensive operations have been cleanly integrated into their operational homes:
-> - **Sniffing & Spoofing (ARP/DNS/MITM):** [[Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23]]
-> - **Social Engineering (Phishing/Pretexting):** [[Stage-4_Enterprise#Module 24: Social Engineering|Stage 4: Module 24]]
-> - **Malware & Weaponization (Payload Generation):** [[Stage-4_Enterprise#Module 25: Malware & Weaponization (Conceptual)|Stage 4: Module 25]] & [[Stage-5_Specialized#Module 27: Offensive Development & Tooling|Stage 5: Module 27]]
-> - **Denial of Service & Resilience:** [[Shelf_Post-Hire#Shelf 17: Denial of Service & Availability Resilience|Shelf 17]]
+> - **Sniffing & Spoofing (ARP/DNS/MITM):** [[Cyber-Security/Roadmap/Stage-4_Enterprise#Module 23: Sniffing & Spoofing|Stage 4: Module 23]]
+> - **Social Engineering (Phishing/Pretexting):** [[Cyber-Security/Roadmap/Stage-4_Enterprise#Module 24: Social Engineering|Stage 4: Module 24]]
+> - **Malware & Weaponization (Payload Generation):** [[Cyber-Security/Roadmap/Stage-4_Enterprise#Module 25: Malware & Weaponization (Conceptual)|Stage 4: Module 25]] & [[Cyber-Security/Roadmap/Stage-5_Specialized#Module 27: Offensive Development & Tooling|Stage 5: Module 27]]
+> - **Denial of Service & Resilience:** [[Cyber-Security/Roadmap/Shelf_Post-Hire#Shelf 17: Denial of Service & Availability Resilience|Shelf 17]]
 
 ------
 
@@ -1843,7 +1843,7 @@ This is the Stage 2 capstone project — it combines everything from recon (port
 ### 🧭 Stage Navigation
 
 | ◀ Previous Stage | 🏠 Master Hub | Next Stage ➔ | ⬆ Top |
-|:---:|:---:|:---:|:---:|
-| [[Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[README\|Master Roadmap]] | [[Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#Stage 2 — Offense I\|⬆ Return to Top]] |
+| :---: | :---: | :---: | :---: |
+| [[Cyber-Security/Roadmap/Stage-1_Foundation\|◀ Stage 1: Foundation]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec\|Stage 3: Web & App Sec ➔]] | [[#Stage 2 — Offense I\|⬆ Return to Top]] |
 
-> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]]` to open the next stage in a split tab, or hover to preview.
+> 💡 **Obsidian Tip:** Press `Ctrl + Click` (or `Cmd + Click`) on `[[Cyber-Security/Roadmap/Stage-3_Web-and-App-Sec|Stage 3: Web & App Sec]]` to open the next stage in a split tab, or hover to preview.

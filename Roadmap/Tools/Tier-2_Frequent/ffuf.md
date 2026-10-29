@@ -22,17 +22,17 @@
 > [[Cyber-Security/Roadmap/README|🏠 Master Roadmap]] · [[Cyber-Security/Roadmap/Tools/README|🔧 Tools Index]]
 
 | Web Proxy & Scanning | Fuzzing & Discovery | Exploitation | CMS & Vuln Scanners |
-|:---------------------|:--------------------|:-------------|:---------------------|
+| :--------------------- | :-------------------- | :------------- | :--------------------- |
 | [[Burp_Suite\|🕷️ Burp Suite]] | **🌀 ffuf** (you are here) | [[sqlmap\|💉 sqlmap]] | [[Nikto\|🔍 Nikto]] |
 | [[OWASP_ZAP\|🛡️ OWASP ZAP]] | [[Gobuster\|📂 Gobuster]] | [[jwt-tool\|🔐 jwt-tool]] | [[wpscan\|🔌 WPScan]] |
-| [[Nuclei\|⚡ Nuclei]] | | | |
+| [[Nuclei\|⚡ Nuclei]] ||||
 
 ---
 
 ## 📊 Progress Overview
 
 | Phase | Focus | Tasks | Est. Time |
-|:---:|:---|:---:|:---:|
+| :---: | :--- | :---: | :---: |
 | 1 | Fundamentals | 5 | 2–3 hours |
 | 2 | Directory Fuzzing | 5 | 3–4 hours |
 | 3 | Filtering and Matching | 4 | 2–3 hours |
@@ -41,7 +41,7 @@
 | 6 | Wordlist Strategy | 3 | 1–2 hours |
 | 7 | Practical Labs | 4 | 4–6 hours |
 | 8 | Mastery Challenges | 3 | 3–4 hours |
-| | **Total** | **32** | **~19–28 hours** |
+|| **Total** | **32** | **~19–28 hours** |
 
 ---
 
@@ -54,7 +54,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Mechanism** | Replace the `FUZZ` keyword in a request with each line of a wordlist. Send the request. Analyze the response (status code, size, words, lines). Report interesting results. |
 | **Placement** | `FUZZ` can go anywhere: URL path, query string, POST body, header values. Multiple `FUZZ` keywords for multi-position fuzzing (use `W1`/`W2`). |
 | **Speed** | Written in Go with concurrent goroutines. Default 40 concurrent requests. Much faster than Python/Perl equivalents. |
@@ -66,7 +66,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 5 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Kali** | Pre-installed. `ffuf -V`. |
 | **Go install** | `go install github.com/ffuf/ffuf/v2@latest`. |
 | **Binary** | Download from GitHub releases. |
@@ -78,7 +78,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Target** | `-u http://target.com/FUZZ` — URL with FUZZ placeholder. |
 | **Wordlist** | `-w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt`. |
 | **Match** | `-mc 200,301,302` — match these status codes. |
@@ -96,7 +96,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **SecLists** | `apt install seclists` or `git clone https://github.com/danielmiessler/SecLists`. The gold standard. |
 | **Directory** | `SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt` (220k words). `raft-large-directories.txt` (comprehensive). |
 | **Files** | `raft-large-files.txt`. `common.txt`. |
@@ -110,7 +110,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Objective** | Before fuzzing, understand what a "normal" non-existent response looks like. |
 | **Test** | `curl -v http://target.com/doesnotexist12345` — note: status code (usually 404 or custom), response size, response body. |
 | **Custom 404** | If the server returns 200 for all URLs (custom 404 page), filter by response size: `-fs <size_of_custom_404_page>`. |
@@ -126,7 +126,7 @@
 - [ ] **Completed** · ⭐ Beginner · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ffuf -u http://target.com/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -mc 200,301,302,403`. |
 | **Interesting Codes** | 200: exists and accessible. 301/302: redirects (follow them). 403: exists but forbidden (note it — may be bypassable). |
 
@@ -137,7 +137,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ffuf -u http://target.com/FUZZ -w raft-large-files.txt -e .php,.html,.bak,.txt,.zip -mc 200,301`. |
 | **High Value** | `.bak` and `.old` files (source code backups). `.git/` (source control). `config.php`, `database.php` (credentials). `backup.zip`. `.env` (environment variables — often contains credentials). |
 
@@ -148,7 +148,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ffuf -u http://target.com/FUZZ -w wordlist.txt -recursion -recursion-depth 3 -mc 200,301`. |
 | **What It Does** | When a directory is found, automatically starts a new fuzzing job on `found_dir/FUZZ`. Continues up to `--recursion-depth` levels. |
 | **Warning** | Can generate enormous traffic. Use with a rate limit: `-rate 100`. |
@@ -160,7 +160,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Problem** | Server returns 200 for all requests (custom 404). Simple status code filtering doesn't work. |
 | **Solution 1** | Filter by size: get the size of the custom 404 page → `ffuf ... -fs 1234`. |
 | **Solution 2** | Filter by word/line count: `-fw 10` or `-fl 50`. |
@@ -173,7 +173,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ffuf ... -rate 50` — maximum 50 requests/second. `-p 0.5` — 500ms delay between requests. |
 | **When** | Rate limit when the target is rate-limiting your requests (getting 429s). When you need to be stealthy. When the server is slow and too many concurrent requests cause timeouts. |
 
@@ -188,7 +188,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Match** | `-mc 200` — only show 200s. `-mc all` — show everything. |
 | **Filter** | `-fc 404,400` — hide 404 and 400 responses. |
 | **Default** | ffuf default shows 200,204,301,302,307,401,403,405,500. Most useful set for discovery. |
@@ -200,7 +200,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Filter Size** | `-fs 0` — filter empty responses. `-fs 1234` — filter specific size. |
 | **Match Size** | `-ms 500-1000` — only show responses in this size range. |
 | **Words** | `-fw 3` — filter responses with exactly 3 words. `-mw 50-200` — match responses with 50–200 words. |
@@ -213,9 +213,9 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
-| **Filter Response** | `-fr "Error 404|Not Found|doesn't exist"` — filter responses matching this regex. |
-| **Match Response** | `-mr "admin|dashboard|login"` — only show responses containing these strings. Useful for finding admin panels: only show pages that mention "admin". |
+| :--- | :--- |
+| **Filter Response** | `-fr "Error 404 | Not Found | doesn't exist"` — filter responses matching this regex. |
+| **Match Response** | `-mr "admin | dashboard | login"` — only show responses containing these strings. Useful for finding admin panels: only show pages that mention "admin". |
 
 ---
 
@@ -224,7 +224,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ffuf -u http://target.com/FUZZ -w wordlist.txt --calibrate`. |
 | **What It Does** | Sends a few test requests to non-existent paths → analyzes the response pattern → automatically sets filter thresholds. Reduces false positives on custom-error sites. |
 
@@ -239,7 +239,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Concept** | Web servers host multiple domains on the same IP via the `Host` header. Different vhosts may have different attack surfaces (admin panel, staging, dev). |
 | **Command** | `ffuf -u http://target_ip/ -H "Host: FUZZ.target.com" -w subdomains.txt -fs <normal_response_size>`. |
 | **Wordlist** | `SecLists/Discovery/DNS/subdomains-top1million-5000.txt`. |
@@ -252,7 +252,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Discover Parameters** | `ffuf -u "http://target.com/page?FUZZ=value" -w parameters.txt -mc 200`. |
 | **Fuzz Values** | `ffuf -u "http://target.com/page?id=FUZZ" -w numbers.txt -mc 200 -fs <normal_size>`. |
 | **Wordlists** | `SecLists/Discovery/Web-Content/burp-parameter-names.txt`. |
@@ -264,7 +264,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Command** | `ffuf -u http://target.com/login -X POST -d "username=admin&password=FUZZ" -w rockyou.txt -mc 200,302 -H "Content-Type: application/x-www-form-urlencoded"`. |
 | **JSON** | `ffuf -u http://target.com/api -X POST -d '{"key":"FUZZ"}' -H "Content-Type: application/json" -w wordlist.txt`. |
 
@@ -275,7 +275,7 @@
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 20 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Two Positions** | `ffuf -u "http://target.com/W1/W2" -w usernames.txt:W1 -w paths.txt:W2`. Uses `W1` and `W2` as placeholder names with separate wordlists. |
 | **Mode** | `-mode clusterbomb` — all combinations of W1 × W2. `-mode pitchfork` — W1[i] paired with W2[i] (parallel, same index). |
 | **Use Case** | Test user/directory combinations: `http://target.com/users/W1/files/W2`. |
@@ -287,7 +287,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Authorization Bypass** | `ffuf -u http://target.com/admin -H "X-Forwarded-For: FUZZ" -w ips.txt` — test if X-Forwarded-For bypass allows access. |
 | **Custom Headers** | `ffuf -u http://target.com/ -H "FUZZ: admin" -w headers.txt` — fuzz header names. |
 
@@ -302,7 +302,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Proxy** | `ffuf ... -x http://127.0.0.1:8080` — route through Burp. See all requests in Burp history. Replay interesting responses in Burp Repeater. |
 | **Output to Burp** | Identify interesting paths in ffuf → manually test in Burp Repeater for deeper analysis. |
 
@@ -313,7 +313,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **ffuf** | More flexible (any position). Better filtering. Vhost fuzzing. Parameter fuzzing. Recommended for most web fuzzing tasks. |
 | **Gobuster** | Simpler, slightly faster on basic directory busting. DNS subdomain mode. Good for quick directory discovery. |
 | **Use Both** | Quick initial scan: Gobuster. Detailed, filtered, multi-position: ffuf. |
@@ -325,7 +325,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **JSON Output** | `ffuf -o results.json -of json`. Parse: `cat results.json | python3 -c "import json,sys; [print(r['url']) for r in json.load(sys.stdin)['results']]"`. |
 | **CSV** | `-of csv` — simpler format for spreadsheet analysis. |
 | **HTML** | `-of html` — interactive report (open in browser). |
@@ -341,7 +341,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Order** | 1. `common.txt` (fast, ~5k) — quick check. 2. `directory-list-2.3-medium.txt` (220k) — standard. 3. `raft-large-directories.txt` (comprehensive). 4. Technology-specific wordlists (WordPress, Laravel, etc.). |
 | **Tech-Specific** | `SecLists/Discovery/Web-Content/CMS/` — CMS-specific. Identify the tech stack first → use the right wordlist. |
 
@@ -352,7 +352,7 @@
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **CeWL** | `cewl http://target.com -d 3 -m 5 -w custom.txt` — spiders the site and generates a wordlist from page content. Finds organization-specific words. |
 | **Combine** | `cat common.txt custom.txt | sort -u > combined.txt`. |
 
@@ -363,7 +363,7 @@
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 10 min
 
 | Field | Detail |
-|:---|:---|
+| :--- | :--- |
 | **Filter Existing** | If you already know the tech stack: `grep -i "wordpress\|wp-" directory-list-2.3-medium.txt > wp_paths.txt`. |
 | **Remove Duplicates** | `sort -u wordlist.txt > deduped.txt`. |
 
@@ -443,7 +443,7 @@
 # 📋 FINAL COMPETENCY MATRIX
 
 | Competency | Self-Assessment |
-|:---|:---:|
+| :--- | :---: |
 | Can run basic directory and file discovery with ffuf | ☐ |
 | Can filter results effectively (size, code, regex) | ☐ |
 | Can fuzz GET parameters, POST bodies, and headers | ☐ |
