@@ -88,6 +88,54 @@
 
 ---
 
+## 📚 Module Learning Matrix
+
+> **Purpose:** This table maps each module to the specific tools, books, and CTF challenges you must complete during that module. Use this as your daily reference checklist.
+> 
+> **How to use:** 
+> - **Core Tools** — Master these tools during the module (hands-on practice daily)
+> - **Required Reading** — Read these specific book sections while learning
+> - **CTF/Lab Checkpoints** — Complete these challenges to validate mastery before moving to next module
+
+| Module | Core Tools | Required Reading | CTF/Lab Checkpoints |
+|:------:|-----------|------------------|---------------------|
+| **01** - Fundamentals | Python, GCC/Clang, `gdb`, Hex editors, `strace` | *Hacking: The Art of Exploitation* Ch.1-3; *Computer Systems: A Programmer's Perspective* Ch.2-3 | OverTheWire: Bandit 0-10 |
+| **02** - Linux Admin | `bash`, `systemctl`, `iptables`, `ssh`, `ps/top`, `journalctl` | *The Linux Command Line* (full); RTFM §Linux Admin; *Linux Basics for Hackers* Ch.1-8 | OverTheWire: Bandit 11-25; THM: Linux Fundamentals 1-3 |
+| **03** - Windows Admin | PowerShell, Sysinternals Suite, Event Viewer, `whoami /all`, Registry Editor | *Windows Internals Part 1* Ch.1-5; *PowerShell for Sysadmins* Ch.1-6; Operator Handbook §Windows | THM: Windows Fundamentals 1-3; HTB Academy: Windows Fundamentals |
+| **04** - Networking | Wireshark, `tcpdump`, `nmap`, `ping`, `traceroute`, `dig`, `netcat` | *TCP/IP Illustrated Vol.1* Ch.1-4, 17-18; *The Tangled Web* Ch.1-2; BTFM §Networking | Wireshark: 10 PCAP challenges; THM: Network Services 1-2; PortSwigger: HTTP basics |
+| **05** - Cryptography | `openssl`, `hashcat`, `john`, Python `cryptography`, CyberChef | *Serious Cryptography* Ch.1-9; *Cryptography Engineering* Ch.1-5; RTFM §Crypto | CryptoHack: General challenges (20+); THM: Encryption - Crypto 101 |
+| **06** - Auth Standards | Burp Suite, `jwt_tool`, Browser DevTools, Postman, `jwt.io` | *OAuth 2.0 Simplified*; *Web Application Hacker's Handbook* Ch.6-7; PortSwigger Auth guide | PortSwigger Academy: Authentication labs (all); THM: Authenticate, OWASP Top 10 |
+| **07** - Web Tech | `curl`, Postman, Burp Suite, Browser DevTools (Network/Console) | *HTTP: The Definitive Guide* Ch.1-6; *The Tangled Web* Ch.3-9; PortSwigger HTTP guide | PortSwigger Academy: HTTP Request Smuggling (intro); THM: Web Fundamentals |
+| **08** - Footprinting | `subfinder`, `amass`, `assetfinder`, `httpx`, `theHarvester`, `shodan-cli` | *Open Source Intelligence Techniques* (Bazzell) Ch.1-5; RTFM §Recon; Operator Handbook §OSINT | THM: Red Team Recon; HTB: Reconnaissance challenges; OSINT CTF exercises |
+| **09** - Scanning | `nmap`, `masscan`, `rustscan`, `nmap NSE scripts`, `nuclei` | *Nmap Network Scanning* (official) Ch.1-8; RTFM §Scanning; Operator Handbook Ch.2 | HTB: Lame, Legacy, Blue; THM: Nmap room, Network Services; PentesterLab: Network scanning |
+| **10** - Enumeration | `enum4linux-ng`, `smbclient`, `netexec`, `ldapsearch`, `snmpwalk`, `gobuster` | *The Hacker Playbook 3* Ch.3; RTFM §Enumeration; *Penetration Testing* (Weidman) Ch.5 | HTB: Jerry, Nibbles, Networked; THM: Enumerating SMB, Enumerating Active Directory |
+| **11** - Database Security | `sqlmap`, MySQL/PostgreSQL/MSSQL clients, `nosqlmap`, `redis-cli` | *The Web Application Hacker's Handbook* Ch.9; *SQL Injection Attacks and Defense* Ch.1-6 | PortSwigger Academy: SQL injection labs (all); HTB: Popcorn; THM: SQL Injection |
+| **12** - Password Cracking | `hashcat`, `john`, `hydra`, `cewl`, `crunch`, `secretsdump.py` | *Hash Crack* (Joshua Picolet); RTFM §Passwords; Operator Handbook §Cracking | THM: Password Attacks, Crack the Hash; HTB: Password cracking challenges; Hash multiple boxes |
+| **13** - System Hacking | Metasploit, `msfvenom`, `nc`/`socat`, LinPEAS/WinPEAS, GTFOBins, PowerUp | *Metasploit: The Penetration Tester's Guide* Ch.1-9; *The Hacker Playbook 3* Ch.4-5; RTFM §PrivEsc | HTB: Shocker, Beep, Devel, Optimum, Grandpa, Granny; THM: Linux PrivEsc, Windows PrivEsc |
+| **14** - Web App Hacking | Burp Suite Pro, `sqlmap`, `ffuf`, `commix`, `xsstrike`, `dalfox` | *The Web Application Hacker's Handbook* Ch.8-13; *Real-World Bug Hunting* Ch.1-8 | PortSwigger Academy: SQL injection, XSS, SSRF, XXE, Path traversal (all); HTB: Markup, Driver |
+| **15** - Session & Tokens | Burp Suite (Sequencer/Repeater), `jwt_tool`, Cookie Editor, DevTools | *The Web Application Hacker's Handbook* Ch.7; PortSwigger JWT guide | PortSwigger Academy: JWT attacks (all); THM: JWT workshop; HTB: Pikaboo |
+| **16** - Web Server Hacking | `nikto`, `whatweb`, `ffuf`, `git-dumper`, `davtest`, Apache/Nginx exploits | *The Hacker Playbook 3* Ch.6; RTFM §Web Servers | HTB: Mirai, Shocker; THM: Tomcat exploitation; PortSwigger: Directory traversal labs |
+| **17** - API Security | Postman, `kiterunner`, `arjun`, `ffuf`, Altair (GraphQL), `grpc_cli` | *Hacking APIs* (Corey Ball); OWASP API Security Top 10 guide; PortSwigger API guide | PortSwigger Academy: API testing labs; HTB: JSON, DevOops; THM: API Hacking |
+| **18** - Bug Bounty | `subfinder`, `nuclei`, `subjack`, `trufflehog`, GitHub dorking tools | *Real-World Bug Hunting* (Peter Yaworski); *Bug Bounty Bootcamp* (Vickie Li) Ch.1-15 | Finish 3+ public bug bounty reports; HTB: Bug Bounty Hunter path; HackerOne Hacktivity analysis |
+| **19** - Active Directory | BloodHound/SharpHound, Rubeus, Mimikatz, Impacket suite, PowerView, Certify | *Active Directory Security* (Will Schroeder); *Attacking Active Directory* (Mayfly); RTFM §AD | HTB: Forest, Sauna, Cascade, Resolute, Blackfield; THM: AD Basics, Attacking Kerberos, Breaching AD |
+| **20** - Cloud Security | AWS CLI, Azure CLI, `gcloud`, Pacu, ScoutSuite, Prowler, `s3scanner` | *Hands-On AWS Penetration Testing* (Karl Gilbert); *Cloud Security Handbook* (Eyal Estrin) Ch.1-8 | THM: AWS Pentesting, Azure Pentesting; HTB: CloudSec challenges; flAWS.cloud (all levels) |
+| **21** - Containers & K8s | Docker CLI, `kubectl`, `kube-hunter`, `kube-bench`, `deepce`, `cdk-go` | *Container Security* (Liz Rice); *Kubernetes Security* (Kaizhe Huang) Ch.1-6; RTFM §Containers | THM: Docker & Kubernetes security; HTB: Pit, Epsilon; Kubernetes Goat exercises |
+| **22** - Adversary Emulation | MITRE ATT&CK Navigator, Atomic Red Team, Caldera, Sigma rules | *Adversarial Tradecraft in Cybersecurity* (Dan Borges); MITRE ATT&CK documentation; Purple Team guides | Run 10+ ATT&CK techniques; Map techniques to 3 APT groups; Build detection in lab SIEM |
+| **23** - Sniffing & Spoofing | Wireshark, `responder`, `bettercap`, `ntlmrelayx.py`, `ettercap`, `mitmproxy` | *The Hacker Playbook 3* Ch.3; RTFM §MITM; Operator Handbook §Lateral Movement | THM: Wireshark 101, Responder; HTB: Access, Active; Lab: MITM attack on local network |
+| **24** - Social Engineering | GoPhish, Evilginx2, SET, Hunter.io, Maltego, LinkedIn scraping tools | *Social Engineering: The Science of Human Hacking* (Hadnagy); *The Art of Deception* (Mitnick) | Build phishing campaign in lab; THM: Phishing Analysis 1-2; Practice pretexting scenarios |
+| **25** - Malware (Conceptual) | x64dbg, Ghidra, Process Hacker, Volatility 3, OLETools, CyberChef | *Practical Malware Analysis* Ch.1-12; *Malware Analyst's Cookbook* Ch.1-8 | Analyze 5 malware samples (FLARE VM); THM: Malware Analysis; HTB: Malware challenges |
+| **26** - Pentest Reporting | Markdown/LaTeX, Typora, Obsidian, Git, CVSS calculator, report templates | *The Art of Network Penetration Testing* (Royce Davis) Ch.10; Sample pentest reports (public) | Write 3 full pentest reports (Executive + Technical); Peer review; Portfolio-ready format |
+| **27** - Offensive Dev | Visual Studio, C/C++, Go, Rust, x64dbg, `msfvenom`, BOF compilers | *Red Team Development and Operations* Ch.1-12; *Black Hat Go* Ch.1-9; *Offensive Rust* | Build custom shellcode loader; Write AMSI/ETW bypass PoC; HTB: Offensive Dev challenges |
+| **28** - AI Red Teaming | Python, OpenAI/Anthropic APIs, LangChain, HuggingFace, prompt injection frameworks | *AI Security* (Emily Fox); LLM security papers (arXiv); OWASP LLM Top 10 guide | Gandalf AI (all levels); Prompt injection CTF; Build RAG poisoning PoC; Document 3 novel attacks |
+| **29** - Red Team Ops | Sliver/Mythic C2, Cobalt Strike (conceptual), OPSEC tools, campaign frameworks | *Red Team Development and Operations* Ch.13-20; *Operator Handbook* (full); MITRE ATT&CK | Design full campaign plan; Execute multi-stage attack in lab; Document OPSEC considerations |
+| **30** - Portfolio & Career | GitHub, LinkedIn, blog platform, OSCP/CRTO study, bug bounty platforms | *The Hacker Playbook 3* Ch.9; Career guides; OSCP syllabus; Bug bounty methodology guides | OSCP certification; Publish 5+ GitHub repos; Write 3 technical blog posts; Submit 1 CVE/bug bounty |
+
+---
+
+> **💡 Navigation Tip:** The tables above provide your daily execution checklist. The detailed stage breakdowns below show comprehensive scope for strategic planning. For quick module navigation, see [[#🎯 Execution Order — 5 Stages|Execution Order]].
+
+---
+
 ### 🔵 STAGE 1 — FOUNDATION
 *Modules 01–07 · ~3–4 months*
 
