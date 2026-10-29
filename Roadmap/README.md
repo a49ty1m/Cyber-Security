@@ -37,45 +37,45 @@
 
 > Sequential walk order across 5 Stages, top to bottom.
 > 🔴 = master it before moving on · 🟡 = learn it solid, keep moving · 🔵 = conceptual foundation (hands-on build later in specialized stage)
-> ⏱ Time spans assume consistent daily sessions per the [Daily Protocol](#daily-protocol).
+> ⏱ Time spans assume consistent daily sessions per the [[#⏱️ Daily Protocol\|Daily Protocol]].
 
 | # | Module | Depth | Stage | Est. Time |
 | :---: | --- | :---: | :---: | :---: |
-| **01** | [[Stage-1_Foundation#Module 01: Fundamentals\|Fundamentals]] — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Foundation | 2–3 wks |
-| **02** | [[Stage-1_Foundation#Module 02: Linux Administration\|Linux Administration]] | 🔴 | Foundation | 2–3 wks |
-| **03** | [[Stage-1_Foundation#Module 03: Windows Administration\|Windows Administration]] | 🟡 | Foundation | 1–2 wks |
-| **04** | [[Stage-1_Foundation#Module 04: Networking Fundamentals\|Networking Fundamentals]] | 🔴 | Foundation | 2–3 wks |
-| **05** | [[Stage-1_Foundation#Module 05: Cryptography\|Cryptography]] — core concepts + attacks | 🔴 | Foundation | 1–2 wks |
-| **06** | [[Stage-1_Foundation#Module 06: Authentication Standards\|Authentication Standards]] — Sessions, JWT, OAuth, MFA | 🔴 | Foundation | 1–2 wks |
-| **07** | [[Stage-1_Foundation#Module 07: Web Technology Fundamentals\|Web Technology Fundamentals]] — HTTP, Cookies, CORS, REST | 🔴 | Foundation | 1–2 wks |
-|  | **— [[Stage-1_Foundation#🏁 Foundation Proof Gate\|Foundation Proof Gate]] —** *(10 PCAPs, admin baselines, 3 scripts, lab report)* |  |  | **~2–3 mos** |
-| **08** | [[Stage-2_Offense-I#Module 08: Footprinting & Reconnaissance\|Footprinting & Reconnaissance]] | 🔴 | Offense I | 1–2 wks |
-| **09** | [[Stage-2_Offense-I#Module 09: Scanning\|Scanning]] | 🔴 | Offense I | 1 wk |
-| **10** | [[Stage-2_Offense-I#Module 10: Enumeration\|Enumeration]] | 🔴 | Offense I | 1–2 wks |
-| **11** | [[Stage-2_Offense-I#Module 11: Database Security\|Database Security]] | 🟡 | Offense I | 1 wk |
+| **01** | [[Stage-1_Foundation#Module 01: Fundamentals\|Fundamentals]] — Hardware, OS, Memory, Data Rep, Programming | 🔴 | Foundation | 5–8 wks |
+| **02** | [[Stage-1_Foundation#Module 02: Linux Administration\|Linux Administration]] | 🔴 | Foundation | 1.5–2 wks |
+| **03** | [[Stage-1_Foundation#Module 03: Windows Administration\|Windows Administration]] | 🟡 | Foundation | 2–2.5 wks |
+| **04** | [[Stage-1_Foundation#Module 04: Networking Fundamentals\|Networking Fundamentals]] | 🔴 | Foundation | 2.5–4 wks |
+| **05** | [[Stage-1_Foundation#Module 05: Cryptography\|Cryptography]] — core concepts + attacks | 🔴 | Foundation | 1.5–2 wks |
+| **06** | [[Stage-1_Foundation#Module 06: Authentication Standards\|Authentication Standards]] — Sessions, JWT, OAuth, MFA | 🔴 | Foundation | 1–1.5 wks |
+| **07** | [[Stage-1_Foundation#Module 07: Web Technology Fundamentals\|Web Technology Fundamentals]] — HTTP, Cookies, CORS, REST | 🔴 | Foundation | 1–1.5 wks |
+|  | **— [[Stage-1_Foundation#🏁 Foundation Proof Gate\|Foundation Proof Gate]] —** *(10 PCAPs, admin baselines, 3 scripts, lab report)* |  |  | **~3–4 mos** |
+| **08** | [[Stage-2_Offense-I#Module 08: Footprinting & Reconnaissance\|Footprinting & Reconnaissance]] | 🔴 | Offense I | 1.5–2 wks |
+| **09** | [[Stage-2_Offense-I#Module 09: Scanning\|Scanning]] | 🔴 | Offense I | 1.5 wks |
+| **10** | [[Stage-2_Offense-I#Module 10: Enumeration\|Enumeration]] | 🔴 | Offense I | 1.5 wks |
+| **11** | [[Stage-2_Offense-I#Module 11: Database Security\|Database Security]] | 🟡 | Offense I | 1.5–2 wks |
 | **12** | [[Stage-2_Offense-I#Module 12: Password Cracking & Hash Analysis\|Password Cracking & Hash Analysis]] | 🔴 | Offense I | 1 wk |
-| **13** | [[Stage-2_Offense-I#Module 13: System Hacking & Initial Compromise\|System Hacking & Initial Compromise]] | 🔴 | Offense I | 2–3 wks |
-|  | **— [[Stage-2_Offense-I#🏁 Stage Gate 1 — Host Dominance & Privilege Escalation\|Stage Gate 1]] —** *(root a box, dump & crack a hash, escalate privesc)* |  |  | **~5–6 wks** |
-| **14** | [[Stage-3_Web-and-App-Sec#Module 14: Web Application Hacking\|Web Application Hacking]] — SQLi, XSS, SSRF, IDOR, XXE | 🔴 | Web & App Sec | 3–4 wks |
-| **15** | [[Stage-3_Web-and-App-Sec#Module 15: Session Hijacking & Token Attacks\|Session Hijacking & Token Attacks]] — Cookies, JWTs, Fixation | 🔴 | Web & App Sec | 1–2 wks |
-| **16** | [[Stage-3_Web-and-App-Sec#Module 16: Web Server Hacking\|Web Server Hacking]] — Misconfig, Directory Traversal | 🔴 | Web & App Sec | 1–2 wks |
-| **17** | [[Stage-3_Web-and-App-Sec#Module 17: API Security\|API Security]] — OWASP API Top 10, REST/GraphQL/gRPC | 🔴 | Web & App Sec | 2 wks |
-| **18** | [[Stage-3_Web-and-App-Sec#Module 18: Bug Bounty Methodology\|Bug Bounty Methodology]] — Scope, Recon, Exploit, Report | 🔴 | Web & App Sec | 2 wks |
+| **13** | [[Stage-2_Offense-I#Module 13: System Hacking & Initial Compromise\|System Hacking & Initial Compromise]] | 🔴 | Offense I | 4–5 wks |
+|  | **— [[Stage-2_Offense-I#🏁 Stage Gate 1 — Host Dominance & Privilege Escalation\|Stage Gate 1]] —** *(root a box, dump & crack a hash, escalate privesc)* |  |  | **~6–8 wks** |
+| **14** | [[Stage-3_Web-and-App-Sec#Module 14: Web Application Hacking\|Web Application Hacking]] — SQLi, XSS, SSRF, IDOR, XXE | 🔴 | Web & App Sec | 2–3 wks |
+| **15** | [[Stage-3_Web-and-App-Sec#Module 15: Session Hijacking & Token Attacks\|Session Hijacking & Token Attacks]] — Cookies, JWTs, Fixation | 🔴 | Web & App Sec | 1 wk |
+| **16** | [[Stage-3_Web-and-App-Sec#Module 16: Web Server Hacking\|Web Server Hacking]] — Misconfig, Directory Traversal | 🔴 | Web & App Sec | 1 wk |
+| **17** | [[Stage-3_Web-and-App-Sec#Module 17: API Security\|API Security]] — OWASP API Top 10, REST/GraphQL/gRPC | 🔴 | Web & App Sec | 1 wk |
+| **18** | [[Stage-3_Web-and-App-Sec#Module 18: Bug Bounty Methodology\|Bug Bounty Methodology]] — Scope, Recon, Exploit, Report | 🔴 | Web & App Sec | 1–2 wks |
 |  | *(parallel, absorb only — never block)* [[Stage-3_Web-and-App-Sec#Side-Track A: Detection Engineering & SOC Operations\|Detection Awareness]], [[Stage-3_Web-and-App-Sec#Side-Track B: IDS, Firewalls, and Honeypots\|IDS/Honeypots]], [[Stage-3_Web-and-App-Sec#Side-Track C: Cyber Threat Intelligence (CTI) & Attack Surface Management\|OSINT]] | 🟡 | side-track | ongoing |
 |  | **— [[Stage-3_Web-and-App-Sec#🏁 Stage Gate 2 — Web Application Security Gate\|Stage Gate 2]] —** *(3+ HTB/THM writeups, OWASP Top 10 hands-on, Linux+Windows privesc demonstrated cold)* |  |  | **~8–10 wks** |
-| **19** | [[Stage-4_Enterprise#Module 19: Active Directory & Entra ID\|Active Directory & Entra ID]] *(+ deferred Kerberos patch from #03)* | 🔴 | Enterprise | 3–4 wks |
+| **19** | [[Stage-4_Enterprise#Module 19: Active Directory & Entra ID\|Active Directory & Entra ID]] *(+ deferred Kerberos patch from #03)* | 🔴 | Enterprise | 2–3 wks |
 | **20** | [[Stage-4_Enterprise#Module 20: Cloud Computing\|Cloud Computing]] *(+ deferred Cloud Assets patch from #04)* | 🔴 | Enterprise | 2–3 wks |
-| **21** | [[Stage-4_Enterprise#Module 21: Container & Orchestration Security\|Container & Orchestration Security]] | 🟡 | Enterprise | 1–2 wks |
-| **22** | [[Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming\|Adversary Emulation & Purple Teaming]] | 🔴 | Enterprise | 2 wks |
+| **21** | [[Stage-4_Enterprise#Module 21: Container & Orchestration Security\|Container & Orchestration Security]] | 🟡 | Enterprise | 1 wk |
+| **22** | [[Stage-4_Enterprise#Module 22: Adversary Emulation & Purple Teaming\|Adversary Emulation & Purple Teaming]] | 🔴 | Enterprise | 1 wk |
 | **23** | [[Stage-4_Enterprise#Module 23: Sniffing & Spoofing\|Sniffing & Spoofing]] — ARP, MITM, Bettercap, Responder | 🟡 | Enterprise | 1 wk |
 | **24** | [[Stage-4_Enterprise#Module 24: Social Engineering\|Social Engineering]] — Phishing, Vishing, Physical | 🟡 | Enterprise | 1 wk |
 | **25** | [[Stage-4_Enterprise#Module 25: Malware & Weaponization (Conceptual)\|Malware & Weaponization]] *(conceptual — full build is #27)* | 🔵 | Enterprise | 1 wk |
-| **26** | [[Stage-4_Enterprise#Module 26: Pentest Methodologies & Report Writing\|Pentest Methodologies & Report Writing]] | 🔴 | Enterprise | 1–2 wks |
+| **26** | [[Stage-4_Enterprise#Module 26: Pentest Methodologies & Report Writing\|Pentest Methodologies & Report Writing]] | 🔴 | Enterprise | 1 wk |
 |  | **— [[Stage-4_Enterprise#🏁 Stage Gate 3 — Enterprise Domain Compromise & Reporting\|Stage Gate 3]] —** *(AD domain attacked end-to-end, BloodHound exports in Git, 1 professional report)* |  |  | **~10–13 wks** |
 | **27** | [[Stage-5_Specialized#Module 27: Offensive Development & Tooling\|Offensive Development & Tooling]] — C2, Shellcode, AMSI/ETW | 🔴 | Specialized | 4–6 wks |
-| **28** | [[Stage-5_Specialized#Module 28: AI & LLM Red Teaming\|AI & LLM Red Teaming]] — Prompt Injection, RAG, Agentic Exploits | 🔴 | Specialized | 3–4 wks |
-| **29** | [[Stage-5_Specialized#Module 29: Red Team Operations & Tradecraft\|Red Team Operations & Tradecraft]] — C2, OPSEC, Campaign | 🔴 | Specialized | 4–6 wks |
-| **30** | [[Stage-5_Specialized#Module 30: Proof of Work & Career Portfolio\|Proof of Work & Career Portfolio]] — Certs, GitHub, Bug Bounties | 🔴 | Specialized | 4–6 wks |
+| **28** | [[Stage-5_Specialized#Module 28: AI & LLM Red Teaming\|AI & LLM Red Teaming]] — Prompt Injection, RAG, Agentic Exploits | 🔴 | Specialized | 4–6 wks |
+| **29** | [[Stage-5_Specialized#Module 29: Red Team Operations & Tradecraft\|Red Team Operations & Tradecraft]] — C2, OPSEC, Campaign | 🔴 | Specialized | 2–3 wks |
+| **30** | [[Stage-5_Specialized#Module 30: Proof of Work & Career Portfolio\|Proof of Work & Career Portfolio]] — Certs, GitHub, Bug Bounties | 🔴 | Specialized | Ongoing |
 |  | **— [[Stage-5_Specialized#🏁 Final Gate — Mastery & Career Validation\|Final Gate]] —** *(custom C2 in lab, published AI security research, 3+ reports, OSCP)* |  |  | **~15–22 wks** |
 
 > **Total realistic estimate: ~10–14 months** of consistent daily sessions. Drift, passive reading instead of lab time, or skipping stage gates will stretch this significantly.
@@ -89,7 +89,7 @@
 ---
 
 ### 🔵 STAGE 1 — FOUNDATION
-*Modules 01–07 · ~2–3 months*
+*Modules 01–07 · ~3–4 months*
 
 |     #     | Module                                                                                     | Category / Domain                | Core Concepts & Technical Scope                                                                                                                                                                                     | Key Tools & Standards                                    |
 | :-------: | ------------------------------------------------------------------------------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -124,7 +124,7 @@
 ---
 
 ### 🟠 STAGE 2 — OFFENSE I
-*Modules 08–13 · ~5–6 weeks*
+*Modules 08–13 · ~6–8 weeks*
 
 | # | Module | Category / Domain | Core Concepts & Technical Scope | Key Tools & Standards |
 |:--:|--------|-------------------|---------------------------------|-----------------------|

@@ -32,7 +32,7 @@
 
 | Phase | Focus | Tasks | Est. Time |
 |:---:|:---|:---:|:---:|
-| 1 | Fundamentals & AD Graph Theory | 6 | 3–4 hours |
+| 1 | Fundamentals & AD Graph Theory | 5 | 2–3 hours |
 | 2 | Core Data Collection & Import | 7 | 5–7 hours |
 | 3 | Intermediate (Queries & Analysis) | 7 | 5–7 hours |
 | 4 | Advanced (Custom Queries, Edge Abuse) | 5 | 5–7 hours |
@@ -40,13 +40,13 @@
 | 6 | Practical Labs | 4 | 6–10 hours |
 | 7 | Methodology & Defensive Usage | 4 | 3–4 hours |
 | 8 | Mastery Challenges | 3 | 4–6 hours |
-| | **Total** | **40** | **~33–49 hours** |
+| | **Total** | **39** | **~30–46 hours** |
 
 **Prerequisites:** Active Directory fundamentals (domains, forests, trusts, groups, GPOs). Understanding of Kerberos and NTLM authentication. Domain user credentials (any privilege level). A Windows AD lab environment.
 
 **Editions:** **BloodHound CE (Community Edition)** — latest version with a web UI, Docker deployment, and API. **BloodHound Legacy** — original Electron app with Neo4j backend. This guide covers both but emphasizes CE as the current standard.
 
-**Alternatives:** PingCastle (AD security audit, automated report), PlumHound (BloodHound data reporting), ADRecon (AD enumeration report), Purple Knight (AD security assessment), Adalanche (open-source AD visualization).
+**Alternatives:** See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for alternative tools.
 
 ---
 
@@ -141,20 +141,11 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 
 ---
 
-### Task 1.4 — BloodHound Legacy Installation (Neo4j)
-
-- [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 20 min
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Install BloodHound Legacy (Electron app + Neo4j) as a fallback and for environments where CE isn't available. Many tutorials and resources still reference Legacy. **⚠️ Compatibility Warning:** Neo4j 4.x (required for Legacy) is deprecated. On modern systems (Java 17+), you may encounter compatibility issues. Consider using BloodHound CE unless you specifically need Legacy features or are following older tutorials. |
-| **Practical Exercise** | Install Neo4j: `sudo apt install neo4j`. Start: `sudo neo4j start`. Access Neo4j at `http://localhost:7474` → change default password (neo4j:neo4j). Install BloodHound: `sudo apt install bloodhound` or download from GitHub releases. Launch: `bloodhound` → connect to Neo4j (`bolt://localhost:7687`). |
-| **Expected Output** | Neo4j running. BloodHound Legacy connected to the database. Empty graph ready for data import. |
-| **Common Mistakes** | Not changing Neo4j's default password (BloodHound won't connect). Java version incompatibility with Neo4j (Neo4j 4.x needs Java 11). Not starting Neo4j before launching BloodHound. Port conflicts with other services. |
+> **📝 Note on BloodHound Legacy:** The original Electron app + Neo4j version is deprecated. BloodHound CE is now the standard. Legacy install instructions have been moved to Notes for reference.
 
 ---
 
-### Task 1.5 — Understanding AD Objects as Graph Nodes
+### Task 1.4 — Understanding AD Objects as Graph Nodes
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 25 min
 
@@ -166,7 +157,7 @@ curl -s -X POST http://localhost:8080/api/v2/login -d '{"login_name":"admin","se
 
 ---
 
-### Task 1.6 — Understanding AD Relationships as Graph Edges
+### Task 1.5 — Understanding AD Relationships as Graph Edges
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 30 min
 

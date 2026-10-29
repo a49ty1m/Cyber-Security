@@ -44,11 +44,34 @@
 
 **Prerequisites:** Nmap (to discover authentication services). Understanding of authentication protocols. Wordlists (`/usr/share/wordlists/rockyou.txt`). A vulnerable target (Metasploitable 2).
 
-**Alternatives:** Medusa (similar, modular), Ncrack (Nmap project, fewer protocols), Patator (Python-based, highly flexible), Burp Intruder (for HTTP), CrackMapExec (for Windows/SMB/WinRM), Crowbar (for RDP/SSH keys/VNC).
+**Alternatives:** See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for alternative tools.
 
 ---
 
 ## Quick Reference
+
+### 🎯 HTTP POST Form Syntax (Most Complex)
+
+The hardest Hydra command to remember. Three-field syntax for web form attacks:
+
+```bash
+hydra -l admin -P passwords.txt TARGET http-post-form "PATH:BODY:FAILURE"
+```
+
+**Field breakdown:**
+- `PATH` = URL path (e.g., `/login.php`, `/admin/index.php`)
+- `BODY` = POST data with `^USER^` and `^PASS^` placeholders (e.g., `username=^USER^&password=^PASS^`)
+- `FAILURE` = String that appears on failed login (e.g., `Invalid`, `Login failed`, `incorrect`)
+
+**Example:**
+```bash
+hydra -l admin -P rockyou.txt 10.10.10.1 http-post-form \
+  "/login.php:user=^USER^&pass=^PASS^&submit=Login:Invalid credentials"
+```
+
+**Important:** Use Burp Suite to capture the exact POST request first!
+
+---
 
 ### Essential Commands
 ```bash

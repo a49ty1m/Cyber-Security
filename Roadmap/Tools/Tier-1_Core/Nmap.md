@@ -32,18 +32,67 @@
 
 | Phase | Focus | Tasks | Est. Time |
 |:---:|:---|:---:|:---:|
-| 1 | Fundamentals & Setup | 6 | 3–4 hours |
-| 2 | Core Scanning Features | 10 | 6–8 hours |
-| 3 | Intermediate Techniques | 7 | 5–7 hours |
-| 4 | Advanced Usage | 6 | 6–8 hours |
-| 5 | Tool Integration | 3 | 2–3 hours |
-| 6 | Practical Labs | 3 | 5–8 hours |
-| 7 | Real-World Methodology | 4 | 3–4 hours |
-| | **Total** | **39** | **~29–42 hours** |
+| 1 | Fundamentals & Setup | 6 | 3–4 hrs |
+| 2 | Core Scanning Features | 10 | 6–8 hrs |
+| 3 | Intermediate Techniques | 7 | 5–7 hrs |
+| 4 | Advanced Usage | 6 | 6–8 hrs |
+| 5 | Tool Integration | 3 | 2–3 hrs |
+| 6 | Practical Labs | 3 | 5–8 hrs |
+| 7 | Real-World Methodology | 4 | 3–4 hrs |
+| | **Total** | **39** | **~30–42 hrs** |
 
 **Prerequisites:** Basic TCP/IP networking (OSI model, IP addressing, ports, protocols). Linux command line basics. A lab environment with at least one target (Metasploitable 2 recommended).
 
-**Alternatives & Competitors:** Masscan (speed-focused, less feature-rich), RustScan (fast port scanner that feeds into Nmap), Zmap (internet-scale scanning), Angry IP Scanner (GUI-based, simple), Netcat (manual port checking).
+**Alternatives & Competitors:** See [_Notes.md](_Notes.md#alternative-tools-reference) for alternative tools (Masscan, RustScan, Zmap, Angry IP Scanner, etc.).
+
+---
+
+## ⚡ Quick Reference
+
+### Professional 4-Step Scan Workflow
+```bash
+# Step 1: Host Discovery (find what's alive)
+sudo nmap -sn 192.168.1.0/24 -oA scan1_hosts
+
+# Step 2: Fast TCP scan (common ports only)
+sudo nmap -sS -T4 -F -oA scan2_fast_tcp <targets>
+
+# Step 3: Targeted service detection (found ports)
+sudo nmap -sS -sV -sC -p <ports> -oA scan3_services <targets>
+
+# Step 4: UDP top 50 (critical services)
+sudo nmap -sU --top-ports 50 -oA scan4_udp <targets>
+```
+
+### Most-Used Scan Commands
+| Command | Purpose | When to Use |
+|:--------|:--------|:------------|
+| `sudo nmap -sS -p- <target> -oA scan_full` | Full TCP port scan (all 65535) | Complete port discovery |
+| `sudo nmap -sV -sC -p <ports> <target> -oA scan_services` | Service detection + default scripts | After finding open ports |
+| `sudo nmap -sU --top-ports 20 <target> -oA scan_udp` | Fast UDP scan | Find UDP services (DNS, SNMP) |
+| `sudo nmap -A <target> -oA scan_aggressive` | Aggressive scan (OS, version, scripts, traceroute) | Comprehensive info gathering |
+| `sudo nmap -Pn -sS <target> -oA scan_noping` | Scan without ping (assume host is up) | Firewalled hosts |
+
+### Critical Flags
+| Flag | Meaning | Always Use With |
+|:-----|:--------|:----------------|
+| `-oA <basename>` | Save output (all formats) | **Every scan** — documentation is mandatory |
+| `-Pn` | Skip host discovery | Firewalled Windows hosts |
+| `--reason` | Show why port is open/closed/filtered | Debugging scans |
+| `-T4` | Faster timing | Lab environments (not stealth engagements) |
+| `--script vuln` | Run vulnerability detection scripts | After service detection |
+
+### Port State Decision Tree
+- **open** → Service is listening → Enumerate it
+- **closed** → Nothing listening BUT host responds → Host is up, try other ports
+- **filtered** → Firewall blocking → May still be open behind firewall
+- **open|filtered** → No response (common with UDP) → Manual verification needed
+
+### Common Pitfalls
+- ⚠️ **Not using `-oA`** — Always document your scans
+- ⚠️ **Only scanning default 1000 ports** — Use `-p-` for complete coverage
+- ⚠️ **Skipping UDP** — Critical services (DNS 53, SNMP 161, TFTP 69) are UDP
+- ⚠️ **Assuming "filtered" means "safe"** — Filtered may be open with firewall in front
 
 ---
 
@@ -146,7 +195,7 @@
 |:---|:---|
 | **Objective** | Discover live hosts on a subnet without port scanning. |
 | **Skills Learned** | Host discovery techniques (ICMP, TCP, ARP), why `-sn` is preferred over deprecated `-sP`. |
-| **Syntax** | `sudo nmap -sn 192.168.1.0/24` (discover hosts, no port scan). |
+| **Syntax** | `sudo nmap -sn 192.168.1.0/24 -oA discovery` (discover hosts, no port scan). |
 | **Real-World Scenario** | First step of any internal network assessment. Used for network inventory and scope validation. |
 | **Expected Output** | List of live hosts with IP and MAC addresses. Host count summary. |
 | **Common Mistakes** | Relying only on ICMP echo (many hosts block ping but respond to TCP probes). Scanning a /16 subnet without realizing it's 65,536 hosts. |
@@ -161,7 +210,7 @@
 |:---|:---|
 | **Objective** | Perform the default and most common scan type. Understand why it's called "stealth" (half-open — never completes the handshake) and its advantages over TCP connect scans. **⚠️ Reality Check:** The "stealth" label is outdated. Modern IDS/IPS systems detect SYN scans trivially. The term refers to old systems that only logged completed TCP connections. Against modern defenses, SYN scans are just as detectable as any other scan type. |
 | **Skills Learned** | SYN scan mechanics (SYN → SYN-ACK → RST instead of ACK), why half-open was historically considered stealthier (some old logging only recorded completed connections), raw socket requirement, comparison with `-sT`, understanding modern detection capabilities. |
-| **Syntax** | `sudo nmap -sS <target>` (SYN scan, default 1000 ports). `sudo nmap -sS -p- <target>` (all 65535 ports). |
+| **Syntax** | `sudo nmap -sS <target> -oA scan` (SYN scan, default 1000 ports). `sudo nmap -sS -p- <target> -oA scan_full` (all 65535 ports). |
 | **Real-World Scenario** | Standard scan for every pentest. Fast, reliable, relatively quiet. The scan type used in ~90% of all Nmap usage. |
 | **Expected Output** | Open/closed/filtered port list. Compare speed with `nmap -sT` (connect scan) — SYN is faster because it doesn't complete the handshake. |
 | **Common Mistakes** | Not understanding the "stealth" claim is outdated (modern IDS/IPS detects SYN scans easily). Only scanning default 1000 ports instead of all 65535 (`-p-`). Not using `-sS` explicitly (Nmap defaults to it with root, but being explicit is good practice). |
@@ -191,7 +240,7 @@
 |:---|:---|
 | **Objective** | Identify exact software names and version numbers running on open ports. |
 | **Skills Learned** | Service fingerprinting, version intensity levels, why version detection is critical for exploit matching. |
-| **Syntax** | `sudo nmap -sV <target>`. `sudo nmap -sV --version-intensity 9 <target>` (maximum probing). |
+| **Syntax** | `sudo nmap -sV <target> -oA scan_versions`. `sudo nmap -sV --version-intensity 9 <target> -oA scan_detailed` (maximum probing). |
 | **Real-World Scenario** | "Port 80 is open" is less useful than "Apache httpd 2.4.7 on Ubuntu" — the version tells you which exploits to research. |
 | **Expected Output** | Service name and version for each open port. |
 | **Common Mistakes** | Not using `-sV` at all. Not understanding that `-sV` sends additional probes (it's not passive). Blindly trusting version output (services can lie). |
@@ -206,7 +255,7 @@
 |:---|:---|
 | **Objective** | Identify the target's operating system using TCP/IP stack fingerprinting. |
 | **Skills Learned** | TCP/IP stack fingerprinting, why Nmap shows percentage confidence, CPE strings. |
-| **Syntax** | `sudo nmap -O <target>`. `sudo nmap -O --osscan-guess <target>` (show best guesses). |
+| **Syntax** | `sudo nmap -O <target> -oA scan_os`. `sudo nmap -O --osscan-guess <target> -oA scan_os_guess` (show best guesses). |
 | **Real-World Scenario** | Determines whether a target is Windows or Linux (affects exploitation strategy and privilege escalation paths). |
 | **Expected Output** | OS family, version, and confidence percentage. CPE string. |
 | **Common Mistakes** | Trusting OS detection blindly (it can be wrong). Not understanding that OS detection requires at least one open and one closed port. |
@@ -221,7 +270,7 @@
 |:---|:---|
 | **Objective** | Scan UDP ports. UDP scanning is slower and less reliable than TCP but essential for finding DNS, SNMP, DHCP, and TFTP services. |
 | **Skills Learned** | UDP protocol behavior, why UDP scans are slow, combining UDP with version detection for better accuracy. |
-| **Syntax** | `sudo nmap -sU --top-ports 50 <target>`. `sudo nmap -sU -sV -p 53,161,162 <target>` (targeted with version detection). |
+| **Syntax** | `sudo nmap -sU --top-ports 50 <target> -oA scan_udp`. `sudo nmap -sU -sV -p 53,161,162 <target> -oA scan_udp_targeted` (targeted with version detection). |
 | **Real-World Scenario** | SNMP (port 161) with default community strings is one of the most common findings on internal networks. None of these are found without UDP scanning. |
 | **Expected Output** | List of open/open\|filtered UDP ports. Understanding that "open\|filtered" means no response (could be open or firewalled). |
 | **Common Mistakes** | Scanning all 65535 UDP ports (takes hours — use `--top-ports`). Not combining `-sU` with `-sV`. Skipping UDP scans entirely. |
@@ -236,7 +285,7 @@
 |:---|:---|
 | **Objective** | Run Nmap's default NSE scripts (`-sC`) and understand what additional intelligence they provide. Learn script categories: safe, intrusive, vuln, brute, discovery, auth. |
 | **Skills Learned** | NSE architecture, default script behavior, script categories and risk levels. |
-| **Syntax** | `sudo nmap -sC <target>`. `sudo nmap -sV -sC <target>` (most common combination). `nmap --script-help default`. |
+| **Syntax** | `sudo nmap -sC <target> -oA scan_scripts`. `sudo nmap -sV -sC <target> -oA scan_services` (most common combination). `nmap --script-help default`. |
 | **Real-World Scenario** | Default scripts reveal immediate wins: anonymous FTP, HTTP titles, SMB OS discovery, SSL certificates. |
 | **Expected Output** | Script output under each port. Examples: `ftp-anon: Anonymous FTP login allowed`, `http-title: Apache2 Ubuntu Default Page`. |
 | **Common Mistakes** | Not using `-sC` (missing critical intelligence). Confusing `-sC` with `--script vuln` (default scripts are safe). |
@@ -330,7 +379,7 @@
 |:---|:---|
 | **Objective** | Understand the `-A` flag (enables OS detection, version detection, script scanning, and traceroute simultaneously). |
 | **Skills Learned** | Flag composition, understanding that `-A` equals `-O -sV -sC --traceroute`, performance trade-offs. |
-| **Syntax** | `sudo nmap -A <target>` (aggressive scan on top 1000 ports). `sudo nmap -A -p- <target>` (all ports — very slow). |
+| **Syntax** | `sudo nmap -A <target> -oA scan_aggressive` (aggressive scan on top 1000 ports). `sudo nmap -A -p- <target> -oA scan_aggressive_full` (all ports — very slow). |
 | **Real-World Scenario** | Acceptable for CTF challenges with one target. Not recommended for real engagements — too slow. The split workflow (Task 2.8) is always more efficient. |
 | **Expected Output** | Complete scan with OS, versions, scripts, and traceroute. Timing comparison with split workflow. |
 | **Common Mistakes** | Using `-A -p-` on large networks. Using `-A` when you only need version detection. |
@@ -457,17 +506,9 @@
 
 ---
 
-### Task 4.5 — Idle (Zombie) Scanning
+---
 
-- [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 45 min
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Perform an idle scan using a third-party "zombie" host. Understand the IP ID side-channel technique that allows scanning without sending packets from your own IP. |
-| **Skills Learned** | IP ID sequence prediction, side-channel attacks, truly anonymous scanning, finding suitable zombie hosts. |
-| **Syntax** | Find zombie: `nmap --script ipidseq <candidate-zombie>` (look for "Incremental" IP ID). Idle scan: `sudo nmap -sI <zombie-ip> <target>`. |
-| **Expected Output** | Port scan results attributed to the zombie host's IP, not yours. |
-| **Common Mistakes** | Using a zombie with unpredictable IP IDs (scan fails). Using this in CTFs (unnecessary complexity). |
+> **📝 Note on Idle/Zombie Scanning:** Nmap supports idle scanning (`-sI`) using IP ID side-channel, but finding suitable zombie hosts is difficult in modern networks. Rarely practical outside specialized scenarios.
 
 ---
 

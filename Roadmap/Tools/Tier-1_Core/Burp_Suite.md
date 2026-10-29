@@ -46,7 +46,7 @@
 
 **Editions:** Community (free — no scanner, throttled Intruder), Professional ($449/year — full scanner, fast Intruder, Collaborator), Enterprise (automated CI/CD scanning). This checklist works with Community but notes where Pro is needed.
 
-**Alternatives:** OWASP ZAP (free, open-source alternative), mitmproxy (CLI-based, Python-scriptable), Caido (modern Rust-based alternative), Fiddler (Windows-focused), Charles Proxy (macOS-focused).
+**Alternatives:** See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for alternative tools.
 
 ---
 
@@ -161,6 +161,8 @@ Proxy > Options > Match and Replace → add rule
 ---
 
 ### Task 1.5 — Project Management & Saving State
+
+> ⚠️ **BURP PRO REQUIRED:** Full project file saving (disk-based projects) is a Pro-only feature. Community Edition only supports temporary projects that are lost when Burp closes. You can manually export selected items.
 
 - [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
 
@@ -326,6 +328,8 @@ Proxy > Options > Match and Replace → add rule
 
 ### Task 3.1 — Active Scanner (Pro Only)
 
+> ⚠️ **BURP PRO REQUIRED:** The Active Scanner is a Pro-only feature. Community Edition users can manually test using Repeater and Intruder.
+
 - [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 40 min
 
 | Field | Detail |
@@ -441,6 +445,8 @@ Proxy > Options > Match and Replace → add rule
 ---
 
 ### Task 4.3 — Burp REST API & Automation
+
+> ⚠️ **BURP PRO REQUIRED:** The REST API for automation and CI/CD integration is a Pro-only feature.
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 30 min
 

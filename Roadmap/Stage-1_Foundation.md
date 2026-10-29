@@ -13,7 +13,7 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 01–07**
-> - **⏱️ Estimated Time:** ~2–3 months of consistent daily sessions
+> - **⏱️ Estimated Time:** ~3–4 months of consistent daily sessions *(2–3 months if you have prior networking/Linux exposure; 4+ months if starting from scratch or pacing Topic 7A on weekends only)*
 > - **🎯 Modules:** `01` Hardware & Architecture · `02` Linux · `03` Windows · `04` Networking · `05` Cryptography · `06` Authentication & Identity · `07` Web Technology Fundamentals
 > - **📅 Programming Track:** Weekend-only — Python, Bash, PowerShell throughout this stage
 > - **🔴 Gate:** 10 PCAPs · admin baselines · 3 scripts · lab report — before moving to Stage 2
@@ -163,6 +163,7 @@
 > [!TIP]
 > ⏱️ **Module 01 Total Time Budget: 5–8 weeks**
 > Topics 1–6 (conceptual) = ~2 weeks. Topic 7A (programming, 4 languages) = 3–5 weeks. Programming is weekend-only per the roadmap; if daily, compress to 3 weeks. Do not skip any language — all four appear in Stage 2 onward.
+> ⚠️ **Scope risk — Topic 7A:** Python and JavaScript each carry a project list of 10+ deliverables. If you build *all* listed projects, add ~1 extra week per language. The stated time brackets assume foundation competency, not full project completion — hold to that boundary or Module 01 becomes a months-long sink.
 
 ### Topic 1: Hardware, CPU & Pre-Boot Environment — 🧠 Conceptual
 [[Topic-1_Hardware-CPU-and-Pre-Boot-Environment|📁]]
@@ -336,7 +337,7 @@
 > ⏱️ **Topic 7A Total Time: 3–5 weeks (daily) or 6–8 weeks (weekends-only)**
 > Broken down by language:
 > - **Python:** 1.5–2 weeks — Core language + security libraries + 3 automation projects
-> - **JavaScript:** 1–1.5 weeks — Core JS + browser internals + security context (DOM XSS, CORS, JWT)
+> - **JavaScript:** 1.5–2 weeks — Core JS + browser internals + security context (DOM XSS, CORS, JWT). Budget the upper end: the scope consistently runs longer than 1 week.
 > - **Bash:** 1 week — Shell fundamentals + CLI tool mastery + automation scripts
 > - **PowerShell:** 1 week — Language + Windows admin + AD automation + 2 projects
 >
@@ -411,11 +412,12 @@
 [[Module-01_Fundamentals/Topic-7A_Programming-and-Scripting-Fundamentals/JAVA_SCRIPT|📄]]
 
 > [!NOTE]
-> ⏱️ **JavaScript Time Bracket: 1–1.5 weeks**
+> ⏱️ **JavaScript Time Bracket: 1.5–2 weeks**
 > Day 1–2: Core language (closures, prototypes, async/await, event loop).
 > Day 3–4: Browser internals — cookies, localStorage, fetch, XHR, WebSockets, Service Workers, DevTools.
 > Day 5–6: Security context — DOM XSS, prototype pollution, CORS misconfiguration, CSP bypasses, JWT misuse. These items are not optional.
 > Day 7–10: Node.js basics + build 2 automation projects (web crawler + JWT analyzer).
+> Day 11–14: Review security context gaps, finish any incomplete automation projects, consolidate notes.
 > Scope note: Do NOT try to master React/Angular/Vue frameworks now. Awareness-level only.
 
 > [!NOTE]
@@ -1147,8 +1149,8 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches the L
 > - 🟡 `Windows PowerShell Cookbook` — PowerShell command reference for admin tasks
 
 > [!TIP]
-> ⏱️ **Module 03 Total Time Budget: 1.5–2 weeks**
-> 6 practical topics + 7 structured labs. This module is heavier than it looks — Topic 6 (Kerberos) alone needs 3–4 days. Run a Windows Server 2022 VM for every topic. Do not do this module on a Linux-only machine.
+> ⏱️ **Module 03 Total Time Budget: 2–2.5 weeks**
+> 6 practical topics + 7 structured labs. This module is heavier than it looks — Topic 6 (Kerberos) alone needs 3–4 days, and realistically 5–6 days for learners without prior Windows identity background. Budget the upper end. Run a Windows Server 2022 VM for every topic. Do not do this module on a Linux-only machine.
 
 _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windows administration skills required by the Foundation Proof Gate and used throughout Active Directory (Module 19), Cloud (Module 20), and Defensive modules._
 
@@ -1246,7 +1248,7 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 [[Module-03_Windows-Administration|📁]]
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 3–4 days** — This is the hardest conceptual topic in Module 03. Do NOT rush it.
+> ⏱️ **Time Bracket: 3–4 days (5–6 days if new to Windows identity)** — This is the hardest conceptual topic in Module 03. Do NOT rush it.
 > Day 1: Kerberos flow (AS-REQ → AS-REP → TGS-REQ → TGS-REP → AP-REQ). Draw it from memory.
 > Day 2: SPNs, LDAP directory structure, DN format, LDAP filters, anonymous bind risks.
 > Day 3: Forest/domain/trust architecture (types, direction, SID history), LSDOU policy processing, account types and privilege tiers.
@@ -1367,6 +1369,7 @@ _Stage 1 — Foundation | Prerequisite: OS Internals | This module teaches Windo
 > ⏱️ **Module 04 Total Time Budget: 2.5–4 weeks** — This is the biggest conceptual module in Stage 1.
 > L1 Physical: 3–4 days | L2 Data Link: 4–5 days | L3 Network: 5–6 days | L4 Transport: 3–4 days | L5–7 Application: 3–4 days | Labs + PCAP: 3–5 days.
 > Do NOT compress this module. Every layer has protocols that appear as attack surfaces in Stage 2 onward. Run Wireshark captures in parallel with each layer — don’t save packet capture work for the end.
+> ⚠️ **Floor warning:** The 2.5-week floor assumes prior networking exposure. If starting from scratch (no subnetting, no TCP/IP, no Wireshark), plan for 3.5–4 weeks. The PCAP lab estimate (3–5 days) is accurate only if Wireshark has been run in parallel with each layer — if saved for the end, add 1 extra week.
 
 ### Layer 1: Physical (The Hardware Surface) — 🧠 Conceptual
 

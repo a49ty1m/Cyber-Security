@@ -44,7 +44,7 @@
 
 **Prerequisites:** Understanding of password hashing concepts. Hash extraction from a compromised target (Metasploitable 2 `/etc/shadow`). GPU recommended but CPU works for learning.
 
-**Alternatives:** John the Ripper (CPU-focused, excellent rule engine, supports more exotic formats), Ophcrack (rainbow tables, Windows-focused), CrackStation (online lookup), Mentalist (wordlist generator GUI).
+**Alternatives:** See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for alternative tools.
 
 ---
 
@@ -408,6 +408,8 @@ hashcat --restore --session mysession
 ---
 
 ### Task 4.4 — GPU Tuning & Optimization
+
+> ⚠️ **VM Limitation:** GPU passthrough may not be available in virtual machines. These techniques are most effective on bare-metal systems with dedicated GPUs.
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 25 min
 

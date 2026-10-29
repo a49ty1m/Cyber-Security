@@ -44,7 +44,69 @@
 
 **Prerequisites:** TCP/IP fundamentals (OSI model, ports, protocols). Basic understanding of HTTP, DNS, ARP, TCP handshake. A lab network with traffic to capture.
 
-**Alternatives:** tcpdump (CLI-based, lightweight, great for remote capture), tshark (Wireshark's CLI version), Zeek/Bro (network security monitoring), NetworkMiner (forensics-focused), Arkime/Moloch (full PCAP indexing at scale).
+**Alternatives:** See [_Notes.md](_Notes.md#alternative-tools-reference) for alternative tools (tcpdump, tshark, Zeek/Bro, NetworkMiner, Arkime/Moloch, etc.).
+
+---
+
+## ⚡ Quick Reference
+
+### Essential Commands
+```bash
+# tshark: CLI packet capture
+sudo tshark -i eth0 -c 100                # capture 100 packets
+sudo tshark -i eth0 -w capture.pcap       # save to file
+tshark -r capture.pcap -Y "http"          # read with display filter
+
+# tcpdump: Remote capture
+sudo tcpdump -i eth0 -w remote.pcap -c 500
+scp user@server:/tmp/remote.pcap .        # transfer for Wireshark analysis
+```
+
+### Top 15 Display Filters
+| Filter | Purpose |
+|:-------|:--------|
+| `http` | All HTTP traffic |
+| `tcp.port == 80` | Specific port |
+| `ip.addr == 192.168.1.10` | Specific IP (src or dst) |
+| `ip.src == 10.0.0.1 && ip.dst == 10.0.0.2` | Source AND destination |
+| `tcp.flags.syn == 1 && tcp.flags.ack == 0` | SYN packets (scan detection) |
+| `http.request.method == "POST"` | HTTP POST requests |
+| `http contains "password"` | Search for string in HTTP |
+| `ftp || telnet` | Insecure protocols |
+| `!(arp || dns || icmp)` | Exclude noise protocols |
+| `tcp.analysis.retransmission` | Network issues |
+| `ssl.handshake` | TLS handshakes |
+| `dns.qry.name contains "malware"` | DNS queries containing text |
+| `http.response.code == 404` | Specific HTTP status |
+| `tcp.stream eq 5` | Follow single TCP stream |
+| `frame.time >= "2024-01-01 10:00:00"` | Time-based filtering |
+
+### Workflow: Credential Extraction
+```bash
+# 1. Filter for insecure protocols
+ftp || telnet || http.authbasic
+
+# 2. Follow TCP stream
+# Right-click packet → Follow → TCP Stream
+
+# 3. Search for keywords
+# Edit → Find Packet → String: "password"
+```
+
+### Workflow: HTTP Analysis
+```bash
+# 1. Filter: http
+# 2. Statistics → Conversations → sort by bytes (find big transfers)
+# 3. File → Export Objects → HTTP (extract files from capture)
+# 4. Follow TCP stream on interesting requests
+```
+
+### Common Pitfalls
+- ⚠️ **Capturing on wrong interface** — Check interface activity graphs first
+- ⚠️ **Not using promiscuous mode** — You only see your own traffic without it
+- ⚠️ **On switched networks, can only see broadcast + your traffic** — Need ARP spoofing or port mirroring to see others
+- ⚠️ **Capture files grow huge fast** — Use capture filters to limit scope
+- ⚠️ **Confusing capture filters (BPF) with display filters** — Capture = during, Display = after
 
 ---
 
@@ -197,17 +259,9 @@
 
 ---
 
-### Task 2.5 — Name Resolution & GeoIP
+---
 
-- [ ] **Completed** · ⭐⭐ Beginner-Intermediate · ⏱️ 15 min
-
-| Field | Detail |
-|:---|:---|
-| **Objective** | Configure Wireshark's name resolution to translate IPs to hostnames, MAC addresses to vendor names, and ports to service names. Optionally add GeoIP databases for geographic location of IPs. |
-| **Skills Learned** | DNS resolution in captures, MAC vendor lookup (OUI database), why resolution helps and when it hurts (performance on large captures), GeoIP for identifying traffic destinations. |
-| **Practical Exercise** | View → Name Resolution → enable all three (MAC, Network, Transport). Notice IPs replaced with hostnames, MACs showing vendor prefixes. For GeoIP: Edit → Preferences → Name Resolution → MaxMind database paths. |
-| **Expected Output** | Readable hostnames instead of IP addresses. Vendor names on MAC addresses (e.g., "VMware" reveals virtual machines). |
-| **Common Mistakes** | Leaving resolution enabled on huge captures (slows Wireshark to a crawl with thousands of DNS lookups). Trusting resolved names blindly (DNS can be spoofed). Not enabling MAC resolution (missing easy identification of device vendors). |
+> **📝 Note on Name Resolution & GeoIP:** Wireshark can translate IPs to hostnames (DNS), MACs to vendor names, and ports to services (View → Name Resolution). GeoIP databases add geographic location but are cosmetic for most security analysis.
 
 ---
 
@@ -402,6 +456,8 @@
 ---
 
 ### Task 4.4 — Wireless Traffic Analysis (802.11)
+
+> ⚠️ **Lab Requirement:** Wireless packet capture requires a monitor-mode capable wireless adapter (most built-in laptop WiFi cards and VM adapters do NOT support this). Recommended: Alfa AWUS036ACH or similar external adapter.
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 35 min
 

@@ -44,7 +44,7 @@
 
 **Prerequisites:** Basic TCP/IP networking. Linux command line basics. Understanding of client-server model.
 
-**Variants:** Traditional Netcat (`nc`), GNU Netcat (`nc.traditional`), OpenBSD Netcat (`nc.openbsd`), Ncat (Nmap's version — most feature-rich, supports SSL), Socat (advanced alternative with encryption and protocol translation).
+**Variants:** Traditional Netcat (`nc`), GNU Netcat, OpenBSD Netcat, Ncat (Nmap's enhanced version with SSL). See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for details and alternatives.
 
 ---
 
@@ -280,18 +280,18 @@ nc -lvnp 4444 | tar xzf -                           # Receiver
 
 ---
 
-### Task 2.7 — Chat & Relay (Connection Brokering)
+### Task 2.7 — Named Pipe Relay (Pivoting Basics)
 
-- [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 20 min
+- [ ] **Completed** · ⭐⭐⭐ Intermediate · ⏱️ 15 min
 
 | Field | Detail |
 |:---|:---|
-| **Objective** | Use Netcat (or Ncat) as a simple chat server between two or more parties. Use Ncat's `--broker` mode for multi-user relay. Understand named pipe relays for traditional Netcat. |
-| **Skills Learned** | Connection brokering, named pipes (FIFOs) for data relay, multi-hop networking, how relays can be used for port forwarding and pivoting. |
-| **Syntax** | Ncat broker: `ncat --broker -lvnp 5555`. Named pipe relay: `mkfifo /tmp/relay; nc -lvnp 4444 < /tmp/relay | nc <target> 80 > /tmp/relay`. |
-| **Real-World Scenario** | Creating a simple relay on a compromised host to forward traffic to an internal network (basic pivoting). |
-| **Expected Output** | Multi-user communication via broker. Traffic relayed through a named pipe to an internal host. |
-| **Common Mistakes** | Not cleaning up named pipes after use (`rm /tmp/relay`). Not understanding that relay adds latency and is fragile (use SSH tunnels for production pivoting). |
+| **Objective** | Use Netcat with named pipes (FIFOs) to create a relay that forwards traffic through a compromised host. This is a fundamental pivoting technique. |
+| **Skills Learned** | Named pipes for data relay, multi-hop networking, how relays enable port forwarding and pivoting through compromised hosts. |
+| **Syntax** | Named pipe relay: `mkfifo /tmp/relay; nc -lvnp 4444 < /tmp/relay | nc <target> 80 > /tmp/relay`. Clean up: `rm /tmp/relay`. |
+| **Real-World Scenario** | Creating a relay on a compromised host to forward traffic to an internal network host that's not directly accessible (basic pivoting). |
+| **Expected Output** | Traffic successfully relayed through named pipe to internal host. Understanding of relay mechanics for pivoting. |
+| **Common Mistakes** | Not cleaning up named pipes after use (`rm /tmp/relay`). Not understanding that this adds latency and is fragile (use SSH tunnels or Meterpreter port forwarding for production pivoting). Leaving the named pipe in place (can cause confusion or be detected). |
 
 ---
 

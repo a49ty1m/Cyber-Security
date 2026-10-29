@@ -44,7 +44,7 @@
 
 **Prerequisites:** Nmap scanning proficiency. Networking fundamentals. Linux CLI basics. Understanding of vulnerabilities and CVEs. A vulnerable target (Metasploitable 2).
 
-**Alternatives:** Cobalt Strike (commercial, red team focused), Sliver (open-source C2), Havoc (modern C2), Empire/Starkiller (PowerShell post-exploitation), manual exploits (standalone scripts from Exploit-DB).
+**Alternatives:** See [_Notes.md](_Notes.md#alternatives--tool-comparisons) for alternative tools.
 
 ---
 
@@ -430,6 +430,8 @@ exploit -j
 ---
 
 ### Task 4.2 — AV/IDS Evasion with msfvenom
+
+> ⚠️ **Reality Check:** Encoders like `shikata_ga_nai` DO NOT bypass modern antivirus. All major AV/EDR products signature-match these encoders as of 2023+. This task is **educational** — it teaches why encoding alone fails. Modern AV uses behavioral detection, machine learning, and sandboxing.
 
 - [ ] **Completed** · ⭐⭐⭐⭐ Advanced · ⏱️ 40 min
 
