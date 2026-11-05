@@ -5,7 +5,7 @@
 
 ## Tools & methodology
 Tools: ssh, ls, cat
-Method: ssh 
+Method: ssh to the server and use ls and cat to find the password for next level using readme but as i found it was not having normal name so i used execution formate `cat ./-` to read the file as it was starting with `-` sign
 
 ## Commands used
 ```bash

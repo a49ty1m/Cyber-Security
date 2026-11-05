@@ -4,12 +4,18 @@
 **Author:** Aditya Mishra
 
 ## Tools & methodology
-Tools:   
-Method: 
+Tools:ssh, ls, cd, cat, file
+Method: ssh into the server then checked files using ls and checked the files type and data using file command first it didn't worked but then i used `file ./*` and found out -file07 have a ascii text so i cat that and i got the password for the next level.
 
 ## Commands used
 ```bash
-cat, ls, file
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+ls
+cd inhere
+ls
+file * #it didn't worked but i did somehing else
+file ./* #it worked
+cat ./-file07
 ```
 
 ## Findings / Solution

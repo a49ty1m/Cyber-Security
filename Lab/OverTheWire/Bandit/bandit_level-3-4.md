@@ -4,12 +4,17 @@
 **Author:** Aditya Mishra
 
 ## Tools & methodology
-Tools:   
-Method: 
+Tools:ssh, ls, cd, cat
+Method: ssh to the server and ls to see the contents of the directory and cat to read the file as it was starting with `-` sign i used `\` to escape it but found it easier to use `./` before the filename so that it is not interpreted as a option by the shell. the file was hidden and contained the password for the next level.
 
 ## Commands used
 ```bash
-cat, ls, cd
+ssh bandit3@bandit.labs.overthewire.org -p 2220
+ls 
+cd inhere
+ls
+ls -alh
+cat ./...Hiding-From-You
 ```
 
 ## Findings / Solution

@@ -4,12 +4,14 @@
 **Author:** Aditya Mishra
 
 ## Tools & methodology
-Tools:   
-Method: 
+Tools:ssh, ls, cat
+Method: ssh to the server and ls to see the contents of the directory and cat to read the file as it was starting with `-` sign i used `\` to escape it but found it easier to use `./` before the filename so that it is not interpreted as a option by the shell.
 
 ## Commands used
 ```bash
-cat, ls
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+ls
+cat ./-spaces\ in\ this\ filename--
 ```
 
 ## Findings / Solution
