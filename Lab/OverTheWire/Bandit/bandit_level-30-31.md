@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- Understanding Git tags: named references to specific points in Git commit history.
-- Using `git tag` to list tags and `git show <tag>` to inspect tag messages and hidden data.
+## What i learned : 
 
 ## Commands used
 ```bash

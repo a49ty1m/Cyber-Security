@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How to use the `find` command to search files by multiple specific attributes across deep directory trees.
-- Using flags like `-type f` (regular file), `-size 1033c` (`c` for bytes), and `! -executable` to filter exactly for the target file.
+## What i learned : 
 
 ## Commands used
 ```bash

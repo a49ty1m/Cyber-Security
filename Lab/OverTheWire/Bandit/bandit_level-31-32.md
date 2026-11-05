@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How `.gitignore` works and how to bypass it using `git add -f` to force-track files.
-- Committing and pushing changes back to remote repositories to trigger automated server hooks that validate submissions.
+## What i learned : 
 
 ## Commands used
 ```bash

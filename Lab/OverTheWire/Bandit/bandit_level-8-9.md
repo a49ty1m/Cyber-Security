@@ -7,10 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How the `uniq` command works in Unix: it only compares adjacent lines.
-- Why we must sort input first before running uniq (`sort data.txt | uniq -u`).
-- The `-u` flag prints only unique lines (lines that appear exactly once), filtering out duplicate repeated lines.
+## What i learned : 
 
 ## Commands used
 ```bash

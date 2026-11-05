@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- Escaping restricted shells that force all command input to uppercase.
-- In Unix shells, `$0` represents the shell itself (which expands to lowercase `sh`), allowing command execution that bypasses the uppercase filter to spawn an unrestricted shell.
+## What i learned : 
 
 ## Commands used
 ```bash

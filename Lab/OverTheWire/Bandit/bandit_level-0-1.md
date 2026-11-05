@@ -7,9 +7,8 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How to use the basic `cat` command to view text files in Linux.
-- Understanding standard output (stdout) and reading files located directly in the home directory (`readme`).
+## What i learned : 
+- Cat(concatenate) command is used to display the content of a file 
 
 ## Commands used
 ```bash

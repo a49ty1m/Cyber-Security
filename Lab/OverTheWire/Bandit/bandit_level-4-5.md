@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- File extensions in Linux are just part of the name and do not determine the true format of a file.
-- How to use the `file` command (`file ./*`) to inspect magic bytes and identify human-readable ASCII text files among multiple binary/data files.
+## What i learned : 
 
 ## Commands used
 ```bash

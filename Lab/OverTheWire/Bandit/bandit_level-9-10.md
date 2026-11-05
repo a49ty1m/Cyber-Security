@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How to use the `strings` command to extract printable character sequences from binary or non-text files.
-- Piping output from `strings` into `grep` (`strings data.txt | grep "=="`) to isolate structured credentials.
+## What i learned : 
 
 ## Commands used
 ```bash

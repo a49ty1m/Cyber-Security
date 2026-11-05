@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- Discovering hidden or development branches in Git repositories.
-- Using `git branch -a` to list all branches and `git log --all` or `git checkout <branch>` to find secrets stored in non-default branches.
+## What i learned : 
 
 ## Commands used
 ```bash

@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How to use `nc` (Netcat) to establish raw TCP network socket connections and submit data to specific local ports (`nc localhost 30000`).
-- Sending automated input into network ports via pipes: `echo "<password>" | nc localhost 30000`. 
+## What i learned : 
 
 ## Commands used
 ```bash

@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- Chaining shell breakouts with local SUID privilege escalation binaries.
-- Running the SUID binary `./bandit27-do` from the newly spawned shell to retrieve the bandit27 password.
+## What i learned : 
 
 ## Commands used
 ```bash

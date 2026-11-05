@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How scheduled background tasks work in Linux using `cron`.
-- Inspecting cron configuration files in `/etc/cron.d/` and analyzing scheduled shell scripts to locate where passwords or output files are generated.
+## What i learned : 
 
 ## Commands used
 ```bash

@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- Basics of Git version control and cloning repositories locally or over SSH.
-- Navigating into cloned git repositories and inspecting READMEs and committed files for sensitive credentials.
+## What i learned : 
 
 ## Commands used
 ```bash

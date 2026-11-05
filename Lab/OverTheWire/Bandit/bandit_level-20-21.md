@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How network sockets work for inter-process communication on localhost.
-- Setting up a netcat listener (`nc -l -p <port>`) to serve the current password while running the setuid client binary (`./suconnect <port>`) concurrently via backgrounding or separate terminals.
+## What i learned : 
 
 ## Commands used
 ```bash

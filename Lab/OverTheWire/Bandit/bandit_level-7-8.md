@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How to use `grep` to search for specific words, strings, or patterns inside huge text files (`grep "millionth" data.txt`).
-- Why grep is essential for log analysis and finding needles in haystacks without manual scrolling.
+## What i learned : 
 
 ## Commands used
 ```bash

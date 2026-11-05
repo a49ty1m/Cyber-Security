@@ -7,9 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- How user startup scripts like `.bashrc` or `.profile` can be used to log users out upon interactive login.
-- How to bypass interactive shell restrictions by passing commands directly to SSH (`ssh bandit18@... -p 2220 cat readme`) or using non-login shell execution.
+## What i learned : 
 
 ## Commands used
 ```bash

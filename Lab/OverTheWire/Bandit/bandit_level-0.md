@@ -7,9 +7,10 @@
 Tools: ssh  
 Method: connect via SSH → read readme
 
-## What i learn : 
+## What i learned : 
 that what is ssh how it is used why it is used 
-like it a 2nd network layer protocol which i layer 3 of osi and and we use for secure shell connections to connect or intereact with other remote servers specially linux but some time mac and windows if avaiable and we use it like the fromate is ssh `username`@`ip-address or hostname` and if needed use -p for port with the port number
+like it a 2nd network layer protocol which i layer 3 of osi and and we use for secure shell connections to connect or intereact with other remote servers specially linux but some time mac and windows if avaiable and we use it like the fromate is ssh `username`@`host` -p `port` (port is optional as it is default port no. 22 but sometimes it is diffrent)
+
 ## Commands used
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220

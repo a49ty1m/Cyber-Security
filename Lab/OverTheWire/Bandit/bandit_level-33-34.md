@@ -7,8 +7,7 @@
 Tools:   
 Method: 
 
-## What i learn : 
-- Completing the Bandit wargame and synthesizing core Linux security skills: command line manipulation, file permissions, network sockets, crypto/hashes, cron jobs, git internals, and restricted shell breakouts.
+## What i learned : 
 
 ## Commands used
 ```bash
