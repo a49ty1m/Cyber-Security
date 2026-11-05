@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Network port scanning on localhost using tools like `nmap` (`nmap -p 31000-32000 localhost`).
+- Identifying which port speaks SSL, submitting credentials, receiving a new SSH RSA private key, and configuring its permissions with `chmod 600` for login.
+
 ## Commands used
 ```bash
 

@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- What ROT13 is: a simple Caesar substitution cipher that shifts letters by 13 positions.
+- How to use the `tr` (translate) command to map character ranges: `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'` to decrypt ROT13.
+
 ## Commands used
 ```bash
 

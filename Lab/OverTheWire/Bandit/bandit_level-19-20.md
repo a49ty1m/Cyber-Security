@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Understanding the SUID (Set Owner User ID) bit on executables (`-rwsr-x---`).
+- An SUID executable runs with the permissions of the file owner (bandit20) rather than the executing user (bandit19), allowing access to privileged files like `/etc/bandit_pass/bandit20`.
+
 ## Commands used
 ```bash
 ssh bandit19@bandit.labs.overthewire.org -p 2220

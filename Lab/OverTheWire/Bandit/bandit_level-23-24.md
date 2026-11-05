@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Exploiting insecure wildcard cron jobs that execute any script found in a spool directory.
+- Writing a custom shell script in `/tmp`, making it executable (`chmod +x`), copying it into the spool folder, and having cron execute it with higher privileges to copy the target password.
+
 ## Commands used
 ```bash
 

@@ -7,6 +7,11 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- How bash uses spaces as argument delimiters, meaning a filename like `spaces in this filename` is split into multiple arguments unless protected.
+- How to escape spaces with a backslash (`spaces\ in\ this\ filename`) or enclose the filename in quotation marks (`"spaces in this filename"`).
+- Tab auto-completion in the shell automatically escapes spaces for you.
+
 ## Commands used
 ```bash
 

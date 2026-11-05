@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Communicating with network services that require SSL/TLS encryption.
+- Plain netcat fails on SSL/TLS ports; how to use `openssl s_client -connect localhost:30001` or `ncat --ssl` to send data over an encrypted channel.
+
 ## Commands used
 ```bash
 

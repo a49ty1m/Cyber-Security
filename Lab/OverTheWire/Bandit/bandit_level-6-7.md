@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- How to search the entire root filesystem (`find /`) by owner (`-user bandit7`), group (`-group bandit6`), and size (`-size 33c`).
+- How to suppress permission denied errors and clean up terminal output using stderr redirection to the null device (`2>/dev/null`).
+
 ## Commands used
 ```bash
 

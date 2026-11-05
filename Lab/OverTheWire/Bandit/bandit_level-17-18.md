@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Comparing two files line-by-line using the `diff` command (`diff passwords.old passwords.new`).
+- Reading diff output markers (`<` and `>`) to immediately identify which password was modified.
+
 ## Commands used
 ```bash
 

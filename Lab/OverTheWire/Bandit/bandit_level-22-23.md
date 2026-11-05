@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Reverse engineering shell scripts executed by cron.
+- How to analyze script logic that calculates dynamic file paths (e.g. hashing strings with MD5) and replicate that logic to find where target credentials are saved in `/tmp/`.
+
 ## Commands used
 ```bash
 

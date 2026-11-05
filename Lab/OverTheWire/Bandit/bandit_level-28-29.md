@@ -7,6 +7,10 @@
 Tools:   
 Method: 
 
+## What i learn : 
+- Git commit history preserves all past versions of files even after they have been deleted or modified in the working tree.
+- Using `git log`, `git log -p`, and `git diff` to inspect previous commits and recover leaked credentials.
+
 ## Commands used
 ```bash
 
