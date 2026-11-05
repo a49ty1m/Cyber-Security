@@ -4,19 +4,18 @@
 **Author:** Aditya Mishra
 
 ## Tools & methodology
-Tools:   
-Method: 
-
-## What i learned : 
-- Cat(concatenate) command is used to display the content of a file 
+Tools:ssh, ls, cat
+Method: connect using ssh and use ls and cat to find the password for next level using readme
 
 ## Commands used
 ```bash
-ssh , cat
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+ls
+cat readme
 ```
 
 ## Findings / Solution
-- Password for next level: 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR
+- Password for next level:`6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR`
 
 ## Execution
 ```bash

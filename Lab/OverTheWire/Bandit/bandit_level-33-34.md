@@ -7,8 +7,6 @@
 Tools:   
 Method: 
 
-## What i learned : 
-
 ## Commands used
 ```bash
 ssh bandit33@bandit.labs.overthewire.org -p 2220

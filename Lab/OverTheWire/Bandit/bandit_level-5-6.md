@@ -7,8 +7,6 @@
 Tools:   
 Method: 
 
-## What i learned : 
-
 ## Commands used
 ```bash
 
