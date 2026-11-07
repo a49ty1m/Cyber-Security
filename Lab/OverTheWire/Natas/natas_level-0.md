@@ -15,13 +15,12 @@ tags: [web, overthewire, natas]
 | Password   | natas0                                   |
 
 ## Steps
-1. 
-2. 
+1. did nothing 
 
 ## Key Concepts
-- 
+- starting
 
 ## Flag / Password
 ```
-natas1: 
+natas0 - natas0
 ```

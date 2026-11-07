@@ -15,13 +15,15 @@ tags: [web, overthewire, natas]
 | Password   | (from previous level)                    |
 
 ## Steps
-1. 
-2. 
+1. opened firefox and entered url and it asked for username password
+2. entered username and password and i was logged in
+3. ented and tried to go to the source code 
+4. and there in the source code i found the password for the next level
 
 ## Key Concepts
 - 
 
 ## Flag / Password
 ```
-natas2: 
+natas2: vsDOxoXyq3wckCP1ZmTZ71ngIA606odB
 ```
