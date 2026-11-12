@@ -42,97 +42,180 @@
 ###### 🟢 Phase 2 — Beginner Projects (1 Month)
 
 - [ ] **Project: Password Strength Checker**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** variables, strings, control flow *(from Core Fundamentals)*
+  - **Topics to Learn:**
     - [ ] User input handling (`input()`)
     - [ ] Conditions, logic, and software decision-making
-    - [ ] String analysis and control flow
+    - [ ] String analysis and strength scoring
 
 - [ ] **Project: Port Scanner & Banner Grabber**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** functions, error handling *(from Core Fundamentals)*
+  - **Topics to Learn:**
     - [ ] `socket` – TCP/UDP networking, client-server communication
-    - [ ] Socket programming (TCP/UDP)
-    - [ ] Concurrent networking using threading, multiprocessing, and asyncio
-    - [ ] Connection timeouts, error handling, and banner grabbing logic
+    - [ ] Threading, multiprocessing, and `asyncio` – concurrent networking
+    - [ ] Connection timeouts and banner grabbing logic
 
 - [ ] **Project: Simple Website Scraper**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** file handling, loops *(from Core Fundamentals)*
+  - **Topics to Learn:**
     - [ ] `requests` – HTTP requests and sessions
     - [ ] `BeautifulSoup (bs4)` – HTML parsing and web scraping
-    - [ ] Pulling headlines/data automatically and storing to file
-    - [ ] Foundation for OSINT automation
+    - [ ] Storing scraped data to file; foundation for OSINT automation
+
+- [ ] **Project: System Info & Geolocation Extractor**
+  - **Prerequisites:** `requests` *(Port Scanner / Website Scraper)*
+  - **Topics to Learn:**
+    - [ ] `platform` – OS version and system info
+    - [ ] `uuid`, `getmac` – MAC address and unique identifiers
+    - [ ] System fingerprinting and footprinting basics
 
 ###### 🟡 Phase 3 — Intermediate Projects (2–3 Months)
 
 - [ ] **Project: Subdomain Enumerator**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** threading/asyncio *(Port Scanner)*, `requests` *(Website Scraper)*
+  - **Topics to Learn:**
     - [ ] `dnspython` – DNS enumeration and record analysis
-    - [ ] Concurrent request handling and wordlist-based brute forcing
-    - [ ] DNS resolution logic
+    - [ ] Wordlist-based brute forcing and DNS resolution logic
 
 - [ ] **Project: Log Analyzer & IOC Extractor**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** file handling *(Core Fundamentals)*
+  - **Topics to Learn:**
     - [ ] `re` – Regular expressions for pattern matching
-    - [ ] File handling (reading large logs line-by-line, stream processing)
+    - [ ] Stream processing large files line-by-line
     - [ ] `csv` – CSV file processing
     - [ ] `json` – JSON parsing and manipulation
     - [ ] `xml.etree.ElementTree / lxml` – XML parsing
     - [ ] `PyYAML` – YAML parsing and configuration handling
 
 - [ ] **Project: API Automation Tool & Vulnerability Checker**
-  - **Topics & Libraries to learn along with this project:**
-    - [ ] REST APIs and HTTP communication
-    - [ ] `requests` – REST APIs, sessions, authentication, headers, and status verification
-    - [ ] `json` – JSON parsing and manipulation
+  - **Prerequisites:** `requests` *(Website Scraper)*, `json` *(Log Analyzer)*
+  - **Topics to Learn:**
+    - [ ] REST API authentication — headers, sessions, status verification
     - [ ] Input validation, secrets handling, and configuration management
 
 - [ ] **Project: Packet Analyzer**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** `socket`, threading *(Port Scanner)*
+  - **Topics to Learn:**
     - [ ] `scapy` – Packet crafting, sniffing, and network protocol analysis
     - [ ] `pyshark` – Packet capture (PCAP) analysis using Wireshark/TShark
     - [ ] Network protocol analysis and raw packet inspection
 
 - [ ] **Project: Discord Bot**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** `asyncio` *(Port Scanner)*, API integration *(API Automation Tool)*
+  - **Topics to Learn:**
     - [ ] `discord.py` – Bot creation, event handling, commands
-    - [ ] Async programming and event-driven design
-    - [ ] API integration and webhook usage
+    - [ ] Event-driven design and webhook usage
 
 - [ ] **Project: Simple Malware Analysis Tool**
-  - **Topics & Libraries to learn along with this project:**
-    - [ ] String extraction from binary/suspicious files (`strings`, `re`)
-    - [ ] File I/O and binary reading
+  - **Prerequisites:** `re` *(Log Analyzer)*, file I/O *(Core Fundamentals)*
+  - **Topics to Learn:**
+    - [ ] Binary file reading and string extraction from suspicious files
     - [ ] Identifying indicators of compromise (IOCs) in file contents
 
 - [ ] **Project: Web Crawler & Directory Brute Forcer**
-  - **Topics & Libraries to learn along with this project:**
-    - [ ] `requests` – HTTP requests, REST APIs, sessions, authentication
-    - [ ] `BeautifulSoup (bs4)` – HTML parsing and web scraping
-    - [ ] `Selenium` – Browser automation and dynamic web application testing
+  - **Prerequisites:** `requests`, `BeautifulSoup` *(Website Scraper)*, threading *(Port Scanner)*
+  - **Topics to Learn:**
+    - [ ] `Selenium` – Browser automation and dynamic web app testing
     - [ ] `urllib.parse` – URL parsing and encoding/decoding
-    - [ ] HTTP communication and SSL/TLS basics
-    - [ ] Concurrent request handling for directory fuzzing
+    - [ ] SSL/TLS basics and concurrent request handling for fuzzing
 
 - [ ] **Project: Report Generator**
-  - **Topics & Libraries to learn along with this project:**
-    - [ ] Structured data export (CSV, JSON, formatted text)
-    - [ ] Data processing, file writing, and logging
+  - **Prerequisites:** `csv`, `json` *(Log Analyzer)*, file writing *(Core Fundamentals)*
+  - **Topics to Learn:**
+    - [ ] Structured data export formatting (CSV, JSON, formatted text)
+    - [ ] Data processing pipeline design and logging
 
 - [ ] **Project: Remote Automation & Secure Communication Tool**
-  - **Topics & Libraries to learn along with this project:**
+  - **Prerequisites:** SSL/TLS basics *(Web Crawler)*
+  - **Topics to Learn:**
     - [ ] `paramiko` – SSH automation, remote command execution, SFTP
     - [ ] `cryptography` – Encryption, hashing, digital signatures, certificates
-    - [ ] SSL/TLS basics and secure channel communication
+
+- [ ] **Project: Educational Keylogger PoC**
+  - **Prerequisites:** `getmac` *(System Info Extractor)*, `requests` *(Website Scraper)*
+  - **Topics to Learn:**
+    - [ ] `pynput` – Low-level keyboard and mouse input monitoring
+    - [ ] `win32gui` – Active window detection (Windows)
+    - [ ] `smtplib` – Email logs to self
+    - [ ] ⚠️ *Ethical use only — test systems, always disclose*
+
+- [ ] **Project: Browser Autofill Attack Simulation**
+  - **Prerequisites:** HTML basics *(Web Crawler / general)*
+  - **Topics to Learn:**
+    - [ ] `Flask` – Local web server and routing
+    - [ ] HTML form design and autofill behavior exploitation for security awareness
+
+- [ ] **Project: Phishing Page PoC (Offline Awareness)**
+  - **Prerequisites:** `Flask` *(Browser Autofill Simulation)*
+  - **Topics to Learn:**
+    - [ ] `Jinja2` – Templating for simulated credential capture pages
+    - [ ] Static page cloning and local log capture
+    - [ ] ⚠️ *Offline/local only — for security awareness training*
+
+- [ ] **Project: Python .exe Binder with Image**
+  - **Prerequisites:** `os`, file handling *(Core Fundamentals)*
+  - **Topics to Learn:**
+    - [ ] `pyinstaller` – Compile Python scripts to executables
+    - [ ] `zipfile` – Archive manipulation and file bundling
+    - [ ] Steganography simulation — hiding payloads in plain sight
+    - [ ] ⚠️ *Ethical use only — steganography education, not exploitation*
 
 ###### 🔴 Phase 4 — Advanced Projects (By Month 6)
 
 - [ ] **Project: Web Crawler (Advanced)**
+  - **Prerequisites:** `requests`, `BeautifulSoup`, `Selenium`, `urllib.parse` *(Web Crawler & Directory Brute Forcer)*
 - [ ] **Project: OSINT Framework**
+  - **Prerequisites:** `requests`, `dnspython`, `BeautifulSoup`, `getmac` *(all earlier projects)*
 - [ ] **Project: Network Monitoring Dashboard**
+  - **Prerequisites:** `scapy`, `pyshark` *(Packet Analyzer)*, `Flask` *(Browser Autofill Simulation)*
 - [ ] **Project: Phishing Detection Tool**
+  - **Prerequisites:** `re`, `requests`, `BeautifulSoup` *(Log Analyzer, Website Scraper)*
 - [ ] **Project: AI-Powered Security Assistant**
+  - **Prerequisites:** `requests`, REST APIs *(API Automation Tool)*, `Flask` *(Browser Autofill Simulation)*
 - [ ] **Project: Malware Sandbox**
+  - **Prerequisites:** binary reading, IOC extraction *(Simple Malware Analysis Tool)*, `subprocess`
 - [ ] **Project: Custom Vulnerability Scanner**
+  - **Prerequisites:** `socket` *(Port Scanner)*, `requests` *(API Automation Tool)*, `dnspython` *(Subdomain Enumerator)*
 - [ ] **Project: Packet Inspection Tool**
+  - **Prerequisites:** `scapy`, `pyshark` *(Packet Analyzer)*
+
+- [ ] **Project: Firewall Evasion Script (Outbound Tester)**
+  - **Prerequisites:** `socket`, threading *(Port Scanner)*
+  - **Topics to Learn:**
+    - [ ] `subprocess` – Spawning system processes and reading output
+    - [ ] Testing outbound connections across ports and understanding filter bypass
+
+###### 🏆 Phase 5 — Portfolio & Hosting Projects
+
+- [ ] **Project: Flask-Based Security Tools Dashboard**
+  - **Prerequisites:** `Flask`, `Jinja2` *(Phishing Page PoC)*, all previous PoC tools
+  - **Topics to Learn:**
+    - [ ] Bootstrap – Frontend styling and responsive layout
+    - [ ] Integrating multiple tools into a single locally-hosted GUI
+
+- [ ] **Project: Personal Website for Tools & Reports**
+  - **Prerequisites:** Markdown, HTML *(general/fundamentals)*
+  - **Topics to Learn:**
+    - [ ] GitHub Pages / Netlify – Static site hosting and deployment
+    - [ ] Publishing tool docs, blog posts, and downloadable project ZIPs
+
+- [ ] **Project: Markdown to Medium Sync Pipeline**
+  - **Prerequisites:** Markdown *(general)*, HTML *(Web Crawler / Phishing PoC)*
+  - **Topics to Learn:**
+    - [ ] `markdown`, `html2text` – Convert between Markdown and HTML formats
+    - [ ] GitHub Actions *(optional)* – Automate sync on push
+
+- [ ] **Project: Email Notification Bot**
+  - **Prerequisites:** `smtplib` *(Educational Keylogger PoC)*
+  - **Topics to Learn:**
+    - [ ] `email`, `ssl` – Structured email composition and secure sending
+    - [ ] Pattern-based alerting from logs or input events
+
+- [ ] **Project: Proof of Concept Index Page**
+  - **Prerequisites:** HTML *(Browser Autofill Simulation)*, `markdown` *(Markdown Sync Pipeline)*
+  - **Topics to Learn:**
+    - [ ] Building a clickable HTML table of contents linking all PoC projects
+    - [ ] Python Markdown-to-HTML generation for interview/client demos
 
 ##### 3. Advanced / Exploit Development
 - [ ] **pwntools** _(learn later)_ – Binary exploitation, CTFs, exploit development, ROP, shellcode
