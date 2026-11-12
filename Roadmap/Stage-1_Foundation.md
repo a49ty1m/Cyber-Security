@@ -111,6 +111,7 @@
   - [[#Topic 4: OpenID Connect (OIDC) — Federated Identity — 🧠 Conceptual|Topic 4: OpenID Connect (OIDC) — Federated Identity]]
   - [[#Topic 5: API Authentication Patterns — 🧠 Conceptual|Topic 5: API Authentication Patterns]]
   - [[#Topic 6: Multi-Factor Authentication (MFA) Types & Weaknesses — 🧠 Conceptual|Topic 6: Multi-Factor Authentication (MFA) Types & Weaknesses]]
+  - [[#Topic 7: Zero Trust Architecture (ZTA) — 🧠 Conceptual|Topic 7: Zero Trust Architecture (ZTA)]]
   - [[#Lab Progression (Module 06: Authentication Standards)|Lab Progression (Module 06: Authentication Standards)]]
   - [[#🏆 Stage 1 Capstone Project|🏆 Stage 1 Capstone Project]]
   - [[#🧭 Stage 1 Reflection & Competency Check|🧭 Stage 1 Reflection & Competency Check]]
@@ -2567,33 +2568,21 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 ---
 
 ### Topic 6: Post-Quantum Cryptography (PQC) — 🧠 Conceptual
+[[Topic-6_Post-Quantum-Cryptography|📁]]
 
 > [!TIP]
 > **Goal:** Understand the quantum threat to current public-key cryptography and the NIST-standardised replacements being deployed in production now.
 
 > [!NOTE]
-> ⏱️ **Time Bracket: 1 day** — Why Shor’s Algorithm breaks RSA/ECC/DH (factoring + discrete log), why AES-256 survives (Grover halves key strength), “Harvest Now Decrypt Later” threat model, NIST PQC standards (ML-KEM/Kyber, ML-DSA/Dilithium, SLH-DSA), hybrid deployment (X25519MLKEM768 in Chrome/Firefox), crypto-agility principle, SIKE broken classically (2022 lesson), ZKP awareness. Deliverable: document the 3 NIST PQC standards with their use case and security assumption in your notes. Check `openssl s_client` against a modern server for X25519MLKEM768 in the KeyShare groups.
+> ⏱️ **Time Bracket: 1 day** — Understand why quantum computers threaten RSA/ECC/DH through Shor's Algorithm (solves factoring and discrete log in polynomial time), while symmetric algorithms like AES-256 remain quantum-resistant (Grover's Algorithm only halves key strength). Explore the "Harvest Now, Decrypt Later" threat where adversaries collect encrypted traffic today to decrypt when quantum computers arrive. Study the three NIST PQC standards (ML-KEM for key exchange, ML-DSA for signatures, SLH-DSA for hash-based signatures) and current hybrid deployment strategies like X25519MLKEM768 used in Chrome/Firefox. Learn crypto-agility principles for algorithm migration, review the 2022 SIKE failure showing classical cryptanalysis still matters, and gain awareness of Zero-Knowledge Proofs (zk-SNARKs/STARKs) as emerging primitives. Deliverable: document the 3 NIST PQC standards with their use case and security assumption; verify hybrid PQC support using `openssl s_client` against a modern TLS server.
 
-- [ ] **Why Quantum Breaks Current Public-Key Crypto:** RSA/ECC/DH/DSA rely on factoring and discrete log hardness — **Shor's Algorithm** solves both in polynomial time on a CRQC. Symmetric algorithms are weakened but survive: Grover's Algorithm halves key strength, so AES-256 retains ~128-bit security post-quantum. AES-256 and SHA-384+ are safe; RSA/ECC/DH are not.
-
-- [ ] **"Harvest Now, Decrypt Later" (HNDL) Threat:** Adversaries collect encrypted TLS traffic today to decrypt later with a CRQC. Data with long sensitivity periods (classified communications, medical records, financial contracts) is already at risk. This is why PQC migration is urgent before a CRQC exists.
-
-- [ ] **NIST PQC Standards (August 2024):**
-  - **ML-KEM (FIPS 203)** — Replaces RSA/ECDH for key exchange. Also called Kyber. Based on Module LWE (Learning With Errors) lattice problem.
-  - **ML-DSA (FIPS 204)** — Replaces RSA/ECDSA for signatures. Also called Dilithium.
-  - **SLH-DSA (FIPS 205)** — Hash-based signature algorithm. Algorithm diversity complement to ML-DSA.
-
-- [ ] **Hybrid Deployment (Current Best Practice):** Combine classical (X25519) with PQC (ML-KEM) in a single TLS handshake (`X25519MLKEM768`). If either is broken, the session remains secure. Chrome and Firefox enabled hybrid PQC key exchange by default in 2024.
-
-- [ ] **Crypto-Agility:** Design systems so cryptographic algorithms can be swapped without re-engineering. Use libraries with algorithm abstraction (OpenSSL 3.x, BouncyCastle) rather than hardcoding algorithm identifiers.
-
-- [ ] **SIKE Broken Classically (2022):** SIKE — a NIST PQC finalist — was broken by a classical computer in 62 minutes in 2022. This illustrates that "post-quantum" does not mean "quantum-only threat" — novel constructions can be broken by classical cryptanalysis.
-
-- [ ] **Zero-Knowledge Proofs (ZKP) — Awareness:** A zero-knowledge proof allows one party (the prover) to convince another (the verifier) that a statement is true without revealing any information beyond the truth of the statement. Relevant to:
-  - **zk-SNARKs (Succinct Non-Interactive Argument of Knowledge):** Used in Zcash and Ethereum's zkEVM. Prover demonstrates knowledge of a secret satisfying a circuit without revealing the secret.
-  - **zk-STARKs:** Transparent (no trusted setup) alternative to SNARKs. Larger proofs but post-quantum secure.
-  - **ZKP-based authentication:** Prove knowledge of a password without sending the password — no secret transmitted, no hash to steal.
-  - **Security relevance:** ZKP systems introduce new attack surfaces (circuit under-constrained bugs, trusted setup compromise in pairing-based SNARKs). Full ZKP security is covered in Shelf 10 (Blockchain & Web3 Security). Awareness here is sufficient for Stage 1.
+- [ ] **Why Quantum Breaks Current Public-Key Crypto:** RSA/ECC/DH/DSA rely on factoring and discrete log hardness — **Shor's Algorithm** solves both in polynomial time on a CRQC (Cryptographically Relevant Quantum Computer). Symmetric algorithms are weakened but survive: Grover's Algorithm halves key strength, so AES-256 retains ~128-bit security post-quantum. *Security angle: AES-256 and SHA-384+ are safe; RSA/ECC/DH are not.*
+- [ ] **"Harvest Now, Decrypt Later" (HNDL) Threat:** Adversaries collect encrypted TLS traffic today to decrypt later with a CRQC. Data with long sensitivity periods (classified communications, medical records, financial contracts) is already at risk. *Security angle: PQC migration is urgent before a CRQC exists — the clock starts now, not when quantum computers are publicly available.*
+- [ ] **NIST PQC Standards (August 2024):** Master the three FIPS-standardized algorithms: **ML-KEM (FIPS 203)** replaces RSA/ECDH for key exchange (also called Kyber, based on Module-LWE lattice problem); **ML-DSA (FIPS 204)** replaces RSA/ECDSA for signatures (also called Dilithium); **SLH-DSA (FIPS 205)** is a hash-based signature algorithm providing algorithm diversity as complement to ML-DSA.
+- [ ] **Hybrid Deployment (Current Best Practice):** Combine classical (X25519) with PQC (ML-KEM) in a single TLS handshake (`X25519MLKEM768`). If either is broken, the session remains secure. *Security angle: Chrome and Firefox enabled hybrid PQC key exchange by default in 2024 — this is production reality now, not future speculation.*
+- [ ] **Crypto-Agility:** Design systems so cryptographic algorithms can be swapped without re-engineering. Use libraries with algorithm abstraction (OpenSSL 3.x, BouncyCastle) rather than hardcoding algorithm identifiers. *Security angle: systems lacking crypto-agility cannot migrate to PQC without complete rewrites.*
+- [ ] **SIKE Broken Classically (2022):** SIKE — a NIST PQC finalist — was broken by a classical computer in 62 minutes in 2022. *Security lesson: "post-quantum" does not mean "quantum-only threat" — novel constructions can be broken by classical cryptanalysis. Algorithm diversity (multiple independent approaches) is essential.*
+- [ ] **Zero-Knowledge Proofs (ZKP) — Awareness:** A zero-knowledge proof allows one party (the prover) to convince another (the verifier) that a statement is true without revealing any information beyond the truth of the statement. **zk-SNARKs** (Succinct Non-Interactive Argument of Knowledge) are used in Zcash and Ethereum's zkEVM — prover demonstrates knowledge of a secret satisfying a circuit without revealing the secret. **zk-STARKs** are transparent (no trusted setup) alternatives with larger proofs but post-quantum security. **ZKP-based authentication** proves knowledge of a password without sending the password. *Security angle: ZKP systems introduce new attack surfaces (circuit under-constrained bugs, trusted setup compromise in pairing-based SNARKs). Full ZKP security is covered in Shelf 10 (Blockchain & Web3 Security). Awareness here is sufficient for Stage 1.*
 
 ### Lab Progression (Cryptography)
 
@@ -2621,8 +2610,8 @@ _Purpose: Develop a repeatable, professional workflow for capturing, filtering, 
 > **Why This Exists Here:** Modules 15, 17, 19, and 25 all reference OAuth, OIDC, JWT, and session tokens as attack surfaces. Students routinely hit JWT attacks and OAuth consent phishing without understanding how token issuance actually works. This primer fills that conceptual gap now — before I hit the attack techniques. Deep exploitation and protocol abuse are covered in Module 17 (API Security, Stage 3) and Module 19 (Entra ID, Stage 4). This module is concepts only.
 
 > [!TIP]
-> ⏱️ **Module 06 Total Time Budget: 1–1.5 weeks**
-> Topic 1 (sessions): 1 day | Topic 2 (JWT): 2 days | Topic 3 (OAuth): 2 days | Topic 4 (OIDC): 1–2 days | Topic 5 (API auth): 1 day | Topic 6 (MFA): 1–2 days | Labs: 2 days.
+> ⏱️ **Module 06 Total Time Budget: 1.5–2 weeks**
+> Topic 1 (sessions): 1 day | Topic 2 (JWT): 2 days | Topic 3 (OAuth): 2 days | Topic 4 (OIDC): 1–2 days | Topic 5 (API auth): 1 day | Topic 6 (MFA): 1–2 days | Topic 7 (Zero Trust): 1–2 days | Labs: 2 days.
 > This is concepts-only. No deep exploitation yet. The payoff comes in Module 17 (Stage 3) where you attack OAuth flows and JWT implementations. Build the mental model here.
 
 _Purpose: Understand how modern applications establish and maintain identity. Understand what tokens ARE, how they are issued, and how they are validated — before I learn to forge or steal them._
@@ -2800,6 +2789,49 @@ _Purpose: Understand how modern applications establish and maintain identity. Un
 
 > [!NOTE]
 > **Cross-Reference:** MFA bypass attacks (Evilginx2, push bombing, device code phishing) are covered in **Module 13** (System Hacking), **Module 20/25** (Cloud & Weaponization), and **Module 19** (Entra ID MFA conditional access bypass). The mechanism explains above make those attack descriptions immediately actionable.
+
+---
+
+### Topic 7: Zero Trust Architecture (ZTA) — 🧠 Conceptual
+[[Topic-7_Zero-Trust-Architecture|📁]]
+
+> [!TIP]
+> **Goal:** Understand Zero Trust principles and how they fundamentally change security architecture from perimeter-based to identity-centric continuous verification.
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Study the foundational Zero Trust principles that replace perimeter-based security: "Never Trust, Always Verify" (no implicit trust from network location), "Assume Breach" (design as if attackers are already inside), least privilege access (minimum permissions for minimum duration), explicit verification (authenticate/authorize using all available signals: user, device, location, behavior), and micro-segmentation (contain lateral movement through granular network boundaries). Understand NIST SP 800-207's three-component architecture: Policy Engine (makes access decisions), Policy Administrator (establishes communication paths), and Policy Enforcement Point (enforces connections at every access point). Explore the shift from network-centric security (firewalls, VLANs, "inside" vs "outside") to identity-centric continuous authentication where every request is individually verified. Compare Zero Trust Network Access (ZTNA) vs traditional VPNs, study Software-Defined Perimeter (SDP) patterns, and examine Google's BeyondCorp model. Deliverable: diagram a traditional perimeter model versus a Zero Trust model, annotating where each attack vector exists and how threat containment differs.
+- [ ] **Never Trust, Always Verify:** Master the core principle — no implicit trust based on network location (internal ≠ trusted). Every access attempt requires explicit verification regardless of origin. *Security angle: eliminates the traditional "castle-and-moat" assumption where lateral movement is easy once inside.*
+- [ ] **Assume Breach:** Design as if attackers are already inside the perimeter. Architecture must contain damage and prevent persistence even after initial compromise. *Security angle: shifts defensive posture from "prevent entry" to "contain impact and detect anomalies."*
+- [ ] **Least Privilege Access:** Grant minimum necessary permissions for minimum necessary duration. Time-bound access tokens replace persistent credentials. *Security angle: reduces credential theft value — stolen tokens expire quickly and have narrow scope.*
+- [ ] **Verify Explicitly:** Authenticate and authorize based on all available data points (user identity, device health, location, behavior anomalies, real-time threat intel) — not just username/password. *Security angle: stolen credentials alone insufficient for access; device posture and context also required.*
+- [ ] **Micro-Segmentation:** Segment networks and applications at granular levels (per-workload, per-application) to contain lateral movement. *Security angle: compromised workstation cannot pivot freely; each connection requires fresh authentication through Policy Enforcement Points (PEPs).*
+- [ ] **NIST SP 800-207 Zero Trust Architecture:** Understand the three-component model: **Policy Engine (PE)** makes access decisions based on policy and trust signals; **Policy Administrator (PA)** establishes/shuts down communication paths between subjects and resources; **Policy Enforcement Point (PEP)** enables, monitors, and terminates connections (deployed at every access point). *Security angle: centralized policy engine prevents inconsistent enforcement; PEPs cannot be bypassed without detection.*
+- [ ] **Identity as the New Perimeter:** Understand that ZTA shifts security from **network-centric** (firewalls, VLANs, "inside" vs "outside") to **identity-centric** (who you are, what device you're using, what you're trying to access, from where, and when). Every request is authenticated and authorized individually. *Security angle: network location no longer conveys trust — VPN access does not equal "trusted" status.*
+- [ ] **Continuous Assessment & Adaptive Trust:** ZTA continuously evaluates user identity strength, device health/compliance posture, location/network context, behavioral anomalies (impossible travel, unusual access patterns), and real-time threat intelligence. Trust scores adjust dynamically — access can be revoked mid-session. *Security angle: compromised session detected and terminated when behavior deviates from baseline.*
+- [ ] **Zero Trust vs Traditional Perimeter Security:** Master the architectural shift: Traditional perimeter trusts anything inside (easy lateral movement, network-based access control, VPN grants broad network access). Zero Trust trusts nothing by default (identity-based per-request authorization, heavily restricted lateral movement through micro-segmentation, ZTNA grants app-level access only with no network visibility). *Security angle: breach of perimeter ≠ breach of all systems; containment is architectural, not procedural.*
+- [ ] **Software-Defined Perimeter (SDP):** Pre-authentication isolation where resources remain invisible until identity is verified. Single Packet Authorization (SPA) reveals services only after cryptographic proof of identity. *Security angle: port scanning reveals nothing; services respond only to authenticated clients.*
+- [ ] **Zero Trust Network Access (ZTNA) vs VPN:** **VPN** grants broad network access (once in, you're "inside" the trusted zone). **ZTNA** grants application-level access only with no network visibility or lateral movement capability. ZTNA brokers include Zscaler Private Access (ZPA), Cloudflare Access, Palo Alto Prisma Access. *Security angle: ZTNA-connected compromised device cannot pivot to other systems; access limited to explicitly granted applications.*
+- [ ] **BeyondCorp Model (Google):** No privileged corporate network; all access via identity-aware proxies; device inventory and posture checks enforced; context-aware access policies adjust dynamically. *Security angle: employee laptop on coffee shop WiFi receives same zero-trust treatment as one on corporate network — location conveys no privilege.*
+- [ ] **ZTA Components in Practice:** **Identity Provider (IdP)** (Okta, Azure AD, Ping Identity) provides central authentication. **Device Management (MDM/UEM)** (Intune, Jamf, Workspace ONE) enforces device compliance. **Conditional Access Policies** enforce dynamic rules (e.g., MFA required from unknown locations, block unmanaged devices). **Micro-Segmentation Tools** (Illumio, VMware NSX, Guardicore) prevent lateral movement at network level. **SIEM/SOAR Integration** feeds continuous monitoring into trust decisions. *Security angle: defense-in-depth through policy orchestration across identity, device, network, and monitoring layers.*
+- [ ] **Practical Red Team Implications of Zero Trust:** No "internal network" assumption (compromised workstation ≠ network access; every connection requires fresh authentication). Lateral movement harder (micro-segmentation blocks RDP/SMB pivots; must use application access paths). API calls authenticated (no "trusted service account" bypass). Device posture matters (unmanaged/non-compliant devices blocked even with valid credentials). Session hijacking limited (continuous verification detects location change/impossible travel). Attack surface shifts to identity compromise (phishing-resistant MFA bypass, token theft, consent grants, API abuse). *Security lesson: ZTA doesn't prevent initial compromise — it prevents lateral movement, privilege escalation, and persistence.*
+- [ ] **Zero Trust Maturity Awareness:** Traditional (perimeter-based, flat networks, implicit trust) → Initial (basic identity/device management, some segmentation) → Advanced (comprehensive ZTNA, continuous monitoring, adaptive policies) → Optimal (fully automated policy enforcement, AI-driven anomaly detection, assumed breach posture). *Security angle: understand where current environment sits on maturity spectrum to identify trust boundaries attackers can exploit.*
+- [ ] **Common Zero Trust Myths:** Zero Trust is not a single product (it's an architecture); does not eliminate VPNs entirely (hybrid approaches common during transition); does not make systems unhackable (reduces attack surface and blast radius, doesn't eliminate risk); applies at any scale (not enterprise-only). *Security lesson: ZTA is a design principle, not a checklist — implementations vary widely in rigor.*
+
+> [!NOTE]
+> **Attacker Perspective:** Zero Trust doesn't prevent initial compromise (phishing, stolen credentials still work). It prevents **lateral movement, privilege escalation, and persistence**. As a red teamer, you must understand ZTA controls to identify where they fail:
+> - Weak conditional access policies (MFA not enforced everywhere)
+> - Over-privileged service principals (cloud workload identities with excessive permissions)
+> - Trust boundaries that still exist (admin jump boxes, legacy systems exempt from ZTA)
+> - API tokens with long lifetimes and broad scopes (bearer tokens cached in memory/disk)
+> - Device compliance bypass (rooted/jailbroken devices not detected)
+
+> [!NOTE]
+> **Cross-Reference:**
+> - **Module 19 (Entra ID & M365 Security):** Covers Conditional Access policies, device compliance, privileged identity management — Zero Trust implementation in Azure
+> - **Module 20 (AWS Security):** IAM policies, service control policies, VPC endpoints — Zero Trust in AWS
+> - **Module 25 (Cloud Red Team Ops):** Covers attacking Zero Trust implementations (token theft, device compliance bypass, conditional access evasion)
+
+---
 
 ### Lab Progression (Module 06: Authentication Standards)
 

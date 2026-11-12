@@ -13,11 +13,11 @@
 
 > [!NOTE]
 > **Stage Overview — Modules 14–18**
-> - **⏱️ Estimated Time:** ~8–10 weeks of consistent daily sessions
-> - **🎯 Modules:** `14`–`16` Web Application & Server Hacking · `17` API Security · `18` Bug Bounty Methodology
+> - **⏱️ Estimated Time:** ~9–12 weeks of consistent daily sessions
+> - **🎯 Modules:** `14`–`16` Web Application & Server Hacking · `17` API Security · `17B` Mobile Application Security · `18` Bug Bounty Methodology
 > - **🟡 Parallel (absorb only, never block):** Detection Awareness · IDS/Honeypots · OSINT/CTI
-> - **🔴 Gate:** 3+ HTB/THM writeups · OWASP Top 10 hands-on · Linux+Windows privesc demonstrated cold — before moving to Stage 4
-> - **🎯 Primary Focus:** Web application hacking, session hijacking & token attacks, web server exploitation, API security (OWASP API Top 10), and professional bug bounty methodology.
+> - **🔴 Gate:** 3+ HTB/THM writeups · OWASP Top 10 hands-on · Mobile app assessment · Linux+Windows privesc demonstrated cold — before moving to Stage 4
+> - **🎯 Primary Focus:** Web application hacking, session hijacking & token attacks, web server exploitation, API security (OWASP API Top 10), mobile application security (OWASP Mobile Top 10), and professional bug bounty methodology.
 
 ---
 
@@ -76,6 +76,13 @@
   - [[#Topic 4: API Authentication & Token Attacks — 🔬 Practical|Topic 4: API Authentication & Token Attacks]]
   - [[#Topic 5: Defense & Hardening — 🧠 Conceptual|Topic 5: Defense & Hardening]]
   - [[#Lab Progression (Module 17: API Security)|Lab Progression (Module 17: API Security)]]
+- [[#Module 17B: Mobile Application Security|Module 17B: Mobile Application Security]]
+  - [[#Topic 1: Mobile Application Reconnaissance & Setup — 🔬 Practical|Topic 1: Mobile Application Reconnaissance & Setup]]
+  - [[#Topic 2: OWASP Mobile Top 10 Exploitation — 🔬 Practical|Topic 2: OWASP Mobile Top 10 Exploitation]]
+  - [[#Topic 3: Mobile API Security — 🔬 Practical|Topic 3: Mobile API Security]]
+  - [[#Topic 4: Platform-Specific Attacks — 🔬 Practical|Topic 4: Platform-Specific Attacks]]
+  - [[#Topic 5: Mobile Defense & Hardening — 🧠 Conceptual|Topic 5: Mobile Defense & Hardening]]
+  - [[#Lab Progression (Module 17B: Mobile Application Security)|Lab Progression (Module 17B: Mobile Application Security)]]
 - [[#Module 18: Bug Bounty Methodology|Module 18: Bug Bounty Methodology]]
   - [[#Topic 1: Preparation & Scoping — 🧠🔬 Mixed|Topic 1: Preparation & Scoping]]
   - [[#Topic 2: Reconnaissance (The Wide Net) — 🔬 Practical|Topic 2: Reconnaissance (The Wide Net)]]
@@ -727,6 +734,165 @@
 > **Move-On Gate:** I can discover undocumented API endpoints, test all OWASP API Top 10 categories, exploit JWT/OAuth flaws, attack REST/GraphQL/gRPC APIs, and produce a professional API security assessment report.
 
 ---
+
+---
+
+## Module 17B: Mobile Application Security
+[[Module-17B_Mobile-Application-Security|📁]]
+
+> [!NOTE]
+> **📚 Recommended Books for This Module**
+> - 🔴 `Mobile Application Hacker's Handbook` — Essential reference for mobile security
+> - 🔴 `The Mobile Application Hacker's Handbook` — Comprehensive iOS/Android exploitation
+> - 🟡 `Android Hacker's Handbook` — Deep Android security coverage
+> - 🟡 `iOS Application Security` — iOS-specific security testing
+> - 🟢 `OWASP Mobile Security Testing Guide (MSTG)` — Industry standard mobile testing methodology
+
+> [!TIP]
+> ⏱️ **Module 17B Total Time Budget: 1–1.5 weeks**
+> T1 (mobile recon/setup): 2 days | T2 (OWASP Mobile Top 10): 2–3 days | T3 (API attacks mobile context): 1 day | T4 (platform-specific): 1–2 days | T5 (defense): 1 day.
+> Mobile security is CRITICAL for modern attack surface. Every mobile app is an API client — test the APIs. Every mobile app stores tokens/keys — extract them. Mobile is where Zero Trust fails most (BYOD, unmanaged devices). Set up your Android/iOS testing environments correctly or you will waste days troubleshooting.
+
+### Topic 1: Mobile Application Reconnaissance & Setup — 🔬 Practical
+[[Topic-1_Mobile-Recon-Setup|📁]]
+
+> [!TIP]
+> **Goal:** Set up mobile testing environment and perform reconnaissance
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Master mobile security testing environment configuration for both Android and iOS platforms. Set up Android Studio AVD with Google Play services, root using Magisk, install Frida server for runtime manipulation, and configure Burp Suite CA certificate as system certificate via Magisk (required for TLS interception). Configure iOS testing with jailbroken device or Corellium cloud-based device, install Frida, SSL Kill Switch 2 for certificate pinning bypass, and Burp CA. Learn static analysis through APK decompilation (jadx/apktool), automated scanning (MobSF), and grep-based secret hunting (API keys, URLs, hardcoded credentials). Master dynamic analysis setup including Burp Suite mobile proxy configuration and Frida scripting for runtime manipulation. Deliverable: successfully intercept HTTPS traffic from an Android app in Burp Suite with certificate pinning bypassed using Frida.
+
+- [ ] **Android Testing Environment:** Set up **Android Studio AVD (rooted), Magisk, Frida, Burp Suite CA as system certificate**
+
+- [ ] **iOS Testing Environment:** Set up **jailbroken device or Corellium cloud device, Frida, SSL Kill Switch 2, Objection**
+
+- [ ] **APK/IPA Static Analysis:** Decompile with **jadx, apktool, MobSF**; grep for **API keys, hardcoded secrets, URLs, Firebase misconfigurations**
+
+- [ ] **Dynamic Analysis Setup:** Configure **Burp Suite proxy, Frida scripts, Objection for runtime manipulation**
+
+- [ ] **Certificate Pinning Bypass:** Use **Frida scripts, SSL Kill Switch 2, Objection** to bypass pinning and intercept HTTPS traffic
+
+---
+
+### Topic 2: OWASP Mobile Top 10 Exploitation — 🔬 Practical
+[[Topic-2_OWASP-Mobile-Top-10|📁]]
+
+> [!TIP]
+> **Goal:** Test each mobile-specific vulnerability class
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Systematically exploit all ten OWASP Mobile vulnerabilities: M1 (Improper Platform Usage - iOS Keychain/Android KeyStore extraction, intent scheme abuse, exported activities), M2 (Insecure Data Storage - unencrypted SQLite databases, readable shared preferences, PII in logs), M3 (Insecure Communication - missing certificate pinning, cleartext HTTP), M4 (Insecure Authentication - biometric bypass via Frida, insecure token storage), M5 (Insufficient Cryptography - hardcoded keys, weak algorithms like ECB mode), M6 (Insecure Authorization - client-side checks, JWT not validated server-side), M7 (Client Code Quality - buffer overflows, WebView code injection), M8 (Code Tampering - app re-signing, runtime manipulation), M9 (Reverse Engineering - extract business logic and API endpoints), M10 (Extraneous Functionality - debug endpoints, test accounts). Deliverable: complete all InsecureBank or DIVA Android challenges with documented exploits for each vulnerability class.
+
+- [ ] **M1 — Improper Platform Usage:** Exploit **misuse of iOS Keychain/Android KeyStore, TouchID/FaceID bypass, deeplink/URL scheme hijacking, exported activities**
+
+- [ ] **M2 — Insecure Data Storage:** Extract **SQLite databases, SharedPreferences, realm files, logs, temp files** containing **PII, tokens, credentials**
+
+- [ ] **M3 — Insecure Communication:** Exploit **missing certificate pinning, weak TLS configurations, cleartext HTTP traffic, mixed content**
+
+- [ ] **M4 — Insecure Authentication:** Bypass **biometric authentication with Frida hooks, extract tokens from insecure storage, test session timeout absence**
+
+- [ ] **M5 — Insufficient Cryptography:** Find **hardcoded encryption keys, weak algorithms (DES, ECB mode), predictable IVs, custom crypto implementations**
+
+- [ ] **M6 — Insecure Authorization:** Test **client-side access control, role checks not enforced server-side, privilege escalation via parameter tampering**
+
+- [ ] **M7 — Client Code Quality:** Exploit **buffer overflows in native libraries, format string bugs, code injection via WebView `loadUrl()`**
+
+- [ ] **M8 — Code Tampering:** Re-sign APK with attacker certificate, inject Frida gadget, bypass root/jailbreak detection, hook security checks
+
+- [ ] **M9 — Reverse Engineering:** Decompile app, extract **business logic, proprietary algorithms, API endpoints, encryption keys** from code
+
+- [ ] **M10 — Extraneous Functionality:** Find **hidden debug menus, test user accounts, staging API endpoints, verbose logging in prod builds**
+
+---
+
+### Topic 3: Mobile API Security — 🔬 Practical
+[[Topic-3_Mobile-API-Security|📁]]
+
+> [!TIP]
+> **Goal:** Attack mobile app APIs specifically
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Focus on mobile-specific API attack vectors. Extract API endpoints through APK/IPA decompilation (search strings.xml and source code for URLs/endpoints), test mobile-specific BOLA vulnerabilities (substitute user_id parameters in `/api/user/{id}` endpoints), extract and replay authentication tokens (pull JWT/OAuth tokens from app storage, test token reuse across devices), bypass device binding mechanisms (test if API validates device_id/IMEI or accepts same token from different devices), and discover hardcoded API keys in decompiled code (test if keys are static or rotate, assess permission scope). Deliverable: extract API base URL and authentication token from a mobile app, replay requests in Postman, and identify at least one BOLA/IDOR vulnerability.
+
+- [ ] **API Endpoint Discovery:** Extract **base URLs, API endpoints, GraphQL schemas** from decompiled app code and network traffic
+
+- [ ] **Mobile BOLA/IDOR Testing:** Substitute **user IDs, object IDs** in API requests intercepted from mobile app
+
+- [ ] **Token Extraction & Replay:** Extract **JWTs, OAuth tokens, API keys** from app storage; test **token reuse across devices, session binding**
+
+- [ ] **Device Binding Bypass:** Test if APIs validate **device fingerprints, IMEI, push notification tokens** — bypass if client-side only
+
+- [ ] **API Key Security:** Find **hardcoded API keys** in APK/IPA; test if **keys rotate, have proper scoping, or grant excessive permissions**
+
+---
+
+### Topic 4: Platform-Specific Attacks — 🔬 Practical
+[[Topic-4_Platform-Specific-Attacks|📁]]
+
+> [!TIP]
+> **Goal:** Exploit Android and iOS unique attack surfaces
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1–2 days** — Master platform-specific mobile attack vectors unique to Android and iOS. For Android: exploit intent injection via `adb shell am start -n` with crafted extras, query exported content providers using `adb shell content query --uri`, leverage WebView `addJavascriptInterface` for RCE, target insecure broadcast receivers, and execute tapjacking/clickjacking attacks. For iOS: hijack URL schemes, bypass Universal Links validation, abuse custom keyboard apps to steal input, access app groups shared containers, and manipulate plist files. Deliverable: successfully exploit an exported Android activity to bypass authentication OR exploit an iOS URL scheme to trigger unintended functionality with documented proof-of-concept.
+
+- [ ] **Android-Specific Attacks:**
+  - [ ] **Intent Injection:** Exploit exported activities/services via `adb shell am start` with crafted extras
+  - [ ] **Content Provider Leakage:** Query exported providers via `adb shell content query --uri content://...`
+  - [ ] **WebView Vulnerabilities:** Exploit `addJavascriptInterface` for RCE, file:// scheme access, UXSS
+  - [ ] **Broadcast Receiver Abuse:** Send malicious broadcasts to unprotected receivers
+  - [ ] **Tapjacking/Clickjacking:** Overlay attacks on sensitive UI elements
+
+- [ ] **iOS-Specific Attacks:**
+  - [ ] **URL Scheme Hijacking:** Register same scheme as legitimate app to intercept deeplinks
+  - [ ] **Universal Links Bypass:** Test validation of `apple-app-site-association` file, exploit misconfigurations
+  - [ ] **Keychain Extraction:** Use Frida to dump keychain items at runtime
+  - [ ] **App Groups Exploitation:** Access shared containers between apps in same group
+  - [ ] **Plist Manipulation:** Modify app configuration files after jailbreak
+
+---
+
+### Topic 5: Mobile Defense & Hardening — 🧠 Conceptual
+
+> [!TIP]
+> **Goal:** Understand mobile security controls and their limitations
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Runtime protection (root/jailbreak detection — bypassed with Frida/Magisk Hide, anti-Frida checks — bypassed with frida-server renamed), obfuscation (ProGuard/DexGuard for Android, symbol stripping for iOS — delays but does not prevent reverse engineering), secure storage (Android KeyStore hardware-backed, iOS Secure Enclave — strongest available option), certificate pinning (network_security_config.xml, TrustKit, SSL Pinning — bypass with Frida is common), app attestation (SafetyNet/Play Integrity for Android, App Attest for iOS — validates app integrity and device trust). Deliverable: review a mobile app's security controls (pinning, root detection, obfuscation) and document bypass techniques for each.
+
+- [ ] **Runtime Application Self-Protection (RASP):** Understand **root/jailbreak detection, debugger detection, emulator detection, Frida detection** — and their bypasses
+
+- [ ] **Code Obfuscation:** Know **ProGuard, DexGuard, R8 (Android)** and **symbol stripping, control flow flattening (iOS)** — delays reverse engineering, does not prevent it
+
+- [ ] **Secure Storage Best Practices:** Use **Android KeyStore (hardware-backed), iOS Keychain with kSecAttrAccessibleWhenUnlockedThisDeviceOnly**
+
+- [ ] **Certificate Pinning Implementation:** Implement via **network_security_config.xml (Android), TrustKit (iOS)** — understand Frida bypass is common
+
+- [ ] **App Attestation:** Understand **SafetyNet/Play Integrity API (Android), DeviceCheck/App Attest (iOS)** for device and app integrity validation
+
+- [ ] **Mobile Device Management (MDM):** Know how **Intune, Jamf, MobileIron** enforce compliance policies, remote wipe, app allowlisting
+
+---
+
+### Lab Progression (Module 17B: Mobile Application Security)
+
+| Level | Task | Deliverable |
+| ----- | ---- | ------------ |
+| 1 | Set up rooted Android AVD + Burp Suite; intercept HTTPS traffic from an app | Lab setup documentation |
+| 2 | Complete all DIVA Android or InsecureBank challenges | Challenge writeups with exploits |
+| 3 | Extract hardcoded API keys from a real bug bounty target APK (ethically) | API key extraction report |
+| 4 | Bypass certificate pinning with Frida on 3 different apps | Frida script collection |
+| 5 | Find and exploit BOLA vulnerability in mobile app API | Full vulnerability report |
+| 6 | Perform full security assessment of an open-source mobile app | Comprehensive security report |
+
+**Recommended Practice Apps:**
+- [DVIA (Damn Vulnerable iOS App)](http://damnvulnerableiosapp.com/)
+- [InsecureBankv2 (Android)](https://github.com/dineshshetty/Android-InsecureBankv2)
+- [DIVA Android](https://github.com/payatu/diva-android)
+- [MSTG Hacking Playground](https://github.com/OWASP/MSTG-Hacking-Playground)
+- [Oversecured Vulnerable Android App](https://github.com/oversecured/ovaa)
+
+> [!IMPORTANT]
+> **Move-On Gate:** I can intercept mobile HTTPS traffic in Burp Suite with pinning bypassed. I can decompile an APK/IPA and extract hardcoded secrets. I can test for OWASP Mobile Top 10 vulnerabilities systematically. I can identify mobile-specific API vulnerabilities (BOLA, token security).
 
 ---
 
@@ -1883,8 +2049,17 @@ README must explain: what a keylogger hook is, why false positives are unavoidab
 > | 17 API Security | [HackTheBox Labs](https://app.hackthebox.com) | **Postman** · **BookWorm** | REST and GraphQL API attacks |
 > | 17 API Security | [DVWA](https://dvwa.co.uk) / [crAPI](https://github.com/OWASP/crAPI) | Deploy locally and work through all labs | Dedicated API vulnerability practice |
 > | 18 Bug Bounty | [PentesterLab](https://pentesterlab.com) | White Badge + Green Badge exercises | Bug class recognition in real code |
-> | 18 Bug Bounty | [HackerOne](https://www.hackerone.com) / [Bugcrowd](https://www.bugcrowd.com) | Join 1 public program and submit 1 report | Real-world recon + reporting practice |
-> **Rule:** For every PortSwigger lab you complete, write one paragraph explaining the root cause, not just the steps.
+
+---
+
+> [!INFO] 📦 **Shelf 22: Software Supply Chain Security — Moved to Shelf**
+> This advanced module covers SBOM generation, dependency management, CI/CD pipeline security, SLSA framework, and supply chain attack vectors. While critical for professional work, it's considered too advanced for initial learning.
+> 
+> **📍 Location:** [[Shelf_Post-Hire#Shelf 22: Software Supply Chain Security|Shelf_Post-Hire: Shelf 22]]
+> 
+> **When to study:** After securing your first role or when working with DevSecOps/CI-CD pipelines professionally.
+
+---
 
 ## 🏁 Stage Gate 2 — Web Application Security Gate
 

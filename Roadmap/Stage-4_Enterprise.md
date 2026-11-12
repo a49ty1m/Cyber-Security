@@ -116,6 +116,346 @@
 
 ---
 
+## Module 19A: SOC & Security Operations
+[[Module-19A_SOC-Security-Operations|📁]]
+
+> [!NOTE]
+> **📚 Recommended Books for This Module**
+> - 🔴 `Blue Team Handbook: SOC, SIEM, and Threat Hunting` — Comprehensive SOC operations guide
+> - 🔴 `Practical Threat Intelligence and Data-Driven Threat Hunting` — Hands-on threat hunting
+> - 🟡 `Security Operations Center: Building, Operating, and Maintaining your SOC` — SOC architecture & operations
+> - 🟡 `Applied Network Security Monitoring` — NSM and detection engineering
+> - 🟢 `The Practice of Network Security Monitoring` — Foundational NSM concepts
+
+> [!IMPORTANT]
+> **Why This Module Exists:** Red teamers who understand blue team operations are MORE EFFECTIVE at bypassing detection. SOC knowledge makes you versatile: offensive skills + defensive awareness = market-ready security professional. This module provides hands-on SIEM engineering and detection writing — NOT just theory.
+
+> [!TIP]
+> ⏱️ **Module 19A Total Time Budget: 2–3 weeks**
+> T1 (SOC fundamentals): 2 days | T2 (Log management): 2 days | T3 (SIEM engineering): 1 week | T4 (EDR/XDR): 2-3 days | T5 (Detection engineering): 3-4 days | T6 (Threat hunting): 3-4 days.
+> SIEM skills are IN DEMAND. Splunk + Microsoft Sentinel + Elastic experience makes you competitive for SOC analyst, detection engineer, and threat hunter roles. As a red teamer, you will use this knowledge to understand what defenders see and how to evade their detections.
+
+### Topic 1: SOC Fundamentals & Architecture — 🧠 Conceptual
+[[Topic-1_SOC-Fundamentals|📁]]
+
+> [!TIP]
+> **Goal:** Understand how Security Operations Centers function and what they monitor
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Master Security Operations Center organizational structure and workflows. Understand the three-tier analyst model (Tier 1 for alert triage, Tier 2 for investigation and analysis, Tier 3 for advanced threat hunting and threat intelligence), specialized roles (Detection Engineers create rules, Incident Responders handle escalations), and complete SOC workflows from alert ingestion through triage, investigation, escalation, remediation, and documentation. Learn critical SOC metrics including MTTD (Mean Time to Detect), MTTR (Mean Time to Respond), false positive rates, and alert fatigue management. Study the SOC technology stack components (SIEM for log correlation, EDR/XDR for endpoint visibility, NDR for network monitoring, SOAR for automation, TIP for threat intelligence, case management systems). Understand 24/7 operational challenges (shift handoffs, playbook adherence, on-call rotation, burnout) and SOC maturity progression from reactive (alert-driven) to proactive (hunting, baselining) to predictive (AI/ML-driven anomaly detection). Deliverable: diagram a complete SOC technology stack and workflow showing how an alert moves from generation to resolution.
+
+- [ ] **SOC Organizational Structure:** Understand the three-tier analyst model: **Tier 1** performs alert triage and initial categorization, **Tier 2** conducts investigation and analysis of escalated incidents, **Tier 3** performs advanced threat hunting and threat intelligence correlation. Specialized roles include **Detection Engineers** who create and tune detection rules, and **Incident Responders** who handle escalations and remediation. *SOC angle: red teamers who understand SOC structure know which tier detects what — evade Tier 1 automated alerts, survive Tier 2 investigation, avoid Tier 3 hunt patterns.*
+- [ ] **SOC Workflows:** Master the complete incident lifecycle: **alert ingestion** (SIEM receives events) → **triage** (Tier 1 categorizes severity/validity) → **investigation** (Tier 2 analyzes scope/impact) → **escalation** (promote to Tier 3 or IR) → **remediation** (contain and eradicate threat) → **documentation** (create post-incident report and lessons learned). *SOC angle: each phase has detection opportunities; red team operations must account for handoffs where fresh eyes review earlier activity.*
+- [ ] **SOC Metrics — Mean Time to Detect (MTTD):** Time from initial compromise to first detection. Lower is better. *SOC angle: red teamers aim to maximize dwell time before MTTD; blue teamers optimize detection coverage to minimize MTTD.*
+- [ ] **SOC Metrics — Mean Time to Respond (MTTR):** Time from detection to containment/remediation. Speed prevents lateral movement. *SOC angle: red team exercises measure MTTR under stress; slow MTTR = more time for objective completion.*
+- [ ] **SOC Metrics — False Positive Rate:** Percentage of alerts that are benign. High FPR causes alert fatigue and missed true positives. *SOC angle: red teamers exploit alert fatigue — blend malicious activity into high-noise alerts that analysts dismiss.*
+- [ ] **SOC Metrics — Alert Volume & Fatigue:** Daily alert count per analyst. Excessive volume (>100/day/analyst) leads to missed detections. *SOC angle: volume-based DDoS against SOC — flood with false positives to hide real attacks.*
+- [ ] **SOC Metrics — Incident Severity Distribution:** Ratio of Critical:High:Medium:Low incidents. Unbalanced distribution indicates tuning issues. *SOC angle: severity inflation (everything Critical) = analyst burnout; severity deflation = real threats categorized Low.*
+- [ ] **SOC Technology Stack — SIEM (Security Information & Event Management):** Centralized log aggregation, correlation, and alerting platform. Examples: Splunk, Microsoft Sentinel, Elastic. *SOC angle: SIEM is SOC's eyes — evading SIEM detection rules = evading SOC visibility.*
+- [ ] **SOC Technology Stack — EDR/XDR (Endpoint/Extended Detection & Response):** Agent-based endpoint monitoring with behavioral analytics. Examples: CrowdStrike, SentinelOne, Microsoft Defender for Endpoint. *SOC angle: EDR telemetry feeds SIEM; EDR evasion techniques (unhook, direct syscalls) critical for red team.*
+- [ ] **SOC Technology Stack — NDR (Network Detection & Response):** Network traffic analysis for lateral movement, C2, exfiltration. Examples: Darktrace, ExtraHop, Vectra. *SOC angle: NDR detects anomalous network behavior; C2 must blend with legitimate traffic patterns.*
+- [ ] **SOC Technology Stack — SOAR (Security Orchestration, Automation & Response):** Automates repetitive tasks (enrichment, containment, ticketing). Examples: Palo Alto Cortex XSOAR, Splunk SOAR. *SOC angle: SOAR accelerates response; red team must complete objectives before automated containment triggers.*
+- [ ] **SOC Technology Stack — TIP (Threat Intelligence Platform):** Aggregates and correlates threat intelligence feeds (IOCs, TTPs, actor profiles). Examples: ThreatConnect, Anomali, MISP. *SOC angle: TIP matches observed activity to known threats; unique TTPs evade TIP correlation.*
+- [ ] **SOC Technology Stack — Case Management Systems:** Track incidents from detection to closure. Examples: TheHive, RTIR, ServiceNow Security Operations. *SOC angle: case management ensures nothing falls through cracks; persistent access requires avoiding case creation entirely.*
+- [ ] **24/7 Operations Challenges:** SOC operates continuously with shift handoffs (night shift → day shift knowledge transfer), playbook adherence (consistent response procedures across shifts), on-call rotation (incident escalation paths), and alert fatigue mitigation (tuning rules to reduce noise). *SOC angle: shift changes = opportunity for activity review gaps; exploit handoff periods when fresh analysts haven't internalized context.*
+- [ ] **SOC Maturity Model:** SOCs evolve through maturity levels: **Reactive** (purely alert-driven, no hunting), **Proactive** (threat hunting, baseline anomaly detection, threat intelligence integration), **Predictive** (AI/ML anomaly detection, predictive threat modeling, automated response). *SOC angle: reactive SOCs miss novel TTPs; proactive/predictive SOCs require sophisticated evasion and blending with normal behavior.*
+
+---
+
+### Topic 2: Log Management & Analysis — 🔬 Practical
+[[Topic-2_Log-Management-Analysis|📁]]
+
+> [!TIP]
+> **Goal:** Master log collection, parsing, normalization, and analysis
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Master comprehensive log management across all enterprise sources. Study diverse log sources including Windows Event Logs (Security, System, Application, PowerShell, Sysmon), Linux logs (/var/log/auth.log, syslog, auditd, systemd journal), network device logs (firewall, IDS/IPS, proxy, DNS), application logs (web servers, databases, custom applications), and cloud platform logs (AWS CloudTrail, Azure Activity Log, GCP Cloud Logging). Understand log formats (JSON, CEF Common Event Format, LEEF, syslog, XML, key-value pairs) and collection methods (agent-based like Splunk UF/Elastic Beats vs agentless syslog forwarding vs cloud API ingestion). Learn log normalization techniques to map vendor-specific fields to common schemas (CIM, ECS). Define log retention policies balancing compliance requirements, storage costs, and query performance through hot/warm/cold storage tiers. Deep dive into critical Windows Event IDs (4624/4625 logon, 4688 process creation, 4672 privileges, 4768/4769 Kerberos) and Linux authentication/audit logs. Deliverable: manually parse and analyze 5 different log types, then automate extraction using Python or SPL/KQL queries.
+
+- [ ] **Windows Event Logs Collection:** Ingest Security, System, Application, PowerShell, and Sysmon event logs from domain controllers, workstations, and servers. *SOC angle: Windows logs reveal authentication, process execution, and privilege escalation — missing these = blind to core attack chain.*
+- [ ] **Linux Logs Collection:** Collect /var/log/auth.log (authentication), syslog (system messages), auditd (system calls/file access), and systemd journal logs. *SOC angle: Linux logs track SSH access, sudo abuse, and persistence mechanisms; missing auditd = no forensic trail.*
+- [ ] **Network Device Logs Collection:** Ingest firewall (connection permit/deny), IDS/IPS (threat detections), proxy (web access), and DNS (query/response) logs. *SOC angle: network logs detect lateral movement, C2 beaconing, and data exfiltration; missing DNS logs = no malware domain detection.*
+- [ ] **Application Logs Collection:** Collect web server (access/error logs), database (query/authentication), and custom application logs. *SOC angle: application logs reveal exploitation attempts (SQL injection, path traversal), privilege abuse, and data access patterns.*
+- [ ] **Cloud Logs Collection:** Ingest AWS CloudTrail (API calls), Azure Activity Log (resource changes), GCP Cloud Logging (service operations). *SOC angle: cloud logs track identity abuse, resource creation (C2 infrastructure), and configuration changes; cloud-blind SOC = missed cloud attacks.*
+- [ ] **Log Formats Understanding:** Master JSON, CEF (Common Event Format), LEEF, syslog RFC 5424, XML, and key-value pair formats for cross-platform parsing. *SOC angle: format mismatch breaks parsing; unparsed logs = missed detections; attackers exploit format edge cases.*
+- [ ] **Agent-Based Log Collection:** Deploy Splunk Universal Forwarder, Elastic Beats, or Azure Monitor Agent on endpoints for reliable log shipping. *SOC angle: agents provide guaranteed delivery and buffering; red team may kill agents to create visibility gaps.*
+- [ ] **Agentless Log Collection:** Configure syslog forwarding, WinRM remote log access, or API ingestion for network devices and appliances without agent support. *SOC angle: agentless = network-dependent; network segmentation or firewall rules can block log flow.*
+- [ ] **Cloud-Native Log Connectors:** Use AWS S3 ingestion, Azure Event Hub, or GCP Pub/Sub for native cloud log collection. *SOC angle: cloud connector misconfiguration = delayed log ingestion; real-time detection requires proper streaming setup.*
+- [ ] **Log Normalization to Common Schemas:** Map vendor-specific field names (src_ip vs source.ip vs ClientIP) to Common Information Model (CIM) or Elastic Common Schema (ECS). *SOC angle: normalized fields enable cross-platform correlation; unnormalized logs = detection rules fail across vendors.*
+- [ ] **Log Retention Policy Design:** Define hot (fast SSD, 7-30 days), warm (slower disk, 30-90 days), cold (archive, 1+ years) storage tiers balancing compliance, costs, and query performance. *SOC angle: short retention = limited historical hunting; attackers exploit retention gaps to hide long-term persistence.*
+- [ ] **Event ID 4624/4625 Analysis:** Track successful (4624) and failed (4625) Windows logon events including logon type (2=interactive, 3=network, 10=RDP) and source workstation. *SOC angle: type 3 logons from workstation-to-workstation = lateral movement; failed logons = brute force or password spray.*
+- [ ] **Event ID 4688 Process Creation:** Monitor new process creation with full command-line arguments to detect suspicious execution (PowerShell, cmd, regsvr32, rundll32). *SOC angle: command-line logging reveals LOLBins abuse, encoded commands, and script execution; disabled logging = blind to execution.*
+- [ ] **Event ID 4672 Special Privileges:** Track when accounts are assigned special privileges (SeDebugPrivilege, SeImpersonatePrivilege) indicating admin-level activity. *SOC angle: unexpected privilege assignment = potential privilege escalation or token manipulation.*
+- [ ] **Event ID 4768/4769 Kerberos Analysis:** Monitor TGT requests (4768) and TGS requests (4769) for Kerberoasting (RC4 encryption), Golden Ticket (unusual TGT lifetime), and service access patterns. *SOC angle: TGS requests for high-value SPNs with RC4 = Kerberoasting; anomalous TGT = Golden Ticket abuse.*
+- [ ] **Event ID 4776 NTLM Authentication:** Track NTLM authentication events to detect Pass-the-Hash attacks and environments where Kerberos should be used but NTLM falls back. *SOC angle: NTLM from unexpected source = Pass-the-Hash; excessive NTLM = Kerberos misconfiguration or downgrade attack.*
+- [ ] **Event ID 4720 User Creation:** Alert on new user account creation, especially in privileged groups or during off-hours. *SOC angle: unauthorized user creation = persistence mechanism; backdoor accounts often created post-compromise.*
+- [ ] **Event ID 1102 Audit Log Cleared:** Critical alert for audit log clearing attempts, indicating attacker anti-forensics or insider threat cover-up. *SOC angle: log clearing = adversary knows they're being logged; immediate investigation required.*
+- [ ] **PowerShell Operational Log Analysis:** Enable script block logging (EventID 4104) and module logging to capture PowerShell commands and scripts executed. *SOC angle: PowerShell is primary post-exploitation tool; script block logging reveals obfuscated commands, download cradles, and malicious scripts.*
+- [ ] **Sysmon Log Analysis:** Parse Sysmon Event IDs for process creation (1), network connections (3), file creation (11), registry modifications (12/13), and image loads (7). *SOC angle: Sysmon provides detailed telemetry missing from default Windows logs; critical for endpoint detection.*
+- [ ] **Linux auth.log / secure Analysis:** Parse SSH login attempts, sudo command execution, and authentication failures from /var/log/auth.log (Debian/Ubuntu) or /var/log/secure (RHEL/CentOS). *SOC angle: failed SSH attempts = brute force; sudo commands reveal privilege escalation and lateral movement.*
+- [ ] **Linux syslog Analysis:** Monitor /var/log/syslog for system-wide messages including service starts/stops, kernel messages, and daemon activity. *SOC angle: unusual service starts (cron jobs, systemd units) = persistence; kernel messages reveal rootkit activity.*
+- [ ] **Linux auditd Analysis:** Configure and parse auditd logs for file access (open/read/write), syscall monitoring (execve for command execution), and user actions. *SOC angle: auditd provides syscall-level visibility; tracks file tampering, privilege escalation, and persistence mechanisms.*
+- [ ] **Linux journalctl Analysis:** Query systemd journal logs with journalctl for service failures, boot messages, and application logs. *SOC angle: journal logs capture service abuse and systemd timer-based persistence; centralized logging source for modern Linux systems.*
+
+---
+
+### Topic 3: SIEM Engineering — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Deploy, configure, and operate SIEM platforms hands-on
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 week** — SIEM architecture (data ingestion → parsing → indexing → storage → search → correlation → alerting → visualization), Splunk hands-on (SPL syntax, search modes, field extraction, lookups, macros, dashboards, alerts, correlation searches), Microsoft Sentinel hands-on (KQL syntax, data connectors, workbooks, analytics rules, playbooks, incidents), Elastic Stack (Elasticsearch DSL, Logstash parsing, Kibana visualizations, Beats agents), use case development (write detection rules for common attacks: brute force, privilege escalation, lateral movement, data exfiltration), alert tuning (reduce false positives via whitelisting, baselining, threshold adjustment), log source prioritization (critical vs nice-to-have logs). Deliverable: deploy a SIEM (Splunk or Sentinel or Elastic), ingest logs from 3+ sources, create 10+ detection rules, build incident response dashboard.
+
+- [ ] **SIEM Data Collectors & Forwarders:** Deploy agents or configure syslog forwarding to collect logs from distributed sources and send to SIEM indexers. *SOC angle: forwarder failure = visibility gap; attackers target log forwarding to avoid detection.*
+- [ ] **SIEM Parsing & Normalization Layer:** Extract structured fields from raw logs using regex, delimiters, or built-in parsers for consistent querying. *SOC angle: parsing failure = unparsed blobs; detection rules require structured fields to function.*
+- [ ] **SIEM Indexing & Storage:** Store parsed logs in searchable indexes with time-series optimization for fast queries and retention management. *SOC angle: index corruption or capacity exhaustion = data loss; retention too short = missed long-term persistence.*
+- [ ] **SIEM Search & Query Engine:** Execute ad-hoc searches, threat hunts, and investigation queries across indexed data using platform-specific query language. *SOC angle: slow queries = delayed detection; optimize search performance for real-time hunting.*
+- [ ] **SIEM Correlation Engine:** Link related events across time, sources, and fields (e.g., same user, IP, or session) to detect multi-stage attacks. *SOC angle: correlation reveals kill chain progression; isolated event analysis misses attack context.*
+- [ ] **SIEM Alerting & Notification:** Trigger alerts on detection rule matches and notify analysts via email, Slack, PagerDuty, or ticketing systems. *SOC angle: alert fatigue from false positives = missed true positives; tuning critical for SOC effectiveness.*
+- [ ] **SIEM Visualization & Dashboards:** Build real-time dashboards showing KPIs (alert volume, incident count, MTTD/MTTR) and security posture metrics. *SOC angle: dashboards enable rapid situational awareness; missing metrics = blind management decisions.*
+- [ ] **SIEM Case Management Integration:** Link SIEM alerts to incident tracking systems (TheHive, ServiceNow, JIRA) for workflow management and closure tracking. *SOC angle: case management ensures accountability; lost tickets = unresolved incidents.*
+- [ ] **Splunk Architecture Components:** Understand indexers (data storage/search), search heads (user interface/dashboards), forwarders (log collection agents), and deployment server (centralized config management). *SOC angle: distributed architecture enables scale; single point of failure in search head = SOC paralysis.*
+- [ ] **SPL Search Commands:** Master Splunk Processing Language commands including search (filter events), where (conditions), eval (field calculations), stats (aggregations), transaction (session grouping), and tstats (accelerated datamodel searches). *SOC angle: tstats dramatically speeds up searches on large datasets; critical for real-time detection at scale.*
+- [ ] **SPL Field Extraction with Regex:** Extract custom fields from logs using regular expressions when auto-extraction fails. *SOC angle: missed field extraction = detection rule failure; custom C2 protocols require manual regex parsing.*
+- [ ] **SPL Time Modifiers:** Use earliest and latest parameters to constrain searches to specific time windows for faster queries. *SOC angle: unbounded time searches slow investigations; precise time ranges accelerate incident response.*
+- [ ] **SPL Subsearches and Joins:** Correlate events across multiple indexes or data sources using subsearches (nested queries) and join operations. *SOC angle: join enables cross-datasource correlation like matching firewall denies to endpoint process creation.*
+- [ ] **Splunk Data Onboarding:** Configure TCP/UDP inputs, file monitoring (batch upload), Windows Event Log collection, and AWS S3 ingestion. *SOC angle: misconfigured inputs = missing logs; validate data flow after onboarding.*
+- [ ] **Splunk Field Extractions:** Configure automatic field extraction, delimiter-based parsing, or regex-based extraction for custom log formats. *SOC angle: field extraction quality directly impacts detection rule accuracy.*
+- [ ] **Splunk Lookups for Enrichment:** Create CSV lookups to enrich events with external data (asset inventory, user roles, threat intelligence IOCs). *SOC angle: lookup enrichment enables asset-aware alerting and IOC matching.*
+- [ ] **Splunk Macros & Saved Searches:** Define reusable macros for common search patterns and saved searches for scheduled execution. *SOC angle: macros improve consistency; saved searches enable scheduled threat hunts.*
+- [ ] **Splunk Dashboards & Visualizations:** Build interactive dashboards with charts, tables, and single-value panels for SOC monitoring. *SOC angle: real-time dashboards enable rapid anomaly detection and management visibility.*
+- [ ] **Splunk Alerts & Scheduled Searches:** Create scheduled searches that trigger alerts when conditions are met, with throttling to prevent alert storms. *SOC angle: throttling prevents alert fatigue but may suppress recurring attacks; tune carefully.*
+- [ ] **Splunk Correlation Searches:** Configure real-time or scheduled correlation searches to detect multi-event attack patterns. *SOC angle: real-time correlation detects fast-moving threats; scheduled correlation handles complex historical analysis.*
+- [ ] **Splunk Apps & Add-Ons:** Install Splunk Enterprise Security (premium SIEM features) and Splunk SOAR (automation/orchestration). *SOC angle: ES provides pre-built correlation rules and dashboards; SOAR automates response workflows.*
+- [ ] **Microsoft Sentinel Architecture:** Understand Log Analytics workspace (data storage), data connectors (log ingestion), workbooks (dashboards), analytics rules (detection), and automation playbooks (response). *SOC angle: Sentinel architecture tightly integrates with Azure ecosystem; cloud-native SIEM with scale.*
+- [ ] **KQL Operators:** Master Kusto Query Language operators including where (filter), project (select columns), extend (add calculated columns), summarize (aggregate), join (correlate), and mv-expand (array expansion). *SOC angle: KQL syntax differs from SPL; summarize enables grouping by attacker IP, user, or technique.*
+- [ ] **KQL Time Functions:** Use ago (relative time), between (time range), and bin (time bucketing) for temporal analysis. *SOC angle: time-based analysis reveals attack timelines and beaconing patterns.*
+- [ ] **KQL String Functions:** Apply contains, startswith, endswith, and matches regex for pattern matching in logs. *SOC angle: string matching detects malicious command patterns, suspicious domains, and IOC matches.*
+- [ ] **KQL Aggregations:** Use count, dcount (distinct count), sum, avg, and percentile for statistical analysis and anomaly detection. *SOC angle: statistical baselines enable deviation-based threat hunting.*
+- [ ] **Sentinel Data Connectors:** Configure connectors for Azure AD, Office 365, AWS, Microsoft Defender products, Syslog, and CEF sources. *SOC angle: connector coverage determines visibility; missing connectors = blind spots.*
+- [ ] **Sentinel Workbooks:** Create visualization templates for security monitoring, incident trends, and KPI tracking. *SOC angle: workbooks provide executive dashboards and analyst investigation views.*
+- [ ] **Sentinel Analytics Rules:** Build scheduled query rules (run every X minutes), anomaly detection rules (ML-based), and fusion rules (multi-stage correlation). *SOC angle: fusion ML correlates signals across products; anomaly detection adapts to environment baselines.*
+- [ ] **Sentinel Automation with Logic Apps:** Create playbooks using Azure Logic Apps for automated response actions (isolate endpoint, block IP, send Slack notification). *SOC angle: automation reduces MTTR; misconfigured playbooks can cause outages (e.g., auto-blocking legitimate IPs).*
+- [ ] **Sentinel Incidents & Case Management:** Triage, assign, and track incidents from detection through closure with built-in case management. *SOC angle: incident workflow ensures nothing is missed; severity tuning critical for prioritization.*
+- [ ] **Sentinel Threat Intelligence Integration:** Ingest STIX/TAXII threat feeds and match indicators against log data automatically. *SOC angle: TI integration enables IOC matching; stale feeds cause false positives.*
+- [ ] **Sentinel Hunting Queries & Bookmarks:** Save custom hunting queries and bookmark interesting events for later investigation. *SOC angle: bookmarks preserve investigation context; hunting queries become future detection rules.*
+- [ ] **Elasticsearch Distributed Architecture:** Understand Elasticsearch as distributed search and analytics engine with sharding and replication for scale and resilience. *SOC angle: Elasticsearch powers real-time search; shard failures = partial data loss.*
+- [ ] **Logstash Data Processing Pipeline:** Configure Logstash input plugins (file, syslog, beats), filter plugins (grok, mutate, geoip), and output plugins (elasticsearch, file) for log transformation. *SOC angle: Logstash parsing quality determines downstream detection effectiveness.*
+- [ ] **Kibana Visualization & Dashboards:** Build visualizations and dashboards in Kibana using Discover (log exploration), Lens (drag-and-drop charts), and Canvas (custom layouts). *SOC angle: Kibana provides SOC monitoring interface; dashboard performance impacts analyst productivity.*
+- [ ] **Beats Lightweight Shippers:** Deploy Filebeat (log files), Metricbeat (system metrics), Winlogbeat (Windows events), and Packetbeat (network traffic) agents for data collection. *SOC angle: Beats are lightweight agents; minimal performance impact compared to heavy forwarders.*
+- [ ] **Elasticsearch DSL Queries:** Write Elasticsearch Query DSL (JSON-based) for complex searches, aggregations, and filtering. *SOC angle: DSL powers programmatic searches for automation and API-based threat hunting.*
+- [ ] **Logstash Grok Patterns:** Use grok filter plugin with pre-built or custom patterns to parse unstructured log data. *SOC angle: grok parsing extracts fields from custom log formats; parsing failures = unparsed blobs.*
+- [ ] **Kibana Lens Visualizations:** Create charts, tables, and metrics using Kibana Lens drag-and-drop interface for rapid dashboard creation. *SOC angle: Lens accelerates dashboard creation; analyst self-service reduces backlog.*
+- [ ] **Elastic Watcher Alerting:** Configure Watcher to trigger alerts on query matches and send notifications or execute actions. *SOC angle: Watcher enables alerting in open-source Elastic; commercial features include ML anomaly detection.*
+- [ ] **Elastic Security SIEM Module:** Deploy Elastic Security module with pre-built detection rules, timelines, case management, and endpoint integration. *SOC angle: Elastic Security provides free SIEM capabilities; scales to enterprise with paid features.*
+
+- [ ] **Use Case Development — Brute Force Detection:** Detect multiple failed logins followed by successful login from same source indicating password guessing. *SOC angle: brute force = common initial access; successful login after failures = potential breakthrough.*
+- [ ] **Use Case Development — Privilege Escalation Detection:** Monitor admin rights grants, sudden sudo usage spikes, or unexpected privilege assignments. *SOC angle: privilege escalation = critical attack stage; unexpected elevation requires immediate investigation.*
+- [ ] **Use Case Development — Lateral Movement Detection:** Identify unusual RDP/SMB connections, especially workstation-to-workstation traffic patterns. *SOC angle: lateral movement = post-compromise spread; east-west traffic anomalies reveal attacker movement.*
+- [ ] **Use Case Development — Data Exfiltration Detection:** Alert on large outbound data transfers, unusual protocols, or off-hours uploads to cloud services. *SOC angle: exfiltration = mission success for attacker; volume/timing anomalies indicate data theft.*
+- [ ] **Use Case Development — Malware Execution Detection:** Detect suspicious process chains (Office→PowerShell→cmd), known malware hashes, or LOLBins abuse. *SOC angle: malware execution = initial compromise or post-exploitation; process telemetry reveals execution.*
+- [ ] **Use Case Development — Reconnaissance Detection:** Identify port scanning activity, excessive LDAP queries, or DNS tunneling attempts. *SOC angle: reconnaissance = pre-attack phase; early detection prevents further exploitation.*
+- [ ] **Use Case Development — Credential Theft Detection:** Alert on Mimikatz indicators, LSASS process access, or credential dumping tools. *SOC angle: credential theft = escalation enabler; detecting Mimikatz prevents domain compromise.*
+- [ ] **Alert Tuning — Whitelist Legitimate Activity:** Exclude known-good scheduled tasks, service accounts, and admin IPs from detection rules. *SOC angle: whitelisting reduces false positives; stale whitelists include decommissioned or compromised entities.*
+- [ ] **Alert Tuning — Baseline Normal Behavior:** Establish baselines for login times, data transfer volumes, and process execution patterns for deviation detection. *SOC angle: baselines enable anomaly detection; without baselines, everything is noise.*
+- [ ] **Alert Tuning — Threshold Adjustment:** Configure rules to trigger after N failed logins (not 1) to balance sensitivity and noise. *SOC angle: thresholds reduce alert volume; too high = missed attacks, too low = alert fatigue.*
+- [ ] **Alert Tuning — Time-Based Suppression:** Suppress alerts during scheduled maintenance windows when activity is expected. *SOC angle: maintenance window suppression prevents false positives; attackers may exploit suppression timing.*
+- [ ] **Alert Tuning — Contextual Enrichment:** Add user role, device criticality, and asset classification to alerts for prioritization. *SOC angle: context enables triage; CEO laptop alert > guest WiFi alert.*
+- [ ] **Log Source Prioritization — Critical Tier 1:** Prioritize Windows Security logs, Sysmon, EDR telemetry, and authentication logs for detection. *SOC angle: Tier 1 logs provide attack visibility; missing these = blind SOC.*
+- [ ] **Log Source Prioritization — Important Tier 2:** Collect firewall, proxy, DNS, and cloud control plane logs for network/cloud visibility. *SOC angle: Tier 2 logs complement endpoint telemetry; network logs reveal C2 and lateral movement.*
+- [ ] **Log Source Prioritization — Nice-to-Have Tier 3:** Optionally collect application logs, debug logs, and verbose logs for deep investigations. *SOC angle: Tier 3 logs useful for forensics but not real-time detection; balance storage costs vs forensic value.*
+
+---
+
+### Topic 4: EDR, XDR & Endpoint Security — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Understand endpoint detection and response platforms
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2-3 days** — EDR architecture (agent-based telemetry collection: process, file, network, registry events), endpoint telemetry sources (Sysmon, ETW, kernel callbacks), EDR detection capabilities (behavioral analysis, IOC matching, YARA rules, ML anomaly detection), Microsoft Defender for Endpoint hands-on (alerts, incidents, advanced hunting with KQL, automated investigation & response, threat analytics), EDR evasion awareness (unhooking, direct syscalls, in-memory evasion — understand what attackers do), XDR concept (correlation across endpoint, network, email, cloud). Deliverable: set up Microsoft Defender for Endpoint trial, generate test alerts, write 5 advanced hunting queries for specific TTPs.
+
+- [ ] **EDR Agent-Based Monitoring:** EDR agents deploy kernel-mode and user-mode components on endpoints to collect comprehensive telemetry. *SOC angle: agent-based = deep visibility; attackers target agents (kill process, tamper drivers) to create blind spots.*
+- [ ] **EDR Telemetry — Process Events:** Collect process creation/termination, parent-child relationships, command-line arguments, and user context for execution tracking. *SOC angle: process telemetry reveals LOLBins abuse, suspicious parent-child chains (Excel spawning PowerShell), and injection.*
+- [ ] **EDR Telemetry — File Operations:** Monitor file creation, modification, deletion, and access patterns to detect malware droppers and persistence. *SOC angle: file telemetry tracks dropper activity, ransomware encryption, and credential file theft.*
+- [ ] **EDR Telemetry — Network Connections:** Capture network connections (IP, port, protocol) initiated by processes for C2 and lateral movement detection. *SOC angle: network telemetry reveals C2 beaconing, unusual outbound connections, and SMB lateral movement.*
+- [ ] **EDR Telemetry — Registry Modifications:** Track registry key creation, modification, and deletion for persistence and configuration changes. *SOC angle: registry telemetry detects Run key persistence, service creation, and Windows Defender tampering.*
+- [ ] **EDR Telemetry — Loaded DLLs/Modules:** Monitor DLL/module loads into processes to detect DLL injection, reflective loading, and malicious libraries. *SOC angle: module load telemetry reveals injection techniques (CreateRemoteThread, QueueUserAPC) and in-memory malware.*
+- [ ] **EDR Telemetry Sources — Sysmon:** Enhanced Windows event logging with detailed process, network, file, and registry events. *SOC angle: Sysmon fills gaps in default Windows logging; widely used for detection; attackers may attempt Sysmon driver tampering.*
+- [ ] **EDR Telemetry Sources — ETW:** Event Tracing for Windows provides low-level kernel and application telemetry streams. *SOC angle: ETW captures PowerShell script blocks, .NET runtime events, and kernel callbacks; bypassing ETW = common evasion technique.*
+- [ ] **EDR Telemetry Sources — eBPF:** Extended Berkeley Packet Filter enables Linux kernel-level monitoring without kernel modules. *SOC angle: eBPF provides Linux syscall and network visibility; modern alternative to auditd for performance.*
+- [ ] **EDR Telemetry Sources — Kernel Callbacks:** Kernel-level hooks intercept system calls, process/thread creation, and image loads. *SOC angle: kernel callbacks provide earliest detection point; direct syscalls bypass user-mode hooks but not kernel callbacks.*
+- [ ] **EDR Behavioral Analysis:** Detect malicious behavior based on process relationships, command patterns, and execution anomalies (e.g., Office spawning cmd.exe). *SOC angle: behavioral detection catches novel malware; bypassing requires blending with legitimate behavior.*
+- [ ] **EDR IOC Matching:** Match observed indicators (file hashes, IPs, domains, registry keys) against threat intelligence feeds. *SOC angle: IOC matching catches known threats; unique malware avoids IOC detection.*
+- [ ] **EDR YARA Rule Matching:** Scan files and memory with YARA signatures to detect malware families and tool artifacts. *SOC angle: YARA detects Cobalt Strike, Mimikatz, and webshells; polymorphic malware evades static signatures.*
+- [ ] **EDR ML-Based Anomaly Detection:** Use machine learning to identify deviations from baseline behavior (unusual process, network pattern, file activity). *SOC angle: ML adapts to environment; adversarial ML techniques can poison baselines or evade detection.*
+- [ ] **EDR Real-Time Blocking vs Post-Execution Detection:** Real-time blocking prevents execution; post-execution detection analyzes after the fact for alerting/remediation. *SOC angle: real-time blocking = prevention; post-execution = detection after initial compromise.*
+- [ ] **MDE Portal Navigation:** Explore alerts (triggered detections), incidents (correlated alerts), devices (endpoint inventory), and threat analytics (emerging threats). *SOC angle: MDE provides unified endpoint visibility; portal organization critical for SOC triage workflow.*
+- [ ] **MDE Alert Investigation Workflow:** Triage alerts by reviewing detection details, process tree, file analysis, and automated investigation results. *SOC angle: structured investigation workflow reduces MTTR; skip steps = missed persistence or lateral movement.*
+- [ ] **MDE Advanced Hunting Tables:** Query DeviceProcessEvents, DeviceNetworkEvents, DeviceFileEvents, DeviceRegistryEvents, and DeviceLogonEvents with KQL for threat hunting. *SOC angle: advanced hunting enables proactive searches for TTPs not covered by alerts.*
+- [ ] **MDE Hunt for MITRE ATT&CK Techniques:** Write KQL queries to hunt for specific techniques like T1003.001 (LSASS dumping), T1078 (valid accounts), or T1055 (process injection). *SOC angle: ATT&CK-based hunting ensures coverage of adversary techniques.*
+- [ ] **MDE Automated Investigation & Response (AIR):** Enable automated investigation of alerts with machine-driven evidence collection and remediation recommendations. *SOC angle: AIR accelerates response for common threats; human oversight still required for complex investigations.*
+- [ ] **MDE Threat & Vulnerability Management:** Identify endpoint vulnerabilities, misconfigurations, and missing patches for remediation prioritization. *SOC angle: vulnerability management reduces attack surface; unpatched systems = easy initial access.*
+- [ ] **MDE Attack Surface Reduction (ASR) Rules:** Configure rules to block common attack techniques (Office macros, script execution, credential theft). *SOC angle: ASR rules provide prevention layer; overly aggressive rules cause operational impact.*
+- [ ] **MDE Endpoint Firewall & Network Protection:** Manage Windows Firewall policies and enable network protection (block malicious IPs/domains) centrally. *SOC angle: centralized firewall control prevents C2 and lateral movement at network layer.*
+- [ ] **MDE Integration with Microsoft Sentinel:** Forward MDE alerts and telemetry to Sentinel for cross-platform correlation with non-endpoint data. *SOC angle: SIEM integration enables correlation of endpoint activity with network/cloud events.*
+- [ ] **CrowdStrike Falcon Awareness:** Understand Falcon's process tree visualization, IOA (Indicator of Attack) detection, and RTR (Real-Time Response) for live investigation. *SOC angle: Falcon's IOA focus detects behaviors over signatures; RTR enables live forensics without RDP.*
+- [ ] **SentinelOne Awareness:** Understand autonomous response (automatic threat isolation and rollback) and Storyline visualization for attack reconstruction. *SOC angle: SentinelOne's rollback capability reverses file changes; autonomous response reduces MTTR but requires trust.*
+- [ ] **Carbon Black Awareness:** Understand Carbon Black EDR + NGAV (next-gen antivirus) combo for prevention and detection. *SOC angle: Carbon Black records extensive telemetry for forensic analysis.*
+- [ ] **Trend Micro Vision One Awareness:** Understand Vision One's XDR correlation across endpoints, email, servers, and cloud workloads. *SOC angle: Vision One provides unified investigation interface across security layers.*
+- [ ] **EDR Evasion — Unhooking ntdll.dll:** Attackers restore original ntdll.dll code to bypass user-mode EDR hooks in API functions. *SOC angle: unhooking defeats inline hooking; kernel callbacks still detect; detection requires monitoring unhooking attempts.*
+- [ ] **EDR Evasion — Direct Syscalls:** Bypass user-mode hooks by invoking syscalls directly via assembly (SysWhispers, inline syscalls). *SOC angle: direct syscalls evade user-mode hooks but not kernel callbacks; rare for legitimate software.*
+- [ ] **EDR Evasion — In-Memory Execution:** Load and execute malware entirely in memory without touching disk to avoid file-based detection. *SOC angle: fileless malware harder to detect; requires memory scanning and behavioral analysis.*
+- [ ] **EDR Evasion — Process Injection:** Inject malicious code into legitimate processes to hide execution and blend with normal activity. *SOC angle: process injection techniques (CreateRemoteThread, APC injection, process hollowing) detectable via telemetry anomalies.*
+- [ ] **EDR Evasion — Living-Off-the-Land Binaries (LOLBins):** Use legitimate Windows binaries (certutil, bitsadmin, mshta, regsvr32) for malicious purposes to appear benign. *SOC angle: LOLBins abuse requires behavioral detection; process command-line telemetry critical.*
+- [ ] **XDR Concept — Cross-Domain Correlation:** XDR correlates telemetry across endpoint, network, email, cloud, and identity to detect multi-stage attacks. *SOC angle: XDR provides unified view; single-domain visibility misses attack chain spanning multiple layers.*
+- [ ] **XDR Platforms — Microsoft 365 Defender:** Combines MDE (endpoint), MDO (email), MDI (identity), MDA (cloud apps) for integrated XDR. *SOC angle: M365 Defender provides automated cross-product correlation and unified incident view.*
+- [ ] **XDR Platforms — Palo Alto Cortex XDR:** Integrates endpoint, network (firewall), and cloud data for behavioral threat detection. *SOC angle: Cortex XDR stitches together attack chains across network and endpoint telemetry.*
+- [ ] **XDR Platforms — Trend Micro Vision One:** Correlates endpoint, email, server, and cloud workload data for unified detection and response. *SOC angle: Vision One provides single pane for multi-layer investigations.*
+- [ ] **XDR Benefits — Unified View:** Single console for all security layers reduces context switching and accelerates investigations. *SOC angle: unified view reveals full attack scope; siloed tools miss cross-layer attacks.*
+- [ ] **XDR Benefits — Cross-Domain Correlation:** Automatic correlation links related events (email phish → endpoint execution → cloud data access). *SOC angle: correlation reveals kill chain; isolated events hide attack progression.*
+- [ ] **XDR Benefits — Automated Response:** Orchestrated response actions across products (isolate endpoint, block sender, revoke cloud session). *SOC angle: automated response reduces MTTR; misconfigured automation can cause outages.*
+
+---
+
+### Topic 5: Detection Engineering — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Write high-quality detection rules as code
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3-4 days** — Detection-as-Code methodology (version control, testing, CI/CD for detections), Sigma rules (universal detection language in YAML — write once, convert to Splunk/Elastic/Sentinel), YARA rules for malware/file-based detection, KQL detection queries for Sentinel/MDE, SPL detection queries for Splunk, detection validation & testing (generate attack traffic, verify alert fires, measure false positives), MITRE ATT&CK mapping (tag detections with technique IDs), purple team validation (red team executes technique, blue team confirms detection fires). Deliverable: write 10 Sigma rules for common ATT&CK techniques, convert to target SIEM, test & validate.
+
+- [ ] **Detection-as-Code Version Control:** Store detection rules in Git repositories with commit history, branches, and tags for change tracking. *SOC angle: version control enables rollback of broken rules; lack of versioning = lost detection coverage when rules break.*
+- [ ] **Detection-as-Code Peer Review:** Require code reviews for detection rules to catch logic errors, false positive risks, and performance issues. *SOC angle: peer review improves rule quality; unreviewed rules = production blind spots from bugs.*
+- [ ] **Detection-as-Code Testing in Dev/Staging:** Test new detections in non-production environment before deploying to avoid alert storms. *SOC angle: testing prevents alert fatigue from untested rules; deploy-to-prod = operational chaos.*
+- [ ] **Detection-as-Code CI/CD Pipeline:** Automate detection rule deployment using CI/CD pipelines with validation, testing, and rollback capabilities. *SOC angle: CI/CD ensures consistent deployment; manual deployment = configuration drift and missed updates.*
+- [ ] **Detection-as-Code Documentation & Metadata:** Document detection logic, MITRE ATT&CK technique mappings, false positive guidance, and tuning recommendations. *SOC angle: documentation enables analysts to understand alerts; undocumented rules = wasted investigation time.*
+- [ ] **Sigma Rule Syntax:** Write detection rules in YAML format with title, id, status, description, references, author, logsource, detection logic, falsepositives, and severity level. *SOC angle: Sigma's universal format enables platform portability; write once, deploy everywhere.*
+- [ ] **Sigma Detection Logic Sections:** Define selection blocks (field conditions), keyword lists (string patterns), and conditions (all/any/1 of them logic). *SOC angle: flexible logic enables complex multi-field detections; mismatched conditions = false negatives.*
+- [ ] **Sigma Rule Converters:** Convert Sigma rules to platform-specific queries (Splunk SPL, Elastic DSL, Sentinel KQL) using sigmac or uncoder.io. *SOC angle: conversion enables SIEM-agnostic rule development; conversion errors = silent detection gaps.*
+- [ ] **Sigma Rule Repositories:** Use SigmaHQ GitHub and SOC Prime Threat Detection Marketplace for community-contributed and commercial detection content. *SOC angle: public rule repos provide baseline coverage; custom rules still needed for environment-specific threats.*
+- [ ] **Sigma Rule — Mimikatz Execution:** Detect Mimikatz execution via command-line arguments, process name, or LSASS access patterns. *SOC angle: Mimikatz = credential dumping; detection critical for preventing lateral movement.*
+- [ ] **Sigma Rule — PsExec Lateral Movement:** Detect PsExec by service creation with PSEXE* pattern, admin share access, and process execution via services. *SOC angle: PsExec = common lateral movement tool; detection reveals attacker spread.*
+- [ ] **Sigma Rule — Credential Dumping (LSASS Access):** Detect suspicious process access to lsass.exe memory (PROCESS_VM_READ permission). *SOC angle: LSASS dumping = credential theft; early detection prevents privilege escalation.*
+- [ ] **Sigma Rule — PowerShell Empire/Cobalt Strike Indicators:** Detect known command patterns, staging URLs, named pipes, and C2 beacon artifacts. *SOC angle: framework detection catches widespread tools; custom C2 requires behavioral rules.*
+- [ ] **Sigma Rule — Suspicious Scheduled Task Creation:** Detect scheduled tasks with unusual names, high-privilege execution, or suspicious executable paths. *SOC angle: scheduled tasks = persistence; detection prevents long-term access.*
+- [ ] **Sigma Rule — Kerberoasting:** Detect Event ID 4769 TGS requests with RC4 encryption for service accounts (Kerberoasting attack). *SOC angle: Kerberoasting = service account password cracking; RC4 usage is primary indicator.*
+- [ ] **Sigma Rule — DCSync:** Detect Event ID 4662 with replication rights (DS-Replication-Get-Changes) indicating DCSync credential theft. *SOC angle: DCSync = domain-wide credential compromise; detection prevents mass credential theft.*
+- [ ] **Sigma Rule — Pass-the-Hash:** Detect Event ID 4624 logon type 3 (network) with NTLM authentication from unexpected source. *SOC angle: Pass-the-Hash = credential reuse without password; detection reveals stolen hash usage.*
+- [ ] **YARA Rule Syntax:** Write rules with strings section (text, hex, regex patterns) and condition section (logic combining strings). *SOC angle: YARA scans files and memory for malware signatures; matches reveal malware presence.*
+- [ ] **YARA String Types:** Define text strings (ASCII/Unicode), hex byte patterns, and regex expressions for flexible pattern matching. *SOC angle: multiple string types enable diverse matching; regex provides pattern flexibility.*
+- [ ] **YARA Conditions:** Combine string matches with boolean logic (all/any of them), filesize checks, and mathematical operations. *SOC angle: complex conditions reduce false positives; overly specific = miss variants.*
+- [ ] **YARA for Malware Family Detection:** Write rules matching unique strings, opcodes, or structures identifying malware families (Emotet, TrickBot, etc.). *SOC angle: family detection enables attribution and response; generic rules miss family-specific TTPs.*
+- [ ] **YARA for Webshell Detection:** Detect webshells via common function names (eval, exec, system), file operations, and encoding patterns. *SOC angle: webshell detection prevents persistent web access; automated scanning of web directories critical.*
+- [ ] **YARA Rule Repositories:** Use Yara-Rules GitHub and awesome-yara collections for community-contributed malware detection rules. *SOC angle: public YARA rules provide baseline malware coverage; custom rules needed for targeted threats.*
+- [ ] **KQL Detection Queries for ATT&CK Techniques:** Write Sentinel/MDE KQL queries targeting specific MITRE ATT&CK techniques with technique ID comments. *SOC angle: ATT&CK mapping ensures technique coverage; gaps in coverage = missed adversary behaviors.*
+- [ ] **KQL Let Statements for Reusable Logic:** Define variables with let keyword to reuse logic across query sections for maintainability. *SOC angle: reusable logic simplifies complex queries; hard-coded values = maintenance burden.*
+- [ ] **KQL Dynamic Thresholds:** Use percentile and stddev functions to create adaptive thresholds based on statistical baselines. *SOC angle: dynamic thresholds adapt to environment; static thresholds = false positives or false negatives.*
+- [ ] **KQL Watchlists for Whitelisting:** Create watchlists of known-good entities (IPs, users, processes) to reduce false positives via exclusions. *SOC angle: watchlists reduce noise; stale watchlists include compromised or decommissioned assets.*
+- [ ] **KQL Entity Behavior Analytics Integration:** Integrate user/entity behavior baselines into KQL queries for anomaly detection (unusual access patterns, atypical behavior). *SOC angle: behavior analytics detects compromised accounts; static rules miss subtle behavioral changes.*
+- [ ] **SPL Correlation Searches:** Write SPL correlation searches that link multiple events over time windows (e.g., failed login → successful login → privilege escalation). *SOC angle: correlation reveals attack chains; single-event detections miss multi-stage attacks.*
+- [ ] **SPL Notable Event Generation:** Create notable events in Splunk Enterprise Security when correlation searches match, triggering analyst investigation. *SOC angle: notables provide structured investigation workflow; missed notables = ignored threats.*
+- [ ] **SPL Risk-Based Alerting:** Implement risk scoring framework where individual risky events accumulate scores; alert when threshold exceeded. *SOC angle: risk scoring reduces false positives by requiring multiple suspicious actions; single event may be benign.*
+- [ ] **SPL Asset/Identity Correlation:** Enrich alerts with asset criticality and user roles to prioritize high-value targets. *SOC angle: asset context enables prioritization; all alerts equal priority = missed critical compromises.*
+- [ ] **Detection Validation — Red Team Attack Simulation:** Execute real attacks (Mimikatz, lateral movement tools) in test environment to generate attacker telemetry. *SOC angle: validation confirms detection works; untested rules may silently fail in production.*
+- [ ] **Detection Validation — Verify Alert Fires:** Confirm SIEM generates expected alert from simulated attack with correct severity and fields. *SOC angle: alert verification prevents silent detection failures; broken rules = invisible threats.*
+- [ ] **Detection Validation — Measure False Positive Rate:** Track percentage of alerts that are false positives to identify noisy detections requiring tuning. *SOC angle: high FPR causes alert fatigue; tuning critical for SOC effectiveness.*
+- [ ] **Detection Validation — Tune Detection Logic:** Adjust detection conditions, thresholds, or whitelists based on validation results. *SOC angle: iterative tuning balances coverage and noise; one-and-done deployment = long-term failure.*
+- [ ] **Detection Validation — Document Validation Results:** Record test methodology, results, false positive sources, and tuning changes for audit trail. *SOC angle: documentation ensures repeatability and knowledge transfer; undocumented = lost tribal knowledge.*
+- [ ] **MITRE ATT&CK Mapping — Tag Technique IDs:** Tag each detection rule with specific ATT&CK technique ID (T1003.001, T1078, etc.) for coverage tracking. *SOC angle: ATT&CK mapping reveals detection gaps; unmapped rules = unknown coverage.*
+- [ ] **MITRE ATT&CK Navigator Coverage:** Visualize detection coverage using ATT&CK Navigator heatmaps showing which techniques are covered. *SOC angle: Navigator reveals blind spots; visual coverage assessment enables targeted detection development.*
+- [ ] **MITRE ATT&CK Prioritization:** Prioritize detection development for high-impact techniques like credential access, lateral movement, and persistence. *SOC angle: not all techniques equal; prioritize those most used by adversaries and most damaging.*
+- [ ] **Purple Team Exercise — Coordinate Red Team TTPs:** Schedule red team to execute specific TTPs (Kerberoasting, DCSync, lateral movement) at planned time. *SOC angle: purple team validates detection; uncoordinated red team = missed learning opportunities.*
+- [ ] **Purple Team Exercise — Blue Team Detection Validation:** Blue team monitors for alerts during red team activity and confirms detection fires. *SOC angle: validation during live attack reveals detection delays, gaps, and false negatives.*
+- [ ] **Purple Team Exercise — Document Gaps:** Record which TTPs were detected, which were missed, and root cause of detection failures. *SOC angle: gap analysis drives detection improvements; undocumented gaps repeat in real attacks.*
+- [ ] **Purple Team Exercise — Iterative Improvement:** Create new detections for missed TTPs and retest in next purple team cycle. *SOC angle: iterative improvement closes gaps; one-time testing leaves persistent blind spots.*
+
+---
+
+### Topic 6: Threat Hunting — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Proactively search for threats that evade automated detections
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 3-4 days** — Threat hunting philosophy (hypothesis-driven vs intelligence-driven vs situational awareness hunting), hypothesis generation from threat intelligence, hunting queries (KQL, SPL, Elastic DSL) for specific TTPs, behavioral analytics & UEBA (User and Entity Behavior Analytics), anomaly detection (statistical analysis, outlier identification), hunting for persistence mechanisms (registry Run keys, scheduled tasks, services, WMI subscriptions), hunting for lateral movement (unusual RDP/SMB, credential reuse patterns, admin share access), hunting for command & control (unusual DNS queries, long-duration connections, beaconing), hunt documentation (hypothesis → data sources → queries → findings → next steps), hunt metrics (hypothesis tested, threats found, time to hunt). Deliverable: conduct 3 threat hunts (persistence, lateral movement, C2), document findings, present results.
+
+- [ ] **Proactive vs Reactive Hunting:** Don't wait for alerts; proactively search for threats that evade automated detections. *SOC angle: reactive SOCs miss novel TTPs; proactive hunting finds what alerts miss.*
+- [ ] **Hypothesis-Driven Hunting:** Start with theory "adversary likely uses X technique" based on threat landscape, then hunt for evidence. *SOC angle: hypothesis focuses investigation; random hunting wastes time.*
+- [ ] **Intelligence-Driven Hunting:** Use threat intel reports (APT campaigns, CVE exploits) to trigger hunts for specific IOCs or TTPs. *SOC angle: intel-driven hunting leverages external knowledge; hunt for what others have seen.*
+- [ ] **Situational Awareness Hunting:** Hunt for baseline deviations and statistical anomalies without specific hypothesis. *SOC angle: awareness hunting finds unknown threats; complements hypothesis-driven approach.*
+- [ ] **Hypothesis from Threat Intelligence:** Generate hunt hypotheses from APT reports, CVE exploit announcements, and threat actor profiles. *SOC angle: threat intel provides real-world attack patterns; hunt for techniques actively used by adversaries.*
+- [ ] **Hypothesis from Red Team Exercises:** After red team engagement, hunt for TTPs that red team used but weren't detected. *SOC angle: red team reveals detection gaps; hunt for what you missed.*
+- [ ] **Hypothesis from MITRE ATT&CK:** Pick specific ATT&CK technique (T1003.001, T1055, T1078) and hunt for indicators. *SOC angle: ATT&CK provides structured technique catalog; systematic hunting ensures coverage.*
+- [ ] **Hypothesis from Incident Retrospectives:** After incidents, hunt for similar activity that may have been missed in past. *SOC angle: post-incident hunting finds related compromises; one incident often indicates others.*
+- [ ] **Hunt for Registry Run Keys:** Search for unusual entries in HKCU/HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run for persistence. *SOC angle: Run keys = common persistence; unusual entries indicate malware or backdoors.*
+- [ ] **Hunt for Suspicious Scheduled Tasks:** Identify scheduled tasks with unusual names, high-privilege execution, or suspicious executable paths. *SOC angle: scheduled tasks = reliable persistence; hidden tasks often missed by casual inspection.*
+- [ ] **Hunt for New Services:** Detect new Windows services, especially with DLL hijacking indicators or suspicious service binaries. *SOC angle: service creation = admin-level persistence; attacker services often mimic legitimate names.*
+- [ ] **Hunt for WMI Event Subscriptions:** Find permanent WMI event consumers used for fileless persistence and execution. *SOC angle: WMI persistence = advanced technique; often overlooked by basic detection.*
+- [ ] **Hunt for Startup Folder Files:** Scan user and system startup folders for suspicious executables or scripts. *SOC angle: startup folder = low-sophistication persistence; quick win for detection.*
+- [ ] **Hunt for DLL Hijacking Indicators:** Search for DLLs placed in application directories to hijack loading order. *SOC angle: DLL hijacking = stealthy persistence; legitimate-looking DLL paths hide malicious code.*
+- [ ] **Hunt for RDP Connections:** Analyze Event ID 4624 logon type 10 (RDP) for unusual source IPs or time patterns indicating lateral movement. *SOC angle: RDP = common lateral movement method; geographic/temporal anomalies reveal attackers.*
+- [ ] **Hunt for SMB Admin Share Access:** Search Event ID 5140 for connections to admin shares (\\\\C$, \\\\ADMIN$) from workstation-to-workstation. *SOC angle: admin share access = lateral movement; workstation-to-workstation SMB unusual in normal operations.*
+- [ ] **Hunt for PSExec Usage:** Detect service creation with PSEXE* pattern and associated process execution via services. *SOC angle: PsExec = attacker favorite for lateral movement; service pattern distinctive.*
+- [ ] **Hunt for Pass-the-Hash:** Find logon type 3 (network) with NTLM authentication from unexpected source without password change. *SOC angle: Pass-the-Hash = credential reuse; NTLM logons from unusual sources indicate stolen hash.*
+- [ ] **Hunt for Pass-the-Ticket:** Identify Kerberos logons from unusual machines or impossible travel scenarios. *SOC angle: Pass-the-Ticket = Kerberos credential theft; ticket reuse from wrong machine indicates attack.*
+- [ ] **Hunt for WMI/WinRM Lateral Movement:** Search for remote WMI/WinRM connections and associated command execution. *SOC angle: WMI/WinRM = stealthy lateral movement; often missed compared to RDP/PsExec.*
+- [ ] **Hunt for Unusual Admin Logons:** Detect admin account logons from unusual geographic locations or time-of-day patterns. *SOC angle: geographic/temporal anomalies reveal compromised admin accounts; legitimate admins follow patterns.*
+- [ ] **Hunt for Unusual DNS Queries:** Find DNS queries to unusual domains, DNS tunneling patterns, or DGA (Domain Generation Algorithm) domains. *SOC angle: DNS queries reveal C2 domains; DGA patterns indicate malware beaconing.*
+- [ ] **Hunt for Long-Duration Connections:** Identify persistent TCP connections or regular beaconing patterns indicating C2 communication. *SOC angle: C2 beacons maintain connection; long-duration or regular intervals distinctive.*
+- [ ] **Hunt for Unusual Ports/Protocols:** Search for non-standard HTTP ports, raw TCP connections, or unusual protocol usage. *SOC angle: C2 often uses non-standard ports; legitimate traffic follows standard port conventions.*
+- [ ] **Hunt for TLS Certificate Anomalies:** Detect self-signed certificates, mismatched SNI, or unusual certificate authorities. *SOC angle: C2 TLS certificates differ from legitimate; self-signed certs or CA mismatches indicate malicious traffic.*
+- [ ] **Hunt for Unusual User-Agent Strings:** Identify rare or suspicious user-agent strings in HTTP traffic indicating non-browser tools. *SOC angle: C2 user-agents often generic or rare; legitimate browsers have common user-agents.*
+- [ ] **Hunt for Beaconing Frequency:** Analyze connection frequency for regular intervals (every 60s, every 5m) indicating automated beaconing. *SOC angle: regular beaconing intervals = C2 heartbeat; legitimate traffic more random.*
+- [ ] **Baseline User Login Behavior:** Establish normal login times, geographic locations, and accessed resources per user. *SOC angle: behavior baselines enable deviation detection; compromised accounts deviate from normal patterns.*
+- [ ] **Detect Login Deviations:** Alert on logins at 3 AM, from new countries, or accessing unusual applications. *SOC angle: deviations indicate compromised accounts; legitimate users follow routines.*
+- [ ] **Account Compromise Indicators:** Find simultaneous logins from different locations (impossible travel) indicating credential theft. *SOC angle: impossible travel = definitive compromise indicator; one account, two locations, short timeframe.*
+- [ ] **Privilege Escalation Detection:** Identify users suddenly accessing sensitive resources they never accessed before. *SOC angle: sudden privilege elevation indicates escalation; normal users don't randomly access Domain Admin shares.*
+- [ ] **Data Hoarding Detection:** Detect mass file downloads or unusual data access volumes indicating data theft preparation. *SOC angle: data hoarding precedes exfiltration; large volume file access from single user = red flag.*
+- [ ] **Statistical Baseline Analysis:** Calculate mean, standard deviation, and percentiles for normal activity metrics. *SOC angle: statistical baselines provide quantitative thresholds; arbitrary thresholds cause false positives or negatives.*
+- [ ] **Outlier Identification Methods:** Use Z-score or IQR (Interquartile Range) methods to identify statistical outliers. *SOC angle: outliers indicate anomalies; Z-score >3 or IQR extremes warrant investigation.*
+- [ ] **Rare Event Analysis:** Identify long-tail events with very low frequency that may indicate malicious activity. *SOC angle: rare events often malicious; common events blend in, rare events stand out.*
+- [ ] **Time-Series Anomaly Detection:** Detect sudden spikes, drops to zero, or pattern changes in time-series data. *SOC angle: time-series anomalies reveal attack start/stop; sudden spike in failed logins = brute force.*
+- [ ] **Hunt Documentation — Hypothesis Statement:** Clearly state hunt hypothesis ("adversaries are using Kerberoasting in our environment"). *SOC angle: documented hypothesis enables repeatability; future analysts understand hunt purpose.*
+- [ ] **Hunt Documentation — Data Sources Used:** List all log sources queried (Windows Security, Sysmon, EDR, firewall). *SOC angle: data source documentation reveals coverage; future hunts know what was checked.*
+- [ ] **Hunt Documentation — Queries Executed:** Record exact KQL, SPL, or other queries used for hunt. *SOC angle: query documentation enables reuse and automation; successful hunts become detection rules.*
+- [ ] **Hunt Documentation — Findings:** Document threats found, false positives encountered, and interesting observations. *SOC angle: findings create institutional knowledge; document what worked and what didn't.*
+- [ ] **Hunt Documentation — Next Steps:** Record planned actions (new detections, additional hunts, escalations). *SOC angle: next steps ensure follow-through; hunts without action waste effort.*
+- [ ] **Hunt Documentation — Metrics:** Track time spent, data volume analyzed, and threats discovered for hunt effectiveness measurement. *SOC angle: metrics justify hunt program; demonstrate value to management.*
+- [ ] **Hunt Metric — Hypotheses Tested:** Count number of hunt hypotheses investigated in period. *SOC angle: hypothesis count indicates hunt activity; more hypotheses = broader coverage.*
+- [ ] **Hunt Metric — Threats Discovered:** Track actual threats found through hunting (not via alerts). *SOC angle: threat count demonstrates hunt effectiveness; zero threats may indicate need for better hypotheses or lack of threats.*
+- [ ] **Hunt Metric — Time to Complete Hunt:** Measure duration from hypothesis to conclusion for efficiency tracking. *SOC angle: hunt duration indicates complexity and efficiency; optimize long hunts.*
+- [ ] **Hunt Metric — Data Coverage:** Calculate percentage of environment covered by hunt (% endpoints, % users, % network). *SOC angle: coverage metric reveals hunt thoroughness; partial coverage leaves blind spots.*
+- [ ] **Hunt Metric — Hunt Backlog:** Track number of planned hunts not yet executed to manage hunt program workload. *SOC angle: backlog metric indicates capacity constraints; growing backlog = need for more hunters or automation.*
+
+---
+
+### Lab Progression (Module 19A: SOC & Security Operations)
+
+| Level | Task | Deliverable |
+| ----- | ---- | ------------ |
+| 1 | Deploy Splunk Free or Microsoft Sentinel free tier | Functional SIEM lab environment |
+| 2 | Ingest logs from 3+ sources (Windows, Linux, network) | Log ingestion documentation |
+| 3 | Write 10 detection rules for MITRE ATT&CK techniques | Detection rule repository |
+| 4 | Create Sigma rules and convert to target SIEM | Sigma rule collection |
+| 5 | Build SOC dashboard for incident triage | Functional dashboard |
+| 6 | Conduct 3 threat hunts (persistence, lateral movement, C2) | Threat hunt reports |
+| 7 | Set up Microsoft Defender for Endpoint trial, write advanced hunting queries | MDE hunting query collection |
+| 8 | Purple team exercise: execute attack, validate detection | Purple team report |
+
+**Practice Platforms:**
+- [Splunk Free](https://www.splunk.com/en_us/download.html) - 500MB/day free tier
+- [Microsoft Sentinel](https://azure.microsoft.com/en-us/products/microsoft-sentinel) - Free tier with Azure account
+- [Elastic Security](https://www.elastic.co/security) - Free Basic license
+- [Boss of the SOC (BOTS)](https://cyberdefenders.org/blueteam-ctf-challenges/) - Blue team CTF challenges
+- [Cyber Defenders](https://cyberdefenders.org/) - Blue team labs
+
+> [!IMPORTANT]
+> **Move-On Gate:** I can deploy and configure a SIEM. I can write detection rules in Sigma, KQL, and SPL. I can conduct threat hunts for common ATT&CK techniques. I can investigate alerts and produce incident reports. I understand what blue team sees when I attack — making me a better red teamer.
+
+---
+
 ## Module 19: Active Directory & Entra ID
 
 > [!NOTE]
@@ -323,6 +663,13 @@
 > | **flaws2.cloud** | Scott Piper (AWS) | IAM escalation CTF (attacker + defender paths) | flaws2.cloud |
 > > [!WARNING]
 > > **Never practice cloud attack techniques against accounts I do not own and have not specifically provisioned for testing.** Cloud APIs leave detailed audit trails in CloudTrail/Activity Log. Unauthorized access to cloud accounts is a federal crime under CFAA and equivalent laws. Always use dedicated lab accounts with explicit resource tagging.
+
+> [!TIP]
+> ⏱️ **Module 20 Total Time Budget: 2–3 weeks**
+> T1 (architecture/governance): 1 day | T2 (storage/data security): 1–2 days | T3 (modern infra/deployment): 1 day | T4 (compute security): 1–2 days | T5 (IAM exploitation): 3–4 days | T6 (SSRF/metadata): 2 days | T7 (Lambda/serverless): 2 days | T8 (network attacks): 1–2 days | T9 (credential harvesting): 2 days | T10 (defense/hardening): 1–2 days | Labs (CloudGoat + flaws.cloud): 3–5 days.
+> Cloud is now THE primary attack surface. Every organization uses cloud infrastructure. A pentester who cannot enumerate S3 buckets, exploit SSRF to metadata services, or escalate IAM privileges is missing half the modern engagement scope. Master CloudGoat scenarios before calling this module complete.
+
+---
 
 ### Topic 1: Architecture & Governance — 🧠 Conceptual
 
@@ -607,7 +954,108 @@
 
 ---
 
-### Topic 6: Hypervisor Security — 🧠 Conceptual
+### Topic 6: Container Supply Chain Security — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Secure the container image supply chain from build to deployment
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2–3 days** — Container image signing (Docker Content Trust: uses Notary for signature verification; Cosign from Sigstore: sign images with cosign sign, verify with cosign verify — integrates with keyless signing via OIDC), supply chain attacks via base images (malicious base images from public registries; typosquatting attacks on Docker Hub; backdoored images with cryptocurrency miners), image provenance & attestation (SLSA provenance: verifiable build metadata showing what inputs produced which outputs; in-toto attestation: cryptographic evidence of each supply chain step; provenance verification prevents tampering), registry security (Harbor: open-source registry with RBAC, image scanning, signature enforcement; private registries: authentication via registry secrets; webhook notifications for image push events), admission controller policies (OPA Gatekeeper: enforce policies at Kubernetes admission time — block unsigned images, enforce base image allow lists, require specific labels; Kyverno: Kubernetes-native policy engine with simpler YAML syntax), image scanning in CI/CD pipeline (integrate Trivy/Grype/Snyk into CI: fail build on HIGH/CRITICAL vulnerabilities; shift-left scanning: catch vulnerabilities before deployment), SLSA for containers (SLSA Level 1: provenance exists; Level 2: signed provenance; Level 3: hardened build platform; Level 4: hermetic builds), distroless images & minimal base images (distroless: no package manager, no shell — reduces attack surface by 90%; Alpine vs distroless trade-offs: Alpine has a shell for debugging, distroless does not). Deliverable: implement signed image deployment pipeline with Cosign, create OPA Gatekeeper policy to block unsigned images, integrate Trivy scanning into CI/CD with fail-on-critical threshold.
+
+- [ ] **Docker Content Trust (DCT) Implementation:** Enable DCT with DOCKER_CONTENT_TRUST=1 environment variable to require signed images via Notary v1. *Supply chain angle: DCT verifies image publisher identity; unsigned images rejected at pull time.*
+- [ ] **Docker Content Trust Uses Notary:** DCT leverages Notary for signature verification with push keys required for signing images. *Supply chain angle: Notary provides content trust through The Update Framework (TUF) model.*
+- [ ] **Docker Content Trust Adoption Challenges:** Limited adoption due to complexity of key management and push key distribution. *Supply chain angle: usability vs security trade-off; complexity prevents widespread adoption.*
+- [ ] **Cosign Sign Command:** Use cosign sign command to cryptographically sign container images with private keys or keyless OIDC. *Supply chain angle: cosign simplifies signing compared to DCT; modern supply chain standard.*
+- [ ] **Cosign Verify Command:** Use cosign verify to validate image signatures before deployment or runtime. *Supply chain angle: signature verification prevents tampered or unauthorized images from running.*
+- [ ] **Cosign Keyless Signing via OIDC:** Sign images without managing keys using OIDC providers (GitHub Actions, Google, Microsoft) for ephemeral certificates. *Supply chain angle: keyless signing removes key management burden; certificates from Fulcio CA.*
+- [ ] **Cosign Signature Storage:** Store image signatures in OCI registry alongside images as attached artifacts. *Supply chain angle: co-located signatures simplify distribution; registry serves both image and signature.*
+- [ ] **Sigstore Toolchain:** Leverage Sigstore ecosystem including cosign (signing), rekor (transparency log), and fulcio (certificate authority). *Supply chain angle: Sigstore provides complete signing infrastructure; transparency log ensures non-repudiation.*
+- [ ] **Supply Chain Attack — Malicious Base Images:** Attackers upload backdoored base images to Docker Hub masquerading as legitimate images. *Supply chain angle: public registries are attacker targets; verify image sources.*
+- [ ] **Supply Chain Attack — Typosquatting:** Attackers create images with names similar to popular images (nginx vs nginix, python vs pythom). *Supply chain angle: typos in Dockerfile FROM line pull malicious images; review base image names.*
+- [ ] **Supply Chain Attack — Backdoored Cryptocurrency Miners:** Compromised images include hidden cryptocurrency miners consuming CPU/memory resources. *Supply chain angle: miners generate profit for attackers; performance degradation indicator.*
+- [ ] **Supply Chain Attack — Compromised Maintainer Accounts:** Attackers compromise Docker Hub maintainer accounts to push malicious updates to legitimate images. *Supply chain angle: trust chain breaks at maintainer; use image digests for immutability.*
+- [ ] **Supply Chain Attack — Dependency Confusion:** Dockerfile pip install or npm install may pull attacker-controlled packages with same name as internal packages. *Supply chain angle: public package registries checked before private; namespace confusion enables attack.*
+- [ ] **Supply Chain Mitigation — Use Official Images:** Only use Docker Official Images or Verified Publisher images from trusted sources. *Supply chain angle: official images have security reviews and transparency; unverified images = unknown risk.*
+- [ ] **Supply Chain Mitigation — Pin by Digest Not Tag:** Pin images by SHA256 digest (image@sha256:abc123) not mutable tags (image:latest). *Supply chain angle: tags can be overwritten; digests are immutable content-addressable references.*
+- [ ] **SLSA Provenance Metadata:** Provenance contains verifiable build metadata including source repository, commit SHA, and build command. *Supply chain angle: provenance proves what inputs produced which outputs; tamper detection.*
+- [ ] **SLSA Provenance Prevents Tampering:** Verifiable provenance detects source code or build system tampering by cryptographically linking source to artifact. *Supply chain angle: prevents malicious code injection during build; integrity verification.*
+- [ ] **in-toto Attestation Evidence:** in-toto provides cryptographic evidence of each supply chain step with signed link metadata. *Supply chain angle: attests who did what, when, with what materials; complete audit trail.*
+- [ ] **in-toto Link Metadata:** Link metadata records actors, actions, and materials for each supply chain step (code review, build, test, deploy). *Supply chain angle: metadata proves required steps occurred; missing steps detectable.*
+- [ ] **in-toto Layout Policy:** Layout policy defines required supply chain steps and authorized functionaries (roles) per step. *Supply chain angle: policy enforcement ensures multi-person approval and segregation of duties.*
+- [ ] **Provenance Verification — Signature Validation:** Verify attestation signatures using public keys or certificate transparency to ensure authenticity. *Supply chain angle: signature validation prevents forged attestations; trust anchor required.*
+- [ ] **Provenance Verification — Source Repository Match:** Confirm image was built from expected source repository, not attacker fork. *Supply chain angle: prevents fork confusion; validates source legitimacy.*
+- [ ] **Provenance Verification — Build Platform Requirements:** Ensure build platform meets security requirements (SLSA level, hardening, isolation). *Supply chain angle: compromised builder = compromised artifacts; builder trust critical.*
+- [ ] **Harbor RBAC:** Harbor provides role-based access control with project-level permissions for push/pull/admin operations. *Supply chain angle: least privilege access; prevents unauthorized image modifications.*
+- [ ] **Harbor Integrated Scanning:** Harbor integrates vulnerability scanners (Trivy, Clair) to automatically scan pushed images. *Supply chain angle: scan-on-push catches vulnerabilities before deployment; automated detection.*
+- [ ] **Harbor Image Signing Enforcement:** Harbor enforces image signature requirements using Cosign or Notary before allowing pulls. *Supply chain angle: signature enforcement prevents unsigned images from deployment; policy-based control.*
+- [ ] **Harbor Cross-Registry Replication:** Harbor replicates images across multiple registries for redundancy and geographic distribution. *Supply chain angle: replication enables disaster recovery and reduces latency.*
+- [ ] **Harbor Audit Logging:** Harbor logs all image operations (push, pull, delete) for security monitoring and compliance. *Supply chain angle: audit logs enable forensic investigation of image tampering or unauthorized access.*
+- [ ] **Private Registry Authentication:** Use Kubernetes imagePullSecrets to authenticate to private registries for image pulls. *Supply chain angle: authentication prevents unauthorized image access; secrets management critical.*
+- [ ] **Private Registry Network Segmentation:** Isolate container registry in private subnet with limited network access. *Supply chain angle: network segmentation reduces attack surface; registry should not be internet-exposed.*
+- [ ] **Private Registry Webhook Notifications:** Configure webhooks to trigger on image push events for automated scanning or deployment pipelines. *Supply chain angle: webhooks enable event-driven automation; immediate response to image updates.*
+- [ ] **Registry Access Control — Least Privilege:** Grant read-only access for deployments; reserve write access to CI/CD service accounts. *Supply chain angle: least privilege limits blast radius; compromised workload cannot push malicious images.*
+- [ ] **Registry Immutable Tags:** Enable immutable tags to prevent tag overwriting, ensuring image integrity. *Supply chain angle: immutability prevents tag substitution attacks; digest-based references remain valid.*
+- [ ] **Registry Tag Lifecycle Policies:** Implement policies to automatically delete old or unused images to reduce storage and attack surface. *Supply chain angle: stale images may contain unpatched vulnerabilities; lifecycle management reduces risk.*
+- [ ] **OPA Gatekeeper Admission Enforcement:** Deploy OPA Gatekeeper to enforce admission control policies at Kubernetes API level. *Supply chain angle: admission control is fail-closed gate; reject non-compliant workloads before creation.*
+- [ ] **OPA Gatekeeper Block Unsigned Images:** Create constraint template to reject pods pulling unsigned images. *Supply chain angle: signature enforcement at admission time; unsigned images never run.*
+- [ ] **OPA Gatekeeper Base Image Allow Lists:** Enforce policies allowing only approved base images from trusted registries. *Supply chain angle: allow lists prevent supply chain attacks via malicious base images.*
+- [ ] **OPA Gatekeeper Require Specific Labels:** Mandate labels like owner, team, and criticality for pod tracking and accountability. *Supply chain angle: labels enable asset tracking and incident response ownership.*
+- [ ] **OPA Gatekeeper Deny Privileged Containers:** Block privileged containers to prevent host namespace access and privilege escalation. *Supply chain angle: privileged containers = container escape risk; deny by default.*
+- [ ] **OPA Gatekeeper Registry Restriction Example:** Create policy rejecting images from registries other than harbor.corp.com. *Supply chain angle: registry restriction prevents external untrusted images.*
+- [ ] **Kyverno Kubernetes-Native Policy:** Use Kyverno for policy management with simpler YAML syntax compared to OPA Rego. *Supply chain angle: Kyverno's YAML syntax lowers learning curve; faster policy development.*
+- [ ] **Kyverno Validate, Mutate, Generate Policies:** Define validation (enforce rules), mutation (modify resources), and generation (create resources) policies. *Supply chain angle: mutation enables automatic security controls (add securityContext); validation blocks violations.*
+- [ ] **Kyverno Image Verification via Cosign:** Integrate Kyverno with Cosign for native image signature verification in policies. *Supply chain angle: Kyverno verifies cosign signatures without external tools; streamlined enforcement.*
+- [ ] **Kyverno Auto-Add Security Context Example:** Create policy that automatically adds security context to pods missing it. *Supply chain angle: mutation ensures secure defaults; developer doesn't need to specify security controls.*
+- [ ] **Policy Enforcement — Fail Closed:** Configure admission controllers to default deny unless policy explicitly allows (fail closed). *Supply chain angle: fail closed = secure by default; policy bugs don't create vulnerabilities.*
+- [ ] **Policy Enforcement — Audit Mode First:** Deploy policies in audit mode initially to identify violations without blocking; enforce after tuning. *Supply chain angle: audit mode prevents operational disruption; gradual enforcement reduces risk.*
+- [ ] **Policy Enforcement — System Namespace Exemptions:** Exempt system namespaces (kube-system, kube-public) from policies to avoid breaking cluster. *Supply chain angle: system components may require privileges; blanket enforcement breaks cluster operations.*
+- [ ] **CI/CD Scanning — Pre-Commit Dockerfile Lint:** Scan Dockerfiles with hadolint for best practices before commit. *Supply chain angle: early detection of insecure patterns (root user, apt-get without cleanup).*
+- [ ] **CI/CD Scanning — Build Time Image Scan:** Scan image after build using Trivy, Grype, or Snyk before pushing to registry. *Supply chain angle: shift-left scanning catches vulnerabilities before deployment; fail fast.*
+- [ ] **CI/CD Scanning — Registry Scan on Push:** Enable automatic scanning when image pushed to registry (Harbor, AWS ECR). *Supply chain angle: registry scanning provides second validation; catches missed vulnerabilities.*
+- [ ] **CI/CD Scanning — Runtime Continuous Scanning:** Continuously scan running images for newly disclosed vulnerabilities. *Supply chain angle: runtime scanning catches zero-days in running workloads; continuous risk assessment.*
+- [ ] **Scanning Fail Threshold — Fail on HIGH/CRITICAL:** Configure CI/CD to fail build when HIGH or CRITICAL vulnerabilities detected. *Supply chain angle: fail thresholds enforce minimum security bar; prevents deployment of high-risk images.*
+- [ ] **Scanning Fail Threshold — Allow MEDIUM with Approval:** Permit MEDIUM severity vulnerabilities with manual approval workflow. *Supply chain angle: balances security with velocity; manual review for acceptable risks.*
+- [ ] **Scanning Patching SLA:** Set service-level agreements for patching (7 days for HIGH, 30 days for MEDIUM vulnerabilities). *Supply chain angle: SLAs ensure timely remediation; expired SLAs trigger escalation.*
+- [ ] **Scanning Tool — Trivy:** Use Trivy for fast, comprehensive vulnerability scanning supporting multiple artifact types. *Supply chain angle: Trivy scans containers, filesystems, git repos; broad coverage.*
+- [ ] **Scanning Tool — Grype:** Use Anchore's Grype scanner with strong SBOM support for software bill of materials tracking. *Supply chain angle: Grype integrates with Syft for SBOM generation; supply chain transparency.*
+- [ ] **Scanning Tool — Snyk:** Use Snyk commercial scanner for good developer UX and IDE integration. *Supply chain angle: Snyk provides fix recommendations and automated PRs; developer-friendly.*
+- [ ] **Scanning Tool — Clair:** Use CoreOS Clair scanner with Quay registry integration for container scanning. *Supply chain angle: Clair provides vulnerability database; integrates natively with Quay.*
+- [ ] **SLSA Level 1 — Provenance Exists:** Build metadata recorded showing source, builder, and build command. *Supply chain angle: level 1 = basic transparency; no integrity guarantees yet.*
+- [ ] **SLSA Level 2 — Signed Provenance:** Provenance cryptographically signed to prevent tampering. *Supply chain angle: level 2 = tamper-proof metadata; detects post-build modifications.*
+- [ ] **SLSA Level 3 — Hardened Build Platform:** Build platform hardened with non-falsifiable provenance from isolated builders. *Supply chain angle: level 3 = trustworthy builder; prevents compromised build system from forging provenance.*
+- [ ] **SLSA Level 4 — Hermetic Builds:** Reproducible builds with two-person review and hermetic environment. *Supply chain angle: level 4 = highest assurance; reproducible builds enable independent verification.*
+- [ ] **SLSA Implementation — Use SLSA L3 Builders:** Deploy GitHub Actions or Google Cloud Build which provide SLSA Level 3 builders. *Supply chain angle: managed builders provide provenance without custom infrastructure.*
+- [ ] **SLSA Implementation — Generate Provenance:** Use slsa-github-generator action to automatically generate provenance during CI/CD. *Supply chain angle: automated provenance generation; no manual attestation required.*
+- [ ] **SLSA Implementation — Store Provenance in OCI Registry:** Store provenance as OCI artifact attached to image in registry. *Supply chain angle: co-located storage simplifies distribution; provenance travels with image.*
+- [ ] **SLSA Implementation — Verify Provenance Before Deployment:** Validate provenance signatures and metadata before deploying to production. *Supply chain angle: deployment-time verification enforces supply chain requirements.*
+- [ ] **SLSA Benefits — Prevent Source Tampering:** Provenance links source commit to artifact, detecting unauthorized code changes. *Supply chain angle: prevents attacker code injection; verifiable source lineage.*
+- [ ] **SLSA Benefits — Detect Compromised Build Systems:** Build provenance reveals if build occurred on unauthorized or compromised builder. *Supply chain angle: detects supply chain compromise at build layer.*
+- [ ] **SLSA Benefits — Enforce Two-Person Review:** Level 4 requires two-person review for production deployments, preventing insider threats. *Supply chain angle: segregation of duties; no single person can deploy malicious code.*
+- [ ] **Distroless Images — No Package Manager:** Distroless images exclude package managers (apt, yum) reducing attack surface. *Supply chain angle: no package manager = attackers cannot install tools; minimal post-compromise capability.*
+- [ ] **Distroless Images — No Shell:** Distroless images lack shells (/bin/sh, /bin/bash) preventing interactive access. *Supply chain angle: no shell = RCE attackers cannot run shell commands; must use application vulnerabilities directly.*
+- [ ] **Distroless Images — Runtime Only:** Include only application runtime (Java, Python, Go, Node) and application code. *Supply chain angle: minimal components = minimal vulnerabilities; 90% smaller attack surface.*
+- [ ] **Distroless Images — Ephemeral Container Debugging:** Debug distroless containers using kubectl debug with ephemeral debug container. *Supply chain angle: debugging without permanent shell; temporary debug access.*
+- [ ] **Alpine vs Distroless Comparison — Alpine Size:** Alpine base image approximately 5MB with musl libc and shell. *Supply chain angle: Alpine compact but includes shell; trade-off between size and debugging.*
+- [ ] **Alpine vs Distroless Comparison — Distroless Size:** Distroless base image approximately 2MB with glibc and no shell. *Supply chain angle: Distroless minimal but harder to debug; security over convenience.*
+- [ ] **Alpine vs Distroless Trade-Off:** Alpine easier to debug with shell access; distroless more secure with no shell. *Supply chain angle: choose based on risk tolerance and debugging requirements.*
+- [ ] **Multi-Stage Builds — Build Stage:** Use full toolchain image (gcc, npm, pip) for compilation in build stage. *Supply chain angle: build stage includes all tools; not shipped in runtime.*
+- [ ] **Multi-Stage Builds — Runtime Stage:** Copy only compiled artifacts to minimal base image for runtime stage. *Supply chain angle: runtime stage excludes build tools; reduces attack surface.*
+- [ ] **Multi-Stage Builds Example:** FROM golang AS build for compilation, then FROM gcr.io/distroless/static for runtime. *Supply chain angle: multi-stage separates build from runtime; final image contains only necessary artifacts.*
+
+**Lab Progression:**
+- [ ] Sign a container image with Cosign and verify signature
+- [ ] Create OPA Gatekeeper policy to block unsigned images
+- [ ] Integrate Trivy scanning into CI/CD with fail-on-critical threshold
+- [ ] Build a multi-stage Dockerfile with distroless runtime stage
+- [ ] Implement SLSA provenance generation in GitHub Actions
+- [ ] Configure Harbor registry with signature enforcement
+
+> [!IMPORTANT]
+> **Move-On Gate (Topic 6):** I can sign container images with Cosign, write OPA Gatekeeper policies to enforce image signatures, integrate vulnerability scanning into CI/CD pipelines with failure thresholds, and explain the difference between Docker Content Trust and Sigstore/Cosign.
+
+---
+
+### Topic 7: Hypervisor Security — 🧠 Conceptual
 
 > [!TIP]
 > **Goal:** Understand the attack surface one layer below containers — the hypervisor. Container escape gets defender attention; hypervisor-level attacks are less understood and harder to detect. Enterprise pentests against virtualised infrastructure encounter these regularly.
@@ -642,7 +1090,7 @@
   - Enable VM encryption (vSphere VM Encryption) for sensitive VMs to prevent offline VMDK extraction
 
 > [!IMPORTANT]
-> **Move-On Gate:** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes. Additionally, document: (1) two ESXi attack vectors and their mitigations, (2) how VMDK credential extraction works and what prevents it.
+> **Move-On Gate (Module 21):** Produce a Kubernetes hardening report with RBAC, network policy, admission control, image scanning, and runtime detection notes. Demonstrate container image signing with Cosign and OPA Gatekeeper policy enforcement. Additionally, document: (1) two ESXi attack vectors and their mitigations, (2) how VMDK credential extraction works and what prevents it.
 
 ---
 

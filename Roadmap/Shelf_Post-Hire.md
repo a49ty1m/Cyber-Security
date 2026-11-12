@@ -2425,3 +2425,764 @@ _Extension of Stage 3 detection concepts. These topics cover operational securit
 | [[Cyber-Security/Roadmap/Stage-5_Specialized\|◀ Stage 5: Specialized]] | [[Cyber-Security/Roadmap/README\|MASTER_README]] | [[#📦 Shelf: Post-Hire & Elective Specializations\|⬆ Return to Top]] |
 
 > 💡 **Obsidian Tip:** Use Obsidian's quick switcher (`Ctrl + O` or `Cmd + O`) to search and jump directly to any specific Shelf module.
+
+
+---
+
+# 📦 Shelf 22: Software Supply Chain Security
+*Moved from Stage 3 — Advanced topic recommended for post-hire deep dive*
+
+---
+
+> | 18 Bug Bounty | [HackerOne](https://www.hackerone.com) / [Bugcrowd](https://www.bugcrowd.com) | Join 1 public program and submit 1 report | Real-world recon + reporting practice |
+> **Rule:** For every PortSwigger lab you complete, write one paragraph explaining the root cause, not just the steps.
+
+---
+
+## Software Supply Chain Security
+
+> [!NOTE]
+> **📚 Recommended Books for This Module**
+> - 🔴 `Supply Chain Attack Handbook` — Comprehensive guide to supply chain threats
+> - 🟡 `Securing DevOps` — Supply chain security in CI/CD pipelines
+> - 🟡 `Building Secure & Reliable Systems` — Google SRE book chapters on supply chain
+> - 🟢 `SLSA Framework Documentation` — slsa.dev - Free official guidance
+
+> [!IMPORTANT]
+> **Why This Module Exists:** Software supply chain attacks (SolarWinds, Codecov, Kaseya) represent catastrophic breaches affecting thousands of organizations simultaneously. Understanding supply chain security is CRITICAL for both offensive (identifying attack vectors) and defensive (protecting CI/CD, dependencies) roles.
+
+> [!TIP]
+> ⏱️ **Shelf 22 Total Time Budget: 1 week**
+> T1 (threat landscape): 1 day | T2 (SBOM & dependencies): 2 days | T3 (package security): 1 day | T4 (CI/CD security): 2 days | T5 (code signing): 1 day.
+> Supply chain attacks are the HIGHEST IMPACT breaches (one compromise = thousands of victims). This is not theoretical — SolarWinds, Codecov, event-stream NPM package, and ua-parser-js attacks all happened in the last few years. Understanding supply chain gives you job-critical knowledge for both red team (attack surface analysis) and blue team (securing build pipelines).
+
+### Topic 1: Supply Chain Threat Landscape — 🧠 Conceptual
+
+> [!TIP]
+> **Goal:** Understand supply chain attack vectors and real-world case studies
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Study major supply chain attacks (SolarWinds SUNBURST malware via build system compromise 2020, Codecov bash uploader script compromise 2021, Kaseya VSA zero-day ransomware supply chain attack 2021, event-stream NPM package backdoor 2018, ua-parser-js NPM typosquatting 2021), attack vectors across SDLC (compromised dependencies, malicious maintainer, build system injection, package repository compromise, typosquatting, dependency confusion), threat actor TTPs (APT groups targeting software vendors as supply chain pivot, ransomware gangs exploiting MSP software), economic impact & risk quantification (one breach = thousands of downstream victims, nation-state espionage via software supply chain). Deliverable: write 1-page threat landscape summary with 3 case studies and attacker TTPs.
+
+- [ ] **Major Supply Chain Attacks (Case Studies):**
+  - [ ] **SolarWinds (2020):** Build system compromise → SUNBURST malware in Orion updates → 18,000+ organizations affected
+  - [ ] **Codecov (2021):** Bash uploader script modified → credentials exfiltrated from CI/CD environments
+  - [ ] **Kaseya VSA (2021):** Zero-day in MSP software → REvil ransomware deployed to 1,500+ organizations
+  - [ ] **event-stream NPM (2018):** Maintainer handover to malicious actor → cryptocurrency wallet stealing code
+  - [ ] **ua-parser-js NPM (2021):** Package hijacking → cryptominer and password stealer
+  - [ ] **Dependency Confusion (2021):** Alex Birsan exploited internal package names → $130k in bug bounties
+  - [ ] **CCleaner (2017):** Build system compromise → backdoored installer downloaded by 2.3M users
+  - [ ] **NotPetya (2017):** Ukrainian accounting software update mechanism → global ransomware outbreak
+
+- [ ] **Attack Vectors Across the SDLC:**
+  - [ ] **Compromised Dependencies:** Malicious code in third-party libraries (direct or transitive dependencies)
+  - [ ] **Malicious Maintainer:** Legitimate maintainer turns malicious or account compromised
+  - [ ] **Build System Injection:** Attackers gain access to build/release pipeline, inject code during compilation
+  - [ ] **Package Repository Compromise:** Central repositories (NPM, PyPI, RubyGems) account takeovers
+  - [ ] **Typosquatting:** Register packages with similar names to popular ones (requets vs requests)
+  - [ ] **Dependency Confusion:** Internal package names leaked → attacker uploads public package with same name + higher version
+  - [ ] **Source Code Repository Compromise:** GitHub/GitLab account takeover or malicious commits
+  - [ ] **Developer Workstation Compromise:** Steal signing keys, inject code locally
+
+- [ ] **Threat Actor TTPs:**
+  - [ ] **APT Groups:** Nation-state actors targeting software vendors as pivot to downstream customers
+  - [ ] **Cybercrime Groups:** Ransomware operators exploiting MSP/RMM software for mass deployment
+  - [ ] **Hacktivists:** Ideology-driven attacks against specific industries
+  - [ ] **Insider Threats:** Malicious or negligent developers/maintainers
+
+- [ ] **Economic Impact & Risk Quantification:**
+  - [ ] One breach = thousands/millions of downstream victims (force multiplier)
+  - [ ] Nation-state espionage via software supply chain (intelligence collection at scale)
+  - [ ] Brand damage and loss of customer trust
+  - [ ] Legal/compliance ramifications (liability for downstream breaches)
+
+---
+
+### Topic 2: SBOM & Dependency Management — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Generate and analyze Software Bill of Materials (SBOM) and manage dependencies securely
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: SBOM fundamentals (SBOM formats SPDX and CycloneDX, SBOM generation tools Syft and Microsoft SBOM-tool, SBOM analysis & risk assessment with Grype and Trivy), dependency vulnerability scanning (Snyk, Dependabot, npm audit, pip-audit, bundler-audit). Day 2: Dependency confusion attacks (public vs private package repositories, namespace squatting, typosquatting requets vs requests, attack simulation in controlled lab environment), dependency analysis (transitive dependencies visibility, version pinning vs range, lock files package-lock.json/Pipfile.lock/Gemfile.lock/go.sum). Deliverable: generate SBOM for a sample application, identify vulnerable dependencies, simulate dependency confusion attack in lab, document mitigation strategies.
+
+- [ ] **Software Bill of Materials (SBOM):**
+  - [ ] **SBOM Purpose:** Inventory of all software components (libraries, versions, licenses, dependencies)
+  - [ ] **SBOM Formats:**
+    * **SPDX (Software Package Data Exchange):** ISO/IEC 5962:2021 standard
+    * **CycloneDX:** OWASP standard, security-focused
+  - [ ] **SBOM Generation Tools:**
+    * **Syft:** Universal SBOM generator (supports containers, filesystems, archives)
+    * **Microsoft SBOM Tool:** .NET focused
+    * **FOSSA, Anchore, JFrog Xray:** Commercial options
+  - [ ] **SBOM Analysis & Risk Assessment:**
+    * Identify vulnerable components (CVE matching)
+    * License compliance (GPL, MIT, Apache compatibility)
+    * Outdated dependencies (version lag analysis)
+    * Tools: **Grype, Trivy, OSS Index, Sonatype**
+
+- [ ] **Dependency Confusion Attacks:**
+  - [ ] **Attack Mechanism:**
+    * Developer uses internal package name (e.g., `company-utils`)
+    * Attacker discovers internal package name (leak, typo in public code)
+    * Attacker uploads malicious package to public repo (NPM, PyPI) with same name + higher version
+    * Package manager fetches public version instead of internal (version precedence)
+  - [ ] **Public vs Private Package Repositories:**
+    * Namespace protection in registries (NPM scoped packages `@company/utils`)
+    * Private registry configuration (.npmrc, pip.conf, .gemrc)
+    * Authentication & authorization for private registries
+  - [ ] **Typosquatting Detection:**
+    * Similar package names (requests vs reqeusts)
+    * Homograph attacks (using Unicode lookalikes)
+    * Tools: Doppelganger Finder, typosquatting scanners
+  - [ ] **Attack Simulation:** Set up local private registry, simulate dependency confusion in controlled environment
+
+- [ ] **Dependency Vulnerability Scanning:**
+  - [ ] **NPM:** `npm audit`, `npm audit fix`
+  - [ ] **Python:** `pip-audit`, `safety check`
+  - [ ] **Ruby:** `bundler-audit`
+  - [ ] **Java:** OWASP Dependency-Check, Snyk
+  - [ ] **Go:** `govulncheck`
+  - [ ] **Rust:** `cargo audit`
+  - [ ] **Commercial Tools:** Snyk, Dependabot (GitHub), Renovate
+
+- [ ] **Dependency Analysis Best Practices:**
+  - [ ] **Transitive Dependencies:** Understand full dependency tree (not just direct dependencies)
+  - [ ] **Version Pinning vs Range:**
+    * Pinning: `"lodash": "4.17.21"` — exact version (reproducibility)
+    * Range: `"lodash": "^4.17.0"` — semantic versioning range (gets updates)
+    * Recommendation: Pin in production, range in development
+  - [ ] **Lock Files:** Commit to version control (package-lock.json, Pipfile.lock, Gemfile.lock, go.sum)
+  - [ ] **Automated Dependency Updates:** Dependabot, Renovate with automated testing
+  - [ ] **Dependency Review:** Manual review for new dependencies (popularity, maintenance, security history)
+
+---
+
+### Topic 3: Package Repository Security — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Secure package repositories and verify package authenticity
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Repository compromise scenarios (NPM account takeover via stolen credentials or session hijacking, PyPI package name takeover after maintainer abandonment, malicious package upload after phishing maintainer credentials), package verification (GPG signature verification for Linux packages apt/yum, npm package signature verification npm-signature-verification experimental, checksum verification SHA256/SHA512 hash validation), private repository security (Nexus Repository Manager and JFrog Artifactory configuration, authentication and authorization RBAC, package scanning integration). Deliverable: verify GPG signatures on Linux packages, configure private NPM registry with authentication, document package verification workflow.
+
+- [ ] **Repository Compromise Scenarios:**
+  - [ ] **Account Takeover:** Stolen credentials, phishing, session hijacking
+  - [ ] **Package Name Takeover:** After maintainer abandons package, attacker claims it
+  - [ ] **Malicious Package Upload:** Compromised maintainer account uploads backdoored version
+  - [ ] **Registry Infrastructure Breach:** Direct compromise of NPM/PyPI/RubyGems servers (rare but catastrophic)
+
+- [ ] **Package Verification:**
+  - [ ] **GPG Signatures (Linux Packages):**
+    * `apt-key add` for Debian/Ubuntu
+    * `rpm --import` for RHEL/CentOS
+    * Verify signatures: `gpg --verify package.sig package.tar.gz`
+  - [ ] **NPM Package Signatures:** Experimental npm provenance feature
+  - [ ] **Checksum Verification:**
+    * SHA256/SHA512 hash validation
+    * `sha256sum -c checksums.txt`
+    * Verify checksums from trusted source (official website, signed file)
+
+- [ ] **Private Repository Management:**
+  - [ ] **Artifact Repository Managers:**
+    * **Nexus Repository Manager (Sonatype):** On-prem or cloud
+    * **JFrog Artifactory:** Universal artifact repository
+    * **AWS CodeArtifact, Azure Artifacts, GitHub Packages:** Cloud-native options
+  - [ ] **Authentication & Authorization:**
+    * RBAC (Role-Based Access Control)
+    * API tokens with scoped permissions
+    * SSO integration (SAML, OIDC)
+  - [ ] **Package Scanning Integration:**
+    * Automatic vulnerability scanning on upload
+    * Policy enforcement (block packages with critical CVEs)
+    * License compliance checks
+
+---
+
+### Topic 4: Build & CI/CD Pipeline Security — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Secure software build pipelines and CI/CD systems
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Build system security (build environment isolation containers/VMs for builds, build provenance generation what/when/how/who built artifact, reproducible builds bit-for-bit identical output from same source), Jenkins security hardening (authentication and authorization matrix, plugin security updates, Jenkinsfile pipeline-as-code security, secrets management avoid hardcoded credentials), GitHub Actions security (workflow permissions principle of least privilege, secrets handling GitHub Secrets with rotation, third-party action security pin to commit SHA not tag). Day 2: CI/CD-specific attacks (pipeline injection code injection via PR/issue, secrets exfiltration from build logs, artifact tampering unsigned artifacts replaced), SLSA framework (Supply chain Levels for Software Artifacts Levels 1-4 requirements, build provenance generation in-toto/SLSA, verification workflow consumers verify provenance before use). Deliverable: implement SLSA Level 3 build pipeline with provenance generation, secure GitHub Actions workflow with minimal permissions, audit Jenkins instance for security issues.
+
+- [ ] **Build System Compromise (SolarWinds Case Study):**
+  - [ ] Attackers gained access to SolarWinds build environment
+  - [ ] Injected SUNBURST malware during build process
+  - [ ] Signed malicious binary with legitimate certificate
+  - [ ] Distributed via official update mechanism
+  - [ ] **Lesson:** Build systems are critical infrastructure — compromise = mass breach
+
+- [ ] **Build Environment Security:**
+  - [ ] **Isolation:** Use containers/VMs for each build (prevent cross-contamination)
+  - [ ] **Ephemeral Build Agents:** Destroy after each build (no persistent state)
+  - [ ] **Access Control:** Limit who can modify build scripts/pipelines
+  - [ ] **Audit Logging:** Log all build activities (who triggered, what changed, when)
+
+- [ ] **Jenkins Security Hardening:**
+  - [ ] **Authentication & Authorization:**
+    * Matrix-based security (per-job permissions)
+    * Integrate with LDAP/AD/SSO
+    * Disable anonymous access
+  - [ ] **Plugin Security:**
+    * Keep plugins updated (vulnerabilities frequent)
+    * Remove unused plugins
+    * Review plugin permissions
+  - [ ] **Jenkinsfile Security:**
+    * Pipeline-as-code in version control
+    * Restrict pipeline script approval
+    * Sandbox execution
+  - [ ] **Secrets Management:**
+    * Use Jenkins Credentials Store (not hardcoded)
+    * Integrate with Vault, AWS Secrets Manager
+    * Mask secrets in build logs
+
+- [ ] **GitHub Actions Security:**
+  - [ ] **Workflow Permissions:**
+    * Principle of least privilege (`permissions:` block)
+    * Token scope restriction (read-only by default)
+    * `GITHUB_TOKEN` expiration
+  - [ ] **Secrets Handling:**
+    * Use GitHub Secrets (encrypted at rest)
+    * Rotate secrets regularly
+    * Never log secrets (`echo ${{ secrets.API_KEY }}` forbidden)
+  - [ ] **Third-Party Action Security:**
+    * Pin actions to commit SHA (not tag): `uses: actions/checkout@<full-sha>` prevents tag manipulation
+    * Review action source code before use
+    * Prefer official/verified actions
+  - [ ] **Branch Protection:**
+    * Require PR reviews before merge
+    * Status checks must pass
+    * Restrict who can push to main/master
+
+- [ ] **GitLab CI/CD Security:**
+  - [ ] Protected branches and tags
+  - [ ] Pipeline security scanning (SAST, dependency scanning)
+  - [ ] Secrets management with masked variables
+  - [ ] Runner security (shared vs group vs project runners)
+
+- [ ] **Secrets Management in CI/CD:**
+  - [ ] **Never Hardcode:** No secrets in source code, config files, or Dockerfiles
+  - [ ] **Use Secret Managers:**
+    * HashiCorp Vault
+    * AWS Secrets Manager
+    * Azure Key Vault
+    * Google Secret Manager
+  - [ ] **Secret Scanning:** Detect accidentally committed secrets
+    * TruffleHog, GitGuardian, GitHub secret scanning
+  - [ ] **Rotation:** Automate secret rotation
+  - [ ] **Least Privilege:** Scoped secrets per pipeline/environment
+
+- [ ] **CI/CD Pipeline Attack Vectors:**
+  - [ ] **Pipeline Injection:**
+    * Code injection via PR/issue content (if pipeline parses untrusted input)
+    * Command injection in workflow files
+  - [ ] **Secrets Exfiltration:**
+    * Malicious step exfiltrates secrets to attacker server
+    * Secrets in build logs (accidental leakage)
+  - [ ] **Artifact Tampering:**
+    * Unsigned artifacts replaced post-build
+    * Man-in-the-middle during artifact upload
+
+- [ ] **SLSA Framework (Supply chain Levels for Software Artifacts):**
+  - [ ] **SLSA Levels:**
+    * **Level 1:** Provenance exists (build metadata documented)
+    * **Level 2:** Provenance generated by build service (not manually)
+    * **Level 3:** Build system hardened (source/build platform provenance)
+    * **Level 4:** 2-party review + hermetic builds (highest assurance)
+  - [ ] **Build Provenance:**
+    * **in-toto Framework:** Metadata about build process (steps, materials, products)
+    * **Provenance Generation:** Automatic during CI/CD (who, what, when, how)
+    * **Provenance Attestation:** Cryptographically signed
+  - [ ] **Verification Workflow:**
+    * Consumer verifies provenance before using artifact
+    * Check: correct builder, expected source repo, no tampering
+    * Reject artifacts without valid provenance
+
+- [ ] **Artifact Signing & Provenance:**
+  - [ ] **Code Signing Certificates:** Sign binaries, containers, packages
+  - [ ] **Sigstore (Cosign, Rekor, Fulcio):**
+    * **Cosign:** Container signing
+    * **Rekor:** Transparency log (public audit trail)
+    * **Fulcio:** Ephemeral signing certificates (no long-lived keys)
+  - [ ] **Reproducible Builds:** Same source code → identical binary output
+    * Removes non-deterministic elements (timestamps, build paths)
+    * Enables independent verification
+
+---
+
+### Topic 5: Open Source Security & Risk Management — 🧠 Conceptual
+
+> [!TIP]
+> **Goal:** Understand open source supply chain risks and mitigation strategies
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — OSS supply chain risks (maintainer account compromise xz-utils backdoor 2024 example, malicious commits & pull requests from contributors, unmaintained projects leftpad NPM incident showed dependency fragility), security assessment frameworks (OpenSSF Scorecard automated security assessment scores for GitHub repos, CII Best Practices Badge security best practice checklist for projects), vendor risk assessment (third-party library governance approval process before adoption, security requirements for dependencies mandatory updates security patches EOL warnings), incident response for supply chain breaches (detection identifying compromised dependency, containment rollback to safe version block affected versions, investigation forensic analysis of injected code, remediation patching updating all affected systems). Deliverable: run OpenSSF Scorecard on 5 OSS projects, create vendor risk assessment checklist, write supply chain incident response playbook.
+
+- [ ] **Open Source Supply Chain Risks:**
+  - [ ] **Maintainer Account Compromise:**
+    * **xz-utils backdoor (2024):** Sophisticated multi-year social engineering attack
+    * Attacker gains maintainer access → injects malicious code
+  - [ ] **Malicious Commits & Pull Requests:**
+    * Contribution from unknown/new contributor with hidden malicious code
+    * Code review bypass (obfuscated code, subtle vulnerabilities)
+  - [ ] **Unmaintained/Abandoned Projects:**
+    * **leftpad NPM incident (2016):** 11-line package removal broke thousands of projects
+    * Security patches not applied
+    * No response to vulnerability reports
+    * Risk of takeover by malicious actors
+
+- [ ] **OpenSSF Scorecard:**
+  - [ ] Automated security assessment for GitHub repositories
+  - [ ] Checks: Binary artifacts, branch protection, CI tests, code review, dangerous workflow, dependency update tool, fuzzing, maintainers, pinned dependencies, SAST, security policy, signed releases, token permissions, vulnerabilities
+  - [ ] Score: 0-10 for each check
+  - [ ] Usage: `scorecard --repo=github.com/owner/repo`
+  - [ ] **Deliverable:** Run scorecard on projects you depend on
+
+- [ ] **CII Best Practices Badge:**
+  - [ ] Security best practice checklist for open source projects
+  - [ ] Levels: Passing, Silver, Gold
+  - [ ] Criteria: Security policy, secure development process, vulnerability reporting, patching
+  - [ ] Projects can self-certify at badgeapp.org
+
+- [ ] **Vendor Risk Assessment:**
+  - [ ] **Third-Party Library Governance:**
+    * Approval process before adopting new dependency
+    * Security review checklist (scorecard, CVE history, maintenance status)
+    * License compatibility check
+  - [ ] **Security Requirements for Dependencies:**
+    * Must have security policy & vulnerability reporting mechanism
+    * Actively maintained (commits in last 12 months)
+    * No critical unpatched CVEs
+    * Prefer popular/well-established libraries
+  - [ ] **Monitoring & Updates:**
+    * Subscribe to security advisories (GitHub Security Advisories, npm security)
+    * Automated dependency update PRs (Dependabot, Renovate)
+    * EOL (End-of-Life) tracking for dependencies
+
+- [ ] **Supply Chain Incident Response:**
+  - [ ] **Detection:**
+    * Vulnerability disclosure (project maintainer announces compromise)
+    * Security scanner flags malicious code
+    * Behavioral anomaly (unexpected network connections, file access)
+  - [ ] **Containment:**
+    * Immediately rollback to last known-good version
+    * Block affected versions in package manager/registry
+    * Isolate affected systems
+  - [ ] **Investigation:**
+    * Forensic analysis of malicious code (what does it do?)
+    * Identify scope (which versions affected, when introduced)
+    * Attribution (who injected it, how did they gain access)
+  - [ ] **Remediation:**
+    * Update all affected systems
+    * Rotate credentials if potentially compromised
+    * Review logs for signs of exploitation
+  - [ ] **Post-Incident:**
+    * Root cause analysis
+    * Update supply chain security controls
+    * Threat intelligence sharing (CVE, security advisories)
+
+---
+
+### Lab Progression (Shelf 22: Software Supply Chain Security)
+
+| Level | Task | Deliverable |
+| ----- | ---- | ------------ |
+| 1 | Generate SBOM for a sample application using Syft | SBOM file (SPDX or CycloneDX format) |
+| 2 | Run Grype/Trivy vulnerability scan on SBOM | Vulnerability report with CVE IDs |
+| 3 | Simulate dependency confusion attack in lab environment | Attack demonstration + mitigation guide |
+| 4 | Implement SLSA Level 3 CI/CD pipeline with provenance | GitHub Actions workflow + provenance artifact |
+| 5 | Secure Jenkins instance (audit + remediation) | Security audit report + hardening checklist |
+| 6 | Run OpenSSF Scorecard on 5 OSS dependencies | Scorecard results + risk assessment |
+| 7 | Create supply chain incident response playbook | Playbook document (detection → containment → remediation) |
+
+**Practice Resources:**
+- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+- [Anchore Grype](https://github.com/anchore/grype)
+- [Sigstore Cosign](https://docs.sigstore.dev/cosign/overview/)
+- [SLSA Framework](https://slsa.dev/)
+- [OpenSSF Scorecard](https://github.com/ossf/scorecard)
+- [in-toto](https://in-toto.io/)
+
+> [!IMPORTANT]
+> **Move-On Gate:** I can generate and analyze SBOMs. I understand dependency confusion and typosquatting attacks. I can secure CI/CD pipelines (Jenkins, GitHub Actions). I understand SLSA levels and can implement build provenance. I can assess open source projects for supply chain risk.
+
+---
+
+> | 18 Bug Bounty | [HackerOne](https://www.hackerone.com) / [Bugcrowd](https://www.bugcrowd.com) | Join 1 public program and submit 1 report | Real-world recon + reporting practice |
+> **Rule:** For every PortSwigger lab you complete, write one paragraph explaining the root cause, not just the steps.
+
+---
+
+## Software Supply Chain Security
+
+> [!NOTE]
+> **📚 Recommended Books for This Module**
+> - 🔴 `Supply Chain Attack Handbook` — Comprehensive guide to supply chain threats
+> - 🟡 `Securing DevOps` — Supply chain security in CI/CD pipelines
+> - 🟡 `Building Secure & Reliable Systems` — Google SRE book chapters on supply chain
+> - 🟢 `SLSA Framework Documentation` — slsa.dev - Free official guidance
+
+> [!IMPORTANT]
+> **Why This Module Exists:** Software supply chain attacks (SolarWinds, Codecov, Kaseya) represent catastrophic breaches affecting thousands of organizations simultaneously. Understanding supply chain security is CRITICAL for both offensive (identifying attack vectors) and defensive (protecting CI/CD, dependencies) roles.
+
+> [!TIP]
+> ⏱️ **Shelf 22 Total Time Budget: 1 week**
+> T1 (threat landscape): 1 day | T2 (SBOM & dependencies): 2 days | T3 (package security): 1 day | T4 (CI/CD security): 2 days | T5 (code signing): 1 day.
+> Supply chain attacks are the HIGHEST IMPACT breaches (one compromise = thousands of victims). This is not theoretical — SolarWinds, Codecov, event-stream NPM package, and ua-parser-js attacks all happened in the last few years. Understanding supply chain gives you job-critical knowledge for both red team (attack surface analysis) and blue team (securing build pipelines).
+
+### Topic 1: Supply Chain Threat Landscape — 🧠 Conceptual
+
+> [!TIP]
+> **Goal:** Understand supply chain attack vectors and real-world case studies
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Study major supply chain attacks (SolarWinds SUNBURST malware via build system compromise 2020, Codecov bash uploader script compromise 2021, Kaseya VSA zero-day ransomware supply chain attack 2021, event-stream NPM package backdoor 2018, ua-parser-js NPM typosquatting 2021), attack vectors across SDLC (compromised dependencies, malicious maintainer, build system injection, package repository compromise, typosquatting, dependency confusion), threat actor TTPs (APT groups targeting software vendors as supply chain pivot, ransomware gangs exploiting MSP software), economic impact & risk quantification (one breach = thousands of downstream victims, nation-state espionage via software supply chain). Deliverable: write 1-page threat landscape summary with 3 case studies and attacker TTPs.
+
+- [ ] **Major Supply Chain Attacks (Case Studies):**
+  - [ ] **SolarWinds (2020):** Build system compromise → SUNBURST malware in Orion updates → 18,000+ organizations affected
+  - [ ] **Codecov (2021):** Bash uploader script modified → credentials exfiltrated from CI/CD environments
+  - [ ] **Kaseya VSA (2021):** Zero-day in MSP software → REvil ransomware deployed to 1,500+ organizations
+  - [ ] **event-stream NPM (2018):** Maintainer handover to malicious actor → cryptocurrency wallet stealing code
+  - [ ] **ua-parser-js NPM (2021):** Package hijacking → cryptominer and password stealer
+  - [ ] **Dependency Confusion (2021):** Alex Birsan exploited internal package names → $130k in bug bounties
+  - [ ] **CCleaner (2017):** Build system compromise → backdoored installer downloaded by 2.3M users
+  - [ ] **NotPetya (2017):** Ukrainian accounting software update mechanism → global ransomware outbreak
+
+- [ ] **Attack Vectors Across the SDLC:**
+  - [ ] **Compromised Dependencies:** Malicious code in third-party libraries (direct or transitive dependencies)
+  - [ ] **Malicious Maintainer:** Legitimate maintainer turns malicious or account compromised
+  - [ ] **Build System Injection:** Attackers gain access to build/release pipeline, inject code during compilation
+  - [ ] **Package Repository Compromise:** Central repositories (NPM, PyPI, RubyGems) account takeovers
+  - [ ] **Typosquatting:** Register packages with similar names to popular ones (requets vs requests)
+  - [ ] **Dependency Confusion:** Internal package names leaked → attacker uploads public package with same name + higher version
+  - [ ] **Source Code Repository Compromise:** GitHub/GitLab account takeover or malicious commits
+  - [ ] **Developer Workstation Compromise:** Steal signing keys, inject code locally
+
+- [ ] **Threat Actor TTPs:**
+  - [ ] **APT Groups:** Nation-state actors targeting software vendors as pivot to downstream customers
+  - [ ] **Cybercrime Groups:** Ransomware operators exploiting MSP/RMM software for mass deployment
+  - [ ] **Hacktivists:** Ideology-driven attacks against specific industries
+  - [ ] **Insider Threats:** Malicious or negligent developers/maintainers
+
+- [ ] **Economic Impact & Risk Quantification:**
+  - [ ] One breach = thousands/millions of downstream victims (force multiplier)
+  - [ ] Nation-state espionage via software supply chain (intelligence collection at scale)
+  - [ ] Brand damage and loss of customer trust
+  - [ ] Legal/compliance ramifications (liability for downstream breaches)
+
+---
+
+### Topic 2: SBOM & Dependency Management — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Generate and analyze Software Bill of Materials (SBOM) and manage dependencies securely
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: SBOM fundamentals (SBOM formats SPDX and CycloneDX, SBOM generation tools Syft and Microsoft SBOM-tool, SBOM analysis & risk assessment with Grype and Trivy), dependency vulnerability scanning (Snyk, Dependabot, npm audit, pip-audit, bundler-audit). Day 2: Dependency confusion attacks (public vs private package repositories, namespace squatting, typosquatting requets vs requests, attack simulation in controlled lab environment), dependency analysis (transitive dependencies visibility, version pinning vs range, lock files package-lock.json/Pipfile.lock/Gemfile.lock/go.sum). Deliverable: generate SBOM for a sample application, identify vulnerable dependencies, simulate dependency confusion attack in lab, document mitigation strategies.
+
+- [ ] **Software Bill of Materials (SBOM):**
+  - [ ] **SBOM Purpose:** Inventory of all software components (libraries, versions, licenses, dependencies)
+  - [ ] **SBOM Formats:**
+    * **SPDX (Software Package Data Exchange):** ISO/IEC 5962:2021 standard
+    * **CycloneDX:** OWASP standard, security-focused
+  - [ ] **SBOM Generation Tools:**
+    * **Syft:** Universal SBOM generator (supports containers, filesystems, archives)
+    * **Microsoft SBOM Tool:** .NET focused
+    * **FOSSA, Anchore, JFrog Xray:** Commercial options
+  - [ ] **SBOM Analysis & Risk Assessment:**
+    * Identify vulnerable components (CVE matching)
+    * License compliance (GPL, MIT, Apache compatibility)
+    * Outdated dependencies (version lag analysis)
+    * Tools: **Grype, Trivy, OSS Index, Sonatype**
+
+- [ ] **Dependency Confusion Attacks:**
+  - [ ] **Attack Mechanism:**
+    * Developer uses internal package name (e.g., `company-utils`)
+    * Attacker discovers internal package name (leak, typo in public code)
+    * Attacker uploads malicious package to public repo (NPM, PyPI) with same name + higher version
+    * Package manager fetches public version instead of internal (version precedence)
+  - [ ] **Public vs Private Package Repositories:**
+    * Namespace protection in registries (NPM scoped packages `@company/utils`)
+    * Private registry configuration (.npmrc, pip.conf, .gemrc)
+    * Authentication & authorization for private registries
+  - [ ] **Typosquatting Detection:**
+    * Similar package names (requests vs reqeusts)
+    * Homograph attacks (using Unicode lookalikes)
+    * Tools: Doppelganger Finder, typosquatting scanners
+  - [ ] **Attack Simulation:** Set up local private registry, simulate dependency confusion in controlled environment
+
+- [ ] **Dependency Vulnerability Scanning:**
+  - [ ] **NPM:** `npm audit`, `npm audit fix`
+  - [ ] **Python:** `pip-audit`, `safety check`
+  - [ ] **Ruby:** `bundler-audit`
+  - [ ] **Java:** OWASP Dependency-Check, Snyk
+  - [ ] **Go:** `govulncheck`
+  - [ ] **Rust:** `cargo audit`
+  - [ ] **Commercial Tools:** Snyk, Dependabot (GitHub), Renovate
+
+- [ ] **Dependency Analysis Best Practices:**
+  - [ ] **Transitive Dependencies:** Understand full dependency tree (not just direct dependencies)
+  - [ ] **Version Pinning vs Range:**
+    * Pinning: `"lodash": "4.17.21"` — exact version (reproducibility)
+    * Range: `"lodash": "^4.17.0"` — semantic versioning range (gets updates)
+    * Recommendation: Pin in production, range in development
+  - [ ] **Lock Files:** Commit to version control (package-lock.json, Pipfile.lock, Gemfile.lock, go.sum)
+  - [ ] **Automated Dependency Updates:** Dependabot, Renovate with automated testing
+  - [ ] **Dependency Review:** Manual review for new dependencies (popularity, maintenance, security history)
+
+---
+
+### Topic 3: Package Repository Security — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Secure package repositories and verify package authenticity
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — Repository compromise scenarios (NPM account takeover via stolen credentials or session hijacking, PyPI package name takeover after maintainer abandonment, malicious package upload after phishing maintainer credentials), package verification (GPG signature verification for Linux packages apt/yum, npm package signature verification npm-signature-verification experimental, checksum verification SHA256/SHA512 hash validation), private repository security (Nexus Repository Manager and JFrog Artifactory configuration, authentication and authorization RBAC, package scanning integration). Deliverable: verify GPG signatures on Linux packages, configure private NPM registry with authentication, document package verification workflow.
+
+- [ ] **Repository Compromise Scenarios:**
+  - [ ] **Account Takeover:** Stolen credentials, phishing, session hijacking
+  - [ ] **Package Name Takeover:** After maintainer abandons package, attacker claims it
+  - [ ] **Malicious Package Upload:** Compromised maintainer account uploads backdoored version
+  - [ ] **Registry Infrastructure Breach:** Direct compromise of NPM/PyPI/RubyGems servers (rare but catastrophic)
+
+- [ ] **Package Verification:**
+  - [ ] **GPG Signatures (Linux Packages):**
+    * `apt-key add` for Debian/Ubuntu
+    * `rpm --import` for RHEL/CentOS
+    * Verify signatures: `gpg --verify package.sig package.tar.gz`
+  - [ ] **NPM Package Signatures:** Experimental npm provenance feature
+  - [ ] **Checksum Verification:**
+    * SHA256/SHA512 hash validation
+    * `sha256sum -c checksums.txt`
+    * Verify checksums from trusted source (official website, signed file)
+
+- [ ] **Private Repository Management:**
+  - [ ] **Artifact Repository Managers:**
+    * **Nexus Repository Manager (Sonatype):** On-prem or cloud
+    * **JFrog Artifactory:** Universal artifact repository
+    * **AWS CodeArtifact, Azure Artifacts, GitHub Packages:** Cloud-native options
+  - [ ] **Authentication & Authorization:**
+    * RBAC (Role-Based Access Control)
+    * API tokens with scoped permissions
+    * SSO integration (SAML, OIDC)
+  - [ ] **Package Scanning Integration:**
+    * Automatic vulnerability scanning on upload
+    * Policy enforcement (block packages with critical CVEs)
+    * License compliance checks
+
+---
+
+### Topic 4: Build & CI/CD Pipeline Security — 🔬 Practical
+
+> [!TIP]
+> **Goal:** Secure software build pipelines and CI/CD systems
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 2 days** — Day 1: Build system security (build environment isolation containers/VMs for builds, build provenance generation what/when/how/who built artifact, reproducible builds bit-for-bit identical output from same source), Jenkins security hardening (authentication and authorization matrix, plugin security updates, Jenkinsfile pipeline-as-code security, secrets management avoid hardcoded credentials), GitHub Actions security (workflow permissions principle of least privilege, secrets handling GitHub Secrets with rotation, third-party action security pin to commit SHA not tag). Day 2: CI/CD-specific attacks (pipeline injection code injection via PR/issue, secrets exfiltration from build logs, artifact tampering unsigned artifacts replaced), SLSA framework (Supply chain Levels for Software Artifacts Levels 1-4 requirements, build provenance generation in-toto/SLSA, verification workflow consumers verify provenance before use). Deliverable: implement SLSA Level 3 build pipeline with provenance generation, secure GitHub Actions workflow with minimal permissions, audit Jenkins instance for security issues.
+
+- [ ] **Build System Compromise (SolarWinds Case Study):**
+  - [ ] Attackers gained access to SolarWinds build environment
+  - [ ] Injected SUNBURST malware during build process
+  - [ ] Signed malicious binary with legitimate certificate
+  - [ ] Distributed via official update mechanism
+  - [ ] **Lesson:** Build systems are critical infrastructure — compromise = mass breach
+
+- [ ] **Build Environment Security:**
+  - [ ] **Isolation:** Use containers/VMs for each build (prevent cross-contamination)
+  - [ ] **Ephemeral Build Agents:** Destroy after each build (no persistent state)
+  - [ ] **Access Control:** Limit who can modify build scripts/pipelines
+  - [ ] **Audit Logging:** Log all build activities (who triggered, what changed, when)
+
+- [ ] **Jenkins Security Hardening:**
+  - [ ] **Authentication & Authorization:**
+    * Matrix-based security (per-job permissions)
+    * Integrate with LDAP/AD/SSO
+    * Disable anonymous access
+  - [ ] **Plugin Security:**
+    * Keep plugins updated (vulnerabilities frequent)
+    * Remove unused plugins
+    * Review plugin permissions
+  - [ ] **Jenkinsfile Security:**
+    * Pipeline-as-code in version control
+    * Restrict pipeline script approval
+    * Sandbox execution
+  - [ ] **Secrets Management:**
+    * Use Jenkins Credentials Store (not hardcoded)
+    * Integrate with Vault, AWS Secrets Manager
+    * Mask secrets in build logs
+
+- [ ] **GitHub Actions Security:**
+  - [ ] **Workflow Permissions:**
+    * Principle of least privilege (`permissions:` block)
+    * Token scope restriction (read-only by default)
+    * `GITHUB_TOKEN` expiration
+  - [ ] **Secrets Handling:**
+    * Use GitHub Secrets (encrypted at rest)
+    * Rotate secrets regularly
+    * Never log secrets (`echo ${{ secrets.API_KEY }}` forbidden)
+  - [ ] **Third-Party Action Security:**
+    * Pin actions to commit SHA (not tag): `uses: actions/checkout@<full-sha>` prevents tag manipulation
+    * Review action source code before use
+    * Prefer official/verified actions
+  - [ ] **Branch Protection:**
+    * Require PR reviews before merge
+    * Status checks must pass
+    * Restrict who can push to main/master
+
+- [ ] **GitLab CI/CD Security:**
+  - [ ] Protected branches and tags
+  - [ ] Pipeline security scanning (SAST, dependency scanning)
+  - [ ] Secrets management with masked variables
+  - [ ] Runner security (shared vs group vs project runners)
+
+- [ ] **Secrets Management in CI/CD:**
+  - [ ] **Never Hardcode:** No secrets in source code, config files, or Dockerfiles
+  - [ ] **Use Secret Managers:**
+    * HashiCorp Vault
+    * AWS Secrets Manager
+    * Azure Key Vault
+    * Google Secret Manager
+  - [ ] **Secret Scanning:** Detect accidentally committed secrets
+    * TruffleHog, GitGuardian, GitHub secret scanning
+  - [ ] **Rotation:** Automate secret rotation
+  - [ ] **Least Privilege:** Scoped secrets per pipeline/environment
+
+- [ ] **CI/CD Pipeline Attack Vectors:**
+  - [ ] **Pipeline Injection:**
+    * Code injection via PR/issue content (if pipeline parses untrusted input)
+    * Command injection in workflow files
+  - [ ] **Secrets Exfiltration:**
+    * Malicious step exfiltrates secrets to attacker server
+    * Secrets in build logs (accidental leakage)
+  - [ ] **Artifact Tampering:**
+    * Unsigned artifacts replaced post-build
+    * Man-in-the-middle during artifact upload
+
+- [ ] **SLSA Framework (Supply chain Levels for Software Artifacts):**
+  - [ ] **SLSA Levels:**
+    * **Level 1:** Provenance exists (build metadata documented)
+    * **Level 2:** Provenance generated by build service (not manually)
+    * **Level 3:** Build system hardened (source/build platform provenance)
+    * **Level 4:** 2-party review + hermetic builds (highest assurance)
+  - [ ] **Build Provenance:**
+    * **in-toto Framework:** Metadata about build process (steps, materials, products)
+    * **Provenance Generation:** Automatic during CI/CD (who, what, when, how)
+    * **Provenance Attestation:** Cryptographically signed
+  - [ ] **Verification Workflow:**
+    * Consumer verifies provenance before using artifact
+    * Check: correct builder, expected source repo, no tampering
+    * Reject artifacts without valid provenance
+
+- [ ] **Artifact Signing & Provenance:**
+  - [ ] **Code Signing Certificates:** Sign binaries, containers, packages
+  - [ ] **Sigstore (Cosign, Rekor, Fulcio):**
+    * **Cosign:** Container signing
+    * **Rekor:** Transparency log (public audit trail)
+    * **Fulcio:** Ephemeral signing certificates (no long-lived keys)
+  - [ ] **Reproducible Builds:** Same source code → identical binary output
+    * Removes non-deterministic elements (timestamps, build paths)
+    * Enables independent verification
+
+---
+
+### Topic 5: Open Source Security & Risk Management — 🧠 Conceptual
+
+> [!TIP]
+> **Goal:** Understand open source supply chain risks and mitigation strategies
+
+> [!NOTE]
+> ⏱️ **Time Bracket: 1 day** — OSS supply chain risks (maintainer account compromise xz-utils backdoor 2024 example, malicious commits & pull requests from contributors, unmaintained projects leftpad NPM incident showed dependency fragility), security assessment frameworks (OpenSSF Scorecard automated security assessment scores for GitHub repos, CII Best Practices Badge security best practice checklist for projects), vendor risk assessment (third-party library governance approval process before adoption, security requirements for dependencies mandatory updates security patches EOL warnings), incident response for supply chain breaches (detection identifying compromised dependency, containment rollback to safe version block affected versions, investigation forensic analysis of injected code, remediation patching updating all affected systems). Deliverable: run OpenSSF Scorecard on 5 OSS projects, create vendor risk assessment checklist, write supply chain incident response playbook.
+
+- [ ] **Open Source Supply Chain Risks:**
+  - [ ] **Maintainer Account Compromise:**
+    * **xz-utils backdoor (2024):** Sophisticated multi-year social engineering attack
+    * Attacker gains maintainer access → injects malicious code
+  - [ ] **Malicious Commits & Pull Requests:**
+    * Contribution from unknown/new contributor with hidden malicious code
+    * Code review bypass (obfuscated code, subtle vulnerabilities)
+  - [ ] **Unmaintained/Abandoned Projects:**
+    * **leftpad NPM incident (2016):** 11-line package removal broke thousands of projects
+    * Security patches not applied
+    * No response to vulnerability reports
+    * Risk of takeover by malicious actors
+
+- [ ] **OpenSSF Scorecard:**
+  - [ ] Automated security assessment for GitHub repositories
+  - [ ] Checks: Binary artifacts, branch protection, CI tests, code review, dangerous workflow, dependency update tool, fuzzing, maintainers, pinned dependencies, SAST, security policy, signed releases, token permissions, vulnerabilities
+  - [ ] Score: 0-10 for each check
+  - [ ] Usage: `scorecard --repo=github.com/owner/repo`
+  - [ ] **Deliverable:** Run scorecard on projects you depend on
+
+- [ ] **CII Best Practices Badge:**
+  - [ ] Security best practice checklist for open source projects
+  - [ ] Levels: Passing, Silver, Gold
+  - [ ] Criteria: Security policy, secure development process, vulnerability reporting, patching
+  - [ ] Projects can self-certify at badgeapp.org
+
+- [ ] **Vendor Risk Assessment:**
+  - [ ] **Third-Party Library Governance:**
+    * Approval process before adopting new dependency
+    * Security review checklist (scorecard, CVE history, maintenance status)
+    * License compatibility check
+  - [ ] **Security Requirements for Dependencies:**
+    * Must have security policy & vulnerability reporting mechanism
+    * Actively maintained (commits in last 12 months)
+    * No critical unpatched CVEs
+    * Prefer popular/well-established libraries
+  - [ ] **Monitoring & Updates:**
+    * Subscribe to security advisories (GitHub Security Advisories, npm security)
+    * Automated dependency update PRs (Dependabot, Renovate)
+    * EOL (End-of-Life) tracking for dependencies
+
+- [ ] **Supply Chain Incident Response:**
+  - [ ] **Detection:**
+    * Vulnerability disclosure (project maintainer announces compromise)
+    * Security scanner flags malicious code
+    * Behavioral anomaly (unexpected network connections, file access)
+  - [ ] **Containment:**
+    * Immediately rollback to last known-good version
+    * Block affected versions in package manager/registry
+    * Isolate affected systems
+  - [ ] **Investigation:**
+    * Forensic analysis of malicious code (what does it do?)
+    * Identify scope (which versions affected, when introduced)
+    * Attribution (who injected it, how did they gain access)
+  - [ ] **Remediation:**
+    * Update all affected systems
+    * Rotate credentials if potentially compromised
+    * Review logs for signs of exploitation
+  - [ ] **Post-Incident:**
+    * Root cause analysis
+    * Update supply chain security controls
+    * Threat intelligence sharing (CVE, security advisories)
+
+---
+
+### Lab Progression (Shelf 22: Software Supply Chain Security)
+
+| Level | Task | Deliverable |
+| ----- | ---- | ------------ |
+| 1 | Generate SBOM for a sample application using Syft | SBOM file (SPDX or CycloneDX format) |
+| 2 | Run Grype/Trivy vulnerability scan on SBOM | Vulnerability report with CVE IDs |
+| 3 | Simulate dependency confusion attack in lab environment | Attack demonstration + mitigation guide |
+| 4 | Implement SLSA Level 3 CI/CD pipeline with provenance | GitHub Actions workflow + provenance artifact |
+| 5 | Secure Jenkins instance (audit + remediation) | Security audit report + hardening checklist |
+| 6 | Run OpenSSF Scorecard on 5 OSS dependencies | Scorecard results + risk assessment |
+| 7 | Create supply chain incident response playbook | Playbook document (detection → containment → remediation) |
+
+**Practice Resources:**
+- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+- [Anchore Grype](https://github.com/anchore/grype)
+- [Sigstore Cosign](https://docs.sigstore.dev/cosign/overview/)
+- [SLSA Framework](https://slsa.dev/)
+- [OpenSSF Scorecard](https://github.com/ossf/scorecard)
+- [in-toto](https://in-toto.io/)
+
+> [!IMPORTANT]
+> **Move-On Gate:** I can generate and analyze SBOMs. I understand dependency confusion and typosquatting attacks. I can secure CI/CD pipelines (Jenkins, GitHub Actions). I understand SLSA levels and can implement build provenance. I can assess open source projects for supply chain risk.
+
+---
+
